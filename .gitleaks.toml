@@ -1,7 +1,7 @@
 [extend]
 useDefault = true
 
-[[allowlists]]
+[allowlist]
 description = "Typed game slot enums and localization identifiers in fixtures are public identifiers, not credentials"
 regexTarget = "match"
 regexes = [
