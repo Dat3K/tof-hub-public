@@ -1,0 +1,52 @@
+{
+  "slug": "franken",
+  "order": 25,
+  "boss_id": "boss_hum_001",
+  "name_color": "#9a7ce4",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.webp",
+  "art_object_position": "center center",
+  "source_psd": "screenshot-crop",
+  "en": {
+    "name": "Franken",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "The interval between shield activations for the Franken is greatly shortened, but maximum health will be lost if the shield is broken. Shield cooldown 20s. Loses 15% of Max HP after shatter every 2nd shield. <span class=\"fce-card__text-accent\">(1-3-5-7)</span>"
+      },
+      {
+        "index": "2",
+        "html": "All attacks of the Franken will trigger earthquakes, causing damage and slowing down the target."
+      },
+      {
+        "index": "3",
+        "html": "The efficiency of the Franken&#x27;s selected target&#x27;s shield breaking is increased by 100%. Non-selected targets cannot cause damage to the Alien Franken&#x27;s shield."
+      },
+      {
+        "index": "4",
+        "html": "The shield value of the Franken is greatly increased, and the damage taken during the shield period is greatly reduced. Franken Shield +100%. <span class=\"fce-card__text-accent\">Additional DMG Reduction 84.5% while shielded.</span>"
+      }
+    ]
+  },
+  "ru": {
+    "name": "Франкен",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Интервал между активациями щита Франкена сильно сокращен, но при разрушении щита он теряет Max HP. Перезарядка щита 20 секунд. Потеря 15% Max HP после разрушения каждого 2-го щита. <span class=\"fce-card__text-accent\">(1-3-5-7)</span>"
+      },
+      {
+        "index": "2",
+        "html": "Все атаки Франкена вызывают землетрясения, наносящие урон и замедляющие цель."
+      },
+      {
+        "index": "3",
+        "html": "Эффективность разрушения щита у выбранной цели Франкена увеличена на 100%. Невыбранные цели не могут наносить урон щиту Alien Franken."
+      },
+      {
+        "index": "4",
+        "html": "Прочность щита Франкена значительно увеличена, а получаемый урон во время действия щита сильно снижен. Щит Франкена +100%. <span class=\"fce-card__text-accent\">Дополнительное снижение урона 84.5% пока щит активен.</span>"
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss005.webp"
+}

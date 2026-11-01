@@ -1,0 +1,10 @@
+'use strict';
+const fs = require('node:fs');
+const path = require('node:path');
+const { publicDir } = require('../lib/site-paths.cjs');
+const { generateWishMediaMap } = require('../generate-wish-media-map/index.ts');
+const { map, warnings } = generateWishMediaMap({ publicDir });
+const output = path.join(publicDir, 'game-data/wish-media-map.json');
+fs.mkdirSync(path.dirname(output), { recursive: true });
+fs.writeFileSync(output, JSON.stringify(map) + '\n');
+for (const warning of warnings) console.warn(`[wish-media] ${warning}`);

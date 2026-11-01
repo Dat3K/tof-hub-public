@@ -1,0 +1,7 @@
+.details { border-top: 1px solid var(--oow-border); padding-top: 14px; min-width: 0; }
+.details summary { color: var(--oow-text-muted); font-size: 12px; cursor: pointer; width: fit-content; }
+.details[open] summary { margin-bottom: 16px; }
+.details summary:focus-visible { outline: 2px solid var(--oow-gold); outline-offset: 3px; }
+.empty { color: var(--oow-text-muted); font-size: 12px; }
+.name { display: inline-block; min-width: 140px; max-width: 180px; white-space: normal; overflow-wrap: anywhere; line-height: 1.4; }
+@media (max-width: 600px) { .name { min-width: 100px; max-width: 100px; } }

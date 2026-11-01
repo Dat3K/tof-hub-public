@@ -1,0 +1,81 @@
+.demoNotice {
+  margin-bottom: 16px;
+  padding: 10px 14px;
+  border: 1px solid var(--surface-border);
+  border-radius: 8px;
+  background: var(--surface-panel);
+}
+
+.accountDetails {
+  interpolate-size: allow-keywords;
+}
+
+.accountArrow {
+  display: inline-grid;
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  place-items: center;
+  color: #fcd34d;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accountArrowGlyph {
+  width: 6px;
+  height: 6px;
+  transform: translateY(-1px) rotate(45deg);
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transition: transform 0.28s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.accountDetails[open] > summary .accountArrow {
+  transform: rotate(180deg);
+}
+
+.accountDetailsContent {
+  min-height: 0;
+}
+
+@supports selector(details::details-content) {
+  .accountDetails::details-content {
+    display: block;
+    block-size: 0;
+    interpolate-size: allow-keywords;
+    content-visibility: hidden;
+    opacity: 0;
+    overflow: hidden;
+    transition:
+      block-size 0.34s cubic-bezier(0.16, 1, 0.3, 1),
+      content-visibility 0.34s allow-discrete,
+      opacity 0.22s ease;
+    transition-behavior: allow-discrete;
+  }
+
+  .accountDetails[open]::details-content {
+    block-size: auto;
+    content-visibility: visible;
+    opacity: 1;
+  }
+}
+
+@supports not selector(details::details-content) {
+  .accountDetails > .accountDetailsContent {
+    display: grid;
+    grid-template-rows: 1fr;
+    overflow: hidden;
+    transition:
+      grid-template-rows 0.34s cubic-bezier(0.16, 1, 0.3, 1),
+      opacity 0.22s ease;
+  }
+
+  .accountDetails > .accountDetailsContent > * {
+    min-height: 0;
+    overflow: hidden;
+  }
+
+  .accountDetails:not([open]) > .accountDetailsContent {
+    grid-template-rows: 0fr;
+    opacity: 0;
+  }
+}

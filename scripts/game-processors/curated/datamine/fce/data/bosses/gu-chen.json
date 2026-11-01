@@ -1,0 +1,60 @@
+{
+  "slug": "gu-chen",
+  "order": 21,
+  "boss_id": "boss_hum_060",
+  "name_color": "#9f95c8",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.webp",
+  "art_object_position": "center center",
+  "source_psd": "guchen.psd",
+  "en": {
+    "name": "Gu Chen",
+    "mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">After successful counter phantasia Gu Chen lose 9% of MAX HP.</span>"
+      },
+      {
+        "index": "1",
+        "html": "All attacks of Gu Chen cause additional damage as a percentage of life, with a cooldown of 3 seconds."
+      },
+      {
+        "index": "2",
+        "html": "Gu Chen will enter a short period of invincibility every once in a while. <span class=\"fce-card__text-accent\">Every 10 seconds gain invulnerability for 1 second.</span>"
+      },
+      {
+        "index": "3",
+        "html": "The speed of all actions of Gu Chen is improved to a certain extent."
+      },
+      {
+        "index": "4",
+        "html": "Gu Chen&#x27;s shield will be almost impossible to break."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Гу Чэнь",
+    "mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">После успешной counter phantasia Гу Чэнь теряет 9% MAX HP.</span>"
+      },
+      {
+        "index": "1",
+        "html": "Все атаки Гу Чэня наносят дополнительный урон в процентах от HP, с кулдауном 3 секунды."
+      },
+      {
+        "index": "2",
+        "html": "Гу Чэнь периодически входит в короткую неуязвимость. <span class=\"fce-card__text-accent\">Каждые 10 секунд получает неуязвимость на 1 секунду.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Скорость всех действий Гу Чэня умеренно повышена."
+      },
+      {
+        "index": "4",
+        "html": "Щит Гу Чэня почти невозможно сломать."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_060.webp"
+}

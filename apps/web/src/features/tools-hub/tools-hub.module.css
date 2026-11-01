@@ -1,0 +1,796 @@
+/* Tools hub previews: Ranking leaderboard, Wish banner, miniatures of the Build / Optimizer / Comp pages.
+   Card and grid primitives: components/section-hub. The banner composition follows the Wish page banner
+   (features/wish/components/wish-banner-card.module.css). */
+
+/* ---------- Ranking: live top five ---------- */
+.leaderboard {
+  --leader-cols: 26px minmax(96px, 0.7fr) minmax(0, 1.4fr) minmax(170px, 1fr);
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: linear-gradient(180deg, rgba(10, 12, 18, 0.55), rgba(10, 12, 18, 0.25));
+  box-sizing: border-box;
+}
+
+.leaderboardHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 7px 12px 6px;
+  border-bottom: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.leaderboardTitle {
+  color: var(--dm-gold, #f5d97a);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.leaderboardColumns {
+  color: var(--dm-muted, #b4abbf);
+  font-size: 9.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+}
+
+.leaderboardRows {
+  display: grid;
+  flex: 1 1 auto;
+  grid-auto-rows: minmax(30px, 1fr);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.leaderboardRows > li + li {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.leaderRow {
+  display: grid;
+  height: 100%;
+  grid-template-columns: var(--leader-cols);
+  align-items: center;
+  gap: 10px;
+  padding: 2px 12px;
+  color: var(--dm-text, #ded8e6);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: background 160ms ease;
+}
+
+a.leaderRow:hover {
+  background: rgba(245, 217, 122, 0.05);
+}
+
+.leaderRow:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: -2px;
+}
+
+.leaderRank {
+  --place-color: var(--dm-muted, #b4abbf);
+  display: grid;
+  width: 20px;
+  height: 20px;
+  place-items: center;
+  border: 1px solid color-mix(in srgb, var(--place-color) 45%, transparent);
+  border-radius: 50%;
+  background: color-mix(in srgb, var(--place-color) 10%, transparent);
+  color: var(--place-color);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.leaderRow[data-place="1"] .leaderRank { --place-color: #f5d97a; }
+.leaderRow[data-place="2"] .leaderRank { --place-color: #d5dce6; }
+.leaderRow[data-place="3"] .leaderRank { --place-color: #e0a074; }
+
+.leaderRow[data-place="1"] {
+  background: linear-gradient(90deg, rgba(245, 217, 122, 0.08), transparent 60%);
+}
+
+/* Region code and server on one line keep the five rows short. */
+.leaderRegion {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 6px;
+  line-height: 1.2;
+}
+
+.leaderRegion small {
+  overflow: hidden;
+  color: var(--dm-muted, #b4abbf);
+  font-size: 10.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderName {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 6px;
+}
+
+.leaderName img {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.leaderNick {
+  overflow: hidden;
+  color: var(--dm-text-strong, #f4f0f6);
+  font-size: 13px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.leaderVerified {
+  width: 10px;
+  flex-shrink: 0;
+  text-align: center;
+  color: var(--dm-gold, #f5d97a);
+  font-size: 11px;
+}
+
+/* Grade colours of the Ranking score meter (build.module.css .rollValueTheme). */
+.leaderScore {
+  --rv-color: #9aa4b1;
+  --rv-start: #8f99a6;
+  display: grid;
+  gap: 2px;
+  justify-items: end;
+  line-height: 1.15;
+}
+
+.leaderScore[data-grade="green"] { --rv-color: #7fd68f; --rv-start: #66cc7d; }
+.leaderScore[data-grade="blue"] { --rv-color: #6fb6ff; --rv-start: #559fff; }
+.leaderScore[data-grade="purple"] { --rv-color: #b48cff; --rv-start: #9d72ff; }
+.leaderScore[data-grade="gold"] { --rv-color: #f5c451; --rv-start: #f0b43c; }
+.leaderScore[data-grade="titan"] { --rv-color: #f6bcec; --rv-start: #ffa7d7; }
+
+.leaderScoreValues {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  white-space: nowrap;
+}
+
+.leaderPoints {
+  color: var(--rv-color);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+
+.leaderPoints small {
+  font-size: 9.5px;
+}
+
+.leaderScore b {
+  color: var(--rv-color);
+  font-size: 13px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.leaderMeter {
+  width: 100%;
+  height: 4px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.leaderMeter span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--rv-start), var(--rv-color));
+}
+
+.leaderSkeleton .skeletonLine {
+  height: 8px;
+  border-radius: 4px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.11) 50%, rgba(255, 255, 255, 0.05) 100%);
+  background-size: 200% 100%;
+  animation: hub-skeleton 1.4s ease-in-out infinite;
+}
+
+@keyframes hub-skeleton {
+  from { background-position: 100% 0; }
+  to { background-position: -100% 0; }
+}
+
+.leaderboardNote {
+  display: grid;
+  flex: 1 1 auto;
+  margin: 0;
+  padding: 16px;
+  place-items: center;
+  color: var(--dm-muted, #b4abbf);
+  font-size: 12.5px;
+  text-align: center;
+}
+
+/* ---------- Wish ---------- */
+/* Banner on the left, the three Wish shortcuts stacked on the right (fits the half card height). */
+.wishPreview {
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+  gap: 8px;
+}
+
+.banner {
+  position: relative;
+  display: block;
+  height: 100%;
+  min-height: 108px;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: radial-gradient(ellipse at 79% 32%, #a85a30 0, #513026 38%, #171b21 82%);
+  text-decoration: none;
+}
+
+/* Dark fade on the left keeps the banner name readable. */
+.banner::after {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(90deg, rgba(10, 12, 18, 0.88) 0%, rgba(10, 12, 18, 0.45) 45%, transparent 75%);
+}
+
+.banner:hover {
+  border-color: rgba(245, 217, 122, 0.4);
+}
+
+.banner:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 2px;
+}
+
+.bannerBackground {
+  position: absolute;
+  z-index: -3;
+  inset: 0;
+  background-position: center;
+  background-size: cover;
+}
+
+.bannerCharacter {
+  position: absolute;
+  z-index: -2;
+  right: -3%;
+  bottom: -30%;
+  width: 70%;
+  height: 165%;
+  object-fit: contain;
+  object-position: right bottom;
+  filter: drop-shadow(-12px 14px 26px rgba(0, 0, 0, 0.3));
+  transition: transform 200ms ease;
+}
+
+.banner:hover .bannerCharacter {
+  transform: scale(1.03);
+}
+
+.bannerText {
+  position: absolute;
+  left: 16px;
+  bottom: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.bannerLabel {
+  color: var(--dm-gold, #f5d97a);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.bannerName {
+  color: #fff;
+  font-size: 18px;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.wishShortcuts {
+  display: grid;
+  width: 100%;
+  grid-auto-rows: 1fr;
+  gap: 4px;
+}
+
+.wishShortcut {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 26px minmax(0, 1fr);
+  align-items: center;
+  gap: 9px;
+  padding: 3px 9px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.025);
+  color: inherit;
+  text-decoration: none;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.wishShortcut:hover {
+  border-color: rgba(245, 217, 122, 0.32);
+  background: rgba(255, 255, 255, 0.055);
+}
+
+.wishShortcut:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 2px;
+}
+
+.wishShortcutIcon {
+  display: grid;
+  width: 26px;
+  height: 26px;
+  place-items: center;
+  border: 1px solid rgba(245, 217, 122, 0.2);
+  border-radius: 5px;
+  background: rgba(245, 217, 122, 0.07);
+  color: var(--dm-gold, #f5d97a);
+}
+
+.wishShortcutIcon svg {
+  width: 17px;
+  height: 17px;
+}
+
+.wishShortcutText {
+  display: grid;
+  min-width: 0;
+  gap: 2px;
+}
+
+.wishShortcutTitle {
+  color: var(--dm-text-strong, #f4f0f6);
+  font-size: 12px;
+  font-weight: 650;
+  line-height: 1.3;
+}
+
+.wishShortcutTitle,
+.wishShortcutDescription {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.wishShortcutDescription {
+  color: var(--dm-muted, #b4abbf);
+  font-size: 10.5px;
+  line-height: 1.4;
+}
+
+/* ---------- Page miniatures (Build / Optimizer / Comp) ---------- */
+.mini {
+  display: grid;
+  max-height: 122px;
+  align-content: start;
+  gap: 7px;
+  padding: 9px;
+  overflow: hidden;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: linear-gradient(180deg, rgba(10, 12, 18, 0.6), rgba(10, 12, 18, 0.3));
+  box-sizing: border-box;
+  /* The page continues below the miniature. */
+  mask-image: linear-gradient(180deg, black 72%, transparent 100%);
+  -webkit-mask-image: linear-gradient(180deg, black 72%, transparent 100%);
+  transform-origin: center top;
+  transition: transform 220ms ease, border-color 160ms ease;
+}
+
+[data-hub-card]:hover .mini {
+  border-color: rgba(245, 217, 122, 0.22);
+  transform: scale(1.012);
+}
+
+.miniBar {
+  display: block;
+  height: 5px;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.miniBar[data-tone="gold"] {
+  background: rgba(245, 217, 122, 0.45);
+}
+
+.miniIcon {
+  display: block;
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.04);
+  box-sizing: border-box;
+}
+
+.miniIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.miniLabel {
+  overflow: hidden;
+  color: var(--dm-muted, #b4abbf);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.miniLines {
+  display: grid;
+  min-width: 0;
+  flex: 1 1 auto;
+  gap: 4px;
+}
+
+/* Build card */
+.miniHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.miniAvatar {
+  width: 28px;
+  height: 28px;
+  border-color: rgba(245, 217, 122, 0.45);
+  border-radius: 50%;
+}
+
+.miniAvatar img {
+  object-fit: cover;
+  transform: scale(1.28);
+}
+
+.miniHeader .miniLines {
+  max-width: 160px;
+}
+
+.miniChip {
+  width: 54px;
+  height: 12px;
+  margin-left: auto;
+  border: 1px solid rgba(245, 217, 122, 0.35);
+  border-radius: 3px;
+  background: rgba(245, 217, 122, 0.08);
+}
+
+.miniBuildBody {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 2.2fr);
+  gap: 6px;
+}
+
+.miniColumn {
+  display: grid;
+  min-width: 0;
+  align-content: start;
+  gap: 5px;
+  padding: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.025);
+}
+
+.miniWeapon {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 5px;
+}
+
+.miniWeapon .miniIcon {
+  width: 26px;
+  height: 26px;
+}
+
+.miniDots {
+  display: flex;
+  gap: 2px;
+}
+
+.miniDots i {
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: rgba(245, 217, 122, 0.28);
+}
+
+.miniStat {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 3px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.miniGear {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.miniGearCell {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 4px;
+  padding: 3px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.miniGearCell .miniIcon {
+  width: 18px;
+  height: 18px;
+  border-color: rgba(245, 217, 122, 0.3);
+}
+
+.miniGearCell .miniBar {
+  height: 4px;
+}
+
+/* Optimizer */
+.miniTable {
+  display: grid;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 4px;
+}
+
+.miniTableHead,
+.miniTableRow {
+  display: grid;
+  grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
+  align-items: center;
+  gap: 10px;
+  padding: 6px 9px;
+}
+
+.miniTableHead {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--dm-muted, #b4abbf);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.miniTableHead > span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.miniTableRow + .miniTableRow {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.miniTableRow > .miniBar {
+  justify-self: end;
+}
+
+.miniStatName {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 7px;
+}
+
+/* Attribute glyphs are dark; draw them light like HubMediaStrip variant="glyph". */
+.miniGlyph {
+  width: 16px;
+  height: 16px;
+  padding: 2px;
+  border: 0;
+  background: none;
+}
+
+.miniGlyph img {
+  filter: brightness(0) invert(0.9);
+}
+
+/* Comp: row colours of the Comp page (tank gold, healer green, DPS red). */
+.miniComp {
+  gap: 5px;
+}
+
+.miniCompRow {
+  --role-color: #94a3b8;
+  display: grid;
+  grid-template-columns: 18px 48px 28px auto auto auto;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 5px 9px;
+  border: 1px solid color-mix(in srgb, var(--role-color) 32%, transparent);
+  border-radius: 5px;
+  background: color-mix(in srgb, var(--role-color) 9%, transparent);
+}
+
+.miniCompRow[data-role="tank"] { --role-color: #f0b43c; }
+.miniCompRow[data-role="healer"] { --role-color: #34d399; }
+.miniCompRow[data-role="dps"] { --role-color: #f43f5e; }
+.miniCompRow[data-role="balance"] { --role-color: #a78bfa; }
+
+.miniCompIndex {
+  color: var(--dm-muted, #b4abbf);
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+}
+
+.miniCompRole {
+  justify-self: start;
+  padding: 1px 5px;
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--role-color) 22%, transparent);
+  color: color-mix(in srgb, var(--role-color) 80%, white);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.miniCompRole:empty {
+  visibility: hidden;
+}
+
+.miniPortrait {
+  width: 28px;
+  height: 28px;
+  border-color: rgba(245, 217, 122, 0.55);
+  border-radius: 50%;
+}
+
+.miniPortrait img {
+  object-fit: cover;
+  transform: scale(1.28);
+}
+
+.miniSlots {
+  display: flex;
+  gap: 3px;
+}
+
+.miniSlots .miniIcon {
+  width: 24px;
+  height: 24px;
+  background: rgba(10, 12, 18, 0.5);
+}
+
+.miniSlots[data-kind="matrix"] .miniIcon {
+  border-color: rgba(192, 132, 252, 0.3);
+}
+
+.miniSlots[data-kind="relic"] .miniIcon {
+  border-color: rgba(245, 217, 122, 0.25);
+}
+
+@media (max-width: 900px) {
+  .leaderboard {
+    min-height: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .leaderboard {
+    --leader-cols: 24px minmax(30px, auto) minmax(0, 1fr) minmax(70px, auto);
+  }
+
+  .leaderPoints {
+    display: none;
+  }
+
+  .wishPreview {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .banner {
+    height: 140px;
+  }
+
+  .wishShortcuts {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .leaderRegion small {
+    display: none;
+  }
+
+  .miniBuildBody {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
+  }
+
+  .miniBuildBody > :nth-child(2),
+  .miniSlots[data-kind="relic"] {
+    display: none;
+  }
+
+  .miniCompRow {
+    grid-template-columns: 18px 44px 28px auto auto;
+    gap: 7px;
+  }
+
+  .miniTableHead,
+  .miniTableRow {
+    gap: 6px;
+  }
+
+  .wishShortcuts {
+    gap: 6px;
+  }
+
+  .wishShortcut {
+    grid-template-columns: 26px minmax(0, 1fr);
+    gap: 6px;
+    padding: 8px 6px;
+  }
+
+  .wishShortcutIcon {
+    width: 26px;
+    height: 26px;
+  }
+
+  .wishShortcutTitle {
+    font-size: 11px;
+  }
+
+  .wishShortcutDescription {
+    font-size: 9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bannerCharacter,
+  .wishShortcut,
+  .leaderRow,
+  .mini {
+    transition: none;
+  }
+  [data-hub-card]:hover .mini {
+    transform: none;
+  }
+  .leaderSkeleton .skeletonLine {
+    animation: none;
+  }
+  .banner:hover .bannerCharacter {
+    transform: none;
+  }
+}

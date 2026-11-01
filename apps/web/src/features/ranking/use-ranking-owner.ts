@@ -1,0 +1,45 @@
+import {useEffect,useMemo,useState} from 'react';
+import {useBrowserOwner} from '../players/use-browser-owner';
+import type {GearTopEntry,PlayerTopEntry,RankingResponse} from './types';
+
+type Entry=GearTopEntry|PlayerTopEntry;
+const EMPTY:Entry[]=[];
+export function useRankingOwner(board:string,url:string,loaded:Entry[]) {
+  const owner=useBrowserOwner();
+  const [requested,setRequested]=useState<{scope:string;attempt:number}|null>(null);
+  const [result,setResult]=useState<{board:string;uid:string;entries:Entry[];status:'ready'|'missing'|'error'}|null>(null);
+  const scope=board+'|'+owner?.uid;
+  useEffect(()=>{setRequested(null);setResult(null);},[scope]);
+  const active=requested?.scope===scope;
+  const present=useMemo(()=>owner?loaded.filter(entry=>!entry.ideal&&!('synthetic' in entry&&entry.synthetic)&&entry.player.uid===owner.uid):EMPTY,[loaded,owner]);
+  const hasPresent=present.length>0;
+  useEffect(()=>{
+    if(!active||!owner||hasPresent)return;
+    const controller=new AbortController();
+    const target=new URL(url,window.location.origin);
+    target.searchParams.set('q',owner.uid);target.searchParams.delete('offset');target.searchParams.delete('slots');
+    void fetch(target.pathname+target.search,{signal:controller.signal,cache:'no-store'})
+      .then(response=>{if(!response.ok)throw new Error('Ranking unavailable');return response.json() as Promise<RankingResponse<Entry>>;})
+      .then(response=>{
+        if(controller.signal.aborted)return;
+        if(!response.available)throw new Error('Ranking unavailable');
+        const entries=response.entries.filter(entry=>entry.player.uid===owner.uid&&!entry.ideal).map(entry=>({...entry,ownerPin:true as const}));
+        setResult({board,uid:owner.uid,entries,status:entries.length?'ready':'missing'});
+      }).catch(()=>{if(!controller.signal.aborted)setResult({board,uid:owner.uid,entries:[],status:'error'});});
+    return ()=>controller.abort();
+  },[active,board,url,owner,hasPresent,requested]);
+  const current=active&&result?.board===board&&result.uid===owner?.uid?result:null;
+  return {owner,active,reveal:()=>{setResult(null);setRequested(current=>({scope,attempt:(current?.attempt??0)+1}));},
+    hide:()=>{setRequested(null);setResult(null);},
+    pinned:active&&!!current?.entries.length,
+    entries:active?(current?.entries.length?current.entries:hasPresent?present:EMPTY):EMPTY,
+    status:active?(hasPresent?'ready':current?.status??'loading'):'idle'};
+}
+
+/** A pinned copy remains stable above the board; the original row keeps its natural position too. */
+export function includeOwnerEntries<T extends Entry>(entries:T[],own:T[],id:(entry:T)=>string,pinned=false):T[] {
+  if(pinned&&own.length)return [...own,...entries];
+  const ids=new Set(entries.map(id));
+  const missing=own.filter(entry=>!ids.has(id(entry)));
+  return missing.length?[...missing,...entries]:entries;
+}

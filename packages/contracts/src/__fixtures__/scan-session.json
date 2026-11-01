@@ -1,0 +1,11 @@
+{
+  "scanId": "00000000-0000-4000-8000-000000000001",
+  "source": "native",
+  "environment": "test",
+  "environmentSource": "manual",
+  "launcher": {"name": null, "source": "unknown"},
+  "client": {"processName": "QRSL.exe", "fileVersion": null, "parentNames": []},
+  "startedAt": "2026-10-09T10:00:00.000Z",
+  "finishedAt": "2026-10-09T10:05:00.000Z",
+  "status": "completed"
+}

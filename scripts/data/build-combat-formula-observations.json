@@ -1,0 +1,97 @@
+{
+  "checkedOn": "2026-10-03",
+  "sourceUrl": "https://docs.google.com/spreadsheets/d/1ZrJokNh_0AF_9welc7Etz6K8jlpzi5bXpiWz-mQZa78/edit?gid=1951111605",
+  "exportUrl": "https://docs.google.com/spreadsheets/d/1ZrJokNh_0AF_9welc7Etz6K8jlpzi5bXpiWz-mQZa78/export?format=xlsx",
+  "exportSha256": "7f1bc184e90357a584e8ef020b224f34edd2fbb53df7217307dab8859e3f6958",
+  "sheet": "Gear Comparison",
+  "namedRanges": {
+    "ccB": "'Gear Comparison'!$F$37",
+    "resConstant": "'Gear Comparison'!$I$36",
+    "charLevel": "'Gear Comparison'!$B$11",
+    "ccA": "'Gear Comparison'!$F$36",
+    "ccC": "'Gear Comparison'!$F$38"
+  },
+  "cells": {
+    "B9": {
+      "value": 17723.0,
+      "formula": null
+    },
+    "D9": {
+      "value": 0.6796866761,
+      "formula": "$B$9/(ccA*$B$11^2+ccB*$B$11+ccC)"
+    },
+    "B11": {
+      "value": 95.0,
+      "formula": null
+    },
+    "F36": {
+      "value": -3.71,
+      "formula": null
+    },
+    "H36": {
+      "value": 7595.0,
+      "formula": null
+    },
+    "I36": {
+      "value": 14106.0,
+      "formula": null
+    },
+    "F37": {
+      "value": 1151.0,
+      "formula": null
+    },
+    "H37": {
+      "value": 0.3499838717,
+      "formula": "$H$36/(resConstant+$H$36)"
+    },
+    "L37": {
+      "value": 0.35,
+      "formula": null
+    },
+    "F38": {
+      "value": -49787.0,
+      "formula": null
+    },
+    "L38": {
+      "value": 7595.538462,
+      "formula": "(L37*resConstant)/(1-L37)"
+    },
+    "H39": {
+      "value": 0.35,
+      "formula": null
+    },
+    "L39": {
+      "value": 0.35,
+      "formula": null
+    },
+    "H40": {
+      "value": 4936.75,
+      "formula": "H36*(1-H39)"
+    },
+    "L40": {
+      "value": 4937.1,
+      "formula": "(L37*resConstant)/(1-L37)*(1-H39)"
+    },
+    "H41": {
+      "value": 0.2592456447,
+      "formula": "$H$40/(resConstant+$H$40)"
+    },
+    "L41": {
+      "value": 0.2592592593,
+      "formula": "L38*(1-H39)/(resConstant+L38*(1-H39))"
+    },
+    "H42": {
+      "value": 1.139593809,
+      "formula": "(1-$H$41)/(1-$H$37)"
+    },
+    "L42": {
+      "value": 1.13960114,
+      "formula": "(1-L38*(1-H39)/(resConstant+L38*(1-H39)))/(1-resistance)"
+    }
+  },
+  "note": "Formula text extracted from XLSX; cached values independently checked. Spreadsheet calculations are not measured in-game hit rates.",
+  "screenshot": {
+    "path": "ignore/documentation-media/docs/tools/build/cs-evidence/crit-resistance-sheet.png",
+    "sha256": "b31f032a64dcc3d0d8e9734277c4cd5c41b0c983963ecb6a06c9e4c5b9407e59"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "source": {
+    "kind": "screenshot-packet-observation",
+    "image": "raid-ranking-s14-ap.png",
+    "imageSha256": "a97370318bc44db5d30e201cee86af320a46fd1412656d9b786c66144ae28b68",
+    "season": "S14",
+    "region": "AP",
+    "rank": 1,
+    "packet": "pkt_1793013801_01501_S2C_TCP_52792b.bin",
+    "packetSha256": "2c1555a6b473ead6b9c5666614a5340c008520879240942c8eae42d11cadb81e",
+    "evidence": "The screenshot's first party matches the packet at 21.587 seconds. Gold Fortitude at slot 1 maps to 1; pink Attack at slots 4/6/7 maps to 2; cyan Benediction at slots 2/3/5/8 maps to 3. Role names and media reuse the generated build-page.roleResonances catalog. This is an observed visual correspondence, not a recovered enum schema. Packet value 0 remains unresolved. OCR ? remains unresolved unless a specific screenshot observation is reviewed."
+  },
+  "bindings": [
+    {
+      "value": "1",
+      "roleId": "tank"
+    },
+    {
+      "value": "2",
+      "roleId": "dps"
+    },
+    {
+      "value": "3",
+      "roleId": "healer"
+    },
+    {
+      "value": "balance",
+      "roleId": "balance"
+    }
+  ],
+  "ocrReview": {
+    "date": "2026-10-27",
+    "roleId": "balance",
+    "value": "balance",
+    "meaning": "Semantic OCR label; not a recovered packet integer.",
+    "sourceImage": "global-s1-s7-raid-leaderboard-compilation-na-sa-eu-apac-sea-v0-2xwqm5kmxqde1.jpg",
+    "sourceImageSha256": "e67674d5d65d8493d75b74ed6e8a48fa3d561aadda026b321285c22db0207583",
+    "observations": [
+      {
+        "file": "EU-S3.json",
+        "rank": 3,
+        "slot": 2
+      },
+      {
+        "file": "EU-S3.json",
+        "rank": 41,
+        "slot": 3
+      },
+      {
+        "file": "EU-S4.json",
+        "rank": 24,
+        "slot": 3
+      },
+      {
+        "file": "EU-S4.json",
+        "rank": 33,
+        "slot": 2
+      }
+    ],
+    "catalog": "build-page.roleResonances.items[id=balance]"
+  }
+}

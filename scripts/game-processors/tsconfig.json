@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "lib": ["ES2023"],
+    "module": "nodenext",
+    "moduleResolution": "nodenext",
+    "esModuleInterop": true,
+    "resolveJsonModule": true,
+    "types": ["node"],
+    "typeRoots": ["../../tools/patch-exporter/node_modules/@types"],
+    "noEmit": true,
+    "skipLibCheck": true,
+    "strict": false,
+    "noImplicitAny": false,
+    "allowJs": false
+  },
+  "include": ["processors/**/*.ts", "build/**/*.ts"]
+}

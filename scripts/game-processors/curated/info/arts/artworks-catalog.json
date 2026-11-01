@@ -1,0 +1,4745 @@
+{
+  "schemaVersion": 1,
+  "description": "Editorial artwork catalog: which game textures appear on /info/arts and their EN/RU titles. Dimensions and new candidates come from the raw export (build-artworks.js).",
+  "items": [
+    {
+      "id": "gashapon__t_backgroundtexture_06",
+      "title": {
+        "en": "Gashapon Background Texture",
+        "ru": "Фоновая текстура гасяпона"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "general",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/T_BackgroundTexture_06",
+      "originalFileName": "T_BackgroundTexture_06.png"
+    },
+    {
+      "id": "gashapon__ui_shatan_yun",
+      "title": {
+        "en": "Beach Clouds Panorama",
+        "ru": "Панорама пляжных облаков"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "general",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/UI_shatan_yun",
+      "originalFileName": "UI_shatan_yun.png"
+    },
+    {
+      "id": "gashapon_520_img_qxmy",
+      "title": {
+        "en": "520 Festival",
+        "ru": "Фестиваль 520"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "520",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/520/Img_QXMY",
+      "originalFileName": "Img_QXMY.png"
+    },
+    {
+      "id": "gashapon_activitygroup_niudan_jihe_bg",
+      "title": {
+        "en": "ActivityGroup Wallpaper",
+        "ru": "Фон ActivityGroup"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "ActivityGroup",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/niudan_jihe_BG",
+      "originalFileName": "niudan_jihe_BG.png"
+    },
+    {
+      "id": "gashapon_ak_img_xxsg",
+      "title": {
+        "en": "Evangelion Collab: Asuka",
+        "ru": "Коллаборация Evangelion: Аска"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "AK",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/AK/Img_XXSG",
+      "originalFileName": "Img_XXSG.png"
+    },
+    {
+      "id": "gashapon_ak_beach_eva_mrx_sz_bg01",
+      "title": {
+        "en": "Evangelion Collab: Beach Resort I",
+        "ru": "Пляжный курорт: Evangelion I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "AK_beach",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/AK_beach/EVA_MRX_SZ_bg01",
+      "originalFileName": "EVA_MRX_SZ_bg01.png"
+    },
+    {
+      "id": "gashapon_ak_beach_eva_mrx_sz_bg_02",
+      "title": {
+        "en": "Evangelion Collab: Beach Resort II",
+        "ru": "Пляжный курорт: Evangelion II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "AK_beach",
+      "aspectLabel": "21:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/AK_beach/EVA_MRX_SZ_bg_02",
+      "originalFileName": "EVA_MRX_SZ_bg_02.png"
+    },
+    {
+      "id": "gashapon_als_ui_bkhd_bg",
+      "title": {
+        "en": "ALS Wallpaper",
+        "ru": "Фон ALS"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "ALS",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ALS/ui_bkhd_bg",
+      "originalFileName": "ui_bkhd_bg.png"
+    },
+    {
+      "id": "gashapon_anniversary_ui_niudan_background",
+      "title": {
+        "en": "Anniversary Gala",
+        "ru": "Годовщина"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Anniversary",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Anniversary/ui_niudan_background",
+      "originalFileName": "ui_niudan_background.png"
+    },
+    {
+      "id": "gashapon_asld_bottom_wymy",
+      "title": {
+        "en": "Asurada Theme",
+        "ru": "Тема Асурады"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "ASLD",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ASLD/Bottom_WYMY",
+      "originalFileName": "Bottom_WYMY.png"
+    },
+    {
+      "id": "gashapon_atly_bottom_atly1",
+      "title": {
+        "en": "Antoria Theme",
+        "ru": "Тема Анториа"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "ATLY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ATLY/Bottom_ATLY1",
+      "originalFileName": "Bottom_ATLY1.png"
+    },
+    {
+      "id": "gashapon_bcww_bcww_bg",
+      "title": {
+        "en": "Cyber Warfare",
+        "ru": "Кибервойна"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "BCWW",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/BCWW/BCWW_BG",
+      "originalFileName": "BCWW_BG.png"
+    },
+    {
+      "id": "gashapon_blw_ui_ycql_bg",
+      "title": {
+        "en": "Brevey Theme",
+        "ru": "Тема Бреви"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "BLW",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/BLW/UI_YCQL_BG",
+      "originalFileName": "UI_YCQL_BG.png"
+    },
+    {
+      "id": "gashapon_bmw_ui_bmw_bg1",
+      "title": {
+        "en": "Bionic World",
+        "ru": "Бионический мир"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "BMW",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/BMW/UI_BMW_BG1",
+      "originalFileName": "UI_BMW_BG1.png"
+    },
+    {
+      "id": "gashapon_btz_bg_btz",
+      "title": {
+        "en": "Cybernetic Matrix",
+        "ru": "Кибернетическая матрица"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "BTZ",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/BTZ/Bg_BTZ",
+      "originalFileName": "Bg_BTZ.png"
+    },
+    {
+      "id": "gashapon_cbqy_bg_cbqy",
+      "title": {
+        "en": "Crimson Legend",
+        "ru": "Багряная легенда"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "CBQY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/CBQY/Bg_CBQY",
+      "originalFileName": "Bg_CBQY.png"
+    },
+    {
+      "id": "gashapon_cswl_ui_cswl_bg",
+      "title": {
+        "en": "Chronos Space",
+        "ru": "Пространство Хроноса"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "CSWL",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/CSWL/UI_CSWL_BG",
+      "originalFileName": "UI_CSWL_BG.png"
+    },
+    {
+      "id": "gashapon_fbmhd_nd_fbmhd_bj",
+      "title": {
+        "en": "Undersea Abyss I",
+        "ru": "Подводная бездна I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "FBMHD",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/FBMHD/ND_Fbmhd_BJ",
+      "originalFileName": "ND_Fbmhd_BJ.png"
+    },
+    {
+      "id": "gashapon_fbmhd_nd_fbmhd_bj02",
+      "title": {
+        "en": "Undersea Abyss II",
+        "ru": "Подводная бездна II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "FBMHD",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/FBMHD/ND_Fbmhd_BJ02",
+      "originalFileName": "ND_Fbmhd_BJ02.png"
+    },
+    {
+      "id": "gashapon_fbmhd_nd_fbmhd_bj03",
+      "title": {
+        "en": "Undersea Abyss III",
+        "ru": "Подводная бездна III"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "FBMHD",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/FBMHD/ND_Fbmhd_BJ03",
+      "originalFileName": "ND_Fbmhd_BJ03.png"
+    },
+    {
+      "id": "gashapon_fon_ui_xyyq_bg",
+      "title": {
+        "en": "Fiona Ocean Dream I",
+        "ru": "Океанские грезы Фионы I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "FON",
+      "aspectLabel": "21:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/FON/UI_XYYQ_BG",
+      "originalFileName": "UI_XYYQ_BG.png"
+    },
+    {
+      "id": "gashapon_fon_ui_xyyq_di",
+      "title": {
+        "en": "Fiona Ocean Dream II",
+        "ru": "Океанские грезы Фионы II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "FON",
+      "aspectLabel": "1920:1280",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/FON/UI_XYYQ_di",
+      "originalFileName": "UI_XYYQ_di.png"
+    },
+    {
+      "id": "gashapon_glmy_img_glmy",
+      "title": {
+        "en": "Gnonno Magic",
+        "ru": "Магия Гноно"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "GLMY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/GLMY/Img_GLMY",
+      "originalFileName": "Img_GLMY.png"
+    },
+    {
+      "id": "gashapon_gmbo_gmbo_bg",
+      "title": {
+        "en": "Deep Void Exploration",
+        "ru": "Глубокий космос"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "GMBO",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/GMBO/GMBO_BG",
+      "originalFileName": "GMBO_BG.png"
+    },
+    {
+      "id": "gashapon_halloween_ui_xtkhy_bg",
+      "title": {
+        "en": "Halloween Spooktacular",
+        "ru": "Хэллоуин"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Halloween",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Halloween/UI_XTKHY_bg",
+      "originalFileName": "UI_XTKHY_bg.png"
+    },
+    {
+      "id": "gashapon_hh_bottom_bzyx",
+      "title": {
+        "en": "Gray Fox: Costume Game",
+        "ru": "Серая Лиса: Маскарад"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "HH",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/HH/Bottom_BZYX",
+      "originalFileName": "Bottom_BZYX.png"
+    },
+    {
+      "id": "gashapon_hlb_ui_tkxjl_bg01",
+      "title": {
+        "en": "Carrot: Space Pixie",
+        "ru": "Морковка: Космический эльф"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "HLB",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/HLB/UI_TKXJL_BG01",
+      "originalFileName": "UI_TKXJL_BG01.png"
+    },
+    {
+      "id": "gashapon_hyxq_hyxq_bg",
+      "title": {
+        "en": "Starlight Journey",
+        "ru": "Звездное путешествие"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "HYXQ",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/HYXQ/HYXQ_BG",
+      "originalFileName": "HYXQ_BG.png"
+    },
+    {
+      "id": "gashapon_jezl_bg_alqx",
+      "title": {
+        "en": "Crystal Palace",
+        "ru": "Кристальный дворец"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "JEZL",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/JEZL/Bg_ALQX",
+      "originalFileName": "Bg_ALQX.png"
+    },
+    {
+      "id": "gashapon_jly_ui_jly_bg",
+      "title": {
+        "en": "Alyss Ice Ballet",
+        "ru": "Ледяной балет Алисс"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "JLY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/JLY/UI_JLY_BG",
+      "originalFileName": "UI_JLY_BG.png"
+    },
+    {
+      "id": "gashapon_jy_img_llsx",
+      "title": {
+        "en": "Ji Yu: Dragon Dance",
+        "ru": "Цзи Юй: Танец дракона"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "JY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/JY/Img_LLSX",
+      "originalFileName": "Img_LLSX.png"
+    },
+    {
+      "id": "gashapon_lan_ui_jbzf_bg",
+      "title": {
+        "en": "Lan Vermilion Bird",
+        "ru": "Огненная птица Лан"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Lan",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Lan/UI_JBZF_BG",
+      "originalFileName": "UI_JBZF_BG.png"
+    },
+    {
+      "id": "gashapon_lbl_ui_wlhx_bg",
+      "title": {
+        "en": "Rubilia Nest",
+        "ru": "Гнездо Рубилии"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LBL",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LBL/UI_WLHX_BG",
+      "originalFileName": "UI_WLHX_BG.png"
+    },
+    {
+      "id": "gashapon_lh_bg",
+      "title": {
+        "en": "Ling Han: Summer Breeze I",
+        "ru": "Линхань: Летний бриз I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LH",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LH/bg",
+      "originalFileName": "bg.png"
+    },
+    {
+      "id": "gashapon_lh_bg1",
+      "title": {
+        "en": "Ling Han: Summer Breeze II",
+        "ru": "Линхань: Летний бриз II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LH",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LH/bg1",
+      "originalFileName": "bg1.png"
+    },
+    {
+      "id": "gashapon_lhty_ui_lhty_bg",
+      "title": {
+        "en": "Liu Huo Ink Verse",
+        "ru": "Чернильная песнь Лю Хо"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LHTY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LHTY/UI_LHTY_bg",
+      "originalFileName": "UI_LHTY_bg.png"
+    },
+    {
+      "id": "gashapon_linghan_bottom_shsx",
+      "title": {
+        "en": "Ling Han Palace I",
+        "ru": "Дворец Лин Хань I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LingHan",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LingHan/bg/Bottom_SHSX",
+      "originalFileName": "Bottom_SHSX.png"
+    },
+    {
+      "id": "gashapon_linghan_bottom_shsx02",
+      "title": {
+        "en": "Ling Han Palace II",
+        "ru": "Дворец Лин Хань II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LingHan",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LingHan/bg/Bottom_SHSX02",
+      "originalFileName": "Bottom_SHSX02.png"
+    },
+    {
+      "id": "gashapon_lk_bg_zyxdsy_1",
+      "title": {
+        "en": "Lin Mirroria Starlight",
+        "ru": "Сияние Миррории Лин"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LK",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LK/Bg_ZYXDSY_1",
+      "originalFileName": "Bg_ZYXDSY_1.png"
+    },
+    {
+      "id": "gashapon_ls_bg_12",
+      "title": {
+        "en": "Lyncis: In Search of Blooms",
+        "ru": "Линсис: В поисках цветов"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LS",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LS/Bg_12",
+      "originalFileName": "Bg_12.png"
+    },
+    {
+      "id": "gashapon_lsl_niudan_lsl_bg",
+      "title": {
+        "en": "Roslyn: Shift Hour",
+        "ru": "Рослин: Время дежурства"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "LSL",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/LSL/niudan_LSL_bg",
+      "originalFileName": "niudan_LSL_bg.png"
+    },
+    {
+      "id": "gashapon_mglz_ui_mglz_bg",
+      "title": {
+        "en": "Mecha Fortress",
+        "ru": "Крепость Меха"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "MGLZ",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/MGLZ/UI_MGLZ_BG",
+      "originalFileName": "UI_MGLZ_BG.png"
+    },
+    {
+      "id": "gashapon_mimi_qkyh_bg",
+      "title": {
+        "en": "Mimi Lightning Wonder",
+        "ru": "Чудо молний Мими"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "mimi",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/mimi/QKYH_bg",
+      "originalFileName": "QKYH_bg.png"
+    },
+    {
+      "id": "gashapon_mklxz_ui_mklxz_bg_1",
+      "title": {
+        "en": "Magic Circus",
+        "ru": "Волшебный цирк"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "MKLXZ",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/MKLXZ/UI_MKLXZ_bg_1",
+      "originalFileName": "UI_MKLXZ_bg_1.png"
+    },
+    {
+      "id": "gashapon_mlny_jgly_bg",
+      "title": {
+        "en": "Dreamland Fantasy",
+        "ru": "Фантазия грёз"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "MLNY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/MLNY/JGLY_BG",
+      "originalFileName": "JGLY_BG.png"
+    },
+    {
+      "id": "gashapon_mmsg_ui_mmsg_bg",
+      "title": {
+        "en": "Neon Melody",
+        "ru": "Неоновая мелодия"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "MMSG",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/MMSG/UI_MMSG_bg",
+      "originalFileName": "UI_MMSG_bg.png"
+    },
+    {
+      "id": "gashapon_mrx_niudan_mrx_bg",
+      "title": {
+        "en": "Evangelion Mecha Hangar",
+        "ru": "Ангар Evangelion"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "MRX",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/MRX/niudan_MRX_bg",
+      "originalFileName": "niudan_MRX_bg.png"
+    },
+    {
+      "id": "gashapon_myem_ui_myem_bg",
+      "title": {
+        "en": "Secret Operative",
+        "ru": "Тайная операция"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "MYEM",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/MYEM/UI_MYEM_bg",
+      "originalFileName": "UI_MYEM_bg.png"
+    },
+    {
+      "id": "gashapon_nanyin_nanyin_bg",
+      "title": {
+        "en": "Nan Yin Melody of Loss",
+        "ru": "Мелодия утраты Нань Инь"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "nanyin",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/nanyin/NANYIN_BG",
+      "originalFileName": "NANYIN_BG.png"
+    },
+    {
+      "id": "gashapon_newyear_ui_jchz_bg",
+      "title": {
+        "en": "Spring Festival Celebration",
+        "ru": "Праздник весны"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "NewYear",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/NewYear/UI_JCHZ_BG",
+      "originalFileName": "UI_JCHZ_BG.png"
+    },
+    {
+      "id": "gashapon_ocean_ui_yhfc_bg",
+      "title": {
+        "en": "Deep Sea Palace",
+        "ru": "Глубоководный дворец"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Ocean",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Ocean/UI_YHFC_BG",
+      "originalFileName": "UI_YHFC_BG.png"
+    },
+    {
+      "id": "gashapon_pld_img_jxzy",
+      "title": {
+        "en": "Plotti High-Tech",
+        "ru": "Технологии Плотти"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "PLD",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/PLD/Img_JXZY",
+      "originalFileName": "Img_JXZY.png"
+    },
+    {
+      "id": "gashapon_qjq_ui_qjq_bg",
+      "title": {
+        "en": "Qilin Realm",
+        "ru": "Царство Цилиня"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "QJQ",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/QJQ/UI_QJQ_BG",
+      "originalFileName": "UI_QJQ_BG.png"
+    },
+    {
+      "id": "gashapon_racingcars_t_backgroundtexture_09",
+      "title": {
+        "en": "Speed Racing Speedway",
+        "ru": "Гонки на треке"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "RacingCars",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/RacingCars/T_BackgroundTexture_09",
+      "originalFileName": "T_BackgroundTexture_09.png"
+    },
+    {
+      "id": "gashapon_rbjy_hyxq_bg",
+      "title": {
+        "en": "Solar Eclipse",
+        "ru": "Солнечное затмение"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "RBJY",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/RBJY/HYXQ_BG",
+      "originalFileName": "HYXQ_BG.png"
+    },
+    {
+      "id": "gashapon_rmzx_bottom_rmzx2",
+      "title": {
+        "en": "Domain of War I",
+        "ru": "Военный сектор I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "RMZX",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/RMZX/Bottom_RMZX2",
+      "originalFileName": "Bottom_RMZX2.png"
+    },
+    {
+      "id": "gashapon_rmzx_orna_rmzx_03",
+      "title": {
+        "en": "Domain of War II",
+        "ru": "Военный сектор II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "RMZX",
+      "aspectLabel": "21:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/RMZX/Orna_RMZX_03",
+      "originalFileName": "Orna_RMZX_03.png"
+    },
+    {
+      "id": "gashapon_suxiu_ui_ycql_bg",
+      "title": {
+        "en": "Suxiu Pavilion I",
+        "ru": "Павильон Сусю I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Suxiu",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Suxiu/UI_YCQL_BG",
+      "originalFileName": "UI_YCQL_BG.png"
+    },
+    {
+      "id": "gashapon_suxiu_ui_ycql_chuanglian06",
+      "title": {
+        "en": "Suxiu Pavilion II",
+        "ru": "Павильон Сусю II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Suxiu",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Suxiu/UI_YCQL_chuanglian06",
+      "originalFileName": "UI_YCQL_chuanglian06.png"
+    },
+    {
+      "id": "gashapon_txjd_bottom_txjd",
+      "title": {
+        "en": "Starry Stage",
+        "ru": "Звездная сцена"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "txjd",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/txjd/Bottom_TXJD",
+      "originalFileName": "Bottom_TXJD.png"
+    },
+    {
+      "id": "gashapon_tzh_nd_tsh_bg",
+      "title": {
+        "en": "Tian Lang Cyber Storm",
+        "ru": "Кибершторм Тянь Лана"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "TZH",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/TZH/ND_TSH_BG",
+      "originalFileName": "ND_TSH_BG.png"
+    },
+    {
+      "id": "gashapon_tzxf_bg_tzxf",
+      "title": {
+        "en": "Celestial Dance",
+        "ru": "Небесный танец"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "TZXF",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/TZXF/Bg_TZXF",
+      "originalFileName": "Bg_TZXF.png"
+    },
+    {
+      "id": "gashapon_xdgb_bottom_xdgb2",
+      "title": {
+        "en": "Mirage Plaza I",
+        "ru": "Площадь миражей I"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "XDGB",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/XDGB/Bottom_XDGB2",
+      "originalFileName": "Bottom_XDGB2.png"
+    },
+    {
+      "id": "gashapon_xdgb_orna_xdgb_03",
+      "title": {
+        "en": "Mirage Plaza II",
+        "ru": "Площадь миражей II"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "XDGB",
+      "aspectLabel": "21:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/XDGB/Orna_XDGB_03",
+      "originalFileName": "Orna_XDGB_03.png"
+    },
+    {
+      "id": "gashapon_xlym_ui_xlqm_bg",
+      "title": {
+        "en": "Xiang Garden",
+        "ru": "Сад Сян"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "XLYM",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/XLYM/UI_XLQM_bg",
+      "originalFileName": "UI_XLQM_bg.png"
+    },
+    {
+      "id": "gashapon_xyjl_bottom_xyjl",
+      "title": {
+        "en": "Starlight Carnival",
+        "ru": "Звездный карнавал"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "XYJL",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/XYJL/Bottom_XYJL",
+      "originalFileName": "Bottom_XYJL.png"
+    },
+    {
+      "id": "gashapon_xytt_bg_xytt1",
+      "title": {
+        "en": "Starry Dream",
+        "ru": "Звездная мечта"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "XYTT",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/XYTT/Bg_XYTT1",
+      "originalFileName": "Bg_XYTT1.png"
+    },
+    {
+      "id": "gashapon_yongzhuang_ui_bg_yongzhuang",
+      "title": {
+        "en": "Summer Swimsuit Festival",
+        "ru": "Пляжный фестиваль купальников"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Yongzhuang",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Yongzhuang/ui_bg_yongzhuang",
+      "originalFileName": "ui_bg_yongzhuang.png"
+    },
+    {
+      "id": "gashapon_yueyeche_ui_bjgd_bg",
+      "title": {
+        "en": "Off-road Expedition",
+        "ru": "Внедорожная экспедиция"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "Yueyeche",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/Yueyeche/UI_BJGD_BG",
+      "originalFileName": "UI_BJGD_BG.png"
+    },
+    {
+      "id": "gashapon_zhounian_img_cxxg",
+      "title": {
+        "en": "Anniversary Grand Celebration",
+        "ru": "Грандиозная годовщина"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "zhounian",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/zhounian/Img_CXXG",
+      "originalFileName": "Img_CXXG.png"
+    },
+    {
+      "id": "gashapon_zyyw_bottom_zyyw",
+      "title": {
+        "en": "Midnight Nocturne",
+        "ru": "Полуночный ноктюрн"
+      },
+      "category": "wallpapers",
+      "subCategory": "gashapon",
+      "themeTag": "ZYYW",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ZYYW/Bottom_ZYYW",
+      "originalFileName": "Bottom_ZYYW.png"
+    },
+    {
+      "id": "loading_loading_01",
+      "title": {
+        "en": "Loading Screen #01",
+        "ru": "Экран загрузки #01"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_01",
+      "originalFileName": "loading_01.png"
+    },
+    {
+      "id": "loading_loading_02",
+      "title": {
+        "en": "Loading Screen #02 (Global)",
+        "ru": "Экран загрузки #02 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_02",
+      "originalFileName": "loading_02.png"
+    },
+    {
+      "id": "loading_zh_loading_02",
+      "title": {
+        "en": "Loading Screen #02 (Original)",
+        "ru": "Экран загрузки #02 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading_02",
+      "originalFileName": "loading_02.png"
+    },
+    {
+      "id": "loading_loading_03",
+      "title": {
+        "en": "Loading Screen #03",
+        "ru": "Экран загрузки #03"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_03",
+      "originalFileName": "loading_03.png"
+    },
+    {
+      "id": "loading_loading_04",
+      "title": {
+        "en": "Loading Screen #04 (Global)",
+        "ru": "Экран загрузки #04 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_04",
+      "originalFileName": "loading_04.png"
+    },
+    {
+      "id": "loading_zh_loading_04",
+      "title": {
+        "en": "Loading Screen #04 (Original)",
+        "ru": "Экран загрузки #04 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading_04",
+      "originalFileName": "loading_04.png"
+    },
+    {
+      "id": "loading_loading_05",
+      "title": {
+        "en": "Loading Screen #05 (Global)",
+        "ru": "Экран загрузки #05 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_05",
+      "originalFileName": "loading_05.png"
+    },
+    {
+      "id": "loading_zh_loading_05",
+      "title": {
+        "en": "Loading Screen #05 (Original)",
+        "ru": "Экран загрузки #05 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading_05",
+      "originalFileName": "loading_05.png"
+    },
+    {
+      "id": "loading_loading_06",
+      "title": {
+        "en": "Loading Screen #06 (Global)",
+        "ru": "Экран загрузки #06 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_06",
+      "originalFileName": "loading_06.png"
+    },
+    {
+      "id": "loading_zh_loading_06",
+      "title": {
+        "en": "Loading Screen #06 (Original)",
+        "ru": "Экран загрузки #06 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading_06",
+      "originalFileName": "loading_06.png"
+    },
+    {
+      "id": "loading_loading_07",
+      "title": {
+        "en": "Loading Screen #07 (Global)",
+        "ru": "Экран загрузки #07 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_07",
+      "originalFileName": "loading_07.png"
+    },
+    {
+      "id": "loading_zh_loading_07",
+      "title": {
+        "en": "Loading Screen #07 (Original)",
+        "ru": "Экран загрузки #07 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading_07",
+      "originalFileName": "loading_07.png"
+    },
+    {
+      "id": "loading_loading_08",
+      "title": {
+        "en": "Loading Screen #08 (Global)",
+        "ru": "Экран загрузки #08 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_08",
+      "originalFileName": "loading_08.png"
+    },
+    {
+      "id": "loading_zh_loading_08",
+      "title": {
+        "en": "Loading Screen #08 (Original)",
+        "ru": "Экран загрузки #08 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading_08",
+      "originalFileName": "loading_08.png"
+    },
+    {
+      "id": "loading_loading_10",
+      "title": {
+        "en": "Loading Screen #10 (Global)",
+        "ru": "Экран загрузки #10 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_10",
+      "originalFileName": "loading_10.png"
+    },
+    {
+      "id": "loading_zh_loading_10",
+      "title": {
+        "en": "Loading Screen #10 (Original)",
+        "ru": "Экран загрузки #10 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading_10",
+      "originalFileName": "loading_10.png"
+    },
+    {
+      "id": "loading_loading_11",
+      "title": {
+        "en": "Loading Screen #11",
+        "ru": "Экран загрузки #11"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_11",
+      "originalFileName": "loading_11.png"
+    },
+    {
+      "id": "loading_loading12",
+      "title": {
+        "en": "Loading Screen #12",
+        "ru": "Экран загрузки #12"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading12",
+      "originalFileName": "loading12.png"
+    },
+    {
+      "id": "loading_loading17",
+      "title": {
+        "en": "Loading Screen #17 (Global)",
+        "ru": "Экран загрузки #17 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading17",
+      "originalFileName": "loading17.png"
+    },
+    {
+      "id": "loading_zh_loading17",
+      "title": {
+        "en": "Loading Screen #17 (Original)",
+        "ru": "Экран загрузки #17 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading17",
+      "originalFileName": "loading17.png"
+    },
+    {
+      "id": "loading_loading18",
+      "title": {
+        "en": "Loading Screen #18 (Global)",
+        "ru": "Экран загрузки #18 (Глобал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading18",
+      "originalFileName": "loading18.png"
+    },
+    {
+      "id": "loading_zh_loading18",
+      "title": {
+        "en": "Loading Screen #18 (Original)",
+        "ru": "Экран загрузки #18 (Оригинал)"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading_zh",
+      "themeTag": "loading_original",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/loading18",
+      "originalFileName": "loading18.png"
+    },
+    {
+      "id": "loading_loading19",
+      "title": {
+        "en": "Loading Screen #19",
+        "ru": "Экран загрузки #19"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading19",
+      "originalFileName": "loading19.png"
+    },
+    {
+      "id": "loading_loading20",
+      "title": {
+        "en": "Loading Screen #20",
+        "ru": "Экран загрузки #20"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading20",
+      "originalFileName": "loading20.png"
+    },
+    {
+      "id": "loading_loading21",
+      "title": {
+        "en": "Loading Screen #21",
+        "ru": "Экран загрузки #21"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading21",
+      "originalFileName": "loading21.png"
+    },
+    {
+      "id": "loading_loading_v43",
+      "title": {
+        "en": "Loading Screen #43",
+        "ru": "Экран загрузки #43"
+      },
+      "category": "wallpapers",
+      "subCategory": "loading",
+      "themeTag": "loading_global",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/login/loading/loading_v43",
+      "originalFileName": "loading_v43.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_ak",
+      "title": {
+        "en": "Asuka (Plugsuit) — Gashapon Splash Art",
+        "ru": "Аска (Контактный комбинезон) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "ak",
+      "characterName": {
+        "en": "Asuka (Plugsuit)",
+        "ru": "Аска (Контактный комбинезон)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Ak",
+      "originalFileName": "niudan_JH_LH_Ak.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_akjk",
+      "title": {
+        "en": "Asuka (School Uniform) — Gashapon Splash Art",
+        "ru": "Аска (Школьная форма) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "akjk",
+      "characterName": {
+        "en": "Asuka (School Uniform)",
+        "ru": "Аска (Школьная форма)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Akjk",
+      "originalFileName": "niudan_JH_LH_Akjk.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_asld",
+      "title": {
+        "en": "Asurada — Gashapon Splash Art",
+        "ru": "Асурада — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "asld",
+      "characterName": {
+        "en": "Asurada",
+        "ru": "Асурада"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Asld",
+      "originalFileName": "niudan_JH_LH_Asld.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_blw",
+      "title": {
+        "en": "Brevey — Gashapon Splash Art",
+        "ru": "Бреви — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "blw",
+      "characterName": {
+        "en": "Brevey",
+        "ru": "Бреви"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Blw",
+      "originalFileName": "niudan_JH_LH_Blw.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_fon",
+      "title": {
+        "en": "Lan (White Blossom) — Gashapon Splash Art",
+        "ru": "Лань (Белое цветение) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "fon",
+      "characterName": {
+        "en": "Lan (White Blossom)",
+        "ru": "Лань (Белое цветение)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Fon",
+      "originalFileName": "niudan_JH_LH_Fon.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_hh",
+      "title": {
+        "en": "Gray Fox (Costume Game) — Gashapon Splash Art",
+        "ru": "Серая Лиса (Маскарад) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "hh",
+      "characterName": {
+        "en": "Gray Fox (Costume Game)",
+        "ru": "Серая Лиса (Маскарад)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Hh",
+      "originalFileName": "niudan_JH_LH_Hh.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_hlb",
+      "title": {
+        "en": "Carrot (Space Pixie) — Gashapon Splash Art",
+        "ru": "Морковка (Космический эльф) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "hlb",
+      "characterName": {
+        "en": "Carrot (Space Pixie)",
+        "ru": "Морковка (Космический эльф)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Hlb",
+      "originalFileName": "niudan_JH_LH_Hlb.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_jchz",
+      "title": {
+        "en": "Wanderer: Domain 9 Splendor — Gashapon Splash Art",
+        "ru": "Странник: Роскошь Девятого домена — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "jchz",
+      "characterName": {
+        "en": "Wanderer: Domain 9 Splendor",
+        "ru": "Странник: Роскошь Девятого домена"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_JCHZ",
+      "originalFileName": "niudan_JH_LH_JCHZ.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_jly",
+      "title": {
+        "en": "Alyss (White Armor) — Gashapon Splash Art",
+        "ru": "Алисс (Белые доспехи) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "jly",
+      "characterName": {
+        "en": "Alyss (White Armor)",
+        "ru": "Алисс (Белые доспехи)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_JLY",
+      "originalFileName": "niudan_JH_LH_JLY.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_jy",
+      "title": {
+        "en": "Ji Yu (Dragon Dance) — Gashapon Splash Art",
+        "ru": "Цзи Юй (Танец дракона) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "jy",
+      "characterName": {
+        "en": "Ji Yu (Dragon Dance)",
+        "ru": "Цзи Юй (Танец дракона)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Jy",
+      "originalFileName": "niudan_JH_LH_Jy.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_lkxs",
+      "title": {
+        "en": "Shirli (Pure Ripples) — Gashapon Splash Art",
+        "ru": "Ширли (Чистая волна) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "lkxs",
+      "characterName": {
+        "en": "Shirli (Pure Ripples)",
+        "ru": "Ширли (Чистая волна)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_LKXS",
+      "originalFileName": "niudan_JH_LH_LKXS.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_ls",
+      "title": {
+        "en": "Lyncis (In Search of Blooms) — Gashapon Splash Art",
+        "ru": "Линсис (В поисках цветов) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "ls",
+      "characterName": {
+        "en": "Lyncis (In Search of Blooms)",
+        "ru": "Линсис (В поисках цветов)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_LS",
+      "originalFileName": "niudan_JH_LH_LS.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_lbly",
+      "title": {
+        "en": "Rubilia (Solar Eclipse) — Gashapon Splash Art",
+        "ru": "Рубилия (Солнечное затмение) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "lbly",
+      "characterName": {
+        "en": "Rubilia (Solar Eclipse)",
+        "ru": "Рубилия (Солнечное затмение)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Lbly",
+      "originalFileName": "niudan_JH_LH_Lbly.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_lh",
+      "title": {
+        "en": "Ling Han (Summer Breeze) — Gashapon Splash Art",
+        "ru": "Линхань (Летний бриз) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "lh",
+      "characterName": {
+        "en": "Ling Han (Summer Breeze)",
+        "ru": "Линхань (Летний бриз)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Lh",
+      "originalFileName": "niudan_JH_LH_Lh.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_lk",
+      "title": {
+        "en": "Fiona (Stars and Moon) — Gashapon Splash Art",
+        "ru": "Фиона (Звезды и луна) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "lk",
+      "characterName": {
+        "en": "Fiona (Stars and Moon)",
+        "ru": "Фиона (Звезды и луна)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Lk",
+      "originalFileName": "niudan_JH_LH_Lk.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_lyyz",
+      "title": {
+        "en": "Lin (Summer Bikini) — Gashapon Splash Art",
+        "ru": "Линь (Летний купальник) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "lyyz",
+      "characterName": {
+        "en": "Lin (Summer Bikini)",
+        "ru": "Линь (Летний купальник)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_LyYZ",
+      "originalFileName": "niudan_JH_LH_LyYZ.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_mle",
+      "title": {
+        "en": "Meryl — Gashapon Splash Art",
+        "ru": "Мерил — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "mle",
+      "characterName": {
+        "en": "Meryl",
+        "ru": "Мерил"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Mle",
+      "originalFileName": "niudan_JH_LH_Mle.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_nl",
+      "title": {
+        "en": "Nola (Coast Wind) — Gashapon Splash Art",
+        "ru": "Нола (Прибрежный ветер) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "nl_",
+      "characterName": {
+        "en": "Nola (Coast Wind)",
+        "ru": "Нола (Прибрежный ветер)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Nl_",
+      "originalFileName": "niudan_JH_LH_Nl_.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_nsl",
+      "title": {
+        "en": "Roslyn (Shift Hour) — Gashapon Splash Art",
+        "ru": "Рослин (Время дежурства) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "nsl",
+      "characterName": {
+        "en": "Roslyn (Shift Hour)",
+        "ru": "Рослин (Время дежурства)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Nsl",
+      "originalFileName": "niudan_JH_LH_Nsl.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_ny",
+      "title": {
+        "en": "Nan Yin (Clear Bamboo) — Gashapon Splash Art",
+        "ru": "Нань Инь (Чистый бамбук) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "ny",
+      "characterName": {
+        "en": "Nan Yin (Clear Bamboo)",
+        "ru": "Нань Инь (Чистый бамбук)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Ny",
+      "originalFileName": "niudan_JH_LH_Ny.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_pnd",
+      "title": {
+        "en": "Plotti (Infiltrating Shadow) — Gashapon Splash Art",
+        "ru": "Плотти (Тень проникновения) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "pnd",
+      "characterName": {
+        "en": "Plotti (Infiltrating Shadow)",
+        "ru": "Плотти (Тень проникновения)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_Pnd",
+      "originalFileName": "niudan_JH_LH_Pnd.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_xpe",
+      "title": {
+        "en": "Meryl (Summer Vacation) — Gashapon Splash Art",
+        "ru": "Мерил (Долгий летний день) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "xpe",
+      "characterName": {
+        "en": "Meryl (Summer Vacation)",
+        "ru": "Мерил (Долгий летний день)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_XPE",
+      "originalFileName": "niudan_JH_LH_XPE.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_agly-",
+      "title": {
+        "en": "Agleia (Wedding Dress) — Gashapon Splash Art",
+        "ru": "Аглая (Свадебное платье) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "agly-",
+      "characterName": {
+        "en": "Agleia (Wedding Dress)",
+        "ru": "Аглая (Свадебное платье)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_agly-",
+      "originalFileName": "niudan_JH_LH_agly-.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_cxxy",
+      "title": {
+        "en": "Wanderer: Gothic Aristocrat — Gashapon Splash Art",
+        "ru": "Странник: Готический аристократ — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "cxxy",
+      "characterName": {
+        "en": "Wanderer: Gothic Aristocrat",
+        "ru": "Странник: Готический аристократ"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_cxxy",
+      "originalFileName": "niudan_JH_LH_cxxy.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_glmy",
+      "title": {
+        "en": "Wanderer: Blue Rose Masquerade — Gashapon Splash Art",
+        "ru": "Странник: Маскарад синей розы — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "glmy",
+      "characterName": {
+        "en": "Wanderer: Blue Rose Masquerade",
+        "ru": "Странник: Маскарад синей розы"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_glmy",
+      "originalFileName": "niudan_JH_LH_glmy.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_hailun",
+      "title": {
+        "en": "Helene — Gashapon Splash Art",
+        "ru": "Элен — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "hailun",
+      "characterName": {
+        "en": "Helene",
+        "ru": "Элен"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_hailun",
+      "originalFileName": "niudan_JH_LH_hailun.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_lana",
+      "title": {
+        "en": "Lana — Gashapon Splash Art",
+        "ru": "Лана — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "lana",
+      "characterName": {
+        "en": "Lana",
+        "ru": "Лана"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_lana",
+      "originalFileName": "niudan_JH_LH_lana.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_llmx",
+      "title": {
+        "en": "Meryl Ironheart — Gashapon Splash Art",
+        "ru": "Мерил Железное Сердце — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "llmx",
+      "characterName": {
+        "en": "Meryl Ironheart",
+        "ru": "Мерил Железное Сердце"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_llmx",
+      "originalFileName": "niudan_JH_LH_llmx.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_tsh",
+      "title": {
+        "en": "Wanderer: Lunar Splendor — Gashapon Splash Art",
+        "ru": "Странник: Новогоднее сияние — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "tsh",
+      "characterName": {
+        "en": "Wanderer: Lunar Splendor",
+        "ru": "Странник: Новогоднее сияние"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_tsh",
+      "originalFileName": "niudan_JH_LH_tsh.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_wllj",
+      "title": {
+        "en": "Yanuo (Midnight Phantom) — Gashapon Splash Art",
+        "ru": "Януо (Полуночный призрак) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "wllj",
+      "characterName": {
+        "en": "Yanuo (Midnight Phantom)",
+        "ru": "Януо (Полуночный призрак)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_wllj",
+      "originalFileName": "niudan_JH_LH_wllj.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_xlqm",
+      "title": {
+        "en": "Wanderer: Anniversary Gala — Gashapon Splash Art",
+        "ru": "Странник: Торжество годовщины — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "xlqm",
+      "characterName": {
+        "en": "Wanderer: Anniversary Gala",
+        "ru": "Странник: Торжество годовщины"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_xlqm",
+      "originalFileName": "niudan_JH_LH_xlqm.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_xtkhy",
+      "title": {
+        "en": "Wanderer: Halloween Mischief — Gashapon Splash Art",
+        "ru": "Странник: Хэллоуинское озорство — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "xtkhy",
+      "characterName": {
+        "en": "Wanderer: Halloween Mischief",
+        "ru": "Странник: Хэллоуинское озорство"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_xtkhy",
+      "originalFileName": "niudan_JH_LH_xtkhy.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_ycql",
+      "title": {
+        "en": "Wanderer: Jade Cloud — Gashapon Splash Art",
+        "ru": "Странник: Нефритовое облако — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "ycql",
+      "characterName": {
+        "en": "Wanderer: Jade Cloud",
+        "ru": "Странник: Нефритовое облако"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_ycql",
+      "originalFileName": "niudan_JH_LH_ycql.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_yhfc",
+      "title": {
+        "en": "Wanderer: Ink Stream — Gashapon Splash Art",
+        "ru": "Странник: Чернильный поток — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "yhfc",
+      "characterName": {
+        "en": "Wanderer: Ink Stream",
+        "ru": "Странник: Чернильный поток"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_yhfc",
+      "originalFileName": "niudan_JH_LH_yhfc.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_zj",
+      "title": {
+        "en": "Wanderer: Yin-Yang Balance — Gashapon Splash Art",
+        "ru": "Странник: Равновесие инь-ян — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "zj",
+      "characterName": {
+        "en": "Wanderer: Yin-Yang Balance",
+        "ru": "Странник: Равновесие инь-ян"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LH_zj",
+      "originalFileName": "niudan_JH_LH_zj.png"
+    },
+    {
+      "id": "char_art_niudan_jh_liuh_lh",
+      "title": {
+        "en": "Liu Huo (Serene Bamboo) — Gashapon Splash Art",
+        "ru": "Лю Хо (Безмятежный бамбук) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "liuh",
+      "characterName": {
+        "en": "Liu Huo (Serene Bamboo)",
+        "ru": "Лю Хо (Безмятежный бамбук)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/icon/niudan_JH_LiuH_LH",
+      "originalFileName": "niudan_JH_LiuH_LH.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_als",
+      "title": {
+        "en": "Alyss (Platinum Radiance) — Gashapon Splash Art",
+        "ru": "Алисс (Платиновое сияние) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "als",
+      "characterName": {
+        "en": "Alyss (Platinum Radiance)",
+        "ru": "Алисс (Платиновое сияние)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/shizhuang/nitai/niudan_JH_LH_als",
+      "originalFileName": "niudan_JH_LH_als.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_atly",
+      "title": {
+        "en": "Antoria (The Divine Slayer) — Gashapon Splash Art",
+        "ru": "Антория (Убийца богов) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "atly",
+      "characterName": {
+        "en": "Antoria (The Divine Slayer)",
+        "ru": "Антория (Убийца богов)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/shizhuang/nitai/niudan_JH_LH_atly",
+      "originalFileName": "niudan_JH_LH_atly.png"
+    },
+    {
+      "id": "char_art_niudan_jh_lh_lan",
+      "title": {
+        "en": "Lan (Ivory Bloom) — Gashapon Splash Art",
+        "ru": "Лань (Белое цветение) — Арт гасяпона"
+      },
+      "category": "characters",
+      "subCategory": "gashapon_character",
+      "themeTag": "character_splash",
+      "characterKey": "lan",
+      "characterName": {
+        "en": "Lan (Ivory Bloom)",
+        "ru": "Лань (Белое цветение)"
+      },
+      "aspectLabel": "Splash Art",
+      "sourcePath": "Hotta/Content/Resources/UI/shizhuang/nitai/niudan_JH_LH_lan",
+      "originalFileName": "niudan_JH_LH_lan.png"
+    },
+    {
+      "id": "season_4_huodongzh2_tuozhanbao_bg",
+      "title": {
+        "en": "Bonecrush — Steel Vanguard",
+        "ru": "Костелом — Стальной авангард"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_4",
+      "characterKey": "bonecrush",
+      "season": 4,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/4/huodongZH2_tuozhanbao_bg",
+      "originalFileName": "huodongZH2_tuozhanbao_bg.png"
+    },
+    {
+      "id": "season_4_huodongzh2_naoyun_bg",
+      "title": {
+        "en": "Agleia — Celestial Blades",
+        "ru": "Аглая — Небесные клинки"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_4",
+      "characterKey": "ageleia",
+      "season": 4,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/4/huodongZH2_naoyun_bg",
+      "originalFileName": "huodongZH2_naoyun_bg.png"
+    },
+    {
+      "id": "season_4_huodongzh2_gongming_bg",
+      "title": {
+        "en": "Berry — Feathered Witch",
+        "ru": "Берри — Пернатая ведьма"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_4",
+      "characterKey": "berry",
+      "season": 4,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/4/huodongZH2_gongming_bg",
+      "originalFileName": "huodongZH2_gongming_bg.png"
+    },
+    {
+      "id": "season_4_huodongzh2_duoren_bg",
+      "title": {
+        "en": "Ensemble: Berry, Harmopheus, Gefion & Bonecrush",
+        "ru": "Ансамбль: Берри, Хармофей, Гефион и Костелом"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_4",
+      "characterKey": "group",
+      "season": 4,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/4/huodongZH2_duoren_bg",
+      "originalFileName": "huodongZH2_duoren_bg.png"
+    },
+    {
+      "id": "season_4_huodongzh2_danren_bg",
+      "title": {
+        "en": "Harmopheus — Cathedral Melody",
+        "ru": "Хармофей — Мелодия собора"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_4",
+      "characterKey": "harmopheus",
+      "season": 4,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/4/huodongZH2_danren_bg",
+      "originalFileName": "huodongZH2_danren_bg.png"
+    },
+    {
+      "id": "season_4_huodongzh2_caizhuang_bg",
+      "title": {
+        "en": "Gefion — Harlequin Masquerade",
+        "ru": "Гефион — Маскарад Арлекина"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_4",
+      "characterKey": "gefion",
+      "season": 4,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/4/huodongZH2_caizhuang_bg",
+      "originalFileName": "huodongZH2_caizhuang_bg.png"
+    },
+    {
+      "id": "season_3_huodongzh2_tuozhanbao_bg",
+      "title": {
+        "en": "Agleia — Evening Elegance",
+        "ru": "Аглая — Вечерняя элегантность"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_3",
+      "characterKey": "ageleia",
+      "season": 3,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/3/huodongZH2_tuozhanbao_bg",
+      "originalFileName": "huodongZH2_tuozhanbao_bg.png"
+    },
+    {
+      "id": "season_3_huodongzh2_jinglian_bg",
+      "title": {
+        "en": "Nanto — Dragon Tide",
+        "ru": "Наньто — Прилив дракона"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_3",
+      "characterKey": "nanto",
+      "season": 3,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/3/huodongZH2_jinglian_bg",
+      "originalFileName": "huodongZH2_jinglian_bg.png"
+    },
+    {
+      "id": "season_3_huodongzh2_gongming_bg",
+      "title": {
+        "en": "Nan Yin — Reflection of the Moon",
+        "ru": "Нань Инь — Отражение луны"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_3",
+      "characterKey": "nan-yin",
+      "season": 3,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/3/huodongZH2_gongming_bg",
+      "originalFileName": "huodongZH2_gongming_bg.png"
+    },
+    {
+      "id": "season_3_huodongzh2_danren_bg",
+      "title": {
+        "en": "Gray Fox — Tactical Recon",
+        "ru": "Серая Лиса — Тактическая разведка"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_3",
+      "characterKey": "greyfox",
+      "season": 3,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/3/huodongZH2_danren_bg",
+      "originalFileName": "huodongZH2_danren_bg.png"
+    },
+    {
+      "id": "season_3_huodongzh2_caizhuang_bg",
+      "title": {
+        "en": "Berry — Twilight Ravens",
+        "ru": "Берри — Сумеречные вороны"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_3",
+      "characterKey": "berry",
+      "season": 3,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/3/huodongZH2_caizhuang_bg",
+      "originalFileName": "huodongZH2_caizhuang_bg.png"
+    },
+    {
+      "id": "season_2_huodongzh2_bg_tuozhan",
+      "title": {
+        "en": "Puppeteer — Marionette Strings",
+        "ru": "Кукловод — Нити марионетки"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_2",
+      "characterKey": "puppeteer",
+      "season": 2,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/2/huodongZH2_bg_tuozhan",
+      "originalFileName": "huodongZH2_bg_tuozhan.png"
+    },
+    {
+      "id": "season_2_huodongzh2_bg_jinglian",
+      "title": {
+        "en": "Lyncis — Rainy Reverie",
+        "ru": "Линсис — Дождливые грёзы"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_2",
+      "characterKey": "lyncis",
+      "season": 2,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/2/huodongZH2_bg_jinglian",
+      "originalFileName": "huodongZH2_bg_jinglian.png"
+    },
+    {
+      "id": "season_2_huodongzh2_bg_gongmign",
+      "title": {
+        "en": "Pepper — Emergency Care",
+        "ru": "Пеппер — Скорая помощь"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_2",
+      "characterKey": "pepper",
+      "season": 2,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/2/huodongZH2_bg_gongmign",
+      "originalFileName": "huodongZH2_bg_gongmign.png"
+    },
+    {
+      "id": "season_2_huodongzh2_bg_duoren",
+      "title": {
+        "en": "Ensemble: Nanto, Roslyn, Veronika & Agleia",
+        "ru": "Ансамбль: Наньто, Рослин, Вероника и Аглая"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_2",
+      "characterKey": "group",
+      "season": 2,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/2/huodongZH2_bg_duoren",
+      "originalFileName": "huodongZH2_bg_duoren.png"
+    },
+    {
+      "id": "season_2_huodongzh2_bg_danren",
+      "title": {
+        "en": "Roslyn — Sunset Harbor",
+        "ru": "Рослин — Закатная гавань"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_2",
+      "characterKey": "roslyn",
+      "season": 2,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/2/huodongZH2_bg_danren",
+      "originalFileName": "huodongZH2_bg_danren.png"
+    },
+    {
+      "id": "season_2_huodongzh2_bg_caizhuang",
+      "title": {
+        "en": "Veronika — Neon Nocturne",
+        "ru": "Вероника — Неоновый ноктюрн"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_2",
+      "characterKey": "veronika",
+      "season": 2,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/2/huodongZH2_bg_caizhuang",
+      "originalFileName": "huodongZH2_bg_caizhuang.png"
+    },
+    {
+      "id": "season_1_huodongzh2_image6bg",
+      "title": {
+        "en": "Meryl: Ironheart — SDF Guardian",
+        "ru": "Мерил: Железное Сердце — Страж SDF"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_1",
+      "characterKey": "meryl-ironheart",
+      "season": 1,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/1/huodongZH2_image6bg",
+      "originalFileName": "huodongZH2_image6bg.png"
+    },
+    {
+      "id": "season_1_huodongzh2_image5bg",
+      "title": {
+        "en": "Ensemble: Anka, Carrot, Roslyn & Nemesis",
+        "ru": "Ансамбль: Анка, Морковка, Рослин и Немезида"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_1",
+      "characterKey": "group",
+      "season": 1,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/1/huodongZH2_image5bg",
+      "originalFileName": "huodongZH2_image5bg.png"
+    },
+    {
+      "id": "season_1_huodongzh2_image4bg",
+      "title": {
+        "en": "Fenrir — Neon Soundwave",
+        "ru": "Фенрир — Неоновая звуковая волна"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_1",
+      "characterKey": "fenrir",
+      "season": 1,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/1/huodongZH2_image4bg",
+      "originalFileName": "huodongZH2_image4bg.png"
+    },
+    {
+      "id": "season_1_huodongzh2_image3bg",
+      "title": {
+        "en": "Ruby & Sparky — Cheerful Explorer",
+        "ru": "Руби и Спарки — Весёлый исследователь"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_1",
+      "characterKey": "ruby",
+      "season": 1,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/1/huodongZH2_image3bg",
+      "originalFileName": "huodongZH2_image3bg.png"
+    },
+    {
+      "id": "season_1_huodongzh2_image2bg",
+      "title": {
+        "en": "Nemesis — Deus Ex Machina",
+        "ru": "Немезида — Бог из машины"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_1",
+      "characterKey": "nemesis",
+      "season": 1,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/1/huodongZH2_image2bg",
+      "originalFileName": "huodongZH2_image2bg.png"
+    },
+    {
+      "id": "season_1_huodongzh2_image1bg",
+      "title": {
+        "en": "Nemesis: Voidpiercer — Cybernetic Rift",
+        "ru": "Немезида: Жало Пустоты — Кибернетический разлом"
+      },
+      "category": "character_bg",
+      "subCategory": "season_bg",
+      "themeTag": "season_1",
+      "characterKey": "nemesis-voidpiercer",
+      "season": 1,
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi/1/huodongZH2_image1bg",
+      "originalFileName": "huodongZH2_image1bg.png"
+    },
+    {
+      "id": "event_2v2_mega_guanggao_di",
+      "title": {
+        "en": "MEGA 2v2 Arena — Promo Background",
+        "ru": "Арена MEGA 2v2 — Промо-фон"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "mega_guanggao",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/2v2/MEGA_guanggao_di",
+      "originalFileName": "MEGA_guanggao_di.png"
+    },
+    {
+      "id": "event_air_jktjx_bg",
+      "title": {
+        "en": "Aerial Combat — Event Wallpaper",
+        "ru": "Воздушный бой — Ивентовые обои"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "jktjx",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/Air/JKTJX_bg",
+      "originalFileName": "JKTJX_bg.png"
+    },
+    {
+      "id": "event_activitygroup_niudan_jihe_bg",
+      "title": {
+        "en": "Advanced Gashapon — Cosmic Nexus",
+        "ru": "Продвинутый гашапон — Космический нексус"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "gashapon_nexus",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/AdvancedGashapon/ActivityGroup/niudan_jihe_BG",
+      "originalFileName": "niudan_jihe_BG.png"
+    },
+    {
+      "id": "event_hhrq_greyfox_hacker_logon",
+      "title": {
+        "en": "GreyFox (Agleia) — Terminal Logon",
+        "ru": "ГрейФокс (Аглая) — Экран входа в терминал"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "greyfox",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/hhrq/greyfox_hacker_logon",
+      "originalFileName": "greyfox_hacker_logon.png"
+    },
+    {
+      "id": "event_overseas_6_ui_overseas_bg",
+      "title": {
+        "en": "Global Celebration — Horizon Skyline",
+        "ru": "Глобальное празднование — Панорама горизонта"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "overseas",
+      "aspectLabel": "21:10",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/overseas_6/ui_overseas_bg",
+      "originalFileName": "ui_overseas_bg.png"
+    },
+    {
+      "id": "event_overseas_7_sgxzq_main",
+      "title": {
+        "en": "Overseas Festival — Main Canvas",
+        "ru": "Зарубежный фестиваль — Главный холст"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "overseas",
+      "aspectLabel": "21:10",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/overseas_7/SGXZQ_main",
+      "originalFileName": "SGXZQ_main.png"
+    },
+    {
+      "id": "event_ui_milestone_bp_hd_yaoyue_bj_xinchun",
+      "title": {
+        "en": "Spring Milestone Gala — Anka & Antoria",
+        "ru": "Весенний рубеж — Анка и Антория"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "milestone_bp",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/UI_Milestone_BP/HD_Yaoyue_BJ_xinchun",
+      "originalFileName": "HD_Yaoyue_BJ_xinchun.png"
+    },
+    {
+      "id": "event_ui_milestone_bp_ui_yhd_bg",
+      "title": {
+        "en": "Circus Backstage — Anka",
+        "ru": "Закулисье цирка — Анка"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "milestone_bp",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/UI_Milestone_BP/UI_YHD_Bg",
+      "originalFileName": "UI_YHD_Bg.png"
+    },
+    {
+      "id": "event_ui_milestone_bp_fulilingqu_bg4",
+      "title": {
+        "en": "Cloud Pier of Domain 9 — Liu Huo & Ji Yu",
+        "ru": "Небесный причал Девятого домена — Лю Хо и Цзи Юй"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "milestone_bp",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/UI_Milestone_BP/fulilingqu_bg4",
+      "originalFileName": "fulilingqu_bg4.png"
+    },
+    {
+      "id": "event_xinren_mmo_ui_hd_xinshou_bgk01_mmo",
+      "title": {
+        "en": "Astra Shelter Gathering — Newcomer MMO Journey",
+        "ru": "Сбор в убежище Астра — Путь новичка MMO"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "21:10",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/UI_hd_xinshou_Bgk01_MMO",
+      "originalFileName": "UI_hd_xinshou_Bgk01_MMO.png"
+    },
+    {
+      "id": "event_new_huodongzh_image1",
+      "title": {
+        "en": "Newcomer Guide #01 — Shelly at Aesperia Command",
+        "ru": "Путь новичка #01 — Шелли в командном центре Эсперии"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image1",
+      "originalFileName": "huodongZH_image1.png"
+    },
+    {
+      "id": "event_new_huodongzh_image2",
+      "title": {
+        "en": "Newcomer Guide #02 — Lin & the Mirage of Mirroria",
+        "ru": "Путь новичка #02 — Линь и мираж Миррории"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image2",
+      "originalFileName": "huodongZH_image2.png"
+    },
+    {
+      "id": "event_new_huodongzh_image3",
+      "title": {
+        "en": "Newcomer Guide #03 — Nemesis Overlooking Neon City",
+        "ru": "Путь новичка #03 — Немезида над неоновым городом"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image3",
+      "originalFileName": "huodongZH_image3.png"
+    },
+    {
+      "id": "event_new_huodongzh_image4",
+      "title": {
+        "en": "Newcomer Guide #04 — Frigg in Overgrown Wastelands",
+        "ru": "Путь новичка #04 — Фригг среди заросших пустошей"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image4",
+      "originalFileName": "huodongZH_image4.png"
+    },
+    {
+      "id": "event_new_huodongzh_image5",
+      "title": {
+        "en": "Newcomer Guide #05 — Claudia on Mirroria Boulevard",
+        "ru": "Путь новичка #05 — Клаудия на бульваре Миррории"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image5",
+      "originalFileName": "huodongZH_image5.png"
+    },
+    {
+      "id": "event_new_huodongzh_image6",
+      "title": {
+        "en": "Newcomer Guide #06 — Aerial Assault Mech Deployment",
+        "ru": "Путь новичка #06 — Запуск штурмового меха"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image6",
+      "originalFileName": "huodongZH_image6.png"
+    },
+    {
+      "id": "event_new_huodongzh_image7",
+      "title": {
+        "en": "Newcomer Guide #07 — Tactical Marksman in Training",
+        "ru": "Путь новичка #07 — Тактический стрелок на рубеже"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image7",
+      "originalFileName": "huodongZH_image7.png"
+    },
+    {
+      "id": "event_new_huodongzh_image8",
+      "title": {
+        "en": "Newcomer Guide #08 — Shirli & Nemesis: Starlit Waters",
+        "ru": "Путь новичка #08 — Ширли и Немезида: Звездные воды"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "newcomer_mmo",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/XinRen_MMO/new/huodongZH_image8",
+      "originalFileName": "huodongZH_image8.png"
+    },
+    {
+      "id": "event_s2_sjzs_bg",
+      "title": {
+        "en": "Seasonal Arena Champion — Season 2 Victory Hall",
+        "ru": "Чемпион сезонной арены — Зал славы Сезона 2"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "season_event",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/SaiJi_DiaoLuo/S2/SJZS_bg",
+      "originalFileName": "SJZS_bg.png"
+    },
+    {
+      "id": "event_lmzx_eva01_fashion_bg",
+      "title": {
+        "en": "Evangelion Collab — Test Type-01 Hangar",
+        "ru": "Коллаборация Evangelion — Ангар Тестового Типа-01"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "series_event",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/LMZX/EVA01_fashion_bg",
+      "originalFileName": "EVA01_fashion_bg.png"
+    },
+    {
+      "id": "event_holiday_hjjq_bji",
+      "title": {
+        "en": "Golden Holiday Festival — Celebration Stage",
+        "ru": "Золотой праздник — Сцена торжества"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "series_event",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/Holiday/HJJQ_bji",
+      "originalFileName": "HJJQ_bji.png"
+    },
+    {
+      "id": "event_thanksgiving_thanksgiving_bg",
+      "title": {
+        "en": "Thanksgiving Banquet — Autumn Harvest",
+        "ru": "Банкет Дня благодарения — Осенний урожай"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "series_event",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/ThanksGiving/thanksgiving_bg",
+      "originalFileName": "thanksgiving_bg.png"
+    },
+    {
+      "id": "event_springfestival_fqsc_bj",
+      "title": {
+        "en": "Spring Festival Bazaar — Lunar Fireworks",
+        "ru": "Ярмарка Праздника весны — Лунный фейерверк"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "series_event",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/SpringFestival/FQSC_bj",
+      "originalFileName": "FQSC_bj.png"
+    },
+    {
+      "id": "event_newggy_ui_bbjhhd_bkg2",
+      "title": {
+        "en": "Version NewGgy — Roadmap Event Canvas #2",
+        "ru": "Версия NewGgy — Холст роадмапа событий #2"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_newggy",
+      "aspectLabel": "16:9",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/UI_BBJHHD_Bkg2",
+      "originalFileName": "UI_BBJHHD_Bkg2.png"
+    },
+    {
+      "id": "event_3_0_ui_bbjhhd_bkg3",
+      "title": {
+        "en": "Version 3.0 — Domain 9 Expansion Key Canvas #3",
+        "ru": "Версия 3.0 — Девятый домен: Ключевой холст #3"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_0/UI_BBJHHD_Bkg3",
+      "originalFileName": "UI_BBJHHD_Bkg3.png"
+    },
+    {
+      "id": "event_3_0_ui_bbjhhd_bkg4",
+      "title": {
+        "en": "Version 3.0 — Domain 9 Expansion Key Canvas #4",
+        "ru": "Версия 3.0 — Девятый домен: Ключевой холст #4"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_0/UI_BBJHHD_Bkg4",
+      "originalFileName": "UI_BBJHHD_Bkg4.png"
+    },
+    {
+      "id": "event_3_0_ui_bbjhhd_bkg6",
+      "title": {
+        "en": "Version 3.0 — Domain 9 Expansion Key Canvas #6",
+        "ru": "Версия 3.0 — Девятый домен: Ключевой холст #6"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_0/UI_BBJHHD_Bkg6",
+      "originalFileName": "UI_BBJHHD_Bkg6.png"
+    },
+    {
+      "id": "event_3_0_ui_bbjhhd_bkg7",
+      "title": {
+        "en": "Version 3.0 — Domain 9 Expansion Key Canvas #7",
+        "ru": "Версия 3.0 — Девятый домен: Ключевой холст #7"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_0/UI_BBJHHD_Bkg7",
+      "originalFileName": "UI_BBJHHD_Bkg7.png"
+    },
+    {
+      "id": "event_3_2_5_ui_bbjhhd_bkg10",
+      "title": {
+        "en": "Version 3.2.5 — Roadmap Event Canvas #10",
+        "ru": "Версия 3.2.5 — Холст роадмапа событий #10"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_2_5",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_2_5/UI_BBJHHD_Bkg10",
+      "originalFileName": "UI_BBJHHD_Bkg10.png"
+    },
+    {
+      "id": "event_3_2_5_ui_bbjhhd_bkg11",
+      "title": {
+        "en": "Version 3.2.5 — Roadmap Event Canvas #11",
+        "ru": "Версия 3.2.5 — Холст роадмапа событий #11"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_2_5",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_2_5/UI_BBJHHD_Bkg11",
+      "originalFileName": "UI_BBJHHD_Bkg11.png"
+    },
+    {
+      "id": "event_3_4_5_ui_bbjhhd_bkg16",
+      "title": {
+        "en": "Version 3.4.5 — Roadmap Event Canvas #16",
+        "ru": "Версия 3.4.5 — Холст роадмапа событий #16"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_4_5",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_4_5/UI_BBJHHD_Bkg16",
+      "originalFileName": "UI_BBJHHD_Bkg16.png"
+    },
+    {
+      "id": "event_3_4_5_ui_bbjhhd_bkg17",
+      "title": {
+        "en": "Version 3.4.5 — Roadmap Event Canvas #17",
+        "ru": "Версия 3.4.5 — Холст роадмапа событий #17"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_4_5",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_4_5/UI_BBJHHD_Bkg17",
+      "originalFileName": "UI_BBJHHD_Bkg17.png"
+    },
+    {
+      "id": "event_3_5_qiandao_ui_bbjhhd_bkg46",
+      "title": {
+        "en": "Version 3.5.qiandao — Roadmap Event Canvas #46",
+        "ru": "Версия 3.5.qiandao — Холст роадмапа событий #46"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_5_qiandao",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_5_qiandao/UI_BBJHHD_Bkg46",
+      "originalFileName": "UI_BBJHHD_Bkg46.png"
+    },
+    {
+      "id": "event_3_6_ui_bbjhhd_bkg19",
+      "title": {
+        "en": "Version 3.6 — Roadmap Event Canvas #19",
+        "ru": "Версия 3.6 — Холст роадмапа событий #19"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_6/UI_BBJHHD_Bkg19",
+      "originalFileName": "UI_BBJHHD_Bkg19.png"
+    },
+    {
+      "id": "event_3_6_ui_bbjhhd_bkg20",
+      "title": {
+        "en": "Version 3.6 — Roadmap Event Canvas #20",
+        "ru": "Версия 3.6 — Холст роадмапа событий #20"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_6/UI_BBJHHD_Bkg20",
+      "originalFileName": "UI_BBJHHD_Bkg20.png"
+    },
+    {
+      "id": "event_3_8_ui_bbjhhd_bkg24",
+      "title": {
+        "en": "Version 3.8 — Roadmap Event Canvas #24",
+        "ru": "Версия 3.8 — Холст роадмапа событий #24"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_3_8",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/3_8/UI_BBJHHD_Bkg24",
+      "originalFileName": "UI_BBJHHD_Bkg24.png"
+    },
+    {
+      "id": "event_4_2_ui_bbjhhd_bkg30",
+      "title": {
+        "en": "Version 4.2 — Roadmap Event Canvas #30",
+        "ru": "Версия 4.2 — Холст роадмапа событий #30"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_4_2",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/4_2/UI_BBJHHD_Bkg30",
+      "originalFileName": "UI_BBJHHD_Bkg30.png"
+    },
+    {
+      "id": "event_4_2_ui_bbjhhd_bkg31",
+      "title": {
+        "en": "Version 4.2 — Roadmap Event Canvas #31",
+        "ru": "Версия 4.2 — Холст роадмапа событий #31"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_4_2",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/4_2/UI_BBJHHD_Bkg31",
+      "originalFileName": "UI_BBJHHD_Bkg31.png"
+    },
+    {
+      "id": "event_4_5_ui_bbjhhd_bkg37",
+      "title": {
+        "en": "Version 4.5 — Roadmap Event Canvas #37",
+        "ru": "Версия 4.5 — Холст роадмапа событий #37"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_4_5",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/4_5/UI_BBJHHD_Bkg37",
+      "originalFileName": "UI_BBJHHD_Bkg37.png"
+    },
+    {
+      "id": "event_4_6_ui_bbjhhd_bkg38",
+      "title": {
+        "en": "Version 4.6 — Roadmap Event Canvas #38",
+        "ru": "Версия 4.6 — Холст роадмапа событий #38"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_4_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/4_6/UI_BBJHHD_Bkg38",
+      "originalFileName": "UI_BBJHHD_Bkg38.png"
+    },
+    {
+      "id": "event_4_6_ui_bbjhhd_bkg39",
+      "title": {
+        "en": "Version 4.6 — Roadmap Event Canvas #39",
+        "ru": "Версия 4.6 — Холст роадмапа событий #39"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_4_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/4_6/UI_BBJHHD_Bkg39",
+      "originalFileName": "UI_BBJHHD_Bkg39.png"
+    },
+    {
+      "id": "event_4_7_ui_bbjhhd_bkg40",
+      "title": {
+        "en": "Version 4.7 — Roadmap Event Canvas #40",
+        "ru": "Версия 4.7 — Холст роадмапа событий #40"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_4_7",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/4_7/UI_BBJHHD_Bkg40",
+      "originalFileName": "UI_BBJHHD_Bkg40.png"
+    },
+    {
+      "id": "event_4_8_ui_bbjhhd_bkg41",
+      "title": {
+        "en": "Version 4.8 — Roadmap Event Canvas #41",
+        "ru": "Версия 4.8 — Холст роадмапа событий #41"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_4_8",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/4_8/UI_BBJHHD_Bkg41",
+      "originalFileName": "UI_BBJHHD_Bkg41.png"
+    },
+    {
+      "id": "event_5_0_ui_bbjhhd_bkg42",
+      "title": {
+        "en": "Version 5.0 — Major Anniversary Event Canvas #42",
+        "ru": "Версия 5.0 — Юбилейный холст событий #42"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_0/UI_BBJHHD_Bkg42",
+      "originalFileName": "UI_BBJHHD_Bkg42.png"
+    },
+    {
+      "id": "event_5_0_ui_bbjhhd_bkg43",
+      "title": {
+        "en": "Version 5.0 — Major Anniversary Event Canvas #43",
+        "ru": "Версия 5.0 — Юбилейный холст событий #43"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_0/UI_BBJHHD_Bkg43",
+      "originalFileName": "UI_BBJHHD_Bkg43.png"
+    },
+    {
+      "id": "event_5_0_ui_bbjhhd_bkg44",
+      "title": {
+        "en": "Version 5.0 — Major Anniversary Event Canvas #44",
+        "ru": "Версия 5.0 — Юбилейный холст событий #44"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_0/UI_BBJHHD_Bkg44",
+      "originalFileName": "UI_BBJHHD_Bkg44.png"
+    },
+    {
+      "id": "event_5_2_ui_bbjhhd_bkg47",
+      "title": {
+        "en": "Version 5.2 — Roadmap Event Canvas #47",
+        "ru": "Версия 5.2 — Холст роадмапа событий #47"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_2",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_2/UI_BBJHHD_Bkg47",
+      "originalFileName": "UI_BBJHHD_Bkg47.png"
+    },
+    {
+      "id": "event_5_2_ui_bbjhhd_bkg48",
+      "title": {
+        "en": "Version 5.2 — Roadmap Event Canvas #48",
+        "ru": "Версия 5.2 — Холст роадмапа событий #48"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_2",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_2/UI_BBJHHD_Bkg48",
+      "originalFileName": "UI_BBJHHD_Bkg48.png"
+    },
+    {
+      "id": "event_5_3_ui_bbjhhd_bkg50",
+      "title": {
+        "en": "Version 5.3 — Roadmap Event Canvas #50",
+        "ru": "Версия 5.3 — Холст роадмапа событий #50"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_3",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_3/UI_BBJHHD_Bkg50",
+      "originalFileName": "UI_BBJHHD_Bkg50.png"
+    },
+    {
+      "id": "event_5_3_5_ui_bbjhhd_bkg51",
+      "title": {
+        "en": "Version 5.3.5 — Roadmap Event Canvas #51",
+        "ru": "Версия 5.3.5 — Холст роадмапа событий #51"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_3_5",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_3_5/UI_BBJHHD_Bkg51",
+      "originalFileName": "UI_BBJHHD_Bkg51.png"
+    },
+    {
+      "id": "event_5_4_ui_bbjhhd_bkg52",
+      "title": {
+        "en": "Version 5.4 — Roadmap Event Canvas #52",
+        "ru": "Версия 5.4 — Холст роадмапа событий #52"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_4",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_4/UI_BBJHHD_Bkg52",
+      "originalFileName": "UI_BBJHHD_Bkg52.png"
+    },
+    {
+      "id": "event_5_4_ui_bbjhhd_bkg53",
+      "title": {
+        "en": "Version 5.4 — Roadmap Event Canvas #53",
+        "ru": "Версия 5.4 — Холст роадмапа событий #53"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_4",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_4/UI_BBJHHD_Bkg53",
+      "originalFileName": "UI_BBJHHD_Bkg53.png"
+    },
+    {
+      "id": "event_5_4_ui_bbjhhd_bkg54",
+      "title": {
+        "en": "Version 5.4 — Roadmap Event Canvas #54",
+        "ru": "Версия 5.4 — Холст роадмапа событий #54"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_4",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_4/UI_BBJHHD_Bkg54",
+      "originalFileName": "UI_BBJHHD_Bkg54.png"
+    },
+    {
+      "id": "event_5_6_ui_bbjhhd_bkg53",
+      "title": {
+        "en": "Version 5.6 — Roadmap Event Canvas #53",
+        "ru": "Версия 5.6 — Холст роадмапа событий #53"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_6/UI_BBJHHD_Bkg53",
+      "originalFileName": "UI_BBJHHD_Bkg53.png"
+    },
+    {
+      "id": "event_5_6_ui_bbjhhd_bkg54",
+      "title": {
+        "en": "Version 5.6 — Roadmap Event Canvas #54",
+        "ru": "Версия 5.6 — Холст роадмапа событий #54"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_6/UI_BBJHHD_Bkg54",
+      "originalFileName": "UI_BBJHHD_Bkg54.png"
+    },
+    {
+      "id": "event_5_6_ui_bbjhhd_bkg55",
+      "title": {
+        "en": "Version 5.6 — Roadmap Event Canvas #55",
+        "ru": "Версия 5.6 — Холст роадмапа событий #55"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_6/UI_BBJHHD_Bkg55",
+      "originalFileName": "UI_BBJHHD_Bkg55.png"
+    },
+    {
+      "id": "event_5_6_ui_bbjhhd_bkg56",
+      "title": {
+        "en": "Version 5.6 — Roadmap Event Canvas #56",
+        "ru": "Версия 5.6 — Холст роадмапа событий #56"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_6/UI_BBJHHD_Bkg56",
+      "originalFileName": "UI_BBJHHD_Bkg56.png"
+    },
+    {
+      "id": "event_5_6_ui_bbjhhd_bkg57",
+      "title": {
+        "en": "Version 5.6 — Roadmap Event Canvas #57",
+        "ru": "Версия 5.6 — Холст роадмапа событий #57"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_5_6",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/5_6/UI_BBJHHD_Bkg57",
+      "originalFileName": "UI_BBJHHD_Bkg57.png"
+    },
+    {
+      "id": "event_6_0_ui_bbjhhd_bkg63",
+      "title": {
+        "en": "Version 6.0 — Roadmap Event Canvas #63",
+        "ru": "Версия 6.0 — Холст роадмапа событий #63"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_6_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/6_0/UI_BBJHHD_Bkg63",
+      "originalFileName": "UI_BBJHHD_Bkg63.png"
+    },
+    {
+      "id": "event_6_0_ui_bbjhhd_bkg64",
+      "title": {
+        "en": "Version 6.0 — Roadmap Event Canvas #64",
+        "ru": "Версия 6.0 — Холст роадмапа событий #64"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_6_0",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/6_0/UI_BBJHHD_Bkg64",
+      "originalFileName": "UI_BBJHHD_Bkg64.png"
+    },
+    {
+      "id": "event_6_1_ui_bbjhhd_bkg61",
+      "title": {
+        "en": "Version 6.1 — Roadmap Event Canvas #61",
+        "ru": "Версия 6.1 — Холст роадмапа событий #61"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_6_1",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/6_1/UI_BBJHHD_Bkg61",
+      "originalFileName": "UI_BBJHHD_Bkg61.png"
+    },
+    {
+      "id": "event_6_2_ui_bbjhhd_bkg66",
+      "title": {
+        "en": "Version 6.2 — Roadmap Event Canvas #66",
+        "ru": "Версия 6.2 — Холст роадмапа событий #66"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_6_2",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/6_2/UI_BBJHHD_Bkg66",
+      "originalFileName": "UI_BBJHHD_Bkg66.png"
+    },
+    {
+      "id": "event_6_3_ui_bbjhhd_bkg67",
+      "title": {
+        "en": "Version 6.3 — Agleia Key Art: Between Twilight and Dawn",
+        "ru": "Версия 6.3 — Аглая: Между сумерками и рассветом"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_6_3",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/6_3/UI_BBJHHD_Bkg67",
+      "originalFileName": "UI_BBJHHD_Bkg67.png"
+    },
+    {
+      "id": "event_overseas_lkqmx_ui_bbjhhd_bkg45",
+      "title": {
+        "en": "Version Overseas.lkqmx — Roadmap Event Canvas #45",
+        "ru": "Версия Overseas.lkqmx — Холст роадмапа событий #45"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_overseas_lkqmx",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/Overseas_lkqmx/UI_BBJHHD_Bkg45",
+      "originalFileName": "UI_BBJHHD_Bkg45.png"
+    },
+    {
+      "id": "event_qingkong_ui_bbjhhd_bkg30",
+      "title": {
+        "en": "Version QingKong — Roadmap Event Canvas #30",
+        "ru": "Версия QingKong — Холст роадмапа событий #30"
+      },
+      "category": "wallpapers",
+      "subCategory": "events",
+      "themeTag": "version_qingkong",
+      "aspectLabel": "21:10",
+      "sourcePath": "Content/Resources/UI/Activity/huodong/NewGgy/QingKong/UI_BBJHHD_Bkg30",
+      "originalFileName": "UI_BBJHHD_Bkg30.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_3_nan",
+      "title": {
+        "en": "Paper Reading #03 — Male Wanderer Story",
+        "ru": "Чтение бумаг #03 — История Странника"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "3:4",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_3_nan",
+      "originalFileName": "paper_3_nan.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_3_nv",
+      "title": {
+        "en": "Paper Reading #03 — Female Wanderer Story",
+        "ru": "Чтение бумаг #03 — История Странницы"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "3:4",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_3_nv",
+      "originalFileName": "paper_3_nv.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_4_nan",
+      "title": {
+        "en": "Paper Reading #04 — Male Wanderer Encounter",
+        "ru": "Чтение бумаг #04 — Встреча Странника"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "9:16",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_4_nan",
+      "originalFileName": "paper_4_nan.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_4_nv",
+      "title": {
+        "en": "Paper Reading #04 — Female Wanderer Encounter",
+        "ru": "Чтение бумаг #04 — Встреча Странницы"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "9:16",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_4_nv",
+      "originalFileName": "paper_4_nv.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_5",
+      "title": {
+        "en": "Paper Reading #05 — Gesthos Network & Domain 9",
+        "ru": "Чтение бумаг #05 — Сеть Гештос и Девятый домен"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "1.26:1",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_5",
+      "originalFileName": "paper_5.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_6_nan",
+      "title": {
+        "en": "Paper Reading #06 — Male Wanderer Memoir",
+        "ru": "Чтение бумаг #06 — Воспоминания Странника"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "3:4",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_6_nan",
+      "originalFileName": "paper_6_nan.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_6_nv",
+      "title": {
+        "en": "Paper Reading #06 — Female Wanderer Memoir",
+        "ru": "Чтение бумаг #06 — Воспоминания Странницы"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "3:4",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_6_nv",
+      "originalFileName": "paper_6_nv.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_7_nan",
+      "title": {
+        "en": "Paper Reading #07 — Male Wanderer Chronology",
+        "ru": "Чтение бумаг #07 — Хроника Странника"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "Portrait",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_7_nan",
+      "originalFileName": "paper_7_nan.png"
+    },
+    {
+      "id": "others_5_5_paper_reading_paper_7_nv",
+      "title": {
+        "en": "Paper Reading #07 — Female Wanderer Chronology",
+        "ru": "Чтение бумаг #07 — Хроника Странницы"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "paper_reading",
+      "aspectLabel": "Portrait",
+      "sourcePath": "Hotta/Content/Resources/UI/5_5_paper_reading/paper_7_nv",
+      "originalFileName": "paper_7_nv.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upbaiyuekui_lihui",
+      "title": {
+        "en": "Gacha Banner — Baiyuekui (Blade of Extinction)",
+        "ru": "Гача-баннер — Байюэкуй (Клинок угасания)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPbaiyuekui_lihui",
+      "originalFileName": "UI_UPbaiyuekui_lihui.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upbupoxiao_lihui01",
+      "title": {
+        "en": "Gacha Banner — Marc (Dawn Heavy Armor)",
+        "ru": "Гача-баннер — Марк (Тяжелый доспех Зари)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.06:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPbupoxiao_lihui01",
+      "originalFileName": "UI_UPbupoxiao_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upfulijia_lihui01",
+      "title": {
+        "en": "Gacha Banner — Frigg (Balmung)",
+        "ru": "Гача-баннер — Фригг (Бальмунг)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPfulijia_lihui01",
+      "originalFileName": "UI_UPfulijia_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upleibei_lihui01",
+      "title": {
+        "en": "Gacha Banner — Ruby (Spark)",
+        "ru": "Гача-баннер — Руби (Спарк)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPleibei_lihui01",
+      "originalFileName": "UI_UPleibei_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_ui_uplinye_lihui01",
+      "title": {
+        "en": "Gacha Banner — Lin (Shadow Weaver)",
+        "ru": "Гача-баннер — Линь (Ткач теней)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPlinye_lihui01",
+      "originalFileName": "UI_UPlinye_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upmake_lihui",
+      "title": {
+        "en": "Gacha Banner — Nemesis (Venus)",
+        "ru": "Гача-баннер — Немезида (Венера)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPmake_lihui",
+      "originalFileName": "UI_UPmake_lihui.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upnaimeixisi_lihui01",
+      "title": {
+        "en": "Gacha Banner — Nemesis (Awakening)",
+        "ru": "Гача-баннер — Немезида (Пробуждение)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPnaimeixisi_lihui01",
+      "originalFileName": "UI_UPnaimeixisi_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upsaimier_lihui01",
+      "title": {
+        "en": "Gacha Banner — Samir (Dual EM Stars)",
+        "ru": "Гача-баннер — Самир (Электромагнитные звезды)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPsaimier_lihui01",
+      "originalFileName": "UI_UPsaimier_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_ui_uptianlang_lihui01",
+      "title": {
+        "en": "Gacha Banner — Tian Lang (Powerbreak)",
+        "ru": "Гача-баннер — Тянь Лан (Громобой)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPtianlang_lihui01",
+      "originalFileName": "UI_UPtianlang_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_ui_upxinghuan_lihui01",
+      "title": {
+        "en": "Gacha Banner — Lyra (Vespers)",
+        "ru": "Гача-баннер — Лира (Веспер)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/UI_UPxinghuan_lihui01",
+      "originalFileName": "UI_UPxinghuan_lihui01.png"
+    },
+    {
+      "id": "others_choujiangup_gulan-lihui",
+      "title": {
+        "en": "Gacha Banner — Cobalt-B (Flaming Revolver)",
+        "ru": "Гача-баннер — Кобальт-Б (Пламенный револьвер)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/gulan-lihui",
+      "originalFileName": "gulan-lihui.png"
+    },
+    {
+      "id": "others_choujiangup_gulanwuqi-lihui",
+      "title": {
+        "en": "Artwork — Gulanwuqi-Lihui",
+        "ru": "Арт — Gulanwuqi-Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/gulanwuqi-lihui",
+      "originalFileName": "gulanwuqi-lihui.png"
+    },
+    {
+      "id": "others_choujiangup_kelaodiya-wuqi-lihui",
+      "title": {
+        "en": "Gacha Banner — Claudia (Guren Blade)",
+        "ru": "Гача-баннер — Клаудия (Клинок Гурэн)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/kelaodiya-wuqi-lihui",
+      "originalFileName": "kelaodiya-wuqi-lihui.png"
+    },
+    {
+      "id": "others_choujiangup_kelaodiya-yizi-lihui",
+      "title": {
+        "en": "Artwork — Kelaodiya-Yizi-Lihui",
+        "ru": "Арт — Kelaodiya-Yizi-Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/kelaodiya-yizi-lihui",
+      "originalFileName": "kelaodiya-yizi-lihui.png"
+    },
+    {
+      "id": "others_newactivity_ui_upfeiouna_lihui01",
+      "title": {
+        "en": "Gacha Banner — Fiona (Moonstar Bracelet)",
+        "ru": "Гача-баннер — Фиона (Лунный браслет)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/UI_UPfeiouna_lihui01",
+      "originalFileName": "UI_UPfeiouna_lihui01.png"
+    },
+    {
+      "id": "others_newactivity_ui_upfeise_lihui01",
+      "title": {
+        "en": "Gacha Banner — Fyre (Endless Bloom)",
+        "ru": "Гача-баннер — Файр (Бесконечное цветение)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/UI_UPfeise_lihui01",
+      "originalFileName": "UI_UPfeise_lihui01.png"
+    },
+    {
+      "id": "others_newactivity_ui_upgenuonuo_lihui01",
+      "title": {
+        "en": "Gacha Banner — Gnonno (Mini Hurricane)",
+        "ru": "Гача-баннер — Гноно (Мини-ураган)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/UI_UPgenuonuo_lihui01",
+      "originalFileName": "UI_UPgenuonuo_lihui01.png"
+    },
+    {
+      "id": "others_newactivity_ui_upleibiliya_lihui01",
+      "title": {
+        "en": "Gacha Banner — Rubilia (Lost Art)",
+        "ru": "Гача-баннер — Рубилия (Утраченное искусство)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/UI_UPleibiliya_lihui01",
+      "originalFileName": "UI_UPleibiliya_lihui01.png"
+    },
+    {
+      "id": "others_newactivity_ui_uplinghan_lihui01",
+      "title": {
+        "en": "Gacha Banner — Ling Han (Alabaster Tiger)",
+        "ru": "Гача-баннер — Лин Хань (Алебастровый тигр)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/UI_UPlinghan_lihui01",
+      "originalFileName": "UI_UPlinghan_lihui01.png"
+    },
+    {
+      "id": "others_newactivity_ui_upnanyin_lihui01",
+      "title": {
+        "en": "Gacha Banner — Nan Yin (Purple Bamboo)",
+        "ru": "Гача-баннер — Нань Инь (Пурпурный бамбук)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/UI_UPnanyin_lihui01",
+      "originalFileName": "UI_UPnanyin_lihui01.png"
+    },
+    {
+      "id": "others_newactivity_ui_alyss",
+      "title": {
+        "en": "Gacha Banner — Alyss (Unyielding Wing)",
+        "ru": "Гача-баннер — Алисс (Непреклонное крыло)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/UI_alyss",
+      "originalFileName": "UI_alyss.png"
+    },
+    {
+      "id": "others_newactivity_ykls-lihui",
+      "title": {
+        "en": "Gacha Banner — Icarus (Precious Gale)",
+        "ru": "Гача-баннер — Икарус (Драгоценный вихрь)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/YKLS-lihui",
+      "originalFileName": "YKLS-lihui.png"
+    },
+    {
+      "id": "others_newactivity_annabeila_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Annabella (Clover Cross)",
+        "ru": "Гача-баннер — Аннабелла (Клеверный крест)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/annabeila_UP_lihui_01",
+      "originalFileName": "annabeila_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_bulewei_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Brevey (Pactmaker)",
+        "ru": "Гача-баннер — Бреви (Создатель пактов)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/bulewei_UP_lihui_01",
+      "originalFileName": "bulewei_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_fenlier_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Fenrir (Gleipnir)",
+        "ru": "Гача-баннер — Фенрир (Глейпнир)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/fenlier_UP_lihui_01",
+      "originalFileName": "fenlier_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_lan_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Lan (Vermilion Phoenix)",
+        "ru": "Гача-баннер — Лань (Алая птица)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/lan_UP_lihui_01",
+      "originalFileName": "lan_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_liuhuo_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Liu Huo (Pine Comet)",
+        "ru": "Гача-баннер — Лю Хо (Сосновая комета)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/liuhuo_UP_lihui_01",
+      "originalFileName": "liuhuo_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_mimi_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Mimi / Huang (Meng Zhang)",
+        "ru": "Гача-баннер — Мими / Хуан (Мэн Чжан)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/mimi_UP_lihui_01",
+      "originalFileName": "mimi_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_mingjing_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Zeke / Ming Jing (Onyx Cloud)",
+        "ru": "Гача-баннер — Дзик / Мин Цзин (Ониксовое облако)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/mingjing_UP_lihui_01",
+      "originalFileName": "mingjing_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_paluodi_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Plotti (EP-7000 Skyfire)",
+        "ru": "Гача-баннер — Плотти (EP-7000 Небесный огонь)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/paluodi_UP_lihui_01",
+      "originalFileName": "paluodi_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_wumi_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Umi (Mobius)",
+        "ru": "Гача-баннер — Уми (Мёбиус)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/wumi_UP_lihui_01",
+      "originalFileName": "wumi_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_yanmiao_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Yan Miao (Equilibrium)",
+        "ru": "Гача-баннер — Янь Мяо (Равновесие)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/yanmiao_UP_lihui_01",
+      "originalFileName": "yanmiao_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_yanuo_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Yanuo (Wicked)",
+        "ru": "Гача-баннер — Януо (Зловещий)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/yanuo_UP_lihui_01",
+      "originalFileName": "yanuo_UP_lihui_01.png"
+    },
+    {
+      "id": "others_newactivity_yulan_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Yulan (Unity)",
+        "ru": "Гача-баннер — Юйлань (Единство)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/yulan_UP_lihui_01",
+      "originalFileName": "yulan_UP_lihui_01.png"
+    },
+    {
+      "id": "others_ak_anke_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Anka (Poppin' Stick)",
+        "ru": "Гача-баннер — Анка (Поппин-стик)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/AK/anke_UP_lihui_01",
+      "originalFileName": "anke_UP_lihui_01.png"
+    },
+    {
+      "id": "others_asld_asilada_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Asurada (Flaming Tiger)",
+        "ru": "Гача-баннер — Асурада (Пламенный тигр)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/ASLD/asilada_UP_lihui_01",
+      "originalFileName": "asilada_UP_lihui_01.png"
+    },
+    {
+      "id": "others_ast_aisite_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Ester (Holy Radiance)",
+        "ru": "Гача-баннер — Эстер (Священное сияние)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/AST/aisite_UP_lihui_01",
+      "originalFileName": "aisite_UP_lihui_01.png"
+    },
+    {
+      "id": "others_atly_antuoliya_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Antoria (The Divine Slayer)",
+        "ru": "Гача-баннер — Антория (Убийца богов)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/ATLY/antuoliya_UP_lihui_01",
+      "originalFileName": "antuoliya_UP_lihui_01.png"
+    },
+    {
+      "id": "others_hh_huihu_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Grey Fox (Cyber Masquerade)",
+        "ru": "Гача-баннер — Серая Лиса (Кибер-маскарад)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/HH/huihu_UP_lihui_01",
+      "originalFileName": "huihu_UP_lihui_01.png"
+    },
+    {
+      "id": "others_hlb_huluobei_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Carrot (Space Pixie)",
+        "ru": "Гача-баннер — Морковка (Космический эльф)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/HLB/huluobei_UP_lihui_01",
+      "originalFileName": "huluobei_UP_lihui_01.png"
+    },
+    {
+      "id": "others_jy_jiyu_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Ji Yu (Dragon Dance)",
+        "ru": "Гача-баннер — Цзи Юй (Танец дракона)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/JY/jiyu_UP_lihui_01",
+      "originalFileName": "jiyu_UP_lihui_01.png"
+    },
+    {
+      "id": "others_kldyx_kelaodiyafby_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Claudia (Storm Eye)",
+        "ru": "Гача-баннер — Клаудия (Око бури)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/KLDYX/kelaodiyaFBY_UP_lihui_01",
+      "originalFileName": "kelaodiyaFBY_UP_lihui_01.png"
+    },
+    {
+      "id": "others_lbl_lingboli_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Rei Ayanami (Evangelion Collab)",
+        "ru": "Гача-баннер — Рей Аянами (Коллаборация Evangelion)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LBL/lingboli_UP_lihui_01",
+      "originalFileName": "lingboli_UP_lihui_01.png"
+    },
+    {
+      "id": "others_lk_naimeixisilk_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Nemesis: Stellar Rebirth",
+        "ru": "Гача-баннер — Немезида: Звездное перерождение"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LK/naimeixisiLK_UP_lihui_01",
+      "originalFileName": "naimeixisiLK_UP_lihui_01.png"
+    },
+    {
+      "id": "others_ls_linsai_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Lyncis (In Search of Blooms)",
+        "ru": "Гача-баннер — Линсис (В поисках цветов)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LS/linsai_UP_lihui_01",
+      "originalFileName": "linsai_UP_lihui_01.png"
+    },
+    {
+      "id": "others_lsl_luosilin_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Roslyn (Calm Waters)",
+        "ru": "Гача-баннер — Рослин (Спокойные воды)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LSL/luosilin_UP_lihui_01",
+      "originalFileName": "luosilin_UP_lihui_01.png"
+    },
+    {
+      "id": "others_mlex_meilierkai_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Meryl Ironheart (Frozen Dawn)",
+        "ru": "Гача-баннер — Мерил Железное Сердце (Морозный рассвет)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/MLEX/meilierkai_UP_lihui_01",
+      "originalFileName": "meilierkai_UP_lihui_01.png"
+    },
+    {
+      "id": "others_mrx_mingrixiang_up_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Asuka Langley (Evangelion Collab)",
+        "ru": "Гача-баннер — Аска Лэнгли (Коллаборация Evangelion)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/MRX/mingrixiang_UP_lihui_01",
+      "originalFileName": "mingrixiang_UP_lihui_01.png"
+    },
+    {
+      "id": "others_nl_lin_nuola_lihui_01",
+      "title": {
+        "en": "Gacha Banner — Nola (Coast Wind)",
+        "ru": "Гача-баннер — Нола (Прибрежный ветер)"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/NL/lin_nuola_lihui_01",
+      "originalFileName": "lin_nuola_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_all_zixuan_up_lihui_10",
+      "title": {
+        "en": "Artwork — Zixuan Up Lihui 10",
+        "ru": "Арт — Zixuan Up Lihui 10"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_all/zixuan_UP_lihui_10",
+      "originalFileName": "zixuan_UP_lihui_10.png"
+    },
+    {
+      "id": "others_zixuan_all_zixuan_up_lihui_11",
+      "title": {
+        "en": "Artwork — Zixuan Up Lihui 11",
+        "ru": "Арт — Zixuan Up Lihui 11"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_all/zixuan_UP_lihui_11",
+      "originalFileName": "zixuan_UP_lihui_11.png"
+    },
+    {
+      "id": "others_zixuan_fire_fire_up_lihui_01",
+      "title": {
+        "en": "Artwork — Fire Up Lihui 01",
+        "ru": "Арт — Fire Up Lihui 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_fire/fire_UP_lihui_01",
+      "originalFileName": "fire_UP_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_fire_fire_up_lihui_07",
+      "title": {
+        "en": "Artwork — Fire Up Lihui 07",
+        "ru": "Арт — Fire Up Lihui 07"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_fire/fire_UP_lihui_07",
+      "originalFileName": "fire_UP_lihui_07.png"
+    },
+    {
+      "id": "others_zixuan_fire_zixuan6_0_up_lihui_01",
+      "title": {
+        "en": "Artwork — Zixuan6 0 Up Lihui 01",
+        "ru": "Арт — Zixuan6 0 Up Lihui 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_fire/zixuan6_0_UP_lihui_01",
+      "originalFileName": "zixuan6_0_UP_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_ice_ice_up_lihui_01",
+      "title": {
+        "en": "Artwork — Ice Up Lihui 01",
+        "ru": "Арт — Ice Up Lihui 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_ice/ice_UP_lihui_01",
+      "originalFileName": "ice_UP_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_ice_ice_up_lihui_06",
+      "title": {
+        "en": "Artwork — Ice Up Lihui 06",
+        "ru": "Арт — Ice Up Lihui 06"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_ice/ice_UP_lihui_06",
+      "originalFileName": "ice_UP_lihui_06.png"
+    },
+    {
+      "id": "others_zixuan_physic_physics_up_lihui_01",
+      "title": {
+        "en": "Artwork — Physics Up Lihui 01",
+        "ru": "Арт — Physics Up Lihui 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_physic/physics_UP_lihui_01",
+      "originalFileName": "physics_UP_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_physic_physics_up_lihui_04",
+      "title": {
+        "en": "Artwork — Physics Up Lihui 04",
+        "ru": "Арт — Physics Up Lihui 04"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_physic/physics_UP_lihui_04",
+      "originalFileName": "physics_UP_lihui_04.png"
+    },
+    {
+      "id": "others_zixuan_thunder_thunder01_up_lihui_01",
+      "title": {
+        "en": "Artwork — Thunder01 Up Lihui 01",
+        "ru": "Арт — Thunder01 Up Lihui 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_thunder/thunder01_UP_lihui_01",
+      "originalFileName": "thunder01_UP_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_thunder_thunder01_up_lihui_06",
+      "title": {
+        "en": "Artwork — Thunder01 Up Lihui 06",
+        "ru": "Арт — Thunder01 Up Lihui 06"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_thunder/thunder01_UP_lihui_06",
+      "originalFileName": "thunder01_UP_lihui_06.png"
+    },
+    {
+      "id": "others_zixuan_thunder_zixuan_up_nationallihui",
+      "title": {
+        "en": "Artwork — Zixuan Up Nationallihui",
+        "ru": "Арт — Zixuan Up Nationallihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_thunder/zixuan_UP_Nationallihui",
+      "originalFileName": "zixuan_UP_Nationallihui.png"
+    },
+    {
+      "id": "others_zixuan_thunder_zixuan_up_lihui_01",
+      "title": {
+        "en": "Artwork — Zixuan Up Lihui 01",
+        "ru": "Арт — Zixuan Up Lihui 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_thunder/zixuan_UP_lihui_01",
+      "originalFileName": "zixuan_UP_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_yineng_yineng02_up_lihui_01",
+      "title": {
+        "en": "Artwork — Yineng02 Up Lihui 01",
+        "ru": "Арт — Yineng02 Up Lihui 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_yineng/yineng02_UP_lihui_01",
+      "originalFileName": "yineng02_UP_lihui_01.png"
+    },
+    {
+      "id": "others_zixuan_yineng_yineng_up_lihui_04",
+      "title": {
+        "en": "Artwork — Yineng Up Lihui 04",
+        "ru": "Арт — Yineng Up Lihui 04"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.12:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_yineng/yineng_UP_lihui_04",
+      "originalFileName": "yineng_UP_lihui_04.png"
+    },
+    {
+      "id": "others_zixuan_yineng_yineng_up_lihui_05",
+      "title": {
+        "en": "Artwork — Yineng Up Lihui 05",
+        "ru": "Арт — Yineng Up Lihui 05"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gacha_banner",
+      "aspectLabel": "1.13:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_yineng/yineng_UP_lihui_05",
+      "originalFileName": "yineng_UP_lihui_05.png"
+    },
+    {
+      "id": "others_gehx_ui_hd_thanksgiving_bgk01",
+      "title": {
+        "en": "Artwork — Ui Hd Thanksgiving Bgk01",
+        "ru": "Арт — Ui Hd Thanksgiving Bgk01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gehx",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/Oversea/GEHX/UI_hd_Thanksgiving_Bgk01",
+      "originalFileName": "UI_hd_Thanksgiving_Bgk01.png"
+    },
+    {
+      "id": "others_xgsd_ui_hd_christmas_bgk01",
+      "title": {
+        "en": "Artwork — Ui Hd Christmas Bgk01",
+        "ru": "Арт — Ui Hd Christmas Bgk01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "xgsd",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/Oversea/XGSD/UI_hd_Christmas_Bgk01",
+      "originalFileName": "UI_hd_Christmas_Bgk01.png"
+    },
+    {
+      "id": "others_xjy_5",
+      "title": {
+        "en": "Global Milestone Gala — Radiant Constellation",
+        "ru": "Глобальное событие — Сияющее созвездие"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "xjy",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/Oversea/XJY/5",
+      "originalFileName": "5.png"
+    },
+    {
+      "id": "others_cxmy_img_cxmy12",
+      "title": {
+        "en": "Artwork — Img Cxmy12",
+        "ru": "Арт — Img Cxmy12"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "cxmy",
+      "aspectLabel": "0.99:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/CXMY/Img_CXMY12",
+      "originalFileName": "Img_CXMY12.png"
+    },
+    {
+      "id": "others_gdxly_gdxly_image1",
+      "title": {
+        "en": "Artwork — Gdxly Image1",
+        "ru": "Арт — Gdxly Image1"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "gdxly",
+      "aspectLabel": "1.24:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/GDXLY/GDXLY_image1",
+      "originalFileName": "GDXLY_image1.png"
+    },
+    {
+      "id": "others_jzcg_ui_jzcg_lihui",
+      "title": {
+        "en": "Artwork — Ui Jzcg Lihui",
+        "ru": "Арт — Ui Jzcg Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "jzcg",
+      "aspectLabel": "1.57:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/JZCG/UI_JZCG_lihui",
+      "originalFileName": "UI_JZCG_lihui.png"
+    },
+    {
+      "id": "others_mvpd_mnpd_lihui",
+      "title": {
+        "en": "Artwork — Mnpd Lihui",
+        "ru": "Арт — Mnpd Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "mvpd",
+      "aspectLabel": "3:4",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/MVPD/MNPD_lihui",
+      "originalFileName": "MNPD_lihui.png"
+    },
+    {
+      "id": "others_newyear2024_ui_springf_bg02",
+      "title": {
+        "en": "Spring Festival 2024 — Celebration Stage",
+        "ru": "Праздник весны 2024 — Сцена торжества"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "spring_festival",
+      "aspectLabel": "1.56:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/NewYear2024/UI_SpringF_bg02",
+      "originalFileName": "UI_SpringF_bg02.png"
+    },
+    {
+      "id": "others_newyear2024_ui_springf_bg03",
+      "title": {
+        "en": "Artwork — Ui Springf Bg03",
+        "ru": "Арт — Ui Springf Bg03"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "spring_festival",
+      "aspectLabel": "0.8:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/NewYear2024/UI_SpringF_bg03",
+      "originalFileName": "UI_SpringF_bg03.png"
+    },
+    {
+      "id": "others_newyear2024_ui_spring_bg",
+      "title": {
+        "en": "Spring Festival Grand Fireworks Panorama",
+        "ru": "Панорама праздничных фейерверков"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "spring_festival",
+      "aspectLabel": "4:3",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/NewYear2024/UI_spring_bg",
+      "originalFileName": "UI_spring_bg.png"
+    },
+    {
+      "id": "others_springfestival_fqsc_lihui",
+      "title": {
+        "en": "Artwork — Fqsc Lihui",
+        "ru": "Арт — Fqsc Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "springfestival",
+      "aspectLabel": "1.09:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/SpringFestival/FQSC_lihui",
+      "originalFileName": "FQSC_lihui.png"
+    },
+    {
+      "id": "others_tbcl_tbcl_lihui",
+      "title": {
+        "en": "Artwork — Tbcl Lihui",
+        "ru": "Арт — Tbcl Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "tbcl",
+      "aspectLabel": "1.28:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/TBCL/TBCL_lihui",
+      "originalFileName": "TBCL_lihui.png"
+    },
+    {
+      "id": "others_thanksgiving_thanksgiving_lihui01",
+      "title": {
+        "en": "Artwork — Thanksgiving Lihui01",
+        "ru": "Арт — Thanksgiving Lihui01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "thanksgiving",
+      "aspectLabel": "1.53:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/ThanksGiving/thanksgiving_lihui01",
+      "originalFileName": "thanksgiving_lihui01.png"
+    },
+    {
+      "id": "others_xgxrj_xgxrj_lihui",
+      "title": {
+        "en": "Artwork — Xgxrj Lihui",
+        "ru": "Арт — Xgxrj Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "xgxrj",
+      "aspectLabel": "0.94:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/XGXRJ/XGXRJ_lihui",
+      "originalFileName": "XGXRJ_lihui.png"
+    },
+    {
+      "id": "others_xjtjl_bg_xjtjl_1",
+      "title": {
+        "en": "Artwork — Bg Xjtjl 1",
+        "ru": "Арт — Bg Xjtjl 1"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "xjtjl",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/XJTJL/BG_XJTJL_1",
+      "originalFileName": "BG_XJTJL_1.png"
+    },
+    {
+      "id": "others_xmyy_ui_xmyy_lihui",
+      "title": {
+        "en": "Artwork — Ui Xmyy Lihui",
+        "ru": "Арт — Ui Xmyy Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "xmyy",
+      "aspectLabel": "0.82:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/XMYY/UI_XMYY_lihui",
+      "originalFileName": "UI_XMYY_lihui.png"
+    },
+    {
+      "id": "others_ybcs_img_zombie",
+      "title": {
+        "en": "Halloween Spooktacular — Zombie Carnival",
+        "ru": "Хэллоуин — Карнавал зомби"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "ybcs",
+      "aspectLabel": "1.39:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/YBCS/Img_Zombie",
+      "originalFileName": "Img_Zombie.png"
+    },
+    {
+      "id": "others_yfxx_bg_2",
+      "title": {
+        "en": "Midsummer Night Fireworks Celebration",
+        "ru": "Праздник фейерверков летней ночи"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "yfxx",
+      "aspectLabel": "1.1:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/YFXX/Bg_2",
+      "originalFileName": "Bg_2.png"
+    },
+    {
+      "id": "others_yymb_ui_yymb_lihui",
+      "title": {
+        "en": "Artwork — Ui Yymb Lihui",
+        "ru": "Арт — Ui Yymb Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "yymb",
+      "aspectLabel": "1.16:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/YYMB/UI_YYMB_lihui",
+      "originalFileName": "UI_YYMB_lihui.png"
+    },
+    {
+      "id": "others_zxzd_zxzd_lihui",
+      "title": {
+        "en": "Artwork — Zxzd Lihui",
+        "ru": "Арт — Zxzd Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "zxzd",
+      "aspectLabel": "1.39:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/ZXZD/ZXZD_lihui",
+      "originalFileName": "ZXZD_lihui.png"
+    },
+    {
+      "id": "others_jjxsz_bg_jjxsz",
+      "title": {
+        "en": "Shadow Seekers — Event Panoramic Background",
+        "ru": "Искатели теней — Панорамный фон события"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "jjxsz",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/HideAndSeek/JJXSZ/Bg_JJXSZ",
+      "originalFileName": "Bg_JJXSZ.png"
+    },
+    {
+      "id": "others_jjxsz_img_jjxsz_wumi",
+      "title": {
+        "en": "Shadow Seekers — Umi Illusion Canvas",
+        "ru": "Искатели теней — Иллюзия Уми"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "jjxsz",
+      "aspectLabel": "1.26:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/HideAndSeek/JJXSZ/Img_JJXSZ_WUMI",
+      "originalFileName": "Img_JJXSZ_WUMI.png"
+    },
+    {
+      "id": "others_mfmz_ui_mfmz_lihui",
+      "title": {
+        "en": "Artwork — Ui Mfmz Lihui",
+        "ru": "Арт — Ui Mfmz Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "mfmz",
+      "aspectLabel": "1.08:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/HideAndSeek/MFMZ/UI_MFMZ_lihui",
+      "originalFileName": "UI_MFMZ_lihui.png"
+    },
+    {
+      "id": "others_treasurecave_ui_hxxz_bg01",
+      "title": {
+        "en": "Secret Grotto Treasure Exploration",
+        "ru": "Исследование сокровищ тайного грота"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "treasurecave",
+      "aspectLabel": "1.43:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/TreasureCave/UI_HXXZ_bg01",
+      "originalFileName": "UI_HXXZ_bg01.png"
+    },
+    {
+      "id": "others_vientianereload_ui_zxwx_lihui",
+      "title": {
+        "en": "Vientiane Reload — Key Visual Canvas",
+        "ru": "Перезагрузка Всенебесной — Ключевой визуал"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "vientianereload",
+      "aspectLabel": "1.23:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/VientianeReload/UI_ZXWX_lihui",
+      "originalFileName": "UI_ZXWX_lihui.png"
+    },
+    {
+      "id": "others_shotgame_ui_dwsk_lihui",
+      "title": {
+        "en": "Wild West Sharpshooter — Showdown Visual",
+        "ru": "Стрелок Дикого Запада — Дуэльный арт"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "shotgame",
+      "aspectLabel": "1.62:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/shotgame/UI_DWSK_lihui",
+      "originalFileName": "UI_DWSK_lihui.png"
+    },
+    {
+      "id": "others_new1_ui_qddj_bg02",
+      "title": {
+        "en": "Artwork — Ui Qddj Bg02",
+        "ru": "Арт — Ui Qddj Bg02"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "new1",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/shotgame/teamshot/new1/UI_QDDJ_bg02",
+      "originalFileName": "UI_QDDJ_bg02.png"
+    },
+    {
+      "id": "others_new2_ui_qzdy_lihui",
+      "title": {
+        "en": "Artwork — Ui Qzdy Lihui",
+        "ru": "Арт — Ui Qzdy Lihui"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "new2",
+      "aspectLabel": "0.99:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/shotgame/teamshot/new2/UI_QZDY_lihui",
+      "originalFileName": "UI_QZDY_lihui.png"
+    },
+    {
+      "id": "others_zsxgy_ui_zsxgy_lihui",
+      "title": {
+        "en": "Starlight Parkour — Speed Trial Canvas",
+        "ru": "Звездный паркур — Скоростное испытание"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "zsxgy",
+      "aspectLabel": "1.44:1",
+      "sourcePath": "Hotta/Content/Resources/UI/Activity/ZSXGY/UI_ZSXGY_lihui",
+      "originalFileName": "UI_ZSXGY_lihui.png"
+    },
+    {
+      "id": "others_nora_zhaopian",
+      "title": {
+        "en": "Nora's Cherished Memorial Photograph",
+        "ru": "Памятная фотография Норы"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "photography",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/zhaopian",
+      "originalFileName": "zhaopian.png"
+    },
+    {
+      "id": "others_taikong_ani_yztx_19",
+      "title": {
+        "en": "Artwork — Ani Yztx 19",
+        "ru": "Арт — Ani Yztx 19"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "taikong",
+      "aspectLabel": "Portrait",
+      "sourcePath": "Hotta/Content/Resources/UI/taikong/Ani_YZTX_19",
+      "originalFileName": "Ani_YZTX_19.png"
+    },
+    {
+      "id": "others_taikong_img_yztx_photoa2_10",
+      "title": {
+        "en": "Cosmic Nebula Deep Space Panorama",
+        "ru": "Глубокий космос — Панорама космической туманности"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "photography",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/taikong/Img_YZTX_PhotoA2_10",
+      "originalFileName": "Img_YZTX_PhotoA2_10.png"
+    },
+    {
+      "id": "others_jiku_bg_mx00-1",
+      "title": {
+        "en": "Evangelion Mecha Hangar — Bay 01",
+        "ru": "Ангар Evangelion — Сектор 01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "evangelion",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/Eva_main/jiku/Bg_MX00-1",
+      "originalFileName": "Bg_MX00-1.png"
+    },
+    {
+      "id": "others_jiku_bg_mx00-2",
+      "title": {
+        "en": "Evangelion Mecha Hangar — Bay 02",
+        "ru": "Ангар Evangelion — Сектор 02"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "evangelion",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/Eva_main/jiku/Bg_MX00-2",
+      "originalFileName": "Bg_MX00-2.png"
+    },
+    {
+      "id": "others_jiku_bg_mx00-3",
+      "title": {
+        "en": "Evangelion Mecha Hangar — Bay 03",
+        "ru": "Ангар Evangelion — Сектор 03"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "evangelion",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/Eva_main/jiku/Bg_MX00-3",
+      "originalFileName": "Bg_MX00-3.png"
+    },
+    {
+      "id": "others_mian_gwzj_bj",
+      "title": {
+        "en": "Celestial Trail — Grand Horizon",
+        "ru": "Небесная тропа — Великий горизонт"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "mian",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/GWZJ/mian/GWZJ_BJ",
+      "originalFileName": "GWZJ_BJ.png"
+    },
+    {
+      "id": "others_beijing_tjhy_bjpng01_kong",
+      "title": {
+        "en": "Celestial Trail — Starlit Realm",
+        "ru": "Небесная тропа — Звездная обитель"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "beijing",
+      "aspectLabel": "1.66:1",
+      "sourcePath": "Hotta/Content/Resources/UI/GWZJ/renwu/beijing/TJHY_BJpng01_kong",
+      "originalFileName": "TJHY_BJpng01_kong.png"
+    },
+    {
+      "id": "others_beijing_tjhy_bjpng02_kong",
+      "title": {
+        "en": "Artwork — Tjhy Bjpng02 Kong",
+        "ru": "Арт — Tjhy Bjpng02 Kong"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "beijing",
+      "aspectLabel": "1.66:1",
+      "sourcePath": "Hotta/Content/Resources/UI/GWZJ/renwu/beijing/TJHY_BJpng02_kong",
+      "originalFileName": "TJHY_BJpng02_kong.png"
+    },
+    {
+      "id": "others_beijing_tjhy_bj_zhezhao_you",
+      "title": {
+        "en": "Artwork — Tjhy Bj Zhezhao You",
+        "ru": "Арт — Tjhy Bj Zhezhao You"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "beijing",
+      "aspectLabel": "9:16",
+      "sourcePath": "Hotta/Content/Resources/UI/GWZJ/renwu/beijing/TJHY_bj_zhezhao_YOU",
+      "originalFileName": "TJHY_bj_zhezhao_YOU.png"
+    },
+    {
+      "id": "others_beijing_tjhy_bj_zhezhao_you01",
+      "title": {
+        "en": "Artwork — Tjhy Bj Zhezhao You01",
+        "ru": "Арт — Tjhy Bj Zhezhao You01"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "beijing",
+      "aspectLabel": "9:16",
+      "sourcePath": "Hotta/Content/Resources/UI/GWZJ/renwu/beijing/TJHY_bj_zhezhao_YOU01",
+      "originalFileName": "TJHY_bj_zhezhao_YOU01.png"
+    },
+    {
+      "id": "others_beijing_tjhy_bj_zhezhao_zuo",
+      "title": {
+        "en": "Artwork — Tjhy Bj Zhezhao Zuo",
+        "ru": "Арт — Tjhy Bj Zhezhao Zuo"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "beijing",
+      "aspectLabel": "9:16",
+      "sourcePath": "Hotta/Content/Resources/UI/GWZJ/renwu/beijing/TJHY_bj_zhezhao_ZUO",
+      "originalFileName": "TJHY_bj_zhezhao_ZUO.png"
+    },
+    {
+      "id": "others_mmogashapon_img_cwjxk",
+      "title": {
+        "en": "Pet Companion Gashapon Grand Display",
+        "ru": "Большая витрина питомцев-компаньонов"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "mmogashapon",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/MMOGashapon/Img_CWJXK",
+      "originalFileName": "Img_CWJXK.png"
+    },
+    {
+      "id": "others_mmogashapon_title_cwjxk",
+      "title": {
+        "en": "Artwork — Title Cwjxk",
+        "ru": "Арт — Title Cwjxk"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "mmogashapon",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/MMOGashapon/Title_CWJXK",
+      "originalFileName": "Title_CWJXK.png"
+    },
+    {
+      "id": "others_jxk2_img_cwjxk2",
+      "title": {
+        "en": "Pet Companion Gashapon Showcase II",
+        "ru": "Витрина питомцев-компаньонов II"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "jxk2",
+      "aspectLabel": "Ultra-Wide",
+      "sourcePath": "Hotta/Content/Resources/UI/MMOGashapon/JXK2/Img_CWJXK2",
+      "originalFileName": "Img_CWJXK2.png"
+    },
+    {
+      "id": "others_saicheng_1920-1280",
+      "title": {
+        "en": "Esports Championship Arena Stage",
+        "ru": "Арена киберспортивного чемпионата"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "saicheng",
+      "aspectLabel": "1.5:1",
+      "sourcePath": "Hotta/Content/Resources/UI/saishi/saicheng/1920-1280",
+      "originalFileName": "1920-1280.png"
+    },
+    {
+      "id": "others_shouye_beijing",
+      "title": {
+        "en": "Esports Championship Grand Hall",
+        "ru": "Главный зал киберспортивного турнира"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "shouye",
+      "aspectLabel": "1.5:1",
+      "sourcePath": "Hotta/Content/Resources/UI/saishi/shouye/beijing",
+      "originalFileName": "beijing.png"
+    },
+    {
+      "id": "others_chongzou_ui_czlx_lihui",
+      "title": {
+        "en": "Resonant Echoes — Musical Symphony Visual",
+        "ru": "Звучащее эхо — Музыкальная симфония"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "chongzou",
+      "aspectLabel": "4:3",
+      "sourcePath": "Hotta/Content/Resources/UI/mingzou/mingzoufuke/ChongZou/UI_CZLX_lihui",
+      "originalFileName": "UI_CZLX_lihui.png"
+    },
+    {
+      "id": "others_throwbomb_arena_lihui",
+      "title": {
+        "en": "Bomb Blitz Arena — Combat Illustration",
+        "ru": "Арена бомбометания — Боевой визуал"
+      },
+      "category": "others",
+      "subCategory": "others",
+      "themeTag": "throwbomb",
+      "aspectLabel": "16:9",
+      "sourcePath": "Hotta/Content/Resources/UI/ThrowBomb/arena_lihui",
+      "originalFileName": "arena_lihui.png"
+    }
+  ]
+}

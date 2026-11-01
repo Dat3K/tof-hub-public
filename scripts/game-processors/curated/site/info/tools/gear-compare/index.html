@@ -1,0 +1,1217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ToF | Gear Compare</title>
+  <meta name="description" content="Evaluate piece-for-piece gear swaps and compute dynamic substat equivalence using exact Tower of Fantasy combat formulas. Replaces static spreadsheet calculations with real-time Expected Damage Index modeling." />
+  <link rel="icon" type="image/svg+xml" href="/datamine/favicon.svg" />
+
+  <!-- Shared stylesheets -->
+  <link rel="stylesheet" href="/datamine/shared/fonts.css" />
+  <link rel="stylesheet" href="/datamine/shared/base.css" />
+  <link rel="stylesheet" href="/datamine/shared/shell.css" />
+  <link rel="stylesheet" href="/tools/shared/tools-header.css" />
+  <link rel="stylesheet" href="/datamine/shared/footer.css" />
+
+  <!-- Tab styling -->
+  <link rel="stylesheet" href="./styles/gear-compare.css" />
+</head>
+<body class="gear-compare-page">
+  <div class="noise-bg"></div>
+
+  <!-- Tools Navigation Header -->
+  <div data-tools-header data-current="gear-compare" data-base-path="/tools/"></div>
+
+  <main id="main-content" class="gear-compare-layout">
+    <!-- Breadcrumb Navigation -->
+    <nav class="guide-breadcrumbs" aria-label="Breadcrumb">
+      <ol class="guide-breadcrumbs__list">
+        <li class="guide-breadcrumbs__item">
+          <a href="/tools/" class="guide-breadcrumbs__link">Tools Hub</a>
+        </li>
+        <li class="guide-breadcrumbs__sep" aria-hidden="true">/</li>
+        <li class="guide-breadcrumbs__item guide-breadcrumbs__current" aria-current="page">
+          Gear Compare &amp; Titan Rolls
+        </li>
+      </ol>
+    </nav>
+
+    <!-- Hero Header -->
+    <header class="gc-hero">
+      <div class="gc-hero__top">
+        <div>
+          <p class="gc-hero__eyebrow" data-i18n="heroEyebrow">GEAR OPTIMIZATION &amp; RELATIVE DAMAGE SOLVER</p>
+          <h1 class="gc-hero__title" data-i18n="heroTitle">Gear Compare &amp; Stat Value Solver</h1>
+          <p class="gc-hero__subtitle" data-i18n="heroSubtitle">
+            Evaluate piece-for-piece gear swaps and compute dynamic substat equivalence using exact Tower of Fantasy combat formulas. Replaces static spreadsheet calculations with real-time Expected Damage Index modeling.
+          </p>
+        </div>
+        <div class="gc-actions">
+          <button type="button" id="btn-share" class="gc-btn gc-btn--primary">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"></circle>
+              <circle cx="6" cy="12" r="3"></circle>
+              <circle cx="18" cy="19" r="3"></circle>
+              <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+              <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+            </svg>
+            <span data-i18n="actionShare">Share Setup</span>
+          </button>
+          <button type="button" id="btn-swap-pieces" class="gc-btn gc-btn--ghost" title="Swap Gear A and Gear B">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="17 1 21 5 17 9"></polyline>
+              <path d="M3 5h18"></path>
+              <polyline points="7 23 3 19 7 15"></polyline>
+              <path d="M21 19H3"></path>
+            </svg>
+            <span data-i18n="actionSwap">Swap Pieces (A ⇄ B)</span>
+          </button>
+          <button type="button" id="btn-reset" class="gc-btn gc-btn--ghost">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+              <path d="M3 3v5h5"></path>
+            </svg>
+            <span data-i18n="actionReset">Reset Defaults</span>
+          </button>
+          <a href="./guide/" id="btn-how-it-works" class="gc-btn gc-btn--ghost">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="16" x2="12" y2="12"></line>
+              <line x1="12" y1="8" x2="12.01" y2="8"></line>
+            </svg>
+            <span data-i18n="actionHowItWorks">How It Works</span>
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Presets Bar -->
+    <section class="gc-presets-bar" aria-labelledby="heading-presets">
+      <div class="gc-presets-bar__header">
+        <h2 id="heading-presets" class="gc-presets-bar__title" data-i18n="presetsHeading">Quick Presets</h2>
+      </div>
+      <div class="gc-presets-grid" id="calc-presets-grid">
+        <!-- Injected dynamically via JS -->
+      </div>
+    </section>
+
+    <!-- Main 2-Column Grid -->
+    <div class="gc-grid">
+      <!-- LEFT COLUMN: Inputs & Controls -->
+      <div class="gc-col-inputs">
+        <form id="gear-compare-form" onsubmit="return false;">
+          <!-- 1. Core Combat Snapshot Panel -->
+          <section class="gc-panel" aria-labelledby="heading-core-stats">
+            <div class="gc-panel__header">
+              <h2 id="heading-core-stats" class="gc-panel__title" data-i18n="panelCoreTitle">
+                1. Core Combat Snapshot (Gear A Equipped)
+              </h2>
+              <p class="gc-panel__desc" data-i18n="panelCoreDesc">
+                Enter your character sheet combat stats with Gear A currently equipped (e.g. entering combat on the cactus dummy).
+              </p>
+            </div>
+
+            <div class="gc-fields-grid">
+              <!-- Base ATK -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-base-atk" class="calc-field__label" data-i18n="labelBaseAtk">Base ATK</label>
+                </div>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-base-atk" min="0" max="1000000" step="100" value="50000" class="calc-input" aria-label="Base ATK" />
+                </div>
+                <div class="calc-field__hint" data-i18n="hintBaseAtk">Sheet base ATK before bonus multipliers</div>
+              </div>
+
+              <!-- Plus ATK -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-plus-atk" class="calc-field__label" data-i18n="labelPlusAtk">Plus ATK</label>
+                </div>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-plus-atk" min="0" max="1000000" step="100" value="74100" class="calc-input" aria-label="Plus ATK" />
+                </div>
+                <div class="calc-field__hint" data-i18n="hintPlusAtk">Combat snapshot bonus ATK (Plus ATK / Base ATK defines cactus ATK% ratio)</div>
+              </div>
+
+              <!-- Crit Stat -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-crit-stat" class="calc-field__label" data-i18n="labelCritStat">Crit Stat</label>
+                </div>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-crit-stat" min="0" max="200000" step="100" value="26577" class="calc-input" aria-label="Crit Stat" />
+                </div>
+                <div class="calc-field__hint" data-i18n="hintCritStat">Converted to crit rate via polynomial curve at current level</div>
+              </div>
+
+              <!-- Crit Rate % -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-crit-rate-pct" class="calc-field__label" data-i18n="labelCritRatePct">Crit Rate % Bonus</label>
+                </div>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-crit-rate-pct" min="0" max="100" step="0.01" value="3.42" class="calc-input" aria-label="Crit Rate %" />
+                  <span class="calc-input-unit">%</span>
+                </div>
+                <div class="calc-field__hint" data-i18n="hintCritRatePct">Flat crit rate from traits, matrix sets, and buffs</div>
+              </div>
+
+              <!-- Crit DMG % -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-crit-dmg-pct" class="calc-field__label" data-i18n="labelCritDmgPct">Crit DMG % Bonus</label>
+                </div>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-crit-dmg-pct" min="0" max="500" step="0.1" value="74.0" class="calc-input" aria-label="Crit DMG %" />
+                  <span class="calc-input-unit">%</span>
+                </div>
+                <div class="calc-field__hint" data-i18n="hintCritDmgPct">Crit multiplier bonus (+74% = 1.74x critical hit multiplier)</div>
+              </div>
+
+              <!-- Enemy Level -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-enemy-level" class="calc-field__label" data-i18n="labelEnemyLevel">Enemy Level</label>
+                  <div class="calc-field__val">
+                    Lvl <span id="calc-enemy-level-val">100</span> (denom = <span id="calc-crit-denom-val">28,213</span>)
+                  </div>
+                </div>
+                <div class="calc-input-row">
+                  <input type="range" id="calc-enemy-level-slider" min="1" max="100" value="100" class="calc-slider" aria-label="Enemy Level slider" />
+                  <input type="number" id="calc-enemy-level" min="1" max="100" value="100" class="calc-input calc-input--sm" aria-label="Enemy Level input" />
+                </div>
+                <div class="calc-field__hint" data-i18n="hintEnemyLevel">Determines level denominator denom(L). L100 = 28,213</div>
+              </div>
+
+              <!-- Base HP -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-base-hp" class="calc-field__label" data-i18n="labelBaseHp">Base HP</label>
+                </div>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-base-hp" min="0" max="20000000" step="1000" value="2350000" class="calc-input" aria-label="Base HP" />
+                </div>
+                <div class="calc-field__hint" data-i18n="hintBaseHp">Sheet unbuffed maximum HP</div>
+              </div>
+
+              <!-- Base Resist -->
+              <div class="calc-field">
+                <div class="calc-field__header">
+                  <label for="calc-base-resist" class="calc-field__label" data-i18n="labelBaseResist">Base Resistance</label>
+                </div>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-base-resist" min="0" max="100000" step="100" value="21000" class="calc-input" aria-label="Base Resistance" />
+                </div>
+                <div class="calc-field__hint" data-i18n="hintBaseResist">Sheet unbuffed main elemental resistance</div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 2. Side-by-Side Gear Piece Substats (Gear A vs Gear B) -->
+          <section class="gc-panel" aria-labelledby="heading-gear-stats">
+            <div class="gc-panel__header gc-panel__header--split">
+              <div>
+                <h2 id="heading-gear-stats" class="gc-panel__title" data-i18n="panelGearATitle">
+                  2. Gear A vs Gear B Substats
+                </h2>
+                <p class="gc-panel__desc">
+                  Enter the individual substats of both pieces. The solver subtracts Gear A's stats from your snapshot and adds Gear B's stats.
+                </p>
+              </div>
+              <div class="gc-slot-picker">
+                <label for="calc-equip-slot" class="calc-field__label" data-i18n="labelEquipSlot">Equipment Slot</label>
+                <select id="calc-equip-slot" class="calc-select" aria-label="Equipment Slot">
+                  <option value="helmet">Helmet</option>
+                  <option value="spaulders">Spaulders</option>
+                  <option value="armor">Armor</option>
+                  <option value="bracers">Bracers</option>
+                  <option value="belt">Belt</option>
+                  <option value="pants">Pants</option>
+                  <option value="boots">Boots</option>
+                  <option value="gloves" selected>Gloves</option>
+                  <option value="exoskeleton">Exoskeleton</option>
+                  <option value="microreactor">Microreactor</option>
+                  <option value="eyepiece">Eyepiece</option>
+                  <option value="combat_engine">Combat Engine</option>
+                </select>
+              </div>
+            </div>
+
+            <!-- Visual 12-Slot Gear Picker Toggle Strip -->
+            <div class="gc-slot-picker-container">
+              <div class="gc-slot-picker-eyebrow">
+                <span class="gc-slot-picker-title" data-i18n="selectSlotPrompt">Select Equipment Piece</span>
+                <span class="gc-slot-picker-hint">12-Slot Rapid Gear Selector</span>
+              </div>
+              <div id="calc-slot-strip" class="gc-slot-strip" role="radiogroup" aria-label="Select Equipment Slot">
+                <button type="button" class="gc-slot-btn" data-slot="helmet" role="radio" aria-checked="false" title="Helmet">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/Helmet_040101.webp" alt="Helmet" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Helmet</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="spaulders" role="radio" aria-checked="false" title="Spaulders">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/shawl_040101.webp" alt="Spaulders" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Spaulders</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="armor" role="radio" aria-checked="false" title="Armor">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/cloth_040101.webp" alt="Armor" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Armor</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="bracers" role="radio" aria-checked="false" title="Bracers">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/armband_040101.webp" alt="Bracers" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Bracers</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="belt" role="radio" aria-checked="false" title="Belt">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/belt_040101.webp" alt="Belt" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Belt</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="pants" role="radio" aria-checked="false" title="Pants">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/pants_040101.webp" alt="Pants" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Pants</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="boots" role="radio" aria-checked="false" title="Boots">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/shoes_040101.webp" alt="Boots" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Boots</span>
+                </button>
+                <button type="button" class="gc-slot-btn is-active" data-slot="gloves" role="radio" aria-checked="true" title="Gloves">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/glove_040101.webp" alt="Gloves" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Gloves</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="eyepiece" role="radio" aria-checked="false" title="Eyepiece">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/ResourcesOverSea/Icon/weapon/visor_orange.webp" alt="Eyepiece" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Eyepiece</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="combat_engine" role="radio" aria-checked="false" title="Combat Engine">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/Equip_MMO/t010-4engine.webp" alt="Combat Engine" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Engine</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="exoskeleton" role="radio" aria-checked="false" title="Exoskeleton">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/ResourcesOverSea/Icon/weapon/exoskeleton_orange.webp" alt="Exoskeleton" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Exoskeleton</span>
+                </button>
+                <button type="button" class="gc-slot-btn" data-slot="microreactor" role="radio" aria-checked="false" title="Microreactor">
+                  <div class="gc-slot-btn__frame rarity-ssr">
+                    <img src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/reactor_orange_fire.webp" alt="Microreactor" class="gc-slot-btn__icon" />
+                  </div>
+                  <span class="gc-slot-btn__name">Reactor</span>
+                </button>
+              </div>
+            </div>
+
+            <div class="gc-gear-cards-wrapper">
+              <div class="gc-gear-cards-grid">
+                <!-- GEAR A (Current Piece) -->
+                <div class="gc-gear-card gc-gear-card--a" id="card-gear-a">
+                  <div class="gc-gear-card__header">
+                    <div class="gc-gear-card__visual-header">
+                      <div class="gc-gear-avatar rarity-ssr" id="gearA-avatar">
+                        <img id="gearA-avatar-img" src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/glove_040101.webp" alt="Gear A Piece" class="gc-gear-avatar__img" />
+                        <span class="gc-gear-avatar__rarity">SSR</span>
+                      </div>
+                      <div class="gc-gear-meta">
+                        <div class="gc-gear-meta__top">
+                          <span id="slot-badge-a" class="gc-gear-card__slot-badge">GLOVES</span>
+                          <span class="gc-gear-card__tag">CURRENT</span>
+                        </div>
+                        <h3 class="gc-gear-card__title" data-i18n="panelGearATitle">Gear A (Current)</h3>
+                        <div class="gc-gear-stars" aria-label="5 stars">
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                        </div>
+                        <div class="gc-gear-elements">
+                          <span class="gc-elem-chip elem-flame"><img src="/datamine/shared/assets/icons/elements/elem_fire.webp" alt="" /> Flame</span>
+                          <span class="gc-elem-chip elem-frost"><img src="/datamine/shared/assets/icons/elements/elem_frost.webp" alt="" /> Frost</span>
+                          <span class="gc-elem-chip elem-volt"><img src="/datamine/shared/assets/icons/elements/elem_volt.webp" alt="" /> Volt</span>
+                          <span class="gc-elem-chip elem-phys"><img src="/datamine/shared/assets/icons/elements/elem_phys.webp" alt="" /> Phys</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Offensive Substats -->
+                  <div class="gc-substats-subgroup">
+                    <h4 class="gc-subgroup-title" data-i18n="substatsBasicTitle">Offensive Substats</h4>
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-flatAtk" class="calc-field__label" data-i18n="labelFlatAtk">Flat ATK</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--atk"><img src="/datamine/shared/assets/icons/stat_atk.svg" alt="" /></span>
+                        <input type="number" id="calc-gearA-flatAtk" min="0" max="10000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-elemAtk" class="calc-field__label" data-i18n="labelElemAtk">Elemental ATK</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--elem"><img src="/datamine/shared/assets/icons/elements/elem_fire.webp" alt="" /></span>
+                        <input type="number" id="calc-gearA-elemAtk" min="0" max="10000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-atkPct" class="calc-field__label" data-i18n="labelAtkPct">ATK % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--atk"><img src="/datamine/shared/assets/icons/stat_atk.svg" alt="" /></span>
+                        <input type="number" id="calc-gearA-atkPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-dmgPct" class="calc-field__label" data-i18n="labelDmgPct">DMG % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--dmg">
+                          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M14.5 2.5l7 7-3.5 3.5-7-7 3.5-3.5zm-5 5l2 2-7.5 7.5-1.5 4.5 4.5-1.5 7.5-7.5-2-2-3 3-2-2 3-3-2.5-2.5z"/></svg>
+                        </span>
+                        <input type="number" id="calc-gearA-dmgPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-critStat" class="calc-field__label" data-i18n="labelCrit">Crit Stat</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--crit"><img src="/datamine/shared/assets/icons/stat_crit.webp" alt="" /></span>
+                        <input type="number" id="calc-gearA-critStat" min="0" max="20000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-critRatePct" class="calc-field__label" data-i18n="labelCritRate">Crit Rate %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--crit"><img src="/datamine/shared/assets/icons/stat_crit.webp" alt="" /></span>
+                        <input type="number" id="calc-gearA-critRatePct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Defensive Substats -->
+                  <div class="gc-substats-subgroup">
+                    <h4 class="gc-subgroup-title" data-i18n="substatsDefensiveTitle">Defensive Substats</h4>
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-flatHp" class="calc-field__label" data-i18n="labelFlatHp">Flat HP</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--hp"><img src="/datamine/shared/assets/icons/stat_hp.svg" alt="" /></span>
+                        <input type="number" id="calc-gearA-flatHp" min="0" max="1000000" step="100" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-hpPct" class="calc-field__label" data-i18n="labelHpPct">HP % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--hp"><img src="/datamine/shared/assets/icons/stat_hp.svg" alt="" /></span>
+                        <input type="number" id="calc-gearA-hpPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-flatResist" class="calc-field__label" data-i18n="labelFlatResist">Flat Resistance</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--res"><img src="/datamine/shared/assets/icons/stat_resist.webp" alt="" /></span>
+                        <input type="number" id="calc-gearA-flatResist" min="0" max="50000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-resistPct" class="calc-field__label" data-i18n="labelResistPct">Resistance % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--res"><img src="/datamine/shared/assets/icons/stat_resist.webp" alt="" /></span>
+                        <input type="number" id="calc-gearA-resistPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Titan Substats -->
+                  <div class="gc-substats-subgroup gc-substats-subgroup--titan">
+                    <h4 class="gc-subgroup-title gc-subgroup-title--titan">
+                      <span class="titan-dot"></span>
+                      <span data-i18n="substatsTitanTitle">Titan Attributes</span>
+                      <span class="titan-badge">AUGMENTED</span>
+                    </h4>
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-titanDmgPct" class="calc-field__label" data-i18n="labelTitanDmg">Titan General DMG %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">🔥</span>
+                        <input type="number" id="calc-gearA-titanDmgPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-titanWeaknessPct" class="calc-field__label" data-i18n="labelTitanWeakness">Titan Weakness DMG %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">⚡</span>
+                        <input type="number" id="calc-gearA-titanWeaknessPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-titanNormalPct" class="calc-field__label" data-i18n="labelTitanNormal">Titan Normal ATK %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">⚔️</span>
+                        <input type="number" id="calc-gearA-titanNormalPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearA-titanDrPct" class="calc-field__label" data-i18n="labelTitanDr">Titan Damage Reduction %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">🛡️</span>
+                        <input type="number" id="calc-gearA-titanDrPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Center Floating Swap Divider -->
+                <div class="gc-swap-divider">
+                  <button type="button" id="btn-swap-pieces-card" class="gc-swap-btn" title="Swap Gear A and Gear B" aria-label="Swap Gear A and Gear B">
+                    <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <polyline points="17 1 21 5 17 9"></polyline>
+                      <path d="M3 5h18"></path>
+                      <polyline points="7 23 3 19 7 15"></polyline>
+                      <path d="M21 19H3"></path>
+                    </svg>
+                    <span class="gc-swap-btn__label">SWAP (A ⇄ B)</span>
+                  </button>
+                </div>
+
+                <!-- GEAR B (Candidate Piece) -->
+                <div class="gc-gear-card gc-gear-card--b" id="card-gear-b">
+                  <div class="gc-gear-card__header">
+                    <div class="gc-gear-card__visual-header">
+                      <div class="gc-gear-avatar rarity-ssr" id="gearB-avatar">
+                        <img id="gearB-avatar-img" src="/datamine/shared/media/Hotta/Content/Resources/Icon/weapon/glove_040101.webp" alt="Gear B Piece" class="gc-gear-avatar__img" />
+                        <span class="gc-gear-avatar__rarity">SSR</span>
+                      </div>
+                      <div class="gc-gear-meta">
+                        <div class="gc-gear-meta__top">
+                          <span id="slot-badge-b" class="gc-gear-card__slot-badge">GLOVES</span>
+                          <span class="gc-gear-card__tag gc-gear-card__tag--candidate">CANDIDATE</span>
+                        </div>
+                        <h3 class="gc-gear-card__title" data-i18n="panelGearBTitle">Gear B (Candidate)</h3>
+                        <div class="gc-gear-stars" aria-label="5 stars">
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                          <span class="star active">★</span>
+                        </div>
+                        <div class="gc-gear-elements">
+                          <span class="gc-elem-chip elem-flame"><img src="/datamine/shared/assets/icons/elements/elem_fire.webp" alt="" /> Flame</span>
+                          <span class="gc-elem-chip elem-frost"><img src="/datamine/shared/assets/icons/elements/elem_frost.webp" alt="" /> Frost</span>
+                          <span class="gc-elem-chip elem-volt"><img src="/datamine/shared/assets/icons/elements/elem_volt.webp" alt="" /> Volt</span>
+                          <span class="gc-elem-chip elem-phys"><img src="/datamine/shared/assets/icons/elements/elem_phys.webp" alt="" /> Phys</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Offensive Substats -->
+                  <div class="gc-substats-subgroup">
+                    <h4 class="gc-subgroup-title" data-i18n="substatsBasicTitle">Offensive Substats</h4>
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-flatAtk" class="calc-field__label" data-i18n="labelFlatAtk">Flat ATK</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--atk"><img src="/datamine/shared/assets/icons/stat_atk.svg" alt="" /></span>
+                        <input type="number" id="calc-gearB-flatAtk" min="0" max="10000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-elemAtk" class="calc-field__label" data-i18n="labelElemAtk">Elemental ATK</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--elem"><img src="/datamine/shared/assets/icons/elements/elem_fire.webp" alt="" /></span>
+                        <input type="number" id="calc-gearB-elemAtk" min="0" max="10000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-atkPct" class="calc-field__label" data-i18n="labelAtkPct">ATK % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--atk"><img src="/datamine/shared/assets/icons/stat_atk.svg" alt="" /></span>
+                        <input type="number" id="calc-gearB-atkPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-dmgPct" class="calc-field__label" data-i18n="labelDmgPct">DMG % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--dmg">
+                          <svg viewBox="0 0 24 24" width="14" height="14" fill="currentColor"><path d="M14.5 2.5l7 7-3.5 3.5-7-7 3.5-3.5zm-5 5l2 2-7.5 7.5-1.5 4.5 4.5-1.5 7.5-7.5-2-2-3 3-2-2 3-3-2.5-2.5z"/></svg>
+                        </span>
+                        <input type="number" id="calc-gearB-dmgPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-critStat" class="calc-field__label" data-i18n="labelCrit">Crit Stat</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--crit"><img src="/datamine/shared/assets/icons/stat_crit.webp" alt="" /></span>
+                        <input type="number" id="calc-gearB-critStat" min="0" max="20000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-critRatePct" class="calc-field__label" data-i18n="labelCritRate">Crit Rate %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--crit"><img src="/datamine/shared/assets/icons/stat_crit.webp" alt="" /></span>
+                        <input type="number" id="calc-gearB-critRatePct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Defensive Substats -->
+                  <div class="gc-substats-subgroup">
+                    <h4 class="gc-subgroup-title" data-i18n="substatsDefensiveTitle">Defensive Substats</h4>
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-flatHp" class="calc-field__label" data-i18n="labelFlatHp">Flat HP</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--hp"><img src="/datamine/shared/assets/icons/stat_hp.svg" alt="" /></span>
+                        <input type="number" id="calc-gearB-flatHp" min="0" max="1000000" step="100" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-hpPct" class="calc-field__label" data-i18n="labelHpPct">HP % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--hp"><img src="/datamine/shared/assets/icons/stat_hp.svg" alt="" /></span>
+                        <input type="number" id="calc-gearB-hpPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-flatResist" class="calc-field__label" data-i18n="labelFlatResist">Flat Resistance</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--res"><img src="/datamine/shared/assets/icons/stat_resist.webp" alt="" /></span>
+                        <input type="number" id="calc-gearB-flatResist" min="0" max="50000" step="10" value="0" class="calc-input" />
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-resistPct" class="calc-field__label" data-i18n="labelResistPct">Resistance % Bonus</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--res"><img src="/datamine/shared/assets/icons/stat_resist.webp" alt="" /></span>
+                        <input type="number" id="calc-gearB-resistPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Titan Substats -->
+                  <div class="gc-substats-subgroup gc-substats-subgroup--titan">
+                    <h4 class="gc-subgroup-title gc-subgroup-title--titan">
+                      <span class="titan-dot"></span>
+                      <span data-i18n="substatsTitanTitle">Titan Attributes</span>
+                      <span class="titan-badge">AUGMENTED</span>
+                    </h4>
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-titanDmgPct" class="calc-field__label" data-i18n="labelTitanDmg">Titan General DMG %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">🔥</span>
+                        <input type="number" id="calc-gearB-titanDmgPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-titanWeaknessPct" class="calc-field__label" data-i18n="labelTitanWeakness">Titan Weakness DMG %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">⚡</span>
+                        <input type="number" id="calc-gearB-titanWeaknessPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-titanNormalPct" class="calc-field__label" data-i18n="labelTitanNormal">Titan Normal ATK %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">⚔️</span>
+                        <input type="number" id="calc-gearB-titanNormalPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+
+                    <div class="calc-field">
+                      <div class="calc-field__header">
+                        <label for="calc-gearB-titanDrPct" class="calc-field__label" data-i18n="labelTitanDr">Titan Damage Reduction %</label>
+                      </div>
+                      <div class="calc-input-wrap calc-input-wrap--icon calc-input-wrap--titan">
+                        <span class="calc-stat-icon-badge calc-stat-icon-badge--titan">🛡️</span>
+                        <input type="number" id="calc-gearB-titanDrPct" min="0" max="100" step="0.01" value="0.00" class="calc-input" />
+                        <span class="calc-input-unit">%</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Advanced Specialist Modifiers (Collapsible) -->
+          <div class="gc-advanced-toggle-wrap">
+            <button type="button" id="btn-toggle-advanced" class="btn-toggle-advanced" aria-expanded="false">
+              Show Advanced Specialist Modifiers (Supercomputer, SSS, Lin, Mia)
+            </button>
+          </div>
+
+          <section id="advanced-section" class="gc-panel gc-advanced-section is-hidden" aria-labelledby="heading-advanced">
+            <div class="gc-panel__header">
+              <h2 id="heading-advanced" class="gc-panel__title" data-i18n="panelAdvancedTitle">
+                Specialist &amp; Content Modifiers
+              </h2>
+              <p class="gc-panel__desc" data-i18n="panelAdvancedDesc">
+                Configure external combat multipliers matching the workbook's full damage model. These contribute to the overall DMG% bonus and manual ATK%.
+              </p>
+            </div>
+
+            <!-- Supercomputer 4 Slots -->
+            <div class="calc-field">
+              <div class="calc-field__header">
+                <label class="calc-field__label" data-i18n="labelSupercomputer">Supercomputer Module Levels (0–20 each)</label>
+                <div class="calc-field__val">
+                  DMG: <span id="calc-super-total-dmg">20.00%</span>
+                </div>
+              </div>
+              <div class="gc-super-grid">
+                <div>
+                  <label for="calc-super-1" class="calc-field__hint" data-i18n="superModule1">Module 1</label>
+                  <input type="number" id="calc-super-1" min="0" max="20" value="10" class="calc-input" />
+                </div>
+                <div>
+                  <label for="calc-super-2" class="calc-field__hint" data-i18n="superModule2">Module 2</label>
+                  <input type="number" id="calc-super-2" min="0" max="20" value="10" class="calc-input" />
+                </div>
+                <div>
+                  <label for="calc-super-3" class="calc-field__hint" data-i18n="superModule3">Module 3</label>
+                  <input type="number" id="calc-super-3" min="0" max="20" value="10" class="calc-input" />
+                </div>
+                <div>
+                  <label for="calc-super-4" class="calc-field__hint" data-i18n="superModule4">Module 4</label>
+                  <input type="number" id="calc-super-4" min="0" max="20" value="10" class="calc-input" />
+                </div>
+              </div>
+              <div class="calc-field__hint">Piecewise scaling: 0.5% per lvl (1–10) + 1.0% per lvl (11–20)</div>
+            </div>
+
+            <div class="gc-fields-grid">
+              <!-- SSS Element -->
+              <div class="calc-field">
+                <label for="calc-sss-element" class="calc-field__label" data-i18n="labelSssElement">SSS Element Level</label>
+                <input type="number" id="calc-sss-element" min="0" max="100" value="0" class="calc-input" />
+                <div class="calc-field__hint" data-i18n="hintSssElement">+0.5% DMG bonus per level</div>
+              </div>
+
+              <!-- SSS Content -->
+              <div class="calc-field">
+                <label for="calc-sss-content" class="calc-field__label" data-i18n="labelSssContent">SSS Content Level</label>
+                <input type="number" id="calc-sss-content" min="0" max="100" value="5" class="calc-input" />
+                <div class="calc-field__hint" data-i18n="hintSssContent">+1.0% DMG bonus per level</div>
+              </div>
+
+              <!-- Lin Synthesis -->
+              <div class="calc-field">
+                <label for="calc-lin-synthesy" class="calc-field__label" data-i18n="labelLinSynthesy">Lin Realm Synthesis %</label>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-lin-synthesy" min="0" max="100" step="0.1" value="7.0" class="calc-input" />
+                  <span class="calc-input-unit">%</span>
+                </div>
+                <div class="calc-field__hint" data-i18n="hintLin">Realm synthesis damage bonus (default 7%)</div>
+              </div>
+
+              <!-- Mia Buff -->
+              <div class="calc-field">
+                <label for="calc-mia-buff" class="calc-field__label" data-i18n="labelMiaBuff">Mia Kitchen Buff %</label>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-mia-buff" min="0" max="100" step="0.1" value="5.0" class="calc-input" />
+                  <span class="calc-input-unit">%</span>
+                </div>
+                <div class="calc-field__hint" data-i18n="hintMia">Mia kitchen buff damage bonus (default 5%)</div>
+              </div>
+
+              <!-- Other DMG% Sum -->
+              <div class="calc-field">
+                <label for="calc-other-dmg" class="calc-field__label" data-i18n="labelOtherDmg">Other DMG% Sum</label>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-other-dmg" min="0" max="500" step="0.1" value="10.0" class="calc-input" />
+                  <span class="calc-input-unit">%</span>
+                </div>
+                <div class="calc-field__hint" data-i18n="hintOtherDmg">Sum of relic, weapon trait, and other external DMG% bonuses</div>
+              </div>
+
+              <!-- Manual ATK% -->
+              <div class="calc-field">
+                <label for="calc-manual-atk-pct" class="calc-field__label" data-i18n="labelManualAtkPct">Manual ATK% ("atk% by hand")</label>
+                <div class="calc-input-wrap">
+                  <input type="number" id="calc-manual-atk-pct" min="0" max="500" step="0.1" value="40.0" class="calc-input" />
+                  <span class="calc-input-unit">%</span>
+                </div>
+                <div class="calc-field__hint" data-i18n="hintManualAtk">Direct ATK% multiplier added on top of cactus ratio</div>
+              </div>
+            </div>
+          </section>
+        </form>
+      </div>
+
+      <!-- RIGHT COLUMN: Results & Analysis -->
+      <div class="gc-col-results">
+        <!-- 1. Winner & Comparison Dashboard Card -->
+        <div id="winner-banner" class="gc-winner-banner winner-tie" role="status" aria-live="polite">
+          <div class="gc-winner-banner__header">
+            <div class="winner-content">
+              <div class="gc-winner-badge-row">
+                <span id="winner-badge" class="calc-badge calc-badge--tie">EQUAL PERFORMANCE</span>
+                <span class="gc-winner-tagline">TIE BREAKDOWN</span>
+              </div>
+              <div id="winner-text" class="winner-text">
+                <strong>Equal Performance (0.00% difference)</strong>
+              </div>
+              <div id="winner-subtext" class="winner-subtext" data-i18n="winnerTieSub">
+                Both pieces yield identical expected damage under the current setup.
+              </div>
+            </div>
+            <div class="gc-winner-advantage-box" id="winner-advantage-box">
+              <span class="advantage-label">EXPECTED DAMAGE DELTA</span>
+              <strong class="advantage-val" id="winner-advantage-val">+0 (+0.00%)</strong>
+            </div>
+          </div>
+
+          <!-- Colored Comparison Gauge / Progress Bar -->
+          <div class="gc-gauge-container">
+            <div class="gc-gauge-header">
+              <span class="gauge-label gauge-label--a">
+                <span class="gauge-dot gauge-dot--a"></span>
+                Gear A: <strong id="gauge-val-a">364,850</strong> (<span id="gauge-pct-a">50.0%</span>)
+              </span>
+              <span class="gauge-split-badge">VS</span>
+              <span class="gauge-label gauge-label--b">
+                <span class="gauge-dot gauge-dot--b"></span>
+                Gear B: <strong id="gauge-val-b">364,850</strong> (<span id="gauge-pct-b">50.0%</span>)
+              </span>
+            </div>
+            <div class="gc-comparison-gauge">
+              <div class="gc-gauge-track">
+                <div class="gc-gauge-fill gc-gauge-fill--a" id="gauge-fill-a" style="width: 50%;"></div>
+                <div class="gc-gauge-fill gc-gauge-fill--b" id="gauge-fill-b" style="width: 50%;"></div>
+              </div>
+              <div class="gc-gauge-marker" id="gauge-marker" style="left: 50%;"></div>
+            </div>
+          </div>
+
+          <!-- Elemental and Stat Delta Summary Grid -->
+          <div class="gc-delta-summary-grid" id="gc-delta-summary-grid">
+            <div class="gc-delta-pill">
+              <span class="delta-pill-name">Expected DMG</span>
+              <span class="delta-pill-val" id="delta-pill-dmg">+0 (+0.00%)</span>
+            </div>
+            <div class="gc-delta-pill">
+              <span class="delta-pill-name">Total ATK</span>
+              <span class="delta-pill-val" id="delta-pill-atk">+0</span>
+            </div>
+            <div class="gc-delta-pill">
+              <span class="delta-pill-name">Total DMG%</span>
+              <span class="delta-pill-val" id="delta-pill-dmgpct">+0.00%</span>
+            </div>
+            <div class="gc-delta-pill">
+              <span class="delta-pill-name">Crit Rate</span>
+              <span class="delta-pill-val" id="delta-pill-crit">+0.00%</span>
+            </div>
+            <div class="gc-delta-pill">
+              <span class="delta-pill-name">Effective HP</span>
+              <span class="delta-pill-val" id="delta-pill-ehp">+0</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 2. Side-by-Side Comparison Score Cards -->
+        <div class="gc-score-cards-grid">
+          <!-- Gear A Card -->
+          <div class="gc-score-card gc-score-card--a">
+            <div class="gc-score-card__eyebrow" data-i18n="cardGearATitle">Gear A (Current)</div>
+            <div class="gc-score-card__value" data-out="gearA-score">364,850</div>
+            <div class="gc-score-card__subtitle" data-i18n="metricExpectedDmg">Expected Damage Index</div>
+
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="metricTotalAtk">Total ATK</span>
+              <span class="gc-metric-val" data-out="gearA-totalAtk">144,100</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="metricTotalDmgPct">Total DMG %</span>
+              <span class="gc-metric-val" data-out="gearA-totalDmgPct">47.00%</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="metricCritRate">Effective Crit Rate</span>
+              <span class="gc-metric-val" data-out="gearA-critRate">97.62%</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="marginalScore">Marginal Score</span>
+              <span class="gc-metric-val" data-out="gearA-marginalScore">+0 (+0.00%)</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="survivabilityEhp">Effective HP (EHP)</span>
+              <span class="gc-metric-val" data-out="gearA-ehp">2,850,000</span>
+            </div>
+          </div>
+
+          <!-- Gear B Card -->
+          <div class="gc-score-card gc-score-card--b">
+            <div class="gc-score-card__eyebrow" data-i18n="cardGearBTitle">Gear B (Candidate)</div>
+            <div class="gc-score-card__value" data-out="gearB-score">364,850</div>
+            <div class="gc-score-card__subtitle" data-i18n="metricExpectedDmg">Expected Damage Index</div>
+
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="metricTotalAtk">Total ATK</span>
+              <span class="gc-metric-val" data-out="gearB-totalAtk">144,100</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="metricTotalDmgPct">Total DMG %</span>
+              <span class="gc-metric-val" data-out="gearB-totalDmgPct">47.00%</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="metricCritRate">Effective Crit Rate</span>
+              <span class="gc-metric-val" data-out="gearB-critRate">97.62%</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="marginalScore">Marginal Score</span>
+              <span class="gc-metric-val" data-out="gearB-marginalScore">+0 (+0.00%)</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="survivabilityEhp">Effective HP (EHP)</span>
+              <span class="gc-metric-val" data-out="gearB-ehp">2,850,000</span>
+            </div>
+            <div class="gc-metric-row">
+              <span class="gc-metric-label" data-i18n="metricDifference">Difference vs Current</span>
+              <span class="gc-metric-val">
+                <span data-out="diff-abs">0</span> (<span data-out="diff-rel">+0.00%</span>)
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Decomposed Stages Breakdown Panel -->
+        <section class="gc-panel" aria-labelledby="heading-stages">
+          <div class="gc-panel__header">
+            <h2 id="heading-stages" class="gc-panel__title" data-i18n="stagesTitle">
+              Formula Stages Breakdown
+            </h2>
+            <p class="gc-panel__desc">
+              Inspection of how Total ATK, Crit Multiplier, and Damage Bonus combine into the Expected Damage Index.
+            </p>
+          </div>
+
+          <table class="stages-breakdown-table">
+            <thead>
+              <tr>
+                <th data-i18n="thStat">Stage</th>
+                <th data-i18n="cardGearATitle">Gear A</th>
+                <th data-i18n="cardGearBTitle">Gear B</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="stage-name" data-i18n="stageBaseAtk">Base ATK (Flat + Elem)</td>
+                <td id="stageA-baseAtk" class="stage-val--a">50,000</td>
+                <td id="stageB-baseAtk" class="stage-val--b">50,000</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageAtkRatio">Effective ATK Multiplier</td>
+                <td id="stageA-atkRatio" class="stage-val--a">× 2.8820</td>
+                <td id="stageB-atkRatio" class="stage-val--b">× 2.8820</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageTotalAtk">Final Total ATK</td>
+                <td id="stageA-totalAtk" class="stage-val--a">144,100</td>
+                <td id="stageB-totalAtk" class="stage-val--b">144,100</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageCritStat">Crit Stat (Rate)</td>
+                <td id="stageA-crit" class="stage-val--a">26,577 (97.62%)</td>
+                <td id="stageB-crit" class="stage-val--b">26,577 (97.62%)</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageCritContribution">Crit Factor: 1 + (CDMG × CR)</td>
+                <td id="stageA-critFactor" class="stage-val--a">× 1.7224</td>
+                <td id="stageB-critFactor" class="stage-val--b">× 1.7224</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageDmgBonus">Damage Multiplier: 1 + DMG%</td>
+                <td id="stageA-dmgMultiplier" class="stage-val--a">× 1.4700</td>
+                <td id="stageB-dmgMultiplier" class="stage-val--b">× 1.4700</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageTitanDmg">Titan Effective DMG Bonus</td>
+                <td id="stageA-titanDmg" class="stage-val--a">0.00%</td>
+                <td id="stageB-titanDmg" class="stage-val--b">0.00%</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageEhp">Effective HP (Survivability)</td>
+                <td id="stageA-ehp" class="stage-val--a">2,850,000</td>
+                <td id="stageB-ehp" class="stage-val--b">2,850,000</td>
+              </tr>
+              <tr>
+                <td class="stage-name" data-i18n="stageFinalScore">Expected Damage Index</td>
+                <td id="stageA-finalScore" class="stage-val--a"><strong>364,850</strong></td>
+                <td id="stageB-finalScore" class="stage-val--b"><strong>364,850</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <!-- 4. Dynamic 1% Stat-Value Equivalence Table Panel -->
+        <section class="gc-panel" aria-labelledby="heading-stat-equiv">
+          <div class="gc-panel__header">
+            <h2 id="heading-stat-equiv" class="gc-panel__title" data-i18n="headingEquivalence">
+              Stat-Value Equivalence at Current Profile
+            </h2>
+            <p class="gc-panel__desc" data-i18n="descEquivalence">
+              Shows how much of stat X yields the exact same damage or survivability benefit as 1% of stat Y at your current profile.
+            </p>
+          </div>
+
+          <div class="gc-stat-table-wrap">
+            <table class="gc-stat-table gc-stat-equiv-table">
+              <thead>
+                <tr>
+                  <th data-i18n="thStatY">Target Stat Y (+1%)</th>
+                  <th aria-hidden="true"></th>
+                  <th data-i18n="thEquivVal">Equivalent Amount (Stat X)</th>
+                  <th data-i18n="thExplanation">Combat Rationale</th>
+                </tr>
+              </thead>
+              <tbody id="calc-stat-equiv-body">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <!-- 5. Dynamic Substat Value & EQ ATK Table Panel -->
+        <section class="gc-panel" aria-labelledby="heading-stat-values">
+          <div class="gc-panel__header">
+            <h2 id="heading-stat-values" class="gc-panel__title" data-i18n="panelTableTitle">
+              Dynamic Substat Value &amp; Equivalent ATK Table
+            </h2>
+            <p class="gc-panel__desc" data-i18n="panelTableDesc">
+              Calculates the real-time combat value of individual substats from your current calculator state. Equivalent ATK measures how much flat ATK yields the exact same expected damage gain.
+            </p>
+          </div>
+
+          <div class="gc-stat-table-wrap">
+            <table class="gc-stat-table">
+              <thead>
+                <tr>
+                  <th data-i18n="thStat">Substat</th>
+                  <th data-i18n="thTestAmount">Test Increment</th>
+                  <th data-i18n="thDamageGain">Damage Index Gain</th>
+                  <th data-i18n="thEqAtk">Equivalent Flat ATK</th>
+                  <th data-i18n="thRollProc">Roll Quality / Proc %</th>
+                  <th data-i18n="thExplanation">Interpretation</th>
+                </tr>
+              </thead>
+              <tbody id="calc-stat-table-body">
+                <!-- Dynamically populated via JS -->
+              </tbody>
+            </table>
+          </div>
+
+          <!-- SSS 150 ATK vs 0.5% DMG usefulness -->
+          <div class="sss-usefulness-card">
+            <div class="sss-usefulness-info">
+              <h4 data-i18n="sssUsefulnessTitle">SSS 150 ATK vs 0.5% DMG Usefulness Ratio</h4>
+              <p data-i18n="sssUsefulnessDesc">
+                Measures whether taking +150 flat ATK is more efficient than taking +0.5% DMG bonus on this build:
+              </p>
+            </div>
+            <div id="sss-usefulness-val" class="sss-usefulness-val">
+              <strong>88.24%</strong>
+              <span class="sss-tag sss-tag--dmg">+0.5% DMG is stronger than +150 ATK</span>
+            </div>
+          </div>
+        </section>
+      </div>
+    </div>
+  </main>
+
+  <!-- How It Works Modal -->
+  <div id="gear-compare-how-modal" class="calc-modal is-hidden" role="dialog" aria-modal="true" aria-labelledby="modal-heading" aria-hidden="true">
+    <div class="calc-modal__dialog">
+      <div class="calc-modal__header">
+        <h2 id="modal-heading" class="calc-modal__title" data-i18n="modalTitle">How the Gear Compare Calculator Works</h2>
+        <button type="button" id="modal-close-btn" class="calc-modal__close" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="calc-modal__body">
+        <h3>1. Expected Damage Index Formula</h3>
+        <p>
+          The main comparison score is not a literal single-hit damage number against a specific boss armor layer; it is the <strong>Expected Damage Index</strong> used by the source workbook (<code>Everything.xlsx</code>):
+        </p>
+        <p>
+          <code>Expected Damage = ROUND( Total ATK × (1 + Total DMG%) × (1 + CritDMG% × MIN(1, CritRate)), 0 )</code>
+        </p>
+        <p>
+          This models your average damage output combining base scaling, all additive damage bonuses, and expected critical hit multiplier.
+        </p>
+
+        <h3>2. Piece-for-Piece Gear Swapping</h3>
+        <p>
+          When you enter Gear B stats, the solver does not just compare the two pieces in isolation. It takes your character combat snapshot (which is wearing Gear A), subtracts Gear A's stats, adds Gear B's stats, and evaluates your new total combat performance:
+        </p>
+        <ul>
+          <li><strong>Base ATK Adjustment:</strong> <code>New Base ATK = Old Base ATK - (Gear A Flat + Elem ATK) + (Gear B Flat + Elem ATK)</code></li>
+          <li><strong>ATK% Adjustment:</strong> <code>New ATK% = Old Total ATK% - Gear A ATK% + Gear B ATK%</code></li>
+          <li><strong>DMG% Adjustment:</strong> <code>New DMG% = Old DMG% - Gear A DMG% + Gear B DMG%</code></li>
+          <li><strong>Crit Adjustment:</strong> <code>New Crit Stat = Old Crit Stat - Gear A Crit + Gear B Crit</code></li>
+        </ul>
+
+        <h3>3. Audit Findings: Plus ATK &amp; DMG% Stacking</h3>
+        <div class="calc-modal__callout">
+          <strong>Plus ATK Stacking Model:</strong> In Tower of Fantasy, character ATK is displayed as <em>Base ATK + Bonus ATK</em>. The workbook treats the ratio <code>Plus ATK / Base ATK</code> as the baseline ATK% multiplier derived from your cactus snapshot. We preserve this workbook parity while making the calculation transparent.
+        </div>
+        <div class="calc-modal__callout">
+          <strong>DMG% Additive Stacking:</strong> The workbook sums all damage bonus sources additively into <code>M6</code> (Supercomputer, SSS bonuses, Lin realm, Mia food, and gear DMG%). In some endgame community tests, certain weapon buffs act multiplicatively, but to preserve workbook parity and prevent ungrounded speculation, the verified workbook model is maintained.
+        </div>
+        <div class="calc-modal__callout">
+          <strong>Crit Model:</strong> Crit rate conversion is computed using the exact level polynomial curve <code>denom(L)</code>. We do not inject unproven enemy crit resistance models into gear comparison because gear value is evaluated against standard content baselines.
+        </div>
+
+        <h3>4. Dynamic Substat Value &amp; Equivalent Flat ATK</h3>
+        <p>
+          The lower table recalculates dynamically from your current combat stats. It computes:
+        </p>
+        <ol>
+          <li><strong>Damage per 1 Flat ATK:</strong> Gained by adding 250 flat ATK to your build and dividing the resulting damage gain by 250.</li>
+          <li><strong>Equivalent Flat ATK (EQ ATK):</strong> For any other stat (e.g. +1.44% ATK or +0.72% DMG), EQ ATK = <code>ROUND(Stat Damage Gain / Damage Per ATK)</code>.</li>
+          <li><strong>Roll Quality / Proc Ratio:</strong> Compares the EQ ATK to a single flat ATK roll on gold gear using named constants: <code>(EQ ATK - 125) / (312 - 125)</code>. A ratio of 100% means the stat provides the exact same value as a maximum possible 312 flat ATK roll!</li>
+        </ol>
+
+        <div class="calc-modal__callout" style="margin-top: 20px;">
+          <strong>Want deeper math, charts &amp; formula proofs?</strong> Read the complete
+          <a href="/tools/gear-compare/guide/" style="color: var(--gc-cyan); font-weight: bold; text-decoration: underline;">
+            Gear Compare &amp; Substat Formula Guide &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="calc-toast" class="calc-toast is-hidden" role="alert"></div>
+
+  <!-- Shared Footer -->
+  <footer class="site-footer">
+    <div class="site-footer__inner">
+      <p class="site-footer__copy">Tower of Fantasy Datamine &amp; Optimization Tools</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/tools/shared/tools-header.js"></script>
+  <script src="../shared/calculator-math.js"></script>
+  <script src="../shared/calculator-state.js"></script>
+  <script src="./js/gear-compare-data.js"></script>
+  <script src="./js/gear-compare-core.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      if (window.GearCompareApp) {
+        const app = new window.GearCompareApp();
+        app.mount();
+        window.__gearCompareApp = app;
+      }
+    });
+  </script>
+  <script src="/datamine/shared/scroll-top.js"></script>
+</body>
+</html>

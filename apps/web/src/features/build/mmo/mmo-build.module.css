@@ -1,0 +1,127 @@
+/* MMO card parts that differ from the Global card; the shared frame comes from build.module.css (.preview :global(.card) …). */
+.muted {color:#7e919f}
+.pickerFilters {font-size:12px;color:var(--color-text-secondary)}
+.pickerFilters>summary {cursor:pointer;padding:4px 0}
+.pickerFilters>div {padding-top:8px}
+
+
+/* Weapons: +N instead of stars, the role icon and the current advancement in place of matrices. */
+.weaponHeading {display:flex;align-items:center;gap:6px}
+.weaponMode {padding:1px 7px;border:1px solid #ffffff24;border-radius:4px;background:#0a1520c0;color:#d8e4ee;font-size:11px;letter-spacing:0;text-transform:none;white-space:nowrap}
+.weaponIdentity {min-width:0;flex:1}
+.weaponSide {display:grid;justify-items:end;gap:6px;flex-shrink:0}
+.weaponLevel {font-size:22px;font-weight:650;line-height:1;color:#e6c480}
+.weaponScore {display:flex;align-items:baseline;justify-content:space-between;padding-top:8px;border-top:1px solid #ffffff14;font-size:12px;color:#aebdce}
+.weaponScore b {font-size:18px;font-weight:600;color:#e2ebf3}
+.advancementText {flex:1;min-height:0;margin-top:8px;overflow:hidden;font-size:11px;line-height:1.45;color:#aebdce;display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical}
+.advancement {display:grid;grid-template-columns:28px minmax(0,1fr);gap:6px;opacity:.55}
+.advancement[data-active] {opacity:1}
+.advancement strong {color:#e6c480}
+.advancementStar {float:left;margin-right:5px;color:#e6c480;font-weight:600}
+
+/* Attributes: Special (vitals + element table) and Basic in place of the Titan summary. */
+article.card .stats {display:flex;flex-direction:column;gap:12px}
+.statRow {display:flex;align-items:center;justify-content:space-between;gap:8px;min-width:0;font-size:12px;line-height:18px;font-variant-numeric:tabular-nums}
+.statRow span {display:flex;align-items:center;gap:5px;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis;color:#acbac9}
+.statRow b {font-weight:600;white-space:nowrap}
+.statRow img {width:16px;height:16px;object-fit:contain}
+.basic {border-top:1px solid #ffffff20;padding-top:9px}
+.basic h3 {margin:0 0 6px;font-size:11px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:#aebecd}
+.basicGrid {display:grid;grid-template-columns:1fr;gap:3px}
+
+/* Equipment: base stats, random rolls with their in-game range, and the slot's expansion card. */
+article.card :global(.gear-grid) {grid-template-columns:repeat(4,minmax(0,1fr))}
+article.card :global(.gear) {display:flex;flex-direction:column;min-width:0}
+.gearMeta {color:#a6b6c6}
+.gearBody {flex:1;min-height:0}
+article.card :global(.gear .base) {gap:6px}
+article.card :global(.gear .base span) {overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+article.card :global(.gear .roll) {grid-template-columns:minmax(0,1fr) 58px 76px}
+article.card :global(.gear .roll>span:first-child) {display:flex;align-items:center;gap:4px;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+article.card :global(.gear .roll img) {width:14px;height:14px;object-fit:contain}
+.cardRow {display:flex;align-items:center;gap:6px;min-width:0;height:26px;margin-top:4px;padding-top:4px;border-top:1px solid #ffffff14;font-size:11px;color:#e2ebf3}
+.cardRow>span:not(.cardIcon) {flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.cardRow small {color:#e6c480;font-size:10px}
+.cardIcon {display:inline-block;width:22px;height:22px;flex-shrink:0;object-fit:contain;border-radius:4px;background:#ffffff08}
+.cardEmpty {color:#5d6b7a}
+.petModules {display:flex;gap:5px;margin-top:3px}
+.petModules>span {display:inline-flex}
+.petModules span[data-build-edit] {display:inline-flex;align-items:center;gap:3px}
+.petModules small {font-size:10px;color:#e6c480}
+
+/* Systems row: thresholds, expansion packs, Brainfield, Smart Servant, food. */
+article.card :global(.systems).systems {grid-template-columns:360px 240px 86px minmax(0,1fr) 300px}
+.thresholds {display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:20px;gap:2px 14px}
+.threshold {display:flex;align-items:center;gap:5px;min-width:0;font-size:11px;color:#9fb0c0}
+.threshold span {flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.threshold b {font-weight:600;color:#5d6b7a}
+.threshold img {width:16px;height:16px;object-fit:contain}
+.threshold:not([data-level="0"]) b {color:#e6c480}
+.threshold:not([data-level="0"]) span {color:#e2ebf3}
+.sets {display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:19px;gap:1px 14px}
+.set {display:flex;align-items:center;gap:6px;min-width:0;height:19px;font-size:11px}
+.set .cardIcon {width:18px;height:18px}
+.set>span:not(.cardIcon) {flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.set b {color:#e6c480;font-weight:600}
+.chains {display:grid;grid-auto-rows:19px;gap:1px}
+.chain {display:flex;align-items:center;gap:5px;min-width:0;font-size:11px;color:#a8bacb}
+.chain>span:first-child {flex:1;min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.chain b {font-size:16px;font-weight:550;color:#deedf7}
+.chain small {font-size:10px;width:30px}
+.chainSkills {display:flex;gap:2px}
+.chainSkills img {width:18px;height:18px;object-fit:contain;opacity:.5;filter:grayscale(1)}
+.chainSkills img[data-active] {opacity:1;filter:none}
+article.card img.gearRole {width:15px;height:15px;flex-shrink:0;align-self:center;object-fit:contain}
+.inherited {color:#3fc79a}
+.pet {display:flex;gap:10px;align-items:center;min-width:0}
+article.card img.petPortrait {width:62px;height:62px;flex-shrink:0;object-fit:cover;object-position:50% 15%;}
+.petInfo {display:grid;gap:3px;min-width:0;font-size:11px}
+.petInfo>b {font-size:14px;font-weight:550;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.petInfo>b small {font-size:11px;font-weight:400;color:#a7bacb}
+.petStat {display:flex;align-items:center;gap:2px;color:#a7bacb}
+.petStat>b {margin-left:auto;padding-left:10px;font-weight:600;color:#e2ebf3;white-space:nowrap}
+.foods {display:flex;gap:6px}
+.foods img,.foods :global(.compact-empty) {width:32px;height:32px;object-fit:contain}
+.totals {grid-template-columns:repeat(8,max-content)}
+
+/* Stat inspection (StatHighlight): MMO-only parts without a stat link fade like the Global card's meta. */
+article.card[data-stat-highlight] :is(.weaponSide,.weaponIdentity,.weaponHeading,.weaponProgress,.cardEmpty),
+article.card[data-stat-highlight] :global(.weapon-art),
+article.card[data-stat-highlight] :global(.stat-table tbody th:not(:has([data-stat-match="true"]))) {opacity:.3}
+/* Combat Strength inspection: the header keeps its own number lit (the Global card fades .profile-meta). */
+article.card.card[data-stat-highlight*="@mmo-combat-strength"] :global(.profile-meta) {opacity:1}
+article.card.card[data-stat-highlight*="@mmo-combat-strength"] .weaponProgress {opacity:1}
+article.card.card[data-stat-highlight*="@mmo-combat-strength"] :global(:is(.profile-meta .sub,.current-cs)) {opacity:.3}
+
+/* Weapon advancement track +0…+15: cells fill one after another, the tip cell glows. */
+.weaponProgressSlot {flex:1;display:flex;align-items:center;min-height:0}
+.weaponProgress {width:100%;padding:0 2px;display:grid;gap:5px}
+.weaponTrack {display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:3px}
+.weaponTrack > * {display:flex;min-width:0}
+.weaponTrack i {flex:1;height:9px;border-radius:2px;background:#ffffff10;box-shadow:inset 0 0 0 1px #ffffff14;transform:skewX(-18deg)}
+.weaponTrack i[data-milestone] {box-shadow:inset 0 0 0 1px #ffffff30}
+.weaponTrack i[data-on] {background:linear-gradient(180deg,hsl(calc(44 - var(--i)*1.4) 92% 76%),hsl(calc(36 - var(--i)*1.6) 82% 52%));box-shadow:0 0 6px hsl(calc(40 - var(--i)*1.5) 90% 60% / .45),inset 0 1px 0 #ffffff55;animation:weaponFill .45s ease-out backwards;animation-delay:calc(var(--i)*45ms)}
+.weaponTrack i[data-tip] {box-shadow:0 0 12px 2px hsl(calc(40 - var(--i)*1.5) 95% 65% / .75),inset 0 1px 0 #ffffff88}
+.weaponProgress[data-full] .weaponTrack i[data-on] {animation:weaponFill .45s ease-out backwards,weaponGlow 2.6s ease-in-out infinite;animation-delay:calc(var(--i)*45ms),calc(var(--i)*45ms + .45s)}
+.weaponScale {display:flex;justify-content:space-between;font-size:10px;letter-spacing:.04em;color:#7f93a6}
+@keyframes weaponFill {from{opacity:0;transform:skewX(-18deg) scaleY(.2)}to{opacity:1;transform:skewX(-18deg) scaleY(1)}}
+@keyframes weaponGlow {50%{filter:brightness(1.25)}}
+@media (prefers-reduced-motion:reduce) {.weaponTrack i[data-on],.weaponProgress[data-full] .weaponTrack i[data-on] {animation:none}}
+
+/* A combat row's single hover trigger spans the row, so label and value stay at the two ends. */
+article.card :global(.crit-summary :is(.inspect-trigger,*:has(>.inspect-trigger>.crit-damage)):has(.crit-damage)) {display:flex;width:100%}
+article.card :global(.inspect-trigger > .crit-damage) {width:100%}
+.petChance {margin-left:4px;font-weight:500;color:#9fb3c6}
+
+/* Roll quality (position inside the roll range): low / mid / high. */
+article.card :global(.gear .roll em[data-quality=high]) {color:#6fe0a8}
+article.card :global(.gear .roll em[data-quality=mid]) {color:#e6c480}
+article.card :global(.gear .roll em[data-quality=low]) {color:#ff848a}
+
+.advancementTip {display:grid;gap:3px;max-width:260px}
+.advancementTip strong {color:#e6c480}
+.advancementTip small {font-weight:400;color:#7e919f}
+
+/* An element name lights with its ATK cell (the name is grey at rest, a lit value is white). */
+article.card[data-stat-highlight] :global(.stat-table tbody th [data-stat-match="true"]) {color:#fff !important;font-weight:600;opacity:1}
+article.card[data-stat-highlight] :global(.stat-table tbody th [data-stat-match="true"] .stat-icon) {filter:brightness(1.3)}

@@ -1,0 +1,671 @@
+.container {
+  --oow-bg: #0b0d13;
+  --oow-surface: var(--surface-panel);
+  --oow-surface-raised: var(--surface-raised);
+  --oow-border: rgba(255, 255, 255, 0.08);
+  --oow-border-hover: rgba(245, 217, 122, 0.28);
+  --oow-text: #d7d0dd;
+  --oow-text-strong: #f4f0f6;
+  --oow-text-muted: #918899;
+  --oow-gold: #f5d97a;
+  --oow-violet: #a77add;
+  --oow-mint: #7fd2af;
+  --fce-font-copy: "Franklin Gothic Medium Cond", "FranklinGothic-MediumCond", "Arial Narrow", "Segoe UI", sans-serif;
+  --fce-font-title: "Haettenschweiler", "Arial Narrow", Impact, sans-serif;
+  
+  height: calc(100dvh - var(--fce-header-inset, 56px));
+  padding-bottom: 0;
+  color: var(--oow-text);
+  background: var(--oow-bg);
+  position: relative;
+  overflow: hidden;
+}
+
+.layout {
+  max-width: min(100%, 1440px);
+  margin: 0 auto;
+  padding: 14px 28px 0;
+}
+
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 6px;
+}
+
+.heroContent {
+  max-width: none;
+  min-width: 0;
+}
+
+.heroEyebrow {
+  margin: 0 0 4px;
+  color: var(--oow-gold);
+  font: 700 11px/1 "Manrope", var(--font-sans, system-ui);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.heroTitle {
+  margin: 0;
+  color: var(--oow-text-strong);
+  font: 700 26px/1.25 "Manrope", var(--font-sans, system-ui);
+  letter-spacing: -0.01em;
+}
+
+/* Mode Switcher */
+.modeSwitcher {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.modeLabel {
+  font: 700 11px/1 "Manrope", var(--font-sans, system-ui);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #948aa8;
+}
+
+.modePills {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  padding: 4px;
+}
+
+.modePill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font: 700 13px/1 "Manrope", var(--font-sans, system-ui);
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #7a7290;
+  white-space: nowrap;
+  user-select: none;
+  outline: none;
+  box-sizing: border-box;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.modePill:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 2px;
+}
+
+.modePill:hover:not(.isActive) {
+  color: #f6f1fb;
+}
+
+.modePill.isActive,
+.modePill[aria-pressed="true"] {
+  background: linear-gradient(135deg, #f5d97a, #f0b94e);
+  color: #17111f;
+  box-shadow: 0 2px 8px rgba(245, 217, 122, 0.25);
+  cursor: default;
+}
+
+/* Boss Switcher */
+.switcherSection {
+  width: 100vw;
+  margin-left: calc(50% - 50vw);
+  padding-inline: 24px;
+  box-sizing: border-box;
+  margin-bottom: 8px;
+}
+
+.switcher {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: min(100%, 1520px);
+  margin: 0 auto;
+}
+
+@media (min-width: 1569px) {
+  .switcher {
+    width: max-content;
+    max-width: calc(100vw - 48px);
+  }
+}
+
+/* MMO Season Switcher */
+.mmoSwitcher {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: min(100%, 1520px);
+  margin: 0 auto;
+  max-height: 114px; /* Fits maximum 3 rows on screen */
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 2px 4px;
+  box-sizing: border-box;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(229, 180, 86, 0.45) rgba(15, 12, 24, 0.6);
+}
+
+@media (min-width: 1569px) {
+  .mmoSwitcher {
+    width: max-content;
+    max-width: calc(100vw - 48px);
+  }
+}
+
+.mmoSwitcher::-webkit-scrollbar {
+  width: 5px;
+}
+
+.mmoSwitcher::-webkit-scrollbar-track {
+  background: rgba(15, 12, 24, 0.6);
+  border-radius: 4px;
+}
+
+.mmoSwitcher::-webkit-scrollbar-thumb {
+  background: rgba(229, 180, 86, 0.45);
+  border-radius: 4px;
+}
+
+.mmoSwitcher::-webkit-scrollbar-thumb:hover {
+  background: rgba(229, 180, 86, 0.8);
+}
+
+.seasonRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  max-height: 32px;
+  width: 100%;
+}
+
+/* MMO Season Badges matching /info/simulacra/?server=mmo */
+.seasonBadge {
+  height: 26px;
+  min-width: 38px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 7px;
+  border-radius: 6px;
+  line-height: 1;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ffffff;
+  user-select: none;
+  flex-shrink: 0;
+  cursor: default;
+  transition: filter 0.15s ease, transform 0.15s ease;
+}
+
+.seasonRow:hover .seasonBadge {
+  filter: brightness(1.12);
+}
+
+.seasonBadge1 {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+  border: 1px solid rgba(191, 219, 254, 0.6);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
+}
+
+.seasonBadge2 {
+  background: linear-gradient(135deg, #f59e0b, #b45309);
+  border: 1px solid rgba(254, 240, 138, 0.6);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
+}
+
+.seasonBadge3 {
+  background: linear-gradient(135deg, #10b981, #047857);
+  border: 1px solid rgba(167, 243, 208, 0.6);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
+}
+
+.seasonBadge4 {
+  background: linear-gradient(135deg, #a855f7, #6b21a8);
+  border: 1px solid rgba(233, 213, 255, 0.6);
+  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.5);
+}
+
+.seasonChips {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex: 1;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.seasonChips::-webkit-scrollbar {
+  display: none;
+}
+
+/* Empty slot reserving space for the next unreleased season. Invisible
+   badge and chips keep the exact size of a real season row while unreleased. */
+.seasonRowPlaceholder {
+  pointer-events: none;
+  user-select: none;
+}
+
+.seasonBadgePlaceholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.chipPlaceholder {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.switcherRow {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 6px;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding-bottom: 2px;
+  scrollbar-width: thin;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Card Shell & Viewport */
+.cardShell {
+  width: min(100%, 1520px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.cardLoader {
+  display: grid;
+  place-items: center;
+  min-height: 240px;
+  color: var(--oow-text-muted);
+  font: 600 14px/1.5 "Manrope", var(--font-sans, system-ui);
+}
+
+.cardViewport {
+  position: relative;
+  width: 100%;
+  max-width: 1520px;
+  aspect-ratio: 16 / 9;
+  margin: 0 auto;
+  background: transparent;
+  --fce-scale: 0.65;
+  transition: opacity 0.15s ease;
+}
+
+.cardViewport:not([data-ready="true"]) {
+  opacity: 0;
+}
+
+.card {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  transform-origin: top left;
+  transform: scale(var(--fce-scale));
+  background: #dfe5f5;
+  border-radius: 26px;
+}
+
+/* Boss stat plate on the watermark's line, flush with the right edge of the mechanics copy. */
+.cardDefenses {
+  position: absolute;
+  left: 15px;
+  width: var(--fce-copy-width, 1300px);
+  bottom: 12px;
+  z-index: 5;
+  justify-content: flex-end;
+}
+
+/* Author mark, bottom-left; part of the card so the PNG export carries it. */
+.cardSignature {
+  position: absolute;
+  left: 28px;
+  bottom: 20px;
+  z-index: 5;
+  font-family: var(--font-mono, monospace);
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1;
+  color: rgba(40, 36, 56, 0.55);
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Card Layers */
+.cardSky,
+.cardFog,
+.cardWash {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.cardSky {
+  background-image:
+    linear-gradient(180deg, rgba(224, 237, 255, 0.7), rgba(234, 226, 244, 0.34) 54%, rgba(164, 148, 184, 0.24)),
+    url("/datamine/fce/assets/layer-2.webp");
+  background-size: cover, 108%;
+  background-position: center, 50% 45%;
+  background-repeat: no-repeat, no-repeat;
+  filter: saturate(0.94) brightness(1.03);
+  animation: fceDriftOne 19s ease-in-out infinite alternate;
+}
+
+.cardFog {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.12), rgba(255, 255, 255, 0)),
+    radial-gradient(circle at 20% 22%, rgba(255, 255, 255, 0.24), transparent 24%),
+    radial-gradient(circle at 54% 72%, rgba(244, 223, 255, 0.18), transparent 34%);
+  opacity: 0.78;
+  animation: fceDriftTwo 27s ease-in-out infinite alternate;
+}
+
+.cardWash {
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.06) 52%, rgba(255, 255, 255, 0) 74%),
+    radial-gradient(circle at 40% 54%, rgba(255, 255, 255, 0.12), transparent 44%);
+}
+
+/* Card Copy (Mechanics) */
+.cardCopy {
+  position: absolute;
+  left: 15px;
+  top: var(--fce-copy-y, 220px);
+  width: var(--fce-copy-width, 1300px);
+  min-height: 696px;
+  z-index: 2;
+  user-select: text;
+  transform-origin: top left;
+  transform: scale(var(--fce-copy-scale, 1));
+}
+
+.cardLine {
+  display: block;
+  padding: 12px 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  cursor: text;
+  transition: background-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.cardLine:hover {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34), 0 10px 24px rgba(201, 214, 255, 0.16);
+}
+
+.cardLine + .cardLine {
+  margin-top: 12px;
+}
+
+.cardText {
+  margin: 0;
+  color: #050505;
+  font-family: var(--fce-font-copy);
+  font-size: 50px;
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+
+.cardText :global(.fce-card__text-accent) {
+  color: #ff0000;
+  font-weight: 700;
+}
+
+.cardIndex {
+  margin-right: 9px;
+}
+
+.cardVisual {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* The art opens the shared fitted Lightbox; the rest of the visual layer stays click-through. */
+.cardArtButton {
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+}
+
+.cardArtButton .cardArt {
+  pointer-events: auto;
+}
+
+.cardArtButton:focus-visible .cardArt {
+  outline: 4px solid var(--oow-gold);
+  outline-offset: -4px;
+}
+
+.cardArt {
+  position: absolute;
+  left: 1121px;
+  top: 71px;
+  width: 1272px;
+  height: 993px;
+  object-fit: contain;
+  object-position: center center;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-user-drag: none;
+  transform-origin: center center;
+  transform: translate3d(var(--fce-art-x, 0px), var(--fce-art-y, 0px), 0) scale(var(--fce-art-scale, 1));
+}
+
+.cardName {
+  position: absolute;
+  right: var(--fce-name-right, 26px);
+  top: calc(891px + var(--fce-name-y, 38px));
+  width: var(--fce-name-width, 620px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--fce-name-color, #72d4ca);
+  font-family: var(--fce-font-title);
+  font-size: calc(110px * var(--fce-name-scale, 1));
+  line-height: 0.88;
+  font-weight: 700;
+  letter-spacing: 0;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  user-select: text;
+  pointer-events: auto;
+  -webkit-text-stroke: 3px rgba(17, 17, 17, 0.92);
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.34);
+  transition: color 0.18s ease, text-shadow 0.18s ease, filter 0.18s ease;
+  z-index: 3;
+}
+
+.cardName:hover {
+  filter: brightness(1.08);
+}
+
+.cardNameWrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cardLevelBadge {
+  position: absolute;
+  right: calc(100% + 20px);
+  top: calc(50% + 14px);
+  transform: translateY(-50%);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  pointer-events: auto;
+}
+
+.cardLevelBadgeText {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px 22px;
+  background: rgba(12, 10, 20, 0.9);
+  border: 3px solid var(--fce-name-color, #72d4ca);
+  border-radius: 9999px;
+  color: var(--fce-name-color, #72d4ca);
+  font-family: var(--font-sans, "Barlow", "Segoe UI", system-ui, sans-serif);
+  font-size: 46px;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  font-variant-numeric: tabular-nums lining-nums;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.3);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  user-select: text;
+  -webkit-text-stroke: 0;
+}
+
+
+/* Floating Download Button (Fixed to bottom-right of viewport, matching legacy) */
+.exportBar {
+  position:fixed;
+  right:24px;
+  bottom:22px;
+  z-index:30;
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+
+/* Keyframes */
+@keyframes fceDriftOne {
+  0% {
+    transform: translate3d(-1.6%, -1.4%, 0) scale(1.04) rotate(-0.18deg);
+  }
+  50% {
+    transform: translate3d(1.3%, 1.2%, 0) scale(1.07) rotate(0.14deg);
+  }
+  100% {
+    transform: translate3d(-0.7%, 1.8%, 0) scale(1.05) rotate(-0.08deg);
+  }
+}
+
+@keyframes fceDriftTwo {
+  0% {
+    transform: translate3d(1.8%, -1.3%, 0) scale(1.02);
+  }
+  50% {
+    transform: translate3d(-1.2%, 1.1%, 0) scale(1.05);
+  }
+  100% {
+    transform: translate3d(1.1%, 1.9%, 0) scale(1.03);
+  }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .switcherSection {
+    padding-inline: 12px;
+  }
+
+  .layout {
+    padding: 14px 12px 12px;
+  }
+  .hero {
+    gap: 12px;
+  }
+  .modeSwitcher {
+    gap: 8px;
+  }
+  .modeLabel {
+    font-size: 10px;
+  }
+  .modePill {
+    font-size: 11.5px;
+    padding: 6px 12px;
+  }
+  .exportBar {
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+
+@media (max-width: 520px) {
+  .hero {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .modeSwitcher {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  /* Card background drift intentionally keeps animating like legacy, which
+     has no motion guard. Only control transitions are shortened. */
+  .modePill {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Offscreen export scene: a full-scale clone of the live card for the DOM
+   screenshot download. Drift animations are frozen at the base frame so the
+   exported background always matches the resting card. */
+.fceExportRoot {
+  position: fixed;
+  left: -10000px;
+  top: 0;
+  width: 1920px;
+  height: 1080px;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.fceExportRoot .card {
+  transform: none;
+  /* The live card is rounded; the PNG is a full rectangle, so the corners
+     must not be clipped away. */
+  border-radius: 0;
+}
+
+.fceExportRoot .cardSky,
+.fceExportRoot .cardFog {
+  animation: none !important;
+}
+
+/* Snapshot renderers (SVG foreignObject) rasterise backdrop-filter regions
+   inconsistently, leaving a halo around the MMO level badge. The pill is
+   90% opaque, so a solid background in export is visually identical while
+   keeping the badge crisp. Live card is untouched. */
+.fceExportRoot .cardLevelBadgeText {
+  backdrop-filter: none !important;
+  background: #0c0a14 !important;
+}

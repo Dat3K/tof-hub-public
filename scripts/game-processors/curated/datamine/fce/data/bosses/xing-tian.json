@@ -1,0 +1,52 @@
+{
+  "slug": "xing-tian",
+  "order": 22,
+  "boss_id": "boss_hum_64",
+  "name_color": "#ef73ba",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.webp",
+  "art_object_position": "center center",
+  "source_psd": "Xing Tian.psd",
+  "en": {
+    "name": "Xing Tian",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "When Xing Tian&#x27;s health drops below 25%, he will cause damage to the surrounding area and become invincible for 15 seconds. This effect will only be triggered once."
+      },
+      {
+        "index": "2",
+        "html": "The damage Xing Tian causes to targets with a higher health percentage than his own is greatly increased."
+      },
+      {
+        "index": "3",
+        "html": "When Xing Tian hits a non-selected target, there is a chance that all of the target&#x27;s actions will be greatly reduced for 4 seconds."
+      },
+      {
+        "index": "4",
+        "html": "The speed of all Xing Tian&#x27;s actions is greatly increased."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Син Тянь",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Когда здоровье Син Тяня падает ниже 25%, он наносит урон вокруг себя и становится неуязвимым на 15 секунд. Этот эффект срабатывает только один раз."
+      },
+      {
+        "index": "2",
+        "html": "Урон, который Син Тянь наносит целям с более высоким процентом HP, чем у него самого, значительно увеличен."
+      },
+      {
+        "index": "3",
+        "html": "Когда Син Тянь попадает по невыбранной цели, есть шанс сильно замедлить все действия этой цели на 4 секунды."
+      },
+      {
+        "index": "4",
+        "html": "Скорость всех действий Син Тяня значительно повышена."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss025.webp"
+}

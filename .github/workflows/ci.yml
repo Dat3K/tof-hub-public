@@ -1,0 +1,63 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  checks:
+    name: Lint, types and tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: pnpm/action-setup@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: .node-version
+          cache: pnpm
+
+      - name: Install
+        run: pnpm install --frozen-lockfile
+
+      - name: Public source policy
+        run: node scripts/check-public-source.mjs
+
+      - name: Lint and UI localization
+        run: pnpm lint
+
+      # The web app and the exporter read generated game data, which CI does not have.
+      - name: Typecheck API and packages
+        run: pnpm exec turbo run typecheck --filter=!web --filter=!@tof-hub/tof-exporter
+
+      - name: Prisma schema
+        run: pnpm prisma:validate
+        env:
+          DATABASE_URL: postgresql://ci:ci@localhost:5432/ci
+
+      - name: Unit tests that need no game data
+        run: pnpm exec vitest run packages/contracts packages/ui tests/setup/ui-translations.test.ts
+
+      - name: Import examples
+        run: pnpm validate:import-examples
+
+  secrets:
+    name: Secret scan
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

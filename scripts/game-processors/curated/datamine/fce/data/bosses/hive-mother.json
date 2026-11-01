@@ -1,0 +1,52 @@
+{
+  "slug": "hive-mother",
+  "order": 20,
+  "boss_id": "boss_hum_069",
+  "name_color": "#cb60f1",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp",
+  "art_object_position": "center center",
+  "source_psd": "hive_mother.psd",
+  "en": {
+    "name": "Hive Mother",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "The Hive Mother has high Crit Resistance. If her defenses are shattered, her Crit Resistance will temporarily disappear. <span class=\"fce-card__text-accent\">Additional 50% Crit Resistance. Removed for 1 min after shatter.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Upon entering battle, the Hive Mother will summon 2 Rampage Prisoners to assist in combat. The Prisoners are in an invincible state, and will die once the Hive Mother is defeated."
+      },
+      {
+        "index": "3",
+        "html": "Every 5 seconds, the Hive Mother inflicts lethal damage every second to the locked-on target for 5 seconds. If the target has Fortitude, this damage is significantly reduced."
+      },
+      {
+        "index": "4",
+        "html": "Every 15 seconds, the Hive Mother scans her surroundings. If Attack, Balance, Fortitude, and Benediction are not present at the same time, all of the Hive Mother&#x27;s attacks will inflict lethal damage."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Улей-Мать",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "У Улья-Матери высокая сопротивляемость критическим ударам. Если ее защиту разбить, эта крит-сопротивляемость временно исчезнет. <span class=\"fce-card__text-accent\">Дополнительно 50% crit resist. Снимается на 1 минуту после shatter.</span>"
+      },
+      {
+        "index": "2",
+        "html": "При входе в бой Улей-Мать призывает 2 Rampage Prisoners для помощи в бою. Они находятся в состоянии неуязвимости и умрут только после смерти самой Улья-Матери."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 5 секунд Улей-Мать наносит смертельный урон каждую секунду в течение 5 секунд цели, на которую зафиксирована. Если цель имеет Fortitude, этот урон значительно снижается."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Улей-Мать сканирует окружение. Если на поле одновременно нет Attack, Balance, Fortitude и Benediction, все ее атаки начинают наносить смертельный урон."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_069.webp"
+}

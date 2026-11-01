@@ -1,0 +1,170 @@
+.releases {
+  position: relative;
+}
+.title {
+  margin: 0;
+  color: var(--dm-text-strong);
+  font-size: clamp(21px, 2.2vw, 25px);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+}
+.timeline {
+  display: grid;
+  gap: 28px;
+  margin: 32px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.release {
+  position: relative;
+  display: grid;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 28px;
+}
+.release::before {
+  content: "";
+  position: absolute;
+  top: 10px;
+  left: 4px;
+  width: 9px;
+  height: 9px;
+  border: 1px solid var(--dm-gold);
+  border-radius: 50%;
+  background: var(--surface-raised);
+}
+.release[data-latest]::before {
+  background: var(--dm-gold);
+  box-shadow: 0 0 0 4px rgba(245, 217, 122, 0.12);
+}
+.release:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 26px;
+  bottom: -26px;
+  left: 8px;
+  width: 1px;
+  background: var(--surface-border);
+}
+/* Project history (legacy → hub): the starting point of the timeline. */
+.release[data-history]::before {
+  border-style: dashed;
+  background: transparent;
+}
+.release[data-history] .version {
+  font-size: 15px;
+}
+.release[data-history] .releaseBody {
+  border-color: var(--surface-border-strong);
+  background:
+    radial-gradient(ellipse 70% 120% at 0% 0%, rgba(245, 217, 122, 0.06), transparent 60%),
+    var(--surface-panel);
+}
+.releaseMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-left: 26px;
+}
+.version {
+  color: var(--dm-gold);
+  font-family: var(--font-mono, monospace);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.4;
+}
+.date {
+  color: var(--dm-text);
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+}
+.client {
+  color: var(--dm-muted);
+  font-size: 12px;
+}
+.releaseBody {
+  min-width: 0;
+  padding: 22px 24px 8px;
+}
+.summary {
+  margin: 0 0 6px;
+  color: var(--dm-text-strong);
+  font-size: 14px;
+  font-weight: 500;
+}
+.changes {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.changeMeta {
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 140px;
+}
+.tag {
+  padding: 2px 8px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  color: var(--dm-muted);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+.tag[data-tag="FEATURE"] {
+  border-color: rgba(245, 217, 122, 0.35);
+  color: var(--dm-gold);
+}
+.tag[data-tag="DATA"] {
+  border-color: rgba(125, 196, 255, 0.35);
+  color: #9ccfff;
+}
+.tag[data-tag="FIX"] {
+  border-color: rgba(255, 140, 160, 0.35);
+  color: #ff9fb1;
+}
+.tag[data-tag="UI"] {
+  border-color: rgba(192, 150, 252, 0.35);
+  color: #cdb0fc;
+}
+.section {
+  color: var(--dm-text);
+  font-family: var(--font-mono, monospace);
+  font-size: 12px;
+  font-weight: 600;
+}
+.changeText {
+  flex: 1;
+  min-width: 0;
+  margin: 0;
+  color: var(--dm-text);
+  font-size: 13px;
+  line-height: 1.7;
+}
+@media (max-width: 760px) {
+  .release {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 12px;
+  }
+  .releaseMeta {
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: baseline;
+    column-gap: 12px;
+  }
+  .release:not(:last-child)::after {
+    display: none;
+  }
+}
+@media (max-width: 640px) {
+  .releaseBody {
+    padding: 20px;
+  }
+  .changeMeta {
+    flex-direction: row;
+    align-items: center;
+    width: auto;
+  }
+}

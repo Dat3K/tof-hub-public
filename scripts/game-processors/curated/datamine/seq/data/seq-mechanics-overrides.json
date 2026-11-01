@@ -1,0 +1,226 @@
+{
+  "stages": {
+    "1": {
+      "enemyCode": "boss_hum_001",
+      "enemyNameEn": "Franken",
+      "enemyNameRu": "Франкен",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.webp"
+    },
+    "2": {
+      "enemyCode": "boss_hum_035",
+      "enemyNameEn": "Aegis",
+      "enemyNameRu": "Эгида",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_022.webp"
+    },
+    "3": {
+      "enemyCode": "boss_002",
+      "enemyNameEn": "Minotaur",
+      "enemyNameRu": "Минотавр",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp"
+    },
+    "4": {
+      "enemyCode": "Boss_hum_007",
+      "enemyNameEn": "Huenatron",
+      "enemyNameRu": "Хуенатрон",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.webp"
+    },
+    "5": {
+      "enemyCode": "boss_hum_018",
+      "enemyNameEn": "Habaka",
+      "enemyNameRu": "Хабака",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.webp"
+    },
+    "6": {
+      "enemyCode": "boss_hum_056",
+      "enemyNameEn": "Fulmination",
+      "enemyNameRu": "Фулминация",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_056.webp",
+      "effectiveHp": 803800000,
+      "note": "subtract 45-50 seconds"
+    },
+    "7": {
+      "enemyCode": "boss_hum_029",
+      "enemyNameEn": "Devourer (Ripper)",
+      "enemyNameRu": "Пожиратель",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_07.webp"
+    },
+    "8": {
+      "enemyCode": "boss_hum_033",
+      "enemyNameEn": "Puppet Singer",
+      "enemyNameRu": "Кукольная певица",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.webp",
+      "effectiveHp": 1095610000,
+      "note": "subtract 60 seconds"
+    },
+    "9": {
+      "enemyCode": "boss_hum_058",
+      "enemyNameEn": "Quasivita",
+      "enemyNameRu": "Квазивита",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_058.webp"
+    },
+    "10": {
+      "enemyCode": "boss_hum_067",
+      "enemyNameEn": "Nan Yin",
+      "enemyNameRu": "Нань Инь",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.webp",
+      "effectiveHp": 2761910000,
+      "note": "fulltime 50% dmg reduction"
+    },
+    "11": {
+      "enemyCode": "Boss_hum_060",
+      "enemyNameEn": "Gu Chen",
+      "enemyNameRu": "Гу Чэнь",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.webp",
+      "effectiveHp": 2085750000,
+      "note": "fulltime 50% dmg reduction"
+    },
+    "12": {
+      "enemyCode": "boss_047",
+      "enemyNameEn": "Jormungand",
+      "enemyNameRu": "Йормунганд",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.webp"
+    },
+    "13": {
+      "enemyCode": "BOSS_hum_066",
+      "enemyNameEn": "Flywing",
+      "enemyNameRu": "Крылолет",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/BOSS_hum_066.webp"
+    },
+    "14": {
+      "enemyCode": "boss_hum_063",
+      "enemyNameEn": "Mother of Calamity",
+      "enemyNameRu": "Мать бедствия",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_064.webp",
+      "effectiveHp": 4091380000,
+      "note": "fulltime 50% dmg reduction"
+    },
+    "15": {
+      "enemyCode": "boss_hum_064",
+      "enemyNameEn": "Xing Tian",
+      "enemyNameRu": "Синтянь",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.webp"
+    },
+    "16": {
+      "enemyCode": "Boss_hum_061",
+      "enemyNameEn": "Ying Zhao",
+      "enemyNameRu": "Ин Чжао",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.webp"
+    },
+    "17": {
+      "enemyCode": "boss_030",
+      "enemyNameEn": "Rudolph",
+      "enemyNameRu": "Рудольф",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp"
+    },
+    "18": {
+      "enemyCode": "boss_hum_027",
+      "enemyNameEn": "Pallas",
+      "enemyNameRu": "Паллас",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_027.webp"
+    },
+    "19": {
+      "enemyCode": "boss_hum_045",
+      "enemyNameEn": "Eva",
+      "enemyNameRu": "Ева",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp"
+    },
+    "20": {
+      "enemyCode": "boss_065",
+      "enemyNameEn": "Merbelle",
+      "enemyNameRu": "Мербелль",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp"
+    },
+    "21": {
+      "enemyCode": "boss_hum_046",
+      "enemyNameEn": "Chaos Armor",
+      "enemyNameRu": "Хаос Армор",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp"
+    },
+    "22": {
+      "enemyCode": "boss_hum_075",
+      "enemyNameEn": "Sphere",
+      "enemyNameRu": "Сфера",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.webp"
+    },
+    "23": {
+      "enemyCode": "boss_hum_073",
+      "enemyNameEn": "Asurada",
+      "enemyNameRu": "Асурада",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.webp"
+    },
+    "24": {
+      "enemyCode": "boss_hum_059",
+      "enemyNameEn": "Black Crow",
+      "enemyNameRu": "Чёрный ворон",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.webp"
+    },
+    "25": {
+      "enemyCode": "boss_hum_065",
+      "enemyNameEn": "Taotie",
+      "enemyNameRu": "Таоте",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss024.webp"
+    },
+    "26": {
+      "enemyCode": "boss_hum_077",
+      "enemyNameEn": "Void Entity",
+      "enemyNameRu": "Сущность Бездны",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_077.webp"
+    },
+    "27": {
+      "enemyCode": "boss_hum_079",
+      "enemyNameEn": "Ground Controller (Defender)",
+      "enemyNameRu": "Защитник",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.webp"
+    },
+    "28": {
+      "enemyCode": "boss_hum_080",
+      "enemyNameEn": "Gunner",
+      "enemyNameRu": "Стрелок",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.webp"
+    },
+    "29": {
+      "enemyCode": "boss_hum_057",
+      "enemyNameEn": "Zhuyan",
+      "enemyNameRu": "Чжуянь",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.webp"
+    },
+    "30": {
+      "enemyCode": "boss_hum_036",
+      "enemyNameEn": "Culton",
+      "enemyNameRu": "Калтон",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp"
+    },
+    "31": {
+      "enemyCode": "Boss_hum_084",
+      "enemyNameEn": "Laurent",
+      "enemyNameRu": "Лоран",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_084.webp"
+    },
+    "32": {
+      "enemyCode": "Boss_hum_083",
+      "enemyNameEn": "Calamity No. 5",
+      "enemyNameRu": "Бедствие №5",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/Scenery/monster/Boss_hum_083.webp"
+    },
+    "33": {
+      "enemyCode": "boss_hum_086",
+      "enemyNameEn": "Nanto",
+      "enemyNameRu": "Нанто",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.webp"
+    },
+    "35": {
+      "enemyCode": "boss_015",
+      "enemyNameEn": "Sobek",
+      "enemyNameRu": "Собек",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+      "identitySource": "User confirmation 2026-10-23; current raw pool snapshot differs; see docs/game-data/sequential.md"
+    },
+    "34": {
+      "enemyCode": "boss_hum_001",
+      "enemyNameEn": "Franken",
+      "enemyNameRu": "Франкен",
+      "portrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.webp"
+    }
+  }
+}
+

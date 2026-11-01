@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": "../..",
+    "paths": {
+      "@tof-hub/contracts": ["packages/contracts/src/index.ts"],
+      "@tof-hub/game-domain": ["packages/game-domain/src/index.ts"],
+      "@tof-hub/game-assets": ["packages/game-assets/src/index.ts"]
+    }
+  }
+}

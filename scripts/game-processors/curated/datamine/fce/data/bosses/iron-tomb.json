@@ -1,0 +1,52 @@
+{
+  "slug": "iron-tomb",
+  "order": 5,
+  "boss_id": "boss_hum_037",
+  "name_color": "#3db0c0",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+  "art_object_position": "center center",
+  "source_psd": "саркафаг.psd",
+  "en": {
+    "name": "Iron Tomb",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Iron Tomb&#x27;s attacks have a certain chance to inflict a 5-second Countermove effect, disabling the target&#x27;s hyperbody for its duration."
+      },
+      {
+        "index": "2",
+        "html": "Every 20 seconds, Iron Tomb gains damage reduction based on its Max HP lost for 20 seconds. <span class=\"fce-card__text-accent\">Every 20 seconds calculate DMG reduction based on TOTAL HP lost. First 20% of HP lost: each 1% HP = 0.25% DMG reduction. Then each 1% HP lost = 0.5% DMG reduction.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Every 8 seconds, Iron Tomb&#x27;s attacks inflict a Maim effect, significantly reducing the damage dealt and healing received on non-Fortitude targets for 8 seconds. <span class=\"fce-card__text-accent\">-50% Damage Dealt</span>"
+      },
+      {
+        "index": "4",
+        "html": "Every 20 seconds, Iron Tomb randomly links 2 players within range, reducing their final damage by 30%; each linked player provides a 30% increase in Iron Tomb&#x27;s final damage. Moving away from Iron Tomb can break the link."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Саркофаг",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Саркофага имеют шанс наложить эффект Countermove на 5 секунд, отключая hyperbody цели на все время действия эффекта."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 20 секунд Саркофаг получает снижение урона на основе потерянного Max HP на 20 секунд. <span class=\"fce-card__text-accent\">Каждые 20 секунд рассчитывается снижение урона по ОБЩЕЙ потере HP. Первые 20% потерянного HP: каждый 1% HP = 0.25% снижения урона. Далее каждый 1% HP = 0.5% снижения урона.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Каждые 8 секунд атаки Саркофага накладывают Maim, значительно снижая наносимый урон и получаемое лечение у целей без Fortitude на 8 секунд. <span class=\"fce-card__text-accent\">-50% наносимого урона</span>"
+      },
+      {
+        "index": "4",
+        "html": "Каждые 20 секунд Саркофаг случайно связывает 2 игроков в радиусе, снижая их финальный урон на 30%; каждый связанный игрок увеличивает финальный урон Саркофага на 30%. Уйдя подальше от босса, связь можно разорвать."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_11.webp"
+}

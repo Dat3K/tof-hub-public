@@ -1,0 +1,67 @@
+/* ==========================================================================
+   ScrollToTop Styles
+   Reference: datamine/shared/scroll-top.js
+   Specification: README_SCROLL_TOP.md
+   ========================================================================== */
+
+.scrollTop {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 70;
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(21, 17, 25, 0.92);
+  color: #f5d97a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+  opacity: 0;
+  transform: translateY(8px);
+  pointer-events: none;
+  transition: opacity 0.2s ease, transform 0.2s ease, background 0.16s ease, border-color 0.16s ease;
+  padding: 0;
+}
+
+.isVisible {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.scrollTop:hover {
+  background: #f5d97a;
+  color: #17111f;
+  border-color: #f5d97a;
+}
+
+.scrollTop:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 2px;
+}
+
+.icon {
+  width: 18px;
+  height: 18px;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .scrollTop {
+    right: 14px;
+    bottom: 14px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scrollTop {
+    transition: opacity 0.2s ease;
+    transform: none;
+  }
+}

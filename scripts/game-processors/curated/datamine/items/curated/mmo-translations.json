@@ -1,0 +1,4481 @@
+{
+  "BluePrint_T0.2_Equip1": {
+    "name": "A assault arm armor drawings."
+  },
+  "BluePrint_T0.2_Equip2": {
+    "name": "Assault leg drawings."
+  },
+  "BluePrint_T0.2_Equip3": {
+    "name": "Assault Shoe Drawings"
+  },
+  "BluePrint_T0.2_Equip4": {
+    "name": "Surf shoulder drawings"
+  },
+  "BluePrint_T0.2_Equip5": {
+    "name": "Assaulting A drawings."
+  },
+  "BluePrint_T0.2_Equip6": {
+    "name": "Assault Handpaper"
+  },
+  "BluePrint_T0.2_Equip7": {
+    "name": "A belt of assault drawings."
+  },
+  "BluePrint_T0.2_Equip8": {
+    "name": "Assault helmet drawings"
+  },
+  "BluePrint_T0.3_Equip1": {
+    "name": "Extinct arm's apnear drawings"
+  },
+  "BluePrint_T0.3_Equip2": {
+    "name": "Extermination leg drawings"
+  },
+  "BluePrint_T0.3_Equip3": {
+    "name": "Shoe-killing drawings"
+  },
+  "BluePrint_T0.3_Equip4": {
+    "name": "Extinct shoulder drawings"
+  },
+  "BluePrint_T0.3_Equip5": {
+    "name": "Destroying the map."
+  },
+  "BluePrint_T0.3_Equip6": {
+    "name": "Exterminate handpaper"
+  },
+  "BluePrint_T0.3_Equip7": {
+    "name": "Discharge belt drawings"
+  },
+  "BluePrint_T0.3_Equip8": {
+    "name": "Destroy helmet drawings"
+  },
+  "BluePrint_T1_Equip1": {
+    "name": "Titan Armor Chart"
+  },
+  "BluePrint_T1_Equip2": {
+    "name": "Titan leg-carrying paper."
+  },
+  "BluePrint_T1_Equip3": {
+    "name": "Titan Shoe Chart"
+  },
+  "BluePrint_T1_Equip4": {
+    "name": "Titan shoulder-pumping paper."
+  },
+  "BluePrint_T1_Equip5": {
+    "name": "Titan's a mandamus."
+  },
+  "BluePrint_T1_Equip6": {
+    "name": "Titanian hand-writing."
+  },
+  "BluePrint_T1_Equip7": {
+    "name": "Titan belt drawings."
+  },
+  "BluePrint_T1_Equip8": {
+    "name": "Titan helmet drawings"
+  },
+  "BluePrint_T2_Equip1": {
+    "name": "Apocalypse of Arm of the Dead"
+  },
+  "BluePrint_T2_Equip2": {
+    "name": "A final leg protection drawing."
+  },
+  "BluePrint_T2_Equip3": {
+    "name": "Apocalypse Shoes"
+  },
+  "BluePrint_T2_Equip4": {
+    "name": "Apocalypse shoulder-pumping paper"
+  },
+  "BluePrint_T2_Equip5": {
+    "name": "Apocalypse for the end of the day"
+  },
+  "BluePrint_T2_Equip6": {
+    "name": "Apocalypse Handprint"
+  },
+  "BluePrint_T2_Equip7": {
+    "name": "Apocalypse belt drawings"
+  },
+  "BluePrint_T2_Equip8": {
+    "name": "Apocalypse helmet drawings"
+  },
+  "BreakClash_S2_StrengthenStoneMMO_C": {
+    "name": "Combining Reconstruct Box"
+  },
+  "CompassTrialCard_bag1": {
+    "name": "Open weapons kit"
+  },
+  "CompassTrialCard_bag2": {
+    "name": "Open weapons kit"
+  },
+  "EquipPowderMMO_A": {
+    "name": "Smelting ore"
+  },
+  "EquipPowderMMO_B": {
+    "name": "High-value minerals"
+  },
+  "EquipPowderMMO_C": {
+    "name": "Smelting carbon powder"
+  },
+  "EquipPowderMMO_D": {
+    "name": "High-purity carbon powder"
+  },
+  "EquipShow_MMO_Asshai": {
+    "name": "Random equipment"
+  },
+  "EquipShow_MMO_Jiuyu": {
+    "name": "Random equipment"
+  },
+  "EquipShow_MMO_Kailo": {
+    "name": "Random equipment"
+  },
+  "EquipShow_MMO_Norn": {
+    "name": "Random equipment"
+  },
+  "EquipShow_MMO_Vera": {
+    "name": "Random equipment"
+  },
+  "Joint_equip_temporary_mmo": {
+    "name": "Mysterious equipment."
+  },
+  "MMOGuildEquipBox_autouse": {
+    "name": "Communion kit"
+  },
+  "MMOTalent_01": {
+    "name": "Neuromedia"
+  },
+  "MMOTalent_02": {
+    "name": "Simultaneous delivery"
+  },
+  "MMOTalent_SP": {
+    "name": "Enhanced hormones"
+  },
+  "MMOTicket_JointClone4": {
+    "name": "Passes Supergrade - United4"
+  },
+  "MMOTicket_JointClone5": {
+    "name": "Superpasser -- United5"
+  },
+  "MMO_EquipCoin_T1": {
+    "name": "Resarse the I-bar"
+  },
+  "MMO_EquipCoin_T2": {
+    "name": "Resarse Article II"
+  },
+  "MMO_T1_EquipCoin1": {
+    "name": "Resarse the I-bar"
+  },
+  "MMO_T1_EquipCoin2": {
+    "name": "Resarse Article II"
+  },
+  "MMO_T1_EquipCoin3": {
+    "name": "Resarse Article III"
+  },
+  "MMO_T1_EquipCoin4": {
+    "name": "Resarse Article IV"
+  },
+  "MMO_T2_EquipCoin1": {
+    "name": "Apocalypse Repository I"
+  },
+  "MMO_T2_EquipCoin2": {
+    "name": "Apocalypse Article II"
+  },
+  "MMO_T2_EquipCoin3": {
+    "name": "Apocalypse Article III"
+  },
+  "MMO_T2_EquipCoin4": {
+    "name": "Apocalypse Article IV"
+  },
+  "MMO_WeaponCompassCoin": {
+    "name": "The contract is well known."
+  },
+  "MMO_WeaponGashaponCoin": {
+    "name": "Bracket Note"
+  },
+  "RandomGift_LivenessCoin": {
+    "name": "Random Outlight Box"
+  },
+  "S1_T0.1_Blue_armband": {
+    "name": "Patrol arm A. Fortitude."
+  },
+  "S1_T0.1_Blue_belt": {
+    "name": "Checkpoint belt."
+  },
+  "S1_T0.1_Blue_cloth": {
+    "name": "Patrol guard A. Force up."
+  },
+  "S1_T0.1_Blue_glove": {
+    "name": "Watchman."
+  },
+  "S1_T0.1_Blue_helmet": {
+    "name": "Watch helmets."
+  },
+  "S1_T0.1_Blue_pants": {
+    "name": "Watching the leg."
+  },
+  "S1_T0.1_Blue_shawl": {
+    "name": "Guards."
+  },
+  "S1_T0.1_Blue_shoes": {
+    "name": "Checkers' shoes."
+  },
+  "S1_T0.1_Green_armband": {
+    "name": "Checkpoint A. General"
+  },
+  "S1_T0.1_Green_belt": {
+    "name": "Check belt. General."
+  },
+  "S1_T0.1_Green_cloth": {
+    "name": "Patrol watch on A. Conventional"
+  },
+  "S1_T0.1_Green_glove": {
+    "name": "Watchman. General."
+  },
+  "S1_T0.1_Green_helmet": {
+    "name": "Watch helmets. Conventional."
+  },
+  "S1_T0.1_Green_pants": {
+    "name": "Watching the leg. General."
+  },
+  "S1_T0.1_Green_shawl": {
+    "name": "Watchers. General."
+  },
+  "S1_T0.1_Green_shoes": {
+    "name": "Checkers. General."
+  },
+  "S1_T0.1_Orange_armband": {
+    "name": "Cartel Armor A. Nami."
+  },
+  "S1_T0.1_Orange_belt": {
+    "name": "Checkpoint belt, Nami."
+  },
+  "S1_T0.1_Orange_cloth": {
+    "name": "Patrol guard A. Nami."
+  },
+  "S1_T0.1_Orange_glove": {
+    "name": "Watchman Nani."
+  },
+  "S1_T0.1_Orange_helmet": {
+    "name": "Watch helmet Nani"
+  },
+  "S1_T0.1_Orange_pants": {
+    "name": "Watching leg, nano."
+  },
+  "S1_T0.1_Orange_shawl": {
+    "name": "Watchman, Nani."
+  },
+  "S1_T0.1_Orange_shoes": {
+    "name": "Checkers' shoes, Nami."
+  },
+  "S1_T0.1_Purple_armband": {
+    "name": "Checkpoint armor alloy."
+  },
+  "S1_T0.1_Purple_belt": {
+    "name": "Checkpoint belt alloy."
+  },
+  "S1_T0.1_Purple_cloth": {
+    "name": "Checkpoint A. Alloy."
+  },
+  "S1_T0.1_Purple_glove": {
+    "name": "Watchman. Alloy."
+  },
+  "S1_T0.1_Purple_helmet": {
+    "name": "Checket helmet alloy"
+  },
+  "S1_T0.1_Purple_pants": {
+    "name": "The guard's leg guard. The alloy."
+  },
+  "S1_T0.1_Purple_shawl": {
+    "name": "Watchman shoulder guard alloy."
+  },
+  "S1_T0.1_Purple_shoes": {
+    "name": "Checkpost Shoes Alloy"
+  },
+  "S1_T0.2_Blue_armband": {
+    "name": "A.P.P."
+  },
+  "S1_T0.2_Blue_belt": {
+    "name": "Blast belt."
+  },
+  "S1_T0.2_Blue_cloth": {
+    "name": "A. Force reinforcements."
+  },
+  "S1_T0.2_Blue_core": {
+    "name": "Assault engine."
+  },
+  "S1_T0.2_Blue_exoskeleton": {
+    "name": "- Skeeter. - Skeeter."
+  },
+  "S1_T0.2_Blue_glove": {
+    "name": "- A surprise guard. - A strong one."
+  },
+  "S1_T0.2_Blue_helmet": {
+    "name": "- Aerobic helmet. - Aerobic."
+  },
+  "S1_T0.2_Blue_pants": {
+    "name": "- Accompaniment."
+  },
+  "S1_T0.2_Blue_reactor": {
+    "name": "Assault reactor."
+  },
+  "S1_T0.2_Blue_shawl": {
+    "name": "- Accompaniment."
+  },
+  "S1_T0.2_Blue_shoes": {
+    "name": "Sniper shoes."
+  },
+  "S1_T0.2_Blue_visor": {
+    "name": "- A surprise goggle. - A reinforced goggle."
+  },
+  "S1_T0.2_Orange_armband": {
+    "name": "A. Nani."
+  },
+  "S1_T0.2_Orange_belt": {
+    "name": "Straps, nano."
+  },
+  "S1_T0.2_Orange_cloth": {
+    "name": "A. Nani."
+  },
+  "S1_T0.2_Orange_core": {
+    "name": "The assault engine, Nami."
+  },
+  "S1_T0.2_Orange_exoskeleton": {
+    "name": "Skeeter."
+  },
+  "S1_T0.2_Orange_glove": {
+    "name": "Sniper-guard Nani."
+  },
+  "S1_T0.2_Orange_helmet": {
+    "name": "The assault helmet, Nami."
+  },
+  "S1_T0.2_Orange_pants": {
+    "name": "- A raid on leg-nammy."
+  },
+  "S1_T0.2_Orange_reactor": {
+    "name": "The surprise reactor, Nami."
+  },
+  "S1_T0.2_Orange_shawl": {
+    "name": "Surf shoulder. Nani."
+  },
+  "S1_T0.2_Orange_shoes": {
+    "name": "Sniper shoes, nano."
+  },
+  "S1_T0.2_Orange_visor": {
+    "name": "- A surprise goggle. - Nami."
+  },
+  "S1_T0.2_Purple_armband": {
+    "name": "A. A. Alloy."
+  },
+  "S1_T0.2_Purple_belt": {
+    "name": "A belt of assault alloy."
+  },
+  "S1_T0.2_Purple_cloth": {
+    "name": "A. Alloy."
+  },
+  "S1_T0.2_Purple_core": {
+    "name": "The assault engine, the alloy."
+  },
+  "S1_T0.2_Purple_exoskeleton": {
+    "name": "Skeletal assault alloy."
+  },
+  "S1_T0.2_Purple_glove": {
+    "name": "A raider's alloy."
+  },
+  "S1_T0.2_Purple_helmet": {
+    "name": "The assault helmet, alloy."
+  },
+  "S1_T0.2_Purple_pants": {
+    "name": "A raid on leg protection alloy."
+  },
+  "S1_T0.2_Purple_reactor": {
+    "name": "A surprise reactor, alloy."
+  },
+  "S1_T0.2_Purple_shawl": {
+    "name": "A swipe-and-scarve alloy."
+  },
+  "S1_T0.2_Purple_shoes": {
+    "name": "The assault shoe. The alloy."
+  },
+  "S1_T0.2_Purple_visor": {
+    "name": "- A goggler. - Alloy."
+  },
+  "S1_T0.3_Blue_armband": {
+    "name": "Extinct armpit."
+  },
+  "S1_T0.3_Blue_belt": {
+    "name": "Exterminate belt."
+  },
+  "S1_T0.3_Blue_cloth": {
+    "name": "Extermination A. Fortification"
+  },
+  "S1_T0.3_Blue_core": {
+    "name": "Exterminate engine."
+  },
+  "S1_T0.3_Blue_exoskeleton": {
+    "name": "Extermination of the bone."
+  },
+  "S1_T0.3_Blue_glove": {
+    "name": "Exterminate hand."
+  },
+  "S1_T0.3_Blue_helmet": {
+    "name": "Exterminate helmets."
+  },
+  "S1_T0.3_Blue_pants": {
+    "name": "Extinct leg."
+  },
+  "S1_T0.3_Blue_reactor": {
+    "name": "Extinction reactor."
+  },
+  "S1_T0.3_Blue_shawl": {
+    "name": "Extinct shoulder."
+  },
+  "S1_T0.3_Blue_shoes": {
+    "name": "Extinct Shoes."
+  },
+  "S1_T0.3_Blue_visor": {
+    "name": "The Goggles."
+  },
+  "S1_T0.3_Orange_armband": {
+    "name": "Extinct armpit, Nami."
+  },
+  "S1_T0.3_Orange_belt": {
+    "name": "Exterminate belt, Nami."
+  },
+  "S1_T0.3_Orange_cloth": {
+    "name": "Extermination of A. Nami."
+  },
+  "S1_T0.3_Orange_core": {
+    "name": "Extermination Engine Nani"
+  },
+  "S1_T0.3_Orange_exoskeleton": {
+    "name": "Extermination of the boner nano."
+  },
+  "S1_T0.3_Orange_glove": {
+    "name": "Extermination Protector Nami."
+  },
+  "S1_T0.3_Orange_helmet": {
+    "name": "Extermination of the helmet, Nami"
+  },
+  "S1_T0.3_Orange_pants": {
+    "name": "Extermination of leg-guard nano."
+  },
+  "S1_T0.3_Orange_reactor": {
+    "name": "Extinction reactor nano."
+  },
+  "S1_T0.3_Orange_shawl": {
+    "name": "Extermination shoulder nano."
+  },
+  "S1_T0.3_Orange_shoes": {
+    "name": "Snacking Shoes Nani."
+  },
+  "S1_T0.3_Orange_visor": {
+    "name": "The Death Eyeglass Nami."
+  },
+  "S1_T0.3_Purple_armband": {
+    "name": "Extinct armpit. Alloy."
+  },
+  "S1_T0.3_Purple_belt": {
+    "name": "Exterminate belt alloy."
+  },
+  "S1_T0.3_Purple_cloth": {
+    "name": "Extermination of A. Alloys"
+  },
+  "S1_T0.3_Purple_core": {
+    "name": "Exterminate engine alloy."
+  },
+  "S1_T0.3_Purple_exoskeleton": {
+    "name": "Extermination of bones. Alloy."
+  },
+  "S1_T0.3_Purple_glove": {
+    "name": "Exterminator. Alloy."
+  },
+  "S1_T0.3_Purple_helmet": {
+    "name": "Extermination of helmet alloys"
+  },
+  "S1_T0.3_Purple_pants": {
+    "name": "Exterminate leg alloy."
+  },
+  "S1_T0.3_Purple_reactor": {
+    "name": "Extinction reactor alloy."
+  },
+  "S1_T0.3_Purple_shawl": {
+    "name": "Extinct shoulder. Alloy."
+  },
+  "S1_T0.3_Purple_shoes": {
+    "name": "The Extinct Shoes Alloy."
+  },
+  "S1_T0.3_Purple_visor": {
+    "name": "The Goggles. The Alloys."
+  },
+  "S1_T1_Glisten_armband": {
+    "name": "Titanic Armor - Superding"
+  },
+  "S1_T1_Glisten_armband_atk": {
+    "name": "Titanic Armor."
+  },
+  "S1_T1_Glisten_armband_common": {
+    "name": "Titanic Armor. Balance."
+  },
+  "S1_T1_Glisten_armband_def": {
+    "name": "Titanic Armor."
+  },
+  "S1_T1_Glisten_armband_heal": {
+    "name": "Titanic Armor A. Eun-gi."
+  },
+  "S1_T1_Glisten_belt": {
+    "name": "Titan belt - Superb"
+  },
+  "S1_T1_Glisten_belt_atk": {
+    "name": "Titan belt. Attack."
+  },
+  "S1_T1_Glisten_belt_common": {
+    "name": "Titan belt. Balance."
+  },
+  "S1_T1_Glisten_belt_def": {
+    "name": "Titan belt."
+  },
+  "S1_T1_Glisten_belt_heal": {
+    "name": "Titan belt, Eun-gi."
+  },
+  "S1_T1_Glisten_cloth": {
+    "name": "Titanic armor-extract"
+  },
+  "S1_T1_Glisten_cloth_atk": {
+    "name": "Titanic A. Attack."
+  },
+  "S1_T1_Glisten_cloth_common": {
+    "name": "Titanic A Balance"
+  },
+  "S1_T1_Glisten_cloth_def": {
+    "name": "Titanic A. Kenji."
+  },
+  "S1_T1_Glisten_cloth_heal": {
+    "name": "Titanic A. Eun-gi."
+  },
+  "S1_T1_Glisten_core": {
+    "name": "Titan engine - Superb"
+  },
+  "S1_T1_Glisten_core_atk": {
+    "name": "Titan engine. Attack."
+  },
+  "S1_T1_Glisten_core_common": {
+    "name": "Titan engine. Balance."
+  },
+  "S1_T1_Glisten_core_def": {
+    "name": "Titan engine."
+  },
+  "S1_T1_Glisten_core_heal": {
+    "name": "Titan engine Eun-gi."
+  },
+  "S1_T1_Glisten_exoskeleton": {
+    "name": "Titan's exterior bone - Superb"
+  },
+  "S1_T1_Glisten_exoskeleton_atk": {
+    "name": "Titan's bones."
+  },
+  "S1_T1_Glisten_exoskeleton_common": {
+    "name": "Titan's exterior bone. Balance."
+  },
+  "S1_T1_Glisten_exoskeleton_def": {
+    "name": "Titan's bones."
+  },
+  "S1_T1_Glisten_exoskeleton_heal": {
+    "name": "Titan's bones. Eun-gi."
+  },
+  "S1_T1_Glisten_glove": {
+    "name": "Titanian Protector - Superding"
+  },
+  "S1_T1_Glisten_glove_atk": {
+    "name": "Titanian Protector."
+  },
+  "S1_T1_Glisten_glove_common": {
+    "name": "Titan's guardian. Balance."
+  },
+  "S1_T1_Glisten_glove_def": {
+    "name": "Titan's guardian."
+  },
+  "S1_T1_Glisten_glove_heal": {
+    "name": "Titan's guardian, Eun-gi."
+  },
+  "S1_T1_Glisten_helmet": {
+    "name": "Titan helmet - Superb"
+  },
+  "S1_T1_Glisten_helmet_atk": {
+    "name": "Titan helmet."
+  },
+  "S1_T1_Glisten_helmet_common": {
+    "name": "Titan helmet. Balance."
+  },
+  "S1_T1_Glisten_helmet_def": {
+    "name": "Titan helmet."
+  },
+  "S1_T1_Glisten_helmet_heal": {
+    "name": "Titan helmet Eun-gi."
+  },
+  "S1_T1_Glisten_pants": {
+    "name": "Titan leg-breathing."
+  },
+  "S1_T1_Glisten_pants_atk": {
+    "name": "Titan for leg."
+  },
+  "S1_T1_Glisten_pants_common": {
+    "name": "Titan for leg. Balance."
+  },
+  "S1_T1_Glisten_pants_def": {
+    "name": "Titan for the leg."
+  },
+  "S1_T1_Glisten_pants_heal": {
+    "name": "Titan for the leg."
+  },
+  "S1_T1_Glisten_reactor": {
+    "name": "Titan reactor - Superb"
+  },
+  "S1_T1_Glisten_reactor_atk": {
+    "name": "Titan reactor."
+  },
+  "S1_T1_Glisten_reactor_common": {
+    "name": "Titan reactor. Balance."
+  },
+  "S1_T1_Glisten_reactor_def": {
+    "name": "Titan reactor."
+  },
+  "S1_T1_Glisten_reactor_heal": {
+    "name": "Titan reactor Eun-gi."
+  },
+  "S1_T1_Glisten_shawl": {
+    "name": "Titan shoulder-breeding-extract."
+  },
+  "S1_T1_Glisten_shawl_atk": {
+    "name": "Titans with shoulder-arming."
+  },
+  "S1_T1_Glisten_shawl_common": {
+    "name": "Titan's shoulder. Balance."
+  },
+  "S1_T1_Glisten_shawl_def": {
+    "name": "Titans with shoulder guard."
+  },
+  "S1_T1_Glisten_shawl_heal": {
+    "name": "Titans with shoulders and graces."
+  },
+  "S1_T1_Glisten_shoes": {
+    "name": "Titan shoes - Superstep"
+  },
+  "S1_T1_Glisten_shoes_atk": {
+    "name": "Titan Shoe Attack"
+  },
+  "S1_T1_Glisten_shoes_common": {
+    "name": "Titan shoes. Balance."
+  },
+  "S1_T1_Glisten_shoes_def": {
+    "name": "Titan Shoes."
+  },
+  "S1_T1_Glisten_shoes_heal": {
+    "name": "Titan Shoes Eun-gi."
+  },
+  "S1_T1_Glisten_visor": {
+    "name": "Titan goggles. Superb."
+  },
+  "S1_T1_Glisten_visor_atk": {
+    "name": "Titan's goggles."
+  },
+  "S1_T1_Glisten_visor_common": {
+    "name": "Titan's goggles. Balance."
+  },
+  "S1_T1_Glisten_visor_def": {
+    "name": "Titan's goggles."
+  },
+  "S1_T1_Glisten_visor_heal": {
+    "name": "Titan's goggles."
+  },
+  "S1_T1_Orange_armband": {
+    "name": "Titanic Armor Nani."
+  },
+  "S1_T1_Orange_belt": {
+    "name": "Titan belt, Nami."
+  },
+  "S1_T1_Orange_cloth": {
+    "name": "Titanic A. Nami."
+  },
+  "S1_T1_Orange_core": {
+    "name": "Titan engine nano."
+  },
+  "S1_T1_Orange_exoskeleton": {
+    "name": "Titan's exterior bone, Nami."
+  },
+  "S1_T1_Orange_glove": {
+    "name": "Titanian Guardian Nami."
+  },
+  "S1_T1_Orange_helmet": {
+    "name": "Titan helmet Nani"
+  },
+  "S1_T1_Orange_pants": {
+    "name": "Titan with legs, Nami."
+  },
+  "S1_T1_Orange_reactor": {
+    "name": "Titan reactor nano."
+  },
+  "S1_T1_Orange_shawl": {
+    "name": "Titanic shoulder-guard Nani."
+  },
+  "S1_T1_Orange_shoes": {
+    "name": "Titan Shoes Nani."
+  },
+  "S1_T1_Orange_visor": {
+    "name": "Titan's goggles, Nami."
+  },
+  "S1_T2_Glisten_armband": {
+    "name": "Apocalypse. Exceeding."
+  },
+  "S1_T2_Glisten_armband_atk": {
+    "name": "Armageddon."
+  },
+  "S1_T2_Glisten_armband_common": {
+    "name": "Apocalypse. Balance."
+  },
+  "S1_T2_Glisten_armband_def": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_armband_heal": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_belt": {
+    "name": "Apocalypse belt - Exceeding"
+  },
+  "S1_T2_Glisten_belt_atk": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_belt_common": {
+    "name": "Apocalypse belt. Balance."
+  },
+  "S1_T2_Glisten_belt_def": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_belt_heal": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_cloth": {
+    "name": "Apocalypse of the end - Superstep"
+  },
+  "S1_T2_Glisten_cloth_atk": {
+    "name": "Armageddon."
+  },
+  "S1_T2_Glisten_cloth_common": {
+    "name": "A. The A.B."
+  },
+  "S1_T2_Glisten_cloth_def": {
+    "name": "A. Kenzi."
+  },
+  "S1_T2_Glisten_cloth_heal": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_core": {
+    "name": "Apocalypse Engine - Superstep"
+  },
+  "S1_T2_Glisten_core_atk": {
+    "name": "Apocalypse engine."
+  },
+  "S1_T2_Glisten_core_common": {
+    "name": "Apocalypse engine. Balance."
+  },
+  "S1_T2_Glisten_core_def": {
+    "name": "Apocalypse engine."
+  },
+  "S1_T2_Glisten_core_heal": {
+    "name": "Apocalypse engine."
+  },
+  "S1_T2_Glisten_exoskeleton": {
+    "name": "The bones outside the end - the superb"
+  },
+  "S1_T2_Glisten_exoskeleton_atk": {
+    "name": "The end of the world."
+  },
+  "S1_T2_Glisten_exoskeleton_common": {
+    "name": "The end of the world. Balance."
+  },
+  "S1_T2_Glisten_exoskeleton_def": {
+    "name": "The bones of the end."
+  },
+  "S1_T2_Glisten_exoskeleton_heal": {
+    "name": "The bones of the end."
+  },
+  "S1_T2_Glisten_glove": {
+    "name": "Armageddon - Exceeding"
+  },
+  "S1_T2_Glisten_glove_atk": {
+    "name": "Armageddon."
+  },
+  "S1_T2_Glisten_glove_common": {
+    "name": "Apocalypse. Balance."
+  },
+  "S1_T2_Glisten_glove_def": {
+    "name": "The Armageddon."
+  },
+  "S1_T2_Glisten_glove_heal": {
+    "name": "The Armageddon."
+  },
+  "S1_T2_Glisten_helmet": {
+    "name": "Apocalypse helmets - excess"
+  },
+  "S1_T2_Glisten_helmet_atk": {
+    "name": "Armageddon helmet."
+  },
+  "S1_T2_Glisten_helmet_common": {
+    "name": "Apocalypse helmets"
+  },
+  "S1_T2_Glisten_helmet_def": {
+    "name": "The Armageddon helmet."
+  },
+  "S1_T2_Glisten_helmet_heal": {
+    "name": "The Armageddon helmet."
+  },
+  "S1_T2_Glisten_pants": {
+    "name": "Apocalypse leg protection - Superstep"
+  },
+  "S1_T2_Glisten_pants_atk": {
+    "name": "Armageddon leg protection."
+  },
+  "S1_T2_Glisten_pants_common": {
+    "name": "Apocalypse leg protection. Balance."
+  },
+  "S1_T2_Glisten_pants_def": {
+    "name": "The end of the leg."
+  },
+  "S1_T2_Glisten_pants_heal": {
+    "name": "The end of the day, Eun-gi."
+  },
+  "S1_T2_Glisten_reactor": {
+    "name": "Apocalypse reactor - Supergrade"
+  },
+  "S1_T2_Glisten_reactor_atk": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_reactor_common": {
+    "name": "Apocalypse reactor. Balance."
+  },
+  "S1_T2_Glisten_reactor_def": {
+    "name": "Apocalypse reactor."
+  },
+  "S1_T2_Glisten_reactor_heal": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_shawl": {
+    "name": "The end shoulder. Exceeding."
+  },
+  "S1_T2_Glisten_shawl_atk": {
+    "name": "Armageddon."
+  },
+  "S1_T2_Glisten_shawl_common": {
+    "name": "The end shoulder. Balance."
+  },
+  "S1_T2_Glisten_shawl_def": {
+    "name": "♪ The end of the day ♪"
+  },
+  "S1_T2_Glisten_shawl_heal": {
+    "name": "The Armageddon."
+  },
+  "S1_T2_Glisten_shoes": {
+    "name": "Apocalypse shoes - Superstep"
+  },
+  "S1_T2_Glisten_shoes_atk": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_shoes_common": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_shoes_def": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_shoes_heal": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_visor": {
+    "name": "Apocalypse goggles - Superstep"
+  },
+  "S1_T2_Glisten_visor_atk": {
+    "name": "The Last-Day Eyes."
+  },
+  "S1_T2_Glisten_visor_common": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Glisten_visor_def": {
+    "name": "The Last-Day Eyes."
+  },
+  "S1_T2_Glisten_visor_heal": {
+    "name": "The Last-Day Eyeglass."
+  },
+  "S1_T2_Orange_armband": {
+    "name": "Apocalypse Nami."
+  },
+  "S1_T2_Orange_belt": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Orange_cloth": {
+    "name": "A. Nami, Armageddon."
+  },
+  "S1_T2_Orange_core": {
+    "name": "Apocalypse engine nano."
+  },
+  "S1_T2_Orange_exoskeleton": {
+    "name": "The end of the world, the bone."
+  },
+  "S1_T2_Orange_glove": {
+    "name": "Armageddon Nani."
+  },
+  "S1_T2_Orange_helmet": {
+    "name": "Armageddon helmet Nani"
+  },
+  "S1_T2_Orange_pants": {
+    "name": "Armageddon Nani."
+  },
+  "S1_T2_Orange_reactor": {
+    "name": "Apocalypse Narm."
+  },
+  "S1_T2_Orange_shawl": {
+    "name": "The Armageddon Nani."
+  },
+  "S1_T2_Orange_shoes": {
+    "name": "Apocalypse."
+  },
+  "S1_T2_Orange_visor": {
+    "name": "The Last Day Eyes."
+  },
+  "S2_T0.1_Blue_armband": {
+    "name": "- Glossy armcarte. - Dierdé."
+  },
+  "S2_T0.1_Blue_belt": {
+    "name": "- Slight belt. - Dierd."
+  },
+  "S2_T0.1_Blue_cloth": {
+    "name": "- Lightly protected. - Dierd."
+  },
+  "S2_T0.1_Blue_glove": {
+    "name": "- The light guard. - The light guard."
+  },
+  "S2_T0.1_Blue_helmet": {
+    "name": "- The light helmet. - The name's Dierdé."
+  },
+  "S2_T0.1_Blue_pants": {
+    "name": "- The light-stained leg-guard. - The name's Deed."
+  },
+  "S2_T0.1_Blue_shawl": {
+    "name": "- The light shoulder. - The light shoulder."
+  },
+  "S2_T0.1_Blue_shoes": {
+    "name": "- Specs. - Dierd."
+  },
+  "S2_T0.1_Green_armband": {
+    "name": "The light-banded parachute."
+  },
+  "S2_T0.1_Green_belt": {
+    "name": "The light belt. The prototype."
+  },
+  "S2_T0.1_Green_cloth": {
+    "name": "The photo-scopic parachute prototype."
+  },
+  "S2_T0.1_Green_glove": {
+    "name": "The light-scanner. The prototype."
+  },
+  "S2_T0.1_Green_helmet": {
+    "name": "Phototox helmet prototype"
+  },
+  "S2_T0.1_Green_pants": {
+    "name": "The photo-cam-protector prototype."
+  },
+  "S2_T0.1_Green_shawl": {
+    "name": "The light shoulder prototype."
+  },
+  "S2_T0.1_Green_shoes": {
+    "name": "The photo-shoe prototype."
+  },
+  "S2_T0.1_Orange_armband": {
+    "name": "A light armpit."
+  },
+  "S2_T0.1_Orange_belt": {
+    "name": "- Slight belt. - Exact."
+  },
+  "S2_T0.1_Orange_cloth": {
+    "name": "The light armor. The precision."
+  },
+  "S2_T0.1_Orange_glove": {
+    "name": "The light guard. The sharp one."
+  },
+  "S2_T0.1_Orange_helmet": {
+    "name": "- A light helmet. - A sharp one."
+  },
+  "S2_T0.1_Orange_pants": {
+    "name": "The light-stained leg-cracking."
+  },
+  "S2_T0.1_Orange_shawl": {
+    "name": "The light shoulder."
+  },
+  "S2_T0.1_Orange_shoes": {
+    "name": "- Sprinkles. - Plumsy shoes."
+  },
+  "S2_T0.1_Purple_armband": {
+    "name": "Light arms, a custom."
+  },
+  "S2_T0.1_Purple_belt": {
+    "name": "Slight belt. Custom."
+  },
+  "S2_T0.1_Purple_cloth": {
+    "name": "Slight armor custom."
+  },
+  "S2_T0.1_Purple_glove": {
+    "name": "Slight hand. Custom."
+  },
+  "S2_T0.1_Purple_helmet": {
+    "name": "Phototox helmet custom"
+  },
+  "S2_T0.1_Purple_pants": {
+    "name": "Slight leg protection. Custom."
+  },
+  "S2_T0.1_Purple_shawl": {
+    "name": "Slight shoulder. Custom."
+  },
+  "S2_T0.1_Purple_shoes": {
+    "name": "Specs. Custom."
+  },
+  "S2_T0.2_Blue_armband": {
+    "name": "Sun Wind Armor A. Diendei."
+  },
+  "S2_T0.2_Blue_belt": {
+    "name": "Sun Wind belt, Diede."
+  },
+  "S2_T0.2_Blue_cloth": {
+    "name": "Sun Winds Watcher A. Diende"
+  },
+  "S2_T0.2_Blue_core": {
+    "name": "Sunwind Engine, Diedy."
+  },
+  "S2_T0.2_Blue_exoskeleton": {
+    "name": "The bones of the sun, the bones of the wind, the bones of the sun."
+  },
+  "S2_T0.2_Blue_glove": {
+    "name": "Sunwind Watcher, Diedy."
+  },
+  "S2_T0.2_Blue_helmet": {
+    "name": "Sun's Wind Helmets, Diede"
+  },
+  "S2_T0.2_Blue_pants": {
+    "name": "Sunwind Legs-Asher-Edie."
+  },
+  "S2_T0.2_Blue_reactor": {
+    "name": "Sun Winds reactor, Diede."
+  },
+  "S2_T0.2_Blue_shawl": {
+    "name": "Sunwind Shoulder, Diede."
+  },
+  "S2_T0.2_Blue_shoes": {
+    "name": "Sunshine Shoes, Diedy."
+  },
+  "S2_T0.2_Blue_visor": {
+    "name": "Sunwind Eyeglass, Diedy."
+  },
+  "S2_T0.2_Orange_armband": {
+    "name": "Sun wind-and-arm."
+  },
+  "S2_T0.2_Orange_belt": {
+    "name": "Sunny belt."
+  },
+  "S2_T0.2_Orange_cloth": {
+    "name": "Sun wind is a finer"
+  },
+  "S2_T0.2_Orange_core": {
+    "name": "Sunwind engine."
+  },
+  "S2_T0.2_Orange_exoskeleton": {
+    "name": "The sun's exterior bones."
+  },
+  "S2_T0.2_Orange_glove": {
+    "name": "Sunwind Watcher."
+  },
+  "S2_T0.2_Orange_helmet": {
+    "name": "Sun helmet. Expedition."
+  },
+  "S2_T0.2_Orange_pants": {
+    "name": "Sunwind for legs."
+  },
+  "S2_T0.2_Orange_reactor": {
+    "name": "Sun Winds."
+  },
+  "S2_T0.2_Orange_shawl": {
+    "name": "Sunwind shoulder-guard."
+  },
+  "S2_T0.2_Orange_shoes": {
+    "name": "Sunshine shoes."
+  },
+  "S2_T0.2_Orange_visor": {
+    "name": "Sunwind goggles."
+  },
+  "S2_T0.2_Purple_armband": {
+    "name": "Sun Wind Armor A. Custom"
+  },
+  "S2_T0.2_Purple_belt": {
+    "name": "Sun wind belt. Custom."
+  },
+  "S2_T0.2_Purple_cloth": {
+    "name": "Sun Wind A. Custom"
+  },
+  "S2_T0.2_Purple_core": {
+    "name": "Solar wind engine custom"
+  },
+  "S2_T0.2_Purple_exoskeleton": {
+    "name": "The solar wind."
+  },
+  "S2_T0.2_Purple_glove": {
+    "name": "Sunwind Hand: Customized"
+  },
+  "S2_T0.2_Purple_helmet": {
+    "name": "Suncap helmet custom"
+  },
+  "S2_T0.2_Purple_pants": {
+    "name": "Sunwind leg protection. Custom."
+  },
+  "S2_T0.2_Purple_reactor": {
+    "name": "Solar wind reactor custom"
+  },
+  "S2_T0.2_Purple_shawl": {
+    "name": "Sunwind Shoulder. Custom."
+  },
+  "S2_T0.2_Purple_shoes": {
+    "name": "Sunshine Shoes. Customized."
+  },
+  "S2_T0.2_Purple_visor": {
+    "name": "Sunwind goggles. Custom."
+  },
+  "S2_T0.3_Blue_armband": {
+    "name": "A pyro-pun-a-dee."
+  },
+  "S2_T0.3_Blue_belt": {
+    "name": "Pyro-- Pyro-- Python--"
+  },
+  "S2_T0.3_Blue_cloth": {
+    "name": "Ace of Fire Tavern."
+  },
+  "S2_T0.3_Blue_core": {
+    "name": "A fire-telephone engine, Diedy."
+  },
+  "S2_T0.3_Blue_exoskeleton": {
+    "name": "The bone of the pyrogue, the Edie."
+  },
+  "S2_T0.3_Blue_glove": {
+    "name": "- A firepisturist, Dierdé."
+  },
+  "S2_T0.3_Blue_helmet": {
+    "name": "- A pyrogue helmet. - Ace."
+  },
+  "S2_T0.3_Blue_pants": {
+    "name": "- Hot tongue-- leg-guard, Dierder."
+  },
+  "S2_T0.3_Blue_reactor": {
+    "name": "Fire-teleton reactor, Diedy."
+  },
+  "S2_T0.3_Blue_shawl": {
+    "name": "Firepuncher shoulder guard, Dierde."
+  },
+  "S2_T0.3_Blue_shoes": {
+    "name": "Python shoes, Dierdé."
+  },
+  "S2_T0.3_Blue_visor": {
+    "name": "- The Flaming Tavern Eyeglass."
+  },
+  "S2_T0.3_Orange_armband": {
+    "name": "A pyrophone armor."
+  },
+  "S2_T0.3_Orange_belt": {
+    "name": "Pyrotonite belt. Exact."
+  },
+  "S2_T0.3_Orange_cloth": {
+    "name": "Ace of Fire Tavern."
+  },
+  "S2_T0.3_Orange_core": {
+    "name": "A fire-teleton engine."
+  },
+  "S2_T0.3_Orange_exoskeleton": {
+    "name": "The bone of the pyrogue."
+  },
+  "S2_T0.3_Orange_glove": {
+    "name": "A firepuncher hand."
+  },
+  "S2_T0.3_Orange_helmet": {
+    "name": "A pyrophone helmet."
+  },
+  "S2_T0.3_Orange_pants": {
+    "name": "Pyroconus."
+  },
+  "S2_T0.3_Orange_reactor": {
+    "name": "Fire-teleton reactor. Exact."
+  },
+  "S2_T0.3_Orange_shawl": {
+    "name": "Firepuncher shoulder guard."
+  },
+  "S2_T0.3_Orange_shoes": {
+    "name": "Hot tongue shoes."
+  },
+  "S2_T0.3_Orange_visor": {
+    "name": "A fire-telephone eyeglass."
+  },
+  "S2_T0.3_Purple_armband": {
+    "name": "Pyro-ar-ar-ar-ar-ar-ar-ar."
+  },
+  "S2_T0.3_Purple_belt": {
+    "name": "Pyrotonite belt. Custom."
+  },
+  "S2_T0.3_Purple_cloth": {
+    "name": "Ace of Fire Tavern. Custom."
+  },
+  "S2_T0.3_Purple_core": {
+    "name": "Pyro-Engine. Custom."
+  },
+  "S2_T0.3_Purple_exoskeleton": {
+    "name": "Exterior bone from the pyrotonite. Customized."
+  },
+  "S2_T0.3_Purple_glove": {
+    "name": "Pyrophone hand. Custom."
+  },
+  "S2_T0.3_Purple_helmet": {
+    "name": "Pyro-Tear helmet. Custom."
+  },
+  "S2_T0.3_Purple_pants": {
+    "name": "Pyroconus leg protection. Custom."
+  },
+  "S2_T0.3_Purple_reactor": {
+    "name": "Fire-teleton reactor. Custom."
+  },
+  "S2_T0.3_Purple_shawl": {
+    "name": "Firepuncher shoulder protection. Custom."
+  },
+  "S2_T0.3_Purple_shoes": {
+    "name": "Pyro-seller shoes. Custom."
+  },
+  "S2_T0.3_Purple_visor": {
+    "name": "Pyroscope. Custom."
+  },
+  "S2_T1_Glisten_armband": {
+    "name": "Red Day Tread Armor - Superding"
+  },
+  "S2_T1_Glisten_armband_atk": {
+    "name": "Red Day Tight Arm A. Attack."
+  },
+  "S2_T1_Glisten_armband_common": {
+    "name": "Red Day nightmare. Balance."
+  },
+  "S2_T1_Glisten_armband_def": {
+    "name": "Red Day Trailer A. Kenzi."
+  },
+  "S2_T1_Glisten_armband_heal": {
+    "name": "Red Day Trailer A. Eunuch."
+  },
+  "S2_T1_Glisten_belt": {
+    "name": "Red Day Bad Belt - Super"
+  },
+  "S2_T1_Glisten_belt_atk": {
+    "name": "Red-day bad belt."
+  },
+  "S2_T1_Glisten_belt_common": {
+    "name": "Red Day bad belt. Balance."
+  },
+  "S2_T1_Glisten_belt_def": {
+    "name": "Red Day bad belt."
+  },
+  "S2_T1_Glisten_belt_heal": {
+    "name": "Red-day bad belt."
+  },
+  "S2_T1_Glisten_cloth": {
+    "name": "Red Day Mask A-Step"
+  },
+  "S2_T1_Glisten_cloth_atk": {
+    "name": "Red Day Mask A. Attack."
+  },
+  "S2_T1_Glisten_cloth_common": {
+    "name": "Red Day nightmares. Balance."
+  },
+  "S2_T1_Glisten_cloth_def": {
+    "name": "The Red Day Baden A. Kenji."
+  },
+  "S2_T1_Glisten_cloth_heal": {
+    "name": "The Red Day Mask A. Eunuch."
+  },
+  "S2_T1_Glisten_core": {
+    "name": "Red Sun Badge Engine - Superding"
+  },
+  "S2_T1_Glisten_core_atk": {
+    "name": "Red-day nightmare engine."
+  },
+  "S2_T1_Glisten_core_common": {
+    "name": "The Red Sun's Nightlight Engine. Balance."
+  },
+  "S2_T1_Glisten_core_def": {
+    "name": "The Red Day Bad Engine."
+  },
+  "S2_T1_Glisten_core_heal": {
+    "name": "The Red Sun's Nightlight Engine."
+  },
+  "S2_T1_Glisten_exoskeleton": {
+    "name": "Red Day nightmare bone - Exceeding"
+  },
+  "S2_T1_Glisten_exoskeleton_atk": {
+    "name": "Red Day nightmare. Bones."
+  },
+  "S2_T1_Glisten_exoskeleton_common": {
+    "name": "Red Day nightmare. Balance."
+  },
+  "S2_T1_Glisten_exoskeleton_def": {
+    "name": "Red Day nightmare."
+  },
+  "S2_T1_Glisten_exoskeleton_heal": {
+    "name": "Red Day nightmare bone."
+  },
+  "S2_T1_Glisten_glove": {
+    "name": "Red Day Badge Protector - Superstitious"
+  },
+  "S2_T1_Glisten_glove_atk": {
+    "name": "Red Day Watchman."
+  },
+  "S2_T1_Glisten_glove_common": {
+    "name": "Red Day Watchers. Balanced."
+  },
+  "S2_T1_Glisten_glove_def": {
+    "name": "The Red Day Watcher."
+  },
+  "S2_T1_Glisten_glove_heal": {
+    "name": "Red Day Watcher."
+  },
+  "S2_T1_Glisten_helmet": {
+    "name": "Red Day nightmare helmet - Superstitious"
+  },
+  "S2_T1_Glisten_helmet_atk": {
+    "name": "Red Day Bad Helmets."
+  },
+  "S2_T1_Glisten_helmet_common": {
+    "name": "Red Day nightmare helmet. Balance."
+  },
+  "S2_T1_Glisten_helmet_def": {
+    "name": "Red Day Bad Helmets."
+  },
+  "S2_T1_Glisten_helmet_heal": {
+    "name": "Red Day Bad Helmets."
+  },
+  "S2_T1_Glisten_pants": {
+    "name": "Red Day Bad Legs - Superstitious"
+  },
+  "S2_T1_Glisten_pants_atk": {
+    "name": "Red Day Bad Legs."
+  },
+  "S2_T1_Glisten_pants_common": {
+    "name": "The Red Day Bad Legs. Balanced."
+  },
+  "S2_T1_Glisten_pants_def": {
+    "name": "The Red Day Bad Legs."
+  },
+  "S2_T1_Glisten_pants_heal": {
+    "name": "The Red Day Bad Legs."
+  },
+  "S2_T1_Glisten_reactor": {
+    "name": "Red Day nightmare reactor - Superb"
+  },
+  "S2_T1_Glisten_reactor_atk": {
+    "name": "The Red Day Badger."
+  },
+  "S2_T1_Glisten_reactor_common": {
+    "name": "The Red Day Badger. Balance."
+  },
+  "S2_T1_Glisten_reactor_def": {
+    "name": "The Red Day Badger."
+  },
+  "S2_T1_Glisten_reactor_heal": {
+    "name": "The Red Day Badger."
+  },
+  "S2_T1_Glisten_shawl": {
+    "name": "Red Day Night's Day shoulder-over-step"
+  },
+  "S2_T1_Glisten_shawl_atk": {
+    "name": "Red Day shoulder guard."
+  },
+  "S2_T1_Glisten_shawl_common": {
+    "name": "The Red Day Nights' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days Days' Days' Days Days' Days Days' Days Days' Days' Days' Days Days Days' Days's"
+  },
+  "S2_T1_Glisten_shawl_def": {
+    "name": "The Red Day Nights Watcher."
+  },
+  "S2_T1_Glisten_shawl_heal": {
+    "name": "\"The Red Day's Worms\""
+  },
+  "S2_T1_Glisten_shoes": {
+    "name": "Red Day Bad Shoes - Super"
+  },
+  "S2_T1_Glisten_shoes_atk": {
+    "name": "Red-day shoes."
+  },
+  "S2_T1_Glisten_shoes_common": {
+    "name": "Red day shoes. Balance."
+  },
+  "S2_T1_Glisten_shoes_def": {
+    "name": "Red day shoes."
+  },
+  "S2_T1_Glisten_shoes_heal": {
+    "name": "Red-day shoes."
+  },
+  "S2_T1_Glisten_visor": {
+    "name": "The Sun's Night's Eye-Fighting"
+  },
+  "S2_T1_Glisten_visor_atk": {
+    "name": "The Sun's Nightmare Mirror."
+  },
+  "S2_T1_Glisten_visor_common": {
+    "name": "The sun's nightmare glasses. Balance."
+  },
+  "S2_T1_Glisten_visor_def": {
+    "name": "The sun's nightmare glasses."
+  },
+  "S2_T1_Glisten_visor_heal": {
+    "name": "The Sun's Nightmare's Eyeglass."
+  },
+  "S2_T1_Orange_armband": {
+    "name": "Red Day Tight Arm A."
+  },
+  "S2_T1_Orange_belt": {
+    "name": "Red-day bad belt."
+  },
+  "S2_T1_Orange_cloth": {
+    "name": "Red Day nightmares."
+  },
+  "S2_T1_Orange_core": {
+    "name": "The Red Sun's Nightlight Engine."
+  },
+  "S2_T1_Orange_exoskeleton": {
+    "name": "Red-day nightmare. Elevated."
+  },
+  "S2_T1_Orange_glove": {
+    "name": "The Red Day Badguard."
+  },
+  "S2_T1_Orange_helmet": {
+    "name": "Red Day Bad Helmets."
+  },
+  "S2_T1_Orange_pants": {
+    "name": "The Red Day Badener."
+  },
+  "S2_T1_Orange_reactor": {
+    "name": "The Red Day Badger."
+  },
+  "S2_T1_Orange_shawl": {
+    "name": "The Red Day Night's Carpet."
+  },
+  "S2_T1_Orange_shoes": {
+    "name": "Red day shoes."
+  },
+  "S2_T1_Orange_visor": {
+    "name": "The Sun's Bad Eyeglass."
+  },
+  "S2_T2_Glisten_armband": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_armband_atk": {
+    "name": "The Zeus Coronal Arm."
+  },
+  "S2_T2_Glisten_armband_common": {
+    "name": "The coronal arm of the Zeus."
+  },
+  "S2_T2_Glisten_armband_def": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_armband_heal": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_belt": {
+    "name": "Zeus coronation belt - Superb"
+  },
+  "S2_T2_Glisten_belt_atk": {
+    "name": "The Zeus Coronal Belt."
+  },
+  "S2_T2_Glisten_belt_common": {
+    "name": "The Zeus crowned belt. Balanced."
+  },
+  "S2_T2_Glisten_belt_def": {
+    "name": "The Zeus crowned belt."
+  },
+  "S2_T2_Glisten_belt_heal": {
+    "name": "The Zeus crowned belt."
+  },
+  "S2_T2_Glisten_cloth": {
+    "name": "The Zeus coronation of the armor-- the superb."
+  },
+  "S2_T2_Glisten_cloth_atk": {
+    "name": "The Zeus crowned A."
+  },
+  "S2_T2_Glisten_cloth_common": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_cloth_def": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_cloth_heal": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_core": {
+    "name": "Zeus Coron engine - Superding"
+  },
+  "S2_T2_Glisten_core_atk": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "S2_T2_Glisten_core_common": {
+    "name": "The Zeus Coron engine. Balance."
+  },
+  "S2_T2_Glisten_core_def": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "S2_T2_Glisten_core_heal": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "S2_T2_Glisten_exoskeleton": {
+    "name": "The bones of the Zeus Coron - Extremist"
+  },
+  "S2_T2_Glisten_exoskeleton_atk": {
+    "name": "The Zeus Coronal Bones."
+  },
+  "S2_T2_Glisten_exoskeleton_common": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "S2_T2_Glisten_exoskeleton_def": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "S2_T2_Glisten_exoskeleton_heal": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "S2_T2_Glisten_glove": {
+    "name": "The Zeus Coronist - Superb"
+  },
+  "S2_T2_Glisten_glove_atk": {
+    "name": "The Zeus Coronary Protector."
+  },
+  "S2_T2_Glisten_glove_common": {
+    "name": "The crowned hand of the Zeus. Balance."
+  },
+  "S2_T2_Glisten_glove_def": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_glove_heal": {
+    "name": "The King of Zeus, the Hand of the Guardians, the Grace."
+  },
+  "S2_T2_Glisten_helmet": {
+    "name": "The Zeus Coronal Helmets - Superstitious"
+  },
+  "S2_T2_Glisten_helmet_atk": {
+    "name": "The Zeus Coronal Helmets."
+  },
+  "S2_T2_Glisten_helmet_common": {
+    "name": "The Zeus Coronal Helmet. Balance."
+  },
+  "S2_T2_Glisten_helmet_def": {
+    "name": "The Zeus Coronal Helmets."
+  },
+  "S2_T2_Glisten_helmet_heal": {
+    "name": "The crown helmet of the Zeus God."
+  },
+  "S2_T2_Glisten_pants": {
+    "name": "The Zeus coronation for legs - Superb"
+  },
+  "S2_T2_Glisten_pants_atk": {
+    "name": "The Zeus crowned leg guard."
+  },
+  "S2_T2_Glisten_pants_common": {
+    "name": "The Zeus coronation for leg balance."
+  },
+  "S2_T2_Glisten_pants_def": {
+    "name": "The Zeus crowned leg guard."
+  },
+  "S2_T2_Glisten_pants_heal": {
+    "name": "The Zeus crowned the leg guard."
+  },
+  "S2_T2_Glisten_reactor": {
+    "name": "The Zeus Coronal Resist - Superstition"
+  },
+  "S2_T2_Glisten_reactor_atk": {
+    "name": "The Zeus Coronal Resist."
+  },
+  "S2_T2_Glisten_reactor_common": {
+    "name": "The coronal reactor. Balance."
+  },
+  "S2_T2_Glisten_reactor_def": {
+    "name": "The coronal reactor."
+  },
+  "S2_T2_Glisten_reactor_heal": {
+    "name": "The coronal reactor."
+  },
+  "S2_T2_Glisten_shawl": {
+    "name": "The Zeus Coronary Shoulder - Exceeding"
+  },
+  "S2_T2_Glisten_shawl_atk": {
+    "name": "The Zeus Coron of the Wrestlings."
+  },
+  "S2_T2_Glisten_shawl_common": {
+    "name": "The Zeus coronation of the shoulder balance."
+  },
+  "S2_T2_Glisten_shawl_def": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Glisten_shawl_heal": {
+    "name": "The Order of the Zeus."
+  },
+  "S2_T2_Glisten_shoes": {
+    "name": "Zeus Coronary Shoes - Superding"
+  },
+  "S2_T2_Glisten_shoes_atk": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "S2_T2_Glisten_shoes_common": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "S2_T2_Glisten_shoes_def": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "S2_T2_Glisten_shoes_heal": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "S2_T2_Glisten_visor": {
+    "name": "The Zeus coronary eyeglasses - Superb"
+  },
+  "S2_T2_Glisten_visor_atk": {
+    "name": "The Zeus crowned glasses."
+  },
+  "S2_T2_Glisten_visor_common": {
+    "name": "The Zeus coronary eyeglass."
+  },
+  "S2_T2_Glisten_visor_def": {
+    "name": "The Zeus coronary eyeglasses."
+  },
+  "S2_T2_Glisten_visor_heal": {
+    "name": "The Zeus crowned the glasses."
+  },
+  "S2_T2_Orange_armband": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Orange_belt": {
+    "name": "The Zeus crowned belt."
+  },
+  "S2_T2_Orange_cloth": {
+    "name": "The crown of the Zeus."
+  },
+  "S2_T2_Orange_core": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "S2_T2_Orange_exoskeleton": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "S2_T2_Orange_glove": {
+    "name": "The crowned protector of the Zeus."
+  },
+  "S2_T2_Orange_helmet": {
+    "name": "The crown helmet of the Zeus."
+  },
+  "S2_T2_Orange_pants": {
+    "name": "The Zeus crowned leg-guarding."
+  },
+  "S2_T2_Orange_reactor": {
+    "name": "The coronal reactor."
+  },
+  "S2_T2_Orange_shawl": {
+    "name": "The crowned Armor of the Zeus."
+  },
+  "S2_T2_Orange_shoes": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "S2_T2_Orange_visor": {
+    "name": "The Zeus coronary eyeglasses."
+  },
+  "StrengthenStoneMMO_A": {
+    "name": "Basic Resonance Module"
+  },
+  "StrengthenStoneMMO_A2": {
+    "name": "Simple reconstruct component"
+  },
+  "StrengthenStoneMMO_B2_Fire": {
+    "name": "Advanced reconstruct component - Burning"
+  },
+  "StrengthenStoneMMO_B2_Ice": {
+    "name": "Advanced Reconstruct Component - Freeze"
+  },
+  "StrengthenStoneMMO_B2_Phy": {
+    "name": "Advanced Reconstruct Component - Physics"
+  },
+  "StrengthenStoneMMO_B2_Sup": {
+    "name": "Advanced Reconstruct Component - Disablement"
+  },
+  "StrengthenStoneMMO_B2_Thu": {
+    "name": "Advanced Reconstruct Component - Thunder"
+  },
+  "StrengthenStoneMMO_B_Fire": {
+    "name": "Enhanced resonance module - Burning"
+  },
+  "StrengthenStoneMMO_B_Ice": {
+    "name": "Enhanced resonance module -- Freeze"
+  },
+  "StrengthenStoneMMO_B_Phy": {
+    "name": "Enhanced resonance module -- physics"
+  },
+  "StrengthenStoneMMO_B_Sup": {
+    "name": "Enhanced resonance module -- energy"
+  },
+  "StrengthenStoneMMO_B_Thu": {
+    "name": "Enhanced resonance module -- thunder"
+  },
+  "StrengthenStoneMMO_C2_Fire": {
+    "name": "Super-precision reconstructed component - burning"
+  },
+  "StrengthenStoneMMO_C2_Ice": {
+    "name": "Super-precision reconstructed component - freezing"
+  },
+  "StrengthenStoneMMO_C2_Phy": {
+    "name": "Super-precision component -- physics"
+  },
+  "StrengthenStoneMMO_C2_Sup": {
+    "name": "Super-precision component - energy"
+  },
+  "StrengthenStoneMMO_C2_Thu": {
+    "name": "Super-precision reconstructed component -- thunder"
+  },
+  "StrengthenStoneMMO_C_Fire": {
+    "name": "Multivitametric Resonance Module - Burning"
+  },
+  "StrengthenStoneMMO_C_Ice": {
+    "name": "Multidimensional Resonance Module - Freeze"
+  },
+  "StrengthenStoneMMO_C_Phy": {
+    "name": "Multidimensional Resonance Module -- Physics"
+  },
+  "StrengthenStoneMMO_C_Sup": {
+    "name": "Multidimensional Resonance Module - Feature"
+  },
+  "StrengthenStoneMMO_C_Thu": {
+    "name": "Multidimensional Resonance Module -- Thunder"
+  },
+  "StrengthenStoneMMO_D2_Fire": {
+    "name": "Absolute reconstruct component - burn"
+  },
+  "StrengthenStoneMMO_D2_Ice": {
+    "name": "Absolute Reconstruct Component - Freeze"
+  },
+  "StrengthenStoneMMO_D2_Phy": {
+    "name": "Absolute Reconstruct Component-Physics"
+  },
+  "StrengthenStoneMMO_D2_Sup": {
+    "name": "Absolute Reconstruct Component - Disable"
+  },
+  "StrengthenStoneMMO_D2_Thu": {
+    "name": "Absolute Reconstruct Component - Thunder"
+  },
+  "StrengthenStoneMMO_D_Fire": {
+    "name": "Ultra-frequency resonance module - Burning"
+  },
+  "StrengthenStoneMMO_D_Ice": {
+    "name": "Ultra-frequency resonance module - Freeze"
+  },
+  "StrengthenStoneMMO_D_Phy": {
+    "name": "Ultra-frequency resonance module -- physics"
+  },
+  "StrengthenStoneMMO_D_Sup": {
+    "name": "Ultra-frequency resonance module -- exuberance"
+  },
+  "StrengthenStoneMMO_D_Thu": {
+    "name": "Ultra-frequency resonance module -- thunder"
+  },
+  "TrialCard": {
+    "name": "Enhanced experience card"
+  },
+  "TrialCard_NanYin_star13": {
+    "name": "16-day-long-resistance-of-the-sheep 13-septic-septic-septic-septic-span-of-the-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-span-s-span-span-s-"
+  },
+  "TrialCard_NanYin_star15": {
+    "name": "16-day-long-resistance 16-day-long-long-long-long-long-long-long-long-long-long-long-long-long-life-release-release-release-reducing-reducing-reducing-release-release-release-card-card-at-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-one-"
+  },
+  "TrialCard_Veronika_star13": {
+    "name": "Increased 13 Experience Cards (7 days)"
+  },
+  "TrialCard_Veronika_star15": {
+    "name": "15 Empirical Cards for the Visual Community (7 days)"
+  },
+  "choose_StrengthenStoneMMO_A1A2": {
+    "name": "Selecting weapon enhancement material I"
+  },
+  "choose_StrengthenStoneMMO_B": {
+    "name": "Selecting Enhanced Resonance Module"
+  },
+  "choose_StrengthenStoneMMO_B1B2": {
+    "name": "Selecting weapon enhancement material II"
+  },
+  "choose_StrengthenStoneMMO_B2": {
+    "name": "Select Advanced Reconstructing Component"
+  },
+  "choose_StrengthenStoneMMO_B2_Sup": {
+    "name": "Selecting Advanced Reconstruct Component (Agregative)"
+  },
+  "choose_StrengthenStoneMMO_B_Sup": {
+    "name": "Self-selected Enhanced Resonance Module (Agres)"
+  },
+  "choose_StrengthenStoneMMO_C": {
+    "name": "Selecting Multidimensional Resonance Modules"
+  },
+  "choose_StrengthenStoneMMO_C1C2": {
+    "name": "Selecting weapon enhancement material III"
+  },
+  "choose_StrengthenStoneMMO_C2": {
+    "name": "Selecting Super-Fine Reconstructed Component"
+  },
+  "choose_StrengthenStoneMMO_C2_Sup": {
+    "name": "Selecting super-precision reconstructed components (altitude)"
+  },
+  "choose_StrengthenStoneMMO_C_Sup": {
+    "name": "Selecting Multi-Drey Resonance Module (Agres)"
+  },
+  "choose_StrengthenStoneMMO_D": {
+    "name": "Selecting Ultra-River Resonance Module"
+  },
+  "choose_StrengthenStoneMMO_D1D2": {
+    "name": "Selecting weapon enhancement material IV"
+  },
+  "choose_StrengthenStoneMMO_D2": {
+    "name": "Select the absolute reconstruct component"
+  },
+  "choose_StrengthenStoneMMO_D2_Sup": {
+    "name": "Selecting Absolute Reconstruct Component (Agnormal)"
+  },
+  "choose_StrengthenStoneMMO_D_Sup": {
+    "name": "Selecting Ultra-River Resonance Module (Agres)"
+  },
+  "choose_addin_orange_normal": {
+    "name": "Expand the box."
+  },
+  "choose_addin_orange_normal2": {
+    "name": "Open package 2 for your box."
+  },
+  "choose_addin_orange_pvp": {
+    "name": "Fight - Open Boxes"
+  },
+  "choose_addin_orange_rare": {
+    "name": "The extended package is a rare collection."
+  },
+  "choose_addin_orange_rare2": {
+    "name": "Extension Two is a rare box of treasures."
+  },
+  "choose_artifact_mmo1": {
+    "name": "SSR Source Box"
+  },
+  "choose_frag_ssr_MMO": {
+    "name": "SSR Source Specs Select Box"
+  },
+  "choose_weapon_mmo1": {
+    "name": "Weapon Selection Box I"
+  },
+  "choose_weapon_mmo2": {
+    "name": "Sign the weapon to your own choice."
+  },
+  "choose_weapon_mmo3": {
+    "name": "Sign Weapons Select II"
+  },
+  "choose_weapon_mmo4": {
+    "name": "Sign Weapons Three"
+  },
+  "choose_weapon_mmo5": {
+    "name": "Weapons selection box II"
+  },
+  "frag_MMOTicket_JointClone4": {
+    "name": "Superpasser -- United 4"
+  },
+  "frag_MMOTicket_JointClone5": {
+    "name": "Superpasser -- United 5"
+  },
+  "frag_MMOWeapon_Berry_Phy": {
+    "name": "Cassium fragments."
+  },
+  "frag_MMOWeapon_Nanyin_superpower": {
+    "name": "Zip fragments."
+  },
+  "frag_MMOWeapon_Veronika_Thu": {
+    "name": "Visual debris"
+  },
+  "frag_MMOWeapon_salidy_Fire": {
+    "name": "Bloody shark fragments."
+  },
+  "frag_WeaponGashaponCoin": {
+    "name": "Fragmentation Note fragments"
+  },
+  "fragment_FightPet_13": {
+    "name": "The fragments of the wise servant."
+  },
+  "fragment_FightPet_14": {
+    "name": "The shard of the wise servant's night flower."
+  },
+  "gift_addin_blue_autouse": {
+    "name": "Random Universal Outreach Package"
+  },
+  "gift_addin_orange_autouse": {
+    "name": "Random Precision Package"
+  },
+  "gift_addin_purple_autouse": {
+    "name": "Random Advanced Outreach Package"
+  },
+  "gift_imitation_gift_autouse": {
+    "name": "Random gift box"
+  },
+  "ice62_compass_choosebox": {
+    "name": "The velvet box."
+  },
+  "item_compass_ticket": {
+    "name": "The ticket is perfect."
+  },
+  "item_compass_ticket10": {
+    "name": "- A ticket."
+  },
+  "item_compass_ticket11": {
+    "name": "Red coupons"
+  },
+  "item_compass_ticket12": {
+    "name": "A coupon."
+  },
+  "item_compass_ticket13": {
+    "name": "The Vulture coupons."
+  },
+  "item_compass_ticket14": {
+    "name": "Fun coupons."
+  },
+  "item_compass_ticket15": {
+    "name": "Ice coupons"
+  },
+  "item_compass_ticket16": {
+    "name": "Certificates of navigation"
+  },
+  "item_compass_ticket18": {
+    "name": "Soft coupons"
+  },
+  "item_compass_ticket19": {
+    "name": "- A coupon."
+  },
+  "item_compass_ticket2": {
+    "name": "Pony coupons."
+  },
+  "item_compass_ticket20": {
+    "name": "Dream coupons."
+  },
+  "item_compass_ticket23": {
+    "name": "Love coupons."
+  },
+  "item_compass_ticket3": {
+    "name": "Green coupons"
+  },
+  "item_compass_ticket8": {
+    "name": "Golden spring coupons."
+  },
+  "item_compass_ticket9": {
+    "name": "The Dragon Deal."
+  },
+  "item_mmo_GVGRank1": {
+    "name": "The Starbucks."
+  },
+  "item_mmo_GVGRank2": {
+    "name": "Legendary Box"
+  },
+  "item_mmo_GVGRank3": {
+    "name": "The secret for Yong-seok."
+  },
+  "item_mmo_GVGRank4": {
+    "name": "Eternal gift."
+  },
+  "item_mmo_GVGRank_S2_fashiondress": {
+    "name": "Eternal gift -- past"
+  },
+  "item_mmo_GVGRank_S2_imitation": {
+    "name": "Starbucks. Past years."
+  },
+  "item_mmo_GVGRank_S2_imitationfashion": {
+    "name": "Yong-seok secret."
+  },
+  "item_mmo_GVGRank_S2_mount": {
+    "name": "Legendary Cartr. - Past"
+  },
+  "item_mmo_GVG_MonthlyReward": {
+    "name": "S1 Decoration Random Box"
+  },
+  "item_mmo_GVG_S2_MonthlyReward": {
+    "name": "A gift from your heart - previous days"
+  },
+  "item_mmo_GVG_Screen": {
+    "name": "In the name of the champion."
+  },
+  "item_mmo_Mount_Racing_004_choosebox": {
+    "name": "The light of the day."
+  },
+  "item_mmo_saiji2_blindmount": {
+    "name": "A gift from a meteor."
+  },
+  "item_mmo_saiji2_fashiondress": {
+    "name": "S1 Fashion Fragmentation (under)"
+  },
+  "item_mmo_saiji2_imitation": {
+    "name": "S1 Pseudo Awakening Fragmentation (Down)"
+  },
+  "item_mmo_saiji2_imitationfashion": {
+    "name": "S1 Pseudo-High-Determination Fragmentation (Down)"
+  },
+  "item_mmo_saiji2_mount": {
+    "name": "S1 vehicle debris (down)"
+  },
+  "item_mmo_saiji3_fashiondress": {
+    "name": "S2 Fashion Fragmentor (Up)"
+  },
+  "item_mmo_saiji3_imitation": {
+    "name": "S2 Pseudo Awakening Fragmentor (Up)"
+  },
+  "item_mmo_saiji3_imitationfashion": {
+    "name": "S2 Plot High-Definition Debris Selector Box (Up)"
+  },
+  "item_mmo_saiji3_mount": {
+    "name": "S2-loading debris selection box (up)"
+  },
+  "item_mmo_saiji4_fashiondress": {
+    "name": "S2 Fashion Fragmentation (under)"
+  },
+  "item_mmo_saiji4_imitation": {
+    "name": "S2 Pseudo Awakening Fragmentation (Down)"
+  },
+  "item_mmo_saiji4_imitationfashion": {
+    "name": "S2 Plot High-Definition Fragmentation (Down)"
+  },
+  "item_mmo_saiji4_mount": {
+    "name": "S2 vehicle debris (down)"
+  },
+  "item_mmo_saiji_fashiondress": {
+    "name": "S1 Fashion Fragmentor (Up)"
+  },
+  "item_mmo_saiji_imitation": {
+    "name": "S1 Pseudo Awakening Fragmentor (Up)"
+  },
+  "item_mmo_saiji_imitationfashion": {
+    "name": "S1 Plate High-Definition Debris Selector Box (Up)"
+  },
+  "item_mmo_saiji_mount": {
+    "name": "S1-loading debris selection box (up)"
+  },
+  "mayear_compass_choosebox": {
+    "name": "The Box of the Goodies."
+  },
+  "mmo2_addin_blue_Skill_1": {
+    "name": "Static Extension Package I"
+  },
+  "mmo2_addin_blue_Skill_2": {
+    "name": "Static Extension Package II"
+  },
+  "mmo2_addin_blue_Skill_3": {
+    "name": "Static Extension Package III"
+  },
+  "mmo2_addin_orange_Skill_1": {
+    "name": "Sub-Speech-Resonance Outreach Package"
+  },
+  "mmo2_addin_orange_Skill_10": {
+    "name": "Shields outreach kit"
+  },
+  "mmo2_addin_orange_Skill_11": {
+    "name": "Invasion extension package"
+  },
+  "mmo2_addin_orange_Skill_12": {
+    "name": "Corrosion extended package"
+  },
+  "mmo2_addin_orange_Skill_2": {
+    "name": "Sub-Screen-Explosion Outreach Package"
+  },
+  "mmo2_addin_orange_Skill_3": {
+    "name": "Sub-Screen-Henry Outreach Package"
+  },
+  "mmo2_addin_orange_Skill_4": {
+    "name": "Sub-Scoffs-Hunter Outreach Package"
+  },
+  "mmo2_addin_orange_Skill_5": {
+    "name": "Cluster outreach packages"
+  },
+  "mmo2_addin_orange_Skill_6": {
+    "name": "The wild-and-speech kit."
+  },
+  "mmo2_addin_orange_Skill_7": {
+    "name": "Tsimbling Extension Pack"
+  },
+  "mmo2_addin_orange_Skill_8": {
+    "name": "Fighter outreach kit."
+  },
+  "mmo2_addin_orange_Skill_9": {
+    "name": "Treatment outreach kit"
+  },
+  "mmo2_addin_purple_Skill_1": {
+    "name": "Dynamic Extension Package I"
+  },
+  "mmo2_addin_purple_Skill_2": {
+    "name": "Dynamic Extension Package II"
+  },
+  "mmo2_addin_purple_Skill_3": {
+    "name": "Dynamic Extension Package III"
+  },
+  "mmo_Compass_10_cloth_bind": {
+    "name": "Plasma high debris random box III"
+  },
+  "mmo_Compass_11_cloth_bind": {
+    "name": "Fashion fragments random box IX"
+  },
+  "mmo_Compass_12_cloth_bind": {
+    "name": "Fashion fragments random box X"
+  },
+  "mmo_Compass_13_cloth_bind": {
+    "name": "Fashion fragments random box XI"
+  },
+  "mmo_Compass_14_cloth_bind": {
+    "name": "Fashion fragments random box XII"
+  },
+  "mmo_Compass_15_cloth_bind": {
+    "name": "Fashion fragments random box XIII"
+  },
+  "mmo_Compass_16_cloth_bind": {
+    "name": "Fashion fragments random box XIV"
+  },
+  "mmo_Compass_19_cloth_bind": {
+    "name": "Fashion fragments random box XV"
+  },
+  "mmo_Compass_1_artifact": {
+    "name": "Ssr Source Specs Select Box"
+  },
+  "mmo_Compass_1_chat": {
+    "name": "Chat 3-Selection Box I"
+  },
+  "mmo_Compass_1_cloth": {
+    "name": "Fashion fragments random box I"
+  },
+  "mmo_Compass_1_gift": {
+    "name": "A drawing gift box."
+  },
+  "mmo_Compass_1_hair": {
+    "name": "Hair-style speculator I"
+  },
+  "mmo_Compass_1_imitation": {
+    "name": "Plot Severage Selector Box I"
+  },
+  "mmo_Compass_1_mia": {
+    "name": "Mi-a Fashion Debris Select Box I"
+  },
+  "mmo_Compass_1_mount": {
+    "name": "Portable fragments random box I"
+  },
+  "mmo_Compass_1_ornament": {
+    "name": "Acetex I."
+  },
+  "mmo_Compass_23_cloth_bind": {
+    "name": "Fashion fragments random box 16"
+  },
+  "mmo_Compass_2_cloth": {
+    "name": "Fashion fragments random box II"
+  },
+  "mmo_Compass_2_imitation": {
+    "name": "Plot debris selection box II"
+  },
+  "mmo_Compass_2_mia": {
+    "name": "Mi-a Fashion Debris Select Box II"
+  },
+  "mmo_Compass_2_mount": {
+    "name": "Portable fragments random box II"
+  },
+  "mmo_Compass_2_ornament": {
+    "name": "Acetex II"
+  },
+  "mmo_Compass_3_cloth": {
+    "name": "Fashion fragments random box III"
+  },
+  "mmo_Compass_4_imitationfashion": {
+    "name": "Prescription high debris random box I"
+  },
+  "mmo_Compass_5_cloth": {
+    "name": "Fashion fragments random box V"
+  },
+  "mmo_Compass_6_cloth": {
+    "name": "Fashion fragment random box VI"
+  },
+  "mmo_Compass_7_imitationfashion": {
+    "name": "Prescription high debris random box II"
+  },
+  "mmo_Compass_8_cloth_bind": {
+    "name": "Fashion fragments random box VII"
+  },
+  "mmo_Compass_9_cloth_bind": {
+    "name": "Fashion fragments random box VIII"
+  },
+  "mmo_addin_blue_Skill_1": {
+    "name": "Generic outreach package I"
+  },
+  "mmo_addin_blue_Skill_2": {
+    "name": "Generic outreach package II"
+  },
+  "mmo_addin_blue_Skill_3": {
+    "name": "Generic outreach package III"
+  },
+  "mmo_addin_orange2_Skill_1": {
+    "name": "Star River Extension Package"
+  },
+  "mmo_addin_orange2_Skill_2": {
+    "name": "Starring Box."
+  },
+  "mmo_addin_orange2_Skill_3": {
+    "name": "Starlight Extension Package"
+  },
+  "mmo_addin_orange2_Skill_4": {
+    "name": "Star Chart Extension Package"
+  },
+  "mmo_addin_orange2_Skill_5": {
+    "name": "Starlight Extension Package"
+  },
+  "mmo_addin_orange2_Skill_6": {
+    "name": "Stars and Extension Package"
+  },
+  "mmo_addin_orange2_Skill_7": {
+    "name": "Starspan Package"
+  },
+  "mmo_addin_orange2_Skill_8": {
+    "name": "Starspan Package"
+  },
+  "mmo_addin_orange_Skill_1": {
+    "name": "Stars Extension Package"
+  },
+  "mmo_addin_orange_Skill_10": {
+    "name": "General injury extended kit"
+  },
+  "mmo_addin_orange_Skill_11": {
+    "name": "Cluster outreach packages"
+  },
+  "mmo_addin_orange_Skill_12": {
+    "name": "Continuous Extension Package"
+  },
+  "mmo_addin_orange_Skill_13": {
+    "name": "All-defence outreach kit."
+  },
+  "mmo_addin_orange_Skill_14": {
+    "name": "Repair outreach kit"
+  },
+  "mmo_addin_orange_Skill_15": {
+    "name": "A pop-up-extension kit."
+  },
+  "mmo_addin_orange_Skill_16": {
+    "name": "Malicious super-package."
+  },
+  "mmo_addin_orange_Skill_17": {
+    "name": "Therapeutic ball extension kit"
+  },
+  "mmo_addin_orange_Skill_18": {
+    "name": "Blood-smoking outreach kit."
+  },
+  "mmo_addin_orange_Skill_19": {
+    "name": "Move the extension package fast"
+  },
+  "mmo_addin_orange_Skill_2": {
+    "name": "Protect Extension Package"
+  },
+  "mmo_addin_orange_Skill_20": {
+    "name": "Quick treatment extension kit"
+  },
+  "mmo_addin_orange_Skill_21": {
+    "name": "Random wound extended kit"
+  },
+  "mmo_addin_orange_Skill_22": {
+    "name": "Random injury extended package"
+  },
+  "mmo_addin_orange_Skill_23": {
+    "name": "Fight-out-out-of-the-box"
+  },
+  "mmo_addin_orange_Skill_24": {
+    "name": "Fight-in-the-box-out-the-box."
+  },
+  "mmo_addin_orange_Skill_25": {
+    "name": "Fight. Life Shield Extension Package."
+  },
+  "mmo_addin_orange_Skill_26": {
+    "name": "Fight-neighboring outreach kit"
+  },
+  "mmo_addin_orange_Skill_27": {
+    "name": "Fight-harvesting extension packs"
+  },
+  "mmo_addin_orange_Skill_28": {
+    "name": "Fight-Stunning Extension Package"
+  },
+  "mmo_addin_orange_Skill_29": {
+    "name": "Fight-invincible outreach kit"
+  },
+  "mmo_addin_orange_Skill_3": {
+    "name": "Stable extended kit"
+  },
+  "mmo_addin_orange_Skill_30": {
+    "name": "Fight-Star Flash Outreach Package"
+  },
+  "mmo_addin_orange_Skill_4": {
+    "name": "A wound extended kit."
+  },
+  "mmo_addin_orange_Skill_5": {
+    "name": "Recovery outreach package"
+  },
+  "mmo_addin_orange_Skill_6": {
+    "name": "Recharge Extension Package"
+  },
+  "mmo_addin_orange_Skill_7": {
+    "name": "Blast-extended package."
+  },
+  "mmo_addin_orange_Skill_8": {
+    "name": "Fae injury extended kit"
+  },
+  "mmo_addin_orange_Skill_9": {
+    "name": "General injury extended kit"
+  },
+  "mmo_addin_purple_Skill_1": {
+    "name": "Advanced Outreach Package I"
+  },
+  "mmo_addin_purple_Skill_2": {
+    "name": "Advanced Outreach Package II"
+  },
+  "mmo_addin_purple_Skill_3": {
+    "name": "Advanced Outreach Package III"
+  },
+  "mmo_fashion_box_S1": {
+    "name": "The season's full of gift boxes."
+  },
+  "mmo_fashion_box_S1_frag": {
+    "name": "The season's full of box fragments."
+  },
+  "mmo_fashion_melt_box": {
+    "name": "Appearance Random Box"
+  },
+  "mmo_fashion_melt_box_frag": {
+    "name": "Appearance Random Box Snippet"
+  },
+  "mmo_frag_Mount006_10_Skin_01": {
+    "name": "Model control meteor fragments"
+  },
+  "mmo_frag_Mount006_11_Skin_01": {
+    "name": "The night shower fragments."
+  },
+  "mmo_frag_Mount006_12_Skin_01": {
+    "name": "♪ After the meteor fragments ♪"
+  },
+  "mmo_frag_Mount006_13_Skin_01": {
+    "name": "Figuring meteor fragments."
+  },
+  "mmo_frag_Mount006_14_Skin_01": {
+    "name": "Sinking debris of meteors."
+  },
+  "mmo_frag_Mount006_15_Skin_01": {
+    "name": "From modified meteor fragments"
+  },
+  "mmo_frag_Mount006_16_Skin_01": {
+    "name": "Rock meteor fragments"
+  },
+  "mmo_frag_Mount006_17_Skin_01": {
+    "name": "The fragments of the just meteor."
+  },
+  "mmo_frag_Mount006_18_Skin_01": {
+    "name": "Steamy-weesel meteor fragments."
+  },
+  "mmo_frag_Mount006_19_Skin_01": {
+    "name": "Eygnosed Star fragments"
+  },
+  "mmo_frag_Mount006_1_Skin_01": {
+    "name": "Slurping star fragments."
+  },
+  "mmo_frag_Mount006_20_Skin_01": {
+    "name": "Neon meteor fragments"
+  },
+  "mmo_frag_Mount006_21_Skin_01": {
+    "name": "Idea meteor fragments"
+  },
+  "mmo_frag_Mount006_22_Skin_01": {
+    "name": "Miracle meteor fragments."
+  },
+  "mmo_frag_Mount006_23_Skin_01": {
+    "name": "♪ The star fragments of the glimmer ♪"
+  },
+  "mmo_frag_Mount006_24_Skin_01": {
+    "name": "The frosted meteor fragments."
+  },
+  "mmo_frag_Mount006_25_Skin_01": {
+    "name": "EMPLE MATERIAL SQUICKS"
+  },
+  "mmo_frag_Mount006_26_Skin_01": {
+    "name": "Meow-Small fragments."
+  },
+  "mmo_frag_Mount006_27_Skin_01": {
+    "name": "The fire-throwing star fragments."
+  },
+  "mmo_frag_Mount006_28_Skin_01": {
+    "name": "Healing meteor fragments"
+  },
+  "mmo_frag_Mount006_29_Skin_01": {
+    "name": "May the meteor fragments"
+  },
+  "mmo_frag_Mount006_2_Skin_01": {
+    "name": "Surveying meteor fragments"
+  },
+  "mmo_frag_Mount006_30_Skin_01": {
+    "name": "The Devil's Star fragments."
+  },
+  "mmo_frag_Mount006_31_Skin_01": {
+    "name": "Smash of the Red Star."
+  },
+  "mmo_frag_Mount006_32_Skin_01": {
+    "name": "Star blue white and white Zeus fragments"
+  },
+  "mmo_frag_Mount006_3_Skin_01": {
+    "name": "The warring meteor fragments."
+  },
+  "mmo_frag_Mount006_4_Skin_01": {
+    "name": "The Starbreak Star fragments."
+  },
+  "mmo_frag_Mount006_5_Skin_01": {
+    "name": "Wind-speed meteor fragments"
+  },
+  "mmo_frag_Mount006_6_Skin_01": {
+    "name": "Free meteor fragments"
+  },
+  "mmo_frag_Mount006_7_Skin_01": {
+    "name": "♪ Scratch through the stars ♪"
+  },
+  "mmo_frag_Mount006_8_Skin_01": {
+    "name": "Deep-diving meteor fragments"
+  },
+  "mmo_frag_Mount006_9_Skin_01": {
+    "name": "Super meteor fragments."
+  },
+  "mmo_frag_Mount008_1_Skin_01": {
+    "name": "Dream Star fragments."
+  },
+  "mmo_frag_Mount008_1_Skin_02": {
+    "name": "The light of the homecoming."
+  },
+  "mmo_frag_Mount012_1_Skin_01": {
+    "name": "Jumping into the stump of a wise servant."
+  },
+  "mmo_frag_Mount012_2_Skin_01": {
+    "name": "Jump Rabbit fragments"
+  },
+  "mmo_frag_Mount012_3_Skin_01": {
+    "name": "Superdigo Splash"
+  },
+  "mmo_frag_Mount031_skin_01": {
+    "name": "Slurpy fragments."
+  },
+  "mmo_frag_Mount031_skin_02": {
+    "name": "♪ The lightly glitter of the autumn ♪"
+  },
+  "mmo_frag_Mount033_skin_01": {
+    "name": "The Tyrannosaurus."
+  },
+  "mmo_frag_Mount033_skin_02": {
+    "name": "Firefly Dragon fragments."
+  },
+  "mmo_frag_Mount035_skin_01": {
+    "name": "Ice-covered rose fragments"
+  },
+  "mmo_frag_Mount035_skin_02": {
+    "name": "Fire rose fragments."
+  },
+  "mmo_frag_MountWater2_a": {
+    "name": "Flying viewing ball -- space-carb fragments"
+  },
+  "mmo_frag_MountWater2_b": {
+    "name": "Flying viewing ball - engine fragments"
+  },
+  "mmo_frag_MountWater3": {
+    "name": "Smash of solar fish"
+  },
+  "mmo_frag_MountWater5": {
+    "name": "Drifter fragments."
+  },
+  "mmo_frag_MountWater6": {
+    "name": "The shard of the dragon's neck."
+  },
+  "mmo_frag_MountWater8": {
+    "name": "Summer fantasy fragments."
+  },
+  "mmo_frag_Mount_001_03": {
+    "name": "Snow ridge fragments"
+  },
+  "mmo_frag_Mount_005": {
+    "name": "Wind and dust giants."
+  },
+  "mmo_frag_Mount_006": {
+    "name": "Red meteor fragments"
+  },
+  "mmo_frag_Mount_007_a": {
+    "name": "“Machinebird” - head fragments"
+  },
+  "mmo_frag_Mount_007_b": {
+    "name": "\"Machinebird\" - torso fragments"
+  },
+  "mmo_frag_Mount_007_c": {
+    "name": "“Machinebird” - leg fragments"
+  },
+  "mmo_frag_Mount_007_d": {
+    "name": "\"Machinebird\" - Core debris"
+  },
+  "mmo_frag_Mount_008": {
+    "name": "The fragments of the Knight of Ada."
+  },
+  "mmo_frag_Mount_012_a": {
+    "name": "Scraps of the \"jump\" car shelf"
+  },
+  "mmo_frag_Mount_012_b": {
+    "name": "The cylindrical core fragments."
+  },
+  "mmo_frag_Mount_013": {
+    "name": "2613 debris"
+  },
+  "mmo_frag_Mount_015": {
+    "name": "The debris of the desert canal."
+  },
+  "mmo_frag_Mount_016": {
+    "name": "The debris of the future chariot."
+  },
+  "mmo_frag_Mount_017_a": {
+    "name": "New Star - Engine fragments"
+  },
+  "mmo_frag_Mount_017_b": {
+    "name": "\"New Star\" - Subsistence Fragment"
+  },
+  "mmo_frag_Mount_017_c": {
+    "name": "Neostar - shell fragments"
+  },
+  "mmo_frag_Mount_018": {
+    "name": "Quick-power wheeling debris"
+  },
+  "mmo_frag_Mount_019": {
+    "name": "The Quasi Deer fragments."
+  },
+  "mmo_frag_Mount_021": {
+    "name": "Domesticate the shards"
+  },
+  "mmo_frag_Mount_023": {
+    "name": "Ink fox fragments."
+  },
+  "mmo_frag_Mount_026": {
+    "name": "The fragments of the Quaker Boat."
+  },
+  "mmo_frag_Mount_028": {
+    "name": "Ball fragments"
+  },
+  "mmo_frag_Mount_030": {
+    "name": "The fragments of the Quick Dragon."
+  },
+  "mmo_frag_Mount_032": {
+    "name": "The thugs of the red order."
+  },
+  "mmo_frag_Mount_034": {
+    "name": "Cat bus fragments."
+  },
+  "mmo_frag_Mount_036": {
+    "name": "Lucky UFO fragments."
+  },
+  "mmo_frag_Mount_038": {
+    "name": "Jerry-85 fragments."
+  },
+  "mmo_frag_Mount_039": {
+    "name": "Z110 Space Motorcycle Fragment"
+  },
+  "mmo_frag_Mount_040": {
+    "name": "The skeletal shark fragments."
+  },
+  "mmo_frag_Mount_Racing_001": {
+    "name": "Thundering fragments"
+  },
+  "mmo_frag_Mount_Racing_001_2": {
+    "name": "Heavy rain fragments"
+  },
+  "mmo_frag_Mount_Racing_001_3": {
+    "name": "Smash of the sun."
+  },
+  "mmo_frag_Mount_Racing_001_4": {
+    "name": "The rain clouds."
+  },
+  "mmo_frag_Mount_Racing_002": {
+    "name": "Magnificent fragments."
+  },
+  "mmo_frag_Mount_Racing_002_3": {
+    "name": "Wild elephant fragments."
+  },
+  "mmo_frag_Mount_Racing_002_4": {
+    "name": "Leopard fragments"
+  },
+  "mmo_frag_Mount_Racing_003_1_guo": {
+    "name": "Fire fragments."
+  },
+  "mmo_frag_Mount_Racing_003_2_guo": {
+    "name": "Thunder fragments"
+  },
+  "mmo_frag_Mount_Racing_003_guo": {
+    "name": "Windwalker fragments"
+  },
+  "mmo_frag_Mount_Racing_004": {
+    "name": "Aperture light wheel fragments"
+  },
+  "mmo_frag_Mount_Racing_004_2": {
+    "name": "Auroral light wheels and slide fragments"
+  },
+  "mmo_frag_Mount_Racing_004_3": {
+    "name": "The fragments of the A.R. Black Warrior."
+  },
+  "mmo_frag_Mount_Racing_004_4": {
+    "name": "Arctic light wheel Xiong fragments."
+  },
+  "mmo_frag_Mount_Racing_004_5": {
+    "name": "Aero-radio-radio-drunk debris."
+  },
+  "mmo_frag_Mount_Racing_004_6": {
+    "name": "Aero-radio wheels. Star fragments."
+  },
+  "mmo_frag_Mount_Water_007_Skin_07": {
+    "name": "The Fig."
+  },
+  "mmo_frag_Mount_Water_009_Skin_01": {
+    "name": "The shark fragments of the teeth."
+  },
+  "mmo_frag_Mount_Water_009_Skin_02": {
+    "name": "Rock-tooth shark fragments."
+  },
+  "mmo_frag_fashion_Guidenpc_mia_10": {
+    "name": "Caerdine Mi-a fragment"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_11": {
+    "name": "Rabbit's Mi-a fragment"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_12": {
+    "name": "Mi-a fragments in Garuda"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_13": {
+    "name": "Leadr Mi-a fragment"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_4": {
+    "name": "Explorer Mi-a debris"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_5": {
+    "name": "Mi-a fragments of the mic wall"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_6": {
+    "name": "Panda Mi-a fragment"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_7": {
+    "name": "Package Mi-a fragment"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_8": {
+    "name": "Distillation Mi-a fragment"
+  },
+  "mmo_frag_fashion_Guidenpc_mia_9": {
+    "name": "Little witch Mi-a fragment"
+  },
+  "mmo_frag_fashion_dress_11_4": {
+    "name": "Jedi fragments."
+  },
+  "mmo_frag_fashion_dress_14_4": {
+    "name": "Fluid action debris"
+  },
+  "mmo_frag_fashion_dress_16_4": {
+    "name": "Wind fragments"
+  },
+  "mmo_frag_fashion_dress_17_4": {
+    "name": "Don't forget my pieces."
+  },
+  "mmo_frag_fashion_dress_18_4": {
+    "name": "The debris of the wasteland."
+  },
+  "mmo_frag_fashion_dress_20_4": {
+    "name": "Hard sugar pieces of fruit"
+  },
+  "mmo_frag_fashion_dress_21_4": {
+    "name": "It's a midnight fragment."
+  },
+  "mmo_frag_fashion_dress_23_4": {
+    "name": "The early Sakura fragments."
+  },
+  "mmo_frag_fashion_dress_24_4": {
+    "name": "Sandscreen explores debris."
+  },
+  "mmo_frag_fashion_dress_26_4": {
+    "name": "Starbucks."
+  },
+  "mmo_frag_fashion_dress_29_4": {
+    "name": "Dream fragments."
+  },
+  "mmo_frag_fashion_dress_31_4": {
+    "name": "Fly party fragments."
+  },
+  "mmo_frag_fashion_dress_32_4": {
+    "name": "Silent wing fragments"
+  },
+  "mmo_frag_fashion_dress_33_4": {
+    "name": "Seaside holiday fragments"
+  },
+  "mmo_frag_fashion_dress_34_4": {
+    "name": "Sunny-Bob fragments"
+  },
+  "mmo_frag_fashion_dress_35_4": {
+    "name": "The College Age Debris"
+  },
+  "mmo_frag_fashion_dress_36_4": {
+    "name": "Speedy wind fragments."
+  },
+  "mmo_frag_fashion_dress_37_4": {
+    "name": "Xiaoqiao fragments"
+  },
+  "mmo_frag_fashion_dress_38_4": {
+    "name": "Think of the phantom fragments."
+  },
+  "mmo_frag_fashion_dress_39_4": {
+    "name": "Rose dinner fragments."
+  },
+  "mmo_frag_fashion_dress_40_4": {
+    "name": "♪ Jumping through the youth fragments ♪"
+  },
+  "mmo_frag_fashion_dress_41_4": {
+    "name": "Undrain the drums and pieces."
+  },
+  "mmo_frag_fashion_dress_42_4": {
+    "name": "Matrix debris"
+  },
+  "mmo_frag_fashion_dress_43_4": {
+    "name": "Smash of the floating clairvoyant"
+  },
+  "mmo_frag_fashion_dress_44_4": {
+    "name": "Warm winter night fragments."
+  },
+  "mmo_frag_fashion_dress_46_4": {
+    "name": "The gold spring-hwa pieces."
+  },
+  "mmo_frag_fashion_dress_47_4": {
+    "name": "Pseudo-violet fragments."
+  },
+  "mmo_frag_fashion_dress_48_4": {
+    "name": "Reverse Tide Fragment"
+  },
+  "mmo_frag_fashion_dress_49_4": {
+    "name": "Black & White Fragmentation"
+  },
+  "mmo_frag_fashion_dress_50_4": {
+    "name": "Smash of the Inn Sea"
+  },
+  "mmo_frag_fashion_dress_51_4": {
+    "name": "With this green debris"
+  },
+  "mmo_frag_fashion_dress_52_4": {
+    "name": "Search for fragments in the crowd."
+  },
+  "mmo_frag_fashion_dress_53_4": {
+    "name": "The morning stars are scribbling."
+  },
+  "mmo_frag_fashion_dress_55_4": {
+    "name": "Smash of sea wind"
+  },
+  "mmo_frag_fashion_dress_56_4": {
+    "name": "Plays space-time fragments"
+  },
+  "mmo_frag_fashion_dress_57_4": {
+    "name": "The pieces of the temple."
+  },
+  "mmo_frag_fashion_dress_58_4": {
+    "name": "Weaving the pieces of the cobbler."
+  },
+  "mmo_frag_fashion_dress_59_4": {
+    "name": "The edge of the day."
+  },
+  "mmo_frag_fashion_dress_60_4": {
+    "name": "The fragments of the San snow."
+  },
+  "mmo_frag_fashion_dress_61_4": {
+    "name": "♪ Dream of the nightmare fragments ♪"
+  },
+  "mmo_frag_fashion_dress_63_4": {
+    "name": "The thong of the Dragon."
+  },
+  "mmo_frag_fashion_dress_66_4": {
+    "name": "Flying fragments."
+  },
+  "mmo_frag_fashion_dress_67_4": {
+    "name": "Reshaping future fragments"
+  },
+  "mmo_frag_fashion_dress_68_4": {
+    "name": "The Nemesis fragments."
+  },
+  "mmo_frag_fashion_dress_69_4": {
+    "name": "Dreamnet fragments."
+  },
+  "mmo_frag_fashion_dress_70_4": {
+    "name": "Surprised scientists fragments."
+  },
+  "mmo_frag_fashion_dress_71_4": {
+    "name": "Sun Rain fragments"
+  },
+  "mmo_frag_fashion_dress_72_4": {
+    "name": "Summer special pieces."
+  },
+  "mmo_frag_fashion_dress_73_4": {
+    "name": "Fun time fragments"
+  },
+  "mmo_frag_fashion_dress_74_4": {
+    "name": "Sunny-Face-Engine fragments"
+  },
+  "mmo_frag_fashion_dress_75_4": {
+    "name": "♪ Heart beats and night-breaks ♪"
+  },
+  "mmo_frag_fashion_dress_76_4": {
+    "name": "Street Tide Smash"
+  },
+  "mmo_frag_fashion_dress_77_4": {
+    "name": "♪ Falling apart in dreams ♪"
+  },
+  "mmo_frag_fashion_dress_78_4": {
+    "name": "Flying into the fragments of Neverland."
+  },
+  "mmo_frag_fashion_dress_79_4": {
+    "name": "Snacks of the Xiahua."
+  },
+  "mmo_frag_fashion_dress_7_4": {
+    "name": "Mission debris"
+  },
+  "mmo_frag_fashion_dress_80_4": {
+    "name": "Rose-like fragments."
+  },
+  "mmo_frag_fashion_dress_81_4": {
+    "name": "♪ The enchanting wind fragments ♪"
+  },
+  "mmo_frag_fashion_dress_82_4": {
+    "name": "Tomorrow, leave white fragments."
+  },
+  "mmo_frag_fashion_dress_83_4": {
+    "name": "The lead agent's fragments."
+  },
+  "mmo_frag_fashion_dress_85_4": {
+    "name": "New Zeus explores debris."
+  },
+  "mmo_frag_fashion_dress_86_4": {
+    "name": "♪ Flying the ship on fragments ♪"
+  },
+  "mmo_frag_fashion_dress_87_4": {
+    "name": "Salt Star fun fragments."
+  },
+  "mmo_frag_fashion_dress_88_4": {
+    "name": "The debris of the Red Rock Marker."
+  },
+  "mmo_frag_fashion_dress_89_4": {
+    "name": "♪ Pray for the Good Day fragments ♪"
+  },
+  "mmo_frag_fashion_dress_8_4": {
+    "name": "Star Sand Fragment"
+  },
+  "mmo_frag_imitation_fashion_10": {
+    "name": "Craw white intuition."
+  },
+  "mmo_frag_imitation_fashion_10_w": {
+    "name": "Silver Wheel Snippet"
+  },
+  "mmo_frag_imitation_fashion_17": {
+    "name": "Sally's fragments."
+  },
+  "mmo_frag_imitation_fashion_17_2": {
+    "name": "Pure and unreal."
+  },
+  "mmo_frag_imitation_fashion_17_w": {
+    "name": "White dwarf fragments"
+  },
+  "mmo_frag_imitation_fashion_21": {
+    "name": "The Red Child's Blast."
+  },
+  "mmo_frag_imitation_fashion_21_w": {
+    "name": "Firebreaks"
+  },
+  "mmo_frag_imitation_fashion_22": {
+    "name": "The most extreme white fragments."
+  },
+  "mmo_frag_imitation_fashion_22_w": {
+    "name": "It's a pure white piece of work."
+  },
+  "mmo_frag_imitation_fashion_23": {
+    "name": "The fiber-optic summer fragments."
+  },
+  "mmo_frag_imitation_fashion_23_2": {
+    "name": "It's a piece of shit."
+  },
+  "mmo_frag_imitation_fashion_23_w": {
+    "name": "The cloud is weaving fragments."
+  },
+  "mmo_frag_imitation_fashion_23_w_2": {
+    "name": "Coral Weavers"
+  },
+  "mmo_frag_imitation_fashion_26": {
+    "name": "♪ Without fear of the sun fragments ♪"
+  },
+  "mmo_frag_imitation_fashion_26_w": {
+    "name": "Clear Wind Crossing"
+  },
+  "mmo_frag_imitation_fashion_30": {
+    "name": "White-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black-black"
+  },
+  "mmo_frag_imitation_fashion_30_w": {
+    "name": "White Wings."
+  },
+  "mmo_frag_imitation_fashion_31": {
+    "name": "The puzzle fragments."
+  },
+  "mmo_frag_imitation_fashion_31_w": {
+    "name": "The phantom fragments."
+  },
+  "mmo_frag_imitation_fashion_32": {
+    "name": "The velvet white fragments."
+  },
+  "mmo_frag_imitation_fashion_32_w": {
+    "name": "Zero-degree decibel fragments"
+  },
+  "mmo_frag_imitation_fashion_34": {
+    "name": "♪ And the white gleams ♪"
+  },
+  "mmo_frag_imitation_fashion_34_w": {
+    "name": "Ming Yu's fragments"
+  },
+  "mmo_frag_imitation_fashion_36": {
+    "name": "The moon is a fragment."
+  },
+  "mmo_frag_imitation_fashion_36_w": {
+    "name": "The fragments of the moon of the stars."
+  },
+  "mmo_frag_imitation_fashion_37": {
+    "name": "Inkpool clean-up fragments"
+  },
+  "mmo_frag_imitation_fashion_37_w": {
+    "name": "Smash of the sun."
+  },
+  "mmo_frag_imitation_fashion_41": {
+    "name": "♪ The clairvoyant fragments ♪"
+  },
+  "mmo_frag_imitation_fashion_41_w": {
+    "name": "The golden pieces of the Xiang Yun."
+  },
+  "mmo_frag_imitation_fashion_43": {
+    "name": "The frosts are full of summer fragments."
+  },
+  "mmo_frag_imitation_fashion_43_w": {
+    "name": "The bouquet fragments."
+  },
+  "mmo_frag_imitation_fashion_48": {
+    "name": "The sun itself is a fragment of the sun."
+  },
+  "mmo_frag_imitation_fashion_48_w": {
+    "name": "Ending fragments"
+  },
+  "mmo_frag_imitation_fashion_49": {
+    "name": "Shade the shading fragments."
+  },
+  "mmo_frag_imitation_fashion_49_w": {
+    "name": "Clearing fragments."
+  },
+  "mmo_frag_imitation_fashion_50": {
+    "name": "Shazzo fragments."
+  },
+  "mmo_frag_imitation_fashion_50_w": {
+    "name": "The dust hits the debris."
+  },
+  "mmo_frag_imitation_fashion_52": {
+    "name": "♪ Dreams of the world ♪"
+  },
+  "mmo_frag_imitation_fashion_52_w": {
+    "name": "The heart's badge is a piece of debris."
+  },
+  "mmo_frag_imitation_fashion_53": {
+    "name": "The fragments of the impregnated shadow."
+  },
+  "mmo_frag_imitation_fashion_53_w": {
+    "name": "CP-3000 ground fire fragments"
+  },
+  "mmo_frag_imitation_fashion_55": {
+    "name": "The ashes look at the fragments."
+  },
+  "mmo_frag_imitation_fashion_55_w": {
+    "name": "The fragments of the Glossy Lankinus."
+  },
+  "mmo_frag_imitation_fashion_56": {
+    "name": "The future echoing fragments."
+  },
+  "mmo_frag_imitation_fashion_56_w": {
+    "name": "Zero echo fragments"
+  },
+  "mmo_frag_imitation_fashion_57": {
+    "name": "Scratch time sequence fragments"
+  },
+  "mmo_frag_imitation_fashion_57_2": {
+    "name": "Suhua fragments"
+  },
+  "mmo_frag_imitation_fashion_57_2_w": {
+    "name": "Scratch"
+  },
+  "mmo_frag_imitation_fashion_57_w": {
+    "name": "The Qing Dynasty."
+  },
+  "mmo_frag_imitation_fashion_58": {
+    "name": "Scatters of the time of attendance"
+  },
+  "mmo_frag_imitation_fashion_58_w": {
+    "name": "Slice fragments."
+  },
+  "mmo_frag_imitation_fashion_59": {
+    "name": "I want to see the light."
+  },
+  "mmo_frag_imitation_fashion_59_2": {
+    "name": "The Binch Wonder Night fragments."
+  },
+  "mmo_frag_imitation_fashion_59_2_w": {
+    "name": "Fudge shards of fruit."
+  },
+  "mmo_frag_imitation_fashion_59_w": {
+    "name": "Swirling sugar fragments."
+  },
+  "mmo_frag_imitation_fashion_60_w": {
+    "name": "Wave sound fragments"
+  },
+  "mmo_frag_imitation_fashion_61": {
+    "name": "♪ The pieces of the summer ♪"
+  },
+  "mmo_frag_imitation_fashion_61_w": {
+    "name": "There's a piece of ice cream for sale."
+  },
+  "mmo_frag_imitation_fashion_62": {
+    "name": "Coast winding debris"
+  },
+  "mmo_frag_imitation_fashion_63": {
+    "name": "Decorate Game Fractures"
+  },
+  "mmo_frag_imitation_fashion_63_w": {
+    "name": "The shard of the dusk."
+  },
+  "mmo_frag_imitation_fashion_64": {
+    "name": "The Darkness of Midnight."
+  },
+  "mmo_frag_imitation_fashion_64_w": {
+    "name": "Fireworks in the day."
+  },
+  "mmo_frag_imitation_fashion_66": {
+    "name": "The Godslayer's Antonia fragments."
+  },
+  "mmo_frag_imitation_fashion_66_w": {
+    "name": "The pieces of the rebel feather."
+  },
+  "mmo_frag_imitation_fashion_67": {
+    "name": "The fragments of the vows of the star purple."
+  },
+  "mmo_frag_imitation_fashion_67_w": {
+    "name": "Uttarus fragments."
+  },
+  "mmo_frag_imitation_fashion_69": {
+    "name": "The slurpy summer fragments."
+  },
+  "mmo_frag_imitation_fashion_69_w": {
+    "name": "AF-010M Marine debris"
+  },
+  "mmo_frag_imitation_fashion_70": {
+    "name": "Heart-momented lightwave fragments"
+  },
+  "mmo_frag_imitation_fashion_70_w": {
+    "name": "Holy prayer fragments."
+  },
+  "mmo_frag_imitation_fashion_71": {
+    "name": "Space elf fragments."
+  },
+  "mmo_frag_imitation_fashion_71_w": {
+    "name": "Glass sugar piece."
+  },
+  "mmo_frag_imitation_fashion_74": {
+    "name": "The Silent Search for Flowers"
+  },
+  "mmo_frag_imitation_fashion_74_w": {
+    "name": "Slurp-MK2 fragments"
+  },
+  "mmo_frag_imitation_fashion_75": {
+    "name": "The mysterious pieces of the puppet."
+  },
+  "mmo_frag_imitation_fashion_75_w": {
+    "name": "Poréquez Ghost's shard."
+  },
+  "mmo_frag_imitation_fashion_76": {
+    "name": "Holy Night Patrol fragments."
+  },
+  "mmo_frag_imitation_fashion_76_w": {
+    "name": "Bleeding vision debris"
+  },
+  "mmo_frag_imitation_fashion_sen_23": {
+    "name": "♪ The snowfall of the night ♪"
+  },
+  "mmo_frag_imitation_fashion_sen_23_w": {
+    "name": "Rinning fireworks."
+  },
+  "random_StrengthenStoneMMO_A1A2": {
+    "name": "Random weapon reinforced material I"
+  },
+  "random_StrengthenStoneMMO_B": {
+    "name": "Randomly Enhanced Resonance Module"
+  },
+  "random_StrengthenStoneMMO_B1B2": {
+    "name": "Random weapon reinforced material II"
+  },
+  "random_StrengthenStoneMMO_B2": {
+    "name": "Random Advanced Reconstructing Component"
+  },
+  "random_StrengthenStoneMMO_C": {
+    "name": "Random Multidimensional Resonance Module"
+  },
+  "random_StrengthenStoneMMO_C1C2": {
+    "name": "Random weapon reinforcement material III"
+  },
+  "random_StrengthenStoneMMO_C2": {
+    "name": "Random super-reconstruct component"
+  },
+  "random_StrengthenStoneMMO_D": {
+    "name": "Random ultra-frequency echo module"
+  },
+  "random_StrengthenStoneMMO_D1D2": {
+    "name": "Random weapon reinforced material IV"
+  },
+  "random_StrengthenStoneMMO_D2": {
+    "name": "Random absolute reconstruct component"
+  },
+  "unid_S1_T0.1_Blue_armband": {
+    "name": "Patrol arm A. Fortitude."
+  },
+  "unid_S1_T0.1_Blue_belt": {
+    "name": "Checkpoint belt."
+  },
+  "unid_S1_T0.1_Blue_cloth": {
+    "name": "Patrol guard A. Force up."
+  },
+  "unid_S1_T0.1_Blue_glove": {
+    "name": "Watchman."
+  },
+  "unid_S1_T0.1_Blue_helmet": {
+    "name": "Watch helmets."
+  },
+  "unid_S1_T0.1_Blue_pants": {
+    "name": "Watching the leg."
+  },
+  "unid_S1_T0.1_Blue_shawl": {
+    "name": "Guards."
+  },
+  "unid_S1_T0.1_Blue_shoes": {
+    "name": "Checkers' shoes."
+  },
+  "unid_S1_T0.1_Green_armband": {
+    "name": "Checkpoint A. General"
+  },
+  "unid_S1_T0.1_Green_belt": {
+    "name": "Check belt. General."
+  },
+  "unid_S1_T0.1_Green_cloth": {
+    "name": "Patrol watch on A. Conventional"
+  },
+  "unid_S1_T0.1_Green_glove": {
+    "name": "Watchman. General."
+  },
+  "unid_S1_T0.1_Green_helmet": {
+    "name": "Watch helmets. Conventional."
+  },
+  "unid_S1_T0.1_Green_pants": {
+    "name": "Watching the leg. General."
+  },
+  "unid_S1_T0.1_Green_shawl": {
+    "name": "Watchers. General."
+  },
+  "unid_S1_T0.1_Green_shoes": {
+    "name": "Checkers. General."
+  },
+  "unid_S1_T0.1_Orange_armband": {
+    "name": "Cartman A. Handmade"
+  },
+  "unid_S1_T0.1_Orange_belt": {
+    "name": "Check belt. Handmade."
+  },
+  "unid_S1_T0.1_Orange_cloth": {
+    "name": "Watchman A. Handmade"
+  },
+  "unid_S1_T0.1_Orange_glove": {
+    "name": "Watchman. Handcraft."
+  },
+  "unid_S1_T0.1_Orange_helmet": {
+    "name": "Watch helmets. Handmade."
+  },
+  "unid_S1_T0.1_Orange_pants": {
+    "name": "Watching the leg. Handmade."
+  },
+  "unid_S1_T0.1_Orange_shawl": {
+    "name": "Watchers. Hand-hands."
+  },
+  "unid_S1_T0.1_Orange_shoes": {
+    "name": "Checkers' shoes. Handmade."
+  },
+  "unid_S1_T0.1_Purple_armband": {
+    "name": "Checkpoint armor alloy."
+  },
+  "unid_S1_T0.1_Purple_belt": {
+    "name": "Checkpoint belt alloy."
+  },
+  "unid_S1_T0.1_Purple_cloth": {
+    "name": "Checkpoint A. Alloy."
+  },
+  "unid_S1_T0.1_Purple_glove": {
+    "name": "Watchman. Alloy."
+  },
+  "unid_S1_T0.1_Purple_helmet": {
+    "name": "Checket helmet alloy"
+  },
+  "unid_S1_T0.1_Purple_pants": {
+    "name": "The guard's leg guard. The alloy."
+  },
+  "unid_S1_T0.1_Purple_shawl": {
+    "name": "Watchman shoulder guard alloy."
+  },
+  "unid_S1_T0.1_Purple_shoes": {
+    "name": "Checkpost Shoes Alloy"
+  },
+  "unid_S1_T0.2_Blue_armband": {
+    "name": "A.P.P."
+  },
+  "unid_S1_T0.2_Blue_belt": {
+    "name": "Blast belt."
+  },
+  "unid_S1_T0.2_Blue_cloth": {
+    "name": "A. Force reinforcements."
+  },
+  "unid_S1_T0.2_Blue_core": {
+    "name": "Assault engine."
+  },
+  "unid_S1_T0.2_Blue_exoskeleton": {
+    "name": "- Skeeter. - Skeeter."
+  },
+  "unid_S1_T0.2_Blue_glove": {
+    "name": "- A surprise guard. - A strong one."
+  },
+  "unid_S1_T0.2_Blue_helmet": {
+    "name": "- Aerobic helmet. - Aerobic."
+  },
+  "unid_S1_T0.2_Blue_pants": {
+    "name": "- Accompaniment."
+  },
+  "unid_S1_T0.2_Blue_reactor": {
+    "name": "Assault reactor."
+  },
+  "unid_S1_T0.2_Blue_shawl": {
+    "name": "- Accompaniment."
+  },
+  "unid_S1_T0.2_Blue_shoes": {
+    "name": "Sniper shoes."
+  },
+  "unid_S1_T0.2_Blue_visor": {
+    "name": "- A surprise goggle. - A reinforced goggle."
+  },
+  "unid_S1_T0.2_Orange_armband": {
+    "name": "A. A.A."
+  },
+  "unid_S1_T0.2_Orange_belt": {
+    "name": "A strap. A handyman."
+  },
+  "unid_S1_T0.2_Orange_cloth": {
+    "name": "A.A. Manual."
+  },
+  "unid_S1_T0.2_Orange_core": {
+    "name": "A commando engine. Artisanal."
+  },
+  "unid_S1_T0.2_Orange_exoskeleton": {
+    "name": "Skeletal assault. Artisanal assault."
+  },
+  "unid_S1_T0.2_Orange_glove": {
+    "name": "A surprise hand. A hand job."
+  },
+  "unid_S1_T0.2_Orange_helmet": {
+    "name": "- A headset."
+  },
+  "unid_S1_T0.2_Orange_pants": {
+    "name": "Accompaniment of legs."
+  },
+  "unid_S1_T0.2_Orange_reactor": {
+    "name": "Aerobics."
+  },
+  "unid_S1_T0.2_Orange_shawl": {
+    "name": "A manioc-handle."
+  },
+  "unid_S1_T0.2_Orange_shoes": {
+    "name": "A sneaker."
+  },
+  "unid_S1_T0.2_Orange_visor": {
+    "name": "- A goggle."
+  },
+  "unid_S1_T0.2_Purple_armband": {
+    "name": "A. A. Alloy."
+  },
+  "unid_S1_T0.2_Purple_belt": {
+    "name": "A belt of assault alloy."
+  },
+  "unid_S1_T0.2_Purple_cloth": {
+    "name": "A. Alloy."
+  },
+  "unid_S1_T0.2_Purple_core": {
+    "name": "The assault engine, the alloy."
+  },
+  "unid_S1_T0.2_Purple_exoskeleton": {
+    "name": "Skeletal assault alloy."
+  },
+  "unid_S1_T0.2_Purple_glove": {
+    "name": "A raider's alloy."
+  },
+  "unid_S1_T0.2_Purple_helmet": {
+    "name": "The assault helmet, alloy."
+  },
+  "unid_S1_T0.2_Purple_pants": {
+    "name": "A raid on leg protection alloy."
+  },
+  "unid_S1_T0.2_Purple_reactor": {
+    "name": "A surprise reactor, alloy."
+  },
+  "unid_S1_T0.2_Purple_shawl": {
+    "name": "A swipe-and-scarve alloy."
+  },
+  "unid_S1_T0.2_Purple_shoes": {
+    "name": "The assault shoe. The alloy."
+  },
+  "unid_S1_T0.2_Purple_visor": {
+    "name": "- A goggler. - Alloy."
+  },
+  "unid_S1_T0.3_Blue_armband": {
+    "name": "Extinct armpit."
+  },
+  "unid_S1_T0.3_Blue_belt": {
+    "name": "Exterminate belt."
+  },
+  "unid_S1_T0.3_Blue_cloth": {
+    "name": "Extermination A. Fortification"
+  },
+  "unid_S1_T0.3_Blue_core": {
+    "name": "Exterminate engine."
+  },
+  "unid_S1_T0.3_Blue_exoskeleton": {
+    "name": "Extermination of the bone."
+  },
+  "unid_S1_T0.3_Blue_glove": {
+    "name": "Exterminate hand."
+  },
+  "unid_S1_T0.3_Blue_helmet": {
+    "name": "Exterminate helmets."
+  },
+  "unid_S1_T0.3_Blue_pants": {
+    "name": "Extinct leg."
+  },
+  "unid_S1_T0.3_Blue_reactor": {
+    "name": "Extinction reactor."
+  },
+  "unid_S1_T0.3_Blue_shawl": {
+    "name": "Extinct shoulder."
+  },
+  "unid_S1_T0.3_Blue_shoes": {
+    "name": "Extinct Shoes."
+  },
+  "unid_S1_T0.3_Blue_visor": {
+    "name": "The Goggles."
+  },
+  "unid_S1_T0.3_Orange_armband": {
+    "name": "Extinct armpit. Handicraft."
+  },
+  "unid_S1_T0.3_Orange_belt": {
+    "name": "Exterminate belt. Handmade."
+  },
+  "unid_S1_T0.3_Orange_cloth": {
+    "name": "Extermination of A. Handicraft"
+  },
+  "unid_S1_T0.3_Orange_core": {
+    "name": "Exterminate engine. Handicraft."
+  },
+  "unid_S1_T0.3_Orange_exoskeleton": {
+    "name": "Extermination of bones. Artisanal."
+  },
+  "unid_S1_T0.3_Orange_glove": {
+    "name": "The hand-crushing guard."
+  },
+  "unid_S1_T0.3_Orange_helmet": {
+    "name": "The Erosion of the Helmet."
+  },
+  "unid_S1_T0.3_Orange_pants": {
+    "name": "Exterminate leg protection. Handmade."
+  },
+  "unid_S1_T0.3_Orange_reactor": {
+    "name": "Extinction reactor. Handicraft."
+  },
+  "unid_S1_T0.3_Orange_shawl": {
+    "name": "Extinct shoulder. Handmade."
+  },
+  "unid_S1_T0.3_Orange_shoes": {
+    "name": "The scavenging shoe."
+  },
+  "unid_S1_T0.3_Orange_visor": {
+    "name": "The Killer's Eyeglass."
+  },
+  "unid_S1_T0.3_Purple_armband": {
+    "name": "Extinct armpit. Alloy."
+  },
+  "unid_S1_T0.3_Purple_belt": {
+    "name": "Exterminate belt alloy."
+  },
+  "unid_S1_T0.3_Purple_cloth": {
+    "name": "Extermination of A. Alloys"
+  },
+  "unid_S1_T0.3_Purple_core": {
+    "name": "Exterminate engine alloy."
+  },
+  "unid_S1_T0.3_Purple_exoskeleton": {
+    "name": "Extermination of bones. Alloy."
+  },
+  "unid_S1_T0.3_Purple_glove": {
+    "name": "Exterminator. Alloy."
+  },
+  "unid_S1_T0.3_Purple_helmet": {
+    "name": "Extermination of helmet alloys"
+  },
+  "unid_S1_T0.3_Purple_pants": {
+    "name": "Exterminate leg alloy."
+  },
+  "unid_S1_T0.3_Purple_reactor": {
+    "name": "Extinction reactor alloy."
+  },
+  "unid_S1_T0.3_Purple_shawl": {
+    "name": "Extinct shoulder. Alloy."
+  },
+  "unid_S1_T0.3_Purple_shoes": {
+    "name": "The Extinct Shoes Alloy."
+  },
+  "unid_S1_T0.3_Purple_visor": {
+    "name": "The Goggles. The Alloys."
+  },
+  "unid_S1_T1_Glisten_armband_atk": {
+    "name": "Titanic Armor."
+  },
+  "unid_S1_T1_Glisten_armband_common": {
+    "name": "Titanic Armor. Balance."
+  },
+  "unid_S1_T1_Glisten_armband_def": {
+    "name": "Titanic Armor."
+  },
+  "unid_S1_T1_Glisten_armband_heal": {
+    "name": "Titanic Armor A. Eun-gi."
+  },
+  "unid_S1_T1_Glisten_belt_atk": {
+    "name": "Titan belt. Attack."
+  },
+  "unid_S1_T1_Glisten_belt_common": {
+    "name": "Titan belt. Balance."
+  },
+  "unid_S1_T1_Glisten_belt_def": {
+    "name": "Titan belt."
+  },
+  "unid_S1_T1_Glisten_belt_heal": {
+    "name": "Titan belt, Eun-gi."
+  },
+  "unid_S1_T1_Glisten_cloth_atk": {
+    "name": "Titanic A. Attack."
+  },
+  "unid_S1_T1_Glisten_cloth_common": {
+    "name": "Titanic A Balance"
+  },
+  "unid_S1_T1_Glisten_cloth_def": {
+    "name": "Titanic A. Kenji."
+  },
+  "unid_S1_T1_Glisten_cloth_heal": {
+    "name": "Titanic A. Eun-gi."
+  },
+  "unid_S1_T1_Glisten_core_atk": {
+    "name": "Titan engine. Attack."
+  },
+  "unid_S1_T1_Glisten_core_common": {
+    "name": "Titan engine. Balance."
+  },
+  "unid_S1_T1_Glisten_core_def": {
+    "name": "Titan engine."
+  },
+  "unid_S1_T1_Glisten_core_heal": {
+    "name": "Titan engine Eun-gi."
+  },
+  "unid_S1_T1_Glisten_exoskeleton_atk": {
+    "name": "Titan's bones."
+  },
+  "unid_S1_T1_Glisten_exoskeleton_common": {
+    "name": "Titan's exterior bone. Balance."
+  },
+  "unid_S1_T1_Glisten_exoskeleton_def": {
+    "name": "Titan's bones."
+  },
+  "unid_S1_T1_Glisten_exoskeleton_heal": {
+    "name": "Titan's bones. Eun-gi."
+  },
+  "unid_S1_T1_Glisten_glove_atk": {
+    "name": "Titanian Protector."
+  },
+  "unid_S1_T1_Glisten_glove_common": {
+    "name": "Titan's guardian. Balance."
+  },
+  "unid_S1_T1_Glisten_glove_def": {
+    "name": "Titan's guardian."
+  },
+  "unid_S1_T1_Glisten_glove_heal": {
+    "name": "Titan's guardian, Eun-gi."
+  },
+  "unid_S1_T1_Glisten_helmet_atk": {
+    "name": "Titan helmet."
+  },
+  "unid_S1_T1_Glisten_helmet_common": {
+    "name": "Titan helmet. Balance."
+  },
+  "unid_S1_T1_Glisten_helmet_def": {
+    "name": "Titan helmet."
+  },
+  "unid_S1_T1_Glisten_helmet_heal": {
+    "name": "Titan helmet Eun-gi."
+  },
+  "unid_S1_T1_Glisten_pants_atk": {
+    "name": "Titan for leg."
+  },
+  "unid_S1_T1_Glisten_pants_common": {
+    "name": "Titan for leg. Balance."
+  },
+  "unid_S1_T1_Glisten_pants_def": {
+    "name": "Titan for the leg."
+  },
+  "unid_S1_T1_Glisten_pants_heal": {
+    "name": "Titan for the leg."
+  },
+  "unid_S1_T1_Glisten_reactor_atk": {
+    "name": "Titan reactor."
+  },
+  "unid_S1_T1_Glisten_reactor_common": {
+    "name": "Titan reactor. Balance."
+  },
+  "unid_S1_T1_Glisten_reactor_def": {
+    "name": "Titan reactor."
+  },
+  "unid_S1_T1_Glisten_reactor_heal": {
+    "name": "Titan reactor Eun-gi."
+  },
+  "unid_S1_T1_Glisten_shawl_atk": {
+    "name": "Titans with shoulder-arming."
+  },
+  "unid_S1_T1_Glisten_shawl_common": {
+    "name": "Titan's shoulder. Balance."
+  },
+  "unid_S1_T1_Glisten_shawl_def": {
+    "name": "Titans with shoulder guard."
+  },
+  "unid_S1_T1_Glisten_shawl_heal": {
+    "name": "Titans with shoulders and graces."
+  },
+  "unid_S1_T1_Glisten_shoes_atk": {
+    "name": "Titan Shoe Attack"
+  },
+  "unid_S1_T1_Glisten_shoes_common": {
+    "name": "Titan shoes. Balance."
+  },
+  "unid_S1_T1_Glisten_shoes_def": {
+    "name": "Titan Shoes."
+  },
+  "unid_S1_T1_Glisten_shoes_heal": {
+    "name": "Titan Shoes Eun-gi."
+  },
+  "unid_S1_T1_Glisten_visor_atk": {
+    "name": "Titan's goggles."
+  },
+  "unid_S1_T1_Glisten_visor_common": {
+    "name": "Titan's goggles. Balance."
+  },
+  "unid_S1_T1_Glisten_visor_def": {
+    "name": "Titan's goggles."
+  },
+  "unid_S1_T1_Glisten_visor_heal": {
+    "name": "Titan's goggles."
+  },
+  "unid_S1_T1_Orange_armband": {
+    "name": "Titanic Armor A. Handicraft"
+  },
+  "unid_S1_T1_Orange_belt": {
+    "name": "Titan belt. Handmade."
+  },
+  "unid_S1_T1_Orange_cloth": {
+    "name": "Titanic A. Handicraft"
+  },
+  "unid_S1_T1_Orange_core": {
+    "name": "Titan engine. Handicraft."
+  },
+  "unid_S1_T1_Orange_exoskeleton": {
+    "name": "Titan's bones. Handicraft."
+  },
+  "unid_S1_T1_Orange_glove": {
+    "name": "Titanian Handy Hand."
+  },
+  "unid_S1_T1_Orange_helmet": {
+    "name": "Titan helmet. Handmade."
+  },
+  "unid_S1_T1_Orange_pants": {
+    "name": "Titan for the leg. Handmade."
+  },
+  "unid_S1_T1_Orange_reactor": {
+    "name": "Titan reactor. Handicraft."
+  },
+  "unid_S1_T1_Orange_shawl": {
+    "name": "Titans with shoulder-guards. Hand-hands."
+  },
+  "unid_S1_T1_Orange_shoes": {
+    "name": "Titan Shoes. Handicraft."
+  },
+  "unid_S1_T1_Orange_visor": {
+    "name": "Titan's goggles. Handmade."
+  },
+  "unid_S1_T2_Glisten_armband_atk": {
+    "name": "Armageddon."
+  },
+  "unid_S1_T2_Glisten_armband_common": {
+    "name": "Apocalypse. Balance."
+  },
+  "unid_S1_T2_Glisten_armband_def": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_armband_heal": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_belt_atk": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_belt_common": {
+    "name": "Apocalypse belt. Balance."
+  },
+  "unid_S1_T2_Glisten_belt_def": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_belt_heal": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_cloth_atk": {
+    "name": "Armageddon."
+  },
+  "unid_S1_T2_Glisten_cloth_common": {
+    "name": "A. The A.B."
+  },
+  "unid_S1_T2_Glisten_cloth_def": {
+    "name": "A. Kenzi."
+  },
+  "unid_S1_T2_Glisten_cloth_heal": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_core_atk": {
+    "name": "Apocalypse engine."
+  },
+  "unid_S1_T2_Glisten_core_common": {
+    "name": "Apocalypse engine. Balance."
+  },
+  "unid_S1_T2_Glisten_core_def": {
+    "name": "Apocalypse engine."
+  },
+  "unid_S1_T2_Glisten_core_heal": {
+    "name": "Apocalypse engine."
+  },
+  "unid_S1_T2_Glisten_exoskeleton_atk": {
+    "name": "The end of the world."
+  },
+  "unid_S1_T2_Glisten_exoskeleton_common": {
+    "name": "The end of the world. Balance."
+  },
+  "unid_S1_T2_Glisten_exoskeleton_def": {
+    "name": "The bones of the end."
+  },
+  "unid_S1_T2_Glisten_exoskeleton_heal": {
+    "name": "The bones of the end."
+  },
+  "unid_S1_T2_Glisten_glove_atk": {
+    "name": "Armageddon."
+  },
+  "unid_S1_T2_Glisten_glove_common": {
+    "name": "Apocalypse. Balance."
+  },
+  "unid_S1_T2_Glisten_glove_def": {
+    "name": "The Armageddon."
+  },
+  "unid_S1_T2_Glisten_glove_heal": {
+    "name": "The Armageddon."
+  },
+  "unid_S1_T2_Glisten_helmet_atk": {
+    "name": "Armageddon helmet."
+  },
+  "unid_S1_T2_Glisten_helmet_common": {
+    "name": "Apocalypse helmets"
+  },
+  "unid_S1_T2_Glisten_helmet_def": {
+    "name": "The Armageddon helmet."
+  },
+  "unid_S1_T2_Glisten_helmet_heal": {
+    "name": "The Armageddon helmet."
+  },
+  "unid_S1_T2_Glisten_pants_atk": {
+    "name": "Armageddon leg protection."
+  },
+  "unid_S1_T2_Glisten_pants_common": {
+    "name": "Apocalypse leg protection. Balance."
+  },
+  "unid_S1_T2_Glisten_pants_def": {
+    "name": "The end of the leg."
+  },
+  "unid_S1_T2_Glisten_pants_heal": {
+    "name": "The end of the day, Eun-gi."
+  },
+  "unid_S1_T2_Glisten_reactor_atk": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_reactor_common": {
+    "name": "Apocalypse reactor. Balance."
+  },
+  "unid_S1_T2_Glisten_reactor_def": {
+    "name": "Apocalypse reactor."
+  },
+  "unid_S1_T2_Glisten_reactor_heal": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_shawl_atk": {
+    "name": "Armageddon."
+  },
+  "unid_S1_T2_Glisten_shawl_common": {
+    "name": "The end shoulder. Balance."
+  },
+  "unid_S1_T2_Glisten_shawl_def": {
+    "name": "♪ The end of the day ♪"
+  },
+  "unid_S1_T2_Glisten_shawl_heal": {
+    "name": "The Armageddon."
+  },
+  "unid_S1_T2_Glisten_shoes_atk": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_shoes_common": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_shoes_def": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_shoes_heal": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_visor_atk": {
+    "name": "The Last-Day Eyes."
+  },
+  "unid_S1_T2_Glisten_visor_common": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Glisten_visor_def": {
+    "name": "The Last-Day Eyes."
+  },
+  "unid_S1_T2_Glisten_visor_heal": {
+    "name": "The Last-Day Eyeglass."
+  },
+  "unid_S1_T2_Orange_armband": {
+    "name": "Apocalypse. Handmade."
+  },
+  "unid_S1_T2_Orange_belt": {
+    "name": "Apocalypse. Handmade."
+  },
+  "unid_S1_T2_Orange_cloth": {
+    "name": "A. Armageddon."
+  },
+  "unid_S1_T2_Orange_core": {
+    "name": "Apocalypse engine. Handmade."
+  },
+  "unid_S1_T2_Orange_exoskeleton": {
+    "name": "The end of the world. The man."
+  },
+  "unid_S1_T2_Orange_glove": {
+    "name": "Apocalypse."
+  },
+  "unid_S1_T2_Orange_helmet": {
+    "name": "Armageddon helmet. Handmade."
+  },
+  "unid_S1_T2_Orange_pants": {
+    "name": "Apocalypse. Handcraft."
+  },
+  "unid_S1_T2_Orange_reactor": {
+    "name": "Apocalypse. Handmade."
+  },
+  "unid_S1_T2_Orange_shawl": {
+    "name": "The end-of-life shoulder guard."
+  },
+  "unid_S1_T2_Orange_shoes": {
+    "name": "Apocalypse. Handicraft."
+  },
+  "unid_S1_T2_Orange_visor": {
+    "name": "Apocalypse. Handmade."
+  },
+  "unid_S2_T0.1_Blue_armband": {
+    "name": "- Glossy armcarte. - Dierdé."
+  },
+  "unid_S2_T0.1_Blue_belt": {
+    "name": "- Slight belt. - Dierd."
+  },
+  "unid_S2_T0.1_Blue_cloth": {
+    "name": "- Lightly protected. - Dierd."
+  },
+  "unid_S2_T0.1_Blue_glove": {
+    "name": "- The light guard. - The light guard."
+  },
+  "unid_S2_T0.1_Blue_helmet": {
+    "name": "- The light helmet. - The name's Dierdé."
+  },
+  "unid_S2_T0.1_Blue_pants": {
+    "name": "- The light-stained leg-guard. - The name's Deed."
+  },
+  "unid_S2_T0.1_Blue_shawl": {
+    "name": "- The light shoulder. - The light shoulder."
+  },
+  "unid_S2_T0.1_Blue_shoes": {
+    "name": "- Specs. - Dierd."
+  },
+  "unid_S2_T0.1_Green_armband": {
+    "name": "The light-banded parachute."
+  },
+  "unid_S2_T0.1_Green_belt": {
+    "name": "The light belt. The prototype."
+  },
+  "unid_S2_T0.1_Green_cloth": {
+    "name": "The photo-scopic parachute prototype."
+  },
+  "unid_S2_T0.1_Green_glove": {
+    "name": "The light-scanner. The prototype."
+  },
+  "unid_S2_T0.1_Green_helmet": {
+    "name": "Phototox helmet prototype"
+  },
+  "unid_S2_T0.1_Green_pants": {
+    "name": "The photo-cam-protector prototype."
+  },
+  "unid_S2_T0.1_Green_shawl": {
+    "name": "The light shoulder prototype."
+  },
+  "unid_S2_T0.1_Green_shoes": {
+    "name": "The photo-shoe prototype."
+  },
+  "unid_S2_T0.1_Orange_armband": {
+    "name": "A light armpit."
+  },
+  "unid_S2_T0.1_Orange_belt": {
+    "name": "- Slight belt. - Exact."
+  },
+  "unid_S2_T0.1_Orange_cloth": {
+    "name": "The light armor. The precision."
+  },
+  "unid_S2_T0.1_Orange_glove": {
+    "name": "The light guard. The sharp one."
+  },
+  "unid_S2_T0.1_Orange_helmet": {
+    "name": "- A light helmet. - A sharp one."
+  },
+  "unid_S2_T0.1_Orange_pants": {
+    "name": "The light-stained leg-cracking."
+  },
+  "unid_S2_T0.1_Orange_shawl": {
+    "name": "The light shoulder."
+  },
+  "unid_S2_T0.1_Orange_shoes": {
+    "name": "- Sprinkles. - Plumsy shoes."
+  },
+  "unid_S2_T0.1_Purple_armband": {
+    "name": "Light arms, a custom."
+  },
+  "unid_S2_T0.1_Purple_belt": {
+    "name": "Slight belt. Custom."
+  },
+  "unid_S2_T0.1_Purple_cloth": {
+    "name": "Slight armor custom."
+  },
+  "unid_S2_T0.1_Purple_glove": {
+    "name": "Slight hand. Custom."
+  },
+  "unid_S2_T0.1_Purple_helmet": {
+    "name": "Phototox helmet custom"
+  },
+  "unid_S2_T0.1_Purple_pants": {
+    "name": "Slight leg protection. Custom."
+  },
+  "unid_S2_T0.1_Purple_shawl": {
+    "name": "Slight shoulder. Custom."
+  },
+  "unid_S2_T0.1_Purple_shoes": {
+    "name": "Specs. Custom."
+  },
+  "unid_S2_T0.2_Blue_armband": {
+    "name": "Sun Wind Armor A. Diendei."
+  },
+  "unid_S2_T0.2_Blue_belt": {
+    "name": "Sun Wind belt, Diede."
+  },
+  "unid_S2_T0.2_Blue_cloth": {
+    "name": "Sun Winds Watcher A. Diende"
+  },
+  "unid_S2_T0.2_Blue_core": {
+    "name": "Sunwind Engine, Diedy."
+  },
+  "unid_S2_T0.2_Blue_exoskeleton": {
+    "name": "The bones of the sun, the bones of the wind, the bones of the sun."
+  },
+  "unid_S2_T0.2_Blue_glove": {
+    "name": "Sunwind Watcher, Diedy."
+  },
+  "unid_S2_T0.2_Blue_helmet": {
+    "name": "Sun's Wind Helmets, Diede"
+  },
+  "unid_S2_T0.2_Blue_pants": {
+    "name": "Sunwind Legs-Asher-Edie."
+  },
+  "unid_S2_T0.2_Blue_reactor": {
+    "name": "Sun Winds reactor, Diede."
+  },
+  "unid_S2_T0.2_Blue_shawl": {
+    "name": "Sunwind Shoulder, Diede."
+  },
+  "unid_S2_T0.2_Blue_shoes": {
+    "name": "Sunshine Shoes, Diedy."
+  },
+  "unid_S2_T0.2_Blue_visor": {
+    "name": "Sunwind Eyeglass, Diedy."
+  },
+  "unid_S2_T0.2_Orange_armband": {
+    "name": "Sun wind-and-arm."
+  },
+  "unid_S2_T0.2_Orange_belt": {
+    "name": "Sunny belt."
+  },
+  "unid_S2_T0.2_Orange_cloth": {
+    "name": "Sun wind is a finer"
+  },
+  "unid_S2_T0.2_Orange_core": {
+    "name": "Sunwind engine."
+  },
+  "unid_S2_T0.2_Orange_exoskeleton": {
+    "name": "The sun's exterior bones."
+  },
+  "unid_S2_T0.2_Orange_glove": {
+    "name": "Sunwind Watcher."
+  },
+  "unid_S2_T0.2_Orange_helmet": {
+    "name": "Sun helmet. Expedition."
+  },
+  "unid_S2_T0.2_Orange_pants": {
+    "name": "Sunwind for legs."
+  },
+  "unid_S2_T0.2_Orange_reactor": {
+    "name": "Sun Winds."
+  },
+  "unid_S2_T0.2_Orange_shawl": {
+    "name": "Sunwind shoulder-guard."
+  },
+  "unid_S2_T0.2_Orange_shoes": {
+    "name": "Sunshine shoes."
+  },
+  "unid_S2_T0.2_Orange_visor": {
+    "name": "Sunwind goggles."
+  },
+  "unid_S2_T0.2_Purple_armband": {
+    "name": "Sun Wind Armor A. Custom"
+  },
+  "unid_S2_T0.2_Purple_belt": {
+    "name": "Sun wind belt. Custom."
+  },
+  "unid_S2_T0.2_Purple_cloth": {
+    "name": "Sun Wind A. Custom"
+  },
+  "unid_S2_T0.2_Purple_core": {
+    "name": "Solar wind engine custom"
+  },
+  "unid_S2_T0.2_Purple_exoskeleton": {
+    "name": "The solar wind."
+  },
+  "unid_S2_T0.2_Purple_glove": {
+    "name": "Sunwind Hand: Customized"
+  },
+  "unid_S2_T0.2_Purple_helmet": {
+    "name": "Suncap helmet custom"
+  },
+  "unid_S2_T0.2_Purple_pants": {
+    "name": "Sunwind leg protection. Custom."
+  },
+  "unid_S2_T0.2_Purple_reactor": {
+    "name": "Solar wind reactor custom"
+  },
+  "unid_S2_T0.2_Purple_shawl": {
+    "name": "Sunwind Shoulder. Custom."
+  },
+  "unid_S2_T0.2_Purple_shoes": {
+    "name": "Sunshine Shoes. Customized."
+  },
+  "unid_S2_T0.2_Purple_visor": {
+    "name": "Sunwind goggles. Custom."
+  },
+  "unid_S2_T0.3_Blue_armband": {
+    "name": "A pyro-pun-a-dee."
+  },
+  "unid_S2_T0.3_Blue_belt": {
+    "name": "Pyro-- Pyro-- Python--"
+  },
+  "unid_S2_T0.3_Blue_cloth": {
+    "name": "Ace of Fire Tavern."
+  },
+  "unid_S2_T0.3_Blue_core": {
+    "name": "A fire-telephone engine, Diedy."
+  },
+  "unid_S2_T0.3_Blue_exoskeleton": {
+    "name": "The bone of the pyrogue, the Edie."
+  },
+  "unid_S2_T0.3_Blue_glove": {
+    "name": "- A firepisturist, Dierdé."
+  },
+  "unid_S2_T0.3_Blue_helmet": {
+    "name": "- A pyrogue helmet. - Ace."
+  },
+  "unid_S2_T0.3_Blue_pants": {
+    "name": "- Hot tongue-- leg-guard, Dierder."
+  },
+  "unid_S2_T0.3_Blue_reactor": {
+    "name": "Fire-teleton reactor, Diedy."
+  },
+  "unid_S2_T0.3_Blue_shawl": {
+    "name": "Firepuncher shoulder guard, Dierde."
+  },
+  "unid_S2_T0.3_Blue_shoes": {
+    "name": "Python shoes, Dierdé."
+  },
+  "unid_S2_T0.3_Blue_visor": {
+    "name": "- The Flaming Tavern Eyeglass."
+  },
+  "unid_S2_T0.3_Orange_armband": {
+    "name": "A pyrophone armor."
+  },
+  "unid_S2_T0.3_Orange_belt": {
+    "name": "Pyrotonite belt. Exact."
+  },
+  "unid_S2_T0.3_Orange_cloth": {
+    "name": "Ace of Fire Tavern."
+  },
+  "unid_S2_T0.3_Orange_core": {
+    "name": "A fire-teleton engine."
+  },
+  "unid_S2_T0.3_Orange_exoskeleton": {
+    "name": "The bone of the pyrogue."
+  },
+  "unid_S2_T0.3_Orange_glove": {
+    "name": "A firepuncher hand."
+  },
+  "unid_S2_T0.3_Orange_helmet": {
+    "name": "A pyrophone helmet."
+  },
+  "unid_S2_T0.3_Orange_pants": {
+    "name": "Pyroconus."
+  },
+  "unid_S2_T0.3_Orange_reactor": {
+    "name": "Fire-teleton reactor. Exact."
+  },
+  "unid_S2_T0.3_Orange_shawl": {
+    "name": "Firepuncher shoulder guard."
+  },
+  "unid_S2_T0.3_Orange_shoes": {
+    "name": "Hot tongue shoes."
+  },
+  "unid_S2_T0.3_Orange_visor": {
+    "name": "A fire-telephone eyeglass."
+  },
+  "unid_S2_T0.3_Purple_armband": {
+    "name": "Pyro-ar-ar-ar-ar-ar-ar-ar."
+  },
+  "unid_S2_T0.3_Purple_belt": {
+    "name": "Pyrotonite belt. Custom."
+  },
+  "unid_S2_T0.3_Purple_cloth": {
+    "name": "Ace of Fire Tavern. Custom."
+  },
+  "unid_S2_T0.3_Purple_core": {
+    "name": "Pyro-Engine. Custom."
+  },
+  "unid_S2_T0.3_Purple_exoskeleton": {
+    "name": "Exterior bone from the pyrotonite. Customized."
+  },
+  "unid_S2_T0.3_Purple_glove": {
+    "name": "Pyrophone hand. Custom."
+  },
+  "unid_S2_T0.3_Purple_helmet": {
+    "name": "Pyro-Tear helmet. Custom."
+  },
+  "unid_S2_T0.3_Purple_pants": {
+    "name": "Pyroconus leg protection. Custom."
+  },
+  "unid_S2_T0.3_Purple_reactor": {
+    "name": "Fire-teleton reactor. Custom."
+  },
+  "unid_S2_T0.3_Purple_shawl": {
+    "name": "Firepuncher shoulder protection. Custom."
+  },
+  "unid_S2_T0.3_Purple_shoes": {
+    "name": "Pyro-seller shoes. Custom."
+  },
+  "unid_S2_T0.3_Purple_visor": {
+    "name": "Pyroscope. Custom."
+  },
+  "unid_S2_T1_Glisten_armband_atk": {
+    "name": "Red Day Tight Arm A. Attack."
+  },
+  "unid_S2_T1_Glisten_armband_common": {
+    "name": "Red Day nightmare. Balance."
+  },
+  "unid_S2_T1_Glisten_armband_def": {
+    "name": "Red Day Trailer A. Kenzi."
+  },
+  "unid_S2_T1_Glisten_armband_heal": {
+    "name": "Red Day Trailer A. Eunuch."
+  },
+  "unid_S2_T1_Glisten_belt_atk": {
+    "name": "Red-day bad belt."
+  },
+  "unid_S2_T1_Glisten_belt_common": {
+    "name": "Red Day bad belt. Balance."
+  },
+  "unid_S2_T1_Glisten_belt_def": {
+    "name": "Red Day bad belt."
+  },
+  "unid_S2_T1_Glisten_belt_heal": {
+    "name": "Red-day bad belt."
+  },
+  "unid_S2_T1_Glisten_cloth_atk": {
+    "name": "Red Day Mask A. Attack."
+  },
+  "unid_S2_T1_Glisten_cloth_common": {
+    "name": "Red Day nightmares. Balance."
+  },
+  "unid_S2_T1_Glisten_cloth_def": {
+    "name": "The Red Day Baden A. Kenji."
+  },
+  "unid_S2_T1_Glisten_cloth_heal": {
+    "name": "The Red Day Mask A. Eunuch."
+  },
+  "unid_S2_T1_Glisten_core_atk": {
+    "name": "Red-day nightmare engine."
+  },
+  "unid_S2_T1_Glisten_core_common": {
+    "name": "The Red Sun's Nightlight Engine. Balance."
+  },
+  "unid_S2_T1_Glisten_core_def": {
+    "name": "The Red Day Bad Engine."
+  },
+  "unid_S2_T1_Glisten_core_heal": {
+    "name": "The Red Sun's Nightlight Engine."
+  },
+  "unid_S2_T1_Glisten_exoskeleton_atk": {
+    "name": "Red Day nightmare. Bones."
+  },
+  "unid_S2_T1_Glisten_exoskeleton_common": {
+    "name": "Red Day nightmare. Balance."
+  },
+  "unid_S2_T1_Glisten_exoskeleton_def": {
+    "name": "Red Day nightmare."
+  },
+  "unid_S2_T1_Glisten_exoskeleton_heal": {
+    "name": "Red Day nightmare bone."
+  },
+  "unid_S2_T1_Glisten_glove_atk": {
+    "name": "Red Day Watchman."
+  },
+  "unid_S2_T1_Glisten_glove_common": {
+    "name": "Red Day Watchers. Balanced."
+  },
+  "unid_S2_T1_Glisten_glove_def": {
+    "name": "The Red Day Watcher."
+  },
+  "unid_S2_T1_Glisten_glove_heal": {
+    "name": "Red Day Watcher."
+  },
+  "unid_S2_T1_Glisten_helmet_atk": {
+    "name": "Red Day Bad Helmets."
+  },
+  "unid_S2_T1_Glisten_helmet_common": {
+    "name": "Red Day nightmare helmet. Balance."
+  },
+  "unid_S2_T1_Glisten_helmet_def": {
+    "name": "Red Day Bad Helmets."
+  },
+  "unid_S2_T1_Glisten_helmet_heal": {
+    "name": "Red Day Bad Helmets."
+  },
+  "unid_S2_T1_Glisten_pants_atk": {
+    "name": "Red Day Bad Legs."
+  },
+  "unid_S2_T1_Glisten_pants_common": {
+    "name": "The Red Day Bad Legs. Balanced."
+  },
+  "unid_S2_T1_Glisten_pants_def": {
+    "name": "The Red Day Bad Legs."
+  },
+  "unid_S2_T1_Glisten_pants_heal": {
+    "name": "The Red Day Bad Legs."
+  },
+  "unid_S2_T1_Glisten_reactor_atk": {
+    "name": "The Red Day Badger."
+  },
+  "unid_S2_T1_Glisten_reactor_common": {
+    "name": "The Red Day Badger. Balance."
+  },
+  "unid_S2_T1_Glisten_reactor_def": {
+    "name": "The Red Day Badger."
+  },
+  "unid_S2_T1_Glisten_reactor_heal": {
+    "name": "The Red Day Badger."
+  },
+  "unid_S2_T1_Glisten_shawl_atk": {
+    "name": "Red Day shoulder guard."
+  },
+  "unid_S2_T1_Glisten_shawl_common": {
+    "name": "The Red Day Nights' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days' Days Days' Days' Days Days' Days Days' Days Days' Days' Days' Days Days Days' Days's"
+  },
+  "unid_S2_T1_Glisten_shawl_def": {
+    "name": "The Red Day Nights Watcher."
+  },
+  "unid_S2_T1_Glisten_shawl_heal": {
+    "name": "\"The Red Day's Worms\""
+  },
+  "unid_S2_T1_Glisten_shoes_atk": {
+    "name": "Red-day shoes."
+  },
+  "unid_S2_T1_Glisten_shoes_common": {
+    "name": "Red day shoes. Balance."
+  },
+  "unid_S2_T1_Glisten_shoes_def": {
+    "name": "Red day shoes."
+  },
+  "unid_S2_T1_Glisten_shoes_heal": {
+    "name": "Red-day shoes."
+  },
+  "unid_S2_T1_Glisten_visor_atk": {
+    "name": "The Sun's Nightmare Mirror."
+  },
+  "unid_S2_T1_Glisten_visor_common": {
+    "name": "The sun's nightmare glasses. Balance."
+  },
+  "unid_S2_T1_Glisten_visor_def": {
+    "name": "The sun's nightmare glasses."
+  },
+  "unid_S2_T1_Glisten_visor_heal": {
+    "name": "The Sun's Nightmare's Eyeglass."
+  },
+  "unid_S2_T1_Orange_armband": {
+    "name": "Red Day Tight Arm A."
+  },
+  "unid_S2_T1_Orange_belt": {
+    "name": "Red-day bad belt."
+  },
+  "unid_S2_T1_Orange_cloth": {
+    "name": "Red Day nightmares."
+  },
+  "unid_S2_T1_Orange_core": {
+    "name": "The Red Sun's Nightlight Engine."
+  },
+  "unid_S2_T1_Orange_exoskeleton": {
+    "name": "Red-day nightmare. Elevated."
+  },
+  "unid_S2_T1_Orange_glove": {
+    "name": "The Red Day Badguard."
+  },
+  "unid_S2_T1_Orange_helmet": {
+    "name": "Red Day Bad Helmets."
+  },
+  "unid_S2_T1_Orange_pants": {
+    "name": "The Red Day Badener."
+  },
+  "unid_S2_T1_Orange_reactor": {
+    "name": "The Red Day Badger."
+  },
+  "unid_S2_T1_Orange_shawl": {
+    "name": "The Red Day Night's Carpet."
+  },
+  "unid_S2_T1_Orange_shoes": {
+    "name": "Red day shoes."
+  },
+  "unid_S2_T1_Orange_visor": {
+    "name": "The Sun's Bad Eyeglass."
+  },
+  "unid_S2_T2_Glisten_armband_atk": {
+    "name": "The Zeus Coronal Arm."
+  },
+  "unid_S2_T2_Glisten_armband_common": {
+    "name": "The coronal arm of the Zeus."
+  },
+  "unid_S2_T2_Glisten_armband_def": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Glisten_armband_heal": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Glisten_belt_atk": {
+    "name": "The Zeus Coronal Belt."
+  },
+  "unid_S2_T2_Glisten_belt_common": {
+    "name": "The Zeus crowned belt. Balanced."
+  },
+  "unid_S2_T2_Glisten_belt_def": {
+    "name": "The Zeus crowned belt."
+  },
+  "unid_S2_T2_Glisten_belt_heal": {
+    "name": "The Zeus crowned belt."
+  },
+  "unid_S2_T2_Glisten_cloth_atk": {
+    "name": "The Zeus crowned A."
+  },
+  "unid_S2_T2_Glisten_cloth_common": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Glisten_cloth_def": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Glisten_cloth_heal": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Glisten_core_atk": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "unid_S2_T2_Glisten_core_common": {
+    "name": "The Zeus Coron engine. Balance."
+  },
+  "unid_S2_T2_Glisten_core_def": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "unid_S2_T2_Glisten_core_heal": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "unid_S2_T2_Glisten_exoskeleton_atk": {
+    "name": "The Zeus Coronal Bones."
+  },
+  "unid_S2_T2_Glisten_exoskeleton_common": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "unid_S2_T2_Glisten_exoskeleton_def": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "unid_S2_T2_Glisten_exoskeleton_heal": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "unid_S2_T2_Glisten_glove_atk": {
+    "name": "The Zeus Coronary Protector."
+  },
+  "unid_S2_T2_Glisten_glove_common": {
+    "name": "The crowned hand of the Zeus. Balance."
+  },
+  "unid_S2_T2_Glisten_glove_def": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Glisten_glove_heal": {
+    "name": "The King of Zeus, the Hand of the Guardians, the Grace."
+  },
+  "unid_S2_T2_Glisten_helmet_atk": {
+    "name": "The Zeus Coronal Helmets."
+  },
+  "unid_S2_T2_Glisten_helmet_common": {
+    "name": "The Zeus Coronal Helmet. Balance."
+  },
+  "unid_S2_T2_Glisten_helmet_def": {
+    "name": "The Zeus Coronal Helmets."
+  },
+  "unid_S2_T2_Glisten_helmet_heal": {
+    "name": "The crown helmet of the Zeus God."
+  },
+  "unid_S2_T2_Glisten_pants_atk": {
+    "name": "The Zeus crowned leg guard."
+  },
+  "unid_S2_T2_Glisten_pants_common": {
+    "name": "The Zeus coronation for leg balance."
+  },
+  "unid_S2_T2_Glisten_pants_def": {
+    "name": "The Zeus crowned leg guard."
+  },
+  "unid_S2_T2_Glisten_pants_heal": {
+    "name": "The Zeus crowned the leg guard."
+  },
+  "unid_S2_T2_Glisten_reactor_atk": {
+    "name": "The Zeus Coronal Resist."
+  },
+  "unid_S2_T2_Glisten_reactor_common": {
+    "name": "The coronal reactor. Balance."
+  },
+  "unid_S2_T2_Glisten_reactor_def": {
+    "name": "The coronal reactor."
+  },
+  "unid_S2_T2_Glisten_reactor_heal": {
+    "name": "The coronal reactor."
+  },
+  "unid_S2_T2_Glisten_shawl_atk": {
+    "name": "The Zeus Coron of the Wrestlings."
+  },
+  "unid_S2_T2_Glisten_shawl_common": {
+    "name": "The Zeus coronation of the shoulder balance."
+  },
+  "unid_S2_T2_Glisten_shawl_def": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Glisten_shawl_heal": {
+    "name": "The Order of the Zeus."
+  },
+  "unid_S2_T2_Glisten_shoes_atk": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "unid_S2_T2_Glisten_shoes_common": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "unid_S2_T2_Glisten_shoes_def": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "unid_S2_T2_Glisten_shoes_heal": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "unid_S2_T2_Glisten_visor_atk": {
+    "name": "The Zeus crowned glasses."
+  },
+  "unid_S2_T2_Glisten_visor_common": {
+    "name": "The Zeus coronary eyeglass."
+  },
+  "unid_S2_T2_Glisten_visor_def": {
+    "name": "The Zeus coronary eyeglasses."
+  },
+  "unid_S2_T2_Glisten_visor_heal": {
+    "name": "The Zeus crowned the glasses."
+  },
+  "unid_S2_T2_Orange_armband": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Orange_belt": {
+    "name": "The Zeus crowned belt."
+  },
+  "unid_S2_T2_Orange_cloth": {
+    "name": "The crown of the Zeus."
+  },
+  "unid_S2_T2_Orange_core": {
+    "name": "The Zeus Coronal Engine."
+  },
+  "unid_S2_T2_Orange_exoskeleton": {
+    "name": "The bones of the Zeus Coron."
+  },
+  "unid_S2_T2_Orange_glove": {
+    "name": "The crowned protector of the Zeus."
+  },
+  "unid_S2_T2_Orange_helmet": {
+    "name": "The crown helmet of the Zeus."
+  },
+  "unid_S2_T2_Orange_pants": {
+    "name": "The Zeus crowned leg-guarding."
+  },
+  "unid_S2_T2_Orange_reactor": {
+    "name": "The coronal reactor."
+  },
+  "unid_S2_T2_Orange_shawl": {
+    "name": "The crowned Armor of the Zeus."
+  },
+  "unid_S2_T2_Orange_shoes": {
+    "name": "The Zeus Coronary Shoes."
+  },
+  "unid_S2_T2_Orange_visor": {
+    "name": "The Zeus coronary eyeglasses."
+  }
+}

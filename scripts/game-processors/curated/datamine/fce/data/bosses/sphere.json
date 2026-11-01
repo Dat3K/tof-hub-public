@@ -1,0 +1,52 @@
+{
+  "slug": "sphere",
+  "order": 24,
+  "boss_id": "boss_hum_075",
+  "name_color": "#73d9ee",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.webp",
+  "art_object_position": "center center",
+  "source_psd": "sphere.psd",
+  "en": {
+    "name": "Sphere",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "All action speeds of the Sphere are increased."
+      },
+      {
+        "index": "2",
+        "html": "Sphere will release an electric current to the surrounding area every 5 seconds. The current will bounce back and forth between nearby targets to cause damage."
+      },
+      {
+        "index": "3",
+        "html": "The jump landing point and sliding area of the Sphere will leave an electric current area, causing lightning damage to the targets in the area every second."
+      },
+      {
+        "index": "4",
+        "html": "Sphere will add paralysis value to the target when it hits the target. When it is stacked to 20 layers, it will force paralysis for 5 seconds."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Сфера",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Скорость всех действий Сферы увеличена."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 5 секунд Сфера выпускает электрический ток по области вокруг. Разряд рикошетит между ближайшими целями и наносит урон."
+      },
+      {
+        "index": "3",
+        "html": "Точка приземления прыжка и зона скольжения Сферы оставляют электрическое поле, которое каждую секунду наносит молниеносный урон целям внутри."
+      },
+      {
+        "index": "4",
+        "html": "При попадании Сфера накапливает у цели значение paralysis. На 20 стаках принудительно накладывается паралич на 5 секунд."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_075.webp"
+}

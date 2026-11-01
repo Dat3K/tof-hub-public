@@ -1,0 +1,2 @@
+.effects {display:grid;gap:5px;margin-top:3px;font-size:12px;line-height:1.4;text-align:left}
+.effects>div>strong {font-size:10px;color:var(--color-text-secondary,#b3c0cd)}

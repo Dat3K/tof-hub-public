@@ -1,0 +1,52 @@
+{
+  "slug": "frost-bot",
+  "order": 9,
+  "boss_id": "boss_017",
+  "name_color": "#4b8fff",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+  "art_object_position": "center center",
+  "source_psd": "морозныйбот.psd",
+  "en": {
+    "name": "Frost Bot",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Frost Bot continuously generates positioning generators around it. Each generator provides damage reduction to Frost Bot and can be shattered through multiple attacks. <span class=\"fce-card__text-accent\"> Damage reduction 20% for each ball with 90% limit.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Frost Bot will repair itself, slowly recovering HP. <span class=\"fce-card__text-accent\">Recovers 0.5% of Max HP every 2 seconds.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Greatly increase the movement speed of Frost Bot."
+      },
+      {
+        "index": "4",
+        "html": "Frost Bot releases a powerful chill around itself every second, continuously Slowing nearby targets."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Фрост Бот",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Фрост Бот постоянно создает вокруг себя генераторы позиционирования. Каждый генератор дает Фрост Боту снижение урона и может быть разрушен несколькими атаками. <span class=\"fce-card__text-accent\"> Снижение урона 20% за каждый шар, максимум 90%.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Фрост Бот ремонтирует себя, медленно восстанавливая HP. <span class=\"fce-card__text-accent\"> Восстанавливает 0.5% Max HP каждые 2 секунды.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Скорость передвижения Фрост Бота значительно увеличена."
+      },
+      {
+        "index": "4",
+        "html": "Каждую секунду Фрост Бот выпускает вокруг себя мощный холод, постоянно замедляя ближайшие цели."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss008.webp"
+}

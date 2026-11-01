@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "sources": [{
+    "id": "documentation-fixture", "kind": "community",
+    "title": "Synthetic documentation fixture; no real game result",
+    "url": null, "author": null, "observedAt": "2026-01-01",
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }],
+  "seasons": [{
+    "id": "documentation-season", "label": "Documentation example",
+    "bossLabel": null, "raidId": null, "raidJoin": "unresolved"
+  }],
+  "boards": [{
+    "id": "documentation-board", "seasonId": "documentation-season", "sourceId": "documentation-fixture",
+    "scope": {"kind": "region", "region": "Example", "serverId": null, "serverName": null},
+    "coverage": "partial", "capturedAt": null,
+    "entries": [{
+      "id": "documentation-entry", "rank": 1,
+      "duration": {"raw": "unknown", "milliseconds": null}, "recordedAt": null,
+      "members": [{"nickname": "Demo Player", "resonance": null}]
+    }]
+  }]
+}

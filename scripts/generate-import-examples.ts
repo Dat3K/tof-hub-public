@@ -1,0 +1,15 @@
+import fs from 'node:fs';
+import {getAllServers,BuildCaptureSchema} from '@tof-hub/contracts';
+import {fullMmoCapture} from '../apps/web/src/features/build/mmo/__fixtures__/capture';
+const server=getAllServers().find(row=>row.kind==='warp');
+if(!server)throw new Error('The verified server registry has no MMO/Warp entry');
+const capture=structuredClone(fullMmoCapture);
+capture.schemaVersion=2;
+delete capture.capture.scan;
+capture.capture.exporterVersion='2.0.0';
+capture.capture.subject={uid:server.id+'1000001',roleId:((BigInt(server.id)<<32n)+1n).toString()};
+capture.profile={...capture.profile,name:'Demo MMO Wanderer',crew:null,signature:null};
+delete capture.pwg;delete capture.account;
+BuildCaptureSchema.parse(capture);
+fs.writeFileSync('examples/import/build-mmo.json',JSON.stringify(capture,null,2)+'\n');
+console.log('Wrote anonymized MMO import fixture using the existing contract fixture.');

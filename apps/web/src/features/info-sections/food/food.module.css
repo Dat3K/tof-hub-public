@@ -1,0 +1,1181 @@
+/* Food Catalog & Detail View Styles */
+
+.foodContainer {
+  width: 100%;
+  max-width: 1440px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .foodContainer {
+    padding: 1rem 0.75rem 2rem;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.foodPreviewButton {
+  padding: 0;
+  border: 0;
+  color: inherit;
+  cursor: zoom-in;
+}
+
+.foodPreviewButton:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.85);
+  outline-offset: 3px;
+}
+
+/* Category Tab Bar */
+.categoryBar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Effect Filter Strip */
+.effectStripWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  overflow-x: auto;
+  padding: 0.25rem 0;
+  scrollbar-width: thin;
+}
+
+.effectDivider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 0.25rem;
+  flex-shrink: 0;
+}
+
+.effectFilterBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  flex-shrink: 0;
+}
+
+.effectFilterBtn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-1px);
+}
+
+.effectFilterBtnActive {
+  background: rgba(43, 166, 223, 0.25);
+  border-color: #2ba6df;
+  box-shadow: 0 0 10px rgba(43, 166, 223, 0.35);
+}
+
+.effectFilterIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+}
+
+/* The list is one board, as the Tops tables (2026-10-09): a neutral panel, a column header, then rows divided by
+   hairlines that light up on hover. */
+.board {
+  margin-top: 1.25rem;
+  border: 1px solid var(--surface-border);
+  border-radius: 12px;
+  background: var(--tool-table-surface);
+  overflow: hidden;
+}
+
+/* 3-Column Table Header */
+.tableHeader {
+  display: flex;
+  align-items: center;
+  background: var(--tool-table-header);
+  border-bottom: 1px solid var(--surface-border);
+  padding: 8px 16px;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #93a1b6;
+}
+
+.colItem {
+  width: 260px;
+  flex-shrink: 0;
+}
+
+.colEffect {
+  flex: 1;
+  padding: 0 1rem;
+}
+
+.colRecipe {
+  width: 320px;
+  flex-shrink: 0;
+}
+
+/* Dishes and potions use the same compact centered rhythm as the ingredient
+   reference list. Keep the row readable without stretching the effect and
+   recipe columns to the outer edges of the card. */
+.foodContainer:not(.ingredientsView) .tableHeader,
+.foodContainer:not(.ingredientsView) .foodCard {
+  display: grid;
+  grid-template-columns: minmax(250px, 280px) minmax(360px, 500px) minmax(260px, 320px);
+  justify-content: center;
+  column-gap: 1.5rem;
+}
+
+.foodContainer:not(.ingredientsView) .tableHeader .colItem,
+.foodContainer:not(.ingredientsView) .tableHeader .colEffect,
+.foodContainer:not(.ingredientsView) .tableHeader .colRecipe,
+.foodContainer:not(.ingredientsView) .foodCard .colItem,
+.foodContainer:not(.ingredientsView) .foodCard .colEffect,
+.foodContainer:not(.ingredientsView) .foodCard .colRecipe {
+  width: auto;
+  min-width: 0;
+  padding-inline: 0;
+}
+
+@media (max-width: 900px) {
+  .tableHeader {
+    display: none;
+  }
+}
+
+/* Rows of the board */
+.cardsList {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: 0;
+}
+
+/* Food row: a board row; the rarity shows as a thin left edge on hover (the icon frame and badge carry it at rest). */
+.foodCard {
+  --row-rarity: rgba(255, 255, 255, 0.24);
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-width: 0;
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--surface-border);
+  border-radius: 0;
+  padding: 12px 16px;
+  transition: background-color 0.16s ease, box-shadow 0.16s ease;
+  box-sizing: border-box;
+}
+
+.foodCard:last-child {
+  border-bottom: 0;
+}
+
+.foodCard:hover {
+  background: var(--tool-table-hover);
+  box-shadow: inset 3px 0 0 var(--row-rarity);
+}
+
+.cardInteractive {
+  cursor: pointer;
+}
+
+.cardInteractive:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.85);
+  outline-offset: -2px;
+}
+
+/* Rarity Variations */
+.foodCardSSR {
+  --row-rarity: rgba(168, 85, 247, 0.7);
+}
+
+.foodCardSR {
+  --row-rarity: rgba(59, 130, 246, 0.7);
+}
+
+.foodCardR {
+  --row-rarity: rgba(16, 185, 129, 0.7);
+}
+
+.foodCardN {
+  --row-rarity: rgba(107, 114, 128, 0.7);
+}
+
+/* Ingredients are a compact reference list: keep the three useful columns
+   together in the visual center instead of stretching them to the row edges. */
+.ingredientsView .tableHeader,
+.ingredientsView .foodCard[data-ingredient-id] {
+  display: grid;
+  grid-template-columns: minmax(220px, 260px) minmax(260px, 380px) minmax(280px, 380px);
+  justify-content: center;
+  column-gap: 1.5rem;
+}
+
+.ingredientsView .foodCard[data-ingredient-id] {
+  padding-inline: 1.5rem;
+}
+
+.ingredientsView .tableHeader .colItem,
+.ingredientsView .tableHeader .colEffect,
+.ingredientsView .tableHeader .colRecipe,
+.ingredientsView .foodCard[data-ingredient-id] .colItem,
+.ingredientsView .foodCard[data-ingredient-id] .colEffect,
+.ingredientsView .foodCard[data-ingredient-id] .colRecipe {
+  width: auto;
+  min-width: 0;
+  padding-inline: 0;
+}
+
+/* Responsive Column Stacking */
+@media (max-width: 900px) {
+  .foodContainer {
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin-inline: 0;
+  }
+
+  .foodContainer :global(.sim-controls-bar),
+  .foodContainer .cardsList,
+  .foodContainer .foodCard {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
+
+  /* Filter groups may scroll their own chip row, but the controls shell must
+     never contribute that intrinsic row width to the food page viewport. */
+  .foodContainer :global(.sim-controls-bar) {
+    overflow-x: hidden;
+  }
+
+  .foodContainer :global(.sim-filter-groups),
+  .foodContainer :global(.sim-filter-groups__left),
+  .foodContainer :global(.sim-filter-group) {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .ingredientsView .tableHeader {
+    display: none;
+  }
+
+  .ingredientsView .foodCard[data-ingredient-id] {
+    display: flex;
+    padding-inline: 1rem;
+  }
+
+  .ingredientsView .foodCard[data-ingredient-id] .colItem,
+  .ingredientsView .foodCard[data-ingredient-id] .colEffect,
+  .ingredientsView .foodCard[data-ingredient-id] .colRecipe {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .foodContainer:not(.ingredientsView) .tableHeader {
+    display: none;
+  }
+
+  .foodContainer:not(.ingredientsView) .foodCard {
+    display: flex;
+  }
+
+  .foodContainer:not(.ingredientsView) .foodCard .colItem,
+  .foodContainer:not(.ingredientsView) .foodCard .colEffect,
+  .foodContainer:not(.ingredientsView) .foodCard .colRecipe {
+    width: 100%;
+    padding-inline: 0;
+  }
+
+  .foodCard {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .colItem,
+  .colEffect,
+  .colRecipe {
+    width: 100%;
+    padding: 0;
+  }
+}
+
+/* Item Column Details */
+.itemStageWrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.iconBox {
+  position: relative;
+  width: 64px;
+  height: 64px;
+  border-radius: 12px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.iconBoxSSR {
+  border-color: rgba(168, 85, 247, 0.5);
+  background: radial-gradient(circle at center, rgba(168, 85, 247, 0.15) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.iconBoxSR {
+  border-color: rgba(59, 130, 246, 0.5);
+  background: radial-gradient(circle at center, rgba(59, 130, 246, 0.15) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.iconBoxR {
+  border-color: rgba(16, 185, 129, 0.5);
+  background: radial-gradient(circle at center, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+.iconBoxN {
+  border-color: rgba(107, 114, 128, 0.5);
+  background: radial-gradient(circle at center, rgba(107, 114, 128, 0.12) 0%, rgba(0, 0, 0, 0.5) 100%);
+}
+
+/* Food rarity labels intentionally follow the legacy Food palette.
+   The shared Badge keeps the Simulacra palette, so this scope is local to Food. */
+:global(.info-ui) .foodRarityBadge.foodRarityBadge[data-variant='ssr'] {
+  background: rgba(168, 85, 247, 0.18);
+  color: #e9d5ff;
+  border-color: rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
+}
+
+:global(.info-ui) .foodRarityBadge.foodRarityBadge[data-variant='sr'] {
+  background: rgba(59, 130, 246, 0.18);
+  color: #bfdbfe;
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+}
+
+:global(.info-ui) .foodRarityBadge.foodRarityBadge[data-variant='r'] {
+  background: rgba(16, 185, 129, 0.18);
+  color: #a7f3d0;
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+}
+
+:global(.info-ui) .foodRarityBadge.foodRarityBadge[data-variant='n'] {
+  background: rgba(107, 114, 128, 0.18);
+  color: #d1d5db;
+  border-color: rgba(107, 114, 128, 0.5);
+  box-shadow: 0 0 8px rgba(107, 114, 128, 0.2);
+}
+
+/* Search accessory: rarity chips, then the Gacha / MMO switcher at the right edge. */
+.foodSearchAccessory {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .foodSearchAccessory {
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+  }
+}
+
+/* The rarity filter must use the same palette as the food cards and badges:
+   SSR purple, SR blue, R green, and N gray. */
+:global(.info-ui) .foodRarityFilter[data-val='SSR'][aria-pressed='false'] {
+  background: rgba(168, 85, 247, 0.06);
+  border-color: rgba(168, 85, 247, 0.25);
+  color: #d8b4fe;
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='SSR'][aria-pressed='false']:is(:hover, :focus-visible) {
+  background: rgba(168, 85, 247, 0.15);
+  border-color: rgba(168, 85, 247, 0.65);
+  color: #e9d5ff;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.22);
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='SSR'][aria-pressed='true'] {
+  background: rgba(168, 85, 247, 0.22);
+  border-color: rgba(168, 85, 247, 0.75);
+  color: #e9d5ff;
+  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='SR'][aria-pressed='false'] {
+  background: rgba(59, 130, 246, 0.06);
+  border-color: rgba(59, 130, 246, 0.25);
+  color: #a5c7ff;
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='SR'][aria-pressed='false']:is(:hover, :focus-visible) {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: rgba(59, 130, 246, 0.65);
+  color: #bfdbfe;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.22);
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='SR'][aria-pressed='true'] {
+  background: rgba(59, 130, 246, 0.22);
+  border-color: rgba(59, 130, 246, 0.75);
+  color: #bfdbfe;
+  box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='R'][aria-pressed='false'] {
+  background: rgba(16, 185, 129, 0.06);
+  border-color: rgba(16, 185, 129, 0.25);
+  color: #86efc4;
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='R'][aria-pressed='false']:is(:hover, :focus-visible) {
+  background: rgba(16, 185, 129, 0.15);
+  border-color: rgba(16, 185, 129, 0.65);
+  color: #a7f3d0;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.22);
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='R'][aria-pressed='true'] {
+  background: rgba(16, 185, 129, 0.22);
+  border-color: rgba(16, 185, 129, 0.75);
+  color: #a7f3d0;
+  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='N'][aria-pressed='false'] {
+  background: rgba(107, 114, 128, 0.06);
+  border-color: rgba(107, 114, 128, 0.25);
+  color: #c4c9d1;
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='N'][aria-pressed='false']:is(:hover, :focus-visible) {
+  background: rgba(107, 114, 128, 0.15);
+  border-color: rgba(107, 114, 128, 0.65);
+  color: #d1d5db;
+  box-shadow: 0 0 10px rgba(107, 114, 128, 0.2);
+}
+
+:global(.info-ui) .foodRarityFilter[data-val='N'][aria-pressed='true'] {
+  background: rgba(107, 114, 128, 0.22);
+  border-color: rgba(107, 114, 128, 0.75);
+  color: #d1d5db;
+  box-shadow: 0 0 12px rgba(107, 114, 128, 0.3);
+}
+
+.dishIcon {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+}
+
+/* Corner Badges */
+.cornerBadgeTL,
+.cornerBadgeTR {
+  position: absolute;
+  top: 3px;
+  width: 18px;
+  height: 18px;
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(4px);
+}
+
+.cornerBadgeTL {
+  left: 3px;
+}
+
+.cornerBadgeTR {
+  right: 3px;
+}
+
+.cornerBadgeHeal {
+  background: rgba(16, 185, 129, 0.35);
+  border: 1px solid rgba(16, 185, 129, 0.6);
+}
+
+.cornerBadgeIcon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+.itemNameWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+
+.dishName {
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.dishSecName {
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dishStar {
+  color: #fbbf24;
+  font-size: 0.75rem;
+}
+
+/* MMO cooking level next to the rarity badge ("Ур. 18" in the game list). */
+.foodLevelBadge {
+  color: #cbd5e1;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* Effect Column Details */
+.effectText {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+.effectHighlight {
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* Recipe Column Ingredients */
+.ingredientsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.ingredientChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 0.2rem 0.5rem 0.2rem 0.25rem;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.ingredientChip:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(56, 189, 248, 0.4);
+}
+
+/* Recipe ingredients use their own rarity palette, matching the food cards. */
+.ingredientChip[data-rarity='ssr'] {
+  background: rgba(168, 85, 247, 0.08);
+  border-color: rgba(168, 85, 247, 0.35);
+}
+
+.ingredientChip[data-rarity='ssr']:hover {
+  background: rgba(168, 85, 247, 0.16);
+  border-color: rgba(168, 85, 247, 0.65);
+}
+
+.ingredientChip[data-rarity='sr'] {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.35);
+}
+
+.ingredientChip[data-rarity='sr']:hover {
+  background: rgba(59, 130, 246, 0.16);
+  border-color: rgba(59, 130, 246, 0.65);
+}
+
+.ingredientChip[data-rarity='r'] {
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.35);
+}
+
+.ingredientChip[data-rarity='r']:hover {
+  background: rgba(16, 185, 129, 0.16);
+  border-color: rgba(16, 185, 129, 0.65);
+}
+
+.ingredientChip[data-rarity='n'] {
+  background: rgba(107, 114, 128, 0.08);
+  border-color: rgba(107, 114, 128, 0.35);
+}
+
+.ingredientChip[data-rarity='n']:hover {
+  background: rgba(107, 114, 128, 0.16);
+  border-color: rgba(107, 114, 128, 0.65);
+}
+
+.ingredientIconStage {
+  position: relative;
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ingredientIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+}
+
+.ingredientCountBadge {
+  position: absolute;
+  bottom: -2px;
+  right: -2px;
+  background: #0f172a;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 4px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: #fff;
+  padding: 0 0.2rem;
+  line-height: 1;
+}
+
+.ingredientName {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+}
+
+/* Sources Badges */
+.sourcesBadges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.sourceBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  background: rgba(43, 166, 223, 0.1);
+  border: 1px solid rgba(43, 166, 223, 0.25);
+  border-radius: 6px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.75rem;
+  color: #38bdf8;
+}
+
+/* Used In Recipe Chips */
+.usedInList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.375rem;
+}
+
+.usedInChip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 0.2rem 0.45rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.usedInChip:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(245, 158, 11, 0.4);
+  color: #fbbf24;
+}
+
+.usedInIcon {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
+}
+
+/* Food detail modal follows the centered Info detail template used by Relics. */
+.foodDetailOverlay {
+  padding: 8px 16px;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(8px);
+  z-index: 700 !important;
+  top: 54px !important;
+  height: calc(100dvh - 54px) !important;
+  box-sizing: border-box;
+  overflow-y: auto;
+}
+
+.foodDetailModal {
+  position: relative;
+  width: 100%;
+  max-width: 680px;
+  max-height: calc(100dvh - 70px);
+  margin: auto;
+  min-width: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+  color: #dbe4f0;
+  background: rgba(18, 22, 34, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(43, 166, 223, 0.12);
+}
+
+.foodModalHeader {
+  position: relative;
+  display: block;
+  padding: 16px 22px 8px;
+  background: transparent;
+  border: 0;
+}
+
+.foodModalHeader > div {
+  width: 100%;
+}
+
+.foodModalHeader :global(button[aria-label='Close modal']) {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 10;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  color: #f4f0f6;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+}
+
+.foodModalHeader :global(button[aria-label='Close modal']:hover) {
+  color: #fff;
+  background: rgba(43, 166, 223, 0.25);
+  border-color: #2ba6df;
+}
+
+.foodModalHeaderInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  gap: 4px;
+  text-align: center;
+}
+
+.foodModalHeaderInner > * {
+  max-width: 100%;
+  min-width: 0;
+}
+
+.foodModalArtStage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 142px;
+  margin: 0 auto;
+}
+
+.foodHeroStage {
+  position: relative;
+  width: 116px;
+  height: 116px;
+  padding: 0;
+  border-radius: 14px;
+  cursor: zoom-in;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.foodHeroStage:hover {
+  transform: scale(1.04);
+}
+
+.foodHeroImage {
+  width: 96px;
+  height: 96px;
+  object-fit: contain;
+  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.65));
+}
+
+.foodModalTitleWrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  gap: 8px;
+  text-align: center;
+}
+
+.foodModalBadgesRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  max-width: 100%;
+}
+
+.foodTypeBadge,
+.foodCopyIdBadge {
+  display: inline-flex;
+  align-items: center;
+  min-height: 26px;
+  box-sizing: border-box;
+  padding: 0 7px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.foodTypeBadge {
+  color: #cbd5e1;
+  background: rgba(148, 163, 184, 0.16);
+}
+
+.foodStarsBadge {
+  color: #fbbf24;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+}
+
+.foodCopyIdBadge {
+  gap: 0.25rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 6px;
+  color: #94a3b8;
+  background: rgba(255, 255, 255, 0.04);
+  border-color: rgba(255, 255, 255, 0.1);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  max-width: min(100%, 26rem);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.foodCopyIdBadge:hover {
+  background: rgba(43, 166, 223, 0.15);
+  border-color: #2ba6df;
+  color: #ffffff;
+}
+
+.foodCopyIdCopied {
+  background: rgba(16, 185, 129, 0.2) !important;
+  border-color: #10b981 !important;
+  color: #34d399 !important;
+}
+
+.foodModalName {
+  margin: 0;
+  color: #fff;
+  font-size: 1.55rem;
+  font-weight: 800;
+  line-height: 1.25;
+  letter-spacing: -0.015em;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+
+.foodModalFlavor {
+  width: 100%;
+  max-width: 580px;
+  margin: 0;
+  color: #94a3b8;
+  font-size: 0.82rem;
+  font-style: italic;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.foodModalBody {
+  display: flex;
+  flex: none;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 22px 18px;
+  overflow: visible;
+}
+
+.foodModalSectionCard {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 13px 18px;
+  background: rgba(13, 17, 26, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+}
+
+.foodModalSectionHeader {
+  margin-bottom: 8px;
+}
+
+.foodModalSectionTitle {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  margin: 0;
+  padding: 3px 8px;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.14);
+  border: 1px solid rgba(168, 85, 247, 0.32);
+  border-radius: 4px;
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.foodModalSectionTitle span {
+  color: #2ba6df;
+}
+
+.foodModalSectionContent {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px 12px;
+  color: #cbd6e7;
+  background: rgba(13, 18, 30, 0.5);
+  border: 1px solid rgba(111, 137, 174, 0.18);
+  border-radius: 8px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.foodModalDescription {
+  color: #cbd6e7;
+  font-size: 0.83rem;
+  line-height: 1.55;
+}
+
+.foodModalIngredientsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.foodModalIngredientCard {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+  gap: 12px;
+  padding: 10px 12px;
+  background: rgba(13, 18, 30, 0.5);
+  border: 1px solid rgba(111, 137, 174, 0.18);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.foodModalIngredientCard:hover {
+  background: rgba(43, 166, 223, 0.08);
+  border-color: rgba(43, 166, 223, 0.35);
+}
+
+.foodModalIngredientCard[data-rarity='ssr'] {
+  background: rgba(168, 85, 247, 0.07);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.foodModalIngredientCard[data-rarity='sr'] {
+  background: rgba(59, 130, 246, 0.07);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+
+.foodModalIngredientCard[data-rarity='r'] {
+  background: rgba(16, 185, 129, 0.07);
+  border-color: rgba(16, 185, 129, 0.3);
+}
+
+.foodModalIngredientCard[data-rarity='n'] {
+  background: rgba(107, 114, 128, 0.07);
+  border-color: rgba(107, 114, 128, 0.3);
+}
+
+.foodModalIngredientText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.foodModalIngredientName {
+  overflow: hidden;
+  color: #e5e7eb;
+  font-size: 0.83rem;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 640px) {
+  .foodDetailOverlay {
+    align-items: flex-start !important;
+    padding: 8px;
+  }
+
+  .foodDetailModal {
+    width: calc(100vw - 16px);
+    max-width: calc(100vw - 16px);
+    max-height: calc(100dvh - 70px);
+  }
+
+  .foodModalHeader,
+  .foodModalBody {
+    padding-inline: 14px;
+  }
+
+  .foodModalArtStage {
+    height: 124px;
+  }
+
+  .foodHeroStage {
+    width: 104px;
+    height: 104px;
+  }
+
+  .foodHeroImage {
+    width: 86px;
+    height: 86px;
+  }
+
+  .foodModalIngredientsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .foodModalName {
+    font-size: clamp(1.15rem, 6vw, 1.55rem);
+  }
+
+  .foodModalFlavor,
+  .foodModalDescription {
+    overflow-wrap: anywhere;
+  }
+
+  .foodModalSectionCard {
+    padding: 12px;
+  }
+
+  .foodModalSectionContent {
+    padding: 9px 10px;
+  }
+
+  .foodModalIngredientCard {
+    width: 100%;
+    box-sizing: border-box;
+    gap: 10px;
+    padding: 9px 10px;
+  }
+
+  .foodModalIngredientName {
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .foodModalIngredientText {
+    min-width: 0;
+    overflow: hidden;
+  }
+}
+
+/* Potion Column */
+.potionMetaBox {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.potionDurationBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  padding: 0.15rem 0.45rem;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Hero icon of the detail dialog: centred in its rarity frame (the preview-button reset removes the border). */
+.foodHeroStage.foodPreviewButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-width: 1px;
+  border-style: solid;
+}
+
+/* Ingredient icon opens the full image (shared lightbox); keeps the rarity frame of .iconBox. */
+.iconBoxButton {
+  padding: 0;
+  color: inherit;
+  font: inherit;
+  cursor: zoom-in;
+  transition: transform 0.2s ease;
+}
+.iconBoxButton:hover {
+  transform: scale(1.04);
+}
+.iconBoxButton:focus-visible {
+  outline: 2px solid rgba(56, 189, 248, 0.85);
+  outline-offset: 3px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .iconBoxButton { transition: none; }
+}
+
+
+.foodCardGold { --row-rarity: rgba(245, 217, 122, .8); }
+.iconBoxGold { border-color: rgba(245, 217, 122, .6); background: rgba(245, 217, 122, .13); }

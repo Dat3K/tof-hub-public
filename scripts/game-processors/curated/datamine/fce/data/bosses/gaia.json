@@ -1,0 +1,52 @@
+{
+  "slug": "gaia",
+  "order": 6,
+  "boss_id": "boss_hum_042",
+  "name_color": "#dc6dd0",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+  "art_object_position": "center center",
+  "source_psd": "гейр.psd",
+  "en": {
+    "name": "Gaia",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Gaia inflicts Bonecrush on targets without Fortitude with each hit. At 20 stacks, the debuff triggers Cripple, massively reducing their damage dealt for 10 seconds."
+      },
+      {
+        "index": "2",
+        "html": "Every 15 seconds, Gaia randomly selects a target. After 5 seconds, the selected target inflicts wide-area lethal damage every second to all allies except themselves for 5 seconds."
+      },
+      {
+        "index": "3",
+        "html": "Targets hit by Gaia are slowed for 5 seconds, stacking up to 2 times."
+      },
+      {
+        "index": "4",
+        "html": "After Gaia&#x27;s shield is shattered, it deals wide-area damage every second for 10 seconds. Targets hit will be inflicted with 15% vulnerability for 10 seconds, stacking up to 3 times."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Гайя",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Гайя каждым попаданием накладывает Bonecrush на цели без Fortitude. На 20 стаках дебафф вызывает Cripple, резко снижая наносимый ими урон на 10 секунд."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 15 секунд Гайя случайно выбирает цель. Через 5 секунд выбранная цель начинает наносить всем союзникам, кроме себя, массовый смертельный урон каждую секунду в течение 5 секунд."
+      },
+      {
+        "index": "3",
+        "html": "Цели, пораженные Гайей, замедляются на 5 секунд, до 2 стаков."
+      },
+      {
+        "index": "4",
+        "html": "После разрушения щита Гайя наносит урон по области каждую секунду в течение 10 секунд. Пораженные цели получают 15% vulnerability на 10 секунд, до 3 стаков."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_02.webp"
+}

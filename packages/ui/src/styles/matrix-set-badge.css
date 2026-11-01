@@ -1,0 +1,12 @@
+.tof-matrix-set-badge {
+  font-size: .75rem;
+  font-weight: 700;
+  color: #c084fc;
+  background: rgba(168,85,247,.14);
+  border: 1px solid rgba(168,85,247,.32);
+  display: inline-block;
+  padding: 3px 9px;
+  border-radius: 6px;
+  letter-spacing: .03em;
+  text-transform: uppercase;
+}

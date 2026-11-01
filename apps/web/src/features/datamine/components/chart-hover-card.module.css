@@ -1,0 +1,92 @@
+/* Shared datamine chart hover card (Sequential, Bygone). */
+.card {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: min(270px, calc(100vw - 24px));
+  box-sizing: border-box;
+  pointer-events: none;
+  background: #17131c;
+  border: 1px solid rgba(245, 217, 122, 0.42);
+  color: var(--dm-text-strong);
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 500;
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.48);
+  white-space: normal;
+  z-index: 1200;
+  transform: translate(-50%, calc(-100% - 12px));
+  transition: opacity 0.1s ease;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  padding-bottom: 6px;
+  border-bottom: 1px solid var(--dm-border);
+  color: #f5d97a;
+  font-family: var(--font-sans, system-ui);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.enemy {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.portrait {
+  flex: 0 0 42px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--dm-border);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.05);
+  /* Same crop as the table avatars. */
+  object-fit: cover;
+}
+
+.body {
+  min-width: 0;
+}
+
+.name {
+  display: block;
+  max-width: 190px;
+  overflow: hidden;
+  color: var(--dm-text-strong);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.value {
+  color: #f5d97a;
+  font-family: var(--font-sans, system-ui);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.meta {
+  color: var(--dm-muted);
+  font-family: var(--font-sans, system-ui);
+  font-size: 10px;
+}
+
+.footer {
+  margin: 8px 0 0;
+  padding-top: 7px;
+  border-top: 1px solid var(--dm-border);
+  color: var(--dm-text);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .card {
+    width: min(250px, calc(100vw - 20px));
+  }
+}

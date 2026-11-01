@@ -1,0 +1,52 @@
+{
+  "slug": "culton",
+  "order": 4,
+  "boss_id": "boss_hum_036",
+  "name_color": "#4ec7d6",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+  "art_object_position": "center center",
+  "source_psd": "бегемот.psd",
+  "en": {
+    "name": "Culton",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Culton triggers Hostility on the selected target every second. Each stack of Hostility slows the target for 5 seconds, stacking up to 5 times."
+      },
+      {
+        "index": "2",
+        "html": "Every 30 seconds, Culton induces chaos, reversing Wanderers&#x27; movement for 15 seconds."
+      },
+      {
+        "index": "3",
+        "html": "Culton becomes invincible for 3 seconds every time after losing 10% Max HP."
+      },
+      {
+        "index": "4",
+        "html": "In the final phase, Culton summons red pillars. Each pillar increases Culton&#x27;s damage boost and damage reduction by 20%. Make Culton collide with the pillars to disable the buffs."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Калтон",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Калтон каждую секунду накладывает Hostility на выбранную цель. Каждый стак замедляет цель на 5 секунд, до 5 стаков."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 30 секунд Калтон вызывает хаос, разворачивая управление движением Странников на 15 секунд."
+      },
+      {
+        "index": "3",
+        "html": "Калтон становится неуязвимым на 3 секунды каждый раз после потери 10% Max HP."
+      },
+      {
+        "index": "4",
+        "html": "В финальной фазе Калтон призывает красные столбы. Каждый столб увеличивает его урон и снижение урона на 20%. Столкните Калтона со столбами, чтобы отключить баффы."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_036.webp"
+}

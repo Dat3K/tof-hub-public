@@ -1,0 +1,52 @@
+{
+  "slug": "valkyrie",
+  "order": 3,
+  "boss_id": "boss_hum_032",
+  "name_color": "#ebe154",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+  "art_object_position": "center center",
+  "source_psd": "валька.psd",
+  "en": {
+    "name": "Valkyrie",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Valkyrie leaves destructible electrodes on the ground at regular intervals. These electrodes are periodically."
+      },
+      {
+        "index": "2",
+        "html": "Valkyrie is immune to damage 1 time every second."
+      },
+      {
+        "index": "3",
+        "html": "Valkyrie leaves destructible electrodes on the ground around it at regular intervals. These electrodes periodically emit a circular electrical current in the surrounding area."
+      },
+      {
+        "index": "4",
+        "html": "Valkyrie summons lightning bolts around it at regular intervals, dealing lethal damage and electrifying targets. When an electrified target is hit by a volt attack, chain lightning is triggered."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Валькирия",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Валькирия через равные интервалы оставляет на земле разрушаемые электроды."
+      },
+      {
+        "index": "2",
+        "html": "Валькирия становится иммунной к урону 1 раз в секунду."
+      },
+      {
+        "index": "3",
+        "html": "Валькирия через равные интервалы оставляет вокруг себя разрушаемые электроды. Эти электроды периодически испускают круговой электрический разряд по области вокруг."
+      },
+      {
+        "index": "4",
+        "html": "Валькирия через равные интервалы призывает вокруг себя молнии, наносящие смертельный урон и накладывающие electrified. Если по electrified-цели попадает volt-атака, срабатывает цепная молния."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_02.webp"
+}

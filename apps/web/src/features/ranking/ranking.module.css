@@ -1,0 +1,365 @@
+/* Tools ranking: Comp tool surfaces; expandable rows follow the Datamine OOW drawer (row, then a card panel). */
+.page {--ranking-gold:#f5d97a;--ranking-text:#dfe5f0;--ranking-dim:#93a1b6;--ranking-line:rgba(255,255,255,.08);--ranking-owner-border:rgba(255,255,255,.65);--ranking-row-padding:16px;--ranking-row-gap:12px;--ranking-action-column:44px;--ranking-score-column:200px;
+  max-width:1280px;margin:0 auto;padding:18px 24px 72px;color:var(--ranking-text)}
+/* Leave room for the fixed tool rail when the board nearly fills a desktop viewport. */
+@media (min-width:1024px) and (max-width:1400px) {.page {padding-right:80px}}
+/* The rail's 80px reserve leaves ~1138px at 1366: tighter chip padding keeps Region and Element on one row. Below ~1250px they wrap anyway, so chips stay full size there. */
+@media (min-width:1250px) and (max-width:1420px) {.page :global(.sim-filter-groups__left .sim-filter-btn) {padding-inline:4px}}
+.board {border:1px solid var(--ranking-line);border-radius:12px;background:var(--tool-table-surface)}
+.boardHead {display:flex;align-items:center;gap:10px;padding:12px 16px;border-bottom:1px solid var(--ranking-line);border-radius:11px 11px 0 0;background:var(--tool-table-header)}
+.boardHead h2 {margin:0;font-size:15px;font-weight:700;color:#f8fafc;flex:1;min-width:0}
+.boardActions {display:inline-flex;align-items:center;gap:8px;flex-shrink:0;min-width:0;max-width:100%}
+@media (max-width:760px) {.boardHead {flex-wrap:wrap}.boardHead h2 {flex-basis:calc(100% - 32px)}.boardActions {flex-wrap:wrap;flex:1 1 100%}}
+.maxGrv {margin-left:auto;font-size:12px;color:var(--ranking-dim);font-variant-numeric:tabular-nums;white-space:nowrap}
+.maxGrv b {color:#f8fafc;font-weight:700}
+.maxGrv {display:inline-flex;align-items:center;gap:8px}
+.helpMark {display:inline-grid;place-items:center;width:16px;height:16px;padding:0;background:transparent;cursor:pointer;border:1px solid #ffffff33;border-radius:50%;font-size:10px;font-weight:700;color:var(--ranking-dim);line-height:1}
+.helpMark:hover,.helpMark:focus-visible {border-color:var(--ranking-gold);color:var(--ranking-gold)}
+.helpMark:focus-visible {outline:2px solid var(--tool-input-focus);outline-offset:3px}
+.trackIcon {width:22px;height:22px;object-fit:contain}
+.exampleNote {margin:0;padding:8px 16px;font-size:12px;color:var(--ranking-gold);border-bottom:1px solid var(--ranking-line);background:rgba(245,217,122,.06)}
+.uploadLink {display:inline-flex;padding:8px 14px;border:1px solid #38bdf8;border-radius:8px;color:#bae6fd;font-size:13px;font-weight:600}
+.uploadLink:hover {background:rgba(56,189,248,.12)}
+
+/* Normal flow, not one grid for all rows: opening a row then lays out only what follows it (2026-10-08). Rows off screen
+   skip layout and paint until scrolled near (content-visibility), which keeps long endless boards light. */
+.table {display:block}
+.table>.row:not(.head) {content-visibility:auto;contain-intrinsic-size:auto 57px}
+/* Text columns have fixed widths that fit their content, so the gaps between columns stay even. */
+.row {display:grid;grid-template-columns:44px 104px 210px 190px minmax(170px,1fr) var(--ranking-score-column) var(--ranking-action-column);align-items:center;gap:var(--ranking-row-gap);
+  padding:9px var(--ranking-row-padding);border-bottom:1px solid var(--ranking-line);min-width:0}
+.playerRow {grid-template-columns:44px 104px 200px minmax(280px,1fr) var(--ranking-score-column) var(--ranking-action-column)}
+.row:not(.head):hover,.row[data-expanded] {background:var(--tool-table-hover)}
+.row:not(.head) {position:relative;border-bottom-color:transparent}
+.row:not(.head)::after {content:'';position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--ranking-line);pointer-events:none;transition:left .32s cubic-bezier(.25,.46,.45,.94),right .32s cubic-bezier(.25,.46,.45,.94),background-color .24s ease-out}
+.row[data-expanded]::after {left:16px;right:16px;background:var(--tool-panel-border)}
+.row[data-me] {background:linear-gradient(90deg,rgba(255,255,255,.1),rgba(255,255,255,.02) 60%);box-shadow:inset 3px 0 0 #f5f5f5;outline:none;scroll-margin-block:120px}
+.row[data-me] .rank,.row[data-me] .playerCell b {color:#f5f5f5}
+@media (prefers-reduced-motion:reduce) {.row:not(.head)::after {transition:none}}
+/* Keep the divider inside the row: content-visibility paint containment clips negative bottom offsets. */
+/* Rank 0 reference rows (perfect item / player): gold tint and edge. */
+.row[data-ideal] {background:linear-gradient(90deg,rgba(245,217,122,.1),rgba(245,217,122,.02) 60%);box-shadow:inset 3px 0 0 #f5d97a}
+.row[data-ideal] .rank,.row[data-ideal] .playerCell b {color:#f5d97a}
+.head {padding-block:8px;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--ranking-dim);background:var(--tool-table-header)}
+/* Headers sit centred over their column; item and stat cells centre their content under them. */
+.head > span {text-align:center}
+/* Region, item and player read left-aligned, so their headers start where the text starts. */
+.head > span:is(:nth-child(2),:nth-child(3),:nth-child(4)) {text-align:left}
+.playerRow.head > span:nth-child(4) {text-align:center}
+/* Region and player text stay left-aligned in one line down the board; only very long nicknames are cut. */
+.playerCell b {max-width:20ch}
+/* Endless board: the sentinel under the table, with the loading mark while the next page arrives. */
+.loadMore {display:flex;justify-content:center;min-height:1px;padding:8px 0}
+/* A nickname the game draws blank (only spaces / invisible characters): a visible label instead. */
+.row:not(.head) > .ratedCell,.row:not(.head) > .slotStrip {justify-content:center}
+.rank {font-size:14px;font-weight:700;line-height:1;color:var(--ranking-dim);text-align:center;font-variant-numeric:tabular-nums}
+.rank[data-podium="1"] {color:#f5d97a}
+.rank[data-podium="2"] {color:#d6dde8}
+.rank[data-podium="3"] {color:#e0a77a}
+.item,.playerCell {display:flex;align-items:center;gap:10px;min-width:0}
+.playerCell {flex-direction:column;align-items:stretch;gap:2px}
+.playerCell > div {align-self:flex-start;max-width:100%;min-width:0}
+.item>span:not(.gearIconWrap) {display:grid;gap:2px;min-width:0}
+.item b,.playerCell b {font-size:13px;color:#f8fafc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.item small,.playerCell small {font-size:11px;color:var(--ranking-dim);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gearIcon {width:38px;height:38px;object-fit:contain;flex:none}
+.gearIconWrap {display:inline-flex;align-items:center;gap:4px;flex:none}
+/* Known-base mark: a plain gold check in its own slot left of the icon; rows without it keep the same alignment. */
+.baseSeal {display:grid;place-items:center;width:12px;height:12px;flex:none}
+.baseSeal svg {width:12px;height:12px;fill:none;stroke:var(--ranking-gold);stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.ratedCell {display:flex;flex-wrap:wrap;gap:4px}
+.chip {display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border:1px solid var(--ranking-line);border-radius:999px;font-size:11px;font-variant-numeric:tabular-nums;color:#e2e8f0;background:rgba(255,255,255,.03)}
+.chip img {width:12px;height:12px;object-fit:contain;filter:brightness(0) invert(1)}
+/* ATK % / DMG % mark on the shared element icon: a small A or D at its lower right. */
+.chipIcon {position:relative;display:inline-flex}
+.chipIcon>b {position:absolute;right:-4px;bottom:-4px;font-size:8px;line-height:1;font-weight:800;color:#e2e8f0;text-shadow:0 0 2px #000,0 0 2px #000}
+.score {display:grid;gap:4px;position:relative}
+/* Points at the start of the meter, percent at its end: both line up as columns down the board. */
+.score b {display:flex;align-items:baseline;justify-content:space-between;gap:8px;font-size:14px;font-variant-numeric:tabular-nums}
+.scorePoints {color:var(--rv-color,#edf2f8);font-weight:700}
+/* Grade colour stays on the points and the meter; the percent reads in neutral white beside them. */
+.scorePercent {color:#f8fafc}
+.scorePoints small {font-size:9px;font-weight:600;color:inherit;opacity:.75}
+.meter {display:block;height:4px;border-radius:2px;background:rgba(255,255,255,.08);overflow:hidden}
+.meter span {display:block;height:100%;border-radius:inherit;background:linear-gradient(90deg,var(--rv-start,#64748b),var(--rv-end,#94a3b8))}
+/* Grade colors come from the build card theme (rollValueTheme --rv-*). */
+.score,.slotStrip .slotChip {color:var(--rv-color,#a8b3c4)}
+.expand {display:grid;place-items:center;width:30px;height:30px;border:1px solid var(--ranking-line);border-radius:8px;background:transparent;color:var(--ranking-dim);cursor:pointer}
+.expand svg {width:10px;height:6px;fill:none;stroke:currentColor;stroke-width:1.6;transition:transform .2s ease}
+.expand[aria-expanded="true"] svg {transform:rotate(180deg)}
+.expand:hover {border-color:rgba(245,217,122,.35);color:var(--ranking-gold)}
+.expand:focus-visible {outline:2px solid #3b82f6;outline-offset:2px}
+.slotStrip {display:flex;flex-wrap:wrap;gap:3px}
+.slotStrip .slotChip {display:grid;place-items:center;width:30px;height:30px;border:1px solid currentColor;border-radius:7px;background:rgba(0,0,0,.25)}
+/* The element mark of the players board is a plain icon set a little apart, left of the item frames. */
+.slotStrip>.trackBadge {margin:0 12px 0 -6px;align-self:center}
+/*
+ * 90 %+ pieces (grade titan): the pale pink of --rv-color read like the purple and gold frames at this size
+ * (2026-10-09). Their frame is the Titan gradient with a light running around it; only the angle animates.
+ */
+@property --titan-angle {syntax:'<angle>';inherits:false;initial-value:0deg}
+.slotStrip .slotChip[data-grade=titan] {position:relative;border-color:transparent}
+.slotStrip .slotChip[data-grade=titan]::before {content:'';position:absolute;inset:-1px;padding:1.5px;border-radius:inherit;pointer-events:none;
+  background:conic-gradient(from var(--titan-angle),#ffa7d7 0deg,#e1b8ff 100deg,#a7edff 200deg,#e1b8ff 300deg,#ffa7d7 335deg,#ffffff 350deg,#ffa7d7 360deg);
+  -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;
+  animation:titanRun 3.2s linear infinite;animation-play-state:paused}
+.page[data-animation-active] .slotStrip .slotChip[data-grade=titan][data-titan-visible]::before {animation-play-state:running}
+@keyframes titanRun {to {--titan-angle:360deg}}
+/* Whole-build base seal stays left of the track badge without changing the centred build strip's width. */
+.slotStrip>.sealSlot {display:inline-flex;align-self:center;margin:0 1px 0 -16px}
+.slotStrip .gearIcon {width:24px;height:24px}
+
+.drawer {padding:4px var(--ranking-row-padding) 16px;border-bottom:1px solid var(--tool-panel-border);background:rgba(255,255,255,.03)}
+
+/* Original on the left, the current item in the centre, its Titan maximum on the right. */
+.stages {display:grid;grid-template-columns:1fr 1.15fr 1fr;gap:12px;align-items:start}
+.stages[data-columns="1"] {grid-template-columns:minmax(0,1fr)}
+.stages[data-columns="2"] {grid-template-columns:1fr 1.4fr}
+.nowGrid {display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:16px;align-items:start}
+.breakdown {border-left:1px solid var(--ranking-line);padding-left:16px;min-width:0}
+.breakdownHead {display:grid;grid-template-columns:auto 1fr;align-items:center;gap:12px;margin-bottom:6px}
+.breakdownHead h4 {margin:0}
+/* Titan-added stat in the GRV breakdown: red name like the Stats table, plus the original game icon that never truncates. */
+.contrib .statName[data-added] {color:#ff858b}
+.contrib .statName {overflow:visible}
+.statText {min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.titanMark {display:inline-grid;place-items:center;flex:none;width:14px;height:14px;margin-left:5px;border-radius:50%}
+.titanMark img {width:18px;height:18px;max-width:none;object-fit:contain}
+.titanMark:focus-visible {outline:2px solid #3b82f6;outline-offset:1px}
+.muted {margin:6px 0;font-size:12px;color:var(--ranking-dim)}
+.boardActions {display:inline-flex;align-items:center;gap:8px;margin-left:auto}
+@media (max-width:760px) {.nowGrid,.stages[data-columns="2"] {grid-template-columns:minmax(0,1fr)} .breakdown {border-left:0;padding-left:0;border-top:1px solid var(--ranking-line);padding-top:10px}}
+.stage {border:1px solid var(--ranking-line);border-radius:10px;background:var(--tool-panel-card);padding:12px;min-width:0}
+.stageCurrent {border-color:rgba(245,217,122,.35);box-shadow:0 0 0 1px rgba(245,217,122,.08),0 10px 30px rgba(0,0,0,.35)}
+.stage header {display:grid;grid-template-columns:1fr auto;gap:2px 8px;margin-bottom:8px}
+.stage h3 {margin:0;font-size:13px;color:#f8fafc}
+.stage small {grid-column:1;font-size:11px;color:var(--ranking-dim)}
+.stageScore {grid-column:2;grid-row:1 / span 2;align-self:center}
+.stage h4 {margin:10px 0 6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--ranking-dim)}
+.statRows {list-style:none;margin:0;padding:0;display:grid;gap:2px}
+.statRows li {display:grid;grid-template-columns:minmax(0,1fr) auto 44px;align-items:center;gap:8px;padding:4px 6px;border-radius:6px;font-size:12px}
+.statRows li[data-rated] {background:rgba(245,217,122,.07)}
+.statRows li[data-rated] .statName {color:#f8e7b0}
+.statRows b {font-variant-numeric:tabular-nums;text-align:right;color:#f8fafc}
+.statName {display:flex;align-items:center;gap:6px;min-width:0;color:#cbd5e1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.statName > img {width:14px;height:14px;object-fit:contain;flex:none;filter:brightness(0) invert(1)}
+.rolls,.progress {font-size:11px;color:var(--ranking-dim);text-align:right;font-variant-numeric:tabular-nums}
+.rare {margin:8px 0 0;font-size:12px;color:#fca5a5}
+.slotGrid {display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:8px}
+/* Expanded player row: the rated stats summed over every slot, in the same chips as a gear row. */
+.statTotals {display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:8px 0 10px}
+/* Titan potential under the row's own score, same width: a small caption line (label left, place right), then the bar. */
+.maximumRank {display:block;margin-top:4px;font-size:11px;font-weight:700;color:var(--ranking-gold);white-space:nowrap}
+.drawerHead {display:grid;gap:var(--ranking-row-gap);align-items:center;margin:8px 0 10px}
+/* One line: stat totals on the left, the potential bar in the GRV column, its caption just left of the bar on the same line. */
+.drawerHead>.statTotals {grid-column:1 / -3;grid-row:1;margin:0}
+.drawerHead>.potentialSlot {display:grid;grid-template-columns:minmax(0,1fr);grid-column:-3 / -2;grid-row:1;min-width:0}
+.potential {position:relative;min-width:0;width:100%;flex:1}
+.potential>.potentialHead {position:absolute;right:calc(100% + 16px);top:50%;transform:translateY(-50%);justify-content:flex-end;gap:12px;margin:0;white-space:nowrap}
+/* Narrow boards keep totals and the potential caption on separate lines. */
+@media (max-width:1100px) {
+  .playerRow.drawerHead {grid-template-columns:minmax(0,1fr) var(--ranking-action-column)}
+  .drawerHead>.statTotals {grid-column:1;grid-row:1}
+  .drawerHead>.potentialSlot {grid-column:1 / -2;grid-row:2}
+  .potential>.potentialHead {position:static;transform:none;justify-content:space-between;flex-wrap:wrap;white-space:normal;margin-bottom:4px}
+}
+.potentialHead {display:flex;justify-content:space-between;align-items:baseline;gap:8px;margin-bottom:2px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ranking-dim)}
+.potentialHead b {font-weight:700;letter-spacing:0;text-transform:none;font-size:11px;color:var(--ranking-gold);white-space:nowrap}
+.statTotals>span:first-child {margin-right:4px;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--ranking-dim)}
+.slotCard {display:grid;grid-template-columns:38px minmax(0,1fr) 150px;align-items:center;gap:8px;width:100%;min-width:0;padding:8px;border:1px solid var(--tool-panel-border);border-radius:10px;background:var(--tool-table-surface)}
+.slotCard>span {display:grid;gap:2px;min-width:0;overflow:hidden}
+.slotCard b {font-size:12px;color:#f8fafc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.slotCard small {min-width:0;font-size:11px;color:var(--ranking-dim)}
+.slotCard small>b {display:block;max-width:100%}
+.slotCard>span>small {display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.slotOwnerTip {display:flex;align-items:baseline;flex-wrap:wrap;gap:8px;margin:0 0 8px;font-weight:700;white-space:normal;overflow-wrap:anywhere}
+/* Gear-board place of the piece in its slot, after the level: compact gold "#N". */
+.augmentLabel {color:#f8fafc}
+.augmentValue {font-weight:700;color:#60a5fa}
+.slotRank {font-style:normal;font-weight:700;color:var(--ranking-gold)}
+.updated {grid-column:1 / -1;margin:4px 0 0;font-size:11px;color:var(--ranking-dim)}
+
+@media (max-width:1100px) {
+  .page {padding:14px 16px 72px;--ranking-row-padding:10px;--ranking-row-gap:8px;--ranking-action-column:36px;--ranking-score-column:130px}
+  .hideNarrow {display:none}
+  .row {grid-template-columns:32px 56px minmax(0,1fr) minmax(0,.9fr) var(--ranking-score-column) var(--ranking-action-column);gap:var(--ranking-row-gap);padding-inline:var(--ranking-row-padding)}
+  .playerRow {grid-template-columns:32px 56px minmax(0,1fr) var(--ranking-score-column) var(--ranking-action-column)}
+  .stages {grid-template-columns:1fr}
+  .stageCurrent {order:-1}
+}
+@media (min-width:1024px) and (max-width:1100px) {.page {padding-right:80px}}
+@media (prefers-reduced-motion:reduce) {.expand svg {transition:none}}
+/* Expanded gear row: one stat table and one GRV card. */
+/* Item cards size to their content like the build card's gear tiles instead of stretching over the row. */
+.details {display:grid;grid-template-columns:max-content minmax(360px,460px);justify-content:center;gap:12px;align-items:start}
+.stageTabs {display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:4px;margin-bottom:12px;padding:3px;border-radius:10px;background:rgba(255,255,255,.04)}
+.stageTabs button {display:grid;gap:2px;padding:6px 8px;border:0;border-radius:8px;background:transparent;color:var(--ranking-dim);font:inherit;font-size:11px;text-align:left;cursor:pointer}
+.stageTabs button b {font-size:14px;color:#e2e8f0;font-variant-numeric:tabular-nums}
+.stageTabs button[aria-selected="true"] {background:rgba(255,255,255,.07);color:#edf2f8;box-shadow:inset 0 -2px 0 var(--rv-color)}
+.stageTabs button[aria-selected="true"] b {color:var(--rv-color)}
+.stageTabs button:focus-visible {outline:2px solid #f5d97a;outline-offset:1px}
+.contrib {list-style:none;margin:0;padding:0;display:grid;gap:4px;min-width:min-content}
+.scoreBlock {display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.scoreBlock small {font-size:11px;color:var(--ranking-dim);font-variant-numeric:tabular-nums}
+.contrib li.contribHead span:nth-child(n+3) {text-align:center}
+.contrib li.free {background:transparent;color:var(--ranking-dim)}
+.projection {margin:10px 0 0;font-size:12px;color:var(--ranking-dim)}
+.projection b {color:#f8fafc}
+@media (max-width:900px) {.details {grid-template-columns:minmax(0,1fr)}}
+/* Bottom row of the controls bar: counter on the left, page actions on the right. */
+.barActions {display:inline-flex;flex-wrap:wrap;align-items:center;justify-content:flex-end;gap:8px;margin-left:auto;min-width:0;max-width:100%}
+.barButton {display:inline-flex;align-items:center;gap:6px;height:26px;padding:0 11px;border:1px solid;border-radius:6px;background:transparent;font:inherit;font-size:12px;font-weight:650;line-height:1;cursor:pointer;transition:background-color .15s,border-color .15s,color .15s;position:relative}
+.barButton svg {width:13px;height:13px;flex:none;fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.barButton:is([data-tone="gold"],[data-tone="me"]) {border-color:rgba(255,255,255,.08);color:#9ca3af;background:rgba(255,255,255,.05)}
+.barButton[data-tone="me"]:is(:hover,[aria-pressed="true"]) {color:#f5f5f5;border-color:var(--ranking-owner-border);background:rgba(255,255,255,.1)}
+.barButton[data-tone="gold"]:hover,.barButton[data-tone="gold"][aria-pressed="true"],.barButton[data-tone="gold"][data-checked] {background:rgba(245,217,122,.1);border-color:rgba(245,217,122,.5);color:var(--ranking-gold)}
+.barButton[data-tone="gold"][aria-pressed="true"] svg {fill:currentColor}
+.barButton[data-tone="update"] {gap:7px;border-color:var(--surface-border);background:var(--surface-panel-header);color:var(--ranking-dim)}
+.barButton[data-tone="update"] svg {width:16px;height:16px;stroke-width:1.7}
+.barButton[data-tone="update"]:is(:hover,:focus-visible):not(:disabled) {border-color:color-mix(in srgb,var(--tool-input-focus) 55%,transparent);background:color-mix(in srgb,var(--tool-input-focus) 10%,var(--surface-panel));color:var(--color-text-primary)}
+.barButton[data-tone="update"]:is(:hover,:focus-visible):not(:disabled) svg {color:var(--tool-input-focus)}
+.barButton[data-tone="update"]:focus-visible {outline-color:var(--tool-input-focus)}
+.barButton[data-tone="update"]:disabled {opacity:.6;cursor:progress}
+.barButton[data-tone="perfect"] {border-color:rgba(255,255,255,.08);color:#9ca3af;background:rgba(255,255,255,.05)}
+.barButton[data-tone="perfect"]:hover,.barButton[data-tone="perfect"][aria-pressed="true"] {border-color:transparent;color:var(--rv-color);background:linear-gradient(rgba(18,22,32,.92),rgba(18,22,32,.92)) padding-box,var(--rv-gradient) border-box}
+.barButton[data-tone="perfect"]:hover .perfectLabel,.barButton[data-tone="perfect"][aria-pressed="true"] .perfectLabel {background:var(--rv-gradient);background-clip:text;-webkit-background-clip:text;color:transparent}
+.barButton[data-tone="perfect"][aria-pressed="true"] svg {fill:currentColor}
+.barButton:focus-visible,.barButton:has(:focus-visible) {outline:2px solid #3b82f6;outline-offset:1px}
+.barButton[data-busy] {opacity:.6;cursor:progress}
+@media (max-width:640px) {.barActions {flex:1 1 100%;margin-left:0;justify-content:flex-start}}
+.statusBar {flex-wrap:wrap;row-gap:8px}
+.counterNumber {color:#f8fafc}
+.displayControl {display:inline-flex;align-items:center;gap:6px;font-size:11px;color:var(--ranking-dim);min-width:0}
+.verifiedCheckbox {position:absolute;inset:0;width:100%;height:100%;margin:0;opacity:0;cursor:pointer}
+.verifiedCheck {color:inherit;pointer-events:none}
+@media (max-width:640px) {.displayControl {flex-wrap:wrap}.barActions {column-gap:12px}}
+/* Expanded item in the Build card's gear language (build.module.css .gear): navy tile, thin border, plain rows,
+   muted roll/progress notes, Titan-added stats and the rare effect in the card's red. */
+.detailCard {min-width:300px;max-width:100%;border:1px solid var(--tool-panel-border);border-radius:6px;background:var(--tool-table-surface);padding:12px 14px;min-width:0;font-variant-numeric:tabular-nums}
+.detailHead {display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:10px}
+.detailHead h3 {margin:0;padding-top:4px;font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#93a3b4}
+.gearHead {display:flex;align-items:center;gap:9px;padding-bottom:8px;margin-bottom:6px;border-bottom:1px solid #ffffff14}
+.gearHead .gearIcon {width:38px;height:38px}
+.gearName {display:grid;gap:2px;min-width:0;flex:1}
+.gearName > span {display:flex;align-items:baseline;gap:5px;min-width:0}
+.gearName b {font-size:14px;font-weight:600;color:#edf2f8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gearName i {font-style:normal;font-size:11px;color:#a6b6c6}
+.gearName small {font-size:10px;letter-spacing:.04em;color:#d8b979}
+.headRight {flex:none;display:grid;justify-items:end;gap:3px;margin-left:auto}
+.titanClicks {color:var(--color-text-secondary,#9fb0c2);font-size:11px;font-variant-numeric:tabular-nums}
+.rareEffect {flex:none;font-size:12px;font-weight:600;color:#ff858b;text-shadow:0 0 8px #ff35454a}
+.detailTableViewport {min-width:0;max-width:100%;overflow-x:auto}
+.detailTableViewport:focus-visible {outline:2px solid var(--tool-input-focus);outline-offset:2px;border-radius:2px}
+.statTable {--stat-gap:12px;display:grid;grid-template-columns:minmax(150px,max-content) repeat(var(--columns,1),minmax(64px,max-content));column-gap:var(--stat-gap);min-width:max-content}
+.statHead,.statLine,.titanDivider {grid-column:1 / -1}
+.statHead,.statLine {display:grid;grid-template-columns:subgrid;align-items:center;gap:var(--stat-gap);padding:5px 2px}
+.statHead {padding-block:2px 4px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#93a3b4}
+.statHead>[role=columnheader]:not(:first-child) {display:flex;justify-content:center;text-align:center}
+.statLine {font-size:12.5px;border-top:1px solid #ffffff0a}
+.statLine .statName {color:#b6c3d0}
+.statLine[data-rated] .statName {color:#edf2f8}
+.statLine[data-rated] .num b {color:var(--ranking-gold)}
+.statLine[data-added] .statName {color:#ff858b}
+.statLine[data-free] .statName {color:#5d6b7a;font-style:italic}
+.titanDivider {display:flex;align-items:center;gap:8px;margin-top:6px;padding:6px 2px 2px;border-top:1px solid #ffffff14;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#ff858b}
+/* Number columns are centred under their centred headers; ×rolls sit on the same line as the value. */
+.num {display:flex;align-items:baseline;justify-content:center;gap:5px;color:#a1b3c2;text-align:center;white-space:nowrap}
+.statLine [data-current] {position:relative}
+.statSlash {position:absolute;left:calc(100% + var(--stat-gap) / 2);transform:translateX(-50%);color:var(--ranking-dim);font-weight:400}
+/* Original: values right-aligned to one edge, ×rolls in their own narrow slot so both form straight columns. */
+.num[data-original] {display:grid;grid-template-columns:minmax(0,1fr) 20px;gap:4px}
+.num[data-original] > span {text-align:right}
+.num[data-original] > small {text-align:left}
+.growth {font-size:11px;color:#5d6b7a}
+.growth[data-rated] {font-weight:600;color:#d8b979}
+.num b {color:#edf2f8;font-weight:600}
+.num small {font-size:9px;color:#a1b3c2}
+.bigScore {font-size:22px;font-weight:800;background:var(--rv-gradient);-webkit-background-clip:text;background-clip:text;color:transparent}
+/* Value, points and share share the free width evenly, centred under centred headers like the Stats table. */
+.contrib li {display:grid;grid-template-columns:8px minmax(150px,1.7fr) repeat(3,minmax(56px,1fr));align-items:center;gap:10px;padding:5px 2px;font-size:12.5px;border-top:1px solid #ffffff0a}
+.contrib li.contribHead {padding-block:0 3px;border-top:0;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#93a3b4}
+/* GRV card bar: the shared build RollValueMeter (per-stat colours), taller here. */
+.stack {height:8px;margin-bottom:12px;border-radius:999px}
+.sealTip {margin:4px 0 0;max-width:280px;font-size:12px;color:#cbd5e1}
+.baseSeal:focus-visible {outline:2px solid #3b82f6;outline-offset:2px;border-radius:3px}
+.trackBadge {display:inline-flex;align-items:center;margin-right:2px}
+.trackBadge img {width:20px;height:20px}
+
+/* Expanded player row: hover preview of an item's stats (GearStatsTip). */
+.tipStats {display:grid;gap:4px;min-width:220px;margin:8px 0 0;padding:0;list-style:none;font-size:12px}
+.tipStats li {display:flex;justify-content:space-between;align-items:center;gap:16px}
+.tipStats b {font-variant-numeric:tabular-nums;color:#cbd5e1;font-weight:600}
+.tipStats li[data-rated] .statName,.tipStats li[data-rated] b {color:#f8e7b0}
+.tipStats li[data-added] .statName {color:#ff858b}
+.tipScore {font-size:12px;font-weight:700;color:var(--rv-color,#a8b3c4);white-space:nowrap}
+/* Lines set the Titan-added stats and the Titan effect apart, as on the build card. */
+.tipStats li[data-titan-start] {margin-top:3px;padding-top:6px;border-top:1px solid #ffffff1f}
+.tipFooter {display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin-top:8px;padding-top:6px;border-top:1px solid #ffffff1f;font-size:12px}
+.tipRare {font-weight:600;color:#ff858b}
+.tipAug {margin-left:auto;white-space:nowrap}
+.tipStats b .tipMaximum {color:var(--ranking-dim,#93a1b6);font-weight:400}
+/* Each card sits in its tooltip wrapper: the wrapper fills the grid cell and the card fills the wrapper. */
+.slotGrid>* {display:flex;min-width:0;width:100%}
+.slotGrid>*>.slotCard {flex:1;min-width:0}
+/* Role (DPS / healer / tank) and board (Gear / Players) switches side by side in the search bar. */
+.modeSwitches {display:inline-flex;align-items:center;gap:10px}
+/* The role options have icons: a little more room between them. */
+.modeSwitches .roleSwitch {gap:5px}
+/* Element filter group wrapper (layout-neutral). Tank: resistance icons white, element colour on hover / when chosen
+   (filters of the build stat table's resistance icons). */
+.elementChips {display:contents}
+.elementChips[data-tank-icons] :global(.sim-filter-icon) {filter:brightness(0) invert(1);opacity:.8}
+.elementChips[data-tank-icons] :global(.sim-filter-btn[data-val="Frost"]:is(:hover,:focus-visible,.active) .sim-filter-icon) {filter:brightness(0) saturate(100%) invert(82%) sepia(22%) saturate(714%) hue-rotate(164deg) brightness(94%) contrast(95%)}
+.elementChips[data-tank-icons] :global(.sim-filter-btn[data-val="Volt"]:is(:hover,:focus-visible,.active) .sim-filter-icon) {filter:brightness(0) saturate(100%) invert(70%) sepia(18%) saturate(1042%) hue-rotate(213deg) brightness(92%) contrast(91%)}
+.elementChips[data-tank-icons] :global(.sim-filter-btn[data-val="Flame"]:is(:hover,:focus-visible,.active) .sim-filter-icon) {filter:brightness(0) saturate(100%) invert(71%) sepia(21%) saturate(936%) hue-rotate(326deg) brightness(96%) contrast(89%)}
+.elementChips[data-tank-icons] :global(.sim-filter-btn[data-val="Physical"]:is(:hover,:focus-visible,.active) .sim-filter-icon) {filter:brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(496%) hue-rotate(2deg) brightness(92%) contrast(87%)}
+.elementChips[data-tank-icons] :global(.sim-filter-btn[data-val="Altered"]:is(:hover,:focus-visible,.active) .sim-filter-icon) {filter:brightness(0) saturate(100%) invert(78%) sepia(13%) saturate(723%) hue-rotate(93deg) brightness(91%) contrast(89%)}
+/* Tank board: element marks are resistance icons in the element colour. */
+.trackIcon[data-resistance="Frost"] {filter:brightness(0) saturate(100%) invert(82%) sepia(22%) saturate(714%) hue-rotate(164deg) brightness(94%) contrast(95%)}
+.trackIcon[data-resistance="Volt"] {filter:brightness(0) saturate(100%) invert(70%) sepia(18%) saturate(1042%) hue-rotate(213deg) brightness(92%) contrast(91%)}
+.trackIcon[data-resistance="Flame"] {filter:brightness(0) saturate(100%) invert(71%) sepia(21%) saturate(936%) hue-rotate(326deg) brightness(96%) contrast(89%)}
+.trackIcon[data-resistance="Physical"] {filter:brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(496%) hue-rotate(2deg) brightness(92%) contrast(87%)}
+.trackIcon[data-resistance="Altered"] {filter:brightness(0) saturate(100%) invert(78%) sepia(13%) saturate(723%) hue-rotate(93deg) brightness(91%) contrast(89%)}
+.roleDesktop {display:inline-flex}
+.roleMobile {display:none}
+@media (max-width:640px) {.roleDesktop {display:none}.roleMobile {display:flex;justify-content:flex-start}}
+/* Phones: no region column, every cell stays inside its column (long nicknames are cut, never drawn over the score). */
+@media (max-width:560px) {
+  .page {--ranking-row-padding:8px;--ranking-row-gap:6px;--ranking-action-column:34px;--ranking-score-column:120px}
+  .row {grid-template-columns:24px minmax(0,1fr) minmax(0,.8fr) var(--ranking-score-column) var(--ranking-action-column);gap:var(--ranking-row-gap);padding-inline:var(--ranking-row-padding)}
+  .playerRow {grid-template-columns:24px minmax(0,1fr) var(--ranking-score-column) var(--ranking-action-column)}
+  .row > :nth-child(2) {display:none}
+  .row > :not(:last-child) {min-width:0;overflow:hidden}
+  .row > [role="cell"] b,.row > [role="cell"] small {overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+}
+/* Slot chips: item icons in their own colours, slightly dimmed until hovered or chosen. */
+
+/* Compare (2026-10-09): a muted line under the meter, the reference row marked in blue, the factor split in the drawer. */
+.gain {position:absolute;top:calc(100% + 1px);right:0;font-size:9.5px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums;color:var(--ranking-dim);white-space:nowrap}
+.gain[data-sign="up"],.compareSummary [data-sign="up"] {color:#8fdcaa}
+.gain[data-sign="down"],.compareSummary [data-sign="down"] {color:#f0a3a3}
+.gain[data-sign="reference"] {color:#93c5fd;text-transform:uppercase;letter-spacing:.06em;font-size:9px}
+.row[data-compare-reference] {box-shadow:inset 3px 0 0 #60a5fa;background:linear-gradient(90deg,rgba(96,165,250,.09),transparent 60%)}
+.compareBar {display:flex;flex-wrap:wrap;align-items:center;gap:8px 12px;margin:8px 0 4px;font-size:12px;color:var(--ranking-dim)}
+.compareSummary {display:inline-flex;flex-wrap:wrap;align-items:baseline;gap:6px 10px;font-variant-numeric:tabular-nums}
+.compareSummary b {font-size:13px;color:#f8fafc}
+.compareFactor {padding:1px 6px;border:1px solid var(--ranking-line);border-radius:999px;font-size:11px;color:var(--ranking-dim)}
+.drawerCell {position:relative}
+/* Square toggle in the expand column (same size and centre as the row's chevron button). */
+.compareToggleSlot {position:absolute;top:8px;right:14px;z-index:1}
+.drawerHead>.drawerHeadAction {grid-column:-2 / -1;grid-row:1;justify-self:start;align-self:center;display:flex}
+.compareToggle {display:grid;place-items:center;width:30px;height:30px;padding:0;border:1px solid var(--ranking-line);border-radius:8px;background:transparent;color:var(--ranking-dim);cursor:pointer}
+.compareToggle svg {width:14px;height:14px;fill:none;stroke:currentColor;stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.compareToggle:hover {border-color:rgba(96,165,250,.5);color:#93c5fd}
+.compareToggle[aria-pressed="true"] {border-color:rgba(96,165,250,.6);background:rgba(96,165,250,.14);color:#93c5fd}
+.compareToggle:focus-visible {outline:2px solid #3b82f6;outline-offset:2px}
+.drawerCell>.compareBar {padding-right:44px}
+
+@media (max-width:560px) {
+  .slotCard {grid-template-columns:32px minmax(0,1fr);gap:8px 12px;padding:12px}
+  .slotCard>.gearIconWrap {grid-column:1;grid-row:1 / span 2}
+  .slotCard>.gearIconWrap .gearIcon {width:32px;height:32px}
+  .slotCard>span {grid-column:2;grid-row:1}
+  .slotCard>.score {grid-column:2;grid-row:2;min-width:0}
+  .drawerHead>.statTotals>span:first-child {flex-basis:100%;margin-right:0}
+}

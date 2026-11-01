@@ -1,0 +1,29 @@
+{
+  "_note": "Editorial translations of the two hand-added index-0 mechanic lines that have no game string (the game's Boss_hum_<n>_<k>_des keys start at 2). `{name}` is replaced with the boss name of the same culture. Everything else comes from the game's own localization (scripts/lib/fce-localization.cjs).",
+  "nan-yin": {
+    "0": {
+      "de": "Hat 50 % Basis-Schadensreduktion. Nach 5 Paraden wird sie für 1 Min. deaktiviert.",
+      "es": "Tiene una reducción de DAÑO base del 50 %. Tras realizar 5 paradas, se desactiva durante 1 min.",
+      "fr": "Possède 50 % de réduction de DGT de base. Après 5 parades, elle est désactivée pendant 1 min.",
+      "id": "Memiliki pengurangan DMG dasar 50%. Setelah melakukan 5 parry, efek ini dinonaktifkan selama 1 menit.",
+      "ja": "基礎ダメージ軽減50%を持つ。パリィを5回成功させると、1分間無効になる。",
+      "ko": "기본 피해 감소 50%를 가진다. 패링을 5회 성공시키면 1분간 비활성화된다.",
+      "pt": "Possui 50% de redução de DANO base. Após realizar 5 aparos, ela é desativada por 1 min.",
+      "th": "มีการลดความเสียหายพื้นฐาน 50% เมื่อป้องกันสวนสำเร็จ 5 ครั้ง จะปิดใช้งานเป็นเวลา 1 นาที",
+      "zh-CN": "自带50%基础减伤。完成5次招架后，减伤失效1分钟。"
+    }
+  },
+  "gu-chen": {
+    "0": {
+      "de": "Nach einem erfolgreichen Phantasia-Konter verliert {name} 9 % der maximalen LP.",
+      "es": "Tras un contraataque de Phantasia exitoso, {name} pierde el 9 % de sus PV máx.",
+      "fr": "Après une contre-attaque Phantasia réussie, {name} perd 9 % de ses PV max.",
+      "id": "Setelah counter Phantasia berhasil, {name} kehilangan 9% HP maks.",
+      "ja": "ファンタジアのカウンターが成功すると、{name}は最大HPの9%を失う。",
+      "ko": "환상 반격에 성공하면 {name}의 최대 HP가 9% 감소한다.",
+      "pt": "Após um contra-ataque de Phantasia bem-sucedido, {name} perde 9% do PV máx.",
+      "th": "หลังจากสวนกลับด้วยแฟนตาเซียสำเร็จ {name} จะสูญเสีย HP สูงสุด 9%",
+      "zh-CN": "成功触发幻象反击后，{name}损失9%最大生命值。"
+    }
+  }
+}

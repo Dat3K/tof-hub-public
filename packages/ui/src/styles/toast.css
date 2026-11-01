@@ -1,0 +1,50 @@
+.tof-toast-viewport {
+  position: fixed;
+  right: calc(16px + env(safe-area-inset-right));
+  top: calc(16px + env(safe-area-inset-top));
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: min(440px, calc(100vw - 32px));
+  max-height: 70dvh;
+  overflow-y: auto;
+  pointer-events: none;
+}
+.tof-toast {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  /* Every notification has the same bluish frame; the tone changes only the text colour. */
+  border: 1px solid color-mix(in srgb, var(--tool-input-focus, #38bdf8) 55%, transparent);
+  border-radius: 6px;
+  background: var(--surface-raised, #16181f);
+  color: #dce7f2;
+  box-shadow: 0 4px 20px #0006;
+  font-size: 13px;
+  line-height: 1.5;
+  pointer-events: auto;
+  animation: tof-toast-enter 150ms ease-out;
+}
+.tof-toast[data-tone="error"] {color: #fca5a5}
+.tof-toast-message {flex: 1;min-width: 0;overflow-wrap: anywhere}
+.tof-toast-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 28px;
+  height: 28px;
+  margin: -3px -5px 0 0;
+  border: 0;
+  border-radius: 4px;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+}
+.tof-toast-close:hover {background: var(--surface-hover, #ffffff0a)}
+.tof-toast-close:focus-visible {outline: 2px solid var(--tool-input-focus, #38bdf8);outline-offset: 2px}
+.tof-toast-close svg {width: 16px;height: 16px;fill: none;stroke: currentColor;stroke-width: 1.5;stroke-linecap: round}
+@keyframes tof-toast-enter {from {opacity: 0;translate: 0 -6px} to {opacity: 1;translate: 0 0}}
+@media(prefers-reduced-motion: reduce) {.tof-toast {animation: none}}

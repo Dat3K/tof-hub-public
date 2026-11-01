@@ -1,0 +1,298 @@
+/* Optimizer (2026-10-09): two boards in the Build card's visual language (shared --build-card-* tokens, Build's
+   sectionTitle / buildTitle / DemoCallToAction), the comparison dialog in the shared table modal. */
+.page {max-width:1440px;margin:0 auto;padding:20px 24px 72px;color:var(--color-text-primary,#dfe5f0);font-size:13px;--opt-dim:var(--build-card-meta);--opt-good:#86dfb1;--opt-red:#f08489;--opt-gold:var(--dm-gold,#f5d97a)}
+.page button:focus-visible,.page summary:focus-visible {outline:2px solid var(--tool-input-focus,#2ba6df);outline-offset:3px}
+.page select,.comparison select {min-height:32px;max-width:100%;padding:4px 8px;border:1px solid var(--surface-border-strong);border-radius:5px;background:var(--surface-inset);color:inherit;font-size:12px;outline-color:var(--tool-input-focus,#2ba6df)}
+.notice {padding:12px 16px;margin:0 0 12px;background:var(--surface-panel);border:1px solid var(--surface-border-strong);border-radius:5px;line-height:1.5}
+.notice[data-error] {color:var(--opt-red)}
+
+/* Board: the neutral site palette of the other Tools pages (user, 2026-10-09); Build card typography stays. */
+.board {position:relative;padding:14px 24px 20px;background:var(--surface-panel);border:1px solid var(--surface-border);border-radius:6px;color:#edf2f8}
+.board+.board {margin-top:16px}
+.boardHeader {display:flex;align-items:center;gap:12px 24px;flex-wrap:wrap;padding-bottom:12px;border-bottom:1px solid var(--surface-border);z-index:2}
+.identity {min-width:0}
+.profileText {display:grid;gap:4px;min-width:0}
+.profileTop,.profileBottom {display:flex;align-items:center;flex-wrap:wrap;gap:4px 16px;min-width:0}
+.profileBottom {align-items:baseline;justify-content:space-between}
+.suppressorIcon {display:block;width:60px;height:32px;object-fit:contain}
+.affiliations {display:flex;align-items:center;flex-wrap:wrap;gap:4px 18px;margin-left:8px;font-size:13px;line-height:17px}
+.affiliations>span {display:flex;align-items:baseline;gap:5px;min-width:0;padding-left:10px;border-left:1px solid #ffffff24}
+.affiliations small {font-size:inherit;color:#aebcca;flex-shrink:0}
+.affiliations b {font-weight:500;color:#edf2f8;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:160px}
+.profileCs {display:flex;gap:16px;font-size:13px;line-height:17px;color:#b7c6d4;white-space:nowrap;font-variant-numeric:tabular-nums}
+.profileCs b {color:#edf2f8;font-weight:600;margin-left:4px}
+.profileAug {margin-left:16px}
+.player {line-height:1.15;overflow-wrap:anywhere}
+.headerCenter {flex:1 1 320px;display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:6px 14px;min-width:0}
+.headerStatus {font-size:12px;color:var(--build-card-meta)}
+.profileSummary {display:grid;min-width:210px;margin:0;padding:3px 10px;border:1px solid var(--surface-border);border-radius:5px;background:var(--surface-panel-header);font-size:12px;color:var(--build-card-meta)}
+.profileSummary>div {display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:center;gap:14px;padding:4px 0}
+.profileSummary>div+div {border-top:1px solid var(--surface-border)}
+.profileSummary dt {font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.profileSummary dd {margin:0;color:var(--color-text-primary);font-size:12px;font-weight:650;font-variant-numeric:tabular-nums;text-align:right}
+.headerRight {margin-left:auto;display:grid;justify-items:end;gap:8px}
+.headerMeta {gap:16px;margin:0}
+.headerMeta small {white-space:nowrap}
+
+/* Combat stats (the Build card's COMBAT STATS) and weights. */
+.overview {display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:20px;padding-top:16px;align-items:start}
+.column {min-width:0}
+.ratingTables {display:grid;grid-template-columns:minmax(0,1fr)}
+.ratingTablePanel {grid-area:1 / 1;min-width:0}
+.ratingTablePanel[data-active=false] {visibility:hidden;pointer-events:none}
+.ratingTables>.supportImpact {grid-area:2 / 1}
+.impactPanel {display:flex;flex-direction:column}
+.impactPanel>.statsScroll {flex:1;display:flex}
+.impactTable {min-width:400px;height:100%}
+.impactReference {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:4px 12px;padding:9px 12px;font-size:11px;color:var(--opt-dim);border-bottom:1px solid var(--surface-border);background:var(--surface-panel-header)}
+.impactReference strong {color:var(--opt-gold);font-weight:550;font-variant-numeric:tabular-nums}
+.impactStat {display:inline-flex;align-items:center;gap:6px}
+.impactHelp {cursor:help;text-decoration:underline dotted;text-underline-offset:3px}
+.impactHelp:focus-visible {outline:2px solid var(--tool-input-focus,#2ba6df);outline-offset:3px}
+.impactValue {position:relative;display:inline-flex;align-items:center;justify-content:center;max-width:100%;color:var(--opt-dim)}
+.impactValue>span {position:absolute;left:calc(100% + 3px)}
+.impactValue .impactInput {min-width:5.5ch;min-height:22px;text-align:center;color:var(--color-text-primary)}
+.impactInput:hover {border-color:var(--tool-input-focus,#2ba6df)}
+.impactInput:focus-visible {outline:2px solid var(--tool-input-focus,#2ba6df);outline-offset:2px}
+.impactInput {box-sizing:content-box;max-width:calc(100% - 10px);min-height:20px;padding:2px 6px;border:1px solid var(--surface-border);border-radius:3px;background:var(--surface-panel-header)}
+.supportImpact {display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;padding:7px 10px;border:1px solid var(--surface-border);border-radius:6px;font-size:11px;background:var(--surface-panel-header)}
+.supportImpact>div {display:flex;align-items:center;flex-wrap:wrap;gap:3px 8px;min-width:0;color:var(--opt-dim)}
+.supportImpact>div>span {white-space:nowrap}
+.supportImpact strong {color:var(--color-text-primary);font-size:12px}
+.supportImpact>b {flex:none;display:flex;align-items:baseline;justify-content:flex-end;gap:10px;color:var(--opt-gold);font-size:16px;font-variant-numeric:tabular-nums}
+.supportImpact>b>small {font-size:10px;font-weight:600;text-transform:uppercase;color:var(--opt-dim)}
+.supportImpact>b[data-better=atk]>small {color:#4ade80}
+.supportImpact>b[data-better=dmg]>small {color:#f87171}
+.equipmentLegend {display:grid;gap:8px;list-style:none;margin:14px 0 0;padding:0;font-size:12px;line-height:1.5;color:var(--opt-dim)}
+.equipmentLegend li {display:flex;align-items:flex-start;gap:8px;--legend-color:var(--opt-gold)}
+.equipmentLegend li[data-tone=upgrade] {--legend-color:var(--opt-red)}
+.equipmentLegend li>span {flex:none;width:12px;height:12px;margin-top:3px;border:2px solid var(--legend-color);border-radius:2px}
+.equipmentLegend strong {color:var(--legend-color);font-weight:600}
+.panel {min-width:0;overflow:hidden;background:var(--surface-panel-header);border:1px solid var(--surface-border);border-radius:6px}
+.combat {padding:14px 15px 6px}
+/* Game display icons are dark glyphs: tinted white like the Build card stat icons. */
+.statIcon {display:inline-block;width:14px;height:14px;object-fit:contain;flex:none;vertical-align:-2px;filter:brightness(0) invert(1);opacity:.78}
+.healthRow,.critRow {display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 12px;font-size:12px}
+.healthRow {padding-bottom:10px;border-bottom:1px solid var(--surface-border)}
+.healthRow>div,.critRow>div {display:flex;align-items:baseline;gap:6px}
+/* Plain inline labels: an inline-flex label would take its baseline from the icon, dropping the value beside it. */
+.healthRow>div>span,.critRow>div>span {color:#c4d0db;white-space:nowrap}
+.healthRow>div>span .statIcon,.critRow>div>span .statIcon {margin-right:5px}
+.healthRow b,.critRow b {font-weight:650;font-variant-numeric:tabular-nums}
+.critRow {padding:10px 0;border-bottom:1px solid var(--surface-border)}
+.critRow small {color:var(--build-card-meta);font-size:11px;font-variant-numeric:tabular-nums}
+.critRow strong {color:#a4dcf7;font-size:15px;font-weight:700;font-variant-numeric:tabular-nums}
+.editableValue {cursor:pointer;text-decoration:underline dotted;text-underline-offset:4px;text-decoration-color:var(--opt-dim)}
+.editableValue:hover {color:var(--tool-input-focus)}.editableValue:focus-visible {outline:2px solid var(--tool-input-focus);outline-offset:3px;border-radius:2px}
+.editableValue[data-needs-input] {display:inline-block;min-width:24px;padding:2px 5px;border:1px solid color-mix(in srgb,var(--opt-red) 45%,var(--surface-border));border-radius:3px;background:color-mix(in srgb,var(--opt-red) 5%,transparent);text-decoration:none;text-align:center}
+.gearCell[data-needs-input] {border-color:color-mix(in srgb,var(--opt-red) 45%,var(--surface-border))}
+.statsScroll {position:relative;min-width:0;overflow-x:auto}
+.statsGroup {padding-top:10px}
+.statsGroup+.statsGroup {margin-top:8px;border-top:1px solid var(--surface-border)}
+.statsGroupTitle {margin:0 0 5px;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--build-card-label)}
+.statsTable {width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+.statsTable col {width:18%}
+.statsTable col:first-child {width:20%}
+.statsTable col:nth-child(3) {width:26%}
+.statsTable th,.statsTable td {padding:7px 5px;text-align:center;white-space:nowrap}
+.statsTable th:first-child {padding-left:6px;text-align:left}
+.statsTable thead th {font-size:10px;font-weight:550;letter-spacing:.8px;text-transform:uppercase;color:var(--opt-dim);border-bottom:1px solid #ffffff10;white-space:normal;line-height:1.35}
+.statsTable thead th .statIcon {width:12px;height:12px;margin-right:4px;opacity:.8}
+.statsTable tbody th {font-weight:500}
+.statsTable tbody tr>* {border-bottom:1px solid var(--surface-border)}
+.statsTable tbody tr[data-selected] {background:var(--surface-panel-header)}
+.statsTable [data-used],.statsTable td[data-counted] {color:var(--element-color,var(--opt-gold));font-weight:600}
+.panelSubhead {margin:14px 0 4px;padding-top:12px;border-top:1px solid var(--surface-border);font-size:11px;font-weight:550;letter-spacing:1.2px;text-transform:uppercase;color:var(--build-card-label)}
+.statsTable tbody tr:last-child>* {border-bottom:0}
+.elementName {display:inline-flex;align-items:center;gap:7px}.elementName img {width:16px;height:16px;object-fit:contain}
+.attackSum {display:flex;flex-wrap:wrap;align-items:baseline;justify-content:center;gap:0 5px;font-variant-numeric:tabular-nums}
+.attackSum>span {font-size:11px}
+.attackSum strong {font-weight:600}
+.finalAttack small {display:block;font-weight:400;font-size:10px;line-height:1.3;white-space:normal;color:var(--opt-dim);margin-top:2px}
+.panelNote {font-size:11px;line-height:1.6;color:var(--opt-dim);margin:0;padding:10px 14px}
+.combat .panelNote {padding:6px 0 4px}
+
+/* Gear cells: the Build card equipment cell (with rolls), four per row like the card. */
+.equipment {padding-top:14px}
+.gearGrid,.inventoryGrid {display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:8px 10px}
+.inventoryGrid {margin:0;padding:0;list-style:none}
+.inventoryGrid>li {display:flex;min-width:0}
+/* A piece with a Titan forecast shows its two states side by side. */
+.inventoryArea {container-type:inline-size}
+.inventoryGrid>li[data-pair] {grid-column:span 2}
+.gearCell {container:optimizer-gear / inline-size;display:flex;flex-direction:column;flex:1;min-width:0;padding:8px 11px 9px;background:var(--surface-panel-header);border:1px solid var(--surface-border);border-radius:6px;font-size:11px;font-variant-numeric:tabular-nums}
+.gearCell[data-flat] {padding:0;background:none;border:0;border-radius:0}
+.gearCell[data-tone=upgrade] {border-color:color-mix(in srgb,var(--opt-red) 45%,var(--surface-border))}
+.gearCell[data-tone=reroll] {border-color:color-mix(in srgb,var(--opt-gold) 45%,var(--surface-border))}
+.pairCard[data-tone=whatif] {border:2px dashed var(--tool-input-focus)}
+/* The equipment cell keeps its 1px border box (a 2px border made a Try-on cell taller than its row); the second pixel is an inset shadow. */
+.gearCell[data-tone=whatif] {border:1px dashed var(--tool-input-focus);box-shadow:inset 0 0 0 1px var(--tool-input-focus)}
+.whatIfRibbon {display:flex;align-items:center;justify-content:space-between;gap:6px;margin:0 0 5px;font-size:10px;line-height:1.4;color:var(--tool-input-focus)}
+.whatIfRibbon button {flex:none;min-height:24px;padding:1px 6px;color:inherit}
+/* A Try-on cell keeps the height of its neighbours: the status label sits on the top border instead of adding a row. */
+.gearCell {position:relative}
+.gearCell>.whatIfRibbon {position:absolute;top:-9px;right:10px;z-index:1;margin:0;width:max-content;padding:0 6px;border-radius:4px;background:var(--surface-panel-header)}
+.gearCell>.whatIfRibbon button {min-height:16px;padding:0 4px;line-height:1}
+.whatIfDelta {color:var(--tool-input-focus);font-size:10px;font-weight:500;line-height:1.4;font-variant-numeric:tabular-nums}
+.equipmentRating>.whatIfMeta {display:flex;align-items:center;justify-content:space-between;gap:4px;flex:0 0 280px;min-height:32px;text-transform:none}
+.whatIfMeta button {min-height:28px;font-size:10px;padding:4px 6px}
+.whatIfMeta[data-temporary] {color:var(--tool-input-focus)}
+.equipmentTotal {position:relative;top:6px;min-height:40px;padding-bottom:14px}
+.equipmentTotal>.whatIfDelta {position:absolute;right:0;bottom:0;white-space:nowrap}
+/* Output delta of the temporary build: its own block to the left of the PRV figures, not over them. */
+.totalDelta {display:inline-flex;align-items:baseline;gap:5px;margin-right:6px;padding-right:12px;border-right:1px solid var(--surface-border);font-size:12px;font-weight:600;color:var(--opt-dim);white-space:nowrap;font-variant-numeric:tabular-nums}
+.totalDelta .gain {font-size:14px}
+.gearCaption {margin:0 0 6px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--opt-gold)}
+.gearCaption[data-tone=now] {color:#a4dcf7}
+.gearCaption[data-tone=reference] {color:var(--opt-dim)}
+.gearCaption[data-current]::before {content:'\25CF  '}
+.gearHead {display:flex;align-items:center;gap:8px;margin-bottom:6px;padding-bottom:6px;border-bottom:1px solid #ffffff14}
+.gearIcon {width:35px;height:35px;object-fit:contain;flex:none}
+.gearName {min-width:0;flex:1}
+.gearName>div {display:flex;align-items:baseline;gap:4px;min-width:0}
+.gearName b {overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:600}
+.gearName small {flex:none;color:#a6b6c6;font-size:10px}
+.gearName>span {display:block;margin-top:1px;color:#d8b979;font-size:10px;white-space:nowrap}
+.gearName>span[data-stage=augmented] {color:var(--color-accent,#2ba6df)}.gearName>span[data-stage=normal] {color:#a6b6c6}
+.equipmentHeading {display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px 16px;margin-bottom:9px}
+.equipmentHeading h2 {margin:0}
+.equipmentRating {display:flex;align-items:center;justify-content:flex-end;flex-wrap:wrap;gap:12px;margin-left:auto}
+.equipmentRating[data-align=start] {justify-content:flex-start;margin-left:0}
+.equipmentRating > small {font-size:11px;color:var(--opt-dim);text-transform:uppercase}
+.slotCount {color:#fff;font-weight:700}
+.addGear {flex:none;box-shadow:0 0 0 1px color-mix(in srgb,var(--opt-gold) 55%,transparent)}
+.manualActions {display:flex;justify-content:flex-end;gap:8px;margin-top:14px;padding-top:12px;border-top:1px solid var(--surface-border)}
+.targetLink {color:inherit;text-decoration:underline;text-decoration-style:dotted;text-underline-offset:3px;cursor:help}
+.targetLink:hover,.targetLink:focus-visible {color:var(--opt-gold)}
+.titanTarget {border-radius:4px;transition:box-shadow .15s,background-color .15s}
+.titanTarget[data-hint] {background:#f5d97a24;box-shadow:0 0 0 2px var(--opt-gold)}
+.gearScore {flex:none;margin-left:auto;display:grid;justify-items:end;gap:1px;font-size:12px;font-weight:700;white-space:nowrap}
+.gearScore small {font-size:9px;font-weight:600}
+.gearStatSummary {display:flex;align-items:center;flex-wrap:wrap;gap:4px;padding:6px 0;border-top:1px solid var(--surface-border)}
+.gearQuality {font-size:11px;font-weight:600;color:var(--rv-color)}
+.gearScore .gain {font-size:11px}
+.gearEmpty {margin:6px 0;color:var(--opt-dim)}
+.gearEdit {display:inline-flex;align-items:center;justify-content:center;flex:none;width:26px;height:26px;padding:4px;border:0;border-radius:4px;background:transparent;color:var(--opt-dim);cursor:pointer}.gearEdit:hover {background:#ffffff10;color:var(--tool-input-focus)}
+.cellAction {margin-top:auto;display:flex;justify-content:space-between;align-items:center;gap:6px;min-height:30px;padding:8px 0 0;border:0;border-top:1px solid #ffffff14;background:transparent;color:var(--opt-red);font-size:11px;font-weight:600;cursor:pointer}
+/* Space above the bottom action, whatever precedes it. */
+.gearCell>:nth-last-child(2) {margin-bottom:8px}
+.gearCell[data-density=compact] {padding:6px 10px 7px}
+.gearCell[data-density=compact] .gearHead {gap:6px;margin-bottom:4px;padding-bottom:4px}
+.gearCell[data-density=compact] .gearIcon {width:32px;height:32px}
+.gearCell[data-density=compact] .gearName b {font-size:12px}
+.gearCell[data-density=compact] .cellAction {min-height:24px;padding-top:6px;font-size:10px}
+.gearCell[data-density=compact]>:nth-last-child(2) {margin-bottom:6px}
+.cellAction:disabled {color:var(--opt-dim);cursor:default}
+.cellAction[data-info] {color:var(--opt-dim);cursor:pointer}
+.cellAction[data-info]:hover:not(:disabled) {color:var(--color-text-primary)}
+.gearCell[data-tone=reroll] .cellAction {color:var(--opt-gold)}
+.cellAction svg {width:14px;height:14px}
+.gain {font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:700;color:var(--color-text-secondary,#a8b3c4)}.gain[data-positive] {color:var(--opt-good)}.gain[data-negative] {color:var(--opt-red)}
+.pairCard {display:flex;flex-direction:column;flex:1;min-width:0;padding:8px 11px 9px;background:var(--surface-panel-header);border:1px solid var(--surface-border);border-radius:6px}
+.pairCard[data-tone=better] {border-color:rgba(134,223,177,.45)}
+.pairHalves {display:grid;grid-auto-flow:column;grid-auto-columns:minmax(0,1fr);gap:0 20px;flex:1}
+.pairHalves>section+section {position:relative}
+.pairHalves>section+section::before {content:'';position:absolute;left:-10px;top:0;bottom:0;border-left:1px dashed #ffffff1f}
+.pairHalves>section>:last-child {margin-bottom:0}
+/* Both halves stretch to the taller one; the chip rows sit on the same baseline at the bottom. */
+.pairHalves>section {display:flex;flex-direction:column}
+.pairHalves>section>.gearStatSummary {margin-top:auto}
+/* Halves are padded with empty rows to the same count (GearStatPreview pad), so rows stay on one baseline. */
+.formulaStack {display:grid;gap:12px}
+.pairFoot {display:flex;align-items:center;gap:6px 16px;flex-wrap:wrap;margin-top:8px;padding-top:6px;border-top:1px solid #ffffff14;font-size:11px;color:var(--opt-dim)}
+.pairFoot .cellAction {margin:0 0 0 auto;padding:0;min-height:26px;border:0;color:#a4dcf7}
+.pairFoot .cellAction:hover {color:#edf2f8}
+/* The pair's own container: the gear cells are containers too, so an unnamed query would measure the cell instead. */
+.inventoryGrid>li[data-pair] {container:optimizer-pair / inline-size}
+@container (max-width:600px) {
+  .inventoryGrid>li[data-pair] {grid-column:auto}
+}
+@container (min-width:900px) {
+  .inventoryGrid>li[data-pair-columns="3"] {grid-column:span 3}
+}
+@container optimizer-pair (max-width:600px) {
+  .pairHalves {grid-auto-flow:row;gap:10px 0}
+  .pairHalves>section+section {padding-top:10px}
+  .pairHalves>section+section::before {left:0;right:0;bottom:auto;border-left:0;border-top:1px dashed #ffffff1f}
+}
+
+/* Inventory controls. */
+.inventoryControls {display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;margin-bottom:12px}
+.inventorySearch {flex:1 1 220px;min-width:0}
+.slotRow {flex-basis:100%;order:1;min-width:0}
+.inventoryMore {display:flex;justify-content:center;margin-top:12px}
+.empty {margin:0;padding:18px;color:var(--opt-dim);background:var(--surface-panel-header);border:1px solid var(--surface-border);border-radius:6px;line-height:1.6}
+
+/* Comparison dialog and formulas (shared table modal). */
+.method {color:var(--color-text-secondary);margin:12px 0 20px;font-size:12px;line-height:1.6}.method p {max-width:1000px;margin:8px 0}
+.comparison {--opt-dim:var(--color-text-secondary,#93a1b6);--opt-good:#86dfb1;--opt-red:#f08489;display:grid;gap:16px;color:var(--color-text-primary,#dfe5f0);font-size:13px;min-width:0}
+.compareLead {display:flex;align-items:center;gap:12px}
+.compareLead p {font-size:12px;color:var(--opt-dim);margin:3px 0 0}
+/* Header: title and piece on the left; scenario, headline gain and close on the right; wraps on narrow screens. */
+.compareHeader {flex-wrap:wrap;gap:10px 16px;padding-top:12px;padding-bottom:12px}
+.compareHeader>div:first-child {flex:1 1 260px}
+.compareHeader>div:last-child {flex-wrap:wrap;justify-content:flex-end;flex-shrink:1;min-width:0;max-width:100%;margin-left:auto}
+.comparisonResult {text-align:right;flex-shrink:0;width:110px;line-height:1.1}.comparisonResult small {display:block;font-size:10px;color:var(--opt-dim);margin-bottom:2px}.comparisonResult .gain {font-size:19px}
+.scenario {display:flex;flex-wrap:wrap;gap:8px}
+/* Comparison cells: the board's gear cells in the dialog; the active scenario is framed. */
+.compareCells {display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px;align-items:stretch}
+.compareCells>div {display:flex;min-width:0;border-radius:7px}
+.compareCells>div[data-active] {box-shadow:0 0 0 1px rgba(245,217,122,.4)}
+.compareCells .gearCell {font-size:11px}
+/* Equal-height cells: the stat list absorbs the difference, so the Aug/effect row and the chips share one line across columns. */
+.compareCells .gearCell>ul {flex:1 1 auto;align-content:start}
+/* Comparison panels: one framed surface each, so stats, combinations and weights do not blend into the dialog. */
+.factorSection,.pairOptions,.compareDetails {padding:12px 14px;border:1px solid var(--surface-border-strong,var(--surface-border));border-radius:7px;background:var(--surface-panel-header);--panel-accent:var(--opt-gold)}
+.pairOptions {--panel-accent:var(--opt-red)}
+/* Stats and Titan combinations side by side: closer columns and no dialog scrolling on desktop. */
+.comparePanels {display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);gap:12px;align-items:start}
+.comparePanels>:only-child {grid-column:1/-1}
+.comparePanels .pairOptions ul {grid-template-columns:1fr}
+@media (max-width:900px) {.comparePanels {grid-template-columns:1fr}}
+.compareDetails {--panel-accent:var(--opt-dim);padding:10px 14px}
+.factorSection h3,.pairOptions h3 {display:flex;align-items:center;gap:8px;margin:0 0 10px;padding-bottom:8px;border-bottom:1px solid var(--surface-border);font-size:12px;font-weight:650}
+.factorSection h3::before,.pairOptions h3::before {content:'';flex:none;width:3px;height:14px;border-radius:2px;background:var(--panel-accent)}
+.compareDetails summary {cursor:pointer;font-size:12px;font-weight:600;color:var(--color-text-secondary,var(--opt-dim))}
+.compareDetails summary:hover {color:var(--color-text-primary)}
+.compareDetails[open] summary {margin-bottom:10px}
+.comparisonMethod {display:grid;gap:10px;min-width:0}
+.comparisonMethod p {margin:0;color:var(--color-text-secondary);line-height:1.55}
+.comparisonMethod>code {overflow-wrap:anywhere;white-space:normal}
+.pairOptions ul {display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:6px;margin:0;padding:0;list-style:none}
+.pairOptions button {display:flex;align-items:center;gap:6px 14px;flex-wrap:wrap;width:100%;padding:8px 10px;border:1px solid var(--surface-border-strong,var(--surface-border));border-radius:5px;background:var(--surface-inset);color:inherit;font-size:11px;text-align:left;cursor:pointer}
+.pairOptions button:hover:not(:disabled) {border-color:var(--opt-gold)}
+.pairOptions button:disabled {cursor:default}
+.pairOptions>.note {margin-bottom:8px}
+.pairOptions button>span {display:inline-flex;align-items:center;gap:5px;color:#ff858b}
+.pairOptions button>span img {width:13px;height:13px;filter:brightness(0) invert(1);opacity:.8}
+.pairOptions button>span b {color:var(--color-text-primary);font-weight:600}
+.pairOptions button>.gain {margin-left:auto}
+.factors {display:flex;flex-wrap:wrap;gap:10px 20px}.profileTable {width:100%;table-layout:fixed;border-collapse:collapse;font-size:12px;font-variant-numeric:tabular-nums}
+.profileTable th,.profileTable td {padding:5px 10px;text-align:right;white-space:nowrap;border-bottom:1px solid var(--surface-border)}
+.profileTable th:first-child {padding-left:0;text-align:left;font-weight:500}
+.profileTable tbody th .statIcon {margin-right:6px}
+.profileTable thead th {height:32px;box-sizing:border-box;white-space:normal;font-size:10px;font-weight:550;letter-spacing:.6px;text-transform:uppercase;color:var(--opt-dim)}
+.profileTable td[data-sign=up] {color:var(--opt-good);font-weight:650}.profileTable td[data-sign=down] {color:var(--opt-red);font-weight:650}
+.profileTotal>* {border-bottom:0}.factors span {color:var(--opt-dim)}
+.note {margin:0;color:var(--opt-dim);font-size:12px;line-height:1.6}
+
+/* The canonical ToolRail is fixed to the right edge. */
+@media(max-width:1560px) {.page {padding-right:80px}}
+@media(max-width:1180px) {.overview {grid-template-columns:1fr}}
+@media(max-width:760px) {
+  .page {padding:16px 62px 50px 16px}
+  .board {padding:12px 12px 16px}
+  .headerRight {margin-left:0;justify-items:start;width:100%}
+  .headerCenter {justify-content:flex-start}
+  .profileSummary,.profileSummary .profileScan {justify-content:flex-start}
+  .statsTable {min-width:420px}
+  .comparisonResult .gain {font-size:19px}
+}
+@media(max-width:540px) {
+  .gearGrid,.inventoryGrid {grid-template-columns:1fr}
+  .headerMeta {flex-wrap:wrap;gap:6px 14px}
+  /* Phones: the equipped piece and the selected scenario only. */
+  .compareCells {grid-template-columns:1fr}
+  .compareCells>[data-cell] {grid-area:2 / 1}
+  .compareCells[data-scenario=now]>[data-cell=forecast],.compareCells[data-scenario=forecast]>[data-cell=now] {visibility:hidden;pointer-events:none}
+}

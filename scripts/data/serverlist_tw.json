@@ -1,0 +1,16 @@
+{
+  "source": "Ids: 7-digit server ids before the `uid` field of Taiwan profile packets (TCP opcode 1116), dev capture 2026-10-09 (Taiwan Live Release client). Names: HottaLaunch/UserData/Log/WmgpMobileGame.log `serverId` entries of 2026-10-09 matched with the character marks on the server-select cards (screenshots); the log's `serverName` is empty. Not an official list.",
+  "servers": {
+    "1150001": { "name": "北部環山", "tab": "星島", "verified": "SDK serverId 07:39–07:53 + server card" },
+    "1150002": { "name": "荒鄰鎮", "tab": "星島", "verified": "SDK serverId + server card" },
+    "1150003": { "name": "回音環", "tab": "星島", "verified": "SDK serverId + server card" },
+    "1150006": { "name": "羅恩碼頭", "tab": "班吉斯", "verified": "SDK serverId + server card" },
+    "1150007": { "name": "塔格士山脈", "tab": "班吉斯", "verified": "SDK serverId 07:47–07:51 + server card" },
+    "1150008": { "name": "安格聚落", "tab": "班吉斯", "verified": "SDK serverId + server card" },
+    "1150013": { "name": "時空折躍", "tab": "躍遷服", "region": "Warp Server", "verified": "inferred 2026-10-23: owner's Taiwan Warp character shows UID 11500136508 (screenshot); split as 1150013 + unpadded 6508 like Warp UID 888800113 = 8888001 + 13; name and tab from visibleWithoutId. Confirm with a capture roleId >> 32" }
+  },
+  "visibleWithoutId": [
+    { "name": "時空折躍", "tab": "躍遷服", "note": "warp group; no serverId entry in the SDK log; id 1150013 inferred from a UID (servers)" }
+  ],
+  "notObserved": ["1150004", "1150005"]
+}

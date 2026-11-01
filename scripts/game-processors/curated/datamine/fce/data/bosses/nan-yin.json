@@ -1,0 +1,60 @@
+{
+  "slug": "nan-yin",
+  "order": 18,
+  "boss_id": "boss_hum_062",
+  "name_color": "#5f8dff",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.webp",
+  "art_object_position": "center center",
+  "source_psd": "screenshot-crop",
+  "en": {
+    "name": "Nan Yin",
+    "mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">Has base DMG Reduction 50%. After performing 5 parries, disables it for 1 min.</span>"
+      },
+      {
+        "index": "1",
+        "html": "Nan Yin&#x27;s ATK increases over time. Successful counterattacks from enemies remove the ATK increased."
+      },
+      {
+        "index": "2",
+        "html": "Nan Yin stuns the selected target for 2 seconds every 5 seconds, ineffective against targets with Fortitude. <span class=\"fce-card__text-accent\">selected = aggro</span>"
+      },
+      {
+        "index": "3",
+        "html": "Nan Yin gains additional Damage Reduction, but loses a large amount of HP if shattered. <span class=\"fce-card__text-accent\">Additional 40% DMG Reduction. When 5 parries are performed, she loses 20% of Max HP.</span>"
+      },
+      {
+        "index": "4",
+        "html": "Nan Yin negates the target&#x27;s hyperbody for 10 seconds upon hit. <span class=\"fce-card__text-accent\">Removes hyperbody once upon hit, not continuously for 10s.</span>"
+      }
+    ]
+  },
+  "ru": {
+    "name": "Нань Инь",
+    "mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">Базовое снижение урона 50%. После 5 успешных парирований отключается на 1 минуту.</span>"
+      },
+      {
+        "index": "1",
+        "html": "ATK Нань Инь со временем увеличивается. Успешные контратаки врагов снимают это увеличение."
+      },
+      {
+        "index": "2",
+        "html": "Нань Инь оглушает выбранную цель на 2 секунды каждые 5 секунд; не действует на цели с Fortitude. <span class=\"fce-card__text-accent\">selected = aggro</span>"
+      },
+      {
+        "index": "3",
+        "html": "Нань Инь получает дополнительное снижение урона, но теряет много HP при shatter. <span class=\"fce-card__text-accent\">Дополнительное снижение урона 40%. После 5 парирований теряет 20% Max HP.</span>"
+      },
+      {
+        "index": "4",
+        "html": "При попадании Нань Инь отключает hyperbody цели на 10 секунд. <span class=\"fce-card__text-accent\">Снимает один раз, а не на все 10 секунд.</span>"
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_062.webp"
+}

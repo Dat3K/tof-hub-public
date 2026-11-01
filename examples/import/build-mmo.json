@@ -1,0 +1,1438 @@
+{
+  "format": "tof-hub-build-capture",
+  "schemaVersion": 2,
+  "capture": {
+    "mode": "self",
+    "capturedAt": "2026-10-23T11:02:27.390Z",
+    "policy": "first-received",
+    "exporterVersion": "2.0.0",
+    "subject": {
+      "uid": "11500131000001",
+      "roleId": "4939268224974849"
+    }
+  },
+  "availability": {
+    "name": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "uid": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "level": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "avatar": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "frame": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "guild": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "title": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "signature": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:23:22.650Z"
+    },
+    "suppressor": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "cs": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "maxCs": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "maxCsTime": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.712Z"
+    },
+    "hp": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "energy": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "crit": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "critDamage": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "critRates": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "attack": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "defense": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "attackBase": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "weaponLoadout": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "elementNora": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "elementLana": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "elementVoidpiercer": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "fionaSkills": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.522Z"
+    },
+    "otherWeaponSkills": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.522Z"
+    },
+    "nanYinMark": {
+      "state": "waiting",
+      "observedAt": null
+    },
+    "gearLoadout": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "equippedMatrices": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "petRecord": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "petStats": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "computingNodes": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.813Z"
+    },
+    "supportMap": {
+      "state": "waiting",
+      "observedAt": null
+    },
+    "supportReset": {
+      "state": "waiting",
+      "observedAt": null
+    },
+    "activeEffects": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:24:27.882Z"
+    },
+    "buffRemaining": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:45.522Z"
+    },
+    "effectCounts": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:45.522Z"
+    },
+    "traitSelected": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.392Z"
+    },
+    "relicLoadout": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:52.341Z"
+    },
+    "relicPassiveTotals": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:45.522Z"
+    },
+    "synthesisStage": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:56.033Z"
+    }
+  },
+  "profile": {
+    "name": "Demo MMO Wanderer",
+    "level": 85,
+    "avatarId": "zuoyi",
+    "avatarFrameId": "AvatarFrame_236",
+    "crew": null,
+    "titleId": "2_2_0_95",
+    "signature": null,
+    "suppressorId": "16_5",
+    "cs": 185991.2745666504,
+    "maxCs": 185991.28125,
+    "maxCsCivilTime": "2026-11-22T16:15:13.723"
+  },
+  "combat": {
+    "hp": 2839438,
+    "endurance": 1300,
+    "crit": 26581.26171875,
+    "critDamage": 0.5,
+    "additionalCritRate": 0,
+    "serverCritRate": 0.9421635866165161,
+    "attack": {
+      "PhysicalAttack": 102287.6171875,
+      "FireAtk": 102406.0234375,
+      "IceAtk": 120750.6171875,
+      "ThunderAtk": 119134.0625,
+      "SuperpowerAtk": 120750.6171875
+    },
+    "attackBase": {
+      "PhyAtkDisplayBase": 33182.390625,
+      "FireAtkDisplayBase": 34082.390625,
+      "IceAtkDisplayBase": 33182.390625,
+      "ThunderAtkDisplayBase": 33182.390625,
+      "SuperpowerAtkDisplayBase": 36127.33203125
+    },
+    "resistance": {
+      "PhysicalDef": 14592.423828125,
+      "FireDefense": 22409.73046875,
+      "IceDefense": 35552.49609375,
+      "ThunderDefense": 26142.330078125,
+      "SuperpowerDefense": 14829.6982421875
+    }
+  },
+  "weapons": [
+    {
+      "itemId": "Salidy_fire",
+      "level": 15,
+      "stars": 15,
+      "slot": 0,
+      "upgradeLevel": 1
+    },
+    {
+      "itemId": "Berry_Phy",
+      "level": 15,
+      "stars": 15,
+      "slot": 1,
+      "upgradeLevel": 1
+    },
+    {
+      "itemId": "Chainsaw_physic",
+      "level": 15,
+      "stars": 15,
+      "slot": 2,
+      "upgradeLevel": 1
+    }
+  ],
+  "gear": [
+    {
+      "slotKey": "Equipment_16",
+      "itemId": "S2_T2_Glisten_visor_def",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "EquipAttrSuperArmor_2",
+          "value": 275,
+          "tag": "None"
+        },
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_15",
+      "itemId": "S2_T2_Glisten_exoskeleton_heal",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "CritAdded_2",
+          "value": 1064,
+          "tag": "None"
+        },
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "EquipAttrHealAtk_2",
+          "value": 400,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_14",
+      "itemId": "S2_T2_Glisten_reactor_atk",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "CritDamAdded_2",
+          "value": 0.04587,
+          "tag": "None"
+        },
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "CritAdded_2",
+          "value": 1064,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_11",
+      "itemId": "S2_T2_Glisten_armband_def",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "EquipAttrSuperArmor_2",
+          "value": 275,
+          "tag": "None"
+        },
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_8",
+      "itemId": "S2_T2_Glisten_helmet_atk",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "CritAdded_2",
+          "value": 1064,
+          "tag": "None"
+        },
+        {
+          "attribute": "CritDamAdded_2",
+          "value": 0.04587,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_7",
+      "itemId": "S2_T2_Glisten_glove_def",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "EquipAttrSuperArmor_2",
+          "value": 275,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_6",
+      "itemId": "S2_T2_Glisten_belt_def",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "EquipAttrSuperArmor_2",
+          "value": 275,
+          "tag": "None"
+        },
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_5",
+      "itemId": "S2_T2_Glisten_shawl_heal",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "EquipAttrHealAtk_2",
+          "value": 400,
+          "tag": "None"
+        },
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "CritAdded_2",
+          "value": 1064,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_4",
+      "itemId": "S2_T2_Glisten_shoes_def",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "EquipAttrSuperArmor_2",
+          "value": 275,
+          "tag": "None"
+        },
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_3",
+      "itemId": "S2_T2_Glisten_pants_heal",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "CritAdded_2",
+          "value": 1064,
+          "tag": "None"
+        },
+        {
+          "attribute": "EquipAttrHealAtk_2",
+          "value": 400,
+          "tag": "None"
+        },
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_2",
+      "itemId": "S2_T2_Glisten_cloth_heal",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "DefenseIntensityMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        },
+        {
+          "attribute": "EquipAttrHealAtk_2",
+          "value": 400,
+          "tag": "None"
+        },
+        {
+          "attribute": "CritAdded_2",
+          "value": 1064,
+          "tag": "None"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_1",
+      "itemId": "S2_T2_Glisten_core_atk",
+      "enhancement": 0,
+      "stars": 0,
+      "stats": [
+        {
+          "attribute": "CritAdded_2",
+          "value": 1064,
+          "tag": "None"
+        },
+        {
+          "attribute": "CritDamAdded_2",
+          "value": 0.04587,
+          "tag": "None"
+        },
+        {
+          "attribute": "AttackPowerMMO_2",
+          "value": 0.0074,
+          "tag": "None"
+        }
+      ]
+    }
+  ],
+  "matrices": [
+    {
+      "weaponSlot": 0,
+      "slot": 1,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_1",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 0,
+      "slot": 2,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_2",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 0,
+      "slot": 3,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_3",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 0,
+      "slot": 4,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_4",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 1,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_1",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 2,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_2",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 3,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_3",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 4,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_4",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 1,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_1",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 2,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_2",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 3,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_3",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 4,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_4",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    }
+  ],
+  "trait": {
+    "itemId": "imitation_67",
+    "weaponId": "BlackStar_SuperPower",
+    "enabled": true,
+    "points": 4000
+  },
+  "relics": [
+    {
+      "slot": 0,
+      "itemId": "artifact_ssr_022",
+      "stars": 5
+    },
+    {
+      "slot": 1,
+      "itemId": "Artifact_SR_004",
+      "stars": 5
+    }
+  ],
+  "relicPassives": [
+    {
+      "attribute": "PhyAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "PhyAtkExtraUpMult",
+      "fraction": 0.075,
+      "stackCount": 4,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "ThunderAtkExtraUpMult",
+      "fraction": 0.105,
+      "stackCount": 6,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "FireAtkExtraUpMult",
+      "fraction": 0.11,
+      "stackCount": 6,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "IceAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "FireAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "ThunderAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "IceAtkExtraUpMult",
+      "fraction": 0.09,
+      "stackCount": 5,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "SuperpowerDefMult",
+      "fraction": 0.02,
+      "stackCount": 1,
+      "sourceCount": 1
+    }
+  ],
+  "pet": {
+    "itemId": "FightPet_14",
+    "customName": "",
+    "level": 1,
+    "stars": 0,
+    "modules": [],
+    "baseAttack": 200,
+    "baseCrit": 500,
+    "inheritedAttack": null
+  },
+  "computing": [
+    {
+      "slot": 15,
+      "level": 15,
+      "progress": 0
+    },
+    {
+      "slot": 16,
+      "level": 15,
+      "progress": 0
+    },
+    {
+      "slot": 1,
+      "level": 13,
+      "progress": 12
+    },
+    {
+      "slot": 14,
+      "level": 10,
+      "progress": 1
+    }
+  ],
+  "support": null,
+  "synthesis": [
+    {
+      "itemId": "queen_superpower",
+      "stage": 6
+    },
+    {
+      "itemId": "fan_superpower",
+      "stage": 6
+    }
+  ],
+  "buffs": {
+    "observedAt": "2026-10-05T15:13:55.279Z",
+    "precision": "approximate",
+    "records": [
+      {
+        "definition": "Default__Buff_PeaceRecoverHp_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_IceSpecial_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_NanYinSuperPower_SSR_Level0_JiSu_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_SSR_Level0_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_level3_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_Level6_DMGUp_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR107_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR108_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR103_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR104_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix127_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix128_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level0_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level1_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level3_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level5_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level6_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__GE_Lana_Lv5_DeathImmuneTrigger_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BePhyDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_PhyUp15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_ThunderUp15_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_FireUp15_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BePhyDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__buff_artifact_sr006_skateControl_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeIceDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeFireDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeThunderDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_IceUp15_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_IceSpecial_Start_C",
+        "stackCount": 1,
+        "durationSeconds": 1.4800000190734863,
+        "remainingSeconds": 0,
+        "expiresAt": "2026-10-05T15:13:45.823Z"
+      },
+      {
+        "definition": "Default__Artifact_FireUp20_C",
+        "stackCount": 4,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_ThunderUp20_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeFireDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeIceDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_PhyUp20_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_IceUp20_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeThunderDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_SuperPowerDefUp20_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Imitation_BlackStar_Level2_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_CheckAdd_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_NanYinSuperPower_SSR_Level0_JiSu_YiwenLv1_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_SSR_Level0_Always_Add_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR108_FinDMGUp_ForBlackStar_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR103_level4_IceAtkUp_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix127_Lana_DmgUp_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix128_Lana_DmgUp_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_CheckAdd_Superpower_Resonance_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_Lv5_DeathImmune_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_Thunder_Resonance_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_Ice_Resonance_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_MiA_Feed_C",
+        "stackCount": 1,
+        "durationSeconds": 10800,
+        "remainingSeconds": 9304.563999891281,
+        "expiresAt": "2026-10-05T17:48:59.843Z"
+      },
+      {
+        "definition": "Default__Buff_Jiuyu_Cooking36_C",
+        "stackCount": 1,
+        "durationSeconds": 604800,
+        "remainingSeconds": 264318.9389998913,
+        "expiresAt": "2026-10-08T16:39:14.218Z"
+      },
+      {
+        "definition": "Default__Buff_Jiuyu_Cooking32_C",
+        "stackCount": 1,
+        "durationSeconds": 604800,
+        "remainingSeconds": 264323.6889998913,
+        "expiresAt": "2026-10-08T16:39:18.968Z"
+      },
+      {
+        "definition": "Default__Buff_Jiuyu_Cooking35_C",
+        "stackCount": 1,
+        "durationSeconds": 604800,
+        "remainingSeconds": 264326.6889998913,
+        "expiresAt": "2026-10-08T16:39:21.968Z"
+      }
+    ],
+    "counts": {
+      "records": 54,
+      "stacks": 71,
+      "temporary": 5,
+      "permanent": 49
+    }
+  },
+  "weaponSettings": {
+    "elements": {
+      "NoraWeaponElementType": {
+        "code": 5,
+        "aux": 0
+      },
+      "LanaWeaponElementType": {
+        "code": 3,
+        "aux": 16
+      },
+      "BlackStarCustomWeaponType": {
+        "code": 0,
+        "aux": 0
+      }
+    },
+    "fionaSkills": [
+      3,
+      5
+    ],
+    "settings": {
+      "YulanSelectSkillIndex": 1,
+      "SnipeModelIndex": 0,
+      "BlackStarSkillPressType": 2,
+      "EstherWeaponAutoTimeStop": 1,
+      "LanaSectionType": 0
+    },
+    "nanYinMark": null
+  },
+  "mmo": {
+    "weaponMode": "fixed",
+    "panel": {
+      "MaxHP": 2786640.75,
+      "MaxEnergy": 1000,
+      "EnergyRecoverMult": 0,
+      "Crit": 7448,
+      "FinalCrit": 0,
+      "CritDam": 0.6376099586486816,
+      "PhysicalAttack": 35173.33203125,
+      "PhysicalDef": 6420.20947265625,
+      "FireAtk": 36127.33203125,
+      "FireDefense": 6988.1279296875,
+      "IceAtk": 33846.0390625,
+      "IceDefense": 6760.96044921875,
+      "ThunderAtk": 33182.390625,
+      "ThunderDefense": 6420.20947265625,
+      "SuperpowerAtk": 36127.33203125,
+      "SuperpowerDefense": 6420.20947265625,
+      "ApproachingSpeedMMO": 0,
+      "DefenseIntensityMMO": 0.06659999489784241,
+      "AttackPowerMMO": 0.059199996292591095,
+      "ElementDefAddedPVP": 0,
+      "EquipAttrHealAtk": 1600,
+      "CommonAtkAddedPVP": 0,
+      "EquipAttrSuperArmor": 1375
+    },
+    "slotCards": [
+      {
+        "slot": "helmet",
+        "slotByte": 8,
+        "active": "orange_Skill_6",
+        "cards": [
+          {
+            "id": "orange_Skill_6",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "slot": "armband",
+        "slotByte": 11,
+        "active": "orange_Skill_3",
+        "cards": [
+          {
+            "id": "orange_Skill_3",
+            "value": 1
+          },
+          {
+            "id": "orange_Skill_1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "slot": "pants",
+        "slotByte": 3,
+        "active": "orange_Skill_3",
+        "cards": [
+          {
+            "id": "orange_Skill_3",
+            "value": 1
+          },
+          {
+            "id": "orange_Skill_1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "slot": "belt",
+        "slotByte": 6,
+        "active": "orange_Skill_6",
+        "cards": [
+          {
+            "id": "orange_Skill_6",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "slot": "shawl",
+        "slotByte": 5,
+        "active": "orange_Skill_3",
+        "cards": [
+          {
+            "id": "orange_Skill_3",
+            "value": 1
+          },
+          {
+            "id": "orange_Skill_1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "slot": "glove",
+        "slotByte": 7,
+        "active": "orange_Skill_6",
+        "cards": [
+          {
+            "id": "orange_Skill_6",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "slot": "cloth",
+        "slotByte": 2,
+        "active": "orange_Skill_6",
+        "cards": [
+          {
+            "id": "orange_Skill_6",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "slot": "shoes",
+        "slotByte": 4,
+        "active": "orange_Skill_3",
+        "cards": [
+          {
+            "id": "orange_Skill_3",
+            "value": 1
+          },
+          {
+            "id": "orange_Skill_1",
+            "value": 0
+          }
+        ]
+      },
+      {
+        "slot": "exoskeleton",
+        "slotByte": 15,
+        "active": "orange_Skill_21",
+        "cards": [
+          {
+            "id": "orange_Skill_21",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "slot": "visor",
+        "slotByte": 16,
+        "active": "orange_Skill_15",
+        "cards": [
+          {
+            "id": "orange_Skill_16",
+            "value": 1
+          },
+          {
+            "id": "orange_Skill_15",
+            "value": 3
+          }
+        ]
+      },
+      {
+        "slot": "core",
+        "slotByte": 1,
+        "active": "orange_Skill_11",
+        "cards": [
+          {
+            "id": "orange_Skill_11",
+            "value": 1
+          }
+        ]
+      },
+      {
+        "slot": "reactor",
+        "slotByte": 14,
+        "active": "orange_Skill_18",
+        "cards": [
+          {
+            "id": "orange_Skill_18",
+            "value": 3
+          },
+          {
+            "id": "blue_Skill_3",
+            "value": 0
+          },
+          {
+            "id": "purple_Skill_3",
+            "value": 0
+          }
+        ]
+      }
+    ],
+    "brainfield": [
+      {
+        "chain": 0,
+        "nodes": [
+          {
+            "id": "Talent104",
+            "level": 5
+          },
+          {
+            "id": "Talent101",
+            "level": 5
+          },
+          {
+            "id": "Talent102",
+            "level": 5
+          },
+          {
+            "id": "Talent105",
+            "level": 5
+          },
+          {
+            "id": "Talent107",
+            "level": 5
+          },
+          {
+            "id": "Talent103",
+            "level": 5
+          },
+          {
+            "id": "Talent106",
+            "level": 5
+          }
+        ]
+      },
+      {
+        "chain": 1,
+        "nodes": [
+          {
+            "id": "Talent206",
+            "level": 10
+          },
+          {
+            "id": "Talent207",
+            "level": 10
+          },
+          {
+            "id": "Talent201",
+            "level": 10
+          },
+          {
+            "id": "Talent202",
+            "level": 4
+          }
+        ]
+      }
+    ]
+  }
+}

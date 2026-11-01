@@ -1,0 +1,52 @@
+{
+  "slug": "minotaur",
+  "order": 11,
+  "boss_id": "boss_002",
+  "name_color": "#5d79dd",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.webp",
+  "art_object_position": "center center",
+  "source_psd": "МИНОТАВР.psd",
+  "en": {
+    "name": "Minotaur",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Minotaur significantly reduces damage received from the primary aggro target. <span class=\"fce-card__text-accent\">Damage reduction 80% from aggro.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Minotaur can be executed. Use weapons with high shatter to break its shield and execute it."
+      },
+      {
+        "index": "3",
+        "html": "Every 15 seconds, Minotaur randomly selects a target with Benediction, applying Toxicitea, which converts the target&#x27;s healing into an equivalent amount of damage. Lasts for 10 seconds."
+      },
+      {
+        "index": "4",
+        "html": "Every 15 seconds, Minotaur examines all Wanderers. If a Wanderer is found to be within 5 meters without any other Wanderers nearby, that Wanderer will lose their hyperbody and invincibility and will be unable to regain hyperbody or invincibility for 90 seconds."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Минотавр",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Минотавр значительно снижает получаемый урон от основной агро-цели. <span class=\"fce-card__text-accent\">Снижение урона от агро 80%.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Минотавра можно добить. Используйте оружие с высоким shatter, чтобы сломать щит и казнить босса."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 15 секунд Минотавр случайно выбирает цель с Benediction и накладывает Toxicitea, превращая ее лечение в эквивалентный урон. Длится 10 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Минотавр проверяет всех Странников. Если кто-то находится в радиусе 5 метров без других союзников рядом, этот Странник теряет hyperbody и неуязвимость и не может восстановить их в течение 90 секунд."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss002.webp"
+}

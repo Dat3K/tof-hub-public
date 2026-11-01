@@ -1,0 +1,596 @@
+{
+ "$comment": "kritik own MMO test character (Hykros, Korea DEV client), .tofbuild exported 2026-10-23T15:41Z (capture app 2.0.0, Regular Mode). Scan, PC and network fields, buffs, availability and inventory are removed; the owner asked to keep the account identity (uid, roleId, PWG identity) and the account counters, so the hover details match the file. Demo and test fixture only.",
+ "capture": {
+  "capturedAt": "2026-10-23T15:41:01.309Z",
+  "subject": {
+   "roleId": "38173673621815309",
+   "uid": "888800113"
+  }
+ },
+ "pwg": {
+  "appId": "1000129",
+  "observedAt": "2026-10-23T15:41:01.574Z",
+  "roleId": "38173673621815309",
+  "serverId": "8888001",
+  "source": "game-login-packet",
+  "uid": "11200"
+ },
+ "account": {
+  "activityRecharge": 0,
+  "activityRechargeByRmbTicket": 0,
+  "antiPluginReportCount": 5,
+  "buyFashionCount": 0,
+  "buyGemCount": 0,
+  "continueLoginDays": 1,
+  "monthCardLeftDays": 0,
+  "paymentFakeDiamond": null,
+  "reportCount": 3,
+  "totalLoginDays": 88,
+  "totalRecharge": 39519508,
+  "totalRechargeValue": 977590,
+  "totalRechargeValueByRmbTicket": 0,
+  "tyroMonthCardLeftDays": 0
+ },
+ "profile": {
+  "name": "kritik ",
+  "avatarId": "zuoyi",
+  "avatarFrameId": "AvatarFrame_236",
+  "level": 85,
+  "crew": "EOS",
+  "titleId": "2_2_0_95",
+  "signature": "",
+  "cs": 185991.2745666504,
+  "maxCs": 185991.28125
+ },
+ "gear": [
+  {
+   "itemId": "S2_T2_Glisten_visor_def",
+   "slotKey": "Equipment_16",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "EquipAttrSuperArmor_2",
+     "tag": "None",
+     "value": 275
+    },
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_exoskeleton_heal",
+   "slotKey": "Equipment_15",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "CritAdded_2",
+     "tag": "None",
+     "value": 1064
+    },
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "EquipAttrHealAtk_2",
+     "tag": "None",
+     "value": 400
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_reactor_atk",
+   "slotKey": "Equipment_14",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "CritDamAdded_2",
+     "tag": "None",
+     "value": 0.04587
+    },
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "CritAdded_2",
+     "tag": "None",
+     "value": 1064
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_armband_def",
+   "slotKey": "Equipment_11",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "EquipAttrSuperArmor_2",
+     "tag": "None",
+     "value": 275
+    },
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_helmet_atk",
+   "slotKey": "Equipment_8",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "CritAdded_2",
+     "tag": "None",
+     "value": 1064
+    },
+    {
+     "attribute": "CritDamAdded_2",
+     "tag": "None",
+     "value": 0.04587
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_glove_def",
+   "slotKey": "Equipment_7",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "EquipAttrSuperArmor_2",
+     "tag": "None",
+     "value": 275
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_belt_def",
+   "slotKey": "Equipment_6",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "EquipAttrSuperArmor_2",
+     "tag": "None",
+     "value": 275
+    },
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_shawl_heal",
+   "slotKey": "Equipment_5",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "EquipAttrHealAtk_2",
+     "tag": "None",
+     "value": 400
+    },
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "CritAdded_2",
+     "tag": "None",
+     "value": 1064
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_shoes_def",
+   "slotKey": "Equipment_4",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "EquipAttrSuperArmor_2",
+     "tag": "None",
+     "value": 275
+    },
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_pants_heal",
+   "slotKey": "Equipment_3",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "CritAdded_2",
+     "tag": "None",
+     "value": 1064
+    },
+    {
+     "attribute": "EquipAttrHealAtk_2",
+     "tag": "None",
+     "value": 400
+    },
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_cloth_heal",
+   "slotKey": "Equipment_2",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "DefenseIntensityMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    },
+    {
+     "attribute": "EquipAttrHealAtk_2",
+     "tag": "None",
+     "value": 400
+    },
+    {
+     "attribute": "CritAdded_2",
+     "tag": "None",
+     "value": 1064
+    }
+   ]
+  },
+  {
+   "itemId": "S2_T2_Glisten_core_atk",
+   "slotKey": "Equipment_1",
+   "stars": 0,
+   "stats": [
+    {
+     "attribute": "CritAdded_2",
+     "tag": "None",
+     "value": 1064
+    },
+    {
+     "attribute": "CritDamAdded_2",
+     "tag": "None",
+     "value": 0.04587
+    },
+    {
+     "attribute": "AttackPowerMMO_2",
+     "tag": "None",
+     "value": 0.0074
+    }
+   ]
+  }
+ ],
+ "combat": {
+  "attackBase": {
+   "FireAtkDisplayBase": 34082.390625,
+   "IceAtkDisplayBase": 33182.390625,
+   "PhyAtkDisplayBase": 33182.390625,
+   "SuperpowerAtkDisplayBase": 36127.33203125,
+   "ThunderAtkDisplayBase": 33182.390625
+  }
+ },
+ "weapons": [
+  {
+   "slot": 0,
+   "itemId": "Salidy_fire",
+   "stars": 15,
+   "level": 15,
+   "upgradeLevel": 1
+  },
+  {
+   "slot": 1,
+   "itemId": "Berry_Phy",
+   "stars": 15,
+   "level": 15,
+   "upgradeLevel": 1
+  },
+  {
+   "slot": 2,
+   "itemId": "Chainsaw_physic",
+   "stars": 15,
+   "level": 15,
+   "upgradeLevel": 1
+  }
+ ],
+ "pet": {
+  "itemId": "FightPet_14",
+  "customName": "",
+  "level": 1,
+  "stars": 0,
+  "inheritedAttack": null
+ },
+ "mmo": {
+  "weaponMode": "regular",
+  "panel": {
+   "ApproachingSpeedMMO": 0,
+   "AttackPowerMMO": 0.059199996292591095,
+   "CommonAtkAddedPVP": 0,
+   "Crit": 7448,
+   "CritDam": 0.6376099586486816,
+   "DefenseIntensityMMO": 0.06659999489784241,
+   "ElementDefAddedPVP": 0,
+   "EnergyRecoverMult": 0,
+   "EquipAttrHealAtk": 1600,
+   "EquipAttrSuperArmor": 1375,
+   "FinalCrit": 0,
+   "FireAtk": 36127.33203125,
+   "FireDefense": 6988.1279296875,
+   "IceAtk": 33846.0390625,
+   "IceDefense": 6760.96044921875,
+   "MaxEnergy": 1000,
+   "MaxHP": 2786640.75,
+   "PhysicalAttack": 35173.33203125,
+   "PhysicalDef": 6420.20947265625,
+   "SuperpowerAtk": 36127.33203125,
+   "SuperpowerDefense": 6420.20947265625,
+   "ThunderAtk": 33182.390625,
+   "ThunderDefense": 6420.20947265625
+  },
+  "brainfield": [
+   {
+    "chain": 0,
+    "nodes": [
+     {
+      "id": "Talent104",
+      "level": 5
+     },
+     {
+      "id": "Talent101",
+      "level": 5
+     },
+     {
+      "id": "Talent102",
+      "level": 5
+     },
+     {
+      "id": "Talent105",
+      "level": 5
+     },
+     {
+      "id": "Talent107",
+      "level": 5
+     },
+     {
+      "id": "Talent103",
+      "level": 5
+     },
+     {
+      "id": "Talent106",
+      "level": 5
+     }
+    ]
+   },
+   {
+    "chain": 1,
+    "nodes": [
+     {
+      "id": "Talent206",
+      "level": 10
+     },
+     {
+      "id": "Talent207",
+      "level": 10
+     },
+     {
+      "id": "Talent201",
+      "level": 10
+     },
+     {
+      "id": "Talent202",
+      "level": 4
+     }
+    ]
+   }
+  ],
+  "slotCards": [
+   {
+    "active": "orange_Skill_6",
+    "cards": [
+     {
+      "id": "orange_Skill_6",
+      "value": 1
+     }
+    ],
+    "slot": "helmet",
+    "slotByte": 8
+   },
+   {
+    "active": "orange_Skill_3",
+    "cards": [
+     {
+      "id": "orange_Skill_3",
+      "value": 1
+     },
+     {
+      "id": "orange_Skill_1",
+      "value": 0
+     }
+    ],
+    "slot": "armband",
+    "slotByte": 11
+   },
+   {
+    "active": "orange_Skill_3",
+    "cards": [
+     {
+      "id": "orange_Skill_3",
+      "value": 1
+     },
+     {
+      "id": "orange_Skill_1",
+      "value": 0
+     }
+    ],
+    "slot": "pants",
+    "slotByte": 3
+   },
+   {
+    "active": "orange_Skill_6",
+    "cards": [
+     {
+      "id": "orange_Skill_6",
+      "value": 1
+     }
+    ],
+    "slot": "belt",
+    "slotByte": 6
+   },
+   {
+    "active": "orange_Skill_3",
+    "cards": [
+     {
+      "id": "orange_Skill_3",
+      "value": 1
+     },
+     {
+      "id": "orange_Skill_1",
+      "value": 0
+     }
+    ],
+    "slot": "shawl",
+    "slotByte": 5
+   },
+   {
+    "active": "orange_Skill_6",
+    "cards": [
+     {
+      "id": "orange_Skill_6",
+      "value": 1
+     }
+    ],
+    "slot": "glove",
+    "slotByte": 7
+   },
+   {
+    "active": "orange_Skill_6",
+    "cards": [
+     {
+      "id": "orange_Skill_6",
+      "value": 1
+     }
+    ],
+    "slot": "cloth",
+    "slotByte": 2
+   },
+   {
+    "active": "orange_Skill_3",
+    "cards": [
+     {
+      "id": "orange_Skill_3",
+      "value": 1
+     },
+     {
+      "id": "orange_Skill_1",
+      "value": 0
+     }
+    ],
+    "slot": "shoes",
+    "slotByte": 4
+   },
+   {
+    "active": "orange_Skill_21",
+    "cards": [
+     {
+      "id": "orange_Skill_21",
+      "value": 1
+     }
+    ],
+    "slot": "exoskeleton",
+    "slotByte": 15
+   },
+   {
+    "active": "orange_Skill_15",
+    "cards": [
+     {
+      "id": "orange_Skill_16",
+      "value": 1
+     },
+     {
+      "id": "orange_Skill_15",
+      "value": 3
+     }
+    ],
+    "slot": "visor",
+    "slotByte": 16
+   },
+   {
+    "active": "orange_Skill_11",
+    "cards": [
+     {
+      "id": "orange_Skill_11",
+      "value": 1
+     }
+    ],
+    "slot": "core",
+    "slotByte": 1
+   },
+   {
+    "active": "orange_Skill_18",
+    "cards": [
+     {
+      "id": "orange_Skill_18",
+      "value": 3
+     },
+     {
+      "id": "blue_Skill_3",
+      "value": 0
+     },
+     {
+      "id": "purple_Skill_3",
+      "value": 0
+     }
+    ],
+    "slot": "reactor",
+    "slotByte": 14
+   }
+  ]
+ }
+}

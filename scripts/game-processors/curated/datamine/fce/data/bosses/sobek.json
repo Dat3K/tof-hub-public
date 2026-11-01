@@ -1,0 +1,52 @@
+{
+  "slug": "sobek",
+  "order": 14,
+  "boss_id": "boss_015",
+  "name_color": "#b190e4",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+  "art_object_position": "center center",
+  "source_psd": "СОБЕК.psd",
+  "en": {
+    "name": "Sobek",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "<span class=\"fce-card__text-accent\">-100% Crit Rate while having aggro</span>"
+      },
+      {
+        "index": "2",
+        "html": "Sobek can be executed. Use weapons with high shatter to break its shield and execute it."
+      },
+      {
+        "index": "3",
+        "html": "When Sobek hits a non-Fortitude target, it applies Vulnerability to the target for 10 seconds, stacking up to 10 times."
+      },
+      {
+        "index": "4",
+        "html": "Sobek enters a frenzy state, greatly increasing all speeds. <span class=\"fce-card__text-accent\">Becomes immune to control effects.</span>"
+      }
+    ]
+  },
+  "ru": {
+    "name": "Собек",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Когда Собек фиксируется на цели, ее шанс критического удара сильно снижается. <span class=\"fce-card__text-accent\">-100% crit rate, пока на вас агро</span>"
+      },
+      {
+        "index": "2",
+        "html": "Собека можно добить. Используйте оружие с высоким shatter, чтобы сломать щит и казнить босса."
+      },
+      {
+        "index": "3",
+        "html": "Когда Собек попадает по цели без Fortitude, он накладывает Vulnerability на 10 секунд, до 10 стаков."
+      },
+      {
+        "index": "4",
+        "html": "Собек впадает в ярость, значительно повышая все скорости. <span class=\"fce-card__text-accent\"> Получает иммунитет к эффектам контроля.</span>"
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss015.webp"
+}

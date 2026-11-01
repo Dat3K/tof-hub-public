@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-09-22T11:46:43.093Z",
+  "gameVersion": "6.3.0",
+  "clientName": null,
+  "clientUpdatedAt": null,
+  "provenance": "owner-reported: this snapshot predates multype-scan.json; the owner stated the scanned export was 6.3.0"
+}

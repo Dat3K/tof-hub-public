@@ -1,0 +1,60 @@
+{
+  "slug": "ground-controller",
+  "order": 37,
+  "boss_id": "boss_078",
+  "name_color": "#69718C",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.webp",
+  "art_object_position": "center center",
+  "name_right": 56,
+  "en": {
+    "name": "Ground Controller",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_078_1_des",
+        "html": "Ground Controller gains Deflect every 7s. When hit, it removes Deflect and deflects 10% of that damage back to the attacker. The deflected damage cannot be fatal."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_078_2_des",
+        "html": "Ground Controller has a 50% Damage Reduction. Hitting its Weak Points removes its Damage Reduction for 30s."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_078_3_des",
+        "html": "Ground Controller slows all nearby targets."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_078_4_des",
+        "html": "Ground Controller leaves a timed magnetic bomb every 15s on the ground that explodes 5s later, inflicting control effects on the target for 3s."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Наземный контроллер",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_078_1_des",
+        "html": "Наземный Контроллер получает эффект Отражения каждые 7 секунд. При попадании эффект Отражения исчезает, и 10% от полученного урона возвращается атакующему. Отражённый урон не может быть смертельным."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_078_2_des",
+        "html": "Наземный контроллер обладает 50% снижением урона. Попадание по его слабым местам снимает это снижение урона на 30 секунд."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_078_3_des",
+        "html": "Наземный контроллер замедляет все находящиеся поблизости цели."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_078_4_des",
+        "html": "Наземный диспетчер каждые 15 секунд оставляет на земле магнитную бомбу с таймером, которая взрывается через 5 секунд, накладывая на цель эффекты контроля на 3 секунды."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_078.webp"
+}

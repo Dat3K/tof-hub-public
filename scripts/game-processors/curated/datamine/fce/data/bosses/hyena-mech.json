@@ -1,0 +1,52 @@
+{
+  "slug": "hyena-mech",
+  "order": 17,
+  "boss_id": "boss_007",
+  "name_color": "#e4534d",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_07.webp",
+  "art_object_position": "center center",
+  "source_psd": "Hyena Mech.psd",
+  "en": {
+    "name": "Hyena Mech",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Hyena Mech gains a 20% damage increase and one stack of Overheat with each attack. Upon reaching 5 Overheat stacks, it resets and restores a portion of its Max HP. <span class=\"fce-card__text-accent\">Recovers 5% of Max HP after hitting anyone at 5 stacks (the last hit can be dodged so no heal will be provided).</span>"
+      },
+      {
+        "index": "2",
+        "html": "Hyena Mech&#x27;s attacks ignore the target&#x27;s resistance."
+      },
+      {
+        "index": "3",
+        "html": "Hyena Mech disables the HP shields of surrounding targets every 20s, lasting 10s. <span class=\"fce-card__text-accent\">Removes HP shield and hyperbody once (not continuously for 10s).</span>"
+      },
+      {
+        "index": "4",
+        "html": "Hyena Mech frequently unleashes machine gun sweeps, with its range greatly increased."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Гиена-Мех",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Гиена-Мех получает +20% к урону и 1 стак Overheat с каждой атакой. При достижении 5 стаков Overheat эффект сбрасывается, а босс восстанавливает часть Max HP. <span class=\"fce-card__text-accent\">Восстанавливает 5% Max HP после попадания по кому-либо с 5 стаками (от последнего удара можно увернуться, тогда лечения не будет)</span>"
+      },
+      {
+        "index": "2",
+        "html": "Атаки Гиена-Меха игнорируют сопротивления цели."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 20 секунд Гиена-Мех отключает HP-щиты окружающих целей на 10 секунд. <span class=\"fce-card__text-accent\">Одноразово снимает HP-щит и hyperbody, а не на все 10 секунд.</span>"
+      },
+      {
+        "index": "4",
+        "html": "Гиена-Мех часто выпускает длинные очереди из пулемета, причем их дальность сильно увеличена."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_07.webp"
+}

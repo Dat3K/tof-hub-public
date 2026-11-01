@@ -1,0 +1,899 @@
+/* Matrices Catalog & Detail View Styles */
+
+.matricesContainer {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.5rem 1rem 3rem;
+  box-sizing: border-box;
+}
+
+@media (max-width: 640px) {
+  .matricesContainer {
+    padding: 1rem 0.75rem 2rem;
+  }
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.matrixCard {
+  min-width: 0;
+  user-select: auto;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+  box-shadow: none !important;
+}
+
+.matrixCard:hover,
+.matrixCard:focus-visible {
+  transform: translateY(-4px) !important;
+  border-color: rgba(120, 160, 255, 0.3) !important;
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5) !important;
+}
+
+.matrixCardArtStage {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 0.66;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #0d111a;
+  overflow: hidden;
+}
+
+.matrixCardArtStage::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(10, 14, 24, 0.88) 0%,
+    rgba(10, 14, 24, 0.2) 35%,
+    transparent 65%
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+.matrixCardChipFrame {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.matrixCardChipImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 22%;
+  transform: none;
+  transform-origin: center 25%;
+  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.65));
+  image-rendering: -webkit-optimize-contrast;
+  transition: filter 0.22s ease;
+}
+
+.matrixCard:hover .matrixCardChipImg {
+  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.85));
+}
+
+.matrixCardBadgesOverlay,
+.matrixCardRarityOverlay {
+  position: absolute;
+  top: 8px;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  pointer-events: none;
+}
+
+.matrixCardBadgesOverlay {
+  left: 8px;
+  max-width: calc(100% - 56px);
+}
+
+.matrixCardRarityOverlay {
+  right: 8px;
+  gap: 4px;
+}
+
+
+.matrixCard .badgeIcon {
+  width: 20px;
+  height: 20px;
+}
+
+
+
+.matrixCardTitles {
+  min-width: 0;
+  padding: 7px 10px 8px;
+  background: var(--info-panel);
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  text-align: left;
+  user-select: text;
+}
+
+.matrixCardName {
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.matrixCardOwner {
+  display: flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+  color: var(--info-link);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.matrixCardOwnerName {
+  display: inline-flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  opacity: 0.85;
+  text-overflow: ellipsis;
+  transition:
+    opacity 0.15s ease,
+    color 0.15s ease;
+  white-space: nowrap;
+}
+
+.matrixCard:hover .matrixCardOwnerName {
+  color: #fff;
+  opacity: 1;
+}
+
+.matrixCardOwnerIcon {
+  flex-shrink: 0;
+  color: var(--info-link);
+  font-size: 0.55rem;
+}
+
+.matrixCard .weaponCornerBox {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 9px;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  padding: 2px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+}
+
+.matrixCard .weaponCornerBox[data-element="physical"] {
+  border-color: #eab308;
+  box-shadow: 0 0 8px rgba(234, 179, 8, 0.5);
+}
+
+.matrixCard .weaponCornerBox[data-element="flame"] {
+  border-color: #ef4444;
+  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+}
+
+.matrixCard .weaponCornerBox[data-element="frost"] {
+  border-color: #06b6d4;
+  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+}
+
+.matrixCard .weaponCornerBox[data-element="volt"] {
+  border-color: #a855f7;
+  box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+}
+
+.matrixCard .weaponCornerBox[data-element="altered"] {
+  border-color: #ec4899;
+  box-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+}
+
+/* Keep the legacy six-column density on desktop while retaining the shared responsive grid. */
+.matricesContainer :global(.matrices-grid) {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
+  gap: 18px !important;
+}
+
+/* Badge Icon */
+.badgeIcon {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Weapon Corner Box */
+.weaponCornerBox {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 14, 22, 0.9);
+  border: 1px solid rgba(43, 166, 223, 0.35);
+  border-radius: 8px;
+  padding: 2px;
+  box-sizing: border-box;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  overflow: hidden;
+}
+
+.weaponCornerBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+}
+
+/* Legacy-style matrix detail card */
+.matrixModal {
+  width: 100% !important;
+  max-width: 680px !important;
+  max-height: calc(100vh - 24px) !important;
+  background: #0f1420 !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 18px !important;
+  box-shadow:
+    0 22px 55px rgba(0, 0, 0, 0.72),
+    0 0 28px rgba(43, 166, 223, 0.08) !important;
+  overflow: visible !important;
+  transform: translateY(-31px);
+}
+
+/* Keep the site header crisp while the page below it receives the legacy blur. */
+.matrixModalOverlay {
+  top: 54px !important;
+  z-index: 700 !important;
+}
+
+.modalHeaderContainer {
+  align-items: flex-start !important;
+  padding: 16px 22px 14px !important;
+  background: transparent !important;
+  border-bottom: 0 !important;
+}
+
+.modalHeaderContainer > div {
+  width: 100%;
+}
+
+/* Modal Layout */
+.modalHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  width: 100%;
+}
+
+.artShowcase {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
+  max-width: 460px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  overflow: visible;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.suitBackdrop {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+  opacity: 0.28;
+  filter: blur(2px);
+  mix-blend-mode: screen;
+  border-radius: 12px;
+  -webkit-mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    rgba(0, 0, 0, 0.95) 20%,
+    rgba(0, 0, 0, 0.5) 55%,
+    transparent 85%
+  );
+  mask-image: radial-gradient(
+    ellipse 75% 65% at 50% 50%,
+    rgba(0, 0, 0, 0.95) 20%,
+    rgba(0, 0, 0, 0.5) 55%,
+    transparent 85%
+  );
+}
+
+.suitBackdrop img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+}
+
+.heroChipStage {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-in;
+  transform: translateY(-13px);
+  transition: filter 0.25s ease;
+}
+
+.heroChipStage:hover {
+  transform: translateY(-13px);
+}
+
+.heroChipImg {
+  width: 280px;
+  height: 280px;
+  max-width: none;
+  max-height: none;
+  object-fit: contain;
+  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.75));
+}
+
+/* Slots Around Chip */
+.slotsAround {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+  display: block;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.slotsGroup {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: absolute;
+  top: 4px;
+  bottom: 4px;
+  gap: 0;
+  pointer-events: auto;
+}
+
+.slotsGroup:first-child {
+  left: 6px;
+}
+
+.slotsGroup:last-child {
+  right: 6px;
+}
+
+.slotBadgeWrap {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slotBadge {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: rgba(14, 11, 20, 0.94);
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.slotBadge:hover,
+.slotBadge:focus-visible {
+  border-color: #2ba6df;
+  transform: scale(1.08);
+  box-shadow: 0 0 12px rgba(43, 166, 223, 0.4);
+}
+
+.slotBadgeImg {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+.slotTooltip {
+  position: absolute;
+  width: 260px;
+  max-width: calc(100vw - 32px);
+  padding: 10px 14px;
+  background: rgba(14, 11, 20, 0.96);
+  border: 1px solid rgba(43, 166, 223, 0.5);
+  border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85), 0 0 16px rgba(43, 166, 223, 0.3);
+  box-sizing: border-box;
+  color: #d1d5db;
+  text-align: center;
+  white-space: normal;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease;
+}
+
+.slotBadgeWrap:hover .slotTooltip,
+.slotBadgeWrap:focus-within .slotTooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Slot 1/2 are on the left, slot 3/4 on the right. Keep the tooltip over the hero. */
+.slotBadgeWrap[data-slot="1"] .slotTooltip,
+.slotBadgeWrap[data-slot="4"] .slotTooltip {
+  bottom: calc(100% + 8px);
+  transform: translateY(4px);
+}
+
+.slotBadgeWrap[data-slot="1"] .slotTooltip {
+  left: 0;
+}
+
+.slotBadgeWrap[data-slot="4"] .slotTooltip {
+  right: 0;
+}
+
+.slotBadgeWrap[data-slot="2"] .slotTooltip,
+.slotBadgeWrap[data-slot="3"] .slotTooltip {
+  top: calc(100% + 8px);
+  transform: translateY(-4px);
+}
+
+.slotBadgeWrap[data-slot="2"] .slotTooltip {
+  left: 0;
+}
+
+.slotBadgeWrap[data-slot="3"] .slotTooltip {
+  right: 0;
+}
+
+.slotTooltipHeader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  margin-bottom: 6px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  text-align: center;
+}
+
+.slotTooltipTag {
+  display: block;
+  color: #2ba6df;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.slotTooltipName {
+  color: #fff;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1.3;
+  text-align: center;
+  white-space: normal;
+}
+
+.slotTooltipDesc {
+  color: #d1d5db;
+  font-size: 0.74rem;
+  font-style: italic;
+  line-height: 1.45;
+  text-align: center;
+}
+
+.slotNumberTag {
+  display: none;
+}
+
+.titleBlock {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  text-align: center;
+  margin-top: -20px;
+}
+
+.badgesRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px;
+  margin-bottom: 2px;
+}
+
+.matrixId {
+  display: none;
+}
+
+.matrixTitle {
+  width: 100%;
+  margin: 0 0 1px !important;
+  color: #f4f0f6 !important;
+  font-size: 1.22rem !important;
+  font-weight: 800 !important;
+  line-height: 1.2 !important;
+  text-align: center;
+  letter-spacing: -0.01em !important;
+}
+
+.matrixOwner {
+  color: #918899;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.modalBody {
+  padding: 4px 22px 20px !important;
+}
+
+.effectList {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+/* Star Rank Selector */
+.starRankBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.375rem;
+  padding: 0.3125rem 0.75rem;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  margin: 0 0 10px;
+}
+
+.starRankLabel {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #9ca3af;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.starTabs {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+}
+
+.starTab {
+  padding: 3px 9px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 5px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.04);
+  color: #9ca3af;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.starTab:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.starTabActive {
+  background: #2ba6df;
+  border-color: #2ba6df;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(43, 166, 223, 0.35);
+}
+
+/* Effect Card */
+.effectCard {
+  background: rgba(13, 17, 26, 0.65);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 13px 18px;
+  margin-bottom: 0;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.effectCard:hover {
+  border-color: rgba(43, 166, 223, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+
+.effectHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.effectTitle {
+  font-size: 0.74rem;
+  font-weight: 700;
+  color: #c084fc;
+  background: rgba(168, 85, 247, 0.14);
+  border: 1px solid rgba(168, 85, 247, 0.32);
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 3px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.effectTitle span {
+  color: #2ba6df;
+}
+
+.effectText { margin: 0; }
+
+/* Carrier Card */
+.carrierBlock {
+  background: rgba(10, 8, 14, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 11px 18px;
+  margin-top: 11px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.carrierKicker {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9ca3af;
+  margin-bottom: 0.625rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+}
+
+.carrierMain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: auto;
+}
+
+.carrierWeaponFrame {
+  width: 52px;
+  height: 52px;
+  flex: 0 0 52px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(11, 14, 22, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  padding: 4px;
+}
+
+.carrierWeaponImg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 0;
+  transform-origin: 52% 44%;
+  transform: scale(1.48);
+}
+
+.carrierInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  flex: 0 1 auto;
+  align-items: center;
+  text-align: center;
+}
+
+.carrierTitleRow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.carrierBadges {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.carrierTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.carrierWeaponName {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: #9ca3af;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 1.5px 6px;
+  border-radius: 4px;
+}
+
+.carrierLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.2rem 0.6rem;
+  border-radius: 6px;
+  background: rgba(43, 166, 223, 0.15);
+  border: 1px solid rgba(43, 166, 223, 0.4);
+  color: #55c2ef;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.carrierLink:hover {
+  background: rgba(43, 166, 223, 0.28);
+  border-color: #2ba6df;
+  color: #ffffff;
+}
+
+/* Match the legacy circular close control while retaining the shared button. */
+.matrixModal :global(button[aria-label="Close modal"]) {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  z-index: 10;
+  width: 34px;
+  min-width: 34px !important;
+  height: 34px;
+  min-height: 34px !important;
+  padding: 0 !important;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.08);
+  color: #f4f0f6;
+}
+
+.matrixModal :global(button[aria-label="Close modal"]:hover) {
+  border-color: #2ba6df;
+  background: rgba(43, 166, 223, 0.25);
+  color: #ffffff;
+}
+
+@media (max-width: 640px) {
+  .matrixModalOverlay {
+    top: 68px !important;
+    height: calc(100dvh - 68px) !important;
+  }
+
+  .matrixModal {
+    max-width: calc(100vw - 1rem) !important;
+    max-height: calc(100dvh - 84px) !important;
+  }
+
+  .modalHeaderContainer {
+    padding: 14px 14px 12px !important;
+  }
+
+  .modalBody {
+    padding: 4px 14px 16px !important;
+  }
+
+  .artShowcase {
+    height: 220px;
+    min-height: 220px;
+  }
+
+  .heroChipImg {
+    width: min(220px, 70vw);
+    height: min(220px, 70vw);
+  }
+
+  .heroChipStage:hover {
+    transform: none;
+  }
+
+  .heroChipStage {
+    transform: none;
+  }
+
+  .matrixModal {
+    transform: none;
+  }
+
+  .slotBadge {
+    width: 38px;
+    height: 38px;
+  }
+
+  .slotBadgeImg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .slotsGroup {
+    top: 6px;
+    bottom: 6px;
+  }
+
+  .slotsGroup:first-child {
+    left: 2px;
+  }
+
+  .slotsGroup:last-child {
+    right: 2px;
+  }
+
+  .titleBlock {
+    margin-top: -4px;
+  }
+
+  .effectCard {
+    padding: 12px 14px;
+  }
+}

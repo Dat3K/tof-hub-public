@@ -1,0 +1,1442 @@
+{
+  "format": "tof-hub-build-capture",
+  "schemaVersion": 2,
+  "capture": {
+    "mode": "self",
+    "capturedAt": "2026-10-05T18:38:04.056Z",
+    "policy": "first-received",
+    "exporterVersion": "2.0.0",
+    "subject": {
+      "uid": "130021000000001",
+      "roleId": "1"
+    }
+  },
+  "availability": {
+    "name": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "uid": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "level": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "avatar": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "frame": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "guild": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "title": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "signature": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:23:22.650Z"
+    },
+    "suppressor": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "cs": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "maxCs": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "maxCsTime": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.712Z"
+    },
+    "hp": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "energy": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "crit": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "critDamage": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "critRates": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "attack": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "defense": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "attackBase": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "weaponLoadout": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "elementNora": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "elementLana": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "elementVoidpiercer": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "fionaSkills": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.522Z"
+    },
+    "otherWeaponSkills": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.522Z"
+    },
+    "nanYinMark": {
+      "state": "waiting",
+      "observedAt": null
+    },
+    "gearLoadout": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "equippedMatrices": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:53.569Z"
+    },
+    "petRecord": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "petStats": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:44.767Z"
+    },
+    "computingNodes": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.813Z"
+    },
+    "supportMap": {
+      "state": "waiting",
+      "observedAt": null
+    },
+    "supportReset": {
+      "state": "waiting",
+      "observedAt": null
+    },
+    "activeEffects": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:24:27.882Z"
+    },
+    "buffRemaining": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:45.522Z"
+    },
+    "effectCounts": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:45.522Z"
+    },
+    "traitSelected": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:44.392Z"
+    },
+    "relicLoadout": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:52.341Z"
+    },
+    "relicPassiveTotals": {
+      "state": "partial",
+      "observedAt": "2026-10-05T15:13:45.522Z"
+    },
+    "synthesisStage": {
+      "state": "received",
+      "observedAt": "2026-10-05T15:13:56.033Z"
+    }
+  },
+  "profile": {
+    "name": "Demo Wanderer",
+    "level": 100,
+    "avatarId": "Avatar_tongyong33_os03",
+    "avatarFrameId": "AvatarFrame54",
+    "crew": null,
+    "titleId": "1_8_0_10",
+    "signature": null,
+    "suppressorId": "12_5",
+    "cs": 473155.7208724022,
+    "maxCs": 482514.6875,
+    "maxCsCivilTime": "2026-09-28T17:32:23.966"
+  },
+  "combat": {
+    "hp": 2839438,
+    "endurance": 1300,
+    "crit": 26581.26171875,
+    "critDamage": 0.5,
+    "additionalCritRate": 0,
+    "serverCritRate": 0.9421635866165161,
+    "attack": {
+      "PhysicalAttack": 102287.6171875,
+      "FireAtk": 102406.0234375,
+      "IceAtk": 120750.6171875,
+      "ThunderAtk": 119134.0625,
+      "SuperpowerAtk": 120750.6171875
+    },
+    "attackBase": {
+      "PhyAtkDisplayBase": 50831.328125,
+      "FireAtkDisplayBase": 50951.50390625,
+      "IceAtkDisplayBase": 50523.26953125,
+      "ThunderAtkDisplayBase": 53829.25390625,
+      "SuperpowerAtkDisplayBase": 120750.6171875
+    },
+    "resistance": {
+      "PhysicalDef": 14592.423828125,
+      "FireDefense": 22409.73046875,
+      "IceDefense": 35552.49609375,
+      "ThunderDefense": 26142.330078125,
+      "SuperpowerDefense": 14829.6982421875
+    }
+  },
+  "weapons": [
+    {
+      "slot": 0,
+      "itemId": "GreyFoxSP_ice",
+      "stars": 0,
+      "level": 0
+    },
+    {
+      "slot": 1,
+      "itemId": "BlackStar_SuperPower",
+      "stars": 6,
+      "level": 200
+    },
+    {
+      "slot": 2,
+      "itemId": "Lana_SuperPower",
+      "stars": 6,
+      "level": 200
+    }
+  ],
+  "gear": [
+    {
+      "slotKey": "Equipment_16",
+      "itemId": "visor_OS_red",
+      "enhancement": 70,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "ThunderAtkMult",
+          "value": 0.08125,
+          "tag": "None"
+        },
+        {
+          "attribute": "IceDefAdded",
+          "value": 1154.806519,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 528.8703,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 368.529846,
+          "tag": "None"
+        },
+        {
+          "attribute": "FireAtkMult",
+          "value": 0.069872,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "PhyAtkMult",
+          "value": 0.072295,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "uncommon_10",
+          "value": 3,
+          "tag": "CommonAtkAggravatingInjury_Lv3"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_15",
+      "itemId": "exoskeleton_OS_red",
+      "enhancement": 79,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1295.543823,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkMult",
+          "value": 0.020952,
+          "tag": "None"
+        },
+        {
+          "attribute": "IceDefAdded",
+          "value": 1217.287598,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 589.202026,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_12",
+          "value": 3,
+          "tag": "SkillAtkAggravatingInjury_Lv3"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1216.134521,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1205.693359,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_14",
+      "itemId": "reactor_OS_red",
+      "enhancement": 80,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "ThunderAtkMult",
+          "value": 0.020982,
+          "tag": "None"
+        },
+        {
+          "attribute": "FireDefAdded",
+          "value": 1155.456665,
+          "tag": "None"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1616.366455,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 296.924835,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_11",
+          "value": 3,
+          "tag": "ChangeSkillAtkAggravatingInjury_Lv3"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1490.679443,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1510.761841,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_11",
+      "itemId": "armband_red",
+      "enhancement": 80,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "MaxHealthAdded",
+          "value": 23386.074219,
+          "tag": "None"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1404.880249,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1319.52124,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 440.707764,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_1",
+          "value": 3,
+          "tag": "CommonWeaknessIncreaseInjury_Lv3"
+        },
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1294.911865,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1334.907593,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_8",
+      "itemId": "Helmet_red",
+      "enhancement": 80,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 771.522949,
+          "tag": "None"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1219.481689,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderDefAdded",
+          "value": 1172.162842,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1287.314209,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_5",
+          "value": 3,
+          "tag": "CommonWeaknessIncreaseInjury_Lv3"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1150.463867,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1193.657959,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_7",
+      "itemId": "glove_red",
+      "enhancement": 80,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "CritAdded",
+          "value": 7084.901367,
+          "tag": "None"
+        },
+        {
+          "attribute": "MaxHealthAdded",
+          "value": 22725.292969,
+          "tag": "None"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 374.287018,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 387.743408,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_6",
+          "value": 3,
+          "tag": "CommonWeaknessIncreaseInjury_Lv3"
+        },
+        {
+          "attribute": "IceDefAdded",
+          "value": 5156.866699,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "FireDefAdded",
+          "value": 5200.078613,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_6",
+      "itemId": "belt_red",
+      "enhancement": 70,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1574.835449,
+          "tag": "None"
+        },
+        {
+          "attribute": "MaxHealthAdded",
+          "value": 22753.068359,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 455.918518,
+          "tag": "None"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1472.103516,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_7",
+          "value": 2,
+          "tag": "CommonDamageRecoverHPMult_Lv2"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1506.089478,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1509.449951,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_5",
+      "itemId": "shawl_red",
+      "enhancement": 80,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "MaxHealthAdded",
+          "value": 22926.730469,
+          "tag": "None"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1537.827637,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 454.513672,
+          "tag": "None"
+        },
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1402.268188,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1447.942383,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1387.936646,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "uncommon_8",
+          "value": 3,
+          "tag": "CommonWeaknessIncreaseInjury_Lv3"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_4",
+      "itemId": "shoes_red",
+      "enhancement": 80,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "CritAdded",
+          "value": 6337.231934,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 616.166382,
+          "tag": "None"
+        },
+        {
+          "attribute": "MaxHealthAdded",
+          "value": 22893.570312,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 275.733154,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_4",
+          "value": 3,
+          "tag": "CommonAtkAggravatingInjury_Lv3"
+        },
+        {
+          "attribute": "ThunderDefAdded",
+          "value": 4627.814453,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "IceDefAdded",
+          "value": 4629.236328,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_3",
+      "itemId": "pants_red",
+      "enhancement": 70,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "ElementDef",
+          "value": 353.246765,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1451.176758,
+          "tag": "None"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1373.939575,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 527.083252,
+          "tag": "None"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1344.370605,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1261.806396,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "uncommon_3",
+          "value": 3,
+          "tag": "CommonAtkAggravatingInjury_Lv3"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_2",
+      "itemId": "cloth_red",
+      "enhancement": 70,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1205.308838,
+          "tag": "None"
+        },
+        {
+          "attribute": "MaxHealthAdded",
+          "value": 23022.128906,
+          "tag": "None"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1106.320435,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 737.26062,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_2",
+          "value": 3,
+          "tag": "CommonWeaknessIncreaseInjury_Lv3"
+        },
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1023.161865,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "FireAtkAdded",
+          "value": 1033.330811,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    },
+    {
+      "slotKey": "Equipment_1",
+      "itemId": "core_OS_red",
+      "enhancement": 80,
+      "stars": 5,
+      "stats": [
+        {
+          "attribute": "ThunderAtkExtraUpMult",
+          "value": 0.026015,
+          "tag": "None"
+        },
+        {
+          "attribute": "CommonAtkAdded",
+          "value": 291.022217,
+          "tag": "None"
+        },
+        {
+          "attribute": "MaxHealthAdded",
+          "value": 22688.677734,
+          "tag": "None"
+        },
+        {
+          "attribute": "ThunderAtkAdded",
+          "value": 1262.456055,
+          "tag": "None"
+        },
+        {
+          "attribute": "uncommon_9",
+          "value": 3,
+          "tag": "CommonWeaknessIncreaseInjury_Lv3"
+        },
+        {
+          "attribute": "IceAtkAdded",
+          "value": 1074.444092,
+          "tag": "EquipmentTupo"
+        },
+        {
+          "attribute": "PhyAtkAdded",
+          "value": 1123.854004,
+          "tag": "EquipmentTupo"
+        }
+      ]
+    }
+  ],
+  "matrices": [
+    {
+      "weaponSlot": 0,
+      "slot": 1,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_1",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 0,
+      "slot": 2,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_2",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 0,
+      "slot": 3,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_3",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 0,
+      "slot": 4,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR53_4",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR53"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 1,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_1",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 2,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_2",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 3,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_3",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 1,
+      "slot": 4,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR51_4",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR51"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 1,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_1",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 2,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_2",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 3,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_3",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    },
+    {
+      "weaponSlot": 2,
+      "slot": 4,
+      "state": "received",
+      "matrix": {
+        "itemId": "matrix_SSR63_4",
+        "level": 100,
+        "stars": 3,
+        "suitId": "suit_SSR63"
+      }
+    }
+  ],
+  "trait": {
+    "itemId": "imitation_67",
+    "weaponId": "BlackStar_SuperPower",
+    "enabled": true,
+    "points": 4000
+  },
+  "relics": [
+    {
+      "slot": 0,
+      "itemId": "artifact_ssr_022",
+      "stars": 5
+    },
+    {
+      "slot": 1,
+      "itemId": "Artifact_SR_004",
+      "stars": 5
+    }
+  ],
+  "relicPassives": [
+    {
+      "attribute": "PhyAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "PhyAtkExtraUpMult",
+      "fraction": 0.075,
+      "stackCount": 4,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "ThunderAtkExtraUpMult",
+      "fraction": 0.105,
+      "stackCount": 6,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "FireAtkExtraUpMult",
+      "fraction": 0.11,
+      "stackCount": 6,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "IceAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "FireAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "ThunderAtkBeExtraDownMult",
+      "fraction": 0.055,
+      "stackCount": 3,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "IceAtkExtraUpMult",
+      "fraction": 0.09,
+      "stackCount": 5,
+      "sourceCount": 2
+    },
+    {
+      "attribute": "SuperpowerDefMult",
+      "fraction": 0.02,
+      "stackCount": 1,
+      "sourceCount": 1
+    }
+  ],
+  "pet": {
+    "itemId": "FightPet_7",
+    "customName": "Example pet",
+    "level": 94,
+    "stars": 3,
+    "modules": [
+      {
+        "slot": 0,
+        "itemId": "SkillModule_ssr_15_3",
+        "typeId": "SkillModule_ssr_15",
+        "level": 3
+      },
+      {
+        "slot": 1,
+        "itemId": "SkillModule_ssr_3_4",
+        "typeId": "SkillModule_ssr_3",
+        "level": 4
+      }
+    ],
+    "baseAttack": 6479,
+    "baseCrit": 5664,
+    "inheritedAttack": null
+  },
+  "computing": [
+    {
+      "slot": 15,
+      "level": 15,
+      "progress": 0
+    },
+    {
+      "slot": 16,
+      "level": 15,
+      "progress": 0
+    },
+    {
+      "slot": 1,
+      "level": 13,
+      "progress": 12
+    },
+    {
+      "slot": 14,
+      "level": 10,
+      "progress": 1
+    }
+  ],
+  "support": null,
+  "synthesis": [
+    {
+      "itemId": "queen_superpower",
+      "stage": 6
+    },
+    {
+      "itemId": "fan_superpower",
+      "stage": 6
+    }
+  ],
+  "buffs": {
+    "observedAt": "2026-10-05T15:13:55.279Z",
+    "precision": "approximate",
+    "records": [
+      {
+        "definition": "Default__Buff_PeaceRecoverHp_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_IceSpecial_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_NanYinSuperPower_SSR_Level0_JiSu_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_SSR_Level0_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_level3_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_Level6_DMGUp_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR107_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR108_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR103_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR104_level4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix127_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix128_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level0_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level1_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level3_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level5_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_SSR_Level6_Always_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__GE_Lana_Lv5_DeathImmuneTrigger_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BePhyDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_PhyUp15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_ThunderUp15_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_FireUp15_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BePhyDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__buff_artifact_sr006_skateControl_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeIceDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeFireDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeThunderDown15_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_IceUp15_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_IceSpecial_Start_C",
+        "stackCount": 1,
+        "durationSeconds": 1.4800000190734863,
+        "remainingSeconds": 0,
+        "expiresAt": "2026-10-05T15:13:45.823Z"
+      },
+      {
+        "definition": "Default__Artifact_FireUp20_C",
+        "stackCount": 4,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_ThunderUp20_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeFireDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeIceDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_PhyUp20_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_IceUp20_C",
+        "stackCount": 3,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_BeThunderDown20_C",
+        "stackCount": 2,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Artifact_SuperPowerDefUp20_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Imitation_BlackStar_Level2_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_SSR_Level0_CheckAdd_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_NanYinSuperPower_SSR_Level0_JiSu_YiwenLv1_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_BlackStar_SSR_Level0_Always_Add_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR108_FinDMGUp_ForBlackStar_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix_SSR103_level4_IceAtkUp_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix127_Lana_DmgUp_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Matrix128_Lana_DmgUp_Lv4_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_CheckAdd_Superpower_Resonance_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_Lana_Lv5_DeathImmune_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_Thunder_Resonance_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_GreyFoxSp_Ice_Resonance_C",
+        "stackCount": 1,
+        "durationSeconds": null,
+        "remainingSeconds": null,
+        "expiresAt": null
+      },
+      {
+        "definition": "Default__Buff_MiA_Feed_C",
+        "stackCount": 1,
+        "durationSeconds": 10800,
+        "remainingSeconds": 9304.563999891281,
+        "expiresAt": "2026-10-05T17:48:59.843Z"
+      },
+      {
+        "definition": "Default__Buff_Jiuyu_Cooking36_C",
+        "stackCount": 1,
+        "durationSeconds": 604800,
+        "remainingSeconds": 264318.9389998913,
+        "expiresAt": "2026-10-08T16:39:14.218Z"
+      },
+      {
+        "definition": "Default__Buff_Jiuyu_Cooking32_C",
+        "stackCount": 1,
+        "durationSeconds": 604800,
+        "remainingSeconds": 264323.6889998913,
+        "expiresAt": "2026-10-08T16:39:18.968Z"
+      },
+      {
+        "definition": "Default__Buff_Jiuyu_Cooking35_C",
+        "stackCount": 1,
+        "durationSeconds": 604800,
+        "remainingSeconds": 264326.6889998913,
+        "expiresAt": "2026-10-08T16:39:21.968Z"
+      }
+    ],
+    "counts": {
+      "records": 54,
+      "stacks": 71,
+      "temporary": 5,
+      "permanent": 49
+    }
+  },
+  "weaponSettings": {
+    "elements": {
+      "NoraWeaponElementType": {
+        "code": 5,
+        "aux": 0
+      },
+      "LanaWeaponElementType": {
+        "code": 3,
+        "aux": 16
+      },
+      "BlackStarCustomWeaponType": {
+        "code": 0,
+        "aux": 0
+      }
+    },
+    "fionaSkills": [
+      3,
+      5
+    ],
+    "settings": {
+      "YulanSelectSkillIndex": 1,
+      "SnipeModelIndex": 0,
+      "BlackStarSkillPressType": 2,
+      "EstherWeaponAutoTimeStop": 1,
+      "LanaSectionType": 0
+    },
+    "nanYinMark": null
+  }
+}

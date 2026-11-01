@@ -1,0 +1,8 @@
+{
+  "schemaVersion": 1,
+  "version": "bootstrap-v1",
+  "file": "tof-hub-bootstrap-v1.zip",
+  "sha256": "e7f6eee28df8d69ac894244ffd1074c3b928cc133ba56f48149ae316cc39a3d1",
+  "bytes": 39663459,
+  "description": "Pinned import/reference mappings, build-time manifests, extraction configuration and preserved site/historical media. Runtime catalogs and scoring research are regenerated from the installed game."
+}

@@ -1,0 +1,744 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+/// Private site feedback. No player identity, plain IP or network hash is attached to an answer.
+model FeedbackResponse {
+  id String @id @db.Uuid
+  survey String
+  requestDigest String @map("request_digest")
+  visual Int?
+  dataTrust Int? @map("data_trust")
+  usability Int?
+  usefulness Int?
+  aiTrace Int? @map("ai_trace")
+  aiComment String @map("ai_comment")
+  locale String
+  source String
+  release String?
+  /// Character remembered by the browser after an import; convenience identity, not authentication.
+  playerUid String? @map("player_uid")
+  playerNickname String? @map("player_nickname")
+  timeZone String? @map("time_zone")
+  screen String?
+  /// ISO 3166-1 alpha-2 from the trusted ingress header (FEEDBACK_COUNTRY_HEADER), when configured.
+  country String?
+  device String?
+  os String?
+  browser String?
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  notes FeedbackNote[]
+  @@index([createdAt(sort: Desc), id], map: "feedback_responses_created_id")
+  @@map("feedback_responses")
+}
+
+/// Each page-specific message is an independent item, even when submitted together.
+model FeedbackNote {
+  id String @id @db.Uuid
+  responseId String @map("response_id") @db.Uuid
+  position Int
+  category String
+  page String?
+  message String
+  createdAt DateTime @default(now()) @map("created_at") @db.Timestamptz(3)
+  response FeedbackResponse @relation(fields: [responseId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  @@unique([responseId, position])
+  @@index([page, createdAt(sort: Desc)], map: "feedback_notes_page_created")
+  @@map("feedback_notes")
+}
+
+/// Durable at-most-once invitation claims; deliberately separate from answer contents.
+model FeedbackPromptClaim {
+  survey String
+  networkKey String @map("network_key")
+  reason String
+  claimedAt DateTime @default(now()) @map("claimed_at") @db.Timestamptz(3)
+  @@id([survey, networkKey])
+  @@map("feedback_prompt_claims")
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model GameVersionBranch {
+  id String @id
+  version String?
+  changedAt DateTime? @map("changed_at") @db.Timestamptz(3)
+  checkedAt DateTime? @map("checked_at") @db.Timestamptz(3)
+  attemptedAt DateTime? @map("attempted_at") @db.Timestamptz(3)
+  error Boolean @default(false)
+  resourceBranch String? @map("resource_branch")
+  sourceUrl String? @map("source_url")
+  launcherVersion String? @map("launcher_version")
+  events GameVersionEvent[]
+  @@map("game_version_branches")
+}
+
+model GameVersionEvent {
+  id String @id
+  branchId String @map("branch_id")
+  version String
+  observedAt DateTime @map("observed_at") @db.Timestamptz(3)
+  precision String
+  origin String
+  resourceBranch String? @map("resource_branch")
+  sourceUrl String? @map("source_url")
+  launcherVersion String? @map("launcher_version")
+  branch GameVersionBranch @relation(fields: [branchId], references: [id], onDelete: Cascade, onUpdate: NoAction)
+  @@index([branchId, observedAt(sort: Desc)], map: "game_version_events_branch_time")
+  @@map("game_version_events")
+}
+
+// Independent of players/gear_items: test UIDs can collide with live identities.
+model PioneerGear {
+  id          String @id @db.Uuid
+  fingerprint String @unique
+  piece       Json
+  provenance  Json
+  observedAt  DateTime @map("observed_at") @db.Timestamptz(3)
+  winners     PioneerWinner[]
+  @@map("pioneer_gear")
+}
+model PioneerWinner {
+  key     String @id
+  gearId  String @map("gear_id") @db.Uuid
+  score   Float
+  gear    PioneerGear @relation(fields:[gearId],references:[id],onDelete:Cascade,onUpdate:NoAction)
+  @@index([gearId])
+  @@map("pioneer_winners")
+}
+
+// Wish history, players, uploads, gear, saved builds and rankings.
+// A Player is a game character, not a site account.
+
+model WishProfile {
+  id        String   @id @map("id")
+  uid       String   @map("uid")
+  name      String   @map("name")
+  isDefault Boolean  @default(false) @map("is_default")
+  isDemo    Boolean  @default(false) @map("is_demo")
+  region    String   @default("global") @map("region")
+  server    String   @default("9999001") @map("server")
+  /// Imported profiles belong to a game character; demo profiles have none.
+  playerId  String?  @map("player_id")
+  pitySnapshots String? @map("pity_snapshots")
+  avatarId String? @map("avatar_id")
+  avatarFrameId String? @map("avatar_frame_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  player               Player?                   @relation(fields: [playerId], references: [id], onDelete: SetNull)
+  wishRecords          WishRecord[]
+  cashbackTransactions WishCashbackTransaction[]
+
+  @@index([playerId])
+  @@map("wish_profiles")
+}
+
+model WishBanner {
+  id                String   @id @map("id")
+  name              String   @map("name")
+  nameEn            String   @map("name_en")
+  nameRu            String   @map("name_ru")
+  bannerType        String   @map("banner_type")
+  characterId       String   @map("character_id")
+  weaponId          String?  @map("weapon_id")
+  matrixId          String?  @map("matrix_id")
+  pityTarget        Int      @default(80) @map("pity_target")
+  startDate         DateTime @map("start_date")
+  endDate           DateTime @map("end_date")
+  currency          String   @map("currency")
+  cashbackCurrency  String   @map("cashback_currency")
+  featuredSsr       String   @map("featured_ssr")
+  standardPoolItems String   @default("[]") @map("standard_pool_items")
+  assets            String   @map("assets")
+  createdAt         DateTime @default(now()) @map("created_at")
+
+  wishRecords WishRecord[]
+
+  @@map("wish_banners")
+}
+
+model WishRecord {
+  id               String   @id @map("id")
+  profileId        String   @map("profile_id")
+  bannerId         String   @map("banner_id")
+  bannerType       String   @map("banner_type")
+  itemId           String   @map("item_id")
+  itemName         String   @map("item_name")
+  itemType         String   @map("item_type")
+  rarity           Int      @map("rarity")
+  pityCount        Int      @map("pity_count")
+  isGuaranteedPity Boolean  @default(false) @map("is_guaranteed_pity")
+  isFeatured       Boolean  @default(false) @map("is_featured")
+  streakOutcome    String?  @map("streak_outcome")
+  slot             String?  @map("slot")
+  pullTimestamp    DateTime @map("pull_timestamp")
+  groupTicks       String?  @map("group_ticks")
+  rawBannerCode    String?  @map("raw_banner_code")
+  itemIndex        Int?     @map("item_index")
+  trackPullNumber  Int?     @map("track_pull_number")
+  compensation     String?  @map("compensation")
+
+  profile WishProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+  banner  WishBanner  @relation(fields: [bannerId], references: [id])
+
+  @@index([profileId, bannerType, pullTimestamp])
+  @@index([bannerId])
+  @@map("wish_records")
+}
+
+model WishCashbackTransaction {
+  id           String   @id @map("id")
+  profileId    String   @map("profile_id")
+  bannerId     String?  @map("banner_id")
+  currencyType String   @map("currency_type")
+  amountChange Int      @map("amount_change")
+  balanceAfter Int      @map("balance_after")
+  reason       String   @map("reason")
+  timestamp    DateTime @default(now()) @map("timestamp")
+
+  profile WishProfile @relation(fields: [profileId], references: [id], onDelete: Cascade)
+
+  @@index([profileId, currencyType])
+  @@map("wish_cashback_transactions")
+}
+
+// ---------------------------------------------------------------------------
+// Players: one row per game character.
+// ---------------------------------------------------------------------------
+
+/// A game character. uid is the in-game UID (5/7-digit origin server + character number without padding).
+/// roleId is the full 64-bit character id from raw packets (LotteryRecord:<roleId>, TCP profile uid words);
+/// its decimal form usually starts with 4 or 5. Both are unique; either may arrive first.
+model Player {
+  id             String   @id @default(uuid()) @map("id")
+  uid            String?  @unique @map("uid")
+  roleId         String?  @unique @map("role_id")
+  nickname       String?  @map("nickname")
+  /// The nickname as search compares it (normalizeSearchText: invisible characters removed, NFKC, lower case).
+  searchName     String?  @map("search_name")
+  /// 5/7-digit origin server id; region (EU, NA, AP, ...) comes from the contracts server catalog.
+  serverId       String?  @map("server_id")
+  region         String?  @map("region")
+  level          Int?     @map("level")
+  crew           String?  @map("crew")
+  titleId        String?  @map("title_id")
+  avatarId       String?  @map("avatar_id")
+  avatarFrameId  String?  @map("avatar_frame_id")
+  combatScore    Int?     @map("combat_score")
+  maxCombatScore Int?     @map("max_combat_score")
+  /// The game's date of the current maxCombatScore (HistoryMaxGSChangeTime, own character only, via .tofbuild).
+  maxCombatScoreAt DateTime? @map("max_combat_score_at")
+  /// Raw TotalRecharge profile field. Its unit is unverified (it is not a currency amount).
+  totalRecharge  BigInt?  @map("total_recharge")
+  /// Spending in USD when a verified source exists (purchase records or a confirmed conversion).
+  spentUsd       Decimal? @map("spent_usd") @db.Decimal(12, 2)
+  /// Own account counters from a `.tofbuild` (recharge fields, login days, report counts, purchases), raw game values.
+  accountStats   Json?    @map("account_stats")
+  accountStatsAt DateTime? @map("account_stats_at")
+  /// Latest accepted own profile (.tofbuild or the owner record in .tofplayers), independent of best-set gear.
+  selfCaptureAt DateTime? @map("self_capture_at")
+  /// Hidden from public rankings and profiles (player request or moderation).
+  hidden         Boolean  @default(false) @map("hidden")
+  firstSeenAt    DateTime @default(now()) @map("first_seen_at")
+  lastSeenAt     DateTime @default(now()) @map("last_seen_at")
+  createdAt      DateTime @default(now()) @map("created_at")
+  updatedAt      DateTime @updatedAt @map("updated_at")
+
+  names        PlayerName[]
+  nameObservations PlayerNameObservation[]
+  reports      PlayerReport[]
+  purchases    PlayerPurchase[]
+  uploads      Upload[]
+  wishProfiles WishProfile[]
+  gear         GearItem[]
+  builds       Build[]
+  scores       PlayerScore[]
+  rankEntries  RankEntry[]
+
+  @@index([region, serverId])
+  @@index([nickname])
+  @@map("players")
+}
+
+/// Nickname history: every distinct nickname with the period it was observed.
+model PlayerName {
+  id          String   @id @default(uuid()) @map("id")
+  playerId    String   @map("player_id")
+  nickname    String   @map("nickname")
+  /// normalizeSearchText(nickname): former names are searched the same way.
+  searchName  String?  @map("search_name")
+  firstSeenAt DateTime @default(now()) @map("first_seen_at")
+  lastSeenAt  DateTime @default(now()) @map("last_seen_at")
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, nickname])
+  @@index([nickname])
+  @@map("player_names")
+}
+
+/// Private chronological nickname observations. Repeated names at later capture dates preserve A -> B -> A.
+/// observedAt is the capture time, not the game's rename time; recordedAt is when this observation reached the database.
+model PlayerNameObservation {
+  id          String   @id @default(uuid()) @map("id")
+  playerId    String   @map("player_id")
+  nickname    String   @map("nickname")
+  observedAt  DateTime @map("observed_at")
+  recordedAt  DateTime @default(now()) @map("recorded_at")
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@unique([playerId, observedAt, nickname])
+  @@index([playerId, observedAt])
+  @@map("player_name_observations")
+}
+
+/// Reports about a character (fake data, offensive name, cheating). Reporter identity is a salted hash.
+model PlayerReport {
+  id           String    @id @default(uuid()) @map("id")
+  playerId     String    @map("player_id")
+  /// fake_data | offensive_name | cheating | other
+  reason       String    @map("reason")
+  details      String?   @map("details")
+  reporterHash String    @map("reporter_hash")
+  /// open | reviewed | rejected | actioned
+  status       String    @default("open") @map("status")
+  resolution   String?   @map("resolution")
+  createdAt    DateTime  @default(now()) @map("created_at")
+  resolvedAt   DateTime? @map("resolved_at")
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@index([playerId, status])
+  @@map("player_reports")
+}
+
+/// Purchased packs. packId is the game product id when captured; the price stays null until verified.
+model PlayerPurchase {
+  id          String    @id @default(uuid()) @map("id")
+  playerId    String    @map("player_id")
+  packId      String    @map("pack_id")
+  packName    String?   @map("pack_name")
+  priceUsd    Decimal?  @map("price_usd") @db.Decimal(10, 2)
+  quantity    Int       @default(1) @map("quantity")
+  purchasedAt DateTime? @map("purchased_at")
+  /// capture | manual
+  source      String    @map("source")
+  uploadId    String?   @map("upload_id")
+  createdAt   DateTime  @default(now()) @map("created_at")
+
+  player Player  @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  upload Upload? @relation(fields: [uploadId], references: [id], onDelete: SetNull)
+
+  @@unique([playerId, packId, purchasedAt])
+  @@map("player_purchases")
+}
+
+/// Every accepted sealed file: provenance for wish records, gear, builds and leaderboard snapshots.
+model Upload {
+  id              String   @id @default(uuid()) @map("id")
+  playerId        String?  @map("player_id")
+  /// wish | build | inspect | leaderboard
+  kind            String   @map("kind")
+  fileSha256      String   @map("file_sha256")
+  exporterName    String   @map("exporter_name")
+  exporterVersion String   @map("exporter_version")
+  ipHash          String   @map("ip_hash")
+  /// Raw requester IP of a `.tofbuild` import (owner decision 2026-10-23); null for other kinds and older rows.
+  ip              String?  @map("ip")
+  inserted        Int      @default(0) @map("inserted")
+  duplicates      Int      @default(0) @map("duplicates")
+  createdAt       DateTime @default(now()) @map("created_at")
+
+  player        Player?          @relation(fields: [playerId], references: [id], onDelete: SetNull)
+  gear          GearItem[]
+  builds        Build[]
+  purchases     PlayerPurchase[]
+  rankSnapshots RankSnapshot[]
+
+  @@unique([kind, fileSha256])
+  @@index([playerId, createdAt])
+  @@map("uploads")
+}
+
+// ---------------------------------------------------------------------------
+// Gear and builds
+// ---------------------------------------------------------------------------
+
+/// One gear piece owned by a character. The same piece seen in several uploads is one row
+/// (instanceId when the capture has it, otherwise a fingerprint of slot, item and pre-Titan stats).
+model GearItem {
+  id               String   @id @default(uuid()) @map("id")
+  playerId         String   @map("player_id")
+  /// helmet | spaulders | armor | bracers | belt | pants | boots | gloves | visor | core | exoskeleton | reactor
+  slot             String   @map("slot")
+  itemId           String   @map("item_id")
+  instanceId       String?  @map("instance_id")
+  fingerprint      String   @map("fingerprint")
+  stars            Int      @map("stars")
+  enhancement      Int      @map("enhancement")
+  titan            Boolean  @default(false) @map("titan")
+  augmented        Boolean  @default(false) @map("augmented")
+  rareId           String?  @map("rare_id")
+  rareLevel        Int?     @map("rare_level")
+  /// Current random stats [{type, value}] in build-card units (fractions for percentages).
+  stats            Json     @map("stats")
+  /// Random stats before Titan [{type, value}] when the capture had them (attributesA).
+  statsBeforeTitan Json?    @map("stats_before_titan")
+  augments         Json     @default("[]") @map("augments")
+  /// Titan clicks (Augmentation Count of the item's inventory record), own captures only.
+  augmentCount     Int?     @map("augment_count")
+  /**
+   * Part of the latest observed equipped set of its player (one per slot).
+   */
+  equipped         Boolean  @default(false) @map("equipped")
+  /**
+   * self = the owner's own capture; inspect = seen on someone else's Personal Card.
+   */
+  source           String   @default("self") @map("source")
+  uploadId         String?  @map("upload_id")
+  firstSeenAt      DateTime @default(now()) @map("first_seen_at")
+  lastSeenAt       DateTime @default(now()) @map("last_seen_at")
+
+  player Player      @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  upload Upload?     @relation(fields: [uploadId], references: [id], onDelete: SetNull)
+  scores GearScore[]
+  builds BuildGear[]
+
+  @@unique([playerId, fingerprint])
+  @@index([playerId, slot, id], map: "gear_items_player_slot_cover_idx")
+  @@index([playerId, equipped])
+  @@map("gear_items")
+}
+
+/// Ranking value of one gear piece for one element track. Mono tracks (Frost) and pair tracks
+/// (Frost-Volt) follow the build card RV rules: flat ATK of the first element, the best ATK% and
+/// DMG% within the pair. Region and slot are copied in so a top query reads one index range.
+model GearScore {
+  gearItemId String   @map("gear_item_id")
+  /// Frost | Volt | Flame | Physical | Altered | Frost-Volt | Volt-Frost | Flame-Physical | Physical-Flame
+  track      String   @map("track")
+  slot       String   @map("slot")
+  region     String?  @map("region")
+  /// Current RV percent and the projected full-Titan maximum.
+  score      Float    @map("score")
+  maxScore   Float    @map("max_score")
+  /// Best rows (`best:all`, `best:<pair>`, role-prefixed): the stored track the score came from (ranking/best-tracks.ts).
+  sourceTrack String? @map("source_track")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  gear GearItem @relation(fields: [gearItemId], references: [id], onDelete: Cascade)
+
+  @@id([gearItemId, track])
+  @@index([track, slot, region, score(sort: Desc)])
+  @@index([track, region, score(sort: Desc)])
+  /// Boards without a region filter (all regions) keep an ordered index range too.
+  @@index([track, slot, score(sort: Desc), maxScore(sort: Desc), gearItemId, region], map: "gear_scores_slot_board_cover_idx")
+  @@index([track, score(sort: Desc), maxScore(sort: Desc), gearItemId, slot, region], map: "gear_scores_board_cover_idx")
+  /// Counts and visibility joins can read gear ids without fetching the full score table.
+  @@index([track, gearItemId], map: "gear_scores_track_gear_item_id_idx")
+  @@map("gear_scores")
+}
+
+/// A captured build card. draft is the build-card document; equipped gear is linked through BuildGear.
+model Build {
+  id          String   @id @default(uuid()) @map("id")
+  playerId    String   @map("player_id")
+  uploadId    String?  @map("upload_id")
+  capturedAt  DateTime @map("captured_at")
+  combatScore Int?     @map("combat_score")
+  /// GRV/PRV element and role shown in the card header.
+  element     String?  @map("element")
+  role        String?  @map("role")
+  draft       Json     @map("draft")
+  /// The newest build of the player; rankings read only current builds.
+  isCurrent   Boolean  @default(true) @map("is_current")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  player Player      @relation(fields: [playerId], references: [id], onDelete: Cascade)
+  upload Upload?     @relation(fields: [uploadId], references: [id], onDelete: SetNull)
+  gear   BuildGear[]
+
+  @@index([playerId, capturedAt])
+  @@index([isCurrent, element])
+  @@map("builds")
+}
+
+model BuildGear {
+  buildId    String @map("build_id")
+  slot       String @map("slot")
+  gearItemId String @map("gear_item_id")
+
+  build Build    @relation(fields: [buildId], references: [id], onDelete: Cascade)
+  gear  GearItem @relation(fields: [gearItemId], references: [id], onDelete: Cascade)
+
+  @@id([buildId, slot])
+  @@index([gearItemId])
+  @@map("build_gear")
+}
+
+/// Player ranking: the sum of the latest equipped gear scores for one element track (from a build or a gear-only update).
+/// A saved public build-card profile: one per character UID × role × element (docs/imports.md
+/// "Saved profiles"). `capture` is the server-signed .tofbuild capture with its import `digest`/`signature`; `art` is a
+/// site background with its framing (custom images are never stored).
+model BuildProfile {
+  id         String   @id @default(uuid()) @map("id")
+  uid        String   @map("uid")
+  /// dps | healer | tank
+  role       String   @map("role")
+  /// Frost | Volt | Flame | Physical | Altered
+  element    String   @map("element")
+  name       String?  @map("name")
+  /// The capture as its exact JSON text: the digest covers this byte order (JSONB would reorder keys).
+  capture    String   @map("capture")
+  digest     String   @map("digest")
+  signature  String   @map("signature")
+  art        Json?    @map("art")
+  capturedAt DateTime @map("captured_at")
+  savedAt    DateTime @default(now()) @map("saved_at")
+
+  @@unique([uid, role, element])
+  @@index([uid])
+  @@map("build_profiles")
+}
+
+/// Public MMO (Warp) build cards per character UID × role (docs/imports.md).
+model MmoBuildProfile {
+  id         String   @id @default(uuid()) @map("id")
+  uid        String   @map("uid")
+  /// dps | tank | healer | balance
+  role       String   @map("role")
+  name       String?  @map("name")
+  /// The capture as its exact JSON text: the digest covers this byte order (JSONB would reorder keys).
+  capture    String   @map("capture")
+  digest     String   @map("digest")
+  signature  String   @map("signature")
+  art        Json?    @map("art")
+  capturedAt DateTime @map("captured_at")
+  savedAt    DateTime @default(now()) @map("saved_at")
+
+  @@unique([uid, role])
+  @@index([uid])
+  @@map("mmo_build_profiles")
+}
+
+/// Fingerprint of the runtime scoring code and catalog used for the persisted live ranking.
+model ScoringRevision {
+  id          String   @id
+  fingerprint String
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@map("scoring_revisions")
+}
+
+/// Optional PWG account from the own checkout log, independent of live/test gear retention.
+/// uid is the game character UID; pwgUid is the separate payment account UID.
+model PlayerPwgIdentity {
+  uid        String   @id
+  pwgUid     String   @map("pwg_uid")
+  roleId     String   @map("role_id")
+  serverId   String   @map("server_id")
+  appId      String?  @map("app_id")
+  observedAt DateTime @map("observed_at")
+  fileHash   String   @map("file_hash")
+  updatedAt  DateTime @default(now()) @updatedAt @map("updated_at")
+
+  @@index([pwgUid, appId])
+  @@map("player_pwg_identities")
+}
+
+model PlayerScore {
+  playerId  String   @map("player_id")
+  track     String   @map("track")
+  region    String?  @map("region")
+  buildId   String?  @map("build_id")
+  score     Float    @map("score")
+  maxScore  Float    @map("max_score")
+  /// Best rows (`best:all`, `best:<pair>`, role-prefixed): the stored track the score came from (ranking/best-tracks.ts).
+  sourceTrack String? @map("source_track")
+  /// The pieces behind the score: per slot the player's best known piece for this track, equipped or not (2026-10-08).
+  gearIds   String[] @default([]) @map("gear_ids")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  player Player @relation(fields: [playerId], references: [id], onDelete: Cascade)
+
+  @@id([playerId, track])
+  @@index([track, region, score(sort: Desc)])
+  @@index([track, score(sort: Desc)])
+  @@map("player_scores")
+}
+
+// ---------------------------------------------------------------------------
+// In-game leaderboards captured by the app
+// ---------------------------------------------------------------------------
+
+model RankSnapshot {
+  id         String   @id @default(uuid()) @map("id")
+  /// Game leaderboard id as captured; decoded names live in the pipeline.
+  board      String   @map("board")
+  region     String?  @map("region")
+  serverId   String?  @map("server_id")
+  capturedAt DateTime @map("captured_at")
+  uploadId   String?  @map("upload_id")
+
+  upload  Upload?     @relation(fields: [uploadId], references: [id], onDelete: SetNull)
+  entries RankEntry[]
+
+  @@index([board, region, capturedAt])
+  @@map("rank_snapshots")
+}
+
+model RankEntry {
+  snapshotId String  @map("snapshot_id")
+  rank       Int     @map("rank")
+  playerId   String? @map("player_id")
+  roleId     String? @map("role_id")
+  nickname   String? @map("nickname")
+  score      Float   @map("score")
+
+  snapshot RankSnapshot @relation(fields: [snapshotId], references: [id], onDelete: Cascade)
+  player   Player?      @relation(fields: [playerId], references: [id], onDelete: SetNull)
+
+  @@id([snapshotId, rank])
+  @@index([playerId])
+  @@map("rank_entries")
+}
+
+/// One heavy operation of the shared queue (docs/architecture/job-queue.md): file imports and profile saves run one at
+/// a time in order. The payload is dropped as soon as the job is processed; only each requester's latest five finished rows are kept.
+model AbuseCounter {
+  key String @id
+  count Int
+  expiresAt DateTime @map("expires_at")
+  @@index([expiresAt])
+  @@map("abuse_counters")
+}
+
+model QueueJob {
+  id         String    @id @map("id")
+  /// Public order number shown on /tools/queue.
+  seq        Int       @default(autoincrement()) @unique @map("seq")
+  /// wish-import | players-import | build-import | build-profile
+  kind       String    @map("kind")
+  /// queued | processing | complete | failed
+  state      String    @map("state")
+  /// Salted sha256 of the requester IP: one active job per IP, polling bound to it.
+  ipHash     String    @map("ip_hash")
+  /// Raw IP while the job is active (access grants of the wish import); cleared when it finishes.
+  ip         String?   @map("ip")
+  payload    Bytes?    @map("payload")
+  result     Json?     @map("result")
+  /// Short-lived private response needed by the submitting page (for example, an imported build card).
+  delivery   Json?     @map("delivery")
+  deliveryExpiresAt DateTime? @map("delivery_expires_at")
+  error      Json?     @map("error")
+  createdAt  DateTime  @default(now()) @map("created_at")
+  startedAt  DateTime? @map("started_at")
+  finishedAt DateTime? @map("finished_at")
+
+  @@index([state, seq])
+  @@index([ipHash, state])
+  @@index([ipHash, seq(sort: Desc)], map: "queue_jobs_ip_hash_seq_idx")
+  @@map("queue_jobs")
+}
+
+/// Test-server participation, by UID, independent of live profiles and of gear that survives ranking compaction.
+model TestAccount {
+  uid           String   @id
+  roleId        String?  @map("role_id")
+  nickname      String?
+  distributions String[] @default([])
+  firstSeenAt   DateTime @map("first_seen_at")
+  lastSeenAt    DateTime @map("last_seen_at")
+
+  @@map("test_accounts")
+}
+
+/// Independent per-client intervals; UID need not have a live Player row.
+model TestAccountServer {
+  uid             String
+  distribution    String
+  firstSeenAt     DateTime @map("first_seen_at")
+  lastSeenAt      DateTime @map("last_seen_at")
+  firstTimeSource String @map("first_time_source")
+  lastTimeSource  String @map("last_time_source")
+  firstEvidence   Json @map("first_evidence")
+  lastEvidence    Json @map("last_evidence")
+
+  @@id([uid, distribution])
+  @@map("test_account_servers")
+}
+
+/// Stable fallback time when the same undated payload is uploaded again.
+model TestAccountImport {
+  fileHash   String @id @map("file_hash")
+  importedAt DateTime @map("imported_at")
+
+  @@map("test_account_imports")
+}
+
+/// Largest observed negative current CS by magnitude, independent of live/test gear retention.
+model NotificationSettings {
+  id           String   @id
+  value        Json
+  updateOffset BigInt   @default(0) @map("update_offset")
+  updatedAt    DateTime @default(now()) @updatedAt @map("updated_at")
+  @@map("notification_settings")
+}
+
+model NotificationEvent {
+  id            String   @id
+  seq           BigInt   @unique @default(autoincrement())
+  event         Json
+  attempts      Int      @default(0)
+  nextAttemptAt DateTime @default(now()) @map("next_attempt_at")
+  deliveredAt   DateTime? @map("delivered_at")
+  createdAt     DateTime @default(now()) @map("created_at")
+  @@index([deliveredAt, nextAttemptAt, createdAt], map: "notification_events_pending")
+  @@map("notification_events")
+}
+
+model NotificationMessage {
+  id        String   @id
+  messageId Int      @map("message_id")
+  updatedAt DateTime @default(now()) @updatedAt @map("updated_at")
+  @@map("notification_messages")
+}
+
+/// Private encrypted imports awaiting Telegram delivery. Delivered bytes are cleared; pending bytes never expire.
+model NotificationImportFile {
+  id String @id
+  sha256 String
+  environment String
+  kind String
+  part Int
+  parts Int
+  filename String
+  ownerUid String? @map("owner_uid")
+  ownerNickname String? @map("owner_nickname")
+  payload Bytes?
+  attempts Int @default(0)
+  nextAttemptAt DateTime @default(now()) @map("next_attempt_at")
+  deliveredAt DateTime? @map("delivered_at")
+  messageId Int? @map("message_id")
+  createdAt DateTime @default(now()) @map("created_at")
+  @@index([deliveredAt, nextAttemptAt, createdAt], map: "notification_import_files_pending")
+  @@map("notification_import_files")
+}
+
+model NegativeCombatScore {
+  uid          String @id
+  score        Float
+  scannedAt    DateTime? @map("scanned_at")
+  capturedAt   DateTime? @map("captured_at")
+  timeSource   String @map("time_source")
+  scanId       String? @map("scan_id")
+  distribution String?
+  sourceKind   String @map("source_kind")
+  fileHash     String @map("file_hash")
+
+  @@map("negative_combat_scores")
+}

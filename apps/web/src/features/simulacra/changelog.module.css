@@ -1,0 +1,887 @@
+/* Simulacra Changelog Feed Styles - Reproducing legacy info/simulacra/changelog/index.html */
+
+.changelogFeed {
+  --sim-surface: var(--surface-panel);
+  --sim-surface-hover: var(--surface-raised);
+  --sim-text-sub: var(--dm-muted);
+  --sim-border: var(--surface-border);
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px 20px 80px 20px;
+  box-sizing: border-box;
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+  .changelogFeed {
+    padding: 12px 14px 60px 14px;
+  }
+}
+
+.changelogTopControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.changelogTopControlsRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-left: auto;
+}
+
+.changelogBackLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #948aa8;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.changelogBackLink:hover {
+  color: #f5d97a;
+}
+
+.changelogBackLink:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.changelogFilterBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(245, 217, 122, 0.12);
+  border: 1px solid rgba(245, 217, 122, 0.35);
+  color: #f5d97a;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.changelogClearBtn {
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0 2px;
+  font-size: 13px;
+  line-height: 1;
+  opacity: 0.8;
+  transition: opacity 0.15s ease;
+}
+
+.changelogClearBtn:hover {
+  opacity: 1;
+}
+
+.changelogModeControl {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.changelogModeLabel {
+  font: 700 10.5px/1 var(--font-sans, "Manrope", sans-serif);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #948aa8;
+  user-select: none;
+}
+
+.changelogModeToggle {
+  display: inline-flex;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  border-radius: 999px;
+  padding: 2.5px 3px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.changelogModeBtn {
+  cursor: pointer;
+  font: 700 11.5px/1 var(--font-sans, "Manrope", sans-serif);
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: none;
+  transition: all 0.15s ease;
+  background: transparent;
+  color: #7a7290;
+  user-select: none;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changelogModeBtn:hover {
+  color: #f4f0f6;
+}
+
+.changelogModeBtn:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 2px;
+}
+
+.changelogModeBtnActive {
+  background: rgba(245, 217, 122, 0.1);
+  color: var(--dm-gold);
+  box-shadow: none;
+}
+
+/* Empty State */
+.changelogEmptyState {
+  text-align: center;
+  padding: 60px 20px 80px 20px;
+  color: var(--sim-text-sub, #9ca3af);
+}
+
+.changelogEmptyText {
+  margin: 0;
+  font-family: var(--font-sans, "Manrope", sans-serif);
+  font-size: 1.15rem;
+  font-weight: 500;
+  color: var(--sim-text-sub, #9ca3af);
+  letter-spacing: 0.01em;
+}
+
+/* Patch Block */
+.changelogPatchBlock {
+  margin-bottom: 36px;
+}
+
+.changelogPatchBlockCollapsed {
+  margin-bottom: 20px;
+}
+
+.changelogPatchHeader {
+  margin-top: 0;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  flex-wrap: wrap;
+  cursor: pointer;
+  user-select: none;
+  background: transparent;
+  border: none;
+  padding: 2px 0;
+  width: 100%;
+  text-align: left;
+  transition: opacity 0.15s ease;
+}
+
+.changelogPatchHeader:hover {
+  opacity: 0.9;
+}
+
+.changelogPatchHeader:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 4px;
+  border-radius: 6px;
+}
+
+.changelogPatchHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.changelogPatchArrow {
+  font-size: 13px;
+  color: var(--sim-gold, #f5d97a);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(90deg);
+  line-height: 1;
+}
+
+.changelogPatchArrowCollapsed {
+  transform: rotate(0deg);
+}
+
+.changelogPatchVersion {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--sim-gold, #f5d97a);
+  margin: 0;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+
+.changelogPatchClient {
+  font-family: var(--font-ui, var(--font-base, sans-serif));
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  color: var(--sim-text-sub, #d7d0dd);
+  letter-spacing: 0.02em;
+}
+
+.changelogPatchContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Character Block */
+.changelogCharBlock {
+  background: var(--sim-surface, rgba(18, 22, 34, 0.85));
+  border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
+  border-radius: 16px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: none;
+  transition:
+    padding 0.18s ease,
+    gap 0.18s ease;
+}
+
+.changelogCharBlockCollapsed {
+  padding: 16px 20px;
+  gap: 0;
+}
+
+.changelogCharHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
+  cursor: pointer;
+  user-select: none;
+  transition:
+    padding 0.18s ease,
+    border-color 0.18s ease;
+  width: 100%;
+  background: transparent;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  text-align: left;
+}
+
+.changelogCharHeader:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 4px;
+  border-radius: 8px;
+}
+
+.changelogCharHeaderCollapsed {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.changelogCharHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+  flex: 1;
+}
+
+.changelogCharHeaderRight {
+  display: flex;
+  align-items: center;
+  padding-left: 8px;
+  flex-shrink: 0;
+}
+
+.changelogCharArrow {
+  font-size: 15px;
+  color: var(--sim-text-sub, #9ca3af);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  transition:
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    color 0.15s ease;
+  transform: rotate(90deg);
+  line-height: 1;
+}
+
+.changelogCharHeader:hover .changelogCharArrow {
+  color: #fff;
+}
+
+.changelogCharArrowCollapsed {
+  transform: rotate(0deg);
+}
+
+.changelogCharAvatarWrap {
+  display: block;
+  width: 58px;
+  height: 58px;
+  border-radius: 12px;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1.5px solid rgba(245, 158, 11, 0.4);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  flex-shrink: 0;
+  transition:
+    transform 0.15s ease,
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.changelogCharAvatarWrap:hover {
+  transform: translateY(-2px);
+  border-color: rgba(245, 158, 11, 0.85);
+  box-shadow: 0 6px 16px rgba(245, 158, 11, 0.25);
+}
+
+.changelogCharAvatar {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.changelogCharInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+}
+
+.changelogCharTitleRow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.changelogCharName {
+  margin: 0;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.changelogCharNameLink {
+  color: inherit;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.changelogCharNameLink:hover {
+  color: var(--sim-blue, #38bdf8);
+}
+
+.changelogCharWeaponWrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.changelogCharWeapon {
+  height: 28px;
+  box-sizing: border-box;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--sim-text-sub, #9ca3af);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  line-height: 1;
+  text-decoration: none;
+  transition: all 0.18s ease;
+  cursor: pointer;
+  user-select: none;
+}
+
+.changelogCharWeaponWrap:hover .changelogCharWeapon,
+.changelogCharWeaponWrap:focus-within .changelogCharWeapon {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.09);
+  border-color: rgba(255, 255, 255, 0.28);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+.changelogWeaponPopover {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%) translateY(4px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.18s ease,
+    transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.18s;
+  z-index: 100;
+  background: #141720;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 10px;
+  padding: 8px 10px;
+  box-shadow:
+    0 12px 28px rgba(0, 0, 0, 0.7),
+    0 0 0 1px rgba(255, 255, 255, 0.06);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  white-space: nowrap;
+}
+
+.changelogWeaponPopover::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 5px solid transparent;
+  border-top-color: #141720;
+}
+
+.changelogWeaponPopover::before {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 6px solid transparent;
+  border-top-color: rgba(255, 255, 255, 0.16);
+}
+
+.changelogCharWeaponWrap:hover .changelogWeaponPopover,
+.changelogCharWeaponWrap:focus-within .changelogWeaponPopover {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.changelogWeaponPopoverIconWrap {
+  width: 64px;
+  height: 64px;
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.5)), #0d0f14;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.6);
+}
+
+.changelogWeaponPopoverIcon {
+  width: 56px;
+  height: 56px;
+  object-fit: contain;
+  filter: drop-shadow(0 4px 6px rgba(0, 0, 0, 0.5));
+}
+
+.changelogWeaponPopoverName {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--sim-text-sub, #d1d5db);
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  text-align: center;
+}
+
+.changelogCharBadges {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.changelogCharSections {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Sections inside changelog cards */
+.changelogSection {
+  background: var(--surface-raised);
+  border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: none;
+}
+
+.changelogSectionSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #ffffff;
+  list-style: none;
+}
+
+.changelogSectionSummary::-webkit-details-marker {
+  display: none;
+}
+
+.changelogSectionSummary:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.changelogSectionArrow {
+  font-size: 12px;
+  color: #ffffff;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: rotate(90deg);
+  line-height: 1;
+}
+
+details:not([open]) .changelogSectionArrow {
+  transform: rotate(0deg);
+}
+
+.changelogSectionBody {
+  margin-top: 14px;
+}
+
+/* Trait Card */
+.changelogTraitCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.changelogTraitTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.changelogTraitName {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.changelogTraitAffinity {
+  font-size: 12px;
+  font-weight: 600;
+  color: #f472b6;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.changelogTraitDesc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+/* Advancement Item */
+.changelogAdvItem {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+}
+
+.changelogAdvSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.changelogAdvSummary::-webkit-details-marker {
+  display: none;
+}
+
+.changelogAdvSummary:focus-visible {
+  outline: 2px solid #f5d97a;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.changelogAdvHeaderLeft {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.changelogAdvStarBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 2px 7px;
+  background: linear-gradient(135deg, rgba(245, 217, 122, 0.2), rgba(240, 185, 78, 0.3));
+  border: 1px solid rgba(245, 217, 122, 0.4);
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 800;
+  color: #f5d97a;
+}
+
+.changelogAdvTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.changelogAdvBody {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+/* Skill Card */
+.changelogSkillCard {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.changelogSkillMedia {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changelogSkillIcon {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.changelogSkillIconPlaceholder {
+  width: 24px;
+  height: 24px;
+  color: #f5d97a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.changelogSkillContent {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.changelogSkillHeaderLine {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.changelogSkillName {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.changelogSkillBadge {
+  font-size: 0.65rem;
+  font-weight: 700;
+  padding: 2px 7px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #cbd5e1;
+}
+
+.changelogSkillBadgeNormal {
+  color: #60a5fa;
+  border-color: rgba(59, 130, 246, 0.35);
+  background: rgba(59, 130, 246, 0.16);
+}
+
+.changelogSkillBadgeDodge {
+  color: #fbbf24;
+  border-color: rgba(245, 158, 11, 0.35);
+  background: rgba(245, 158, 11, 0.16);
+}
+
+.changelogSkillBadgeSkill {
+  color: #c084fc;
+  border-color: rgba(168, 85, 247, 0.35);
+  background: rgba(168, 85, 247, 0.16);
+}
+
+.changelogSkillBadgeDischarge {
+  color: #f87171;
+  border-color: rgba(239, 68, 68, 0.35);
+  background: rgba(239, 68, 68, 0.16);
+}
+
+.changelogSkillDesc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+/* Passive Item */
+.changelogPassiveItem {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+}
+
+.changelogPassiveSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+  list-style: none;
+}
+
+.changelogPassiveSummary::-webkit-details-marker {
+  display: none;
+}
+
+.changelogPassiveTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.changelogPassiveIcon {
+  width: 22px;
+  height: 22px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+.changelogPassiveDesc {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+/* Matrix Card */
+.changelogMatrixCard {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  padding: 14px 16px;
+}
+
+.changelogMatrixBadge {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #f5d97a;
+  margin-bottom: 8px;
+}
+
+.changelogMatrixDesc {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #d1d5db;
+}
+
+/* Diff markup matching legacy styles */
+.changelogFeed :global(.diff-ins) {
+  background: rgba(46, 160, 67, 0.2);
+  color: #3fb950;
+  text-decoration: none;
+  padding: 1px 5px;
+  border-radius: 4px;
+  font-weight: 700;
+  border: 1px solid rgba(46, 160, 67, 0.4);
+  display: inline;
+}
+
+.changelogFeed :global(.diff-del) {
+  background: rgba(248, 81, 73, 0.2);
+  color: #ff7b72;
+  text-decoration: line-through;
+  padding: 1px 5px;
+  border-radius: 4px;
+  border: 1px solid rgba(248, 81, 73, 0.4);
+  opacity: 0.85;
+  display: inline;
+}
+
+.changelogFeed :global(.sim-num-hl) {
+  color: #38bdf8;
+  font-weight: 600;
+}

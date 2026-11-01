@@ -1,0 +1,49 @@
+.updated {
+  display: inline-block;
+  margin: 18px 0 0;
+  padding: 4px 10px;
+  border: 1px solid var(--surface-border);
+  border-radius: 999px;
+  color: var(--dm-muted);
+  font-family: var(--font-mono, monospace);
+  font-size: 11px;
+}
+.glance {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr));
+  gap: 14px;
+}
+.glance > [data-glance="server"] {
+  border-color: var(--surface-border-strong);
+}
+.glanceTitle {
+  margin: 0 0 12px;
+  color: var(--dm-gold);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+.glanceList {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.glanceList li {
+  position: relative;
+  padding-left: 18px;
+  color: var(--dm-text);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.glanceList li::before {
+  content: "";
+  position: absolute;
+  top: 0.62em;
+  left: 2px;
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--dm-gold);
+  border-radius: 50%;
+}

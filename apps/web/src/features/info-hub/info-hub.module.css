@@ -1,0 +1,176 @@
+/* Info hub: simulacra roster preview. Card, grid and preview primitives: components/section-hub. */
+
+.rosterAside {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* The roster fills the aside height, like the OOW season grid on /datamine/. */
+.roster {
+  width: 100%;
+  flex: 1 1 auto;
+  display: grid;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Size container per tile: the portrait follows the tile size (cq units) without feeding back into the row
+   height, and a tall tile (a taller featured row) stacks the portrait above the text. */
+.roster > li {
+  min-height: 80px;
+  container-type: size;
+}
+
+.rosterItem {
+  display: flex;
+  height: 100%;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: var(--dm-surface, var(--surface-panel));
+  color: var(--dm-text, #ded8e6);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.rosterItem:hover {
+  border-color: rgba(245, 217, 122, 0.4);
+  background: rgba(245, 217, 122, 0.04);
+}
+
+.rosterItem:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 2px;
+}
+
+.rosterItem[data-slot="latest"] {
+  border-color: rgba(245, 217, 122, 0.45);
+}
+
+/* Simulacrum whose art is drawn behind the card. */
+.rosterItem[data-art] {
+  background: linear-gradient(135deg, rgba(245, 217, 122, 0.09), rgba(245, 217, 122, 0.015) 60%);
+}
+
+.rosterItem[data-art] .rosterAvatar {
+  border-color: rgba(245, 217, 122, 0.6);
+}
+
+.rosterAvatar {
+  width: auto;
+  height: clamp(56px, min(78cqh, 38cqw), 84px);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(245, 217, 122, 0.3);
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.04);
+  transition: border-color 160ms ease;
+}
+
+.rosterAvatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.rosterInfo {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.rosterSlot {
+  display: flex;
+  gap: 6px;
+  color: var(--dm-gold, #f5d97a);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.rosterWhen {
+  color: var(--dm-muted, #b4abbf);
+  font-family: var(--font-mono, monospace);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.rosterName,
+.rosterWeapon,
+.rosterMeta {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.rosterName {
+  color: var(--dm-text-strong, #f4f0f6);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.rosterWeapon {
+  color: var(--dm-muted, #b4abbf);
+  font-size: 11px;
+}
+
+.rosterMeta {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--dm-text, #ded8e6);
+  font-size: 11px;
+}
+
+.rosterMeta img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
+@container (min-height: 190px) {
+  .rosterItem {
+    flex-direction: column;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+  }
+  .rosterAvatar {
+    height: min(56cqh, 78cqw);
+  }
+  .rosterInfo {
+    max-width: 100%;
+    align-items: center;
+  }
+  .rosterSlot,
+  .rosterMeta {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 640px) {
+  .roster {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rosterItem,
+  .rosterAvatar {
+    transition: none;
+  }
+}

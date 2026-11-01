@@ -1,0 +1,542 @@
+{
+  "version": 1,
+  "export_metadata": {
+    "exporter_name": "JSON example",
+    "exporter_version": "2.0.0"
+  },
+  "observer": {
+    "uid": "130021000000001",
+    "role_id": "1",
+    "server_id": "13002"
+  },
+  "players": [],
+  "owner": {
+    "uid": "130021000000001",
+    "role_id": "1",
+    "name": "Demo Wanderer",
+    "level": 100,
+    "cs": null,
+    "max_cs": null,
+    "guild": null,
+    "title": null,
+    "captured_at": "2026-10-05T18:38:04.056Z",
+    "gear": [
+      {
+        "slotKey": "Equipment_16",
+        "itemId": "visor_OS_red",
+        "enhancement": 70,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "ThunderAtkMult",
+            "value": 0.08125,
+            "tag": "None"
+          },
+          {
+            "attribute": "IceDefAdded",
+            "value": 1154.806519,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 528.8703,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 368.529846,
+            "tag": "None"
+          },
+          {
+            "attribute": "FireAtkMult",
+            "value": 0.069872,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "PhyAtkMult",
+            "value": 0.072295,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "uncommon_10",
+            "value": 3,
+            "tag": "CommonAtkAggravatingInjury_Lv3"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_15",
+        "itemId": "exoskeleton_OS_red",
+        "enhancement": 79,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1295.543823,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkMult",
+            "value": 0.020952,
+            "tag": "None"
+          },
+          {
+            "attribute": "IceDefAdded",
+            "value": 1217.287598,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 589.202026,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_12",
+            "value": 3,
+            "tag": "SkillAtkAggravatingInjury_Lv3"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1216.134521,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1205.693359,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_14",
+        "itemId": "reactor_OS_red",
+        "enhancement": 80,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "ThunderAtkMult",
+            "value": 0.020982,
+            "tag": "None"
+          },
+          {
+            "attribute": "FireDefAdded",
+            "value": 1155.456665,
+            "tag": "None"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1616.366455,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 296.924835,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_11",
+            "value": 3,
+            "tag": "ChangeSkillAtkAggravatingInjury_Lv3"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1490.679443,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1510.761841,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_11",
+        "itemId": "armband_red",
+        "enhancement": 80,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "MaxHealthAdded",
+            "value": 23386.074219,
+            "tag": "None"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1404.880249,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1319.52124,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 440.707764,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_1",
+            "value": 3,
+            "tag": "CommonWeaknessIncreaseInjury_Lv3"
+          },
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1294.911865,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1334.907593,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_8",
+        "itemId": "Helmet_red",
+        "enhancement": 80,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 771.522949,
+            "tag": "None"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1219.481689,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderDefAdded",
+            "value": 1172.162842,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1287.314209,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_5",
+            "value": 3,
+            "tag": "CommonWeaknessIncreaseInjury_Lv3"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1150.463867,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1193.657959,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_7",
+        "itemId": "glove_red",
+        "enhancement": 80,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "CritAdded",
+            "value": 7084.901367,
+            "tag": "None"
+          },
+          {
+            "attribute": "MaxHealthAdded",
+            "value": 22725.292969,
+            "tag": "None"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 374.287018,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 387.743408,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_6",
+            "value": 3,
+            "tag": "CommonWeaknessIncreaseInjury_Lv3"
+          },
+          {
+            "attribute": "IceDefAdded",
+            "value": 5156.866699,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "FireDefAdded",
+            "value": 5200.078613,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_6",
+        "itemId": "belt_red",
+        "enhancement": 70,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1574.835449,
+            "tag": "None"
+          },
+          {
+            "attribute": "MaxHealthAdded",
+            "value": 22753.068359,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 455.918518,
+            "tag": "None"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1472.103516,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_7",
+            "value": 2,
+            "tag": "CommonDamageRecoverHPMult_Lv2"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1506.089478,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1509.449951,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_5",
+        "itemId": "shawl_red",
+        "enhancement": 80,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "MaxHealthAdded",
+            "value": 22926.730469,
+            "tag": "None"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1537.827637,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 454.513672,
+            "tag": "None"
+          },
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1402.268188,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1447.942383,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1387.936646,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "uncommon_8",
+            "value": 3,
+            "tag": "CommonWeaknessIncreaseInjury_Lv3"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_4",
+        "itemId": "shoes_red",
+        "enhancement": 80,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "CritAdded",
+            "value": 6337.231934,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 616.166382,
+            "tag": "None"
+          },
+          {
+            "attribute": "MaxHealthAdded",
+            "value": 22893.570312,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 275.733154,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_4",
+            "value": 3,
+            "tag": "CommonAtkAggravatingInjury_Lv3"
+          },
+          {
+            "attribute": "ThunderDefAdded",
+            "value": 4627.814453,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "IceDefAdded",
+            "value": 4629.236328,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_3",
+        "itemId": "pants_red",
+        "enhancement": 70,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "ElementDef",
+            "value": 353.246765,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1451.176758,
+            "tag": "None"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1373.939575,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 527.083252,
+            "tag": "None"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1344.370605,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1261.806396,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "uncommon_3",
+            "value": 3,
+            "tag": "CommonAtkAggravatingInjury_Lv3"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_2",
+        "itemId": "cloth_red",
+        "enhancement": 70,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1205.308838,
+            "tag": "None"
+          },
+          {
+            "attribute": "MaxHealthAdded",
+            "value": 23022.128906,
+            "tag": "None"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1106.320435,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 737.26062,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_2",
+            "value": 3,
+            "tag": "CommonWeaknessIncreaseInjury_Lv3"
+          },
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1023.161865,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "FireAtkAdded",
+            "value": 1033.330811,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      },
+      {
+        "slotKey": "Equipment_1",
+        "itemId": "core_OS_red",
+        "enhancement": 80,
+        "stars": 5,
+        "stats": [
+          {
+            "attribute": "ThunderAtkExtraUpMult",
+            "value": 0.026015,
+            "tag": "None"
+          },
+          {
+            "attribute": "CommonAtkAdded",
+            "value": 291.022217,
+            "tag": "None"
+          },
+          {
+            "attribute": "MaxHealthAdded",
+            "value": 22688.677734,
+            "tag": "None"
+          },
+          {
+            "attribute": "ThunderAtkAdded",
+            "value": 1262.456055,
+            "tag": "None"
+          },
+          {
+            "attribute": "uncommon_9",
+            "value": 3,
+            "tag": "CommonWeaknessIncreaseInjury_Lv3"
+          },
+          {
+            "attribute": "IceAtkAdded",
+            "value": 1074.444092,
+            "tag": "EquipmentTupo"
+          },
+          {
+            "attribute": "PhyAtkAdded",
+            "value": 1123.854004,
+            "tag": "EquipmentTupo"
+          }
+        ]
+      }
+    ]
+  }
+}

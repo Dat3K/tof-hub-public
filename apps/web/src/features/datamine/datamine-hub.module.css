@@ -1,0 +1,429 @@
+/* Datamine hub previews. Card, grid and chart primitives: components/section-hub. */
+
+/* ---------- Origin of War ---------- */
+.oowAside {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 8px;
+}
+
+/* The season tiles fill the aside height (the featured row grows on tall screens). */
+.oowSeasonList {
+  width: 100%;
+  display: grid;
+  flex: 1 1 auto;
+  grid-auto-rows: 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.oowSeason {
+  /* Size container: the boss portrait grows with the tile height (cqh). */
+  container-type: size;
+  display: flex;
+  height: 100%;
+  min-height: 62px;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: var(--dm-surface, var(--surface-panel));
+  color: var(--dm-text, #ded8e6);
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: border-color 160ms ease, background 160ms ease;
+}
+
+.oowSeason:hover {
+  border-color: rgba(245, 217, 122, 0.4);
+  background: rgba(245, 217, 122, 0.04);
+}
+
+.oowSeason:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 2px;
+}
+
+.oowSeason.oowSeasonCurrent {
+  border-color: rgba(245, 217, 122, 0.6);
+  background: rgba(245, 217, 122, 0.06);
+}
+
+/* Season previewed in the card; the next click opens it. */
+.oowSeason[data-shown] {
+  border-color: var(--dm-gold, #f5d97a);
+  box-shadow: inset 0 0 0 1px var(--dm-gold, #f5d97a);
+}
+
+/* Boss portrait, framed like the OOW page season rail (cover, no zoom). */
+.oowSeasonBoss {
+  width: auto;
+  height: clamp(40px, 72cqh, 84px);
+  aspect-ratio: 1;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: radial-gradient(circle at 50% 35%, rgba(192, 132, 252, 0.18), rgba(255, 255, 255, 0.02) 70%);
+}
+
+.oowSeasonBoss img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.oowSeason[data-shown] .oowSeasonBoss,
+.oowSeason.oowSeasonCurrent .oowSeasonBoss {
+  border-color: rgba(245, 217, 122, 0.45);
+}
+
+.oowSeasonText {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.oowSeasonHead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+.oowSeasonName {
+  overflow: hidden;
+  color: var(--dm-text-strong, #f4f0f6);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.oowSeasonHp {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 6px;
+}
+
+.oowSeasonHpTrack {
+  height: 3px;
+  overflow: hidden;
+  border-radius: 2px;
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.oowSeasonHpTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(244, 63, 94, 0.55), #f43f5e);
+}
+
+.oowSeasonHpValue {
+  color: var(--dm-muted, #b4abbf);
+  font-family: var(--font-mono, monospace);
+  font-size: 9.5px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.oowSeasonCode {
+  color: var(--dm-gold, #f5d97a);
+  font-family: var(--font-mono, monospace);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.oowSeasonDates {
+  color: var(--dm-muted, #b4abbf);
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+/* ---------- Boss mechanics ---------- */
+.fcePreview {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fceShowcase {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bossThumb {
+  width: 64px;
+  height: 64px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(245, 217, 122, 0.35);
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.bossThumb:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 2px;
+}
+
+.bossThumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.fceInfo {
+  display: flex;
+  min-width: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.fceName {
+  overflow: hidden;
+  color: var(--dm-text-strong, #f4f0f6);
+  font-size: 14px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.fceSub {
+  color: var(--dm-muted, #b4abbf);
+  font-size: 11px;
+}
+
+.fceEffect {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--dm-text, #ded8e6);
+  font-size: 11.5px;
+  line-height: 1.35;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  /* Always two lines tall so switching bosses never resizes the card. */
+  min-height: calc(2 * 1.35em);
+}
+
+.bossChips {
+  display: grid;
+  grid-template-columns: repeat(8, minmax(0, 1fr));
+  gap: 6px;
+}
+
+.bossChip {
+  display: block;
+  aspect-ratio: 1;
+  min-width: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.04);
+  opacity: 0.7;
+  cursor: pointer;
+  transition: border-color 160ms ease, opacity 160ms ease;
+}
+
+.bossChip:hover,
+.bossChip[aria-current="true"] {
+  opacity: 1;
+}
+
+.bossChip[aria-current="true"] {
+  border-color: var(--dm-gold, #f5d97a);
+}
+
+.bossChip:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 1px;
+}
+
+.bossChip img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Multype ---------- */
+/* Columns are shared by all rows (subgrid), so every bar starts at the same x whatever the count width. */
+.moduleBars {
+  display: grid;
+  grid-template-columns: minmax(0, max-content) minmax(60px, 1fr) auto;
+  gap: 5px 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.moduleBar {
+  display: grid;
+  grid-column: 1 / -1;
+  grid-template-columns: subgrid;
+  align-items: center;
+  font-size: 11px;
+}
+
+.moduleName {
+  overflow: hidden;
+  color: var(--dm-text, #ded8e6);
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.moduleTrack {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 3px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.moduleTrack span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, rgba(192, 132, 252, 0.55), #c084fc);
+}
+
+.moduleCount {
+  text-align: right;
+  color: var(--dm-muted, #b4abbf);
+  font-family: var(--font-mono, monospace);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Items ---------- */
+.itemRows {
+  display: grid;
+  gap: 4px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.itemRow {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  gap: 10px;
+}
+
+.itemIcon {
+  width: 28px;
+  height: 28px;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid rgba(245, 217, 122, 0.3);
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.itemIcon img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.itemText {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.itemId {
+  overflow: hidden;
+  color: #2ba6df;
+  font-family: var(--font-mono, monospace);
+  font-size: 11.5px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.itemNames {
+  display: flex;
+  min-width: 0;
+  gap: 6px;
+  overflow: hidden;
+  color: var(--dm-muted, #b4abbf);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+.itemOwner {
+  flex-shrink: 0;
+  margin-left: auto;
+  padding: 2px 8px;
+  border: 1px solid rgba(245, 217, 122, 0.25);
+  border-radius: 999px;
+  color: var(--dm-gold, #f5d97a);
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.itemNames > span + span::before {
+  content: '·';
+  margin-right: 6px;
+}
+
+/* ---------- Handbook ---------- */
+.handbookTopics {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.handbookTopic {
+  display: inline-block;
+  padding: 4px 9px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: 999px;
+  color: var(--dm-text, #ded8e6);
+  font-size: 11.5px;
+  text-decoration: none;
+}
+
+.handbookTopic:hover {
+  border-color: rgba(245, 217, 122, 0.4);
+  color: var(--dm-gold, #f5d97a);
+}
+
+.handbookTopic:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 2px;
+}
+
+@media (max-width: 640px) {
+  .oowSeasonList {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .bossChips {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .oowSeason,
+  .bossChip {
+    transition: none;
+  }
+}

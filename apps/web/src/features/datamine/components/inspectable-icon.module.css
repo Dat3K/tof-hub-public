@@ -1,0 +1,6 @@
+.action { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; padding: 0; border: 0; background: transparent; color: inherit; cursor: zoom-in; }
+.action::after { content: ''; position: absolute; inset: -3px; }
+.action:disabled { cursor: default; }
+.action:focus-visible { outline: 2px solid var(--tool-input-focus); outline-offset: 3px; border-radius: 3px; }
+
+.action img { display: block; object-fit: contain; }

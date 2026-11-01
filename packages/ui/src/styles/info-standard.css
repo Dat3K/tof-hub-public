@@ -1,0 +1,427 @@
+/* Shared Info presentation. Simulacra deliberately keeps its frozen scope. */
+@media (min-width: 641px) {
+  .info-ui .sim-filter-groups__left:has(> .sim-filter-group--flow) {
+    column-gap: 6px;
+  }
+  .info-ui .sim-filter-group--flow {
+    display: contents;
+  }
+}
+@media (max-width: 640px) {
+  .sim-search-box[data-responsive-slot] {
+    --catalog-slot-padding: 2rem;
+    --catalog-slot-clear-right: 8px;
+  }
+  .sim-search-box[data-responsive-slot] > div {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sim-search-box[data-responsive-slot] .sim-search-icon,
+  .sim-search-box[data-responsive-slot] .sim-search-clear {
+    top: 16px;
+  }
+  .sim-search-box[data-responsive-slot] .sim-search-accessory {
+    position: static;
+    transform: none;
+    translate: none;
+    max-width: 100%;
+    width: 100%;
+    min-width: 0;
+  }
+}
+.info-ui {
+  /* Catalog card info strips (cards keep their palette); controls use the shared --surface-* tokens. */
+  --info-panel: rgba(18, 22, 34, 0.85);
+  --info-border: rgba(255, 255, 255, 0.08);
+  --info-text: #d1d5db;
+  --info-link: #2ba6df;
+  --info-radius: 14px;
+}
+.info-ui .sim-status-bar {
+  position: relative;
+}
+/* Info catalogs follow the Simulacra reference: a quiet near-black search inset inside the panel. */
+.info-catalog .sim-search-input {
+  background: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.08);
+}
+.sim-controls-bar .sim-status-bar {
+  position: relative;
+}
+.sim-controls-bar .sim-reset-filters-btn {
+  position: absolute;
+  top: calc(50% + 5px);
+  right: 0;
+  height: 22px;
+  min-height: 22px;
+  padding-inline: 8px;
+  font-size: 11px;
+  transform: translateY(-50%);
+}
+@media (max-width: 640px) {
+  .sim-controls-bar[data-search-accessory] .sim-status-bar {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sim-controls-bar[data-search-accessory] .sim-status-count {
+    width: 100%;
+  }
+  .sim-controls-bar[data-search-accessory] .sim-reset-filters-btn {
+    position: static;
+    transform: none;
+    translate: none;
+    margin-left: auto;
+  }
+}
+
+/* Keep inactive filter chips neutral at rest, but let their hover state carry
+   the same semantic color as the active variant. This gives the filter bar a
+   quiet preview of the action without turning every chip into a bright badge.
+   Pages outside Info opt in with the `filter-hover-preview` class (Tools · Tops). */
+.datamine-multype .sim-filter-btn:not(.active) {
+  background: rgba(148, 163, 184, 0.12);
+  border-color: rgba(148, 163, 184, 0.3);
+  color: #cbd5e1;
+}
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(:hover, :focus-visible) {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.62);
+  color: #bfdbfe;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.18);
+  transition:
+    background-color 150ms ease,
+    border-color 150ms ease,
+    color 150ms ease,
+    box-shadow 150ms ease;
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--phys, .sim-filter-btn--function, .sim-filter-btn--ssr):is(:hover, :focus-visible) {
+  background: rgba(245, 158, 11, 0.12);
+  border-color: rgba(245, 158, 11, 0.62);
+  color: #fde68a;
+  box-shadow: 0 0 10px rgba(245, 158, 11, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-mode-btn--gold:not(.active):is(:hover, :focus-visible) {
+  background: rgba(245, 217, 122, 0.12);
+  border-color: rgba(245, 217, 122, 0.62);
+  color: #fde68a;
+  box-shadow: 0 0 10px rgba(245, 217, 122, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-mode-btn--sky:not(.active):is(:hover, :focus-visible) {
+  background: rgba(56, 189, 248, 0.12);
+  border-color: rgba(56, 189, 248, 0.62);
+  color: #bae6fd;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--fire, .sim-filter-btn--flame, .sim-filter-btn--dps, .sim-filter-btn--attack):is(:hover, :focus-visible) {
+  background: rgba(239, 68, 68, 0.12);
+  border-color: rgba(239, 68, 68, 0.62);
+  color: #fca5a5;
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--frost):is(:hover, :focus-visible) {
+  background: rgba(6, 182, 212, 0.12);
+  border-color: rgba(6, 182, 212, 0.62);
+  color: #a5f3fc;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--volt, .sim-filter-btn--sr):is(:hover, :focus-visible) {
+  background: rgba(168, 85, 247, 0.12);
+  border-color: rgba(168, 85, 247, 0.62);
+  color: #e9d5ff;
+  box-shadow: 0 0 10px rgba(168, 85, 247, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--altered, .sim-filter-btn--benediction, .sim-filter-btn--assist, .sim-filter-btn--n):is(:hover, :focus-visible) {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.62);
+  color: #a7f3d0;
+  box-shadow: 0 0 10px rgba(16, 185, 129, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--tank, .sim-filter-btn--defense, .sim-filter-btn--r):is(:hover, :focus-visible) {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.62);
+  color: #bfdbfe;
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--survive):is(:hover, :focus-visible) {
+  background: rgba(236, 72, 153, 0.12);
+  border-color: rgba(236, 72, 153, 0.62);
+  color: #f9a8d4;
+  box-shadow: 0 0 10px rgba(236, 72, 153, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--indigo):is(:hover, :focus-visible) {
+  background: rgba(99, 102, 241, 0.12);
+  border-color: rgba(99, 102, 241, 0.62);
+  color: #c7d2fe;
+  box-shadow: 0 0 10px rgba(99, 102, 241, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--yellow):is(:hover, :focus-visible) {
+  background: rgba(250, 204, 21, 0.12);
+  border-color: rgba(250, 204, 21, 0.62);
+  color: #fef08a;
+  box-shadow: 0 0 10px rgba(250, 204, 21, 0.18);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(.sim-filter-btn--final):is(:hover, :focus-visible) {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(229, 231, 235, 0.6);
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.16);
+}
+
+:is(.info-ui, .simulacra-main, .datamine-multype, .filter-hover-preview) .sim-filter-btn:not(.active):is(:hover, :focus-visible) .sim-filter-icon {
+  filter: none;
+  opacity: 0.86;
+}
+
+.info-ui .sim-mode-toggle {
+  position: relative;
+  display: inline-grid;
+  grid-template-columns: repeat(var(--mode-option-count, 2), minmax(0, 1fr));
+  isolation: isolate;
+  overflow: hidden;
+  width: 132px;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgba(148, 163, 184, 0.24);
+  border-radius: 8px;
+  background: rgba(8, 12, 20, 0.92);
+}
+.sim-mode-standalone {
+  display: inline-flex;
+  flex-wrap: wrap;
+  max-width: 100%;
+}
+.info-ui .sim-mode-toggle::before {
+  position: absolute;
+  z-index: -1;
+  inset: 3px auto 3px 3px;
+  width: calc((100% - 6px - (var(--mode-option-count, 2) - 1) * 2px) / var(--mode-option-count, 2));
+  content: "";
+  border: 1px solid rgba(251, 146, 60, 0.62);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.075);
+  transform: translateX(calc(var(--mode-active-index, 0) * (100% + 2px)));
+  transition:
+    transform 200ms ease,
+    border-color 160ms ease;
+}
+.info-ui .sim-mode-toggle[data-active-mode="mmo"]::before {
+  border-color: rgba(244, 63, 94, 0.62);
+}
+.info-ui .sim-mode-toggle .sim-mode-btn {
+  min-width: 0;
+  width: 100%;
+  height: 24px;
+  padding: 0 8px;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  background: transparent;
+  box-shadow: none;
+  color: #8792a5;
+  font-size: 0.72rem;
+  font-weight: 650;
+}
+.info-ui .sim-mode-toggle .sim-mode-btn[aria-checked="true"] {
+  color: #ffdeb6;
+  font-weight: 750;
+}
+.info-ui .sim-mode-toggle .sim-mode-btn[data-server-filter="mmo"][aria-checked="true"] {
+  color: #ffd0d7;
+}
+.info-ui .sim-mode-indicator {
+  width: 4px;
+  height: 4px;
+  flex: 0 0 4px;
+  border-radius: 50%;
+  background: currentColor;
+}
+.info-ui .sim-badge {
+  min-height: 26px;
+  border-radius: 6px;
+  padding: 0 7px;
+  gap: 5px;
+  font-size: 0.7rem;
+  line-height: 1;
+  font-weight: 700;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: #202735;
+}
+.info-ui .sim-badge img {
+  width: 20px;
+  height: 20px;
+  object-fit: contain;
+  filter: none;
+}
+.info-ui .sim-badge[data-variant="ssr"] {
+  background: linear-gradient(135deg, #f59e0b, #c66b0b);
+  border-color: rgba(254, 240, 138, 0.6);
+  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
+}
+.info-ui .sim-badge[data-variant="sr"] {
+  background: linear-gradient(135deg, #a855f7, #6b21a8);
+  border-color: rgba(233, 213, 255, 0.6);
+}
+.info-ui .sim-badge[data-variant="r"] {
+  background: linear-gradient(135deg, #3b82f6, #1e40af);
+}
+.info-ui .sim-badge[data-variant="n"] {
+  background: linear-gradient(135deg, #10b981, #065f46);
+}
+.info-ui .sim-badge[data-variant="phys"] {
+  background: linear-gradient(135deg, #d68b20, #94521e);
+}
+.info-ui .sim-badge[data-variant="flame"] {
+  background: linear-gradient(135deg, #ef6042, #a32423);
+}
+.info-ui .sim-badge[data-variant="frost"] {
+  background: linear-gradient(135deg, #45bad6, #236483);
+}
+.info-ui .sim-badge[data-variant="volt"] {
+  background: linear-gradient(135deg, #a879e5, #593c8b);
+}
+.info-ui .sim-badge[data-variant="altered"] {
+  background: linear-gradient(135deg, #41ba96, #17634c);
+}
+.info-ui .sim-badge[data-variant="dps"],
+.info-ui .sim-badge[data-variant="attack"] {
+  background: linear-gradient(135deg, #9f2528, #690d10);
+  border-color: rgba(248, 113, 113, 0.72);
+}
+.info-ui .sim-badge[data-variant="tank"],
+.info-ui .sim-badge[data-variant="defense"] {
+  background: linear-gradient(135deg, #a5500a, #5f2d05);
+}
+.info-ui .sim-badge[data-variant="benediction"],
+.info-ui .sim-badge[data-variant="assist"] {
+  background: linear-gradient(135deg, #0a6e4b, #053c28);
+}
+.info-ui .sim-badge[data-presentation="icon"] {
+  width: 26px;
+  height: 26px;
+  min-width: 26px;
+  padding: 2px;
+  gap: 0;
+}
+.info-ui .sim-badge[data-presentation="icon"] > .tof-badge-label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+}
+.info-ui .sim-grid-card {
+  border-radius: var(--info-radius);
+}
+.info-ui .sim-grid-card__info {
+  background: var(--info-panel);
+}
+.info-ui .sim-grid-card__name {
+  color: #f3f4f6;
+  font-weight: 700;
+}
+.info-ui .sim-grid-card__weapon {
+  color: var(--info-link);
+}
+.game-rich-text {
+  color: var(--info-text, #d1d5db);
+  font-size: 13px;
+  line-height: 1.6;
+  overflow-wrap: anywhere;
+  white-space: pre-line;
+  text-align: justify;
+}
+.game-rich-text--compact {font-size:12px;line-height:1.4}
+.game-rich-text .sim-num-hl,
+.game-rich-text .sim-keyword-hl {
+  color: var(--info-link, #2ba6df);
+  font-weight: 700;
+}
+.game-rich-text .game-range-dim {
+  color: #64748b;
+}
+.game-rich-text a {
+  color: var(--info-link, #2ba6df);
+  font-weight: 600;
+  text-decoration: underline dotted;
+  text-underline-offset: 2px;
+}
+.game-rich-text a:hover,
+.game-rich-text a:focus-visible {
+  color: #7dd3fc;
+  text-decoration-style: solid;
+}
+@media (max-width: 640px) {
+  .info-ui .sim-filter-groups__left {
+    width: 100%;
+  }
+  .info-ui .sim-filter-group {
+    width: 100%;
+    max-width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 2px;
+    scrollbar-width: none;
+  }
+  .info-ui .sim-filter-group::-webkit-scrollbar {
+    display: none;
+  }
+  .info-ui .sim-filter-group .sim-filter-label {
+    position: sticky;
+    z-index: 2;
+    left: 0;
+    flex: 0 0 auto;
+    width: auto;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    margin-right: 2px;
+    padding-right: 8px;
+    background: rgb(18, 22, 34);
+  }
+  .info-ui .sim-filter-group .sim-filter-btn {
+    flex: 0 0 auto;
+  }
+  .info-ui .sim-sort-box {
+    width: 100%;
+    margin-left: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .info-ui .sim-mode-toggle::before {
+    transition: none;
+  }
+}
+
+.info-ui .sim-badge[data-variant="phys"][data-secondary-element="flame"] {
+  background: linear-gradient(135deg, rgba(217, 119, 6, 0.95), rgba(239, 68, 68, 0.95));
+}
+.info-ui .sim-badge[data-variant="flame"][data-secondary-element="phys"] {
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.95), rgba(217, 119, 6, 0.95));
+}
+.info-ui .sim-badge[data-variant="frost"][data-secondary-element="volt"] {
+  background: linear-gradient(135deg, rgba(14, 165, 233, 0.95), rgba(168, 85, 247, 0.95));
+}
+.info-ui .sim-badge[data-variant="volt"][data-secondary-element="frost"] {
+  background: linear-gradient(135deg, rgba(168, 85, 247, 0.95), rgba(14, 165, 233, 0.95));
+}
+
+.info-ui .sim-mode-btn:not([aria-checked="true"]) .sim-mode-indicator { display: none; }
+
+.info-ui .sim-badge[data-presentation="label"] .tof-badge-label { text-transform: uppercase; }
+.info-ui .sim-badge[data-presentation="label"] img { width: 16px; height: 16px; }
+.info-ui .sim-badge[data-variant="function"] { background: linear-gradient(135deg,#3b82f6,#1e40af); }
+.info-ui .sim-badge[data-variant="survive"] { background: linear-gradient(135deg,#0891b2,#155e75); }

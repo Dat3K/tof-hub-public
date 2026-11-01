@@ -1,0 +1,52 @@
+{
+  "slug": "merbelle",
+  "order": 8,
+  "boss_id": "boss_065",
+  "name_color": "#a46ae7",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+  "art_object_position": "center center",
+  "source_psd": "мербель.psd",
+  "en": {
+    "name": "Merbelle",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Whenever Merbelle loses a certain amount of HP, its attack will increase."
+      },
+      {
+        "index": "2",
+        "html": "When Merbelle has a shield, gain additional damage reduction and greatly increase shield strength. <span class=\"fce-card__text-accent\">Additional 60% DMG reduction.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Each time Merbelle deals damage, inflicts a stack of Flashfreeze. When Flashfreeze stacks 15 times, stacks clear and the Wanderer is greatly slowed for 6 seconds."
+      },
+      {
+        "index": "4",
+        "html": "Merbelle unleashes an ice pillar at a target every 15 seconds, dealing huge damage. The ice pillar remains on the field, restoring 3% of Merbelle&#x27;s Max HP every 10 seconds. The ice pillar can be destroyed by multiple attacks."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Мербелль",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Каждый раз, когда Мербелль теряет определенное количество HP, ее атака увеличивается."
+      },
+      {
+        "index": "2",
+        "html": "Когда у Мербелль есть щит, она получает дополнительное снижение урона и значительно более прочный щит. <span class=\"fce-card__text-accent\">Дополнительное снижение урона 60%.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Каждый раз, когда Мербелль наносит урон, она накладывает 1 стак Flashfreeze. Когда стаков становится 15, они снимаются, а Странник получает сильное замедление на 6 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Мербелль выпускает в цель ледяной столб, наносящий огромный урон. Столб остается на поле и восстанавливает 3% Max HP Мербелль каждые 10 секунд. Ледяной столб можно уничтожить несколькими атаками."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_065.webp"
+}

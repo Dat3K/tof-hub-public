@@ -1,0 +1,60 @@
+{
+  "slug": "nanto",
+  "order": 30,
+  "boss_id": "boss_hum_086",
+  "name_color": "#49a6ee",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.webp",
+  "art_object_position": "center center",
+  "source_psd": "BOSS_ND.png",
+  "en": {
+    "name": "Nanto",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_086_1_des",
+        "html": "Has a chance to stun enemies for 1.5s upon hit."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_086_2_des",
+        "html": "Has a chance of gaining a Shield that blocks 1 instance of damage."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_086_3_des",
+        "html": "Grants an Attack Boost or Damage Reduction every 10s, lasting for 10s."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_086_4_des",
+        "html": "Generates a large-scale explosion every 5s, dealing damage and reducing the target's Attack, Crit, or Resistance randomly for 5s."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Нанто",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_086_1_des",
+        "html": "При ударе есть шанс оглушить врагов на 1,5 сек."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_086_2_des",
+        "html": "Есть шанс получить щит, блокирующий 1 экземпляр урона."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_086_3_des",
+        "html": "Дает усиление к атаке или снижение урона на 10 сек. раз в 10 сек."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_086_4_des",
+        "html": "Каждые 5 сек. создает мощный взрыв, наносящий урон и случайным образом снижающий атаку, крит. удар или сопротивление цели на 5 сек."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/BOSS_ND.webp"
+}

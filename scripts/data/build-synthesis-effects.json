@@ -1,0 +1,37 @@
+{
+  "source": "User-confirmed synthesis milestones",
+  "effects": {
+    "lin": [
+      {
+        "stage": 2,
+        "description": {
+          "en": "+3%",
+          "ru": "+3%"
+        }
+      },
+      {
+        "stage": 5,
+        "description": {
+          "en": "+4%",
+          "ru": "+4%"
+        }
+      }
+    ],
+    "fiona": [
+      {
+        "stage": 2,
+        "description": {
+          "en": "+3%",
+          "ru": "+3%"
+        }
+      },
+      {
+        "stage": 5,
+        "description": {
+          "en": "+3%",
+          "ru": "+3%"
+        }
+      }
+    ]
+  }
+}

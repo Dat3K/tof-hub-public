@@ -1,0 +1,43 @@
+.luckValueFrame {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 9999px;
+  background: rgba(7, 10, 16, 0.32);
+  white-space: nowrap;
+}
+
+.luckValueFrameExtreme {
+  border-color: rgba(52, 211, 153, 0.48);
+  background: linear-gradient(115deg, rgba(16, 185, 129, 0.16), rgba(6, 78, 59, 0.2) 62%, rgba(251, 191, 36, 0.1));
+  box-shadow: 0 0 14px rgba(16, 185, 129, 0.12), inset 0 1px rgba(236, 253, 245, 0.12);
+}
+
+.luckValueFrameHigh {
+  border-color: rgba(52, 211, 153, 0.36);
+  background: linear-gradient(115deg, rgba(16, 185, 129, 0.1), rgba(7, 10, 16, 0.24));
+  box-shadow: inset 0 1px rgba(236, 253, 245, 0.08);
+}
+
+.luckShimmer {
+  background: linear-gradient(100deg, #34d399 0%, #fbbf24 30%, #f472b6 55%, #60a5fa 78%, #34d399 100%);
+  background-size: 250% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  font-weight: 700;
+  animation: luckShimmer 2.8s linear infinite;
+}
+
+@keyframes luckShimmer {
+  from { background-position: 100% 50%; }
+  to { background-position: -150% 50%; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .luckShimmer {
+    animation: none;
+    background-position: 50% 50%;
+  }
+}

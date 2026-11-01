@@ -1,0 +1,3252 @@
+{
+  "name": "tof-exporter-rules",
+  "version": "2.0.0",
+  "description": "Selective extraction rules refreshed from declared pipeline paths and generated site references, retaining the existing traced baseline (scripts/generate-export-rules.ts).",
+  "defaultEngineVersion": "TowerOfFantasy",
+  "defaultAesKey": "",
+  "categories": {
+    "localization": "Game.locres in every client culture directory",
+    "tree": "Folders exported with sub-folders because new content adds folders there",
+    "tables": "Folders of data tables the processors and generators read",
+    "textures": "Folders of textures the site references"
+  },
+  "rules": [
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/shuxingpiaozi/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "stat icons referenced by generated game-data"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/UI/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "character-specific lottery widgets, gashapon previews and dorm UI asset references"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "dorm artwork bound through exported character and room references"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/MMOGashapon/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "MMO gashapon artwork referenced by the exported preview graph"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/EquipmentSlot/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO expansion tables and future season subfolders"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/EffectFigure/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO expansion effect curves, including future season folders"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/EffectFigure_MMO/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO level and equipment effect curves"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/qianghua/TuoZhan_MMO/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "MMO expansion slot art and future season folders"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/FB/BigSecret/BOSS/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "Sequential boss Blueprint identities and parent class references"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/Abilities/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "temporary ATK effect scan walks every gameplay effect"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/Abilities_MMO/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO food and effect buffs"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/Character/BigSecretMonster/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Bygone variants and Blueprint identity inheritance"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/Character/Monster/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "Enemy Blueprint ancestors and localized actor identities"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/Character/OriginWarMonster/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "Shared OOW enemy identities and exact inherited portrait mappings"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/FB/SHTT/Monster/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO encounter enemy Blueprint inheritance"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/Icon/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "item/skill/buff/weapon icons; new characters add folders"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/ResourcesOverSea/Icon/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "Global-only item icons"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/AdvancedGashapon/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "banner art and gashapon splash discovery"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/chouka/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "Special Order and Balance banner art, including future banner folders (Newchouka, UP*, Balance)"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/buff/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "buff icons referenced by OOW season buffs, MMO OOW and effect catalogs; new buffs add files"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/Talent/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "MMO Brainfield (naoyu) attribute and buff icons, including disabled variants"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/Activity/huodong/NewGgy/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "event and season wallpapers"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/shizhuang/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "imitation/outfit art per character"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/huanxing/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "character splash (lihui)"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/void/boss/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "FCE / Void boss portraits",
+      "smallMode": true
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/fuben/taofazuozhan/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "Original and MMO raid art, including new raid portraits and subfolders",
+      "smallMode": true
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/WorldBossList/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "world boss portraits",
+      "smallMode": true
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/SHTT/guaiwu/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "OOW enemy portraits",
+      "smallMode": true
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/plugin/FB/bigmon/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "large boss art"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/PetFight/skill/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "MMO OoW Firewall and pet combat effect icons"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/login/loading/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "loading screen wallpapers"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/L10N/zh-Hans/Resources/UI/login/loading/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "original loading screens"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Artifact/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Dungeon/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Equipment/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Fashion/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Gameplay/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Item/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/LevyClone/LevyCloneStage/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/OptionalBoss/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/OuterSpaceSupport/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Pet/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Skill/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Title/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/VoidClone/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Weapon/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/WeaponData/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/WeaponData/WeaponMatrix/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/cooking/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/drop/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/Artifact_Balance/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/EffectFigure/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/Skill/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/BigSecret/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Drop/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Fashion/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/OriginWar/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/cooking/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/GameMode/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/GameMode/MMO/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/Text/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/Text/Oversea/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Artifact/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/EquipDataTables/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Equipment/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Extra/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Fashion/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Item/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Pet/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Skill/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Weapon/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/WeaponData/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_Balance/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_Balance/EffectFigure/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/OriginWar/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/GameData/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Engine/Content/ArtTools/RenderToTexture/Textures/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Engine/Content/EngineLightProfiles/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/L10N/[^/]+/Resources/UI/Scenery/monster/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/L10N/[^/]+/Resources/UI/shizhuang/nitai/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/Abilities_Balance/Buff/Abilities_Balance_Monster/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/Characters/Monster/fish/fish_1/ter/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/Characters_Vera/player/Interactive/InteractiveAction_mahjong/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Title/image/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/SceneItem/jiuyu_ljz/Mainquest_ljz/4_2_mainquest/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/Effect/Textures/Flares/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/5_5_paper_reading/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/2v2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/Air/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/AstralPortal/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/CricketFight/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/CricketFight/select/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/CricketFight/shangzhen/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/Evasuperboss/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/FruitNinja/ICONS/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/HideAndSeek/JJXSZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/HideAndSeek/MFMZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/Hopkins/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/Hunting/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/JDWC/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/LuckyTarot/SKMY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SailingPlane/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SealedBook/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/1_5_Years/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/CXMY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/GDXLY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/Holiday/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/JZCG/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/LMZX/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/MVPD/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/NewYear2024/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/QLSCZB/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/SpringFestival/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/TBCL/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/ThanksGiving/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/XGXRJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/XJTJL/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/XMYY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/YBCS/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/YFXX/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/YYMB/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/SeriesActivityBase/ZXZD/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/StoryBoss/memory/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/StoryBoss/springnew/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/ThemeActivity/BlindBox_Reimu/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/ThemeActivity/BlindBox_Reimu/Fashion/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/ThemeActivity/BlindBox_Reimu/Imitation/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/TreasureCave/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/UI_Milestone_BP/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/VientianeReload/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/WorkGuide/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/ZSXGY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/AK/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/ASLD/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/AST/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/ATLY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/HH/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/HLB/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/JY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/KLDYX/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LBL/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LK/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LS/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/LSL/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/MLEX/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/MRX/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/NL/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_all/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_fire/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_ice/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_physic/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_thunder/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/choujiangUp/NewActivity/zixuan_yineng/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/ggk_2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/huodong/jiangli/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/shotgame/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/shotgame/teamshot/new1/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/shotgame/teamshot/new2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/AnniversaryGift2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/AnniversaryMecha/jijiacang/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Artifact/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Artifact/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Artifact/itemicon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Artifact/lihui/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Artifact/tujian/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/AttributeIcon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/AttributeIcon/RedEquip/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/shuxingpiaozi/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/AutoChess/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/BLEDJS/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/BigSecret/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Biochemistry/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/BreakFate/activity2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/BreakFate/activity_taofa/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/BreakFate/dead_detail/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/BreakFate/weaponicon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/CardGame/Landlord/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Charm/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/CombatAward/3/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/CombatAward/4/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/CompassGashapon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/CompassGashapon/des/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/CompassGashapon/record/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/DoorPlate/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/EnergyFurnace/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Eva_main/jiku/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Evolution/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/GVG/GVGRank/Rank/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/GWZJ/mian/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/GWZJ/renwu/beijing/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/GuildMaze/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Intruder/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/JiuYu/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Lana/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LiveHouse/DanceIcon/newicon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Liveness/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Mount/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/NewArtifact/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/OuterSpaceSupport/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/OuterSpaceSupport/Module/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/PetFight/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Preview/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Scenery/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Scenery/monster/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/SecretAction/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Sensuality/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/StabDagger/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/SteampunkMarket/Shop/ZhuanBei/img/YuanQi/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/SteampunkMarket/Shop/ZhuanBei/img/qiege/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/SummerDance/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/TechSystem/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/ThrowBomb/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/TreasureMap/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/WeaponProgressBar/Violin/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/WeaponProgressBar/Wrenna/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/WeaponProgressBar/Zoey/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/ZFTP/talenttree/buff/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/bag/equipment/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/blood/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/bulewei/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/chengjiu/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/cooking/pengren/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/dianfengliansaiBP/main/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/equiptips/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/equiptips/Skill/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/equiptips/weapon_imitation/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/fuben/lianhe/LianHe_MMO/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/godhood/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/hacksystem/ThemeMarket/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/hhrq/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/jiayuan/house_new/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/jinianyingzhang/hetong/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/jinianyingzhang/lihui/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/liaotian/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/liaotian/Horn/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/liaotian/biaoqing/xiaobiaoqing/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/liaotian/dongzuo/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/main/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/makeup/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/makeup/EyeShadow/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/makeup/hair/famale/zhengfa/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/makeup/lianwen/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/makeup/yanqiu-meitong/famale/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/manyou/manyou_touxiang/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/BirthMia/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Camera/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Chris/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Game/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Ghost/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Herbs/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Music/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Occultism/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Paper/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Robot/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/Spring/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/ank/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/caigou/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/default/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/love/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/magzine/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/monster/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/shidekuangxiang/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/sleep/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/steam/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/summer/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/xingxing/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/Memory/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/Particle/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/Parts/Decoration/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/Parts/Stickers/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingzou/mingzoufuke/ChongZou/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/monster/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/nextday/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/paopao/paopao3/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/pingfen/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/plugin/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/plugin/FB/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/plugin/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/plugin/icon/512/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/plugin/icon/bigsize/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/qianghua/jinjie/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/regression/30/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/saishi/saicheng/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/saishi/shouye/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/sendgift/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/shangyejia/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/shangyejia/yulan/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/shop/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/taikong/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/wuqi/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/wuqi/nitai/lihui/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/yindao/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/yizhi/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/yizhi/suit_icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/zhiye/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/zhuachong/doushou/itemicon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/zhuachong/zhujiemian/item/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/zhuachong/zhujiemian/qipao/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/ResourcesOverSea/UI/Activity/GWYQ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/UI/ChessboardGame/Chessboard_Main/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/UI/GameActivity/Cafe/Cafe_Item_Icons/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "localization",
+      "pattern": "Hotta/Content/Localization/Game/[^/]+/Game\\.locres:json",
+      "type": "json",
+      "required": true,
+      "why": "All localization cultures shipped by the client; English remains the fallback."
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/L10N/[^/]+/Resources/UI/shizhuang/nitai/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "localized English simulacra and imitation artwork"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/Abilities_Balance/DataTables/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/Artifact/Artifact_01/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataAsset/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Title/DT_Title(_Balance)?\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "Build card character-title text colour and plate widget flag"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/OptionalBoss/DT_OptionalBoss(Activity|Level|Entry)Config_BalanceServer\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Biochemical Collapse season, Culture Pod, enemy and buff configuration"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/drop/(DropGroupDataTable_activity|DropSequenceDataTable_activity|DropSequenceDataTable_common)\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/EffectFigure/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/EffectFigure/Artifact/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/EffectFigure_Normal/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/GuildMaze/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/GameplayEffectTipsDataTable_Balance\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Origin of War buff names, descriptions, and exact gameplay icon references"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_Balance/GameplayEffectTipsDataTable_Balance\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Origin of War buff names, descriptions, and exact gameplay icon references"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_Balance/EffectFigure/OriginWarMonster_Balance\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Origin of War floor difficulty curves when the client stores the table under ResourcesOverSea"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/EffectFigure/Artifact/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/EffectFigure/CriticalTransition/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/EffectFigure/Equipment/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/EffectFigure/PlugIn/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/PlayerTalent/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Brainfield tables explicitly bound by DA_PlayerTalent"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/LifeJob/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_MonsterStaticData_MMO\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO OOW AttributeID rows provide enemy HP, ATK, and defense bases"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/DT_MonsterStaticData_MMO\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO OOW AttributeID rows provide enemy HP, ATK, and defense bases"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/StringTable/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/TamingMonster/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/GameMode/Balance/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/Character/(BigSecretMonster|Monster|OriginWarMonster)/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "resolve enemy AttributeID from classes referenced by MMO Bygone pools"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/Abilities/Buff/MonsterWeaknessBuff/BigSecret/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Bygone HP and attack buff class references"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/Abilities_Balance/Buff/MonsterWeaknessBuff/BigSecret/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Bygone defense and critical-defense buff class references"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/SteampunkMarket/Shop/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Drop/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/EffectFigure_Oversea/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/Lottery/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/UI/Equip/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/UI/Weapon/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "MMO Brainfield node, connection, and group UI layout references"
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/L10N/[^/]+/Resources/UI/equiptips/Skill/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/SceneItem/Norn_njp/sidequest/5_5sidequest/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/Effect/Textures/UI/Common/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Activity/GZJZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/AnniversaryMecha/MechaRogue/Unit/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Intruder/jiuyu/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/JiuYu/ditudiaoxiang/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/Main/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/AGLY/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/AGLY/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/AGLY/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/AGLY/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/AGLY/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/ATLY/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/ATLY/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/ATLY/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/ATLY/SW/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/ATLY/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HH/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HH/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HH/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HH/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HH/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HL/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HL/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HL/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HL/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HL/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HLB/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HLB/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HLB/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HLB/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/HLB/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LANA/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LANA/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LANA/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LANA/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LANA/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LK/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LK/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LK/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LK/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LK/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LKXS/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LKXS/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LKXS/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LKXS/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LKXS/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LS/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LS/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LS/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LS/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LS/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LSL/JH/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LSL/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LSL/JJ/icon/ICON/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LSL/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/LSL/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/MLR/JH/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/MLR/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/MLR/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/MLR/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/AMY/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/JH/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/SW/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/XZ/Room_Nora_XZ_BG/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/XZ/Room_Nora_XZ_Item/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/YZ/Room_Nora_YZ_BG/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/YZ/Room_Nora_YZ_Icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/jiaju/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/Nora/jiaju/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/XPE/JJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/XPE/JJ/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/XPE/QJ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/XPE/XZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/content/XPE/YZ/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/LeisureRoom/datoutie/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/MMOGashapon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/MMOGashapon/Awardlists/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/MMOGashapon/JXK2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/Mount/mount_025/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/PetFight/(?:icon|skill)/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/SecretAction/JHST/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/SteampunkMarket/Shop/UI/item/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/TCDMX/buff/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/WeaponProgressBar/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "weapon progress artwork; include future per-character folders"
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/ZFTP/mainform/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/ZFTP/mainform/BOSS/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/ZFTP/mainform/BOSS_S2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/ZFTP/mainform/BOSS_S3/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/ZFTP/mainform/BOSS_S4/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/bag/equipment/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "MMO gear slot, random-stat, enhancement, and expansion-card UI icons"
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/hacksystem/EntranceIcon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/hacksystem/insuranceCompany/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "all profile-card backgrounds, frames and stickers including future themes"
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/chunjie/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/dongri/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/haidao/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/haidi/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/liujin/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/luolita/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/maomi/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/qiuri/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/shengdan/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/sizhounian/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/tuzidong/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/wansheng/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/xcjl/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/xiancheng/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/xigua/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/xigua2/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/All/xuehua/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/mingzou/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/void/BUFF/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/Resources/UI/zhuachong/doushou/icon/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "textures",
+      "pattern": "Hotta/Content/SevenForest/Blueprint/UI/HuntingTower/ZSXS/[^/]+\\.uasset:png",
+      "type": "png",
+      "required": false
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/mingpian/Memory/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "badge full illustrations and inventory icons"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/Icon/Avatar/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "avatar material instances, parents and particle animation metadata"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/liaotian/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "chat sticker material, texture and animation source metadata"
+    },
+    {
+      "category": "tree",
+      "pattern": "Hotta/Content/Resources/UI/liaotian/.*\\.uasset:png",
+      "type": "png",
+      "required": false,
+      "why": "chat sticker posters and animation atlases, including future subfolders"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/SevenForest/Data/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "chat-panel emoji master tables (DT_Emoji, DT_BigEmoji, DT_ChatHugeEmoji) and their tags"
+    },
+    {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/UI/[^/]+\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "UI_Main_01 base material cooked parameter defaults for sticker/avatar material chains"
+    }
+  ],
+  "requirements": [
+    {
+      "label": "Items: ID mapping",
+      "paths": [
+        "MappingItemId.json",
+        "Hotta/Content/Resources/Text/Oversea/MappingItemId.json"
+      ]
+    },
+    {
+      "label": "Items: name mapping",
+      "paths": [
+        "MappingItemIdAndName.json",
+        "Hotta/Content/Resources/Text/Oversea/MappingItemIdAndName.json"
+      ]
+    },
+    {
+      "label": "Items: rarity mapping",
+      "paths": [
+        "MappingItemIdAndColor.json",
+        "Hotta/Content/Resources/Text/Oversea/MappingItemIdAndColor.json"
+      ]
+    },
+    {
+      "label": "Items: Global StringTable",
+      "paths": [
+        "Hotta/Content/Resources/Text/Oversea/ST_Item_Oversea.json"
+      ]
+    },
+    {
+      "label": "Items: MMO StringTable",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/StringTable/ST_Item_MMO.json"
+      ]
+    },
+    {
+      "label": "Localization: English",
+      "paths": [
+        "Hotta/Content/Localization/Game/en/Game.json",
+        "Hotta/Content/Localization/Game/en/Game.locres"
+      ]
+    },
+    {
+      "label": "Localization: Russian",
+      "paths": [
+        "Hotta/Content/Localization/Game/ru/Game.json",
+        "Hotta/Content/Localization/Game/ru/Game.locres"
+      ]
+    },
+    {
+      "label": "OOW/Sequential: monster HP",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/DT_MonsterStaticData_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/DT_MonsterStaticData.json"
+      ]
+    },
+    {
+      "label": "OOW: season config",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/OriginWarSeasonConfigDataTable_Overseas.json"
+      ]
+    },
+    {
+      "label": "OOW: round config",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/OriginWarRoundConfigDataTable_Overseas.json"
+      ]
+    },
+    {
+      "label": "OOW: monster pools",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/OriginWarMonsterPoolDataTable_Overseas.json"
+      ]
+    },
+    {
+      "label": "OOW: buff pools",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/OriginWarBuffPoolDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/OriginWarBuffPoolDataTable.json"
+      ]
+    },
+    {
+      "label": "MMO OOW: season config",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarSeasonConfigDataTable_MMO.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarSeasonConfigDataTable_MMO.json"
+      ]
+    },
+    {
+      "label": "MMO OOW: floor config",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarRoundConfigDataTable_MMO.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarRoundConfigDataTable_MMO.json"
+      ]
+    },
+    {
+      "label": "MMO OOW: enemy pools",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarMonsterPoolDataTable_MMO.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarMonsterPoolDataTable_MMO.json"
+      ]
+    },
+    {
+      "label": "MMO OOW: buff pools",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarBuffPoolDataTable_MMO.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarBuffPoolDataTable_MMO.json"
+      ]
+    },
+    {
+      "label": "MMO OOW: enemy static stats",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_MonsterStaticData_MMO.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_MMO/DT_MonsterStaticData_MMO.json"
+      ]
+    },
+    {
+      "label": "MMO OOW: balance curves",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/EffectFigure/OriginWarMonster_Balance.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_Balance/EffectFigure/OriginWarMonster_Balance.json"
+      ]
+    },
+    {
+      "label": "MMO OOW: buff effect tips/icons",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_Balance/GameplayEffectTipsDataTable_Balance.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable_Balance/GameplayEffectTipsDataTable_Balance.json"
+      ]
+    },
+    {
+      "label": "FCE: ordered boss catalog",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/VoidCloneBossConfigDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/VoidClone/VoidCloneBossConfigDataTable.json"
+      ]
+    },
+    {
+      "label": "FCE: season ladder",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/BorderWarSeasonDataTable.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/BorderWarBaseDataTable.json"
+      ]
+    },
+    {
+      "label": "Bygone: season rounds",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/BigSecretSeasonRoundDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/BigSecretSeasonRoundDataTable.json"
+      ]
+    },
+    {
+      "label": "Calculator: crit formula",
+      "paths": [
+        "Hotta/Content/Resources/Abilities/DataTables/CritFormula.json"
+      ]
+    },
+    {
+      "label": "Matrices: suit catalog",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Weapon/StaticMatrixSuitDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/WeaponData/WeaponMatrix/StaticMatrixSuitDataTable.json"
+      ]
+    },
+    {
+      "label": "Relics: catalog",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Artifact/ArtifactDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/Artifact/ArtifactDataTable.json"
+      ]
+    },
+    {
+      "label": "Outfits: fashion catalog",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/Fashion/FashionDataTable.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Fashion/FashionDataTable_Overseas.json"
+      ]
+    },
+    {
+      "label": "Pets: cute pet catalog",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/CutePetDataTable.json"
+      ]
+    },
+    {
+      "label": "Gear: strengthen tables",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Equipment/EquipStrengthenDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/EquipStrengthenDataTable.json"
+      ]
+    },
+    {
+      "label": "Gear: random modify tables",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Equipment/RandomModifyDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/RandomModifyDataTable.json"
+      ]
+    },
+    {
+      "label": "Team raids: schedule and reward preview",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/TeamCloneConfig.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TeamCloneConfig_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/TeamConfigDataTable.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TeamConfigDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/TimeLimitedPropDataTable.json",
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/DescriptionDataTable.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/drop/DropGroupDataTable_activity.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/drop/DropSequenceDataTable_activity.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/drop/DropSequenceDataTable_common.json",
+        "Hotta/Content/Localization/Game/en/Game.json",
+        "Hotta/Content/Localization/Game/ru/Game.json"
+      ]
+    },
+    {
+      "label": "MMO LevyClone raids",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_LevyClone_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/LevyClone/LevyCloneStage/DT_LevyCloneStage.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/TeamCloneConfig.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/TeamConfigDataTable.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Drop/DropGroupDataTable_MMOServer.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Drop/DropSequenceDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Drop/DropModifySequenceDataTable_MMO.json",
+        "Hotta/Content/Localization/Game/en/Game.json",
+        "Hotta/Content/Localization/Game/ru/Game.json"
+      ]
+    },
+    {
+      "label": "MMO Bygone / BigSecret",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/GameMode/MMO/BP_GameData_MMO_Base.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/BigSecret/BigSecretDataAsset_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/BigSecret/DT_BigSecretRound_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/BigSecret/DT_BigSecretCommonRound_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/BigSecretSeasonRoundDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_BigSecretBaseConfig_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_BigSecretMonsterPoolConfig_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_BigSecretServerMonsterRoundBufferConfig_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/BigSecretBuffCount_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_BigSecretRoundPassRewardConfig_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_MonsterStaticData_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Drop/DropGroupDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Drop/DropGroupDataTable_MMOServer.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/Drop/DropSequenceDataTable_MMO.json",
+        "Hotta/Content/Localization/Game/en/Game.json",
+        "Hotta/Content/Localization/Game/ru/Game.json"
+      ]
+    },
+    {
+      "label": "MMO Brainfield / PlayerTalent",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/PlayerTalent/DA_PlayerTalent.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/PlayerTalent/DT_PlayerTalentConfig.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/PlayerTalent/DT_PlayerTalentGroup.json",
+        "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/UI_PlayerTalentTree.json",
+        "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/UI_PlayerTalentNode.json",
+        "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/UI_PlayerTalentNode_2.json",
+        "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/UI_PlayerTalentConnection.json",
+        "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/UI_PlayerTalentGroupSlot.json",
+        "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/Slot_PlayerTalentAttribute.json",
+        "Hotta/Content/SevenForest/Blueprint/UI/PlayerTalent/Slot_TalentUpgradeMaterial.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/Item/ItemConfigs.json",
+        "Hotta/Content/Localization/Game/en/Game.json",
+        "Hotta/Content/Localization/Game/ru/Game.json"
+      ]
+    },
+    {
+      "label": "MMO Build: equipment card slots",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotConfig.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotSkillConfig.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotSkillAttribute.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotSkillCoefficient.json"
+      ]
+    },
+    {
+      "label": "MMO Build: complete bound gear and card graph",
+      "paths": [
+        "Hotta/Content/Resources/CoreBlueprints/GameMode/MMO/BP_GameData_MMO_Base.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DA_Equipment_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/EquipmentDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/ModifyDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/RandomModifyDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/RandomPropDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/AdvanceRandomPropDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/AttributeStaticDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/EquipStrengthenDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/EquipStrengthenEffectPackDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/EquipMeltDataTable_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_WeaponTupo_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/DT_EquipRandomModifyExtraGain_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/EffectFigure/EnchantmentEffectFigure_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/EffectFigure/EnchantmentEffectFigure_MMO_S2.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/CommonLevel_MMO.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/DT_MMOEquipmentSeason.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/DT_EquipStrengthenSuccessRate.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EquipDataTables/EquipUpgradeConfigDataTable.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/EffectFigure_MMO/SeasonBuffEffectFigure_0.json"
+      ]
+    },
+    {
+      "label": "Simulacra: weapon catalog",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Weapon/StaticWeaponDataTable_Overseas.json",
+        "Hotta/Content/Resources/CoreBlueprints/DataTable/StaticWeaponDataTable.json"
+      ]
+    },
+    {
+      "label": "Simulacra: skill update tips",
+      "paths": [
+        "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Weapon/SkillUpdateTips_Overseas.json"
+      ]
+    },
+    {
+      "label": "Client Version: Metadata",
+      "paths": [
+        "export-version.json",
+        "config.xml"
+      ]
+    }
+  ],
+  "imageRequirementGroups": [
+    {
+      "label": "FCE boss icons",
+      "relativePath": "Hotta/Content/Resources/UI/void/boss"
+    },
+    {
+      "label": "FCE large boss art",
+      "relativePath": "Hotta/Content/Resources/UI/plugin/FB/bigmon"
+    },
+    {
+      "label": "OOW enemy art",
+      "relativePath": "Hotta/Content/Resources/UI/SHTT/guaiwu"
+    },
+    {
+      "label": "Original and MMO raid artwork",
+      "relativePath": "Hotta/Content/Resources/UI/fuben/taofazuozhan"
+    },
+    {
+      "label": "MMO Brainfield attribute icons",
+      "relativePath": "Hotta/Content/Resources/UI/Talent/shenjingyuan_shuxing"
+    },
+    {
+      "label": "MMO Brainfield skill icons",
+      "relativePath": "Hotta/Content/Resources/UI/Talent/shengjingyuan_buff"
+    },
+    {
+      "label": "MMO equipment slot icons",
+      "relativePath": "Hotta/Content/Resources/UI/bag/equipment"
+    }
+  ]
+}

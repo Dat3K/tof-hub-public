@@ -1,0 +1,52 @@
+{
+  "slug": "sweetie",
+  "order": 7,
+  "boss_id": "boss_hum_020",
+  "name_color": "#e08c42",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+  "art_object_position": "center center",
+  "source_psd": "милашка.psd",
+  "en": {
+    "name": "Sweetie",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Every 25 seconds, Sweetie imposes a penalty on 2–4 random nearby targets. If they perform any action within 5 seconds of the penalty being applied, they take damage."
+      },
+      {
+        "index": "2",
+        "html": "Increase Sweetie&#x27;s movement speed, and decrease the movement speed of all nearby targets."
+      },
+      {
+        "index": "3",
+        "html": "Every 15 seconds, Sweetie randomly selects a target on the field to inflict massive damage every second for 15 seconds, prioritizing targets with Fortitude Resonance."
+      },
+      {
+        "index": "4",
+        "html": "Sweetie chains all Wanderer-allied targets on the field. Each target will suffer damage proportional to the percentage of damage received by other chained targets. <span class=\"fce-card__text-accent\">Shares 10% DMG to every player. This DMG ignores Resists and DMG Reduction (except Asuka).</span>"
+      }
+    ]
+  },
+  "ru": {
+    "name": "Милашка",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Каждые 25 секунд Милашка накладывает штраф на 2-4 случайные ближайшие цели. Если они совершают какие-либо действия в течение 5 секунд после наложения штрафа, то получают урон."
+      },
+      {
+        "index": "2",
+        "html": "Увеличивает скорость передвижения Милашки и снижает скорость передвижения всех ближайших целей."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 15 секунд Милашка случайно выбирает цель на поле и наносит ей огромный урон каждую секунду в течение 15 секунд, отдавая приоритет целям с Fortitude Resonance."
+      },
+      {
+        "index": "4",
+        "html": "Милашка связывает всех союзных Странников на поле. Каждая цель получает урон пропорционально проценту урона, полученного другими связанными целями. <span class=\"fce-card__text-accent\"> Каждый игрок делится 10% входящего урона. Этот урон игнорирует сопротивления и снижение урона (кроме Аски).</span>"
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_020.webp"
+}

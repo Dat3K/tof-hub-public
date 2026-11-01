@@ -1,0 +1,52 @@
+{
+  "slug": "frigg",
+  "order": 2,
+  "boss_id": "boss_hum_019",
+  "name_color": "#ef62bd",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+  "art_object_position": "center center",
+  "source_psd": "фригг.psd",
+  "en": {
+    "name": "Frigg",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Frigg's shield strength greatly increases."
+      },
+      {
+        "index": "2",
+        "html": "Frigg gains a damage boost each time she lands a hit. This effect can stack."
+      },
+      {
+        "index": "3",
+        "html": "Frigg enters Rampage Mode, greatly increasing her speed."
+      },
+      {
+        "index": "4",
+        "html": "Frigg enters Extreme Mode, increasing her speed and leaving frost under her feet. If you touch the frost, you will take damage and be slowed, which can be stacked up to 3 times."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Фригг",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Прочность щита Фригг значительно увеличена."
+      },
+      {
+        "index": "2",
+        "html": "Фригг получает бафф урона каждый раз, когда попадает по цели. Эффект может накапливаться."
+      },
+      {
+        "index": "3",
+        "html": "Фригг входит в режим Rampage, значительно повышая скорость."
+      },
+      {
+        "index": "4",
+        "html": "Фригг входит в Extreme Mode: ее скорость повышается, а под ногами остается лед. Если наступить на лед, вы получите урон и замедление, до 3 стаков."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss012.webp"
+}

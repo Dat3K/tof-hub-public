@@ -1,0 +1,60 @@
+{
+  "slug": "fei-lian",
+  "order": 29,
+  "boss_id": "boss_hum_067",
+  "name_color": "#d2db4f",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.webp",
+  "art_object_position": "center center",
+  "source_psd": "BOSS_FL.png",
+  "en": {
+    "name": "Fei Lian",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_067_1_des",
+        "html": "Grants Fei Lian 1 stack of Damage Reduction of an Element for 3s after getting hit with that Element. Grants up to 1 stack every second."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_067_2_des",
+        "html": "Ignores the target's resistances when attacking."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_067_3_des",
+        "html": "Owns 5 stacks of Element Shield, each stack reducing the damage Fei Lian takes. Elemental attacks remove the corresponding Shield for 10s."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_067_4_des",
+        "html": "Generates Elemental Ores every 15s around Fei Lian. The ores break upon 5 hits of the corresponding Elements but explode if they are not broken within 15s, dealing lethal damage to characters and healing Fei Lian."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Фэй Лянь",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_067_1_des",
+        "html": "Дает Фэйлянь 1 уровень снижения урона от стихии на 3 сек. после получения удара этой стихией. Максимум 1 уровень в секунду."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_067_2_des",
+        "html": "Игнорирует сопротивления цели при атаке."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_067_3_des",
+        "html": "Имеет 5 уровней Стихийного щита; каждый уровень снижает получаемый Фэйлянь урон. Атаки стихиями убирают соответствующие щиты на 10 сек."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_067_4_des",
+        "html": "Каждые 15 сек. вокруг Фэйлянь создаются фрагменты стихийной руды. Фрагменты разбиваются после 5 попаданий соответствующей стихией, но если не разбить их за 15 сек., то они взрываются, нанося смертельный урон персонажам и исцеляя Фэйлянь."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/BOSS_FL.webp"
+}

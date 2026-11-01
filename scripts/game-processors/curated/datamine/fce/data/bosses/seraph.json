@@ -1,0 +1,52 @@
+{
+  "slug": "seraph",
+  "order": 13,
+  "boss_id": "boss_010",
+  "name_color": "#ea6d49",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+  "art_object_position": "center center",
+  "source_psd": "СЕРАФИМ.psd",
+  "en": {
+    "name": "Seraph",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Seraph's attacks carry an additional Powerful Graying Bite effect."
+      },
+      {
+        "index": "2",
+        "html": "After Seraph lands a hit on a target, it grants an HP shield to all its friendly units equal to 5% of their respective Max HP. The shield cannot be stacked and lasts for 3 seconds. The minimum trigger interval is 1 second."
+      },
+      {
+        "index": "3",
+        "html": "After Seraph hits a non-Fortitude target, Punishments will be added. Punishments will be reduced by 1 stack every 5 seconds. If Punishment stacks reach 10, that Wanderer will lose their hyperbody and invincibility and will be unable to regain hyperbody or invincibility for 90 seconds."
+      },
+      {
+        "index": "4",
+        "html": "When Seraph receives lethal damage, it becomes invincible for 10 seconds. During that period, it continuously deals a huge amount of damage every second to the surrounding area."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Сераф",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Серафа дополнительно накладывают мощный Graying Bite."
+      },
+      {
+        "index": "2",
+        "html": "После попадания по цели Сераф дает всем союзным юнитам щит в размере 5% от их Max HP. Щит не стакается, длится 3 секунды. Минимальный интервал срабатывания 1 секунда."
+      },
+      {
+        "index": "3",
+        "html": "После попадания по цели без Fortitude Сераф накладывает Punishment. Один стак снимается каждые 5 секунд. Если стаков становится 10, Странник теряет hyperbody и неуязвимость и не может вернуть их в течение 90 секунд."
+      },
+      {
+        "index": "4",
+        "html": "При получении смертельного урона Сераф становится неуязвимым на 10 секунд. В этот период он каждую секунду наносит огромный урон по области вокруг себя."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_06.webp"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "@tof-hub/tof-exporter",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "fetch:runtime": "tsx scripts/fetch-runtime.ts",
+    "verify:runtime": "tsx scripts/verify-runtime.ts",
+    "bundle": "tsx scripts/build-bundle.ts",
+    "build": "tsx scripts/build-bundle.ts",
+    "package": "tsx scripts/package.ts",
+    "typecheck": "tsc --noEmit && tsc -p ../../scripts/game-processors/tsconfig.json",
+    "pipeline": "tsx --tsconfig tsconfig.pipeline.json scripts/pipeline.ts",
+    "apply-update": "tsx scripts/apply-update.ts"
+  },
+  "devDependencies": {
+    "@tof-hub/tsconfig": "workspace:*",
+    "@types/node": "24.13.6",
+    "typescript": "6.0.3",
+    "esbuild": "0.28.2"
+  },
+  "dependencies": {
+    "@tof-hub/contracts": "workspace:*",
+    "zod": "4.6.5"
+  }
+}

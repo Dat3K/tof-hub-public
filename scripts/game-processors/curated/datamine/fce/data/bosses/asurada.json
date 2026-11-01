@@ -1,0 +1,52 @@
+{
+  "slug": "asurada",
+  "order": 19,
+  "boss_id": "boss_hum_073",
+  "name_color": "#bb313d",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.webp",
+  "art_object_position": "center center",
+  "source_psd": "trashurada.psd",
+  "en": {
+    "name": "Asurada",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Asurada periodically gains damage reduction, which is removed when successfully countered. <span class=\"fce-card__text-accent\">Every 5 seconds gains 1 stack of 10% DMG reduction, up to 8 stacks.</span>"
+      },
+      {
+        "index": "2",
+        "html": "When Asurada hits targets, it reduces their Max HP for 10s, stacking up to 3 times. <span class=\"fce-card__text-accent\">Reduces Max HP by 10% per stack.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Asurada prevents targets hit from healing for a short period."
+      },
+      {
+        "index": "4",
+        "html": "Asurada&#x27;s hits on non-Fortitude targets sear them, dealing damage based on a percentage of their Max HP every second for 10s, stacking up to 3 times. <span class=\"fce-card__text-accent\">DoT: 3%/s per stack based on player Max HP.</span>"
+      }
+    ]
+  },
+  "ru": {
+    "name": "Асурада",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Асурада периодически получает снижение урона, которое снимается успешным парированием. <span class=\"fce-card__text-accent\">Каждые 5 секунд получает 1 слой снижения урона на 10%, до 8 слоев.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Когда Асурада попадает по цели, он снижает ее Max HP на 10 секунд, до 3 стаков. <span class=\"fce-card__text-accent\">Снижение Max HP на 10% за стак.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Асурада ненадолго запрещает лечить пораженные цели."
+      },
+      {
+        "index": "4",
+        "html": "Попадания Асурады по целям без Fortitude поджигают их, нанося урон в процентах от Max HP каждую секунду в течение 10 секунд, до 3 стаков. <span class=\"fce-card__text-accent\"> DoT 3%/сек за каждый стак от максимального HP игрока.</span>"
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_073.webp"
+}

@@ -1,0 +1,59 @@
+{
+  "slug": "robarg",
+  "order": 36,
+  "boss_id": "boss_006",
+  "name_color": "#de7e3e",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.webp",
+  "art_object_position": "center center",
+  "en": {
+    "name": "Robarg",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_006_1_des",
+        "html": "Robarg loses no more than 3.5% Max HP per second."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_006_2_des",
+        "html": "Robarg applies 1 stack of Neural Toxin on targets hit. Reaching 15 stacks Stuns the target for 15s. Neural Toxin stacks can be cleansed by picking up randomly dropped antidotes."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_006_3_des",
+        "html": "Increases Robarg's movement speed."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_006_4_des",
+        "html": "Robarg becomes Invincible every time he loses 25% Max HP and generates 3 purple areas nearby. His Invincibility breaks when players stand in all 3 areas simultaneously."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Робарг",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_006_1_des",
+        "html": "Робарг теряет не более 3,5% от максимального запаса здоровья в секунду."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_006_2_des",
+        "html": "Робарг накладывает 1 стак Нейротоксина на пораженную цель. При достижении 15 стаков цель оглушается на 15 секунд. Стаки Нейротоксина можно снять, подобрав случайно выпавшие противоядия."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_006_3_des",
+        "html": "Увеличивает скорость передвижения Робарга."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_006_4_des",
+        "html": "Робарг становится неуязвимым каждый раз, когда теряет 25% от максимального запаса здоровья и рядом с ним появляются 3 фиолетовые зоны. Его неуязвимость исчезает, когда игроки одновременно находятся во всех 3 зонах."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss001.webp"
+}

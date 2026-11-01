@@ -1,0 +1,13 @@
+\set ON_ERROR_STOP on
+SELECT format('CREATE ROLE %I LOGIN NOSUPERUSER NOCREATEDB NOCREATEROLE NOREPLICATION NOBYPASSRLS', :'runtime_role')
+WHERE NOT EXISTS (SELECT 1 FROM pg_roles WHERE rolname=:'runtime_role') \gexec
+ALTER ROLE :"runtime_role" PASSWORD :'runtime_password';
+REVOKE CREATE, TEMPORARY ON DATABASE :"database_name" FROM PUBLIC;
+REVOKE CREATE ON SCHEMA public FROM PUBLIC;
+GRANT CONNECT ON DATABASE :"database_name" TO :"runtime_role";
+GRANT USAGE ON SCHEMA public TO :"runtime_role";
+GRANT SELECT, INSERT, UPDATE, DELETE ON ALL TABLES IN SCHEMA public TO :"runtime_role";
+GRANT USAGE, SELECT ON ALL SEQUENCES IN SCHEMA public TO :"runtime_role";
+REVOKE ALL ON TABLE public."_prisma_migrations" FROM :"runtime_role";
+ALTER DEFAULT PRIVILEGES FOR ROLE :"migration_role" IN SCHEMA public GRANT SELECT, INSERT, UPDATE, DELETE ON TABLES TO :"runtime_role";
+ALTER DEFAULT PRIVILEGES FOR ROLE :"migration_role" IN SCHEMA public GRANT USAGE, SELECT ON SEQUENCES TO :"runtime_role";

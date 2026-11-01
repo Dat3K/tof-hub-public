@@ -1,0 +1,13 @@
+/* Chip row printed on a boss card: phase, HP, resistances, crit resistance. Position comes from the parent card. */
+.plate { list-style: none; margin: 0; padding: 0; display: flex; align-items: center; gap: 12px; }
+/* Same frosted block as the mechanic text lines: translucent, brightens on hover. */
+.plate li { display: flex; align-items: center; gap: 10px; padding: 8px 18px 8px 12px; border-radius: 10px; background: rgba(255, 255, 255, .5); transition: background-color .18s ease, box-shadow .18s ease; }
+.plate li:hover { background: rgba(255, 255, 255, .9); box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .34), 0 10px 24px rgba(201, 214, 255, .16); }
+.plate li:not(:has(img)) { padding-left: 20px; }
+.plate img { width: 36px; height: 36px; object-fit: contain; }
+.plate span { color: #4a5672; font: 700 22px/1 var(--boss-defenses-font, "Franklin Gothic Medium Cond", "FranklinGothic-MediumCond", "Arial Narrow", "Segoe UI", sans-serif); letter-spacing: .1em; text-transform: uppercase; white-space: nowrap; }
+.plate b { color: #14203a; font: 700 30px/1 var(--boss-defenses-font, "Franklin Gothic Medium Cond", "FranklinGothic-MediumCond", "Arial Narrow", "Segoe UI", sans-serif); font-variant-numeric: tabular-nums; white-space: nowrap; }
+/* The crit icon is pale pink; darken and sharpen it so it reads on the light chip. */
+.plate .critIcon { filter: brightness(.5) saturate(1.8) contrast(1.35) drop-shadow(0 0 .5px rgba(60, 10, 20, .6)); }
+/* Phase reads as a value, not a caption. */
+.plate .phase span { color: #14203a; font-size: 30px; letter-spacing: normal; text-transform: none; }

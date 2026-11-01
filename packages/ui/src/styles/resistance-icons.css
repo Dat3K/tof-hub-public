@@ -1,0 +1,18 @@
+/*
+ * Elemental resistance icons (the game's shield icons, AttributeIcon/icon_def*) tinted with the element palette
+ * (2026-10-09). Shared by the Build card stat table and the Info relic passive badges: put
+ * `class="resistance-icon" data-resistance-element="Frost|Volt|Flame|Physical|Altered"` on the <img>.
+ */
+:root {
+  --resistance-filter-frost: brightness(0) saturate(100%) invert(82%) sepia(22%) saturate(714%) hue-rotate(164deg) brightness(94%) contrast(95%);
+  --resistance-filter-volt: brightness(0) saturate(100%) invert(70%) sepia(18%) saturate(1042%) hue-rotate(213deg) brightness(92%) contrast(91%);
+  --resistance-filter-flame: brightness(0) saturate(100%) invert(71%) sepia(21%) saturate(936%) hue-rotate(326deg) brightness(96%) contrast(89%);
+  --resistance-filter-physical: brightness(0) saturate(100%) invert(78%) sepia(35%) saturate(496%) hue-rotate(2deg) brightness(92%) contrast(87%);
+  --resistance-filter-altered: brightness(0) saturate(100%) invert(78%) sepia(13%) saturate(723%) hue-rotate(93deg) brightness(91%) contrast(89%);
+}
+/* Two classes plus the element match the specificity of badge icon resets such as `.info-ui .sim-badge img`. */
+img.resistance-icon[data-resistance-element="Frost" i] {filter:var(--resistance-filter-frost)}
+img.resistance-icon[data-resistance-element="Volt" i] {filter:var(--resistance-filter-volt)}
+img.resistance-icon[data-resistance-element="Flame" i] {filter:var(--resistance-filter-flame)}
+img.resistance-icon[data-resistance-element="Physical" i] {filter:var(--resistance-filter-physical)}
+img.resistance-icon[data-resistance-element="Altered" i] {filter:var(--resistance-filter-altered)}

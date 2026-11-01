@@ -1,0 +1,126 @@
+.detailNav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+
+.backButton {
+  background: var(--sim-surface, rgba(18, 22, 34, 0.85));
+  border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
+  color: var(--sim-text-main, #f3f4f6);
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.backButton:hover {
+  background: var(--sim-surface-hover, rgba(28, 34, 52, 0.95));
+  border-color: rgba(245, 217, 122, 0.35);
+  color: #f5d97a;
+}
+
+.pager {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 250px;
+  width: 250px;
+  min-width: 250px;
+  box-sizing: border-box;
+  gap: 6px;
+  background: var(--sim-surface, rgba(18, 22, 34, 0.85));
+  border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
+  border-radius: 8px;
+  padding: 4px 6px;
+}
+
+.pagerButton {
+  background: transparent;
+  border: 1px solid transparent;
+  color: var(--sim-text-main, #f3f4f6);
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: inline-flex;
+  flex: 1 1 0;
+  min-width: 0;
+  box-sizing: border-box;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+  user-select: none;
+}
+
+.pagerButton:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--sim-border, rgba(255, 255, 255, 0.08));
+  color: #f5d97a;
+}
+
+.pagerButton:focus-visible,
+.backButton:focus-visible {
+  outline: 2px solid var(--game-blue, #38bdf8);
+  outline-offset: 2px;
+}
+
+.pagerArrow {
+  flex: 0 0 auto;
+  font-size: 0.75rem;
+  opacity: 0.8;
+}
+
+.pagerLabel {
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.pagerButtonPrev {
+  justify-content: flex-start;
+}
+
+.pagerButtonNext {
+  justify-content: flex-end;
+}
+
+.pagerCounter {
+  flex: 0 0 58px;
+  min-width: 58px;
+  box-sizing: border-box;
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--sim-text-sub, #9ca3af);
+  padding: 0;
+  font-family: monospace;
+}
+
+@media (max-width: 768px) {
+  .detailNav {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .pager {
+    justify-content: space-between;
+    width: 100%;
+    min-width: 0;
+    flex-basis: auto;
+    box-sizing: border-box;
+  }
+}

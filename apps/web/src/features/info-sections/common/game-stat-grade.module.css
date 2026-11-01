@@ -1,0 +1,15 @@
+.grade {
+  display: inline-block;
+  flex-shrink: 0;
+  width: auto;
+  height: 22px;
+  object-fit: contain;
+  vertical-align: middle;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, .4));
+  image-rendering: -webkit-optimize-contrast;
+}
+.fallback {
+  min-width: 22px;
+  text-align: center;
+  font: italic 900 22px/1 var(--font-sans, sans-serif);
+}

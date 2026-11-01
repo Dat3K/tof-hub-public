@@ -1,0 +1,47 @@
+.stats {--stat-columns:minmax(0,1fr) max-content;display:grid;grid-template-columns:var(--stat-columns);gap:4px;min-width:0;margin:8px 0 0;padding:0;list-style:none;font-size:12px}
+.stats[data-maximums] {--stat-columns:minmax(0,1fr) max-content max-content max-content}
+.stats[data-presentation=tooltip] {min-width:220px}
+.stats li {display:grid;grid-template-columns:subgrid;grid-column:1/-1;align-items:center}
+.stats b {font-variant-numeric:tabular-nums;color:#cbd5e1;font-weight:600;white-space:nowrap}
+.values {display:grid;grid-template-columns:subgrid;grid-column:2;text-align:right}
+.stats[data-maximums] .values {grid-column:2/span 3}
+.separator {text-align:center;color:var(--color-text-secondary,#93a1b6);font-weight:400}
+.name {display:flex;align-items:center;gap:6px;min-width:0;color:#cbd5e1;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.name>img {width:14px;height:14px;object-fit:contain;flex:none;filter:brightness(0) invert(1)}
+.stats li[data-rated] .name,.stats li[data-rated] b {color:#f8e7b0}
+.stats li[data-added] .name {color:#ff858b}
+.stats li[data-titan-start] {margin-top:3px;padding-top:6px;border-top:1px solid #ffffff1f}
+.stats b .maximum {color:var(--color-text-secondary,#93a1b6);font-weight:400}
+.footer {display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:6px 12px;margin-top:8px;padding-top:6px;border-top:1px solid #ffffff1f;font-size:12px}
+.rare {display:inline-flex;align-items:center;gap:6px;font-weight:600;color:#ff858b}
+.rareIcon {width:14px;height:14px;object-fit:contain;flex:none;filter:brightness(0) invert(1)}
+.count {margin-left:auto;white-space:nowrap}
+.count>span {color:#f8fafc}
+.count>b {font-weight:700;color:#60a5fa}
+.item {display:grid;gap:10px;min-width:0;padding:12px;border:1px solid var(--surface-border);border-radius:5px;background:var(--surface-inset);text-align:left;font-size:11px;line-height:1.4}
+.itemHeader {display:flex;align-items:center;gap:10px;min-width:0}
+.itemIcon {width:64px;height:64px;padding:5px;object-fit:contain;flex:none;background:var(--surface-panel);border:1px solid var(--surface-border);border-radius:4px}
+.itemIdentity {min-width:0;flex:1}
+.itemIdentity h3 {display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin:0;font-size:13px;font-weight:600;line-height:1.4}
+.itemIdentity h3 b {font-size:14px;font-weight:600;color:var(--color-success,#83d8b1);white-space:nowrap}
+.itemProgress {margin-top:4px;letter-spacing:1px;color:var(--color-text-primary)}
+.itemMeta {display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;margin-top:4px;font-size:10px;color:var(--color-text-secondary);font-variant-numeric:tabular-nums}
+.itemMeta [data-stage=titan] {color:#ff858b}
+.itemMeta [data-stage=augmented] {color:var(--color-accent,#2ba6df)}
+.stats[data-presentation=item] {margin:0;font-size:11px}
+.stats[data-presentation=item] {column-gap:6px}
+.item .footer {margin-top:0;font-size:11px}
+.stats[data-presentation=cell] {margin:0}
+.stats[data-density=compact] {row-gap:2px;font-size:11px;line-height:1.4}
+.stats[data-density=compact] li[data-titan-start] {margin-top:2px;padding-top:4px}
+.footer[data-density=compact] {gap:4px 8px;margin-top:6px;padding-top:4px;font-size:11px;line-height:1.4}
+/* Roll details column (×N · quality), as on the Build card. */
+.stats[data-rolls] {grid-template-columns:var(--stat-columns) 62px}
+.roll {font-size:10px;color:#93a3b4;text-align:right;white-space:nowrap;font-variant-numeric:tabular-nums}
+.stats[data-density=compact][data-rolls] {grid-template-columns:var(--stat-columns) 54px}
+.stats[data-density=compact] .roll {font-size:9px}
+/* Narrow gear cells retain ceilings and roll details on a second line. */
+@container optimizer-gear (max-width:250px) {
+  .stats[data-rolls],.stats[data-density=compact][data-rolls] {grid-template-columns:var(--stat-columns)}
+  .stats[data-rolls] .roll {grid-column:2/-1}
+}

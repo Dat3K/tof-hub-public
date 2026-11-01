@@ -1,0 +1,52 @@
+{
+  "slug": "barbarossa",
+  "order": 26,
+  "boss_id": "boss_hum_025",
+  "name_color": "#b972d8",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.webp",
+  "art_object_position": "center center",
+  "source_psd": "screenshot-crop",
+  "en": {
+    "name": "Barbarossa",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Barbarossa gains Bleed upon hitting targets, dealing damage equal to % of Max HP per second for 15s, up to 1 stack."
+      },
+      {
+        "index": "2",
+        "html": "Barbarossa enters Rampage Mode, greatly increasing its movement speed."
+      },
+      {
+        "index": "3",
+        "html": "Barbarossa increases the biting frequency, ignoring Hyperbody and Invincibility."
+      },
+      {
+        "index": "4",
+        "html": "Barbarossa inflicts Fear upon locking a target, greatly reducing their movement speed. The effect is halved against targets with Fortitude."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Барбаросса",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Барбаросса накладывает Bleed при попадании по цели, нанося урон, равный % от Max HP в секунду, в течение 15 секунд, до 1 стака."
+      },
+      {
+        "index": "2",
+        "html": "Барбаросса входит в режим Rampage, значительно увеличивая скорость передвижения."
+      },
+      {
+        "index": "3",
+        "html": "Барбаросса увеличивает частоту укусов, игнорируя Hyperbody и Invincibility."
+      },
+      {
+        "index": "4",
+        "html": "Барбаросса накладывает Fear при захвате цели, сильно снижая ее скорость передвижения. Против целей с Fortitude эффект ослаблен вдвое."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_03.webp"
+}

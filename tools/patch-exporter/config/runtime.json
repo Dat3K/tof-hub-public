@@ -1,0 +1,94 @@
+{
+  "name": "tof-exporter-runtime-manifest",
+  "version": "1.0.0",
+  "description": "Authoritative pinned versions, checksums, and asset URLs for portable exporter runtimes",
+  "runtimes": {
+    "node": {
+      "name": "Node.js",
+      "version": "24.15.0",
+      "channel": "LTS",
+      "codename": "Krypton",
+      "platform": "win32",
+      "arch": "x64",
+      "fileName": "node-v24.15.0-win-x64.zip",
+      "url": "https://nodejs.org/dist/v24.15.0/node-v24.15.0-win-x64.zip",
+      "sha256": "cc5149eabd53779ce1e7bdc5401643622d0c7e6800ade18928a767e940bb0e62",
+      "sizeBytes": 36465163,
+      "license": "MIT",
+      "licenseUrl": "https://raw.githubusercontent.com/nodejs/node/v24.15.0/LICENSE",
+      "internalArchivePaths": {
+        "binary": "node-v24.15.0-win-x64/node.exe",
+        "license": "node-v24.15.0-win-x64/LICENSE"
+      },
+      "targetPackagePaths": {
+        "binary": "runtime/node.exe",
+        "license": "runtime/NODE_LICENSE"
+      },
+      "excludedArchiveEntries": [
+        "node_modules",
+        "npm",
+        "npm.cmd",
+        "npx",
+        "npx.cmd",
+        "corepack",
+        "corepack.cmd",
+        "install_tools.bat",
+        "nodevars.bat"
+      ]
+    },
+    "webp": {
+      "version": "1.6.0",
+      "fileName": "libwebp-1.6.0-windows-x64.zip",
+      "url": "https://storage.googleapis.com/downloads.webmproject.org/releases/webp/libwebp-1.6.0-windows-x64.zip",
+      "sha256": "48886f506b21f62e4661f0f4cbfca19800897c385128e8902542d29a950c93f1",
+      "archiveRoot": "libwebp-1.6.0-windows-x64"
+    },
+    "unrealExporter": {
+      "name": "UnrealExporter",
+      "version": "2.0.0",
+      "repo": "https://github.com/luk-gg/UnrealExporter",
+      "fileName": "UnrealExporter-2.0.0.zip",
+      "url": "https://github.com/luk-gg/UnrealExporter/releases/download/v2.0.0/UnrealExporter-2.0.0.zip",
+      "sha256": "7cf97b4fc66f8007a07b3657a4110542501e8bf5a1d45dc3e4d0ccd5fde82b58",
+      "sizeBytes": 44704818,
+      "license": "Apache-2.0",
+      "binariesToPackage": [
+        "UnrealExporter.exe",
+        "libSkiaSharp.dll",
+        "blake3_dotnet.dll",
+        "LICENSE.txt"
+      ],
+      "secretsToExclude": [
+        "aes.txt",
+        "olderkeys.txt"
+      ],
+      "targetDir": "bin",
+      "runtimeDlls": [
+        {
+          "name": "Detex.dll",
+          "sha256": "a434f5759fadb73bf386e636481e4fddb29e6a2e9c177334c53770a7aba19a7e"
+        },
+        {
+          "name": "oodle-data-shared.dll",
+          "sha256": "8f6c0d487573b5a7ea8548407cbf96f5cd833fe7138769914961b6697d74b3b3"
+        },
+        {
+          "name": "zlib-ng2.dll",
+          "sha256": "454be2f3d10f804ace577198401431db5e95d0286b59589bc28a40085388e7c2"
+        }
+      ],
+      "runtimeDllsNote": "CUE4Parse loads these from the exe folder and downloads them when absent. Package with TOF_UNREAL_RUNTIME_DIR=<folder with the verified DLLs> for offline use."
+    }
+  },
+  "packageConfig": {
+    "outputDir": "dist/tof-exporter-portable",
+    "archiveName": "tof-exporter-portable.zip",
+    "bundledRuntimePath": "runtime/node.exe",
+    "entrypoints": {
+      "exportBat": "export.bat",
+      "processExistingBat": "process-existing.bat",
+      "validateBat": "validate.bat",
+      "runBat": "RUN.bat"
+    }
+  }
+}

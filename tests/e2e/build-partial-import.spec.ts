@@ -1,0 +1,54 @@
+import {test,expect} from '@playwright/test';
+import {constants,createHash,generateKeyPairSync,sign} from 'node:crypto';
+import fixture from '../../packages/contracts/src/__fixtures__/build-capture.json';
+import {BuildCaptureSchema} from '../../packages/contracts/src/build-capture';
+import {scanFixture} from '../../packages/contracts/src/__fixtures__/scan-session';
+
+test('partial live file can be saved and exported as Verified; footer keeps addition and manual edit dates',async({page})=>{
+  test.setTimeout(120000);
+  const keys=generateKeyPairSync('rsa',{modulusLength:2048});
+  const data=BuildCaptureSchema.parse({...fixture,schemaVersion:3,pet:null,matrices:[],support:null,
+    capture:{...fixture.capture,subject:{uid:'1300506653',roleId:''},scan:{...scanFixture('live'),status:'capturing',finishedAt:null}}});
+  const digest=createHash('sha256').update(JSON.stringify(data)).digest('hex');
+  const signature=sign('sha256',Buffer.from(`tof-hub-build-capture:1:${digest}`),{key:keys.privateKey,padding:constants.RSA_PKCS1_PSS_PADDING,saltLength:32}).toString('base64url');
+  await page.route('**/api/v1/build/import/public-key',route=>route.fulfill({json:{public_key_pem:keys.publicKey.export({type:'spki',format:'pem'}).toString()}}));
+  await page.route('**/api/v1/build/import',route=>route.fulfill({json:{id:'partial-import',kind:'build-import',state:'complete',createdAt:new Date().toISOString(),result:{data,source:{digest,signature}}}}));
+  let saves=0;
+  await page.route('**/api/v1/build/profiles/1300506653',route=>route.fulfill({json:{available:true,profiles:[]}}));
+  await page.route('**/api/v1/build/profiles',route=>{
+    const request=route.request().postDataJSON();
+    expect(request.capture).toEqual(data);expect(request.digest).toBe(digest);expect(request.signature).toBe(signature);
+    saves++;
+    return route.fulfill({json:{id:'partial-save',kind:'build-profile',state:'complete',createdAt:new Date().toISOString(),result:{slot:'dps-frost'}}});
+  });
+  await page.goto('/tools/build/');
+  await page.getByLabel('Build capture file').setInputFiles({name:'partial.tofbuild',mimeType:'application/json',buffer:Buffer.from(JSON.stringify({format:'tof-hub-build-sealed',version:1}))});
+  const card=page.locator('article.card'),date=card.locator('time[data-build-provenance]');
+  await expect(card.locator('.player')).toHaveText('Example player');
+  await expect(date).not.toHaveText('—');
+  await expect(card.locator('.data-origin:visible')).toHaveCount(0);
+  await expect(page.getByRole('button',{name:'Save build',exact:true})).toBeEnabled();
+  await page.getByRole('button',{name:'Save build',exact:true}).click();
+  await expect.poll(()=>saves).toBe(1);
+  const originalDate=await date.getAttribute('datetime');
+  const download=page.waitForEvent('download');
+  await page.getByRole('button',{name:'Export PNG',exact:true}).click();
+  await download;
+  await expect(page.getByRole('status').filter({hasText:'PNG exported'})).toContainText('Verified');
+  await expect(date).toHaveAttribute('datetime',originalDate!);
+  await page.getByRole('checkbox',{name:'Lock editing',exact:true}).uncheck();
+  await page.getByRole('checkbox',{name:'Advanced editor',exact:true}).check();
+  await page.getByLabel('Name',{exact:true}).fill('Manually edited');
+  await expect(date).not.toHaveAttribute('datetime',originalDate!);
+  await expect(page.getByRole('button',{name:'Save build',exact:true})).toBeDisabled();
+  await page.getByRole('button',{name:'Undo',exact:true}).click();
+  await expect(page.getByRole('button',{name:'Save build',exact:true})).toBeEnabled();
+  await page.getByRole('checkbox',{name:'Advanced editor',exact:true}).uncheck();
+  await page.getByRole('checkbox',{name:'Lock editing',exact:true}).check();
+  await page.setViewportSize({width:844,height:390});
+  await page.getByRole('button',{name:'Language selector: English',exact:true}).click();
+  await page.locator('[data-datamine-language="ru"]').click();
+  await expect(page.getByRole('button',{name:'Сохранить билд',exact:true})).toBeEnabled();
+  await expect(date).toHaveAttribute('datetime',originalDate!);
+  await expect(card.locator('.data-origin:visible')).toHaveCount(0);
+});

@@ -1,0 +1,10 @@
+[extend]
+useDefault = true
+
+[[allowlists]]
+description = "Typed game slot enums and localization identifiers in fixtures are public identifiers, not credentials"
+regexTarget = "match"
+regexes = [
+  '''(?i)slotKey["']?\s*:\s*["'](?:EQUIPMENT_SLOT_[A-Za-z0-9_]+|Equipment_\d+)''',
+  '''(?i)localizedNameKey:\s*'MON_HUM_[A-Za-z0-9_]+'''
+]

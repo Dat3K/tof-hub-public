@@ -1,0 +1,69 @@
+/*
+ * Site surfaces (2026-10-09): the neutral dark palette of the Tops board and the Datamine OoW floor list, for every
+ * Tools, Info and Datamine panel and control. Accents (focus, selection) stay per component.
+ */
+:root {
+  --surface-canvas:#0b0d13;
+  /* A panel on the canvas: the solid colour of --tool-table-surface. */
+  --surface-panel:#101218;
+  --surface-panel-header:rgba(255,255,255,.03);
+  /* Inset fields and inner cards inside a panel. */
+  --surface-inset:#090b10;
+  --surface-raised:#16181f;
+  --surface-hover:rgba(255,255,255,.04);
+  --surface-border:rgba(255,255,255,.08);
+  --surface-border-strong:rgba(255,255,255,.16);
+  --tool-panel-surface:#0e1016;
+  --tool-panel-header:rgba(255,255,255,.03);
+  --tool-panel-controls:rgba(0,0,0,.18);
+  --tool-panel-border:rgba(255,255,255,.12);
+  --tool-panel-card:#12141a;
+  --tool-panel-overlay:rgba(4,5,8,.82);
+  /* Dark table surface from the OoW floor list. */
+  --tool-table-surface:linear-gradient(rgba(255,255,255,.02),rgba(255,255,255,.02)),#0b0d13;
+  --tool-table-header:rgba(255,255,255,.03);
+  --tool-table-hover:rgba(255,255,255,.04);
+  --tool-input-surface:#090b10;
+  --tool-input-border:rgba(255,255,255,.16);
+  --tool-input-hover-border:rgba(255,255,255,.24);
+  --tool-input-focus:#38bdf8;
+}
+.sim-search-input {background:var(--tool-input-surface);border-color:var(--tool-input-border);box-shadow:inset 0 1px 2px rgba(0,0,0,.25);transition:background-color .15s ease,border-color .15s ease,box-shadow .15s ease}
+.sim-search-input:not(:disabled):not(:focus):hover {border-color:var(--tool-input-hover-border)}
+.sim-search-input:focus {border-color:var(--tool-input-focus);box-shadow:inset 0 1px 2px rgba(0,0,0,.25),0 0 0 2px color-mix(in srgb,var(--tool-input-focus) 12%,transparent)}
+.sim-search-input::placeholder {color:#89919e}
+@media(prefers-reduced-motion:reduce) {.sim-search-input {transition:none}}
+.tool-panel-overlay {background:var(--tool-panel-overlay);backdrop-filter:blur(8px)}
+.tool-panel {background:var(--tool-panel-surface);border-color:var(--tool-panel-border);border-radius:16px}
+.tool-panel-picker {width:92vw;max-width:1080px;height:85dvh}
+.tool-panel-header,.tool-panel-footer {background:var(--tool-panel-header);border-color:rgba(255,255,255,.08);flex-shrink:0}
+.tool-panel-title {font-family:'Spectral',Georgia,serif;font-size:20px;letter-spacing:normal}
+.tool-panel-controls {padding:14px 20px;display:grid;gap:12px;background:var(--tool-panel-controls);border-bottom:1px solid rgba(255,255,255,.08);flex-shrink:0}
+.tool-panel-filters {display:flex;align-items:center;flex-wrap:wrap;gap:8px 16px}
+.tool-panel-remove {background:rgba(239,68,68,.12);border-color:rgba(239,68,68,.35);color:#f87171}
+.tool-picker-card {position:relative;display:flex;flex-direction:column;align-items:stretch;min-width:0;min-height:205px;padding:30px 10px 10px;background:var(--tool-panel-card);border:1px solid rgba(255,255,255,.08);border-radius:10px;color:inherit;text-align:left;overflow:hidden;transition:border-color .18s ease,background .18s ease}
+.tool-picker-card:hover {background:var(--surface-raised);border-color:#38bdf8}
+.tool-picker-card-badges {position:absolute;left:6px;right:6px;top:6px;display:flex;align-items:center;gap:4px}
+.tool-picker-card-badges>:last-child {margin-left:auto}
+.tool-picker-card-art {height:114px;display:flex;align-items:center;justify-content:center;margin:2px 0 6px;overflow:hidden}
+.tool-picker-card-art img {width:100%;height:100%;max-width:136px;object-fit:contain;filter:drop-shadow(0 4px 10px rgba(0,0,0,.65))}
+.tool-picker-card-info {margin-top:auto;min-width:0;display:grid;gap:4px}
+.tool-picker-card-info h3 {font-size:13px;line-height:1.35;font-weight:700;color:#f8fafc;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tool-picker-card-subtitle {font-size:11px;color:#a6b5cc;line-height:1.35;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.tool-picker-card-info p {font-size:11px;color:#a6b5cc}
+.tool-picker-card.tool-picker-card--compact {min-height:106px;display:grid;grid-template-columns:76px minmax(0,1fr);align-items:center;gap:12px;padding:12px}
+.tool-picker-card--compact .tool-picker-card-art {height:38px;margin:0}
+.tool-picker-card--compact .tool-picker-card-art img {max-width:76px;filter:none}
+.tool-picker-card--compact .tool-picker-card-info {margin-top:0;gap:5px}
+.tool-picker-card--compact .tool-picker-card-badges:empty {display:none}
+@media(max-width:640px) {
+  .tool-panel-controls {padding:12px;gap:10px}
+  .tool-panel-filters {display:grid;width:100%;gap:8px}
+  .tool-panel-picker {width:100%}
+  .tool-picker-card {min-height:185px}
+}
+@media(prefers-reduced-motion:reduce) {.tool-picker-card {transition:none}}
+
+.tool-table-panel {background:var(--tool-table-surface);border-color:var(--tool-panel-border)}
+.tool-table-panel-header,.tool-table-panel-footer {background:var(--tool-table-header);border-color:var(--tool-panel-border)}
+.tool-table-card {background:var(--tool-input-surface);border-color:var(--tool-panel-border)}

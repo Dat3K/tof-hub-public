@@ -1,0 +1,204 @@
+{
+  "schemaVersion": 1,
+  "description": "Reviewed captured-season associations: unique catalog windows for S8-S14, and explicit owner confirmation for the ambiguous S15 window. This is not a client foreign key or a formula for future season IDs.",
+  "catalog": {
+    "path": "game-data/handbook/team-raids.json",
+    "sha256": "6db7b52aa6add716f894577610936e0e370d6f707ca25060d87eba202d81f3f7"
+  },
+  "bindings": [
+    {
+      "seasonId": "S8",
+      "raidId": "Team8P_14",
+      "evidence": {
+        "method": "recorded-window",
+        "captureFile": "captures/raid-file-23c0c8674fe409bdee7f6267.json",
+        "captureSha256": "3ef9cce80c68009643508baa26a4431731220e3cef0d6b115d762466cefd8a02",
+        "recordedAt": "2025-03-19T23:56:18.663",
+        "region": "AP",
+        "rankKey": "LevyCloneUseTimeRank_8",
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_14_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "begin": "2025.02.25-5.00.00",
+          "end": "2025.03.27-5.00.00"
+        },
+        "packetFile": "pkt_1793013824_02591_S2C_TCP_69004b.bin",
+        "packetIndex": 2591,
+        "exportFile": "raids_AP-S16_AP-S15_AP-LevyCloneUseTimeRank_4_AP-LevyCloneUseTimeRank_3_AP-Lev_2026-10-26 (1).json",
+        "exportSha256": "9820b4921d744a563969dc21f415c26d08a2a25ec197b7b88823a397cbdcefdf"
+      }
+    },
+    {
+      "seasonId": "S9",
+      "raidId": "Team8P_15",
+      "evidence": {
+        "method": "recorded-window",
+        "captureFile": "captures/raid-file-5bbeec42bf99aef61df1ed71.json",
+        "captureSha256": "da14729e195bd263c65a9e09fa55267862ef123b44a32fc30073b6ec044ccf83",
+        "recordedAt": "2025-06-03T23:29:25.059",
+        "region": "AP",
+        "rankKey": "LevyCloneUseTimeRank_9",
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_15_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "begin": "2025.05.13-5.00.00",
+          "end": "2025.06.05-5.00.00"
+        },
+        "packetFile": "pkt_1793013820_02425_S2C_TCP_73204b.bin",
+        "packetIndex": 2425,
+        "exportFile": "raids_AP-S16_AP-S15_AP-LevyCloneUseTimeRank_4_AP-LevyCloneUseTimeRank_3_AP-Lev_2026-10-26 (1).json",
+        "exportSha256": "9820b4921d744a563969dc21f415c26d08a2a25ec197b7b88823a397cbdcefdf"
+      }
+    },
+    {
+      "seasonId": "S10",
+      "raidId": "Team8P_16",
+      "evidence": {
+        "method": "recorded-window",
+        "captureFile": "captures/raid-file-2282683388f3124e66bbe890.json",
+        "captureSha256": "e8305bf688ed718ae12d8b39064dfe0eed08997952474e2585f38aad4879dc8f",
+        "recordedAt": "2025-08-09T23:39:55.642",
+        "region": "AP",
+        "rankKey": "LevyCloneUseTimeRank_0",
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_16_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "begin": "2025.07.29-5.00.00",
+          "end": "2025.08.28-5.00.00"
+        },
+        "packetFile": "pkt_1793013816_02235_S2C_TCP_74940b.bin",
+        "packetIndex": 2235,
+        "exportFile": "raids_AP-S16_AP-S15_AP-LevyCloneUseTimeRank_4_AP-LevyCloneUseTimeRank_3_AP-Lev_2026-10-26 (1).json",
+        "exportSha256": "9820b4921d744a563969dc21f415c26d08a2a25ec197b7b88823a397cbdcefdf"
+      }
+    },
+    {
+      "seasonId": "S11",
+      "raidId": "Team8P_17",
+      "evidence": {
+        "method": "recorded-window",
+        "captureFile": "captures/raid-file-655d266fc65e42fc1b1f5e9d.json",
+        "captureSha256": "3ed351c44269826762323f1f86cdb73831aa5e07e0cacf7fd3843e1ce81435b6",
+        "recordedAt": "2025-11-06T01:59:31.942",
+        "region": "AP",
+        "rankKey": "LevyCloneUseTimeRank_1",
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_17_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "begin": "2025.10.28-5.00.00",
+          "end": "2025.11.25-5.00.00"
+        },
+        "packetFile": "pkt_1793013812_02078_S2C_TCP_68828b.bin",
+        "packetIndex": 2078,
+        "exportFile": "raids_AP-S16_AP-S15_AP-LevyCloneUseTimeRank_4_AP-LevyCloneUseTimeRank_3_AP-Lev_2026-10-26 (1).json",
+        "exportSha256": "9820b4921d744a563969dc21f415c26d08a2a25ec197b7b88823a397cbdcefdf"
+      }
+    },
+    {
+      "seasonId": "S12",
+      "raidId": "Team8P_18",
+      "evidence": {
+        "method": "recorded-window",
+        "captureFile": "captures/raid-file-0bd2ccc4819bbba8aa23e010.json",
+        "captureSha256": "65bf557c66f2f56fee3ad4a1e33b1ae529b3d87605ba45d6857fada850f9db3b",
+        "recordedAt": "2026-01-26T22:52:29.513",
+        "region": "AP",
+        "rankKey": "LevyCloneUseTimeRank_2",
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_18_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "begin": "2025.12.30-5.00.00",
+          "end": "2026.2.03-5.00.00"
+        },
+        "packetFile": "pkt_1793013808_01888_S2C_TCP_70532b.bin",
+        "packetIndex": 1888,
+        "exportFile": "raids_AP-S16_AP-S15_AP-LevyCloneUseTimeRank_4_AP-LevyCloneUseTimeRank_3_AP-Lev_2026-10-26 (1).json",
+        "exportSha256": "9820b4921d744a563969dc21f415c26d08a2a25ec197b7b88823a397cbdcefdf"
+      }
+    },
+    {
+      "seasonId": "S13",
+      "raidId": "Team8P_19",
+      "evidence": {
+        "method": "recorded-window",
+        "captureFile": "captures/raid-file-8d5ff5ce6d49d3f2471f11d3.json",
+        "captureSha256": "b7518b56bb8109cca4f6db892d395e3af08d40159fef9f251bff273d94a3cf1f",
+        "recordedAt": "2026-03-29T22:34:02.648",
+        "region": "AP",
+        "rankKey": "LevyCloneUseTimeRank_3",
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_19_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "begin": "2026.3.10-5.00.00",
+          "end": "2026.4.14-5.00.00"
+        },
+        "packetFile": "pkt_1793013804_01685_S2C_TCP_65232b.bin",
+        "packetIndex": 1685,
+        "exportFile": "raids_AP-S16_AP-S15_AP-LevyCloneUseTimeRank_4_AP-LevyCloneUseTimeRank_3_AP-Lev_2026-10-26 (1).json",
+        "exportSha256": "9820b4921d744a563969dc21f415c26d08a2a25ec197b7b88823a397cbdcefdf"
+      }
+    },
+    {
+      "seasonId": "S14",
+      "raidId": "Team8P_20",
+      "evidence": {
+        "method": "recorded-window",
+        "captureFile": "captures/raid-file-6b2738b000100ea5d3c0ae9a.json",
+        "captureSha256": "2c1555a6b473ead6b9c5666614a5340c008520879240942c8eae42d11cadb81e",
+        "recordedAt": "2026-06-21T19:11:14.327",
+        "region": "AP",
+        "rankKey": "LevyCloneUseTimeRank_4",
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_20_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "begin": "2026.5.19-5.00.00",
+          "end": "2026.6.30-5.00.00"
+        },
+        "packetFile": "pkt_1793013801_01501_S2C_TCP_52792b.bin",
+        "packetIndex": 1501,
+        "exportFile": "raids_AP-S16_AP-S15_AP-LevyCloneUseTimeRank_4_AP-LevyCloneUseTimeRank_3_AP-Lev_2026-10-26 (1).json",
+        "exportSha256": "9820b4921d744a563969dc21f415c26d08a2a25ec197b7b88823a397cbdcefdf"
+      }
+    },
+    {
+      "seasonId": "S15",
+      "raidId": "Team8P_21",
+      "evidence": {
+        "method": "owner-confirmation",
+        "date": "2026-10-26",
+        "statement": "skull",
+        "context": "Owner confirmed S15 as Skull after being asked about Manic God-Favored / Cursed Skull; the shared calendar window alone is ambiguous.",
+        "catalogBossIds": [
+          "boss_hum_090_Team8p",
+          "boss_hum_090_Team8p_II"
+        ],
+        "calendar": {
+          "rawPath": "Hotta/Content/ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+          "sha256": "e72d17bc1dd2a3eff265705fd56cb628a405d53e32822fb976a5dfc9db0e62cc",
+          "row": "Team8P_21_D",
+          "field": "LimitedTimeInfo[].PropBeginTime/PropEndTime",
+          "windows": [
+            {
+              "begin": "2026.8.4-5.00.00",
+              "end": "2026.9.15-5.00.00"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "extends": "@tof-hub/tsconfig/base.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "rootDir": "../.."
+  },
+  "include": [
+    "src/**/*",
+    "scripts/**/*",
+    "build.config.ts"
+  ]
+}

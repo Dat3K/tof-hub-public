@@ -1,0 +1,39 @@
+.catalog { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr); gap: 20px; align-items: start; min-width: 0; }
+.grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; min-width: 0; }
+.card { display: flex; gap: 10px; align-items: flex-start; min-width: 0; padding: 12px; text-align: left; color: var(--dm-text); background: var(--tool-table-surface); border: 1px solid var(--tool-panel-border); border-radius: 8px; cursor: pointer; }
+.card:hover { background: var(--tool-table-hover); }
+.card[aria-pressed="true"] { border-color: var(--dm-cyan, #26a9d5); background: var(--surface-field); }
+.card:focus-visible { outline: 2px solid var(--dm-cyan, #26a9d5); outline-offset: 3px; }
+.cardIcon { width: 42px; height: 42px; object-fit: contain; flex-shrink: 0; }
+.cardBody { display: grid; gap: 6px; min-width: 0; }
+.cardBody > strong { color: var(--dm-text-strong); font-size: 12.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.cardQuality { color: var(--dm-muted); font-size: 10px; line-height: 1.4; }
+.card[data-quality="legendry"] .cardQuality { color: var(--dm-gold, #e4c681); }
+.card[data-quality="epic"] .cardQuality { color: #c0a4ec; }
+.card[data-quality="rare"] .cardQuality { color: var(--dm-cyan, #26a9d5); }
+.slotList { display: inline-flex; flex-wrap: wrap; gap: 4px 10px; min-width: 0; font-size: 11px; line-height: 1.4; }
+.inspector { position: sticky; top: calc(var(--site-header-offset, 68px) + 12px); min-width: 0; max-height: calc(100dvh - var(--site-header-offset, 68px) - 24px); overflow-y: auto; scrollbar-width: thin; display: grid; gap: 14px; padding: 18px; background: var(--tool-table-surface); border: 1px solid var(--tool-panel-border); border-radius: 8px; scroll-margin-top: calc(var(--site-header-offset, 68px) + 12px); }
+.detailHeading { display: flex; align-items: flex-start; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.detailHeading h3 { margin: 0; font-size: 17px; line-height: 1.4; color: var(--dm-text-strong); overflow-wrap: anywhere; }
+.detailSlots { display: grid; gap: 6px; }
+.detailSlots small, .evidence { display: block; color: var(--dm-muted); font-size: 10px; margin-top: 3px; }
+.label { color: var(--dm-muted); font-size: 11px; }
+.metadata { color: var(--dm-muted); font-size: 11px; margin: 0; }
+.effect { font-size: 13px; line-height: 1.65; text-align: left; }
+.description { display: grid; gap: 8px; border-top: 1px solid var(--tool-panel-border); padding-top: 14px; }
+.description h4 { margin: 0; color: var(--dm-text-strong, #f4f0f6); font-size: 12px; font-weight: 600; }
+.descriptionText { font-size: 13px; line-height: 1.7; text-align: left; overflow-wrap: anywhere; }
+.searchRow { display: flex; align-items: center; gap: 16px; }
+.searchField { flex: 1 1 auto; min-width: 0; max-width: 680px; }
+.sourceAction { display: inline-flex; flex: none; margin-left: auto; }
+.statPanel { display: grid; gap: 10px; border-top: 1px solid var(--tool-panel-border); padding-top: 14px; }
+.statList { margin: 0; font-size: 12px; font-variant-numeric: tabular-nums; }
+.statList > div { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 5px 0; }
+.statList dd { margin: 0; font-weight: 600; color: var(--dm-text-strong); }
+@media (max-width: 1120px) { .grid { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 760px) {
+  .catalog { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .inspector { position: static; grid-row: 1; padding: 14px; max-height: none; overflow: visible; }
+  .grid { grid-template-columns: minmax(0, 1fr); }
+  .card { padding: 10px; }
+}

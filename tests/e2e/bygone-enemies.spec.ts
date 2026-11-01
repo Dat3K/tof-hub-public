@@ -1,0 +1,191 @@
+import {expect, test} from '@playwright/test';
+
+for (const locale of ['en', 'ru'] as const) {
+  test(`MMO Bygone compact axes and All/Bosses chart filter (${locale})`, async ({page, context, baseURL}) => {
+    test.setTimeout(90000);
+    const ru = locale === 'ru';
+    if (ru) await page.setViewportSize({width: 390, height: 844});
+    await context.addCookies([{name: 'tof_locale', value: locale, url: baseURL!}]);
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.addInitScript(() => {
+      const state = window as typeof window & {__bygoneAxisLabels: {text: string; left: number}[]};
+      state.__bygoneAxisLabels = [];
+      const fillText = CanvasRenderingContext2D.prototype.fillText;
+      CanvasRenderingContext2D.prototype.fillText = function(text, x, y, maxWidth) {
+        if (this.textAlign === 'right') state.__bygoneAxisLabels.push({text, left: x - this.measureText(text).width});
+        if (maxWidth === undefined) return fillText.call(this, text, x, y);
+        return fillText.call(this, text, x, y, maxWidth);
+      };
+    });
+    await page.goto('/datamine/bygone/?mode=mmo', {waitUntil: 'domcontentloaded'});
+    await expect(page.locator('[data-encounter-ready="true"]')).toBeVisible({timeout: 60000});
+    const dataset = await (await page.request.get('/game-data/handbook/mmo-bygone.json')).json();
+    const bossFloors = dataset.rounds[0].rounds.filter((round: any) => round.isBossRound).map((round: any) => round.index);
+    await expect(page.locator('article[data-boss]')).toHaveCount(200);
+    await expect.poll(() => page.evaluate(() => (window as any).__bygoneAxisLabels.some((label: any) => /[MG]$/.test(label.text)))).toBe(true);
+    expect(await page.evaluate(() => (window as any).__bygoneAxisLabels.every((label: any) => label.left >= 0))).toBe(true);
+    const charts = page.getByRole('article').filter({has: page.getByRole('button', {name: ru ? 'Скачать CSV' : 'Download CSV', exact: true})});
+    await charts.first().screenshot({path: `ignore/documentation-media/generated/bygone-compact-axis-${locale}.png`});
+    const filter = page.getByRole('group', {name: ru ? 'Этажи на графиках' : 'Chart floors', exact: true});
+    await filter.scrollIntoViewIfNeeded();
+    await page.screenshot({path: `ignore/documentation-media/generated/bygone-controls-${locale}.png`});
+    await filter.getByRole('button', {name: ru ? 'Боссы' : 'Bosses', exact: true}).click();
+    await expect(page.locator('article[data-boss]')).toHaveCount(bossFloors.length);
+    await expect(page.locator('article[data-boss="false"]')).toHaveCount(0);
+    const plot = charts.first().getByRole('slider');
+    await plot.focus(); await plot.press('Home');
+    await expect(page.locator(`article[data-selected="true"]`)).toHaveAttribute('aria-label', `${ru ? 'Этаж' : 'Floor'} ${bossFloors[0]}`);
+    await plot.press('ArrowRight');
+    await expect(page.locator(`article[data-selected="true"]`)).toHaveAttribute('aria-label', `${ru ? 'Этаж' : 'Floor'} ${bossFloors[1]}`);
+    const event = page.waitForEvent('download');
+    await charts.first().getByRole('button', {name: ru ? 'Скачать CSV' : 'Download CSV', exact: true}).click();
+    const stream = await (await event).createReadStream(), chunks: Buffer[] = [];
+    for await (const chunk of stream!) chunks.push(Buffer.from(chunk));
+    const csvRows = Buffer.concat(chunks).toString('utf8').split(/\r?\n/).slice(1).filter(Boolean).map(line => line.split(',').map(value => value.replace(/^"|"$/g, '')));
+    expect(csvRows.every(row => bossFloors.includes(Number(row[0])))).toBe(true);
+    expect(Number(csvRows.find(row => Number(row[0]) === bossFloors[1])?.[3])).toBe(bossFloors[0]);
+    await charts.first().screenshot({path: `ignore/documentation-media/generated/bygone-bosses-${locale}.png`});
+    await page.getByLabel(ru ? 'До' : 'To', {exact: true}).fill('1');
+    await expect(charts.getByText(ru ? 'В этом диапазоне нет сопоставимых значений ОЗ противников.' : 'No comparable enemy HP values in this range.', {exact: true})).toHaveCount(2);
+    await charts.first().getByRole('slider').dispatchEvent('click');
+    await filter.getByRole('button', {name: ru ? 'Все' : 'All', exact: true}).click();
+    await expect(page.locator('article[data-boss]')).toHaveCount(1);
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    expect(errors).toEqual([]);
+  });
+
+  test(`MMO Bygone chart hover shows its enemy portrait (${locale})`, async ({page, context, baseURL}) => {
+    test.setTimeout(90000);
+    const ru = locale === 'ru', floorLabel = ru ? 'Этаж' : 'Floor';
+    await context.addCookies([{name: 'tof_locale', value: locale, url: baseURL!}]);
+    await page.goto('/datamine/bygone/?mode=mmo&floor=199', {waitUntil: 'domcontentloaded'});
+    await expect(page.locator('[data-encounter-ready="true"]')).toBeVisible({timeout: 60000});
+    const dataset = await (await page.request.get('/game-data/handbook/mmo-bygone.json')).json();
+    const sourceRound = dataset.rounds[0].rounds.find((round: any) => round.index === 199);
+    const calculatedHp = sourceRound.pool.monsters.find((enemy: any) => enemy.count > 0 && enemy.classPath).hp;
+    const portrait = await page.getByRole('article', {name: `${floorLabel} 199`, exact: true}).getByRole('listitem').locator('img').first().getAttribute('src');
+    expect(portrait).toBeTruthy();
+    const charts = page.getByRole('article').filter({has: page.getByRole('button', {name: ru ? 'Скачать CSV' : 'Download CSV', exact: true})});
+    await expect(charts).toHaveCount(2);
+    for (const [index, chart] of (await charts.all()).entries()) {
+      const plot = chart.getByRole('slider');
+      await plot.scrollIntoViewIfNeeded();
+      const bounds = (await plot.boundingBox())!;
+      await page.mouse.move(bounds.x + bounds.width * .92, bounds.y + bounds.height * .6);
+      const tooltip = page.getByRole('status').filter({hasText: `${floorLabel} 199`});
+      await expect(tooltip).toBeVisible();
+      await expect(tooltip).toContainText(ru ? 'Апофис' : 'Apophis');
+      await expect(tooltip.locator('img')).toHaveAttribute('src', portrait!);
+      if (index === 0) await expect(tooltip).toContainText(`${(calculatedHp / 1e9).toFixed(1)}G`);
+      await expect(tooltip).toContainText(`${ru ? 'Уровень · кривая' : 'Level · curve'}: ${sourceRound.monsterLevelCurveValue}`);
+      await expect(tooltip).toContainText(`${ru ? 'Рекомендуемый CS' : 'Recommended CS'}: ${new Intl.NumberFormat(locale).format(sourceRound.common.recommendedCombatScore)}`);
+      await expect.poll(() => tooltip.locator('img').evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      await page.screenshot({path: `ignore/documentation-media/generated/bygone-chart-enemy-${locale}-${index}.png`});
+      await page.mouse.move(bounds.x + bounds.width * .87, bounds.y + bounds.height * .6);
+      const unknown = page.getByRole('status').filter({hasText: `${floorLabel} 198`});
+      await expect(unknown).toBeVisible();
+      await expect(unknown.locator('img')).toHaveCount(0);
+      await page.mouse.move(0, 0);
+      await expect(unknown).toHaveCount(0);
+    }
+    const downloadEvent = page.waitForEvent('download');
+    await charts.first().getByRole('button', {name: ru ? 'Скачать CSV' : 'Download CSV', exact: true}).click();
+    const stream = await (await downloadEvent).createReadStream();
+    const chunks: Buffer[] = [];
+    for await (const chunk of stream!) chunks.push(Buffer.from(chunk));
+    const csv = Buffer.concat(chunks).toString('utf8');
+    expect(csv).toContain('"MaxKnownEnemyHP"');
+    expect(csv).toContain('"HPStacks","HPMultiplier"');
+    expect(csv).toContain(`"${calculatedHp}"`);
+  });
+
+  test(`MMO Bygone enemy identities, details and empty slots (${locale})`, async ({page, context, baseURL}) => {
+    test.setTimeout(120000);
+    const ru = locale === 'ru';
+    if (ru) await page.setViewportSize({width: 390, height: 844});
+    await context.addCookies([{name: 'tof_locale', value: locale, url: baseURL!}]);
+    const errors: string[] = [];
+    page.on('pageerror', error => errors.push(error.message));
+    await page.goto('/datamine/bygone/?mode=mmo&floor=197', {waitUntil: 'domcontentloaded'});
+    await expect(page.locator('[data-encounter-ready="true"]')).toBeVisible({timeout: 60000});
+    const floor = page.getByRole('article', {name: `${ru ? 'Этаж' : 'Floor'} 197`, exact: true});
+    await expect(floor.getByRole('listitem')).toHaveCount(3);
+    await expect(floor.locator('code')).toHaveCount(0);
+    await expect(page.getByText(ru ? 'Конфигурация, масштабирование и награды' : 'Configuration, scaling and rewards', {exact: true})).toHaveCount(0);
+    const enlightener = floor.getByRole('listitem').first().getByRole('button');
+    await expect(enlightener).not.toContainText(ru ? 'Неопределённый противник' : 'Unidentified enemy');
+    await enlightener.focus();
+    await enlightener.press('Enter');
+    let dialog = page.getByRole('dialog');
+    await expect(dialog).toBeVisible();
+    await expect(dialog).toContainText('normal_074_Balance');
+    await expect(dialog).toContainText(ru ? 'Защита от стихий' : 'Elemental defense');
+    await expect(dialog.getByText(ru ? 'Сопр. крит. ударам' : 'Crit resistance', {exact: true})).toBeVisible();
+    await expect(dialog.getByText('30%', {exact: true})).toBeVisible();
+    await expect(dialog.getByText(ru ? 'ОЗ с бафами этажа' : 'HP after floor buffs', {exact: true})).toBeVisible();
+    await expect(dialog).toContainText(ru ? 'Стаки HP этажа' : 'Floor HP stacks');
+    await page.keyboard.press('Escape');
+    await expect(dialog).toHaveCount(0);
+    await expect(enlightener).toBeFocused();
+    await floor.screenshot({path: `ignore/documentation-media/generated/bygone-enemies-${locale}.png`});
+
+    await page.goto('/datamine/bygone/?mode=mmo&floor=199', {waitUntil: 'domcontentloaded'});
+    await expect(page.locator('[data-encounter-ready="true"]')).toBeVisible({timeout: 60000});
+    const apophis = page.getByRole('article', {name: `${ru ? 'Этаж' : 'Floor'} 199`, exact: true}).getByRole('listitem');
+    await apophis.scrollIntoViewIfNeeded();
+    await expect(apophis).toContainText(ru ? 'Апофис' : 'Apophis');
+    await expect.poll(() => apophis.locator('img').first().evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await apophis.getByRole('button').click();
+    dialog = page.getByRole('dialog');
+    await expect(dialog).toBeVisible();
+    await dialog.screenshot({path: `ignore/documentation-media/generated/bygone-enemy-details-${locale}.png`});
+    await page.getByRole('button', {name: ru ? 'Открыть изображение противника' : 'Open enemy artwork', exact: true}).click();
+    await expect(page.getByRole('dialog')).toHaveCount(1);
+    await expect(page.getByRole('dialog').locator('img')).toBeVisible();
+    await expect.poll(() => page.getByRole('dialog').locator('img').evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+    await expect(page.getByRole('dialog').getByRole('button', {name: /PNG/})).toHaveCount(0);
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).toContainText('30%');
+    await page.keyboard.press('Escape');
+    await expect(page.getByRole('dialog')).toHaveCount(0);
+
+    await page.goto('/datamine/bygone/?mode=mmo&floor=198', {waitUntil: 'domcontentloaded'});
+    await expect(page.locator('[data-encounter-ready="true"]')).toBeVisible({timeout: 60000});
+    for (const index of [194, 195, 196, 198]) {
+      const lineup = page.getByRole('article', {name: `${ru ? 'Этаж' : 'Floor'} ${index}`, exact: true});
+      await expect(lineup.getByRole('listitem')).toHaveCount(2);
+      await expect(lineup.locator('dt').filter({hasText: ru ? /^Противники$/ : /^Enemies$/}).locator('..').locator('dd')).toHaveText('2');
+      await expect(lineup.locator('code').filter({hasText: /^pool_\d+_slot_/})).toHaveCount(0);
+    }
+    const unidentified = page.getByRole('article', {name: `${ru ? 'Этаж' : 'Floor'} 198`, exact: true}).getByRole('listitem').first();
+    await expect(unidentified.locator('code')).toHaveCount(0);
+    await expect(unidentified).toContainText(ru ? 'Неопределённый противник' : 'Unidentified enemy');
+    await page.getByRole('region', {name: ru ? 'Состав этажей' : 'Floor lineups', exact: true}).screenshot({path: `ignore/documentation-media/generated/bygone-floor-lineups-${locale}.png`});
+    await unidentified.getByRole('button').click();
+    await expect(page.getByRole('dialog')).toContainText('normal_065_Balance');
+    await expect(page.getByRole('dialog')).toContainText(ru ? 'Базовые ОЗ' : 'Base HP');
+    expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true);
+    await page.keyboard.press('Escape');
+    for (const [target, label, code] of [[161, ru ? 'Фригг' : 'Frigg', 'boss_flj_Balance'], [160, ru ? 'Апофис' : 'Apophis', 'boss_abfs_Balance']] as const) {
+      await page.goto(`/datamine/bygone/?mode=mmo&floor=${target}`, {waitUntil: 'domcontentloaded'});
+      await expect(page.locator('[data-encounter-ready="true"]')).toBeVisible({timeout: 60000});
+      const row = page.getByRole('article', {name: `${ru ? 'Этаж' : 'Floor'} ${target}`, exact: true});
+      const card = row.getByRole('listitem').filter({hasText: label}).first();
+      await card.scrollIntoViewIfNeeded();
+      await expect(card).toBeVisible();
+      await expect.poll(() => card.locator('img').first().evaluate(image => (image as HTMLImageElement).naturalWidth)).toBeGreaterThan(0);
+      await card.getByRole('button').click();
+      const details = page.getByRole('dialog');
+      await expect(details).toContainText(code);
+      await expect(details).toContainText(ru ? 'Стаки защиты этажа' : 'Floor DEF stacks');
+      const hp = details.getByText(ru ? 'ОЗ с бафами этажа' : 'HP after floor buffs', {exact: true}).locator('..');
+      await expect(hp).toContainText(ru ? 'Базовые ОЗ' : 'Base HP');
+      await expect(hp).toContainText(ru ? 'Стаки HP этажа' : 'Floor HP stacks');
+      await expect(details).not.toContainText(/\dB\b/);
+      await details.screenshot({path: `ignore/documentation-media/generated/bygone-${code}-${locale}.png`});
+      await page.keyboard.press('Escape');
+    }
+    expect(errors).toEqual([]);
+  });
+}

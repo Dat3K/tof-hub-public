@@ -1,0 +1,28 @@
+name: Wrong or missing game data
+description: A value, name, image or description that does not match the game.
+labels: [data]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      placeholder: https://tof.smilekritik.beer/info/simulacra/
+    validations:
+      required: true
+  - type: dropdown
+    id: edition
+    attributes:
+      label: Game edition
+      options:
+        - Global
+        - MMO
+        - Both
+    validations:
+      required: true
+  - type: textarea
+    id: difference
+    attributes:
+      label: What is wrong
+      description: What the site shows and what the game shows. Include the region, the game version and a screenshot from the game if you can.
+    validations:
+      required: true

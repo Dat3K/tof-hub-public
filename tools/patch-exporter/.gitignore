@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Local cache & downloaded third-party runtimes
+.cache/
+runtime/
+vendor/
+
+# Output directories & portable archive builds
+dist/
+*.zip
+
+# Compiled binaries
+*.exe
+*.dll

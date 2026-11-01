@@ -1,0 +1,27 @@
+{
+  "source": {
+    "id": "reddit-1i46w06",
+    "kind": "community",
+    "title": "Global S1-S7 raid leaderboard compilation (NA, SA, EU, APAC, SEA)",
+    "url": "https://www.reddit.com/r/TowerofFantasy/comments/1i46w06/global_s1s7_raid_leaderboard_compilation_na_sa_eu/",
+    "author": "rikuzero1",
+    "observedAt": "2026-10-26"
+  },
+  "timeNotation": "M:SS:CC",
+  "seasons": [
+    { "id": "S1", "bossLabel": "Taotie" },
+    { "id": "S2", "bossLabel": "Xingtian" },
+    { "id": "S3", "bossLabel": "Ying Zhao" },
+    { "id": "S4", "bossLabel": "Fei Lian" },
+    { "id": "S5", "bossLabel": "Sphere" },
+    { "id": "S6", "bossLabel": "Scorpion" },
+    { "id": "S7", "bossLabel": "Gunner" }
+  ],
+  "regions": [
+    { "region": "NA", "first": ["5:45:07", "2:27:66", "3:07:66", "2:22:37", "2:26:29", "2:43:16", "1:44:27"] },
+    { "region": "SA", "first": ["7:11:64", "3:40:64", "3:33:91", "3:26:19", "4:28:82", "3:34:89", "3:21:54"] },
+    { "region": "EU", "first": ["6:13:07", "4:30:40", "3:25:79", "3:09:34", "3:23:08", "2:52:08", "2:23:12"] },
+    { "region": "AP", "sourceLabel": "APAC", "first": ["5:46:69", "3:09:98", "3:03:92", "2:24:96", "2:35:72", "2:37:95", "2:05:87"] },
+    { "region": "SEA", "first": ["6:15:70", "3:06:11", "3:12:66", "2:34:50", "2:34:74", "2:38:53", "2:24:93"] }
+  ]
+}

@@ -1,0 +1,100 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {expect, test} from '@playwright/test';
+
+const screenshots = path.resolve('ignore/documentation-media/generated');
+
+test('MMO expansion catalog exposes all packs, installation filters, effect scaling and sources', async ({page}) => {
+  test.setTimeout(90000);
+  await page.goto('/datamine/handbook/?server=mmo#expansion', {waitUntil: 'domcontentloaded'});
+  const tab = page.getByRole('tab', {name: 'Expansion Packs', exact: true});
+  await expect(tab).toHaveAttribute('aria-selected', 'true', {timeout: 45000});
+  const navigation = await page.getByRole('tablist', {name: 'Handbook sections'}).getByRole('tab').allTextContents();
+  expect(navigation.indexOf('Expansion Packs') + 1).toBe(navigation.indexOf('Brainfield'));
+  const packs = page.getByRole('group', {name: 'Expansion packs', exact: true});
+  await expect(packs.getByRole('button')).toHaveCount(62);
+  const filters = page.getByRole('region', {name: 'Expansion pack filters', exact: true});
+  const quality = filters.getByRole('group', {name: 'Quality', exact: true});
+  await expect(quality.getByRole('radio')).toHaveText(['All', 'Rare', 'Epic', 'Legendary']);
+  const slots = filters.getByRole('group', {name: 'Slot', exact: true});
+  await expect(slots.locator('img')).toHaveCount(12);
+  for (const label of ['Armor', 'Bracers', 'Boots', 'Eyepiece', 'Combat Engine', 'Microreactor']) {
+    await expect(slots.getByRole('radio', {name: label, exact: true})).toBeVisible();
+  }
+  const help = filters.getByRole('button', {name: 'Where the data comes from', exact: true});
+  const searchBounds = (await filters.getByRole('textbox').boundingBox())!;
+  const helpBounds = (await help.boundingBox())!;
+  expect(helpBounds.x).toBeGreaterThan(searchBounds.x + searchBounds.width);
+  expect(Math.abs(helpBounds.y + helpBounds.height / 2 - searchBounds.y - searchBounds.height / 2)).toBeLessThan(3);
+  await expect(filters.getByRole('group', {name: 'Packs', exact: true})).toHaveCount(0);
+  await filters.getByRole('radio', {name: 'Season-exclusive', exact: true}).click();
+  await expect(packs.getByRole('button')).toHaveCount(8);
+  await filters.getByRole('radio', {name: 'Pants', exact: true}).click();
+  await expect(packs.getByRole('button')).toHaveCount(1);
+  const selected = page.getByRole('region', {name: 'Selected expansion pack', exact: true});
+  await expect(selected).toContainText('From item description');
+  await expect(selected).toContainText('Pants');
+  await expect(selected.getByRole('region', {name: 'Item description', exact: true})).toBeVisible();
+  await filters.getByRole('button', {name: 'Reset filters', exact: true}).click();
+  await filters.getByRole('textbox').fill('Charge');
+  await packs.getByRole('button').first().click();
+  const count = selected.getByRole('slider', {name: 'Equipped packs', exact: true});
+  await count.focus(); await count.press('End');
+  await expect(selected.locator('.game-rich-text').first()).toContainText('29.638%');
+  const effect = await selected.locator('.game-rich-text').first().innerText();
+  await selected.getByRole('slider', {name: 'Stars', exact: true}).focus();
+  await selected.getByRole('slider', {name: 'Stars', exact: true}).press('End');
+  await expect(selected.locator('.game-rich-text').first()).toHaveText(effect);
+  await filters.getByRole('textbox').fill('s2_purple_Skill_2');
+  await packs.getByRole('button').first().click();
+  const description = selected.getByRole('region', {name: 'Item description', exact: true});
+  await expect(description).toContainText('ATK, HP');
+  await expect(description).not.toContainText('<Purple>');
+  await expect(description.locator('.sim-keyword-hl').filter({hasText: 'ATK, HP'})).toBeVisible();
+  await page.getByRole('button', {name: 'Where the data comes from', exact: true}).click();
+  await expect(page.getByRole('dialog')).toContainText('ItemConfigs');
+  await expect(page.getByRole('dialog')).toContainText('OwnSlotDatas');
+  await page.getByRole('dialog').getByRole('button', {name: 'Close', exact: true}).click();
+  await filters.getByRole('button', {name: 'Reset filters', exact: true}).click();
+  fs.mkdirSync(screenshots, {recursive: true});
+  await page.screenshot({path: path.join(screenshots, 'mmo-expansion-desktop-en.png')});
+  const broken = await page.locator('img').evaluateAll(images => images.filter(img => img.complete && img.naturalWidth === 0).map(img => img.src));
+  expect(broken).toEqual([]);
+});
+
+test('expansion direct subtabs, empty search and RU mobile remain usable', async ({page, context}) => {
+  await page.goto('/datamine/handbook/?server=mmo#expansion/stats', {waitUntil: 'domcontentloaded'});
+  await expect(page.getByRole('table', {name: 'Expansion pack base stats', exact: true})).toBeVisible();
+  await page.getByRole('button', {name: 'Slots and stars', exact: true}).click();
+  await expect(page).toHaveURL(/#expansion\/slots$/);
+  await expect(page.getByRole('table', {name: 'Packs by gear slot', exact: true})).toBeVisible();
+  await page.getByRole('button', {name: 'Catalog', exact: true}).click();
+  const filters = page.getByRole('region', {name: 'Expansion pack filters', exact: true});
+  await filters.getByRole('textbox').fill('missing-pack-fixture');
+  await expect(page.getByText('No packs found', {exact: true})).toBeVisible();
+  await filters.getByRole('button', {name: 'Reset filters', exact: true}).click();
+  await context.addCookies([{name: 'tof_locale', value: 'ru', url: new URL(page.url()).origin}]);
+  await page.setViewportSize({width: 390, height: 844});
+  await page.reload({waitUntil: 'domcontentloaded'});
+  await expect(page.getByRole('tab', {name: 'Пакеты расширения', exact: true})).toHaveAttribute('aria-selected', 'true');
+  await expect(page.getByRole('group', {name: 'Пакеты расширения', exact: true}).getByRole('button')).toHaveCount(62);
+  const ruFilters = page.getByRole('region', {name: 'Фильтры пакетов расширения', exact: true});
+  for (const label of ['Броня', 'Наручи', 'Ботинки', 'Окуляр', 'Боевой двигатель', 'Микрореактор']) {
+    await expect(ruFilters.getByRole('radio', {name: label, exact: true})).toBeVisible();
+  }
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+  const pack = page.getByRole('group', {name: 'Пакеты расширения', exact: true}).getByRole('button').first();
+  await pack.focus(); await pack.press('Enter');
+  await expect(page.getByRole('region', {name: 'Выбранный пакет расширения', exact: true})).toContainText('Слоты установки');
+  await ruFilters.getByRole('textbox').fill('s2_orange_Skill_3');
+  await page.getByRole('group', {name: 'Пакеты расширения', exact: true}).getByRole('button').first().click();
+  const description = page.getByRole('region', {name: 'Описание предмета', exact: true});
+  await expect(description).toContainText('Атака и HP');
+  await expect(description).not.toContainText(/<\/?[\p{L}][^>]*>/u);
+  await ruFilters.getByRole('button', {name: 'Сбросить фильтры', exact: true}).click();
+  fs.mkdirSync(screenshots, {recursive: true});
+  await page.screenshot({path: path.join(screenshots, 'mmo-expansion-mobile-ru.png')});
+  await page.getByRole('button', {name: 'Базовые статы', exact: true}).click();
+  await expect(page.getByRole('table', {name: 'Базовые статы пакетов расширения', exact: true})).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth > innerWidth)).toBe(false);
+});

@@ -1,0 +1,52 @@
+{
+  "slug": "rudolph",
+  "order": 12,
+  "boss_id": "boss_030",
+  "name_color": "#9adf3e",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+  "art_object_position": "center center",
+  "source_psd": "РУДОЛЬФ.psd",
+  "en": {
+    "name": "Rudolph",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Greatly increase Rudolph&#x27;s Shield."
+      },
+      {
+        "index": "2",
+        "html": "Rudolph receives a massive damage reduction from the front, but its damage taken from behind is increased. <span class=\"fce-card__text-accent\"> Damage reduction 60% from front.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Rudolph activates a wide-area Phantasia for 5 seconds at set intervals."
+      },
+      {
+        "index": "4",
+        "html": "Rudolph enters Rampage Mode, greatly increasing its movement speed."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Рудольф",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Прочность щита Рудольфа значительно увеличена."
+      },
+      {
+        "index": "2",
+        "html": "Рудольф получает огромное снижение урона спереди, но получает повышенный урон сзади. <span class=\"fce-card__text-accent\"> Снижение урона спереди 60%.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Рудольф через заданные интервалы активирует широкую Phantasia на 5 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Рудольф входит в режим Rampage, значительно повышая скорость передвижения."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_01.webp"
+}

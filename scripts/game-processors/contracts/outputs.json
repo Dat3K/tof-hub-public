@@ -1,0 +1,483 @@
+{
+  "schemaVersion": 2,
+  "publicationRoots": [
+    "release-manifest.json",
+    "data/export-version.json",
+    "data/datamine-summary.json",
+    "items/data",
+    "seq/data",
+    "fce/data",
+    "fce/docs",
+    "oow/data",
+    "multype/data",
+    "bygone/data",
+    "datamine/team-raids/data",
+    "datamine/mmo-team-raids/data",
+    "datamine/mmo-build/data",
+    "shared-data",
+    "shared/tof-formulas.js",
+    "shared/media",
+    "shared/assets/icons/elements"
+  ],
+  "managed": [
+    {
+      "path": "cosmetics/data/chat-stickers.json",
+      "producer": "build-cosmetics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "cosmetics/data/badges.json",
+      "producer": "build-cosmetics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "release-manifest.json",
+      "producer": "generate-release-manifest.js",
+      "required": true
+    },
+    {
+      "path": "data/export-version.json",
+      "producer": "generate-release-manifest.js",
+      "required": true
+    },
+    {
+      "path": "data/datamine-summary.json",
+      "producer": "generate-release-manifest.js",
+      "required": true
+    },
+    {
+      "path": "data/coverage-ledger.json",
+      "producer": "generate-coverage-ledger.js",
+      "required": true
+    },
+    {
+      "path": "data/coverage-report.md",
+      "producer": "generate-coverage-ledger.js",
+      "required": true
+    },
+    {
+      "path": "items/data/merged_mapping_with_original.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/merged_mapping_with_original_mmo.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/items.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/gacha_items.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/mmo_items.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/gacha_weapons.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/gacha_matrices.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/mmo_weapons.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/mmo_matrices.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/all_items.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/all_weapons.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/all_matrices.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_ids.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_names.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_original_names.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_renames.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_sources.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_categories.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_details.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "items/data/item_translations.json",
+      "producer": "build-items-json.js",
+      "required": true
+    },
+    {
+      "path": "seq/data/DT_MonsterStaticData_Overseas.json",
+      "producer": "build-seq-data.js",
+      "required": true
+    },
+    {
+      "path": "seq/data/seq-boss-cache.json",
+      "producer": "build-seq-data.js",
+      "required": true
+    },
+    {
+      "path": "seq/data/seq-stage-limit.txt",
+      "producer": "build-seq-data.js",
+      "required": true
+    },
+    {
+      "path": "seq/data/seq-scaling.json",
+      "producer": "build-seq-data.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/Filtered_Game.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/Filtered_Game_ru.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": false
+    },
+    {
+      "path": "fce/data/Filtered_Game_Unregistered.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/Filtered_Game_Unregistered_ru.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": false
+    },
+    {
+      "path": "fce/data/Filtered_Game_Unregistered_By_Boss.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/Filtered_Game_Unregistered_By_Boss_ru.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": false
+    },
+    {
+      "path": "fce/data/fce-unregistered-bosses.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/fce-missing-boss-texts.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/fce-game-boss-catalog.json",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/docs/ALL_BOSSES_TEXTS.md",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/docs/NEW_BOSSES_TEXTS.md",
+      "producer": "parse-fce-mechanics.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/fce-index.json",
+      "producer": "build-fce-index.js",
+      "required": true
+    },
+    {
+      "path": "fce/data/fce-ladder.json",
+      "producer": "build-fce-index.js",
+      "required": false
+    },
+    {
+      "path": "oow/data/season_dates.json",
+      "producer": "build-user-stats.js",
+      "required": true
+    },
+    {
+      "path": "oow/data/oow_buffs_catalog.json",
+      "producer": "build-user-stats.js",
+      "required": true
+    },
+    {
+      "path": "oow/data/index.json",
+      "producer": "shard-oow-data.js",
+      "required": true
+    },
+    {
+      "path": "oow/data/current/summary.json",
+      "producer": "shard-oow-data.js",
+      "required": true
+    },
+    {
+      "path": "oow/data/seasons",
+      "producer": "shard-oow-data.js",
+      "required": true,
+      "directory": true
+    },
+    {
+      "path": "bestiary/data/enemies.json",
+      "producer": "build-bestiary.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "final-trial/data/final-trial.json",
+      "producer": "build-extreme-trial.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "void-rift/data/void-rift.json",
+      "producer": "build-void-rift.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "bygone/data/bygone.json",
+      "producer": "build-bygone.js",
+      "required": true
+    },
+    {
+      "path": "datamine/team-raids/data/team-raids.json",
+      "producer": "build-team-raids.js",
+      "required": true
+    },
+    {
+      "path": "datamine/mmo-team-raids/data/mmo-team-raids.json",
+      "producer": "build-mmo-team-raids.js",
+      "required": true
+    },
+    {
+      "path": "datamine/mmo-build/data/mmo-build.json",
+      "producer": "build-mmo-build.js",
+      "required": true
+    },
+    {
+      "path": "calculator/data/formula_curves.json",
+      "producer": "build-calculator.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "calculator/data/content_multipliers.json",
+      "producer": "build-calculator.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "calculator/data/dr_mechanics.json",
+      "producer": "build-calculator.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "matrices/data/matrices.json",
+      "producer": "build-matrices.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "relics/data/relics.json",
+      "producer": "build-relics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "cosmetics/data/outfits.json",
+      "producer": "build-outfits.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "pets/data/pets.json",
+      "producer": "build-pets.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "gear/data/enhancement.json",
+      "producer": "build-gear-enhance.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "gear/data/substat-rolls.json",
+      "producer": "build-gear-rolls.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "gear/data/suppressors.json",
+      "producer": "build-suppressors.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "gear/data/space-support.json",
+      "producer": "build-space-support.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "gear/data/gear-systems.json",
+      "producer": "build-gear.js",
+      "required": false,
+      "root": "datamine2"
+    },
+    {
+      "path": "other-content/data/raids.json",
+      "producer": "build-other-content.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "other-content/data/joint_operation.json",
+      "producer": "build-other-content.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "other-content/data/multiverse_hunt.json",
+      "producer": "build-other-content.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "other-content/data/modes.json",
+      "producer": "build-other-content.js",
+      "required": false,
+      "root": "datamine2"
+    },
+    {
+      "path": "simulacra/data/simulacra-index.json",
+      "producer": "build-simulacra.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "donation/data/products.json",
+      "producer": "build-donation.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "cosmetics/data/avatars.json",
+      "producer": "build-cosmetics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "cosmetics/data/avatarFrames.json",
+      "producer": "build-cosmetics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "cosmetics/data/titles.json",
+      "producer": "build-cosmetics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "cosmetics/data/chatBackgrounds.json",
+      "producer": "build-cosmetics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "cosmetics/data/cosmetics.json",
+      "producer": "build-cosmetics.js",
+      "required": true,
+      "root": "datamine2"
+    },
+    {
+      "path": "shared-data/enemies.json",
+      "producer": "build-enemies.js",
+      "required": false
+    },
+    {
+      "path": "shared-data/buffs.json",
+      "producer": "build-buffs.js",
+      "required": false
+    },
+    {
+      "path": "multype/data/character_multipliers.json",
+      "producer": "build-multype-extra.js",
+      "required": false
+    }
+  ],
+  "buildIntermediates": [
+    "oow/data/oow_stats.json",
+    "oow/data/oow_mmo_stats.json",
+    "oow/data/oow_deep_intel.json",
+    "oow/data/oow_current_seasons.json"
+  ],
+  "curatedPreserve": [
+    "items/curated/gacha-overrides.json",
+    "items/curated/mmo-overrides.json",
+    "items/curated/gacha-translations.json",
+    "items/curated/mmo-translations.json",
+    "seq/data/seq-mechanics-overrides.json",
+    "fce/data/bosses",
+    "fce/data/fce-known-boss-text-ids.json",
+    "shared/tof-formulas.js",
+    "shared/assets/icons/elements"
+  ],
+  "secondaryCuratedPreserve": [
+    "donation/curated/pack-contents.json"
+  ]
+}

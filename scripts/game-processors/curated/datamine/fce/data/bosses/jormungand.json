@@ -1,0 +1,52 @@
+{
+  "slug": "jormungand",
+  "order": 16,
+  "boss_id": "boss_047",
+  "name_color": "#4e55df",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.webp",
+  "art_object_position": "center center",
+  "source_psd": "йомунгард.psd",
+  "en": {
+    "name": "Jormungand",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Jormungand gains speed in all actions."
+      },
+      {
+        "index": "2",
+        "html": "Jormungand instantly executes targets with less than 20% health."
+      },
+      {
+        "index": "3",
+        "html": "Every 10 seconds, Jormungand fires a piercing light beam, dealing damage to all targets on the field."
+      },
+      {
+        "index": "4",
+        "html": "There&#x27;s a chance that Jormungand and nearby monsters won&#x27;t take damage when attacked."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Йормунганд",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Йормунганд ускоряет все свои действия."
+      },
+      {
+        "index": "2",
+        "html": "Йормунганд мгновенно добивает цель, если у нее меньше 20% здоровья."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 10 секунд Йормунганд выпускает пронзающий луч света, нанося урон всем целям на поле."
+      },
+      {
+        "index": "4",
+        "html": "Есть шанс, что Йормунганд и ближайшие монстры не будут получать урон при атаке."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_09.webp"
+}

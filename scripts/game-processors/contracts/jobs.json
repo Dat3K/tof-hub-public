@@ -1,0 +1,624 @@
+{
+  "schemaVersion": 1,
+  "defaultResourceCaps": {
+    "maxHeavy": 2
+  },
+  "jobs": [
+    {
+      "id": "build-items-json",
+      "script": "build-items-json.js",
+      "type": "processor",
+      "resourceClass": "heavy-disk",
+      "estimatedMs": 492000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "items/data/merged_mapping_with_original.json",
+        "items/data/merged_mapping_with_original_mmo.json"
+      ],
+      "consumes": [
+        "MappingItemId.json",
+        "ST_Item_Oversea.json",
+        "ItemConfigs_OS.json",
+        "ST_Item_MMO.json"
+      ],
+      "description": "Item catalogs, mappings, qualities, and descriptions for Gacha and MMO modes"
+    },
+    {
+      "id": "build-matrices",
+      "script": "build-matrices.js",
+      "type": "processor",
+      "resourceClass": "heavy-cpu",
+      "estimatedMs": 265000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "matrices/data/matrices.json"
+      ],
+      "consumes": [
+        "StaticMatrixSuitDataTable_Overseas.json",
+        "MatrixSuitData_Overseas.json"
+      ],
+      "description": "Matrix suits, piece properties, set effects, and carrier associations"
+    },
+    {
+      "id": "build-outfits",
+      "script": "build-outfits.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 164000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "cosmetics/data/outfits.json"
+      ],
+      "consumes": [
+        "FashionDataTable.json",
+        "DT_ImitationFashion.json"
+      ],
+      "description": "Outfits, cosmetics, fashion IDs, and source provenance"
+    },
+    {
+      "id": "build-relics",
+      "script": "build-relics.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 154000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "relics/data/relics.json"
+      ],
+      "consumes": [
+        "ArtifactDataTable_Overseas.json",
+        "ArtifactStarCfgDataTable.json"
+      ],
+      "description": "Relic catalog, star advancements, ability tags, and upgrade curves"
+    },
+    {
+      "id": "build-pets",
+      "script": "build-pets.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 136000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "pets/data/pets.json"
+      ],
+      "consumes": [
+        "CutePetDataTable.json",
+        "DT_FightPetSkillModule.json"
+      ],
+      "description": "Pets and Smart Servants, skill modules, and combat attributes"
+    },
+    {
+      "id": "build-simulacra",
+      "script": "build-simulacra.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 85000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-matrices"
+      ],
+      "produces": [
+        "simulacra/data/simulacra-index.json",
+        "simulacra/data"
+      ],
+      "consumes": [
+        "StaticWeaponDataTable_Overseas.json",
+        "SkillUpdateTips_Overseas.json",
+        "DT_Imitation.json",
+        "matrices/data/matrices.json"
+      ],
+      "description": "Simulacra profiles, exact weapon skills, advancements, traits, and avatar aliases"
+    },
+    {
+      "id": "build-seq-data",
+      "script": "build-seq-data.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 15000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-fce-index",
+        "build-enemies"
+      ],
+      "produces": [
+        "seq/data/seq-boss-cache.json",
+        "seq/data/seq-stage-limit.txt"
+      ],
+      "consumes": [
+        "DT_MonsterStaticData_Overseas.json",
+        "DT_BigSecretBaseConfig.json"
+      ],
+      "description": "Sequential Phantasm stages, scaling, and mechanics overrides"
+    },
+    {
+      "id": "parse-fce-mechanics",
+      "script": "parse-fce-mechanics.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 12000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "fce/data/Filtered_Game.json",
+        "fce/data/Filtered_Game_Unregistered.json",
+        "fce/data/Filtered_Game_Unregistered_By_Boss.json",
+        "fce/data/fce-unregistered-bosses.json",
+        "fce/data/fce-missing-boss-texts.json",
+        "fce/data/fce-game-boss-catalog.json",
+        "fce/docs/ALL_BOSSES_TEXTS.md",
+        "fce/docs/NEW_BOSSES_TEXTS.md"
+      ],
+      "consumes": [
+        "Game/en/Game.json",
+        "VoidCloneBossConfigDataTable_Overseas.json",
+        "BorderWarSeasonDataTable.json"
+      ],
+      "description": "FCE boss mechanics, ladder season configs, and localization strings"
+    },
+    {
+      "id": "build-enemies",
+      "script": "build-enemies.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 10000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-bygone"
+      ],
+      "produces": [
+        "shared-data/enemies.json"
+      ],
+      "consumes": [
+        "DT_MonsterStaticData_Overseas.json",
+        "ST_actorname_Oversea.json"
+      ],
+      "description": "Shared baseline enemy metadata and attribute definitions"
+    },
+    {
+      "id": "build-buffs",
+      "script": "build-buffs.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 8000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "shared-data/buffs.json"
+      ],
+      "consumes": [
+        "GameplayEffectTipsDataTable_Overseas.json"
+      ],
+      "description": "Shared buff effect definitions, descriptions, and icon bindings"
+    },
+    {
+      "id": "build-gear-enhance",
+      "script": "build-gear-enhance.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 10000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "gear/data/enhancement.json"
+      ],
+      "consumes": [
+        "EquipStrengthenDataTable_Overseas.json"
+      ],
+      "description": "Gear strengthening levels, costs, and dynamic cap discovery"
+    },
+    {
+      "id": "build-space-support",
+      "script": "build-space-support.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 5000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "gear/data/space-support.json"
+      ],
+      "consumes": [
+        "DT_OuterSpaceSupportSystemLevel.json"
+      ],
+      "description": "Space Support System modules, levels, and chip effects"
+    },
+    {
+      "id": "build-bygone",
+      "script": "build-bygone.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 16000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "bygone/data/bygone.json"
+      ],
+      "consumes": [
+        "BigSecretSeasonRoundDataTable_Overseas.json",
+        "BigSecretBuffCount_Overseas.json"
+      ],
+      "description": "Bygone Phantasm floor HP/ATK scaling curve and terminal deduplication Runs before build-enemies: the published Bygone names come from the raw monster codenames, not the enemies cache."
+    },
+    {
+      "id": "build-cosmetics",
+      "script": "build-cosmetics.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 8000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "cosmetics/data/avatars.json",
+        "cosmetics/data/avatarFrames.json",
+        "cosmetics/data/titles.json",
+        "cosmetics/data/chatBackgrounds.json",
+          "cosmetics/data/chat-stickers.json",
+          "cosmetics/data/badges.json",
+          "cosmetics/data/cosmetics-source-report.json",
+        "cosmetics/data/cosmetics.json"
+      ],
+      "consumes": [
+        "ItemConfigs.json",
+        "ItemConfigs_OS.json"
+      ],
+        "description": "Cosmetics, chat unlock stickers, Emblem badges and unresolved effect/media provenance"
+    },
+    {
+      "id": "build-user-stats",
+      "script": "build-user-stats.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 12000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-fce-index"
+      ],
+      "produces": [
+        "oow/data/season_dates.json",
+        "oow/data/oow_buffs_catalog.json",
+        "oow/data/oow_stats.json",
+        "oow/data/oow_mmo_stats.json"
+      ],
+      "consumes": [
+        "DT_MonsterStaticData_Overseas.json",
+        "OriginWarSeasonConfigDataTable_MMO.json",
+        "OriginWarRoundConfigDataTable_MMO.json",
+        "OriginWarMonsterPoolDataTable_MMO.json",
+        "OriginWarBuffPoolDataTable_MMO.json",
+        "GameplayEffectTipsDataTable_Balance.json",
+        "DT_MonsterStaticData_MMO.json",
+        "OriginWarMonster_Balance.json",
+        "Game/en/Game.json",
+        "Game/ru/Game.json"
+      ],
+      "description": "Standard and MMO OOW season, wave, buff, enemy roster, and stat scaling datasets"
+    },
+    {
+      "id": "build-fce-index",
+      "script": "build-fce-index.js",
+      "type": "processor",
+      "resourceClass": "light",
+      "estimatedMs": 4000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}",
+        "--fce-dir={projectRoot}/datamine/fce"
+      ],
+      "dependsOn": [
+        "parse-fce-mechanics",
+        "build-enemies"
+      ],
+      "produces": [
+        "fce/data/fce-index.json",
+        "fce/data/fce-ladder.json"
+      ],
+      "consumes": [
+        "fce/data/fce-all-bosses.json"
+      ],
+      "description": "FCE boss index and bilingual review summaries"
+    },
+    {
+      "id": "extract-oow-deep-intel",
+      "script": "extract-oow-deep-intel.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 18000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-user-stats",
+        "build-buffs",
+        "build-fce-index"
+      ],
+      "produces": [
+        "oow/data/oow_deep_intel.json"
+      ],
+      "consumes": [
+        "OriginWarSeasonConfigDataTable_Overseas.json",
+        "OriginWarRoundConfigDataTable_Overseas.json",
+        "OriginWarMonsterPoolDataTable_Overseas.json",
+        "OriginWarBuffPoolDataTable_Overseas.json",
+        "oow/data/user-stats.json",
+        "shared-data/buffs.json"
+      ],
+      "description": "Origin of War deep intelligence, season schedules, and scaled floor parameters"
+    },
+    {
+      "id": "shard-oow-data",
+      "script": "shard-oow-data.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 10000,
+      "argsTemplate": [
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "extract-oow-deep-intel"
+      ],
+      "produces": [
+        "oow/data/index.json",
+        "oow/data/seasons"
+      ],
+      "consumes": [
+        "oow/data/oow_deep_intel.json"
+      ],
+      "description": "Origin of War lazy season shards and index metadata"
+    },
+    {
+      "id": "build-matrices-refresh",
+      "script": "build-matrices.js",
+      "type": "processor",
+      "resourceClass": "heavy-cpu",
+      "estimatedMs": 265000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-simulacra"
+      ],
+      "produces": [],
+      "consumes": [
+        "info/simulacra/data/simulacra-index.json"
+      ],
+      "description": "Second matrices pass: carriers resolve character names from the simulacra index built after the first pass"
+    },
+    {
+      "id": "build-food",
+      "script": "build-food.js",
+      "type": "processor",
+      "resourceClass": "default",
+      "estimatedMs": 5000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-buffs"
+      ],
+      "produces": [
+        "info/food/data/food.json"
+      ],
+      "consumes": [
+        "CookingFoodDataTable.json",
+        "shared-data/buffs.json"
+      ],
+      "description": "Food, ingredients and potions for /info/food (legacy build-food.js; was run outside the DAG)"
+    },
+    {
+      "id": "build-simulacra-assets",
+      "script": "build-simulacra-assets.js",
+      "type": "processor",
+      "resourceClass": "heavy-disk",
+      "estimatedMs": 75000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-simulacra"
+      ],
+      "produces": [
+        "info/simulacra/assets",
+        "info/simulacra/data/*-assets.json"
+      ],
+      "consumes": [
+        "info/simulacra/data/simulacra-index.json"
+      ],
+      "description": "Per-character media (art, avatars, weapon, skills, matrix, outfits) copied from the raw export"
+    },
+    {
+      "id": "build-artworks",
+      "script": "build-artworks.js",
+      "type": "processor",
+      "resourceClass": "light",
+      "estimatedMs": 2000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "info/arts/data/artworks.json"
+      ],
+      "consumes": [
+        "info/arts/artworks-catalog.json"
+      ],
+      "description": "Artwork catalog for /info/arts (replaces legacy scripts/build-artworks.py)"
+    },
+    {
+      "id": "build-cute-pets",
+      "script": "build-cute-pets.js",
+      "type": "processor",
+      "resourceClass": "light",
+      "estimatedMs": 3000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "info/cosmetics/data/cute-pets.json"
+      ],
+      "consumes": [
+        "CutePetDataTable.json"
+      ],
+      "description": "Decorative pets for the cosmetics page (the legacy file had no generator)"
+    },
+    {
+      "id": "build-team-raids",
+      "script": "build-team-raids.js",
+      "type": "processor",
+      "resourceClass": "light",
+      "estimatedMs": 8000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "datamine/team-raids/data/team-raids.json"
+      ],
+      "consumes": [
+        "TeamCloneConfig.json",
+        "ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TeamCloneConfig_Overseas.json",
+        "TeamConfigDataTable.json",
+        "ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TeamConfigDataTable_Overseas.json",
+        "TimeLimitedPropDataTable.json",
+        "ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/TimeLimitedPropDataTable_Overseas.json",
+        "DescriptionDataTable.json",
+        "ResourcesOverSea/CoreBlueprints/DataTable/Dungeon/DT_MonsterStaticData_Overseas.json",
+        "DT_MonsterStaticData.json",
+        "drop/DropGroupDataTable_activity.json",
+        "drop/DropSequenceDataTable_activity.json",
+        "drop/DropSequenceDataTable_common.json",
+        "Game/en/Game.json",
+        "Game/ru/Game.json"
+      ],
+      "description": "Historic and current Team8P raid variants, localized mechanics, boss hints, difficulty data, and reward pack references"
+    },
+    {
+      "id": "build-mmo-team-raids",
+      "script": "build-mmo-team-raids.js",
+      "type": "processor",
+      "resourceClass": "light",
+      "estimatedMs": 8000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "datamine/mmo-team-raids/data/mmo-team-raids.json"
+      ],
+      "consumes": [
+        "DataTable_MMO/DT_LevyClone_MMO.json",
+        "DataTable/LevyClone/LevyCloneStage/DT_LevyCloneStage.json",
+        "TeamCloneConfig.json",
+        "TeamConfigDataTable.json",
+        "DataTable_MMO/Drop/DropGroupDataTable_MMOServer.json",
+        "DataTable_MMO/Drop/DropSequenceDataTable_MMO.json",
+        "DataTable_MMO/Drop/DropModifySequenceDataTable_MMO.json",
+        "Game/en/Game.json",
+        "Game/ru/Game.json"
+      ],
+      "description": "MMO LevyClone raid stage variants, server-level requirements, schedule links, mechanics, and reward previews, isolated from Global Bygone data"
+    },
+    {
+      "id": "build-mmo-build",
+      "script": "build-mmo-build.js",
+      "type": "processor",
+      "resourceClass": "heavy-cpu",
+      "estimatedMs": 12000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [],
+      "produces": [
+        "datamine/mmo-build/data/mmo-build.json"
+      ],
+      "consumes": [
+        "GameMode/MMO/BP_GameData_MMO_Base.json",
+        "DataTable_MMO/DA_Equipment_MMO.json",
+        "DataTable_MMO/EquipmentDataTable_MMO.json",
+        "DataTable_MMO/ModifyDataTable_MMO.json",
+        "DataTable_MMO/RandomModifyDataTable_MMO.json",
+        "DataTable_MMO/RandomPropDataTable_MMO.json",
+        "DataTable_MMO/AdvanceRandomPropDataTable_MMO.json",
+        "DataTable_MMO/AttributeStaticDataTable_MMO.json",
+        "DataTable_MMO/EquipStrengthenDataTable_MMO.json",
+        "DataTable_MMO/EquipStrengthenEffectPackDataTable_MMO.json",
+        "DataTable_MMO/EquipMeltDataTable_MMO.json",
+        "DataTable_MMO/DT_WeaponTupo_MMO.json",
+        "DataTable_MMO/DT_EquipRandomModifyExtraGain_MMO.json",
+        "DataTable_MMO/EffectFigure/EnchantmentEffectFigure_MMO.json",
+        "DataTable_MMO/EffectFigure/EnchantmentEffectFigure_MMO_S2.json",
+        "DataTable_MMO/CommonLevel_MMO.json",
+        "DataTable/EquipDataTables/DT_MMOEquipmentSeason.json",
+        "DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotConfig.json",
+        "DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotSkillConfig.json",
+        "DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotSkillAttribute.json",
+        "DataTable/EquipDataTables/EquipmentSlot/DT_MMOEquipmentSlotSkillCoefficient.json",
+        "DataTable/EquipDataTables/DT_EquipStrengthenSuccessRate.json",
+        "DataTable/EquipDataTables/EquipUpgradeConfigDataTable.json",
+        "DataTable/EffectFigure_MMO/SeasonBuffEffectFigure_0.json",
+        "Game/en/Game.json",
+        "Game/ru/Game.json"
+      ],
+      "description": "MMO gear, stat, enhancement, seasonal-upgrade and expansion-card catalogs; curves are discovered through card/stat references"
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+{
+  "slug": "ying-zhao",
+  "order": 23,
+  "boss_id": "boss_hum_061",
+  "name_color": "#a78fe7",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.webp",
+  "art_object_position": "center center",
+  "source_psd": "yingzhao.psd",
+  "en": {
+    "name": "Ying Zhao",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Ying Zhao gains a shield every 20 seconds, capable of blocking up to 40 instances of damage."
+      },
+      {
+        "index": "2",
+        "html": "Ying Zhao cannot be critically hit."
+      },
+      {
+        "index": "3",
+        "html": "Ying Zhao randomly selects 3 targets to form a triangular link, becoming invincible. Only enemies enclosed within the triangle take damage."
+      },
+      {
+        "index": "4",
+        "html": "Ying Zhao unleashes damage taken over the past 3 seconds to nearby enemies every 15 seconds. This damage cannot be fatal."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Ин Чжао",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Ин Чжао получает щит каждые 20 секунд, способный заблокировать до 40 попаданий."
+      },
+      {
+        "index": "2",
+        "html": "По Ин Чжао невозможно нанести критический удар."
+      },
+      {
+        "index": "3",
+        "html": "Ин Чжао случайно выбирает 3 цели, связывает их треугольником и становится неуязвимым. Урон получают только враги внутри треугольника."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Ин Чжао высвобождает по ближайшим врагам урон, полученный им за последние 3 секунды. Этот урон не может быть смертельным."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_061.webp"
+}

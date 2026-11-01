@@ -1,0 +1,3599 @@
+// Generated authoritative baseline FCE datasets (37 Standard + 14 MMO)
+import type { FceBossItem, FceMode } from './fce-types';
+import type { FceIndexDataset } from '@tof-hub/contracts';
+
+export const BASELINE_STANDARD_BOSSES: FceBossItem[] = [
+  {
+    "slug": "chaos-armor",
+    "order": 1,
+    "boss_id": "boss_hum_046",
+    "boss_num": 46,
+    "name": "Chaos Armor",
+    "name_ru": "Хаос Армор",
+    "name_color": "#f16937",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_08.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "mechanics_count": 4,
+    "ladder_level": 90,
+    "ladder_key": "BorderWar_D",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Attacks come with a powerful Graying Bite effect. Increase corresponding elemental resistance or avoid being hit."
+      },
+      {
+        "index": "2",
+        "html": "The lower the boss&#x27;s HP, the greater its damage reduction. <span class=\"fce-card__text-accent\">Damage reduction 20% for each 20% HP lost.</span> The boss can then be executed. Use weapons with high shatter to break its shield and execute it. Execution damage ignores the boss&#x27;s damage reduction and is affected by the Wanderer&#x27;s ATK, resistance, and damage boost."
+      },
+      {
+        "index": "3",
+        "html": "Gain the Infernal Flames skill. The majority of the boss&#x27;s attacks will leave a large area on the ground that burns continuously. Avoid entering the burning areas."
+      },
+      {
+        "index": "4",
+        "html": "Large random explosions will occur in the area, dealing lethal damage upon hit and leaving Infernal Flames in the area."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки накладывают мощный эффект Graying Bite. Повышайте соответствующее стихийное сопротивление или уклоняйтесь от попаданий."
+      },
+      {
+        "index": "2",
+        "html": "Чем меньше HP босса, тем выше его снижение урона. <span class=\"fce-card__text-accent\">Снижение урона на 20% за каждые потерянные 20% HP.</span> После этого босса можно добить. Используйте оружие с высоким shatter, чтобы сломать щит и выполнить добивание. Урон добивания игнорирует снижение урона босса и зависит от ATK, сопротивлений и бонуса урона Странника."
+      },
+      {
+        "index": "3",
+        "html": "Босс получает навык Infernal Flames. Большинство атак босса оставляют на земле большую горящую область, которая непрерывно наносит урон. Не заходите в пылающие зоны."
+      },
+      {
+        "index": "4",
+        "html": "По области будут происходить большие случайные взрывы, наносящие смертельный урон при попадании и оставляющие Infernal Flames."
+      }
+    ]
+  },
+  {
+    "slug": "frigg",
+    "order": 2,
+    "boss_id": "boss_hum_019",
+    "boss_num": 19,
+    "name": "Frigg",
+    "name_ru": "Фригг",
+    "name_color": "#ef62bd",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss012.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "mechanics_count": 4,
+    "ladder_level": 91,
+    "ladder_key": "BorderWar_D91",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Frigg's shield strength greatly increases."
+      },
+      {
+        "index": "2",
+        "html": "Frigg gains a damage boost each time she lands a hit. This effect can stack."
+      },
+      {
+        "index": "3",
+        "html": "Frigg enters Rampage Mode, greatly increasing her speed."
+      },
+      {
+        "index": "4",
+        "html": "Frigg enters Extreme Mode, increasing her speed and leaving frost under her feet. If you touch the frost, you will take damage and be slowed, which can be stacked up to 3 times."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Прочность щита Фригг значительно увеличена."
+      },
+      {
+        "index": "2",
+        "html": "Фригг получает бафф урона каждый раз, когда попадает по цели. Эффект может накапливаться."
+      },
+      {
+        "index": "3",
+        "html": "Фригг входит в режим Rampage, значительно повышая скорость."
+      },
+      {
+        "index": "4",
+        "html": "Фригг входит в Extreme Mode: ее скорость повышается, а под ногами остается лед. Если наступить на лед, вы получите урон и замедление, до 3 стаков."
+      }
+    ]
+  },
+  {
+    "slug": "valkyrie",
+    "order": 3,
+    "boss_id": "boss_hum_032",
+    "boss_num": 32,
+    "name": "Valkyrie",
+    "name_ru": "Валькирия",
+    "name_color": "#ebe154",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_02.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "mechanics_count": 4,
+    "ladder_level": 92,
+    "ladder_key": "BorderWar_D92",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Valkyrie leaves destructible electrodes on the ground at regular intervals. These electrodes are periodically."
+      },
+      {
+        "index": "2",
+        "html": "Valkyrie is immune to damage 1 time every second."
+      },
+      {
+        "index": "3",
+        "html": "Valkyrie leaves destructible electrodes on the ground around it at regular intervals. These electrodes periodically emit a circular electrical current in the surrounding area."
+      },
+      {
+        "index": "4",
+        "html": "Valkyrie summons lightning bolts around it at regular intervals, dealing lethal damage and electrifying targets. When an electrified target is hit by a volt attack, chain lightning is triggered."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Валькирия через равные интервалы оставляет на земле разрушаемые электроды."
+      },
+      {
+        "index": "2",
+        "html": "Валькирия становится иммунной к урону 1 раз в секунду."
+      },
+      {
+        "index": "3",
+        "html": "Валькирия через равные интервалы оставляет вокруг себя разрушаемые электроды. Эти электроды периодически испускают круговой электрический разряд по области вокруг."
+      },
+      {
+        "index": "4",
+        "html": "Валькирия через равные интервалы призывает вокруг себя молнии, наносящие смертельный урон и накладывающие electrified. Если по electrified-цели попадает volt-атака, срабатывает цепная молния."
+      }
+    ]
+  },
+  {
+    "slug": "culton",
+    "order": 4,
+    "boss_id": "boss_hum_036",
+    "boss_num": 36,
+    "name": "Culton",
+    "name_ru": "Калтон",
+    "name_color": "#4ec7d6",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_036.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Culton triggers Hostility on the selected target every second. Each stack of Hostility slows the target for 5 seconds, stacking up to 5 times."
+      },
+      {
+        "index": "2",
+        "html": "Every 30 seconds, Culton induces chaos, reversing Wanderers&#x27; movement for 15 seconds."
+      },
+      {
+        "index": "3",
+        "html": "Culton becomes invincible for 3 seconds every time after losing 10% Max HP."
+      },
+      {
+        "index": "4",
+        "html": "In the final phase, Culton summons red pillars. Each pillar increases Culton&#x27;s damage boost and damage reduction by 20%. Make Culton collide with the pillars to disable the buffs."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Калтон каждую секунду накладывает Hostility на выбранную цель. Каждый стак замедляет цель на 5 секунд, до 5 стаков."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 30 секунд Калтон вызывает хаос, разворачивая управление движением Странников на 15 секунд."
+      },
+      {
+        "index": "3",
+        "html": "Калтон становится неуязвимым на 3 секунды каждый раз после потери 10% Max HP."
+      },
+      {
+        "index": "4",
+        "html": "В финальной фазе Калтон призывает красные столбы. Каждый столб увеличивает его урон и снижение урона на 20%. Столкните Калтона со столбами, чтобы отключить баффы."
+      }
+    ]
+  },
+  {
+    "slug": "iron-tomb",
+    "order": 5,
+    "boss_id": "boss_hum_037",
+    "boss_num": 37,
+    "name": "Iron Tomb",
+    "name_ru": "Саркофаг",
+    "name_color": "#3db0c0",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_11.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Iron Tomb&#x27;s attacks have a certain chance to inflict a 5-second Countermove effect, disabling the target&#x27;s hyperbody for its duration."
+      },
+      {
+        "index": "2",
+        "html": "Every 20 seconds, Iron Tomb gains damage reduction based on its Max HP lost for 20 seconds. <span class=\"fce-card__text-accent\">Every 20 seconds calculate DMG reduction based on TOTAL HP lost. First 20% of HP lost: each 1% HP = 0.25% DMG reduction. Then each 1% HP lost = 0.5% DMG reduction.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Every 8 seconds, Iron Tomb&#x27;s attacks inflict a Maim effect, significantly reducing the damage dealt and healing received on non-Fortitude targets for 8 seconds. <span class=\"fce-card__text-accent\">-50% Damage Dealt</span>"
+      },
+      {
+        "index": "4",
+        "html": "Every 20 seconds, Iron Tomb randomly links 2 players within range, reducing their final damage by 30%; each linked player provides a 30% increase in Iron Tomb&#x27;s final damage. Moving away from Iron Tomb can break the link."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Саркофага имеют шанс наложить эффект Countermove на 5 секунд, отключая hyperbody цели на все время действия эффекта."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 20 секунд Саркофаг получает снижение урона на основе потерянного Max HP на 20 секунд. <span class=\"fce-card__text-accent\">Каждые 20 секунд рассчитывается снижение урона по ОБЩЕЙ потере HP. Первые 20% потерянного HP: каждый 1% HP = 0.25% снижения урона. Далее каждый 1% HP = 0.5% снижения урона.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Каждые 8 секунд атаки Саркофага накладывают Maim, значительно снижая наносимый урон и получаемое лечение у целей без Fortitude на 8 секунд. <span class=\"fce-card__text-accent\">-50% наносимого урона</span>"
+      },
+      {
+        "index": "4",
+        "html": "Каждые 20 секунд Саркофаг случайно связывает 2 игроков в радиусе, снижая их финальный урон на 30%; каждый связанный игрок увеличивает финальный урон Саркофага на 30%. Уйдя подальше от босса, связь можно разорвать."
+      }
+    ]
+  },
+  {
+    "slug": "gaia",
+    "order": 6,
+    "boss_id": "boss_hum_042",
+    "boss_num": 42,
+    "name": "Gaia",
+    "name_ru": "Гайя",
+    "name_color": "#dc6dd0",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_02.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Gaia inflicts Bonecrush on targets without Fortitude with each hit. At 20 stacks, the debuff triggers Cripple, massively reducing their damage dealt for 10 seconds."
+      },
+      {
+        "index": "2",
+        "html": "Every 15 seconds, Gaia randomly selects a target. After 5 seconds, the selected target inflicts wide-area lethal damage every second to all allies except themselves for 5 seconds."
+      },
+      {
+        "index": "3",
+        "html": "Targets hit by Gaia are slowed for 5 seconds, stacking up to 2 times."
+      },
+      {
+        "index": "4",
+        "html": "After Gaia&#x27;s shield is shattered, it deals wide-area damage every second for 10 seconds. Targets hit will be inflicted with 15% vulnerability for 10 seconds, stacking up to 3 times."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Гайя каждым попаданием накладывает Bonecrush на цели без Fortitude. На 20 стаках дебафф вызывает Cripple, резко снижая наносимый ими урон на 10 секунд."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 15 секунд Гайя случайно выбирает цель. Через 5 секунд выбранная цель начинает наносить всем союзникам, кроме себя, массовый смертельный урон каждую секунду в течение 5 секунд."
+      },
+      {
+        "index": "3",
+        "html": "Цели, пораженные Гайей, замедляются на 5 секунд, до 2 стаков."
+      },
+      {
+        "index": "4",
+        "html": "После разрушения щита Гайя наносит урон по области каждую секунду в течение 10 секунд. Пораженные цели получают 15% vulnerability на 10 секунд, до 3 стаков."
+      }
+    ]
+  },
+  {
+    "slug": "sweetie",
+    "order": 7,
+    "boss_id": "boss_hum_020",
+    "boss_num": 20,
+    "name": "Sweetie",
+    "name_ru": "Милашка",
+    "name_color": "#e08c42",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_020.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Every 25 seconds, Sweetie imposes a penalty on 2–4 random nearby targets. If they perform any action within 5 seconds of the penalty being applied, they take damage."
+      },
+      {
+        "index": "2",
+        "html": "Increase Sweetie&#x27;s movement speed, and decrease the movement speed of all nearby targets."
+      },
+      {
+        "index": "3",
+        "html": "Every 15 seconds, Sweetie randomly selects a target on the field to inflict massive damage every second for 15 seconds, prioritizing targets with Fortitude Resonance."
+      },
+      {
+        "index": "4",
+        "html": "Sweetie chains all Wanderer-allied targets on the field. Each target will suffer damage proportional to the percentage of damage received by other chained targets. <span class=\"fce-card__text-accent\">Shares 10% DMG to every player. This DMG ignores Resists and DMG Reduction (except Asuka).</span>"
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Каждые 25 секунд Милашка накладывает штраф на 2-4 случайные ближайшие цели. Если они совершают какие-либо действия в течение 5 секунд после наложения штрафа, то получают урон."
+      },
+      {
+        "index": "2",
+        "html": "Увеличивает скорость передвижения Милашки и снижает скорость передвижения всех ближайших целей."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 15 секунд Милашка случайно выбирает цель на поле и наносит ей огромный урон каждую секунду в течение 15 секунд, отдавая приоритет целям с Fortitude Resonance."
+      },
+      {
+        "index": "4",
+        "html": "Милашка связывает всех союзных Странников на поле. Каждая цель получает урон пропорционально проценту урона, полученного другими связанными целями. <span class=\"fce-card__text-accent\"> Каждый игрок делится 10% входящего урона. Этот урон игнорирует сопротивления и снижение урона (кроме Аски).</span>"
+      }
+    ]
+  },
+  {
+    "slug": "merbelle",
+    "order": 8,
+    "boss_id": "boss_065",
+    "boss_num": 65,
+    "name": "Merbelle",
+    "name_ru": "Мербелль",
+    "name_color": "#a46ae7",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_065.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Whenever Merbelle loses a certain amount of HP, its attack will increase."
+      },
+      {
+        "index": "2",
+        "html": "When Merbelle has a shield, gain additional damage reduction and greatly increase shield strength. <span class=\"fce-card__text-accent\">Additional 60% DMG reduction.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Each time Merbelle deals damage, inflicts a stack of Flashfreeze. When Flashfreeze stacks 15 times, stacks clear and the Wanderer is greatly slowed for 6 seconds."
+      },
+      {
+        "index": "4",
+        "html": "Merbelle unleashes an ice pillar at a target every 15 seconds, dealing huge damage. The ice pillar remains on the field, restoring 3% of Merbelle&#x27;s Max HP every 10 seconds. The ice pillar can be destroyed by multiple attacks."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Каждый раз, когда Мербелль теряет определенное количество HP, ее атака увеличивается."
+      },
+      {
+        "index": "2",
+        "html": "Когда у Мербелль есть щит, она получает дополнительное снижение урона и значительно более прочный щит. <span class=\"fce-card__text-accent\">Дополнительное снижение урона 60%.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Каждый раз, когда Мербелль наносит урон, она накладывает 1 стак Flashfreeze. Когда стаков становится 15, они снимаются, а Странник получает сильное замедление на 6 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Мербелль выпускает в цель ледяной столб, наносящий огромный урон. Столб остается на поле и восстанавливает 3% Max HP Мербелль каждые 10 секунд. Ледяной столб можно уничтожить несколькими атаками."
+      }
+    ]
+  },
+  {
+    "slug": "frost-bot",
+    "order": 9,
+    "boss_id": "boss_017",
+    "boss_num": 17,
+    "name": "Frost Bot",
+    "name_ru": "Фрост Бот",
+    "name_color": "#4b8fff",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss008.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Frost Bot continuously generates positioning generators around it. Each generator provides damage reduction to Frost Bot and can be shattered through multiple attacks. <span class=\"fce-card__text-accent\"> Damage reduction 20% for each ball with 90% limit.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Frost Bot will repair itself, slowly recovering HP. <span class=\"fce-card__text-accent\">Recovers 0.5% of Max HP every 2 seconds.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Greatly increase the movement speed of Frost Bot."
+      },
+      {
+        "index": "4",
+        "html": "Frost Bot releases a powerful chill around itself every second, continuously Slowing nearby targets."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Фрост Бот постоянно создает вокруг себя генераторы позиционирования. Каждый генератор дает Фрост Боту снижение урона и может быть разрушен несколькими атаками. <span class=\"fce-card__text-accent\"> Снижение урона 20% за каждый шар, максимум 90%.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Фрост Бот ремонтирует себя, медленно восстанавливая HP. <span class=\"fce-card__text-accent\"> Восстанавливает 0.5% Max HP каждые 2 секунды.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Скорость передвижения Фрост Бота значительно увеличена."
+      },
+      {
+        "index": "4",
+        "html": "Каждую секунду Фрост Бот выпускает вокруг себя мощный холод, постоянно замедляя ближайшие цели."
+      }
+    ]
+  },
+  {
+    "slug": "apophis",
+    "order": 10,
+    "boss_id": "boss_014",
+    "boss_num": 14,
+    "name": "Apophis",
+    "name_ru": "Апофис",
+    "name_color": "#d4ba3e",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss015.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Attacks come with a powerful Graying Bite effect. Increase corresponding elemental resistance or avoid being hit."
+      },
+      {
+        "index": "2",
+        "html": "Apophis can be destroyed. Use a high-shatter weapon to break his shield and destroy it."
+      },
+      {
+        "index": "3",
+        "html": "Greatly increase the movement speed of Apophis."
+      },
+      {
+        "index": "4",
+        "html": "Nullify the hyperbody status of targets around Apophis."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки накладывают мощный эффект Graying Bite. Повышайте соответствующее стихийное сопротивление или уклоняйтесь от попаданий."
+      },
+      {
+        "index": "2",
+        "html": "Апофиса можно добить. Используйте оружие с высоким shatter, чтобы сломать его щит и казнить босса."
+      },
+      {
+        "index": "3",
+        "html": "Скорость передвижения Апофиса значительно увеличена."
+      },
+      {
+        "index": "4",
+        "html": "Отменяет hyperbody у целей вокруг Апофиса."
+      }
+    ]
+  },
+  {
+    "slug": "minotaur",
+    "order": 11,
+    "boss_id": "boss_002",
+    "boss_num": 2,
+    "name": "Minotaur",
+    "name_ru": "Минотавр",
+    "name_color": "#5d79dd",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss002.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Minotaur significantly reduces damage received from the primary aggro target. <span class=\"fce-card__text-accent\">Damage reduction 80% from aggro.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Minotaur can be executed. Use weapons with high shatter to break its shield and execute it."
+      },
+      {
+        "index": "3",
+        "html": "Every 15 seconds, Minotaur randomly selects a target with Benediction, applying Toxicitea, which converts the target&#x27;s healing into an equivalent amount of damage. Lasts for 10 seconds."
+      },
+      {
+        "index": "4",
+        "html": "Every 15 seconds, Minotaur examines all Wanderers. If a Wanderer is found to be within 5 meters without any other Wanderers nearby, that Wanderer will lose their hyperbody and invincibility and will be unable to regain hyperbody or invincibility for 90 seconds."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Минотавр значительно снижает получаемый урон от основной агро-цели. <span class=\"fce-card__text-accent\">Снижение урона от агро 80%.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Минотавра можно добить. Используйте оружие с высоким shatter, чтобы сломать щит и казнить босса."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 15 секунд Минотавр случайно выбирает цель с Benediction и накладывает Toxicitea, превращая ее лечение в эквивалентный урон. Длится 10 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Минотавр проверяет всех Странников. Если кто-то находится в радиусе 5 метров без других союзников рядом, этот Странник теряет hyperbody и неуязвимость и не может восстановить их в течение 90 секунд."
+      }
+    ]
+  },
+  {
+    "slug": "rudolph",
+    "order": 12,
+    "boss_id": "boss_030",
+    "boss_num": 30,
+    "name": "Rudolph",
+    "name_ru": "Рудольф",
+    "name_color": "#9adf3e",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_01.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Greatly increase Rudolph&#x27;s Shield."
+      },
+      {
+        "index": "2",
+        "html": "Rudolph receives a massive damage reduction from the front, but its damage taken from behind is increased. <span class=\"fce-card__text-accent\"> Damage reduction 60% from front.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Rudolph activates a wide-area Phantasia for 5 seconds at set intervals."
+      },
+      {
+        "index": "4",
+        "html": "Rudolph enters Rampage Mode, greatly increasing its movement speed."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Прочность щита Рудольфа значительно увеличена."
+      },
+      {
+        "index": "2",
+        "html": "Рудольф получает огромное снижение урона спереди, но получает повышенный урон сзади. <span class=\"fce-card__text-accent\"> Снижение урона спереди 60%.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Рудольф через заданные интервалы активирует широкую Phantasia на 5 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Рудольф входит в режим Rampage, значительно повышая скорость передвижения."
+      }
+    ]
+  },
+  {
+    "slug": "seraph",
+    "order": 13,
+    "boss_id": "boss_010",
+    "boss_num": 10,
+    "name": "Seraph",
+    "name_ru": "Сераф",
+    "name_color": "#ea6d49",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_06.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Seraph's attacks carry an additional Powerful Graying Bite effect."
+      },
+      {
+        "index": "2",
+        "html": "After Seraph lands a hit on a target, it grants an HP shield to all its friendly units equal to 5% of their respective Max HP. The shield cannot be stacked and lasts for 3 seconds. The minimum trigger interval is 1 second."
+      },
+      {
+        "index": "3",
+        "html": "After Seraph hits a non-Fortitude target, Punishments will be added. Punishments will be reduced by 1 stack every 5 seconds. If Punishment stacks reach 10, that Wanderer will lose their hyperbody and invincibility and will be unable to regain hyperbody or invincibility for 90 seconds."
+      },
+      {
+        "index": "4",
+        "html": "When Seraph receives lethal damage, it becomes invincible for 10 seconds. During that period, it continuously deals a huge amount of damage every second to the surrounding area."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Серафа дополнительно накладывают мощный Graying Bite."
+      },
+      {
+        "index": "2",
+        "html": "После попадания по цели Сераф дает всем союзным юнитам щит в размере 5% от их Max HP. Щит не стакается, длится 3 секунды. Минимальный интервал срабатывания 1 секунда."
+      },
+      {
+        "index": "3",
+        "html": "После попадания по цели без Fortitude Сераф накладывает Punishment. Один стак снимается каждые 5 секунд. Если стаков становится 10, Странник теряет hyperbody и неуязвимость и не может вернуть их в течение 90 секунд."
+      },
+      {
+        "index": "4",
+        "html": "При получении смертельного урона Сераф становится неуязвимым на 10 секунд. В этот период он каждую секунду наносит огромный урон по области вокруг себя."
+      }
+    ]
+  },
+  {
+    "slug": "sobek",
+    "order": 14,
+    "boss_id": "boss_015",
+    "boss_num": 15,
+    "name": "Sobek",
+    "name_ru": "Собек",
+    "name_color": "#b190e4",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss015.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "<span class=\"fce-card__text-accent\">-100% Crit Rate while having aggro</span>"
+      },
+      {
+        "index": "2",
+        "html": "Sobek can be executed. Use weapons with high shatter to break its shield and execute it."
+      },
+      {
+        "index": "3",
+        "html": "When Sobek hits a non-Fortitude target, it applies Vulnerability to the target for 10 seconds, stacking up to 10 times."
+      },
+      {
+        "index": "4",
+        "html": "Sobek enters a frenzy state, greatly increasing all speeds. <span class=\"fce-card__text-accent\">Becomes immune to control effects.</span>"
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Когда Собек фиксируется на цели, ее шанс критического удара сильно снижается. <span class=\"fce-card__text-accent\">-100% crit rate, пока на вас агро</span>"
+      },
+      {
+        "index": "2",
+        "html": "Собека можно добить. Используйте оружие с высоким shatter, чтобы сломать щит и казнить босса."
+      },
+      {
+        "index": "3",
+        "html": "Когда Собек попадает по цели без Fortitude, он накладывает Vulnerability на 10 секунд, до 10 стаков."
+      },
+      {
+        "index": "4",
+        "html": "Собек впадает в ярость, значительно повышая все скорости. <span class=\"fce-card__text-accent\"> Получает иммунитет к эффектам контроля.</span>"
+      }
+    ]
+  },
+  {
+    "slug": "singer",
+    "order": 15,
+    "boss_id": "boss_012",
+    "boss_num": 12,
+    "name": "Singer",
+    "name_ru": "Сингер",
+    "name_color": "#52d9d5",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_05.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "The Singer&#x27;s attacks inflict Corrosion DMG."
+      },
+      {
+        "index": "2",
+        "html": "The Singer constantly deals massive Radiation DMG to nearby enemies."
+      },
+      {
+        "index": "3",
+        "html": "The Singer summons a decoy every 30 seconds, becoming invincible while the decoy exists. Attack the decoy a set number of times to destroy it and dispel the Singer&#x27;s Invincibility."
+      },
+      {
+        "index": "4",
+        "html": "Whenever dealing damage, the Singer inflicts a stack of Corruption, which, upon reaching 20 stacks, reduces the target&#x27;s ATK and movement speed for 15 seconds. <span class=\"fce-card__text-accent\">Debuff reduces base ATK by 30% (Coco matrix).</span>"
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Сингера наносят Corrosion DMG."
+      },
+      {
+        "index": "2",
+        "html": "Сингер постоянно наносит ближайшим врагам огромный Radiation DMG."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 30 секунд Сингер призывает приманку и становится неуязвимым, пока она существует. Атакуйте приманку нужное число раз, чтобы уничтожить ее и снять неуязвимость Сингера."
+      },
+      {
+        "index": "4",
+        "html": "Каждый нанесенный удар Сингера накладывает стак Corruption. При достижении 20 стаков у цели снижаются ATK и скорость передвижения на 15 секунд. <span class=\"fce-card__text-accent\"> Дебафф снижает базовый ATK на 30% (матрица Коко).</span>"
+      }
+    ]
+  },
+  {
+    "slug": "jormungand",
+    "order": 16,
+    "boss_id": "boss_047",
+    "boss_num": 47,
+    "name": "Jormungand",
+    "name_ru": "Йормунганд",
+    "name_color": "#4e55df",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_09.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_09.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Jormungand gains speed in all actions."
+      },
+      {
+        "index": "2",
+        "html": "Jormungand instantly executes targets with less than 20% health."
+      },
+      {
+        "index": "3",
+        "html": "Every 10 seconds, Jormungand fires a piercing light beam, dealing damage to all targets on the field."
+      },
+      {
+        "index": "4",
+        "html": "There&#x27;s a chance that Jormungand and nearby monsters won&#x27;t take damage when attacked."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Йормунганд ускоряет все свои действия."
+      },
+      {
+        "index": "2",
+        "html": "Йормунганд мгновенно добивает цель, если у нее меньше 20% здоровья."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 10 секунд Йормунганд выпускает пронзающий луч света, нанося урон всем целям на поле."
+      },
+      {
+        "index": "4",
+        "html": "Есть шанс, что Йормунганд и ближайшие монстры не будут получать урон при атаке."
+      }
+    ]
+  },
+  {
+    "slug": "hyena-mech",
+    "order": 17,
+    "boss_id": "boss_007",
+    "boss_num": 7,
+    "name": "Hyena Mech",
+    "name_ru": "Гиена-Мех",
+    "name_color": "#e4534d",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_07.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_07.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss002.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Hyena Mech gains a 20% damage increase and one stack of Overheat with each attack. Upon reaching 5 Overheat stacks, it resets and restores a portion of its Max HP. <span class=\"fce-card__text-accent\">Recovers 5% of Max HP after hitting anyone at 5 stacks (the last hit can be dodged so no heal will be provided).</span>"
+      },
+      {
+        "index": "2",
+        "html": "Hyena Mech&#x27;s attacks ignore the target&#x27;s resistance."
+      },
+      {
+        "index": "3",
+        "html": "Hyena Mech disables the HP shields of surrounding targets every 20s, lasting 10s. <span class=\"fce-card__text-accent\">Removes HP shield and hyperbody once (not continuously for 10s).</span>"
+      },
+      {
+        "index": "4",
+        "html": "Hyena Mech frequently unleashes machine gun sweeps, with its range greatly increased."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Гиена-Мех получает +20% к урону и 1 стак Overheat с каждой атакой. При достижении 5 стаков Overheat эффект сбрасывается, а босс восстанавливает часть Max HP. <span class=\"fce-card__text-accent\">Восстанавливает 5% Max HP после попадания по кому-либо с 5 стаками (от последнего удара можно увернуться, тогда лечения не будет)</span>"
+      },
+      {
+        "index": "2",
+        "html": "Атаки Гиена-Меха игнорируют сопротивления цели."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 20 секунд Гиена-Мех отключает HP-щиты окружающих целей на 10 секунд. <span class=\"fce-card__text-accent\">Одноразово снимает HP-щит и hyperbody, а не на все 10 секунд.</span>"
+      },
+      {
+        "index": "4",
+        "html": "Гиена-Мех часто выпускает длинные очереди из пулемета, причем их дальность сильно увеличена."
+      }
+    ]
+  },
+  {
+    "slug": "nan-yin",
+    "order": 18,
+    "boss_id": "boss_hum_062",
+    "boss_num": 62,
+    "name": "Nan Yin",
+    "name_ru": "Нань Инь",
+    "name_color": "#5f8dff",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_062.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_062.webp",
+    "mechanics_count": 5,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">Has base DMG Reduction 50%. After performing 5 parries, disables it for 1 min.</span>"
+      },
+      {
+        "index": "1",
+        "html": "Nan Yin&#x27;s ATK increases over time. Successful counterattacks from enemies remove the ATK increased."
+      },
+      {
+        "index": "2",
+        "html": "Nan Yin stuns the selected target for 2 seconds every 5 seconds, ineffective against targets with Fortitude. <span class=\"fce-card__text-accent\">selected = aggro</span>"
+      },
+      {
+        "index": "3",
+        "html": "Nan Yin gains additional Damage Reduction, but loses a large amount of HP if shattered. <span class=\"fce-card__text-accent\">Additional 40% DMG Reduction. When 5 parries are performed, she loses 20% of Max HP.</span>"
+      },
+      {
+        "index": "4",
+        "html": "Nan Yin negates the target&#x27;s hyperbody for 10 seconds upon hit. <span class=\"fce-card__text-accent\">Removes hyperbody once upon hit, not continuously for 10s.</span>"
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">Базовое снижение урона 50%. После 5 успешных парирований отключается на 1 минуту.</span>"
+      },
+      {
+        "index": "1",
+        "html": "ATK Нань Инь со временем увеличивается. Успешные контратаки врагов снимают это увеличение."
+      },
+      {
+        "index": "2",
+        "html": "Нань Инь оглушает выбранную цель на 2 секунды каждые 5 секунд; не действует на цели с Fortitude. <span class=\"fce-card__text-accent\">selected = aggro</span>"
+      },
+      {
+        "index": "3",
+        "html": "Нань Инь получает дополнительное снижение урона, но теряет много HP при shatter. <span class=\"fce-card__text-accent\">Дополнительное снижение урона 40%. После 5 парирований теряет 20% Max HP.</span>"
+      },
+      {
+        "index": "4",
+        "html": "При попадании Нань Инь отключает hyperbody цели на 10 секунд. <span class=\"fce-card__text-accent\">Снимает один раз, а не на все 10 секунд.</span>"
+      }
+    ]
+  },
+  {
+    "slug": "asurada",
+    "order": 19,
+    "boss_id": "boss_hum_073",
+    "boss_num": 73,
+    "name": "Asurada",
+    "name_ru": "Асурада",
+    "name_color": "#bb313d",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_073.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss073.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Asurada periodically gains damage reduction, which is removed when successfully countered. <span class=\"fce-card__text-accent\">Every 5 seconds gains 1 stack of 10% DMG reduction, up to 8 stacks.</span>"
+      },
+      {
+        "index": "2",
+        "html": "When Asurada hits targets, it reduces their Max HP for 10s, stacking up to 3 times. <span class=\"fce-card__text-accent\">Reduces Max HP by 10% per stack.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Asurada prevents targets hit from healing for a short period."
+      },
+      {
+        "index": "4",
+        "html": "Asurada&#x27;s hits on non-Fortitude targets sear them, dealing damage based on a percentage of their Max HP every second for 10s, stacking up to 3 times. <span class=\"fce-card__text-accent\">DoT: 3%/s per stack based on player Max HP.</span>"
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Асурада периодически получает снижение урона, которое снимается успешным парированием. <span class=\"fce-card__text-accent\">Каждые 5 секунд получает 1 слой снижения урона на 10%, до 8 слоев.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Когда Асурада попадает по цели, он снижает ее Max HP на 10 секунд, до 3 стаков. <span class=\"fce-card__text-accent\">Снижение Max HP на 10% за стак.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Асурада ненадолго запрещает лечить пораженные цели."
+      },
+      {
+        "index": "4",
+        "html": "Попадания Асурады по целям без Fortitude поджигают их, нанося урон в процентах от Max HP каждую секунду в течение 10 секунд, до 3 стаков. <span class=\"fce-card__text-accent\"> DoT 3%/сек за каждый стак от максимального HP игрока.</span>"
+      }
+    ]
+  },
+  {
+    "slug": "hive-mother",
+    "order": 20,
+    "boss_id": "boss_hum_069",
+    "boss_num": 69,
+    "name": "Hive Mother",
+    "name_ru": "Улей-Мать",
+    "name_color": "#cb60f1",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_069.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_064.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_064.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_064.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_064.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_064.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_064.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "The Hive Mother has high Crit Resistance. If her defenses are shattered, her Crit Resistance will temporarily disappear. <span class=\"fce-card__text-accent\">Additional 50% Crit Resistance. Removed for 1 min after shatter.</span>"
+      },
+      {
+        "index": "2",
+        "html": "Upon entering battle, the Hive Mother will summon 2 Rampage Prisoners to assist in combat. The Prisoners are in an invincible state, and will die once the Hive Mother is defeated."
+      },
+      {
+        "index": "3",
+        "html": "Every 5 seconds, the Hive Mother inflicts lethal damage every second to the locked-on target for 5 seconds. If the target has Fortitude, this damage is significantly reduced."
+      },
+      {
+        "index": "4",
+        "html": "Every 15 seconds, the Hive Mother scans her surroundings. If Attack, Balance, Fortitude, and Benediction are not present at the same time, all of the Hive Mother&#x27;s attacks will inflict lethal damage."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "У Улья-Матери высокая сопротивляемость критическим ударам. Если ее защиту разбить, эта крит-сопротивляемость временно исчезнет. <span class=\"fce-card__text-accent\">Дополнительно 50% crit resist. Снимается на 1 минуту после shatter.</span>"
+      },
+      {
+        "index": "2",
+        "html": "При входе в бой Улей-Мать призывает 2 Rampage Prisoners для помощи в бою. Они находятся в состоянии неуязвимости и умрут только после смерти самой Улья-Матери."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 5 секунд Улей-Мать наносит смертельный урон каждую секунду в течение 5 секунд цели, на которую зафиксирована. Если цель имеет Fortitude, этот урон значительно снижается."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Улей-Мать сканирует окружение. Если на поле одновременно нет Attack, Balance, Fortitude и Benediction, все ее атаки начинают наносить смертельный урон."
+      }
+    ]
+  },
+  {
+    "slug": "gu-chen",
+    "order": 21,
+    "boss_id": "boss_hum_060",
+    "boss_num": 60,
+    "name": "Gu Chen",
+    "name_ru": "Гу Чэнь",
+    "name_color": "#9f95c8",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_060.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss060.webp",
+    "mechanics_count": 5,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">After successful counter phantasia Gu Chen lose 9% of MAX HP.</span>"
+      },
+      {
+        "index": "1",
+        "html": "All attacks of Gu Chen cause additional damage as a percentage of life, with a cooldown of 3 seconds."
+      },
+      {
+        "index": "2",
+        "html": "Gu Chen will enter a short period of invincibility every once in a while. <span class=\"fce-card__text-accent\">Every 10 seconds gain invulnerability for 1 second.</span>"
+      },
+      {
+        "index": "3",
+        "html": "The speed of all actions of Gu Chen is improved to a certain extent."
+      },
+      {
+        "index": "4",
+        "html": "Gu Chen&#x27;s shield will be almost impossible to break."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "0",
+        "html": "<span class=\"fce-card__text-accent\">После успешной counter phantasia Гу Чэнь теряет 9% MAX HP.</span>"
+      },
+      {
+        "index": "1",
+        "html": "Все атаки Гу Чэня наносят дополнительный урон в процентах от HP, с кулдауном 3 секунды."
+      },
+      {
+        "index": "2",
+        "html": "Гу Чэнь периодически входит в короткую неуязвимость. <span class=\"fce-card__text-accent\">Каждые 10 секунд получает неуязвимость на 1 секунду.</span>"
+      },
+      {
+        "index": "3",
+        "html": "Скорость всех действий Гу Чэня умеренно повышена."
+      },
+      {
+        "index": "4",
+        "html": "Щит Гу Чэня почти невозможно сломать."
+      }
+    ]
+  },
+  {
+    "slug": "xing-tian",
+    "order": 22,
+    "boss_id": "boss_hum_64",
+    "boss_num": 64,
+    "name": "Xing Tian",
+    "name_ru": "Син Тянь",
+    "name_color": "#ef73ba",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss025.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss025.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "When Xing Tian&#x27;s health drops below 25%, he will cause damage to the surrounding area and become invincible for 15 seconds. This effect will only be triggered once."
+      },
+      {
+        "index": "2",
+        "html": "The damage Xing Tian causes to targets with a higher health percentage than his own is greatly increased."
+      },
+      {
+        "index": "3",
+        "html": "When Xing Tian hits a non-selected target, there is a chance that all of the target&#x27;s actions will be greatly reduced for 4 seconds."
+      },
+      {
+        "index": "4",
+        "html": "The speed of all Xing Tian&#x27;s actions is greatly increased."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Когда здоровье Син Тяня падает ниже 25%, он наносит урон вокруг себя и становится неуязвимым на 15 секунд. Этот эффект срабатывает только один раз."
+      },
+      {
+        "index": "2",
+        "html": "Урон, который Син Тянь наносит целям с более высоким процентом HP, чем у него самого, значительно увеличен."
+      },
+      {
+        "index": "3",
+        "html": "Когда Син Тянь попадает по невыбранной цели, есть шанс сильно замедлить все действия этой цели на 4 секунды."
+      },
+      {
+        "index": "4",
+        "html": "Скорость всех действий Син Тяня значительно повышена."
+      }
+    ]
+  },
+  {
+    "slug": "ying-zhao",
+    "order": 23,
+    "boss_id": "boss_hum_061",
+    "boss_num": 61,
+    "name": "Ying Zhao",
+    "name_ru": "Ин Чжао",
+    "name_color": "#a78fe7",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_061.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss061.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Ying Zhao gains a shield every 20 seconds, capable of blocking up to 40 instances of damage."
+      },
+      {
+        "index": "2",
+        "html": "Ying Zhao cannot be critically hit."
+      },
+      {
+        "index": "3",
+        "html": "Ying Zhao randomly selects 3 targets to form a triangular link, becoming invincible. Only enemies enclosed within the triangle take damage."
+      },
+      {
+        "index": "4",
+        "html": "Ying Zhao unleashes damage taken over the past 3 seconds to nearby enemies every 15 seconds. This damage cannot be fatal."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Ин Чжао получает щит каждые 20 секунд, способный заблокировать до 40 попаданий."
+      },
+      {
+        "index": "2",
+        "html": "По Ин Чжао невозможно нанести критический удар."
+      },
+      {
+        "index": "3",
+        "html": "Ин Чжао случайно выбирает 3 цели, связывает их треугольником и становится неуязвимым. Урон получают только враги внутри треугольника."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Ин Чжао высвобождает по ближайшим врагам урон, полученный им за последние 3 секунды. Этот урон не может быть смертельным."
+      }
+    ]
+  },
+  {
+    "slug": "sphere",
+    "order": 24,
+    "boss_id": "boss_hum_075",
+    "boss_num": 75,
+    "name": "Sphere",
+    "name_ru": "Сфера",
+    "name_color": "#73d9ee",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_075.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss075.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "All action speeds of the Sphere are increased."
+      },
+      {
+        "index": "2",
+        "html": "Sphere will release an electric current to the surrounding area every 5 seconds. The current will bounce back and forth between nearby targets to cause damage."
+      },
+      {
+        "index": "3",
+        "html": "The jump landing point and sliding area of the Sphere will leave an electric current area, causing lightning damage to the targets in the area every second."
+      },
+      {
+        "index": "4",
+        "html": "Sphere will add paralysis value to the target when it hits the target. When it is stacked to 20 layers, it will force paralysis for 5 seconds."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Скорость всех действий Сферы увеличена."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 5 секунд Сфера выпускает электрический ток по области вокруг. Разряд рикошетит между ближайшими целями и наносит урон."
+      },
+      {
+        "index": "3",
+        "html": "Точка приземления прыжка и зона скольжения Сферы оставляют электрическое поле, которое каждую секунду наносит молниеносный урон целям внутри."
+      },
+      {
+        "index": "4",
+        "html": "При попадании Сфера накапливает у цели значение paralysis. На 20 стаках принудительно накладывается паралич на 5 секунд."
+      }
+    ]
+  },
+  {
+    "slug": "franken",
+    "order": 25,
+    "boss_id": "boss_hum_001",
+    "boss_num": 1,
+    "name": "Franken",
+    "name_ru": "Франкен",
+    "name_color": "#9a7ce4",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss005.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss005.webp",
+    "mechanics_count": 4,
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "The interval between shield activations for the Franken is greatly shortened, but maximum health will be lost if the shield is broken. Shield cooldown 20s. Loses 15% of Max HP after shatter every 2nd shield. <span class=\"fce-card__text-accent\">(1-3-5-7)</span>"
+      },
+      {
+        "index": "2",
+        "html": "All attacks of the Franken will trigger earthquakes, causing damage and slowing down the target."
+      },
+      {
+        "index": "3",
+        "html": "The efficiency of the Franken&#x27;s selected target&#x27;s shield breaking is increased by 100%. Non-selected targets cannot cause damage to the Alien Franken&#x27;s shield."
+      },
+      {
+        "index": "4",
+        "html": "The shield value of the Franken is greatly increased, and the damage taken during the shield period is greatly reduced. Franken Shield +100%. <span class=\"fce-card__text-accent\">Additional DMG Reduction 84.5% while shielded.</span>"
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Интервал между активациями щита Франкена сильно сокращен, но при разрушении щита он теряет Max HP. Перезарядка щита 20 секунд. Потеря 15% Max HP после разрушения каждого 2-го щита. <span class=\"fce-card__text-accent\">(1-3-5-7)</span>"
+      },
+      {
+        "index": "2",
+        "html": "Все атаки Франкена вызывают землетрясения, наносящие урон и замедляющие цель."
+      },
+      {
+        "index": "3",
+        "html": "Эффективность разрушения щита у выбранной цели Франкена увеличена на 100%. Невыбранные цели не могут наносить урон щиту Alien Franken."
+      },
+      {
+        "index": "4",
+        "html": "Прочность щита Франкена значительно увеличена, а получаемый урон во время действия щита сильно снижен. Щит Франкена +100%. <span class=\"fce-card__text-accent\">Дополнительное снижение урона 84.5% пока щит активен.</span>"
+      }
+    ]
+  },
+  {
+    "slug": "barbarossa",
+    "order": 26,
+    "boss_id": "boss_hum_025",
+    "boss_num": 25,
+    "name": "Barbarossa",
+    "name_ru": "Барбаросса",
+    "name_color": "#b972d8",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_03.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_03.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D115",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Barbarossa gains Bleed upon hitting targets, dealing damage equal to % of Max HP per second for 15s, up to 1 stack."
+      },
+      {
+        "index": "2",
+        "html": "Barbarossa enters Rampage Mode, greatly increasing its movement speed."
+      },
+      {
+        "index": "3",
+        "html": "Barbarossa increases the biting frequency, ignoring Hyperbody and Invincibility."
+      },
+      {
+        "index": "4",
+        "html": "Barbarossa inflicts Fear upon locking a target, greatly reducing their movement speed. The effect is halved against targets with Fortitude."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Барбаросса накладывает Bleed при попадании по цели, нанося урон, равный % от Max HP в секунду, в течение 15 секунд, до 1 стака."
+      },
+      {
+        "index": "2",
+        "html": "Барбаросса входит в режим Rampage, значительно увеличивая скорость передвижения."
+      },
+      {
+        "index": "3",
+        "html": "Барбаросса увеличивает частоту укусов, игнорируя Hyperbody и Invincibility."
+      },
+      {
+        "index": "4",
+        "html": "Барбаросса накладывает Fear при захвате цели, сильно снижая ее скорость передвижения. Против целей с Fortitude эффект ослаблен вдвое."
+      }
+    ]
+  },
+  {
+    "slug": "zhuyan",
+    "order": 27,
+    "boss_id": "boss_hum_057",
+    "boss_num": 57,
+    "name": "Zhuyan",
+    "name_ru": "Чжуянь",
+    "name_color": "#ff5a4d",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_10.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D116",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_057_1_des",
+        "html": "Zhuyan's attacks carry an additional Powerful Graying Bite effect. Increase corresponding elemental resistance or avoid being hit."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_057_2_des",
+        "html": "Zhuyan inflicts Brutality with each hit. At 5 stacks, it triggers an explosion that deals massive damage to target and nearby enemies."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_057_3_des",
+        "html": "Zhuyan can be executed. Use weapons with high Shatter to break its shield and execute it."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_057_4_des",
+        "html": "Zhuyan erupts the ground every 5s, dealing lethal damage and leaving pools of lava at the explosion sites."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_057_1_des",
+        "html": "Атаки Чжуяня накладывают дополнительный эффект «Мощный пепельный укус». Повысьте соответствующее сопротивление или избегайте попаданий."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_057_2_des",
+        "html": "Каждая атака Чжуяня накладывает «Жестокость». При 5 зарядах происходит взрыв, наносящий значительный урон цели и врагам поблизости."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_057_3_des",
+        "html": "Чжуяня можно уничтожить. Используйте оружие с высоким показателем раскола, чтобы сломать его щит и выполнить добивание."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_057_4_des",
+        "html": "Каждые 5 секунд Чжуянь вызывает извержение из-под земли, наносящее смертельный урон и оставляющее после взрыва лужи лавы."
+      }
+    ]
+  },
+  {
+    "slug": "habaka",
+    "order": 28,
+    "boss_id": "boss_hum_018",
+    "boss_num": 18,
+    "name": "Habaka",
+    "name_ru": "Хабака",
+    "name_color": "#7d51a4",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_018.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D117",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_018_1_des",
+        "html": "Habaka's movement speed is increased."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_018_2_des",
+        "html": "Spreads Corrosion, reducing damage dealt by nearby targets."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_018_3_des",
+        "html": "Gains temporary damage reduction for 5s when attacked. Cooldown: 15s."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_018_4_des",
+        "html": "Gains one stack of Vigor with each hit. At 10 stacks, the next attack deals massive bonus damage."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_018_1_des",
+        "html": "Скорость движения Хабаки увеличена."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_018_2_des",
+        "html": "Распространяет коррозию, уменьшая наносимый ближайшим целям урон."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_018_3_des",
+        "html": "Получает временное снижение получаемого урона на 5 сек., подвергаясь атаке. Перезарядка: 15 сек."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_018_4_des",
+        "html": "При каждом ударе получает 1 заряд энергии. При 10 зарядах следующая атака наносит значительный бонусный урон."
+      }
+    ]
+  },
+  {
+    "slug": "fei-lian",
+    "order": 29,
+    "boss_id": "boss_hum_067",
+    "boss_num": 67,
+    "name": "Fei Lian",
+    "name_ru": "Фэй Лянь",
+    "name_color": "#d2db4f",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/BOSS_FL.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_FL.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D118",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_067_1_des",
+        "html": "Grants Fei Lian 1 stack of Damage Reduction of an Element for 3s after getting hit with that Element. Grants up to 1 stack every second."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_067_2_des",
+        "html": "Ignores the target's resistances when attacking."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_067_3_des",
+        "html": "Owns 5 stacks of Element Shield, each stack reducing the damage Fei Lian takes. Elemental attacks remove the corresponding Shield for 10s."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_067_4_des",
+        "html": "Generates Elemental Ores every 15s around Fei Lian. The ores break upon 5 hits of the corresponding Elements but explode if they are not broken within 15s, dealing lethal damage to characters and healing Fei Lian."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_067_1_des",
+        "html": "Дает Фэйлянь 1 уровень снижения урона от стихии на 3 сек. после получения удара этой стихией. Максимум 1 уровень в секунду."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_067_2_des",
+        "html": "Игнорирует сопротивления цели при атаке."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_067_3_des",
+        "html": "Имеет 5 уровней Стихийного щита; каждый уровень снижает получаемый Фэйлянь урон. Атаки стихиями убирают соответствующие щиты на 10 сек."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_067_4_des",
+        "html": "Каждые 15 сек. вокруг Фэйлянь создаются фрагменты стихийной руды. Фрагменты разбиваются после 5 попаданий соответствующей стихией, но если не разбить их за 15 сек., то они взрываются, нанося смертельный урон персонажам и исцеляя Фэйлянь."
+      }
+    ]
+  },
+  {
+    "slug": "nanto",
+    "order": 30,
+    "boss_id": "boss_hum_086",
+    "boss_num": 86,
+    "name": "Nanto",
+    "name_ru": "Нанто",
+    "name_color": "#49a6ee",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/BOSS_ND.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_ND.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D119",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_086_1_des",
+        "html": "Has a chance to stun enemies for 1.5s upon hit."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_086_2_des",
+        "html": "Has a chance of gaining a Shield that blocks 1 instance of damage."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_086_3_des",
+        "html": "Grants an Attack Boost or Damage Reduction every 10s, lasting for 10s."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_086_4_des",
+        "html": "Generates a large-scale explosion every 5s, dealing damage and reducing the target's Attack, Crit, or Resistance randomly for 5s."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_086_1_des",
+        "html": "При ударе есть шанс оглушить врагов на 1,5 сек."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_086_2_des",
+        "html": "Есть шанс получить щит, блокирующий 1 экземпляр урона."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_086_3_des",
+        "html": "Дает усиление к атаке или снижение урона на 10 сек. раз в 10 сек."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_086_4_des",
+        "html": "Каждые 5 сек. создает мощный взрыв, наносящий урон и случайным образом снижающий атаку, крит. удар или сопротивление цели на 5 сек."
+      }
+    ]
+  },
+  {
+    "slug": "chiron",
+    "order": 31,
+    "boss_id": "boss_hum_009",
+    "boss_num": 9,
+    "name": "Chiron",
+    "name_ru": "Хирон",
+    "name_color": "#2fa8c5",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss004.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D120",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_009_2_des",
+        "html": "Increases Chiron the Centaur's Speed."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_009_3_des",
+        "html": "Chiron the Centaur sprints more often."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_009_4_des",
+        "html": "Chiron the Centaur's attacks ignore Hyperbody."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_009_5_des",
+        "html": "Chiron the Centaur creates electromagnetic traps around itself, stunning those who step on them for 3s."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_009_2_des",
+        "html": "Увеличивает скорость кентавра Хирона."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_009_3_des",
+        "html": "Кентавр Хирон может чаще делать рывок."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_009_4_des",
+        "html": "Атаки кентавра Хирона игнорируют Гипертело."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_009_5_des",
+        "html": "Кентавр Хирон создает вокруг себя электромагнитные ловушки, которые на 3 сек. оглушают тех, кто в них наступит."
+      }
+    ]
+  },
+  {
+    "slug": "eva",
+    "order": 32,
+    "boss_id": "boss_hum_045",
+    "boss_num": 45,
+    "name": "Eva",
+    "name_ru": "Ева",
+    "name_color": "#cf86c1",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_069.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D121",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_045_2_des",
+        "html": "Abyssant: Eva's Attacks inflict Graying Bite."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_045_3_des",
+        "html": "Abyssant: Eva deals massive damage, distributed among nearby enemies."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_045_4_des",
+        "html": "When below 25% HP, Abyssant: Eva loses 5% of her Max HP per second and deals lethal damage over time to nearby enemies."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_045_5_des",
+        "html": "Abyssant: Eva gains Invincibility. A light circle appears nearby every 15s. Abyssant: Eva loses Invincibility for 30s once she steps into the circle."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_045_2_des",
+        "html": "Атаки Абиссевой наносят урон, вызывающий эффект «Поглощение пепла»."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_045_3_des",
+        "html": "Растение Abisiva продолжает наносить значительный ущерб окружающей территории."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_045_4_des",
+        "html": "Когда здоровье Абисевой опустится ниже 25%, она будет терять 5% от своего максимального запаса здоровья в секунду и наносить смертельный урон окружающим врагам каждую секунду."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_045_5_des",
+        "html": "Абиссева неуязвима. Каждые 15 секунд вокруг неё появляется ореол. После попадания в ореол Абиссева теряет свою неуязвимость на 30 секунд."
+      }
+    ]
+  },
+  {
+    "slug": "phantasmic-scorpion",
+    "order": 33,
+    "boss_id": "boss_hum_074",
+    "boss_num": 74,
+    "name": "Scorpion",
+    "name_ru": "Скорпион",
+    "name_color": "#b7e84a",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_074.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D122",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 980,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_074_2_des",
+        "html": "Prevents healing on targets hit by Phantasmic Scorpion for 10s."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_074_3_des",
+        "html": "Phantasmic Scorpion releases a lethal poison in a large area every 30s."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_074_4_des",
+        "html": "Phantasmic Scorpion releases poisonous fog in a random area nearby every 10s, inflicting Slow on those who enter."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_074_5_des",
+        "html": "Stone Pillars spawn around the Phantasmic Scorpion every 20s. 10s later, the Phantasmic Scorpion releases poison to all targets not sheltered by the pillars, inflicting an 8-second Stun on them."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_074_2_des",
+        "html": "Предотвращает исцеление целей, пораженных «Фантастическим скорпионом», в течение 10 секунд."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_074_3_des",
+        "html": "Призрачный скорпион каждые 30 секунд выпускает смертельный яд на большой площади."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_074_4_des",
+        "html": "Призрачный Скорпион каждые 10 секунд выпускает ядовитый туман в случайном месте поблизости, замедляя тех, кто в него входит."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_074_5_des",
+        "html": "Каменные столбы появляются вокруг Призрачного Скорпиона каждые 20 секунд. Через 10 секунд Призрачный Скорпион выпускает яд на все цели, не защищенные столбами, накладывая на них оглушение на 8 секунд."
+      }
+    ]
+  },
+  {
+    "slug": "defender",
+    "order": 34,
+    "boss_id": "boss_hum_079",
+    "boss_num": 79,
+    "name": "Defender",
+    "name_ru": "Защитник",
+    "name_color": "#72d4ca",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_079.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D123",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_079_2_des",
+        "html": "Increases the Defender's speed for all actions."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_079_3_des",
+        "html": "Launches multiple missiles on the surrounding area periodically, dealing lethal damage."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_079_4_des",
+        "html": "Deploys a Radiation Bomb periodically that detonates after a 5-second delay, releasing radiation across a wide area and dealing lethal damage. Can be disarmed after hit multiple times."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_079_5_des",
+        "html": "Creates an invincible copy of itself, with all the Defender's Abilities, when its HP reaches 80%."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_079_2_des",
+        "html": "Увеличивает скорость защитника при выполнении всех действий."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_079_3_des",
+        "html": "Периодически запускает множество ракет по окружающей местности, нанося смертельный урон."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_079_4_des",
+        "html": "Периодически запускает радиационную бомбу, которая детонирует с задержкой в 5 секунд, распространяя радиацию на большой площади и нанося смертельный урон. Может быть обезврежена после нескольких попаданий."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_079_5_des",
+        "html": "Создаёт неуязвимую копию себя со всеми способностями Защитника, когда её запас здоровья достигает 80%."
+      }
+    ]
+  },
+  {
+    "slug": "black-crow",
+    "order": 35,
+    "boss_id": "boss_hum_059",
+    "boss_num": 59,
+    "name": "Black Crow",
+    "name_ru": "Чёрный ворон",
+    "name_color": "#d55939",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.thumb.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D124",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_059_1_des",
+        "html": "Deals Corrosion Damage with attacks."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_059_2_des",
+        "html": "Restores Max HP over 5s."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_059_3_des",
+        "html": "Grants a shield at the start that breaks after 200 hits."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_059_4_des",
+        "html": "Deals huge damage based on HP percentage to nearby targets."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_059_1_des",
+        "html": "Наносит коррозионный урон при атаках."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_059_2_des",
+        "html": "Восстанавливает максимальное количество HP за 5 секунд."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_059_3_des",
+        "html": "В начале боя предоставляет щит, который разрушается после 200 попаданий."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_059_4_des",
+        "html": "Наносит огромный урон ближайшим целям, зависящий от процента здоровья."
+      }
+    ]
+  },
+  {
+    "slug": "robarg",
+    "order": 36,
+    "boss_id": "boss_006",
+    "boss_num": 6,
+    "name": "Robarg",
+    "name_ru": "Робарг",
+    "name_color": "#de7e3e",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss001.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss001.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D125",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_006_1_des",
+        "html": "Robarg loses no more than 3.5% Max HP per second."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_006_2_des",
+        "html": "Robarg applies 1 stack of Neural Toxin on targets hit. Reaching 15 stacks Stuns the target for 15s. Neural Toxin stacks can be cleansed by picking up randomly dropped antidotes."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_006_3_des",
+        "html": "Increases Robarg's movement speed."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_006_4_des",
+        "html": "Robarg becomes Invincible every time he loses 25% Max HP and generates 3 purple areas nearby. His Invincibility breaks when players stand in all 3 areas simultaneously."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_006_1_des",
+        "html": "Робарг теряет не более 3,5% от максимального запаса здоровья в секунду."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_006_2_des",
+        "html": "Робарг накладывает 1 стак Нейротоксина на пораженную цель. При достижении 15 стаков цель оглушается на 15 секунд. Стаки Нейротоксина можно снять, подобрав случайно выпавшие противоядия."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_006_3_des",
+        "html": "Увеличивает скорость передвижения Робарга."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_006_4_des",
+        "html": "Робарг становится неуязвимым каждый раз, когда теряет 25% от максимального запаса здоровья и рядом с ним появляются 3 фиолетовые зоны. Его неуязвимость исчезает, когда игроки одновременно находятся во всех 3 зонах."
+      }
+    ]
+  },
+  {
+    "slug": "ground-controller",
+    "order": 37,
+    "boss_id": "boss_078",
+    "boss_num": 78,
+    "name": "Ground Controller",
+    "name_ru": "Наземный контроллер",
+    "name_color": "#69718C",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_078.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss078.webp",
+    "mechanics_count": 4,
+    "ladder_level": 100,
+    "ladder_key": "BorderWar_D126",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 56,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_078_1_des",
+        "html": "Ground Controller gains Deflect every 7s. When hit, it removes Deflect and deflects 10% of that damage back to the attacker. The deflected damage cannot be fatal."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_078_2_des",
+        "html": "Ground Controller has a 50% Damage Reduction. Hitting its Weak Points removes its Damage Reduction for 30s."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_078_3_des",
+        "html": "Ground Controller slows all nearby targets."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_078_4_des",
+        "html": "Ground Controller leaves a timed magnetic bomb every 15s on the ground that explodes 5s later, inflicting control effects on the target for 3s."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_078_1_des",
+        "html": "Наземный Контроллер получает эффект Отражения каждые 7 секунд. При попадании эффект Отражения исчезает, и 10% от полученного урона возвращается атакующему. Отражённый урон не может быть смертельным."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_078_2_des",
+        "html": "Наземный контроллер обладает 50% снижением урона. Попадание по его слабым местам снимает это снижение урона на 30 секунд."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_078_3_des",
+        "html": "Наземный контроллер замедляет все находящиеся поблизости цели."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_078_4_des",
+        "html": "Наземный диспетчер каждые 15 секунд оставляет на земле магнитную бомбу с таймером, которая взрывается через 5 секунд, накладывая на цель эффекты контроля на 3 секунды."
+      }
+    ]
+  }
+];
+
+export const BASELINE_MMO_BOSSES: FceBossItem[] = [
+  {
+    "slug": "chaos-armor",
+    "order": 1,
+    "boss_id": "boss_hum_046",
+    "boss_num": 46,
+    "name": "Chaos Armor",
+    "name_ru": "Хаос Армор",
+    "name_color": "#f16937",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_08.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+    "mechanics_count": 4,
+    "ladder_level": 29,
+    "ladder_key": "BorderWar_D",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Attacks come with a Damage Amp effect. Subsequent hits further increase damage taken. Avoid getting hit repeatedly."
+      },
+      {
+        "index": "2",
+        "html": "The lower the boss&#x27;s HP, the greater its damage reduction. <span class=\"fce-card__text-accent\">Damage reduction 20% for each 20% HP lost.</span> The boss can then be executed. Use weapons with high shatter to break its shield and execute it. Execution damage ignores the boss&#x27;s damage reduction and is affected by the Wanderer&#x27;s ATK, resistance, and damage boost."
+      },
+      {
+        "index": "3",
+        "html": "Gain the Infernal Flames skill. The majority of the boss&#x27;s attacks will leave a large area on the ground that burns continuously. Avoid entering the burning areas."
+      },
+      {
+        "index": "4",
+        "html": "Large random explosions will occur in the area, dealing lethal damage upon hit and leaving Infernal Flames in the area."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки сопровождаются эффектом усиления урона. Последующие попадания дополнительно увеличивают получаемый урон. Избегайте повторных ударов."
+      },
+      {
+        "index": "2",
+        "html": "Чем меньше HP босса, тем выше его снижение урона. <span class=\"fce-card__text-accent\">Снижение урона на 20% за каждые потерянные 20% HP.</span> После этого босса можно добить. Используйте оружие с высоким shatter, чтобы сломать щит и выполнить добивание. Урон добивания игнорирует снижение урона босса и зависит от ATK, сопротивлений и бонуса урона Странника."
+      },
+      {
+        "index": "3",
+        "html": "Босс получает навык Infernal Flames. Большинство атак босса оставляют на земле большую горящую область, которая непрерывно наносит урон. Не заходите в пылающие зоны."
+      },
+      {
+        "index": "4",
+        "html": "По области будут происходить большие случайные взрывы, наносящие смертельный урон при попадании и оставляющие Infernal Flames."
+      }
+    ],
+    "season": 1
+  },
+  {
+    "slug": "frigg",
+    "order": 2,
+    "boss_id": "boss_hum_019",
+    "boss_num": 19,
+    "name": "Frigg",
+    "name_ru": "Фригг",
+    "name_color": "#ef62bd",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss012.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss012.webp",
+    "mechanics_count": 4,
+    "ladder_level": 50,
+    "ladder_key": "BorderWar_D91",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Frigg's shield strength greatly increases."
+      },
+      {
+        "index": "2",
+        "html": "Frigg gains a damage boost each time she lands a hit. This effect can stack."
+      },
+      {
+        "index": "3",
+        "html": "Frigg enters Rampage Mode, greatly increasing her speed."
+      },
+      {
+        "index": "4",
+        "html": "Frigg enters Extreme Mode, increasing her speed and leaving frost under her feet. If you touch the frost, you will take damage and be slowed, which can be stacked up to 3 times."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Прочность щита Фригг значительно увеличивается."
+      },
+      {
+        "index": "2",
+        "html": "Фригг получает прибавку к урону каждый раз, когда наносит удар. Этот эффект складывается."
+      },
+      {
+        "index": "3",
+        "html": "Фригг переходит в режим буйства, значительно увеличивая свою скорость движения."
+      },
+      {
+        "index": "4",
+        "html": "Фригг переходит в экстремальный режим, в котором ее скорость увеличивается, а под ногами остается след инея. Если коснуться инея, вы получаете урон и замедляетесь, и этот эффект складывается до 3 раз."
+      }
+    ],
+    "season": 1
+  },
+  {
+    "slug": "valkyrie",
+    "order": 3,
+    "boss_id": "boss_hum_032",
+    "boss_num": 32,
+    "name": "Valkyrie",
+    "name_ru": "Валькирия",
+    "name_color": "#ebe154",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss016.webp",
+    "mechanics_count": 4,
+    "ladder_level": 59,
+    "ladder_key": "BorderWar_D92",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Increase speed of all of Valkyrie's actions."
+      },
+      {
+        "index": "2",
+        "html": "Valkyrie is immune to damage 1 time every second."
+      },
+      {
+        "index": "3",
+        "html": "Valkyrie leaves destructible electrodes on the ground around it at regular intervals. These electrodes periodically emit a circular electrical current in the surrounding area."
+      },
+      {
+        "index": "4",
+        "html": "Valkyrie summons lightning bolts around it at regular intervals, dealing lethal damage and electrifying targets. When an electrified target is hit by a volt attack, chain lightning is triggered."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Увеличивает скорость всех действий Валькирии."
+      },
+      {
+        "index": "2",
+        "html": "Валькирия получает иммунитет к урону 1 раз в секунду."
+      },
+      {
+        "index": "3",
+        "html": "Через равные промежутки времени Валькирия создает на земле вокруг себя разрушаемые электроды. Эти электроды периодически испускают круговой электрический разряд по окружающей области."
+      },
+      {
+        "index": "4",
+        "html": "Через равные промежутки времени Валькирия призывает вокруг себя молнии, наносящие смертельный урон и накладывающие электрификацию на цели. Когда цель с электрификацией получает удар атакой электричества, срабатывает цепная молния."
+      }
+    ],
+    "season": 1
+  },
+  {
+    "slug": "culton",
+    "order": 4,
+    "boss_id": "boss_hum_036",
+    "boss_num": 36,
+    "name": "Culton",
+    "name_ru": "Калтон",
+    "name_color": "#4ec7d6",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_036.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss036.webp",
+    "mechanics_count": 4,
+    "ladder_level": 71,
+    "ladder_key": "BorderWar_D93",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Culton triggers Hostility on the selected target every second. Each stack of Hostility slows the target for 5 seconds, stacking up to 5 times."
+      },
+      {
+        "index": "2",
+        "html": "For every 30 seconds, Culton induces chaos, reversing Wanderers' movement for 15 seconds."
+      },
+      {
+        "index": "3",
+        "html": "Culton enters an invincible state for 3 seconds each time he loses a certain amount of HP."
+      },
+      {
+        "index": "4",
+        "html": "In the final phase, Culton summons red pillars. Each pillar increases Culton's damage boost and damage reduction by 20%. Make Culton collide with the pillars to disable the buffs."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Калтон каждую секунду вызывает враждебность у выбранной цели. Каждый заряд враждебности замедляет цель на 5 секунд. Складывается до 5 раз."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 30 секунд Калтон вызывает хаос, обращая управление движением странников на 15 секунд."
+      },
+      {
+        "index": "3",
+        "html": "Калтон переходит в состояние неуязвимости на 3 сек. каждый раз, когда теряет определенное количество ОЗ."
+      },
+      {
+        "index": "4",
+        "html": "На последней фазе Калтон призывает красные столбы. Каждый столб дает + 20% к урону и снижению урона Калтона. Заставляйте Калтона сталкиваться со столбами, чтобы снять эти усиления."
+      }
+    ],
+    "season": 1
+  },
+  {
+    "slug": "iron-tomb",
+    "order": 5,
+    "boss_id": "boss_hum_037",
+    "boss_num": 37,
+    "name": "Iron Tomb",
+    "name_ru": "Саркофаг",
+    "name_color": "#3db0c0",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_11.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_11.webp",
+    "mechanics_count": 4,
+    "ladder_level": 75,
+    "ladder_key": "BorderWar_D94",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Iron Tomb's attacks have a certain chance to inflict a 5-second Countermove effect, disabling the target's hyperbody for its duration."
+      },
+      {
+        "index": "2",
+        "html": "Every 20 seconds, Iron Tomb gains damage reduction based on its Max HP lost for 20 seconds."
+      },
+      {
+        "index": "3",
+        "html": "Every 8 seconds, Iron Tomb's attacks inflict a Maim effect, significantly reducing the damage dealt and healing received on non-Fortitude targets for 8 seconds."
+      },
+      {
+        "index": "4",
+        "html": "Every 20 seconds, Iron Tomb randomly links 2 players within range, reducing their final damage by 30%; each linked player provides a 30% increase in Iron Tomb's final damage. Moving away from Iron Tomb can break the link."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Саркофага с определенной вероятностью накладывают эффект контрдвижения на 5 секунд. На время действия эффект отключает гипертело цели."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 20 секунд Саркофаг получает снижение урона на основе того, какой процент от макс. ОЗ был потерян за последние 20 секунд."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 8 секунд атаки Саркофага накладывают эффект калечения, на 8 секунд значительно снижающий наносимый урон и получаемое лечение у целей (кроме целей силы духа)."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 20 секунд Саркофаг случайным образом связывается с двумя игроками в радиусе действия, снижая их конечный урон на 30%. Каждый связанный игрок увеличивает конечный урон Саркофага на 30%. Перемещение в сторону от Саркофага может разорвать связь."
+      }
+    ],
+    "season": 1
+  },
+  {
+    "slug": "gaia",
+    "order": 6,
+    "boss_id": "boss_hum_042",
+    "boss_num": 42,
+    "name": "Gaia",
+    "name_ru": "Гайя",
+    "name_color": "#dc6dd0",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_02.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_02.webp",
+    "mechanics_count": 4,
+    "ladder_level": 79,
+    "ladder_key": "BorderWar_D95",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Gaia inflicts Bonecrush on targets without Fortitude with each hit. At 20 stacks, the debuff triggers Cripple, massively reducing their damage dealt for 10 seconds."
+      },
+      {
+        "index": "2",
+        "html": "Every 15 seconds, Gaia randomly selects a target. After 5 seconds, the selected target inflicts wide-area lethal damage every second to all allies except themselves for 5 seconds."
+      },
+      {
+        "index": "3",
+        "html": "Targets hit by Gaia are slowed for 5 seconds, stacking up to 2 times."
+      },
+      {
+        "index": "4",
+        "html": "After Gaia's shield is shattered, it deals wide-area damage every second for 10 seconds. Targets hit will be inflicted with 15% weakness for 10 seconds, up to 3 stacks."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "С каждым попаданием Гейр накладывает «Дробление костей» на цели без силы духа. При 20 экз. дебафф активирует эффект увечья, значительно снижая наносимый ими урон на 10 сек."
+      },
+      {
+        "index": "2",
+        "html": "Каждые 15 секунд Гейр случайным образом выбирает цель. Через 5 секунд выбранная цель в течение 5 секунд каждую секунду будет наносить смертельный урон в большой области всем союзникам, кроме себя."
+      },
+      {
+        "index": "3",
+        "html": "Пораженные Гейром цели замедляются на 5 секунд. Складывается до 2 раз."
+      },
+      {
+        "index": "4",
+        "html": "После раскола своего щита Гейр наносит урон по большой области каждую секунду в течение 10 сек. На пораженные цели на 10 сек. накладывается слабость в размере 15%. Накапливается до 3 раз."
+      }
+    ],
+    "season": 1
+  },
+  {
+    "slug": "sweetie",
+    "order": 7,
+    "boss_id": "boss_hum_020",
+    "boss_num": 20,
+    "name": "Sweetie",
+    "name_ru": "Милашка",
+    "name_color": "#e08c42",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_020.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss020.webp",
+    "mechanics_count": 4,
+    "ladder_level": 83,
+    "ladder_key": "BorderWar_D96",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Every 25 seconds, Sweetie casts Penalty on 2–4 random nearby targets. The targets will take damage if they engage in any actions within 5 seconds of receiving Penalty."
+      },
+      {
+        "index": "2",
+        "html": "Increase Sweetie's movement speed, and decrease the movement speed of all nearby targets."
+      },
+      {
+        "index": "3",
+        "html": "Every 15 seconds, Sweetie randomly selects a target on the field to inflict massive damage every second for 15 seconds, prioritizing targets with Fortitude Resonance."
+      },
+      {
+        "index": "4",
+        "html": "Sweetie chains all Wanderer-allied targets on the field. Each target will suffer damage proportional to the percentage of damage received by other chained targets."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Каждые 25 секунд Милашка накладывает Штраф на 2–4 случайные цели поблизости. Если цели совершают какие-либо действия в течение 5 секунд после получения Штрафа, они получат урон."
+      },
+      {
+        "index": "2",
+        "html": "Увеличивает скорость движения Милашки и снижает скорость движения всех ближайших целей."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 15 секунд Милашка случайным образом выбирает цель на поле боя и наносит ей огромный урон каждую секунду в течение 15 секунд. Предпочтение отдается целям с резонансом силы духа."
+      },
+      {
+        "index": "4",
+        "html": "Милашка связывает все союзные страннику цели на поле боя. Каждая цель получает долю урона, получаемого другими связанными целями."
+      }
+    ],
+    "season": 1
+  },
+  {
+    "slug": "merbelle",
+    "order": 8,
+    "boss_id": "boss_065",
+    "boss_num": 65,
+    "name": "Merbelle",
+    "name_ru": "Мербелль",
+    "name_color": "#a46ae7",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_065.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss065.webp",
+    "mechanics_count": 4,
+    "ladder_level": 29,
+    "ladder_key": "BorderWar_D97",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Whenever Merbelle loses a certain amount of HP, its attack will increase."
+      },
+      {
+        "index": "2",
+        "html": "When Merbelle has a shield, gain additional damage reduction and greatly increase shield strength."
+      },
+      {
+        "index": "3",
+        "html": "Each time Merbelle deals damage, inflicts a stack of Flashfreeze. When Flashfreeze stacks 15 times, stacks clear and the Wanderer is greatly slowed for 6 seconds."
+      },
+      {
+        "index": "4",
+        "html": "Merbelle unleashes an ice pillar at a target every 15 seconds, dealing huge damage. The ice pillar remains on the field, restoring 3% of Merbelle's Max HP every 10 seconds. The ice pillar can be destroyed by multiple attacks."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Когда Мербель теряет определенное количество ОЗ, ее атака возрастает."
+      },
+      {
+        "index": "2",
+        "html": "Если у Мербель есть щит, она получает дополнительное снижение урона и значительно увеличивает прочность щита."
+      },
+      {
+        "index": "3",
+        "html": "Каждый раз, когда Мербель наносит урон, она накладывает заряд Мгновенной заморозки. Когда Мгновенная заморозка складывается 15 раз, заряды снимаются, а странник сильно замедляется на 6 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 сек. Мербель выпускает в цель ледяной столб, наносящий огромный урон. Ледяной столб остается на поле боя и восстанавливает 3% от макс. ОЗ Мербель каждые 10 секунд. Ледяной столб можно уничтожить несколькими атаками."
+      }
+    ],
+    "season": 2
+  },
+  {
+    "slug": "frost-bot",
+    "order": 9,
+    "boss_id": "boss_017",
+    "boss_num": 17,
+    "name": "Frost Bot",
+    "name_ru": "Фрост Бот",
+    "name_color": "#4b8fff",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss008.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss008.webp",
+    "mechanics_count": 4,
+    "ladder_level": 50,
+    "ladder_key": "BorderWar_D98",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Frost Bot continuously generates Field generators around it. Each generator provides damage reduction to Frost Bot and can be shattered through multiple attacks."
+      },
+      {
+        "index": "2",
+        "html": "Frost Bot will repair itself, slowly recovering HP."
+      },
+      {
+        "index": "3",
+        "html": "Greatly increase the movement speed of Frost Bot."
+      },
+      {
+        "index": "4",
+        "html": "Frost Bot releases a powerful chill around itself every second, continuously Slowing nearby targets."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Морозный бот постоянно создает вокруг себя генераторы позиционирования. Каждый генератор дает морозному боту снижение урона. Генераторы можно разрушать повторными атаками."
+      },
+      {
+        "index": "2",
+        "html": "Морозный бот чинит сам себя, медленно восстанавливая ОЗ."
+      },
+      {
+        "index": "3",
+        "html": "Значительно увеличивает скорость движения морозного бота."
+      },
+      {
+        "index": "4",
+        "html": "Каждую секунду морозный бот испускает вокруг себя волну холода, постоянно замедляя ближайшие цели."
+      }
+    ],
+    "season": 2
+  },
+  {
+    "slug": "apophis",
+    "order": 10,
+    "boss_id": "boss_014",
+    "boss_num": 14,
+    "name": "Apophis",
+    "name_ru": "Апофис",
+    "name_color": "#d4ba3e",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss015.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss015.webp",
+    "mechanics_count": 4,
+    "ladder_level": 59,
+    "ladder_key": "BorderWar_D99",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Attacks come with a powerful Graying Bite effect. Increase corresponding elemental resistance or avoid being hit."
+      },
+      {
+        "index": "2",
+        "html": "Apophis can be executed. Use weapons with high shatter to break its shield and execute it."
+      },
+      {
+        "index": "3",
+        "html": "Greatly increase the movement speed of Apophis."
+      },
+      {
+        "index": "4",
+        "html": "Nullify the hyperbody status of targets around Apophis."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки накладывают дополнительный эффект «Мощный Пепельный укус». Повысьте соответствующее сопротивление или избегайте попаданий."
+      },
+      {
+        "index": "2",
+        "html": "Апофиса можно уничтожить. Используйте оружие с высоким показателем раскола, чтобы сломать его щит и выполнить добивание."
+      },
+      {
+        "index": "3",
+        "html": "Значительно увеличивает скорость движения Апофиса."
+      },
+      {
+        "index": "4",
+        "html": "Сбрасывает статус гипертела у целей вокруг Апофиса."
+      }
+    ],
+    "season": 2
+  },
+  {
+    "slug": "minotaur",
+    "order": 11,
+    "boss_id": "boss_002",
+    "boss_num": 2,
+    "name": "Minotaur",
+    "name_ru": "Минотавр",
+    "name_color": "#5d79dd",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss003.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss003.webp",
+    "mechanics_count": 4,
+    "ladder_level": 71,
+    "ladder_key": "BorderWar_D100",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Minotaur significantly reduces damage received from the primary aggro target."
+      },
+      {
+        "index": "2",
+        "html": "Minotaur can be executed. Use weapons with high shatter to break its shield and execute it."
+      },
+      {
+        "index": "3",
+        "html": "Every 15 seconds, Minotaur randomly selects a target with Benediction, applying Toxicitea, which converts the target's healing into an equivalent amount of damage. Lasts for 10 seconds."
+      },
+      {
+        "index": "4",
+        "html": "Every 15 seconds, Minotaur examines all Wanderers. If a Wanderer is found to be within 5 meters without any other Wanderers nearby, that Wanderer will lose their hyperbody and invincibility and will be unable to regain hyperbody or invincibility for 90 seconds."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Урон, который Минотавр получает от основной цели агро, значительно снижается."
+      },
+      {
+        "index": "2",
+        "html": "Минотавра можно уничтожить. Используйте оружие с высоким показателем раскола, чтобы сломать его щит и выполнить добивание."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 15 секунд Минотавр случайным образом выбирает цель с посвящением и накладывает Токсичай, который преобразует лечение цели в такое же количество урона. Действует в течение 10 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Каждые 15 секунд Минотавр изучает всех странников. Если обнаружится, что странник находится в радиусе 5 метров от него, а других странников рядом с ним нет, тот странник теряет гипертело и неуязвимость и не может получить гипертело или неуязвимость в течение 90 секунд."
+      }
+    ],
+    "season": 2
+  },
+  {
+    "slug": "rudolph",
+    "order": 12,
+    "boss_id": "boss_030",
+    "boss_num": 30,
+    "name": "Rudolph",
+    "name_ru": "Рудольф",
+    "name_color": "#9adf3e",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_01.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_01.webp",
+    "mechanics_count": 4,
+    "ladder_level": 75,
+    "ladder_key": "BorderWar_D101",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Greatly increase Rudolph's Shield."
+      },
+      {
+        "index": "2",
+        "html": "Rudolph receives a massive damage reduction from the front, but its damage taken from behind is increased."
+      },
+      {
+        "index": "3",
+        "html": "Rudolph activates a wide-area Phantasia for 5 seconds at set intervals."
+      },
+      {
+        "index": "4",
+        "html": "Rudolph enters Rampage Mode, greatly increasing its movement speed."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Значительно увеличивает щит Рудольфа."
+      },
+      {
+        "index": "2",
+        "html": "Рудольф получает значительное снижение урона спереди, но урон, который он получает сзади, увеличивается."
+      },
+      {
+        "index": "3",
+        "html": "Через заданные промежутки времени Рудольф активирует Фантазию в обширной области на 5 секунд."
+      },
+      {
+        "index": "4",
+        "html": "Рудольф переходит в режим буйства, значительно увеличивая свою скорость движения."
+      }
+    ],
+    "season": 2
+  },
+  {
+    "slug": "seraph",
+    "order": 13,
+    "boss_id": "boss_010",
+    "boss_num": 10,
+    "name": "Seraph",
+    "name_ru": "Сераф",
+    "name_color": "#ea6d49",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_06.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_06.webp",
+    "mechanics_count": 4,
+    "ladder_level": 79,
+    "ladder_key": "BorderWar_D102",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Seraph's attacks carry an additional Powerful Graying Bite effect."
+      },
+      {
+        "index": "2",
+        "html": "After Seraph lands a hit on a target, it grants a HP shield to all its friendly units equal to 5% of their respective Max HP. The shield cannot be stacked and lasts for 3 seconds. The minimum trigger interval is 1 second."
+      },
+      {
+        "index": "3",
+        "html": "After Seraph hits a non-Fortitude target, Punishments will be added. Punishments will be reduced by 1 stack every 5 seconds. If Punishment stacks reach 10, that Wanderer will lose their hyperbody and invincibility and will be unable to regain hyperbody or invincibility for 90 seconds."
+      },
+      {
+        "index": "4",
+        "html": "When Seraph recevies lethal damage, it becomes invincible for 10 seconds. During that period, it continuously deals a huge amount of damage every second to the surrounding area. The trigger interval is 120 seconds."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Серафима несут дополнительный эффект Мощного Пепельного укуса."
+      },
+      {
+        "index": "2",
+        "html": "После того как Серафим наносит удар по цели, он дает щит ОЗ всем своим дружественным единицам, равный 5% их соответствующего макс. ОЗ. Щит не может накапливаться и действует 3 секунды. Минимальный интервал между срабатываниями составляет 1 секунду."
+      },
+      {
+        "index": "3",
+        "html": "Когда Серафим попадает в цель без силы духа, на нее накладываются экземпляры Наказания, которые затем снимаются по одному каждые 5 сек. При 10 экземплярах Наказания странник теряет гипертело и неуязвимость и не может снова получить их в течение 90 сек."
+      },
+      {
+        "index": "4",
+        "html": "Когда Серафим получает смертельный урон, он становится неуязвимым на 10 секунд. В течение этого периода он непрерывно наносит огромный урон каждую секунду по окружающей области. Интервал между срабатываниями составляет 120 секунд."
+      }
+    ],
+    "season": 2
+  },
+  {
+    "slug": "sobek",
+    "order": 14,
+    "boss_id": "boss_015",
+    "boss_num": 15,
+    "name": "Sobek",
+    "name_ru": "Собек",
+    "name_color": "#b190e4",
+    "art": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "displayWebpUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "cardThumbnail": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.thumb.webp",
+    "downloadPngUrl": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.png",
+    "lineupPortrait": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "lineupPortraitThumb": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.thumb.webp",
+    "detailImage": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/World_Boss_4.webp",
+    "mechanics_count": 4,
+    "ladder_level": 83,
+    "ladder_key": "BorderWar_D103",
+    "art_object_position": "center center",
+    "art_scale": 1.08,
+    "art_x": -96,
+    "art_y": 0,
+    "name_right": 0,
+    "name_y": 38,
+    "name_width": 620,
+    "name_scale": 1,
+    "copy_y": 220,
+    "copy_width": 1300,
+    "copy_scale": 1,
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "When Sobek locks onto a target, their critical hit rate is significantly reduced."
+      },
+      {
+        "index": "2",
+        "html": "Sobek can be executed. Use weapons with high shatter to break its shield and execute it."
+      },
+      {
+        "index": "3",
+        "html": "When Sobek hits a non-Fortitude target, it applies Vulnerability to the target for 10 seconds, stacking up to 10 times."
+      },
+      {
+        "index": "4",
+        "html": "Sobek enters a frenzy state, greatly increasing all speeds."
+      }
+    ],
+    "ru_mechanics": [
+      {
+        "index": "1",
+        "html": "Когда Собек фиксирует цель, их шанс критического удара значительно снижается."
+      },
+      {
+        "index": "2",
+        "html": "Собека можно уничтожить. Используйте оружие с высоким уровнем раскола, чтобы сломать его щит и уничтожить."
+      },
+      {
+        "index": "3",
+        "html": "Когда Собек попадает по цели без Силы духа, он накладывает на цель Уязвимость на 10 секунд, накапливается до 10 раз."
+      },
+      {
+        "index": "4",
+        "html": "Собек входит в состояние бешенства, значительно увеличивая все скорости."
+      }
+    ],
+    "season": 2
+  }
+];
+
+export function getBaselineBosses(mode: FceMode): FceBossItem[] {
+  return mode === 'mmo' ? BASELINE_MMO_BOSSES : BASELINE_STANDARD_BOSSES;
+}
+
+
+/**
+ * The page opens on the most recently added encounter: the last boss of the standard list (the highest `order`,
+ * e.g. the Devourer at 100) and, for MMO, the last boss of the newest season.
+ */
+const lastByOrder = (list: FceBossItem[]) => list.reduce<FceBossItem | undefined>((best, boss) => (!best || (boss.order ?? 0) >= (best.order ?? 0) ? boss : best), undefined);
+
+export function getDefaultBossSlug(mode: FceMode, customBosses?: FceBossItem[]): string {
+  const bosses = customBosses && customBosses.length > 0 ? customBosses : getBaselineBosses(mode);
+  if (mode === 'mmo') {
+    let maxSeason = 1;
+    for (const b of bosses) {
+      if (b.season && b.season > maxSeason) {
+        maxSeason = b.season;
+      }
+    }
+    const latest = lastByOrder(bosses.filter((b) => (b.season || 1) === maxSeason));
+    return latest?.slug || bosses[0]?.slug || 'merbelle';
+  }
+  return lastByOrder(bosses)?.slug || 'chaos-armor';
+}
+
+// URL hashes omit the MMO season prefix: `merbelle` is shared as
+// `#merbelle`. The boss list keeps full slugs (one entry per season).
+export function toBossUrlHash(slug: string): string {
+  return slug.replace(/^s\d+-/, '');
+}
+
+// Resolve a URL hash to a full boss slug. The hash may be the new short
+// form (`merbelle`) or a legacy full slug (`s2-merbelle`). When several
+// season entries share a base name, the latest season wins.
+export function resolveBossSlugFromHash(hash: string, bosses: FceBossItem[]): string | null {
+  const clean = hash.trim().replace(/^#/, '');
+  if (!clean) return null;
+  const base = clean.replace(/^s\d+-/, '');
+  let best: FceBossItem | null = null;
+  for (const boss of bosses) {
+    if (boss.slug !== clean && toBossUrlHash(boss.slug) !== base) continue;
+    const bestSeason = best?.season ?? 0;
+    const bossSeason = boss.season ?? 0;
+    if (!best || bossSeason > bestSeason || (bossSeason === bestSeason && boss.slug === clean)) {
+      best = boss;
+    }
+  }
+  return best?.slug ?? null;
+}
+export function mergeFceData(
+  serverData: FceIndexDataset | null | undefined,
+  mode: FceMode
+): FceBossItem[] {
+  const baseline = getBaselineBosses(mode);
+  if (!serverData || !Array.isArray(serverData.bosses) || serverData.bosses.length === 0) {
+    return baseline;
+  }
+
+  const baselineMap = new Map(baseline.map((b) => [b.slug, b]));
+
+  return serverData.bosses.map((sBoss) => {
+    const fallback = baselineMap.get(sBoss.slug) || ({} as Partial<FceBossItem>);
+    return {
+      slug: sBoss.slug,
+      order: sBoss.order ?? fallback.order,
+      boss_id: sBoss.boss_id || fallback.boss_id || '',
+      boss_num: sBoss.boss_num ?? fallback.boss_num ?? 0,
+      name: sBoss.name || fallback.name || sBoss.slug,
+      name_ru: sBoss.name_ru || fallback.name_ru || sBoss.name || sBoss.slug,
+      name_color: sBoss.name_color || fallback.name_color || '#72d4ca',
+      art: sBoss.art || fallback.art || '',
+      preview: sBoss.preview || fallback.preview || '',
+      displayWebpUrl: sBoss.displayWebpUrl || fallback.displayWebpUrl || sBoss.art || '',
+      cardThumbnail: sBoss.cardThumbnail || fallback.cardThumbnail || sBoss.preview || '',
+      downloadPngUrl: sBoss.downloadPngUrl || fallback.downloadPngUrl || '',
+      lineupPortrait: sBoss.lineupPortrait || fallback.lineupPortrait || '',
+      lineupPortraitThumb: sBoss.lineupPortraitThumb || fallback.lineupPortraitThumb || '',
+      detailImage: sBoss.detailImage || fallback.detailImage || '',
+      mechanics_count: sBoss.mechanics_count ?? fallback.mechanics_count ?? 0,
+      ladder_level: sBoss.ladder_level ?? fallback.ladder_level,
+      ladder_key: sBoss.ladder_key || fallback.ladder_key,
+      art_object_position: sBoss.art_object_position || fallback.art_object_position || 'center center',
+      art_scale: fallback.art_scale ?? 1.08,
+      art_x: fallback.art_x ?? -96,
+      art_y: fallback.art_y ?? 0,
+      name_right: fallback.name_right ?? 0,
+      name_y: fallback.name_y ?? 38,
+      name_width: fallback.name_width ?? 620,
+      name_scale: fallback.name_scale ?? 1,
+      copy_y: fallback.copy_y ?? 220,
+      copy_width: fallback.copy_width ?? 1300,
+      copy_scale: fallback.copy_scale ?? 1,
+      mechanics: Array.isArray(sBoss.mechanics) && sBoss.mechanics.length > 0 ? sBoss.mechanics : (fallback.mechanics || []),
+      ru_mechanics: fallback.ru_mechanics || fallback.mechanics || [],
+    };
+  });
+}

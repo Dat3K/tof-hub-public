@@ -1,0 +1,60 @@
+{
+  "slug": "eva",
+  "order": 32,
+  "boss_id": "boss_hum_045",
+  "name_color": "#cf86c1",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss069.webp",
+  "art_object_position": "center center",
+  "source_psd": "bigboss069.png",
+  "en": {
+    "name": "Eva",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_045_2_des",
+        "html": "Abyssant: Eva's Attacks inflict Graying Bite."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_045_3_des",
+        "html": "Abyssant: Eva deals massive damage, distributed among nearby enemies."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_045_4_des",
+        "html": "When below 25% HP, Abyssant: Eva loses 5% of her Max HP per second and deals lethal damage over time to nearby enemies."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_045_5_des",
+        "html": "Abyssant: Eva gains Invincibility. A light circle appears nearby every 15s. Abyssant: Eva loses Invincibility for 30s once she steps into the circle."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Ева",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_045_2_des",
+        "html": "Атаки Абиссевой наносят урон, вызывающий эффект «Поглощение пепла»."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_045_3_des",
+        "html": "Растение Abisiva продолжает наносить значительный ущерб окружающей территории."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_045_4_des",
+        "html": "Когда здоровье Абисевой опустится ниже 25%, она будет терять 5% от своего максимального запаса здоровья в секунду и наносить смертельный урон окружающим врагам каждую секунду."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_045_5_des",
+        "html": "Абиссева неуязвима. Каждые 15 секунд вокруг неё появляется ореол. После попадания в ореол Абиссева теряет свою неуязвимость на 30 секунд."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_069.webp"
+}

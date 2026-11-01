@@ -1,0 +1,785 @@
+{
+  "sourceUrl": "https://docs.google.com/spreadsheets/d/1RExuEj6DGWgaYnN2lmYjbEO-ip-KzwHyNfGK_0M8Uro/edit?gid=0#gid=0",
+  "retrievedAt": "2026-10-03",
+  "xlsxSha256": "035fbc68727dedb4acf4fe7b0a67e52bd32abb534db58a3115c45cd1856d86d8",
+  "sheets": {
+    "Resists": {
+      "B2": {
+        "value": 0.6743
+      },
+      "I2": {
+        "value": 0.5036069958,
+        "formula": "$B$14",
+        "formulaAttributes": {}
+      },
+      "B3": {
+        "value": 29203.79429,
+        "formula": "($B$2*14106)/(1-$B$2)",
+        "formulaAttributes": {}
+      },
+      "I3": {
+        "value": "50%"
+      },
+      "J3": {
+        "value": 0.7518034979,
+        "formula": "I2+(1-I2)*I3",
+        "formulaAttributes": {}
+      },
+      "I4": {
+        "value": "84.5%"
+      },
+      "J4": {
+        "value": 0.9615295422,
+        "formula": "J3+(1-J3)*I4",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "J4:J9",
+          "si": "1"
+        }
+      },
+      "B5": {
+        "value": "30%"
+      },
+      "B6": {
+        "value": 20443.0,
+        "formula": "CEILING(($B$2*14106)/(1-$B$2)*(1-$B$5),1)",
+        "formulaAttributes": {}
+      },
+      "B7": {
+        "value": 0.5917103245,
+        "formula": "$B$6/(14106+$B$6)",
+        "formulaAttributes": {}
+      },
+      "B8": {
+        "value": 0.08258967553,
+        "formula": "$B$2-$B$7",
+        "formulaAttributes": {}
+      },
+      "B9": {
+        "value": 0.2535759151,
+        "formula": "(((1-$B$7))-((1-$B$2)))/((1-$B$2))",
+        "formulaAttributes": {}
+      },
+      "J11": {
+        "value": 0.6743,
+        "formula": "B2",
+        "formulaAttributes": {}
+      },
+      "B12": {
+        "value": "30%"
+      },
+      "J12": {
+        "value": 0.524080455,
+        "formula": "(((1-J9))-((1-(1-((1-J11)*(1-I3)*(1-I4)*(1-I5)*(1-I6)*(1-I7)*(1-I8))))))/((1-(1-((1-J11)*(1-I3)*(1-I4)*(1-I5)*(1-I6)*(1-I7)*(1-I8))))) ",
+        "formulaAttributes": {}
+      },
+      "B13": {
+        "value": 14311.0,
+        "formula": "CEILING(($B$7*14106)/(1-$B$7)*(1-$B$12),1)",
+        "formulaAttributes": {}
+      },
+      "B14": {
+        "value": 0.5036069958,
+        "formula": "$B$13/(14106+$B$13)",
+        "formulaAttributes": {}
+      },
+      "B15": {
+        "value": 0.08810332865,
+        "formula": "$B$7-$B$14",
+        "formulaAttributes": {}
+      },
+      "B16": {
+        "value": 0.2157863251,
+        "formula": "(((1-$B$14))-((1-$B$7)))/((1-$B$7))",
+        "formulaAttributes": {}
+      },
+      "B18": {
+        "value": 0.1706930042,
+        "formula": "$B$2-$B$14",
+        "formulaAttributes": {}
+      },
+      "B19": {
+        "value": 0.524080455,
+        "formula": "(((1-$B$14))-((1-$B$2)))/((1-$B$2))",
+        "formulaAttributes": {}
+      }
+    },
+    "Resist Ignore dmg impact": {
+      "B2": {
+        "value": 0.1
+      },
+      "C2": {
+        "value": 0.2
+      },
+      "D2": {
+        "value": 0.3
+      },
+      "E2": {
+        "value": 0.4
+      },
+      "F2": {
+        "value": 0.5
+      },
+      "A3": {
+        "value": 0.05
+      },
+      "B3": {
+        "value": 0.005025125628,
+        "formula": "(((1-(($A3*14106)/(1-$A3)*(1-B$2))/(14106+(($A3*14106)/(1-$A3)*(1-B$2)))))-((1-$A3)))/((1-$A3))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B3:F3",
+          "si": "1"
+        }
+      },
+      "C3": {
+        "value": 0.0101010101,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "1"
+        }
+      },
+      "D3": {
+        "value": 0.0152284264,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "1"
+        }
+      },
+      "E3": {
+        "value": 0.02040816327,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "1"
+        }
+      },
+      "F3": {
+        "value": 0.02564102564,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "1"
+        }
+      },
+      "A4": {
+        "value": 0.1
+      },
+      "B4": {
+        "value": 0.0101010101,
+        "formula": "(((1-(($A4*14106)/(1-$A4)*(1-B$2))/(14106+(($A4*14106)/(1-$A4)*(1-B$2)))))-((1-$A4)))/((1-$A4))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B4:F4",
+          "si": "2"
+        }
+      },
+      "C4": {
+        "value": 0.02040816327,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "2"
+        }
+      },
+      "D4": {
+        "value": 0.03092783505,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "2"
+        }
+      },
+      "E4": {
+        "value": 0.04166666667,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "2"
+        }
+      },
+      "F4": {
+        "value": 0.05263157895,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "2"
+        }
+      },
+      "A5": {
+        "value": 0.2
+      },
+      "B5": {
+        "value": 0.02040816327,
+        "formula": "(((1-(($A5*14106)/(1-$A5)*(1-B$2))/(14106+(($A5*14106)/(1-$A5)*(1-B$2)))))-((1-$A5)))/((1-$A5))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B5:F5",
+          "si": "3"
+        }
+      },
+      "C5": {
+        "value": 0.04166666667,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "3"
+        }
+      },
+      "D5": {
+        "value": 0.06382978723,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "3"
+        }
+      },
+      "E5": {
+        "value": 0.08695652174,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "3"
+        }
+      },
+      "F5": {
+        "value": 0.1111111111,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "3"
+        }
+      },
+      "A6": {
+        "value": 0.3
+      },
+      "B6": {
+        "value": 0.03092783505,
+        "formula": "(((1-(($A6*14106)/(1-$A6)*(1-B$2))/(14106+(($A6*14106)/(1-$A6)*(1-B$2)))))-((1-$A6)))/((1-$A6))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B6:F6",
+          "si": "4"
+        }
+      },
+      "C6": {
+        "value": 0.06382978723,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "4"
+        }
+      },
+      "D6": {
+        "value": 0.0989010989,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "4"
+        }
+      },
+      "E6": {
+        "value": 0.1363636364,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "4"
+        }
+      },
+      "F6": {
+        "value": 0.1764705882,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "4"
+        }
+      },
+      "A7": {
+        "value": 0.4
+      },
+      "B7": {
+        "value": 0.04166666667,
+        "formula": "(((1-(($A7*14106)/(1-$A7)*(1-B$2))/(14106+(($A7*14106)/(1-$A7)*(1-B$2)))))-((1-$A7)))/((1-$A7))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B7:F7",
+          "si": "5"
+        }
+      },
+      "C7": {
+        "value": 0.08695652174,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "5"
+        }
+      },
+      "D7": {
+        "value": 0.1363636364,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "5"
+        }
+      },
+      "E7": {
+        "value": 0.1904761905,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "5"
+        }
+      },
+      "F7": {
+        "value": 0.25,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "5"
+        }
+      },
+      "A8": {
+        "value": 0.5
+      },
+      "B8": {
+        "value": 0.05263157895,
+        "formula": "(((1-(($A8*14106)/(1-$A8)*(1-B$2))/(14106+(($A8*14106)/(1-$A8)*(1-B$2)))))-((1-$A8)))/((1-$A8))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B8:F8",
+          "si": "6"
+        }
+      },
+      "C8": {
+        "value": 0.1111111111,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "6"
+        }
+      },
+      "D8": {
+        "value": 0.1764705882,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "6"
+        }
+      },
+      "E8": {
+        "value": 0.25,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "6"
+        }
+      },
+      "F8": {
+        "value": 0.3333333333,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "6"
+        }
+      },
+      "A9": {
+        "value": 0.6
+      },
+      "B9": {
+        "value": 0.06382978723,
+        "formula": "(((1-(($A9*14106)/(1-$A9)*(1-B$2))/(14106+(($A9*14106)/(1-$A9)*(1-B$2)))))-((1-$A9)))/((1-$A9))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B9:F9",
+          "si": "7"
+        }
+      },
+      "C9": {
+        "value": 0.1363636364,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "7"
+        }
+      },
+      "D9": {
+        "value": 0.2195121951,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "7"
+        }
+      },
+      "E9": {
+        "value": 0.3157894737,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "7"
+        }
+      },
+      "F9": {
+        "value": 0.4285714286,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "7"
+        }
+      },
+      "A10": {
+        "value": 0.7
+      },
+      "B10": {
+        "value": 0.0752688172,
+        "formula": "(((1-(($A10*14106)/(1-$A10)*(1-B$2))/(14106+(($A10*14106)/(1-$A10)*(1-B$2)))))-((1-$A10)))/((1-$A10))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B10:F10",
+          "si": "8"
+        }
+      },
+      "C10": {
+        "value": 0.1627906977,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "8"
+        }
+      },
+      "D10": {
+        "value": 0.2658227848,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "8"
+        }
+      },
+      "E10": {
+        "value": 0.3888888889,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "8"
+        }
+      },
+      "F10": {
+        "value": 0.5384615385,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "8"
+        }
+      },
+      "A11": {
+        "value": 0.8
+      },
+      "B11": {
+        "value": 0.08695652174,
+        "formula": "(((1-(($A11*14106)/(1-$A11)*(1-B$2))/(14106+(($A11*14106)/(1-$A11)*(1-B$2)))))-((1-$A11)))/((1-$A11))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B11:F11",
+          "si": "9"
+        }
+      },
+      "C11": {
+        "value": 0.1904761905,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "9"
+        }
+      },
+      "D11": {
+        "value": 0.3157894737,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "9"
+        }
+      },
+      "E11": {
+        "value": 0.4705882353,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "9"
+        }
+      },
+      "F11": {
+        "value": 0.6666666667,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "9"
+        }
+      },
+      "A12": {
+        "value": 0.85
+      },
+      "B12": {
+        "value": 0.09289617486,
+        "formula": "(((1-(($A12*14106)/(1-$A12)*(1-B$2))/(14106+(($A12*14106)/(1-$A12)*(1-B$2)))))-((1-$A12)))/((1-$A12))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B12:F12",
+          "si": "10"
+        }
+      },
+      "C12": {
+        "value": 0.2048192771,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "10"
+        }
+      },
+      "D12": {
+        "value": 0.3422818792,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "10"
+        }
+      },
+      "E12": {
+        "value": 0.5151515152,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "10"
+        }
+      },
+      "F12": {
+        "value": 0.7391304348,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "10"
+        }
+      },
+      "A13": {
+        "value": 0.875
+      },
+      "B13": {
+        "value": 0.09589041096,
+        "formula": "(((1-(($A13*14106)/(1-$A13)*(1-B$2))/(14106+(($A13*14106)/(1-$A13)*(1-B$2)))))-((1-$A13)))/((1-$A13))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B13:F13",
+          "si": "11"
+        }
+      },
+      "C13": {
+        "value": 0.2121212121,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "11"
+        }
+      },
+      "D13": {
+        "value": 0.3559322034,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "11"
+        }
+      },
+      "E13": {
+        "value": 0.5384615385,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "11"
+        }
+      },
+      "F13": {
+        "value": 0.7777777778,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "11"
+        }
+      },
+      "A14": {
+        "value": 0.9
+      },
+      "B14": {
+        "value": 0.0989010989,
+        "formula": "(((1-(($A14*14106)/(1-$A14)*(1-B$2))/(14106+(($A14*14106)/(1-$A14)*(1-B$2)))))-((1-$A14)))/((1-$A14))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B14:F14",
+          "si": "12"
+        }
+      },
+      "C14": {
+        "value": 0.2195121951,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "12"
+        }
+      },
+      "D14": {
+        "value": 0.3698630137,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "12"
+        }
+      },
+      "E14": {
+        "value": 0.5625,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "12"
+        }
+      },
+      "F14": {
+        "value": 0.8181818182,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "12"
+        }
+      },
+      "A15": {
+        "value": 0.925
+      },
+      "B15": {
+        "value": 0.1019283747,
+        "formula": "(((1-(($A15*14106)/(1-$A15)*(1-B$2))/(14106+(($A15*14106)/(1-$A15)*(1-B$2)))))-((1-$A15)))/((1-$A15))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B15:F15",
+          "si": "13"
+        }
+      },
+      "C15": {
+        "value": 0.226993865,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "13"
+        }
+      },
+      "D15": {
+        "value": 0.384083045,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "13"
+        }
+      },
+      "E15": {
+        "value": 0.5873015873,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "13"
+        }
+      },
+      "F15": {
+        "value": 0.8604651163,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "13"
+        }
+      },
+      "A16": {
+        "value": 0.950000000000001
+      },
+      "B16": {
+        "value": 0.1049723757,
+        "formula": "(((1-(($A16*14106)/(1-$A16)*(1-B$2))/(14106+(($A16*14106)/(1-$A16)*(1-B$2)))))-((1-$A16)))/((1-$A16))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B16:F16",
+          "si": "14"
+        }
+      },
+      "C16": {
+        "value": 0.2345679012,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "14"
+        }
+      },
+      "D16": {
+        "value": 0.3986013986,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "14"
+        }
+      },
+      "E16": {
+        "value": 0.6129032258,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "14"
+        }
+      },
+      "F16": {
+        "value": 0.9047619048,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "14"
+        }
+      },
+      "A17": {
+        "value": 0.9999
+      },
+      "B17": {
+        "value": 0.1110987656,
+        "formula": "(((1-(($A17*14106)/(1-$A17)*(1-B$2))/(14106+(($A17*14106)/(1-$A17)*(1-B$2)))))-((1-$A17)))/((1-$A17))",
+        "formulaAttributes": {
+          "t": "shared",
+          "ref": "B17:F17",
+          "si": "15"
+        }
+      },
+      "C17": {
+        "value": 0.2499687508,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "15"
+        }
+      },
+      "D17": {
+        "value": 0.4285102067,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "15"
+        }
+      },
+      "E17": {
+        "value": 0.666555563,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "15"
+        }
+      },
+      "F17": {
+        "value": 0.99980002,
+        "formula": null,
+        "formulaAttributes": {
+          "t": "shared",
+          "si": "15"
+        }
+      }
+    }
+  }
+}

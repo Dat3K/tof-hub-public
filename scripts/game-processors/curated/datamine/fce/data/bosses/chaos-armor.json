@@ -1,0 +1,52 @@
+{
+  "slug": "chaos-armor",
+  "order": 1,
+  "boss_id": "boss_hum_046",
+  "name_color": "#f16937",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_08.webp",
+  "art_object_position": "center center",
+  "source_psd": "хаос.psd",
+  "en": {
+    "name": "Chaos Armor",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Attacks come with a powerful Graying Bite effect. Increase corresponding elemental resistance or avoid being hit."
+      },
+      {
+        "index": "2",
+        "html": "The lower the boss&#x27;s HP, the greater its damage reduction. <span class=\"fce-card__text-accent\">Damage reduction 20% for each 20% HP lost.</span> The boss can then be executed. Use weapons with high shatter to break its shield and execute it. Execution damage ignores the boss&#x27;s damage reduction and is affected by the Wanderer&#x27;s ATK, resistance, and damage boost."
+      },
+      {
+        "index": "3",
+        "html": "Gain the Infernal Flames skill. The majority of the boss&#x27;s attacks will leave a large area on the ground that burns continuously. Avoid entering the burning areas."
+      },
+      {
+        "index": "4",
+        "html": "Large random explosions will occur in the area, dealing lethal damage upon hit and leaving Infernal Flames in the area."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Хаос Армор",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки накладывают мощный эффект Graying Bite. Повышайте соответствующее стихийное сопротивление или уклоняйтесь от попаданий."
+      },
+      {
+        "index": "2",
+        "html": "Чем меньше HP босса, тем выше его снижение урона. <span class=\"fce-card__text-accent\">Снижение урона на 20% за каждые потерянные 20% HP.</span> После этого босса можно добить. Используйте оружие с высоким shatter, чтобы сломать щит и выполнить добивание. Урон добивания игнорирует снижение урона босса и зависит от ATK, сопротивлений и бонуса урона Странника."
+      },
+      {
+        "index": "3",
+        "html": "Босс получает навык Infernal Flames. Большинство атак босса оставляют на земле большую горящую область, которая непрерывно наносит урон. Не заходите в пылающие зоны."
+      },
+      {
+        "index": "4",
+        "html": "По области будут происходить большие случайные взрывы, наносящие смертельный урон при попадании и оставляющие Infernal Flames."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_08.webp"
+}

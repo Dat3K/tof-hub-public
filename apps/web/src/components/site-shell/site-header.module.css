@@ -1,0 +1,741 @@
+/* ==========================================================================
+   SiteHeader Styles
+   Shared site header, language controls and scrollable section navigation
+   Two-row navigation at <=1280; compact controls at <=580 / <=480.
+   ========================================================================== */
+
+.siteHeader {
+  position: sticky;
+  top: 0;
+  z-index: 500;
+  width: 100%;
+  border-bottom: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  background: rgba(12, 9, 16, 0.88);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  font-family: var(--font-sans, "Barlow", "Manrope", system-ui, sans-serif);
+}
+
+.inner {
+  width: 100%;
+  max-width: 1440px;
+  box-sizing: border-box;
+  min-height: 54px;
+  margin: 0 auto;
+  padding: 10px 28px;
+  display: grid;
+  grid-template-columns: minmax(160px, 1fr) minmax(0, auto) minmax(max-content, 1fr);
+  align-items: center;
+  column-gap: 28px;
+}
+
+.brand {
+  min-width: 0;
+  max-width: 100%;
+  justify-self: start;
+  overflow: hidden;
+  color: var(--dm-gold, #f5d97a);
+  font-family: var(--font-serif, "Spectral", Georgia, serif);
+  font-size: 17.5px;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  text-align: left;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.brand:hover {
+  color: #ffe9a8;
+}
+
+.brand:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 3px;
+}
+
+/* Section brand that opens the hub menu (section-switcher.tsx). */
+.sectionSwitcher {
+  position: relative;
+  min-width: 0;
+  max-width: 100%;
+  justify-self: start;
+}
+
+.brandButton {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.brandText {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.brandButton:hover .langChevron,
+.brandButton[aria-expanded="true"] .langChevron {
+  color: var(--dm-gold, #f5d97a);
+}
+
+/* Opens under the brand, shifted left so the item text lines up with the brand text. */
+.sectionMenu {
+  right: auto;
+  /* 4px menu padding + 10px item padding: the item text starts under the brand text. */
+  left: -14px;
+  min-width: 190px;
+  transform-origin: top left;
+}
+
+.navWrap {
+  justify-self: center;
+  position: relative;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-self: center;
+  gap: 22px;
+}
+
+.navLink {
+  color: #a89fb6;
+  font-family: var(--font-sans, "Barlow", "Manrope", system-ui, sans-serif);
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+
+.navLink:hover {
+  color: #ffffff;
+}
+
+.navLinkActive {
+  color: var(--dm-gold, #f5d97a);
+  font-weight: 500;
+}
+
+.navLink:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 3px;
+}
+
+.navArrow {
+  display: none;
+}
+
+.rightArea {
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+/* Language Switcher Dropdown */
+.language {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.langTrigger {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  height: 26px;
+  padding: 0 9px;
+  box-sizing: border-box;
+  border-radius: var(--dm-radius-sm, 6px);
+  background: var(--dm-surface, #100d14);
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  color: var(--dm-text-strong, #f4f0f6);
+  font-family: var(--font-sans, "Barlow", "Manrope", system-ui, sans-serif);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  outline: none;
+  user-select: none;
+  transition: border-color 0.16s ease, background 0.16s ease, color 0.16s ease, box-shadow 0.16s ease;
+}
+
+.langTrigger:hover {
+  background: var(--dm-surface-raised, #151119);
+  border-color: var(--dm-border-hover, rgba(245, 217, 122, 0.35));
+  color: #fff4a3;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.langTriggerOpen {
+  background: var(--dm-surface-raised, #151119);
+  border-color: var(--dm-gold, #f5d97a);
+  color: var(--dm-gold, #f5d97a);
+  box-shadow: 0 0 10px rgba(245, 217, 122, 0.22);
+}
+
+.langTrigger:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 3px;
+}
+
+.flag {
+  width: 18px;
+  height: 12px;
+  border-radius: 2px;
+  overflow: hidden;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.16), 0 1px 3px rgba(0, 0, 0, 0.35);
+  display: block;
+  flex-shrink: 0;
+}
+
+.langCurrentCode {
+  letter-spacing: 0.04em;
+}
+
+.langChevron {
+  color: var(--dm-muted, #918899);
+  flex-shrink: 0;
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), color 0.16s ease;
+}
+
+.langTrigger:hover .langChevron {
+  color: var(--dm-gold, #f5d97a);
+}
+
+.langChevronOpen {
+  transform: rotate(180deg);
+  color: var(--dm-gold, #f5d97a);
+}
+
+.langDropdown {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  z-index: 600;
+  min-width: 140px;
+  max-width: min(280px, calc(100vw - 24px));
+  max-height: min(70dvh, 440px);
+  overflow-y: auto;
+  padding: 4px;
+  box-sizing: border-box;
+  border-radius: var(--dm-radius-md, 8px);
+  background: rgba(18, 14, 23, 0.98);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--dm-border-hover, rgba(245, 217, 122, 0.28));
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 16px rgba(245, 217, 122, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  transform-origin: top right;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px) scale(0.97);
+  pointer-events: none;
+  transition: opacity 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.18s cubic-bezier(0.16, 1, 0.3, 1),
+              visibility 0.18s;
+}
+
+.langDropdownOpen {
+  opacity: 1;
+  visibility: visible;
+  /* Visibility must be immediate so opening can focus the selected item. */
+  transition-property: opacity, transform;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.langOption {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  padding: 7px 10px;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: var(--dm-radius-sm, 6px);
+  background: transparent;
+  color: #cfc7d9;
+  font-family: var(--font-sans, "Barlow", "Manrope", system-ui, sans-serif);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.2;
+  text-align: left;
+  cursor: pointer;
+  user-select: none;
+  outline: none;
+  transition: background 0.14s ease, color 0.14s ease;
+}
+
+.langOption:hover {
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+}
+
+.langOptionActive {
+  background: rgba(245, 217, 122, 0.12);
+  color: var(--dm-gold, #f5d97a);
+  font-weight: 600;
+}
+
+.langOptionName {
+  flex: 1;
+  white-space: nowrap;
+}
+
+.langCheck {
+  margin-left: auto;
+  color: var(--dm-gold, #f5d97a);
+  flex-shrink: 0;
+}
+
+/* Version & Dataset Snapshot Widget */
+.exportInfo {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 3px 8px;
+  box-sizing: border-box;
+  border-radius: var(--dm-radius-sm, 6px);
+  background: var(--dm-surface, #100d14);
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  transition: border-color 0.15s ease, background 0.15s ease;
+  user-select: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.exportInfo:hover {
+  background: var(--dm-surface-raised, #151119);
+  border-color: var(--dm-border-hover, rgba(245, 217, 122, 0.28));
+}
+
+.exportInfo:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 3px;
+}
+
+.versionBadge {
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.03em;
+  color: var(--dm-gold, #f5d97a);
+  padding: 1px 5px;
+  box-sizing: border-box;
+  border-radius: var(--dm-radius-xs, 4px);
+  background: rgba(245, 217, 122, 0.1);
+  border: 1px solid rgba(245, 217, 122, 0.28);
+  white-space: nowrap;
+  line-height: 1.25;
+}
+
+.exportInfo:hover .versionBadge {
+  background: rgba(245, 217, 122, 0.2);
+  border-color: rgba(245, 217, 122, 0.5);
+  color: #fff4a3;
+}
+
+.exportClientName {
+  font-family: var(--font-sans, "Barlow", "Manrope", system-ui, sans-serif);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--dm-muted, #918899);
+  white-space: nowrap;
+}
+
+.exportTooltip {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 501;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 220px;
+  max-width: 280px;
+  padding: 11px 13px;
+  box-sizing: border-box;
+  border-radius: var(--dm-radius-md, 8px);
+  background: var(--dm-surface-raised, #151119);
+  border: 1px solid var(--dm-border-hover, rgba(245, 217, 122, 0.28));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-4px) scale(0.98);
+  transform-origin: top right;
+  pointer-events: none;
+  transition: opacity 0.16s ease, transform 0.16s ease, visibility 0.16s ease;
+}
+
+.exportTooltip::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+}
+
+.exportTooltip::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  right: 16px;
+  width: 8px;
+  height: 8px;
+  background: var(--dm-surface-raised, #151119);
+  border-left: 1px solid var(--dm-border-hover, rgba(245, 217, 122, 0.28));
+  border-top: 1px solid var(--dm-border-hover, rgba(245, 217, 122, 0.28));
+  transform: rotate(45deg);
+}
+
+.exportTooltipOpen {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.exportTooltipTitle {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--dm-gold, #f5d97a);
+  padding-bottom: 5px;
+  margin-bottom: 1px;
+  border-bottom: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+}
+
+.exportTooltipRow {
+  display: grid;
+  grid-template-columns: 68px 1fr;
+  align-items: baseline;
+  gap: 10px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11.5px;
+  font-weight: 500;
+  line-height: 1.3;
+}
+
+.exportTooltipKey {
+  color: var(--dm-muted, #918899);
+  font-size: 10px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
+.exportTooltipValue {
+  color: var(--dm-text-strong, #f4f0f6);
+  font-family: var(--font-mono, "JetBrains Mono", monospace);
+  font-size: 11px;
+  font-weight: 500;
+  text-align: left;
+  word-break: break-word;
+}
+
+.exportUpdateSection {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 6px;
+  padding-top: 8px;
+  border-top: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+}
+
+.exportUpdateTitle {
+  font-family: var(--font-sans, sans-serif);
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #ff9bb2;
+  margin-bottom: 2px;
+}
+
+.exportUpdateText {
+  margin: 0;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--dm-text-strong, #f4f0f6);
+  line-height: 1.35;
+}
+
+.exportUpdateSubtext {
+  margin: 0;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--dm-muted, #b4abbf);
+  line-height: 1.35;
+}
+
+.exportHelpLink {
+  display: inline-flex;
+  align-items: center;
+  margin-top: 4px;
+  font-family: var(--font-sans, sans-serif);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: var(--dm-gold, #f5d97a);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.exportHelpLink:hover {
+  text-decoration: underline;
+  color: #fff4a3;
+}
+
+/* ==========================================================================
+   Responsive Breakpoints
+   >1280       Desktop 3-column inline, right controls reserve their actual width
+   581–1280    2-row tablet layout (brand+right area, nav scroll track)
+   481–580     Compact 2-row layout (client name hidden)
+   <=480       Small mobile compact layout
+   ========================================================================== */
+
+@media (max-width: 1080px) {
+  .inner {
+    padding-inline: 18px;
+    column-gap: 16px;
+    grid-template-columns: minmax(160px, 1fr) minmax(0, auto) minmax(max-content, 1fr);
+  }
+
+  .nav {
+    gap: 16px;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+}
+
+@media (max-width: 1280px) {
+  .inner {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand right"
+      "nav   nav";
+    padding: 8px 16px 7px;
+    row-gap: 7px;
+    column-gap: 12px;
+    align-items: center;
+  }
+
+  .sectionSwitcher {
+    grid-area: brand;
+  }
+
+  .brand {
+    grid-area: brand;
+    font-size: 16px;
+    line-height: 1.2;
+    min-width: 0;
+  }
+
+  .rightArea {
+    grid-area: right;
+    justify-self: end;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .navWrap {
+    grid-area: nav;
+    width: 100%;
+    min-width: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .nav {
+    grid-column: auto;
+    justify-self: start;
+    /* Centred while it fits; `safe` falls back to start so an overflowing track still scrolls from its first link. */
+    justify-content: safe center;
+    overflow-x: auto;
+    width: 100%;
+    padding: 3px 26px 3px 26px;
+    gap: 16px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* 28px gradient fade indicators on both ends of nav track */
+  .navWrap::before,
+  .navWrap::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 28px;
+    z-index: 6;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .navWrap::before {
+    left: 0;
+    background: linear-gradient(to right, rgba(12, 9, 16, 0.98) 0%, rgba(12, 9, 16, 0.85) 16px, transparent 28px);
+  }
+
+  .navWrap::after {
+    right: 0;
+    background: linear-gradient(to left, rgba(12, 9, 16, 0.98) 0%, rgba(12, 9, 16, 0.85) 16px, transparent 28px);
+  }
+
+  .hasOverflowLeft::before {
+    opacity: 1;
+  }
+
+  .hasOverflowRight::after {
+    opacity: 1;
+  }
+
+  /* Circular navigation scroll arrows */
+  .navArrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) scale(0.85);
+    z-index: 10;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(245, 217, 122, 0.35);
+    border-radius: 50%;
+    background: rgba(16, 13, 20, 0.94);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--dm-gold, #f5d97a);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 8px rgba(12, 9, 16, 0.8);
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                background 0.2s ease,
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+  }
+
+  .navArrow:hover {
+    background: rgba(28, 22, 36, 0.98);
+    border-color: var(--dm-gold, #f5d97a);
+    color: #fff4a3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7), 0 0 8px rgba(245, 217, 122, 0.3);
+  }
+
+  .navArrow:active {
+    transform: translateY(-50%) scale(0.92);
+  }
+
+  .navArrowLeft {
+    left: 1px;
+  }
+
+  .navArrowRight {
+    right: 1px;
+  }
+
+  .hasOverflowLeft .navArrowLeft {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1);
+  }
+
+  .hasOverflowRight .navArrowRight {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@media (max-width: 580px) {
+  .exportInfo {
+    padding: 2px 6px;
+    gap: 5px;
+  }
+
+  .exportClientName {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .inner {
+    padding: 6px 12px 5px;
+    row-gap: 5px;
+    column-gap: 8px;
+  }
+
+  .brand {
+    font-size: 15px;
+  }
+
+  .rightArea {
+    gap: 5px;
+  }
+
+  .langTrigger {
+    height: 23px;
+    padding: 0 6px;
+    gap: 5px;
+    font-size: 11px;
+  }
+
+  .flag {
+    width: 16px;
+    height: 11px;
+  }
+
+  .exportInfo {
+    padding: 2px 5px;
+  }
+
+  .versionBadge {
+    font-size: 10.5px;
+    padding: 1px 4px;
+  }
+
+  .nav {
+    gap: 14px;
+    padding: 2px 26px 3px 26px;
+  }
+}

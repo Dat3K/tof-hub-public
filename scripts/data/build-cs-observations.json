@@ -1,0 +1,55 @@
+{
+  "source": "User screenshots supplied 2026-10-03; large test modifiers contain residual stats",
+  "flat": [
+    {
+      "type": "Physical Resistance",
+      "value": 100000,
+      "observedCS": 48026,
+      "residual": 26
+    },
+    {
+      "type": "HP",
+      "value": 100000,
+      "observedCS": 2526,
+      "residual": 26
+    },
+    {
+      "type": "Resistance",
+      "value": 100000,
+      "observedCS": 160026,
+      "residual": 26
+    },
+    {
+      "type": "Crit",
+      "value": 100000,
+      "observedCS": 40026,
+      "residual": 26
+    },
+    {
+      "type": "Attack",
+      "value": 100000,
+      "observedCS": 200212,
+      "residual": 212
+    },
+    {
+      "type": "Physical Attack",
+      "value": 100000,
+      "observedCS": 150212,
+      "residual": 212
+    }
+  ],
+  "fixedPercent": [
+    {
+      "type": "Physical Damage %",
+      "value": 100,
+      "observedCS": 7520217,
+      "residual": 217
+    },
+    {
+      "type": "Crit Rate %",
+      "value": 100,
+      "observedCS": 7520178,
+      "residual": 178
+    }
+  ]
+}

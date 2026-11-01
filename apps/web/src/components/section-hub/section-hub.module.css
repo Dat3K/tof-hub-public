@@ -1,0 +1,541 @@
+/* Section hubs (/info/, /datamine/, /tools/): shared grid, card and preview primitives.
+   Feature CSS styles only its own preview contents. */
+
+/* The site <main> is a block; on a hub it becomes a column so the layout (and its grid) can fill it. */
+:global(main):has(> .layout) {
+  display: flex;
+  flex-direction: column;
+}
+
+.layout {
+  display: flex;
+  width: 100%;
+  max-width: 1440px;
+  flex: 1 0 auto;
+  flex-direction: column;
+  margin: 0 auto;
+  padding: 20px 28px 16px;
+  box-sizing: border-box;
+}
+
+/* Six tracks: a featured card spans the row, half cards take three, the others two.
+   On desktop the grid fills the space down to the footer: the featured row keeps its content height and the
+   other rows share the rest, so a hub fits one screen without a gap above the footer. */
+.grid {
+  display: grid;
+  flex: 1 0 auto;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 14px;
+}
+
+@media (min-width: 1121px) {
+  .grid {
+    grid-template-rows: auto;
+    grid-auto-rows: 1fr;
+  }
+  /* Extra screen height goes to the featured card: it takes what is left after two compact section rows
+     (~250px each). 680px = header, footer, layout padding, row gaps and those two rows; the 1fr rows absorb
+     the rounding. At least 250px, the same on every hub. */
+  .featured {
+    min-height: max(250px, calc(100dvh - 680px));
+  }
+}
+
+.card {
+  position: relative;
+  display: flex;
+  min-width: 0;
+  grid-column: span 2;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 14px 20px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-md, 8px);
+  background-color: var(--sim-surface, var(--surface-panel));
+  /* Faint gold light from the top-left corner (the title side). */
+  background-image: radial-gradient(120% 90% at 0% 0%, rgba(245, 217, 122, 0.045), transparent 55%);
+  box-sizing: border-box;
+  overflow: hidden;
+  isolation: isolate;
+  transition: border-color 160ms ease, background-color 160ms ease;
+}
+
+/* Gold hairline along the top edge on hover and keyboard focus. */
+.card::before {
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent 0%, rgba(245, 217, 122, 0.6) 30%, rgba(245, 217, 122, 0.6) 70%, transparent 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+}
+
+.card:hover {
+  border-color: var(--dm-border-hover, rgba(245, 217, 122, 0.28));
+  background-color: var(--sim-surface-hover, rgba(28, 34, 52, 0.95));
+}
+
+.card:hover::before,
+.card:has(.titleLink:focus-visible)::before {
+  opacity: 1;
+}
+
+.card:has(.titleLink:focus-visible) {
+  border-color: var(--dm-gold, #f5d97a);
+  box-shadow: 0 0 0 2px rgba(245, 217, 122, 0.25);
+}
+
+.half {
+  grid-column: span 3;
+}
+
+/* Featured card: text on the left, aside (seasons, roster) on the right. */
+.featured {
+  grid-column: 1 / -1;
+  background-image: radial-gradient(70% 140% at 0% 0%, rgba(245, 217, 122, 0.07), transparent 60%);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(500px, 1.15fr);
+  grid-template-areas:
+    "heading heading"
+    "body aside"
+    "preview aside"
+    "action aside";
+  grid-template-rows: auto auto 1fr auto;
+  gap: 8px 32px;
+}
+
+.featured > .headingRow { grid-area: heading; }
+.featured > .body { grid-area: body; }
+.featured > .preview { grid-area: preview; align-self: start; }
+.featured > .action { grid-area: action; justify-self: start; }
+.featured > .aside { grid-area: aside; align-self: stretch; min-width: 0; }
+
+/* Interactive previews sit above the card-wide link. */
+.card :where(a, button):not(.titleLink) {
+  position: relative;
+  z-index: 2;
+}
+
+/* Decorative game art behind a featured card. */
+.bgArt {
+  position: absolute;
+  top: 0;
+  right: 40px;
+  bottom: 0;
+  z-index: -1;
+  width: 42%;
+  pointer-events: none;
+  opacity: 0.13;
+  mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 40%, transparent 78%);
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+.card:hover .bgArt {
+  opacity: 0.17;
+  transform: scale(1.02);
+}
+
+/* Portraits and wide boss banners both fit the same area. */
+.bgArt img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  animation: hub-art-in 360ms ease both;
+}
+
+/* Art column of a featured card (`backgroundArtPlacement="feature"`): the art has its own track between the
+   text and the aside, so it never sits under text, the switcher or the aside tiles. */
+.featured.artColumn {
+  grid-template-columns: minmax(0, 1fr) clamp(140px, 11vw, 210px) minmax(540px, 1.3fr);
+  grid-template-areas:
+    "heading heading heading"
+    "body art aside"
+    "preview art aside"
+    "action art aside";
+}
+
+/* An absolute grid child takes its grid area as the box; it bleeds over the card padding top and bottom. */
+.featured > .bgArtFeature {
+  inset: -14px 0;
+  grid-area: 1 / 2 / -1 / 3;
+  width: auto;
+  opacity: 0.6;
+  mask-image: linear-gradient(90deg, transparent 0%, black 22%, black 78%, transparent 100%);
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 22%, black 78%, transparent 100%);
+}
+
+.card:hover .bgArtFeature {
+  opacity: 0.8;
+}
+
+.bgArtFeature img {
+  filter: drop-shadow(0 10px 24px rgba(0, 0, 0, 0.45));
+}
+
+@keyframes hub-art-in {
+  from { opacity: 0; transform: translateX(10px); }
+  to { opacity: 1; transform: none; }
+}
+
+.count {
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  font-size: 11.5px;
+  color: var(--dm-muted, #b4abbf);
+}
+
+.count strong {
+  color: var(--dm-text-strong, #f4f0f6);
+  font-weight: 600;
+}
+
+.headingRow {
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.title {
+  margin: 0;
+  color: var(--dm-text-strong, #f4f0f6);
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.25;
+}
+
+.featured .title {
+  font-size: 20px;
+}
+
+.titleLink {
+  color: inherit;
+  text-decoration: none;
+  outline: none;
+}
+
+/* The title link covers the whole card. */
+.titleLink::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.body {
+  margin: 0;
+  color: var(--dm-muted, #b4abbf);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.preview {
+  width: 100%;
+  min-width: 0;
+}
+
+.card:not(.featured) > .preview {
+  flex-grow: 1;
+}
+
+.action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  color: var(--dm-text, #ded8e6);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 160ms ease;
+}
+
+.action::after {
+  content: "→";
+  font-family: var(--font-mono, monospace);
+  color: var(--dm-gold, #f5d97a);
+  transition: transform 160ms ease;
+}
+
+.card:hover .action {
+  color: var(--dm-gold, #f5d97a);
+}
+
+.card:hover .action::after {
+  transform: translateX(3px);
+}
+
+/* ---------- Preview primitives ---------- */
+
+.stack {
+  display: grid;
+  gap: 10px;
+}
+
+.frame {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.025);
+  box-sizing: border-box;
+}
+
+.facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.fact {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 6px;
+  padding: 5px 10px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.fact strong {
+  color: var(--dm-text-strong, #f4f0f6);
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.fact span {
+  color: var(--dm-muted, #b4abbf);
+  font-size: 11px;
+}
+
+.strip {
+  display: flex;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.stripItem {
+  flex: 0 0 auto;
+  width: 52px;
+  height: 52px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: var(--dm-radius-sm, 6px);
+  background: rgba(255, 255, 255, 0.04);
+  overflow: hidden;
+  transition: border-color 160ms ease;
+}
+
+.stripWide .stripItem {
+  flex: 1 1 0;
+  width: auto;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+.card:hover .stripItem {
+  border-color: rgba(245, 217, 122, 0.22);
+}
+
+.stripItem img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.stripWide .stripItem img {
+  object-fit: cover;
+}
+
+.stripRound .stripItem {
+  border-color: rgba(245, 217, 122, 0.3);
+  border-radius: 50%;
+}
+
+/* Same zoom as the Comp trait portrait (COMP_TRAIT_IMAGE_SCALE). */
+.stripRound .stripItem img {
+  object-fit: cover;
+  transform: scale(1.28);
+}
+
+.stripGlyph .stripItem {
+  padding: 11px;
+  box-sizing: border-box;
+}
+
+.stripGlyph .stripItem img {
+  filter: brightness(0) invert(0.9);
+}
+
+.sparkline {
+  display: block;
+  width: 100%;
+  height: 46px;
+  overflow: visible;
+}
+
+/* A sparkline card's preview gives the chart all free height (labels stay at the bottom), so stretched hub rows
+   leave no empty band under the chart. */
+.preview:has(> .sparkFrame) {
+  display: flex;
+  flex-direction: column;
+}
+
+.sparkFrame {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.sparkFrame .sparkline {
+  flex: 1 1 0;
+  height: auto;
+  min-height: 46px;
+}
+
+.sparkLabels {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 4px;
+  color: var(--dm-muted, #b4abbf);
+  font-family: var(--font-mono, monospace);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.sparkLabels > :last-child {
+  color: var(--spark-color, var(--dm-gold, #f5d97a));
+}
+
+/* Element-tinted pill links. */
+.chipLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chipLink {
+  --element-color: #ded8e6;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px 4px 6px;
+  border: 1px solid color-mix(in srgb, var(--element-color) 35%, transparent);
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--element-color) 8%, transparent);
+  color: var(--element-color);
+  font-size: 11.5px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 160ms ease;
+}
+
+.chipLink[data-tone="phys"] { --element-color: #ffa07a; }
+.chipLink[data-tone="flame"] { --element-color: #ff5c5c; }
+.chipLink[data-tone="frost"] { --element-color: #8ce8ff; }
+.chipLink[data-tone="volt"] { --element-color: #c084fc; }
+.chipLink[data-tone="altered"] { --element-color: #f5d97a; }
+
+.chipLink:hover {
+  background: color-mix(in srgb, var(--element-color) 16%, transparent);
+}
+
+.chipLink:focus-visible {
+  outline: 2px solid var(--element-color);
+  outline-offset: 2px;
+}
+
+.chipLink img {
+  width: 16px;
+  height: 16px;
+  object-fit: contain;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1120px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .card {
+    grid-column: auto;
+  }
+  .featured {
+    grid-column: 1 / -1;
+    grid-template-columns: minmax(0, 0.9fr) minmax(420px, 1.1fr);
+  }
+  .featured.artColumn {
+    grid-template-columns: minmax(0, 0.9fr) 130px minmax(420px, 1.1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .layout {
+    padding: 20px 20px 28px;
+  }
+  .featured,
+  .featured.artColumn {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: "heading" "body" "preview" "aside" "action";
+    grid-template-rows: none;
+  }
+  .bgArt {
+    width: 70%;
+  }
+  /* One column: the art sits at the top right, behind the title and description. */
+  .featured > .bgArtFeature {
+    inset: 0 0 auto auto;
+    grid-area: 1 / 1 / span 3 / 2;
+    width: 46%;
+    height: 220px;
+    opacity: 0.3;
+  }
+}
+
+@media (max-width: 640px) {
+  .layout {
+    padding: 16px 16px 24px;
+  }
+  .grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .card {
+    min-height: 0;
+    padding: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .card::before,
+  .stripItem,
+  .chipLink,
+  .bgArt,
+  .action,
+  .action::after {
+    transition: none;
+  }
+  .bgArt img {
+    animation: none;
+  }
+  .card:hover .bgArt {
+    transform: none;
+  }
+}

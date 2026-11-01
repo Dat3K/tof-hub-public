@@ -1,0 +1,135 @@
+/* Datamine Handbook (docs/game-data/README.md): datamine page frame, neutral --surface-* panels. */
+
+.page {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 18px 28px 40px;
+  box-sizing: border-box;
+  color: var(--dm-text, #d7d0dd);
+}
+
+/* Section links and the server mode scroll with the page content. */
+.toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 56px;
+  margin: 0 -28px;
+  padding: 8px 28px;
+  box-sizing: border-box;
+  background: rgba(11, 13, 19, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.nav {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+
+.nav::-webkit-scrollbar {
+  display: none;
+}
+
+/* Shared pill Tabs provide the frame and selected fill; keep the list horizontally scrollable. */
+.tabList {
+  min-width: max-content;
+}
+
+.tab {
+  white-space: nowrap;
+}
+
+.mode {
+  flex: none;
+}
+
+.panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin-top: 16px;
+}
+
+.section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 14px;
+  min-width: 0;
+  position: relative;
+  padding: 18px 20px;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--dm-radius-md, 8px);
+  background: var(--surface-panel);
+}
+
+.sectionHeader {
+  /* No z-index: it would trap the "?" dialog (rendered inside) below the sticky tab bar. */
+  position: absolute;
+  top: 14px;
+  right: 16px;
+}
+
+.empty {
+  margin: 0;
+  max-width: none;
+}
+
+/* "?" in a section header: opens the data source dialog. */
+.sourceButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--surface-border-strong);
+  border-radius: 50%;
+  background: var(--surface-inset);
+  color: var(--dm-muted, #b4abbf);
+  font: 700 13px/1 var(--font-sans);
+  cursor: pointer;
+  flex: none;
+  transition: color 160ms ease, border-color 160ms ease;
+}
+
+.sourceButton:hover,
+.sourceButton:focus-visible {
+  border-color: var(--dm-gold, #f5d97a);
+  color: var(--dm-gold, #f5d97a);
+  outline: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sourceButton {
+    transition: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .page {
+    padding-inline: 16px;
+  }
+  .toolbar {
+    margin-inline: -16px;
+    padding-inline: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .toolbar {
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .mode {
+    order: -1;
+  }
+  .nav {
+    flex-basis: 100%;
+  }
+  .section {
+    padding: 14px;
+  }
+}
+

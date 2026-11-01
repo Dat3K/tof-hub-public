@@ -1,0 +1,118 @@
+/* ==========================================================================
+   SiteFooter Styles
+   Reference: datamine/shared/footer.css
+   ========================================================================== */
+
+.footer {
+  position: relative;
+  z-index: 20;
+  margin-top: auto; /* Sticky-to-bottom: pushes footer to bottom on short pages */
+  background: transparent;
+  width: 100%;
+}
+
+/* Hairline that fades out at both ends instead of a hard full-width border. */
+.footer::before {
+  content: "";
+  position: absolute;
+  inset: 0 0 auto;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--dm-border, rgba(255, 255, 255, 0.08)) 18%,
+    var(--dm-border, rgba(255, 255, 255, 0.08)) 82%,
+    transparent
+  );
+}
+
+.inner {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 22px 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 24px;
+  flex-wrap: wrap;
+  font-family: var(--dm-font-ui, "Barlow", "Manrope", sans-serif);
+  font-size: 13px;
+  color: var(--dm-muted, #918899);
+  line-height: 1.4;
+}
+
+/* Section hubs (/info/, /datamine/, /tools/) fit one screen above the footer (section-hub.module.css). */
+:global(body:has([data-section-hub])) .inner {
+  padding: 12px 20px 14px;
+}
+
+.copyright {
+  color: var(--dm-muted, #918899);
+  letter-spacing: 0.02em;
+  font-size: 12px;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 4px 2px;
+  flex-wrap: wrap;
+}
+
+.link {
+  padding: 5px 9px;
+  border-radius: var(--dm-radius-xs, 4px);
+  color: var(--dm-muted, #918899);
+  text-decoration: none;
+  transition: color 0.15s ease, background-color 0.15s ease;
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 1.4;
+}
+
+.link:hover {
+  color: var(--dm-text-strong, #f4f0f6);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.link:focus-visible {
+  outline: 2px solid var(--dm-gold, #f5d97a);
+  outline-offset: 2px;
+}
+
+.github {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 6px;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
+  border-radius: 999px;
+}
+
+.github:hover {
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 640px) {
+  .inner {
+    padding: 18px 16px 28px;
+    flex-direction: column-reverse;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav {
+    margin-left: -9px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .link {
+    transition: none;
+  }
+}

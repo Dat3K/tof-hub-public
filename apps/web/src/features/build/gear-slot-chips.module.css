@@ -1,0 +1,3 @@
+/* Inactive slot icons are dimmed so the chip text leads (moved from Tops, 2026-10-09). */
+.slotChips {display:contents}
+.slotChips :global(.sim-filter-btn:not(.active):not(:hover):not(:focus-visible) .sim-filter-icon) {filter:brightness(.75) saturate(.85);opacity:1}

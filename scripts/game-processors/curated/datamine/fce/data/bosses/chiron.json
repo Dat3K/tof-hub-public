@@ -1,0 +1,60 @@
+{
+  "slug": "chiron",
+  "order": 31,
+  "boss_id": "boss_hum_009",
+  "name_color": "#2fa8c5",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss004.webp",
+  "art_object_position": "center center",
+  "source_psd": "bigboss004.png",
+  "en": {
+    "name": "Chiron",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_009_2_des",
+        "html": "Increases Chiron the Centaur's Speed."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_009_3_des",
+        "html": "Chiron the Centaur sprints more often."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_009_4_des",
+        "html": "Chiron the Centaur's attacks ignore Hyperbody."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_009_5_des",
+        "html": "Chiron the Centaur creates electromagnetic traps around itself, stunning those who step on them for 3s."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Хирон",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_009_2_des",
+        "html": "Увеличивает скорость кентавра Хирона."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_009_3_des",
+        "html": "Кентавр Хирон может чаще делать рывок."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_009_4_des",
+        "html": "Атаки кентавра Хирона игнорируют Гипертело."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_009_5_des",
+        "html": "Кентавр Хирон создает вокруг себя электромагнитные ловушки, которые на 3 сек. оглушают тех, кто в них наступит."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss004.webp"
+}

@@ -1,0 +1,13 @@
+.slots {display:flex;flex-wrap:wrap;gap:4px 8px;min-width:0;margin-top:4px}
+.slot {position:relative;display:flex;align-items:center;gap:4px;min-width:0;color:var(--info-link,#2ba6df);font-size:11px}
+.slot img {width:20px;height:20px;object-fit:contain;flex-shrink:0}
+.slot select {max-width:145px;min-width:0;background:var(--surface-panel);color:inherit;border:1px solid rgba(255,255,255,.15);border-radius:4px;padding:2px;font:inherit}
+.description {max-width:280px}
+.slots[data-presentation=icons] {flex-wrap:nowrap;justify-content:center;gap:6px}
+.slots[data-presentation=icons] .slot {width:27px;height:27px;justify-content:center;border:1px solid rgba(255,255,255,.15);border-radius:4px;background:var(--surface-panel)}
+.slots[data-presentation=icons] select {position:absolute;inset:0;width:100%;max-width:none;opacity:0;cursor:pointer}
+.slots[data-presentation=icons] .slot:focus-within {outline:2px solid var(--info-link,#2ba6df);outline-offset:2px}
+.slots[data-presentation=icons] .empty {font-size:9px;color:#8fa3b4}
+
+.slots[data-presentation=icons][data-kind=mode] {flex-direction:column;align-items:center;gap:3px}
+.modeName {display:block;width:100%;max-width:68px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:center;font-size:9px;color:var(--color-text-secondary,#8fa3b4)}

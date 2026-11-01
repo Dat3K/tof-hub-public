@@ -1,0 +1,61 @@
+{
+  "slug": "phantasmic-scorpion",
+  "order": 33,
+  "boss_id": "boss_hum_074",
+  "name_color": "#b7e84a",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss074.webp",
+  "art_object_position": "center center",
+  "source_psd": "Norn_BOSS_2.png",
+  "name_width": 980,
+  "en": {
+    "name": "Scorpion",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_074_2_des",
+        "html": "Prevents healing on targets hit by Phantasmic Scorpion for 10s."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_074_3_des",
+        "html": "Phantasmic Scorpion releases a lethal poison in a large area every 30s."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_074_4_des",
+        "html": "Phantasmic Scorpion releases poisonous fog in a random area nearby every 10s, inflicting Slow on those who enter."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_074_5_des",
+        "html": "Stone Pillars spawn around the Phantasmic Scorpion every 20s. 10s later, the Phantasmic Scorpion releases poison to all targets not sheltered by the pillars, inflicting an 8-second Stun on them."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Скорпион",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_074_2_des",
+        "html": "Предотвращает исцеление целей, пораженных «Фантастическим скорпионом», в течение 10 секунд."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_074_3_des",
+        "html": "Призрачный скорпион каждые 30 секунд выпускает смертельный яд на большой площади."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_074_4_des",
+        "html": "Призрачный Скорпион каждые 10 секунд выпускает ядовитый туман в случайном месте поблизости, замедляя тех, кто в него входит."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_074_5_des",
+        "html": "Каменные столбы появляются вокруг Призрачного Скорпиона каждые 20 секунд. Через 10 секунд Призрачный Скорпион выпускает яд на все цели, не защищенные столбами, накладывая на них оглушение на 8 секунд."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_074.webp"
+}

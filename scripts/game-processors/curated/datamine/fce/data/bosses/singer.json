@@ -1,0 +1,52 @@
+{
+  "slug": "singer",
+  "order": 15,
+  "boss_id": "boss_012",
+  "name_color": "#52d9d5",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_05.webp",
+  "art_object_position": "center center",
+  "source_psd": "ПЕВЕЦ.psd",
+  "en": {
+    "name": "Singer",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "The Singer&#x27;s attacks inflict Corrosion DMG."
+      },
+      {
+        "index": "2",
+        "html": "The Singer constantly deals massive Radiation DMG to nearby enemies."
+      },
+      {
+        "index": "3",
+        "html": "The Singer summons a decoy every 30 seconds, becoming invincible while the decoy exists. Attack the decoy a set number of times to destroy it and dispel the Singer&#x27;s Invincibility."
+      },
+      {
+        "index": "4",
+        "html": "Whenever dealing damage, the Singer inflicts a stack of Corruption, which, upon reaching 20 stacks, reduces the target&#x27;s ATK and movement speed for 15 seconds. <span class=\"fce-card__text-accent\">Debuff reduces base ATK by 30% (Coco matrix).</span>"
+      }
+    ]
+  },
+  "ru": {
+    "name": "Сингер",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Атаки Сингера наносят Corrosion DMG."
+      },
+      {
+        "index": "2",
+        "html": "Сингер постоянно наносит ближайшим врагам огромный Radiation DMG."
+      },
+      {
+        "index": "3",
+        "html": "Каждые 30 секунд Сингер призывает приманку и становится неуязвимым, пока она существует. Атакуйте приманку нужное число раз, чтобы уничтожить ее и снять неуязвимость Сингера."
+      },
+      {
+        "index": "4",
+        "html": "Каждый нанесенный удар Сингера накладывает стак Corruption. При достижении 20 стаков у цели снижаются ATK и скорость передвижения на 15 секунд. <span class=\"fce-card__text-accent\"> Дебафф снижает базовый ATK на 30% (матрица Коко).</span>"
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_05.webp"
+}

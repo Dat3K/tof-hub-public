@@ -1,0 +1,51 @@
+{
+  "slug": "devourer",
+  "boss_id": "boss_038_Balance",
+  "monster_row_number": 23,
+  "order": 100,
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/WorldBossList/BOSS/Boss_7.webp",
+  "name_color": "#8bd6ed",
+  "provenance": "User-supplied mechanics, 2026-10-16; image from generated MMO OOW Devourer presentation.",
+  "en": {
+    "name": "Devourer",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "The Devourer gains a shield for 10s that blocks 10 instances of damage every 20s."
+      },
+      {
+        "index": "2",
+        "html": "The Devourer’s stomp has a chance to inflict control effects on nearby targets for 2s."
+      },
+      {
+        "index": "3",
+        "html": "The Devourer reduces the target’s Resistance by 30% and Max HP by 30% for 20s upon hit."
+      },
+      {
+        "index": "4",
+        "html": "The Devourer reduces a selected target’s damage and speed."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Пожиратель",
+    "mechanics": [
+      {
+        "index": "1",
+        "html": "Каждые 20 сек. Пожиратель получает щит на 10 сек., блокирующий 10 попаданий."
+      },
+      {
+        "index": "2",
+        "html": "Удар Пожирателя ногой может наложить эффекты контроля на ближайшие цели на 2 сек."
+      },
+      {
+        "index": "3",
+        "html": "При попадании Пожиратель снижает сопротивление и максимальное HP цели на 30% на 20 сек."
+      },
+      {
+        "index": "4",
+        "html": "Пожиратель снижает урон и скорость выбранной цели."
+      }
+    ]
+  }
+}

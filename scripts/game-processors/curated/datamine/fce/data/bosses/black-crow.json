@@ -1,0 +1,59 @@
+{
+  "slug": "black-crow",
+  "order": 35,
+  "boss_id": "boss_hum_059",
+  "name_color": "#d55939",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.webp",
+  "art_object_position": "center center",
+  "en": {
+    "name": "Black Crow",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_059_1_des",
+        "html": "Deals Corrosion Damage with attacks."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_059_2_des",
+        "html": "Restores Max HP over 5s."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_059_3_des",
+        "html": "Grants a shield at the start that breaks after 200 hits."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_059_4_des",
+        "html": "Deals huge damage based on HP percentage to nearby targets."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Чёрный ворон",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_059_1_des",
+        "html": "Наносит коррозионный урон при атаках."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_059_2_des",
+        "html": "Восстанавливает максимальное количество HP за 5 секунд."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_059_3_des",
+        "html": "В начале боя предоставляет щит, который разрушается после 200 попаданий."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_059_4_des",
+        "html": "Наносит огромный урон ближайшим целям, зависящий от процента здоровья."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss059.thumb.webp"
+}

@@ -1,0 +1,15 @@
+{
+  "id": "boots", "equipped": true, "enhancement": 80, "stars": 5,
+  "titan": true, "augmented": true, "augmentCount": 297,
+  "rareId": "", "rareLevel": 3, "base": [],
+  "rows": [
+    {"type":"Crit","beforeTitan":4046.175293,"value":5648.176758},
+    {"type":"Volt Attack","beforeTitan":69,"value":391.643127},
+    {"type":"Attack","beforeTitan":273.318542,"value":534.983643},
+    {"type":"Physical Attack","beforeTitan":69,"value":400.264648}
+  ],
+  "augments": [
+    {"type":"HP","value":85758.710938},
+    {"type":"Frost Resistance","value":4132.357422}
+  ]
+}

@@ -1,0 +1,59 @@
+{
+  "slug": "habaka",
+  "order": 28,
+  "boss_id": "boss_hum_018",
+  "name_color": "#7d51a4",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss018.webp",
+  "art_object_position": "center center",
+  "en": {
+    "name": "Habaka",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_018_1_des",
+        "html": "Habaka's movement speed is increased."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_018_2_des",
+        "html": "Spreads Corrosion, reducing damage dealt by nearby targets."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_018_3_des",
+        "html": "Gains temporary damage reduction for 5s when attacked. Cooldown: 15s."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_018_4_des",
+        "html": "Gains one stack of Vigor with each hit. At 10 stacks, the next attack deals massive bonus damage."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Хабака",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_018_1_des",
+        "html": "Скорость движения Хабаки увеличена."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_018_2_des",
+        "html": "Распространяет коррозию, уменьшая наносимый ближайшим целям урон."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_018_3_des",
+        "html": "Получает временное снижение получаемого урона на 5 сек., подвергаясь атаке. Перезарядка: 15 сек."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_018_4_des",
+        "html": "При каждом ударе получает 1 заряд энергии. При 10 зарядах следующая атака наносит значительный бонусный урон."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_018.webp"
+}

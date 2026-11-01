@@ -1,0 +1,58 @@
+{
+  "slug": "defender",
+  "order": 34,
+  "boss_id": "boss_hum_079",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss079.webp",
+  "art_object_position": "center center",
+  "en": {
+    "name": "Defender",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_079_2_des",
+        "html": "Increases the Defender's speed for all actions."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_079_3_des",
+        "html": "Launches multiple missiles on the surrounding area periodically, dealing lethal damage."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_079_4_des",
+        "html": "Deploys a Radiation Bomb periodically that detonates after a 5-second delay, releasing radiation across a wide area and dealing lethal damage. Can be disarmed after hit multiple times."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_079_5_des",
+        "html": "Creates an invincible copy of itself, with all the Defender's Abilities, when its HP reaches 80%."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Защитник",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_079_2_des",
+        "html": "Увеличивает скорость защитника при выполнении всех действий."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_079_3_des",
+        "html": "Периодически запускает множество ракет по окружающей местности, нанося смертельный урон."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_079_4_des",
+        "html": "Периодически запускает радиационную бомбу, которая детонирует с задержкой в 5 секунд, распространяя радиацию на большой площади и нанося смертельный урон. Может быть обезврежена после нескольких попаданий."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_079_5_des",
+        "html": "Создаёт неуязвимую копию себя со всеми способностями Защитника, когда её запас здоровья достигает 80%."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_hum_079.webp"
+}

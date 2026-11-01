@@ -1,0 +1,208 @@
+{
+  "source": "User-provided Stat ranges screenshot, 2026-10-02; ignore/documentation-media/docs/tools/build/stat-ranges-reference.png",
+  "stats": {
+    "Altered Attack": {
+      "base": 137,
+      "minRoll": 249,
+      "maxRoll": 623,
+      "average5": 2317,
+      "maximum5": 3252
+    },
+    "Altered Resistance": {
+      "base": 215,
+      "minRoll": 390,
+      "maxRoll": 974,
+      "average5": 3625,
+      "maximum5": 5085
+    },
+    "Altered Resistance %": {
+      "base": 0.0787,
+      "minRoll": 0.09,
+      "maxRoll": 0.09,
+      "average5": 0.5287,
+      "maximum5": 0.5287
+    },
+    "Attack": {
+      "base": 52,
+      "minRoll": 93,
+      "maxRoll": 234,
+      "average5": 870,
+      "maximum5": 1222
+    },
+    "Crit": {
+      "base": 258,
+      "minRoll": 468,
+      "maxRoll": 1169,
+      "average5": 4351,
+      "maximum5": 6103
+    },
+    "Crit Rate %": {
+      "base": 0.0105,
+      "minRoll": 0.0119,
+      "maxRoll": 0.0119,
+      "average5": 0.07,
+      "maximum5": 0.07
+    },
+    "Flame Attack": {
+      "base": 69,
+      "minRoll": 125,
+      "maxRoll": 312,
+      "average5": 1162,
+      "maximum5": 1629
+    },
+    "Flame Attack %": {
+      "base": 0.0126,
+      "minRoll": 0.0144,
+      "maxRoll": 0.0144,
+      "average5": 0.0846,
+      "maximum5": 0.0846
+    },
+    "Flame Damage %": {
+      "base": 0.0065,
+      "minRoll": 0.0072,
+      "maxRoll": 0.0072,
+      "average5": 0.0425,
+      "maximum5": 0.0425
+    },
+    "Flame Resistance": {
+      "base": 215,
+      "minRoll": 390,
+      "maxRoll": 974,
+      "average5": 3625,
+      "maximum5": 5085
+    },
+    "Flame Resistance %": {
+      "base": 0.0787,
+      "minRoll": 0.09,
+      "maxRoll": 0.09,
+      "average5": 0.5287,
+      "maximum5": 0.5287
+    },
+    "Frost Attack": {
+      "base": 69,
+      "minRoll": 125,
+      "maxRoll": 312,
+      "average5": 1162,
+      "maximum5": 1629
+    },
+    "Frost Attack %": {
+      "base": 0.0126,
+      "minRoll": 0.0144,
+      "maxRoll": 0.0144,
+      "average5": 0.0846,
+      "maximum5": 0.0846
+    },
+    "Frost Damage %": {
+      "base": 0.0065,
+      "minRoll": 0.0072,
+      "maxRoll": 0.0072,
+      "average5": 0.0425,
+      "maximum5": 0.0425
+    },
+    "Frost Resistance": {
+      "base": 215,
+      "minRoll": 390,
+      "maxRoll": 974,
+      "average5": 3625,
+      "maximum5": 5085
+    },
+    "Frost Resistance %": {
+      "base": 0.0787,
+      "minRoll": 0.09,
+      "maxRoll": 0.09,
+      "average5": 0.5287,
+      "maximum5": 0.5287
+    },
+    "HP": {
+      "base": 4125,
+      "minRoll": 7480,
+      "maxRoll": 18700,
+      "average5": 69575,
+      "maximum5": 97625
+    },
+    "HP %": {
+      "base": 0.0094,
+      "minRoll": 0.0108,
+      "maxRoll": 0.0108,
+      "average5": 0.0634,
+      "maximum5": 0.0634
+    },
+    "Physical Attack": {
+      "base": 69,
+      "minRoll": 125,
+      "maxRoll": 312,
+      "average5": 1162,
+      "maximum5": 1629
+    },
+    "Physical Attack %": {
+      "base": 0.0126,
+      "minRoll": 0.0144,
+      "maxRoll": 0.0144,
+      "average5": 0.0846,
+      "maximum5": 0.0846
+    },
+    "Physical Damage %": {
+      "base": 0.0065,
+      "minRoll": 0.0072,
+      "maxRoll": 0.0072,
+      "average5": 0.0425,
+      "maximum5": 0.0425
+    },
+    "Physical Resistance": {
+      "base": 215,
+      "minRoll": 390,
+      "maxRoll": 974,
+      "average5": 3625,
+      "maximum5": 5085
+    },
+    "Physical Resistance %": {
+      "base": 0.0787,
+      "minRoll": 0.09,
+      "maxRoll": 0.09,
+      "average5": 0.5287,
+      "maximum5": 0.5287
+    },
+    "Resistance": {
+      "base": 64,
+      "minRoll": 117,
+      "maxRoll": 292,
+      "average5": 1087,
+      "maximum5": 1524
+    },
+    "Volt Attack": {
+      "base": 69,
+      "minRoll": 125,
+      "maxRoll": 312,
+      "average5": 1162,
+      "maximum5": 1629
+    },
+    "Volt Attack %": {
+      "base": 0.0126,
+      "minRoll": 0.0144,
+      "maxRoll": 0.0144,
+      "average5": 0.0846,
+      "maximum5": 0.0846
+    },
+    "Volt Damage %": {
+      "base": 0.0065,
+      "minRoll": 0.0072,
+      "maxRoll": 0.0072,
+      "average5": 0.0425,
+      "maximum5": 0.0425
+    },
+    "Volt Resistance": {
+      "base": 215,
+      "minRoll": 390,
+      "maxRoll": 974,
+      "average5": 3625,
+      "maximum5": 5085
+    },
+    "Volt Resistance %": {
+      "base": 0.0787,
+      "minRoll": 0.09,
+      "maxRoll": 0.09,
+      "average5": 0.5287,
+      "maximum5": 0.5287
+    }
+  }
+}

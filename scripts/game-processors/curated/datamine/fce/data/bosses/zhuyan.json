@@ -1,0 +1,60 @@
+{
+  "slug": "zhuyan",
+  "order": 27,
+  "boss_id": "boss_hum_057",
+  "name_color": "#ff5a4d",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/bigboss_SY_10.webp",
+  "art_object_position": "center center",
+  "source_psd": "bigboss_SY_10.png",
+  "en": {
+    "name": "Zhuyan",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_057_1_des",
+        "html": "Zhuyan's attacks carry an additional Powerful Graying Bite effect. Increase corresponding elemental resistance or avoid being hit."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_057_2_des",
+        "html": "Zhuyan inflicts Brutality with each hit. At 5 stacks, it triggers an explosion that deals massive damage to target and nearby enemies."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_057_3_des",
+        "html": "Zhuyan can be executed. Use weapons with high Shatter to break its shield and execute it."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_057_4_des",
+        "html": "Zhuyan erupts the ground every 5s, dealing lethal damage and leaving pools of lava at the explosion sites."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Чжуянь",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "Boss_hum_057_1_des",
+        "html": "Атаки Чжуяня накладывают дополнительный эффект «Мощный пепельный укус». Повысьте соответствующее сопротивление или избегайте попаданий."
+      },
+      {
+        "index": "2",
+        "key": "Boss_hum_057_2_des",
+        "html": "Каждая атака Чжуяня накладывает «Жестокость». При 5 зарядах происходит взрыв, наносящий значительный урон цели и врагам поблизости."
+      },
+      {
+        "index": "3",
+        "key": "Boss_hum_057_3_des",
+        "html": "Чжуяня можно уничтожить. Используйте оружие с высоким показателем раскола, чтобы сломать его щит и выполнить добивание."
+      },
+      {
+        "index": "4",
+        "key": "Boss_hum_057_4_des",
+        "html": "Каждые 5 секунд Чжуянь вызывает извержение из-под земли, наносящее смертельный урон и оставляющее после взрыва лужи лавы."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/boss_SY_10.webp"
+}

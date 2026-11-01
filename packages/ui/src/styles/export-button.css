@@ -1,0 +1,25 @@
+.tof-export-button {
+  display:inline-flex;align-items:center;gap:8px;min-height:40px;padding:8px 14px;
+  border:1px solid var(--dm-border-hover,rgba(245,217,122,.28));border-radius:6px;
+  background:var(--dm-surface-raised,#16181f);color:var(--dm-gold,#f5d97a);
+  font-family:var(--font-sans,"Barlow","Segoe UI",sans-serif);font-size:13px;font-weight:700;
+  box-shadow:0 12px 28px rgba(0,0,0,.45);cursor:pointer;
+  transition:border-color .16s ease,background .16s ease,color .16s ease,box-shadow .16s ease,transform .16s ease,bottom .2s ease;
+}
+.tof-export-button:hover:not(:disabled) {
+  border-color:var(--dm-gold,#f5d97a);background:var(--dm-gold,#f5d97a);color:#17111f;
+  box-shadow:0 14px 32px rgba(229,180,86,.35);transform:translateY(-1px);
+}
+.tof-export-button:disabled {opacity:.6;cursor:wait}
+/* A disabled action that is not busy is unavailable, not waiting. */
+.tof-export-button:disabled:not([aria-busy]) {opacity:.45;cursor:not-allowed}
+.tof-export-button[data-tone="sky"] {border-color:rgba(125,211,252,.3);color:#7dd3fc}
+.tof-export-button[data-tone="sky"]:hover:not(:disabled) {border-color:#7dd3fc;background:#7dd3fc;color:#0b1520;box-shadow:0 14px 32px rgba(125,211,252,.3)}
+.tof-export-button[data-tone="sky"]:focus-visible {outline-color:#7dd3fc}
+.tof-export-button:focus-visible {outline:2px solid var(--dm-gold,#f5d97a);outline-offset:3px}
+.tof-export-button-icon {display:inline-flex;align-items:center;justify-content:center;line-height:1;flex-shrink:0}
+.tof-export-button-icon svg {display:block;width:16px;height:16px}
+.tof-export-button-icon>span {font-size:16px;line-height:1}
+.tof-export-button-label {font-size:13px;font-weight:700;line-height:1;white-space:nowrap}
+@media(max-width:768px) {.tof-export-button {min-height:44px;padding:9px 13px}}
+@media(prefers-reduced-motion:reduce) {.tof-export-button {transition:none}}

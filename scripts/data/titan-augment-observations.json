@@ -1,0 +1,70 @@
+{
+  "description": "Titan (EquipmentTupo) added-stat pools observed on captured gear; corrects the upstream tof-tools augmentation pools where they disagree. Observations, not raw table rows.",
+  "observedAt": "2026-10-08",
+  "source": "Local tops database (players-2026-10-06..08 .tofplayers inspects and own .tofbuild captures): Titan pieces with added stats; primary = the random stat with the most equivalent rolls (at least 2.5), current value reduced by the full-Titan growth.",
+  "percentFallback": {
+    "types": [
+      "HP",
+      "Flame Resistance",
+      "Frost Resistance",
+      "Physical Resistance",
+      "Volt Resistance"
+    ],
+    "replaces": "Upstream fallback of percent primaries: HP %, Flame/Frost/Physical/Volt Resistance %",
+    "evidence": {
+      "Elemental Resistance %": {
+        "items": 49,
+        "added": {
+          "elemental Resistance": 77,
+          "HP": 21
+        },
+        "percentAdded": 0
+      },
+      "Crit Rate %": {
+        "items": 64,
+        "added": {
+          "elemental Resistance": 97,
+          "HP": 31
+        },
+        "percentAdded": 0
+      },
+      "Elemental Attack % (fallback slots)": {
+        "items": 1542,
+        "added": {
+          "HP": 10,
+          "elemental Resistance": 5
+        },
+        "percentAdded": 0
+      },
+      "Elemental Damage % (fallback slots)": {
+        "items": 180,
+        "added": {
+          "HP": 2
+        },
+        "percentAdded": 0
+      },
+      "HP %": {
+        "items": 2,
+        "added": {
+          "elemental Resistance": 4
+        },
+        "percentAdded": 0
+      }
+    }
+  },
+  "resistancePercentPriority": {
+    "types": [],
+    "replaces": "Upstream priority of an elemental Resistance % primary: the other elements' Resistance %",
+    "evidence": "0 of 98 added stats on 49 elemental Resistance % primaries were a Resistance %"
+  },
+  "unresolved": "Flat Resistance is in the upstream fallback of Crit and Attack but was never observed there (0 of 2530 added stats); kept as upstream until confirmed.",
+  "addedStatShare": {
+    "max": 0.975,
+    "median": 0.89,
+    "formula": "added = initial(added) + share × (primary value after Titan − initial(primary)) / maxRoll(primary) × maxRoll(added); the added stat does not grow with Titan. Applies to every added stat, elemental ATK / ATK % / DMG % included",
+    "evidence": "8893 Titan-added elemental Resistance, Resistance and HP stats with primaries of at least 2 equivalent rolls (local tops database, 2026-10-08). Share by primary: Crit → E-RES n 4424 median 0.894 max 0.968; Attack → E-RES n 1171 median 0.892 max 0.965; Resistance → E-RES n 228 median 0.905 max 0.963; Elemental Resistance % → E-RES n 140 median 0.873 max 0.930; Crit Rate % → E-RES n 245 median 0.841 max 0.924; HP % → E-RES n 25 median 0.847 max 0.920. Own captures with known pre-Titan values: 0.853–0.942 (9 stats). Elemental ATK primaries → added elemental ATK: n 19141 median 0.901 p90 0.939 max 0.975 (value ratio added/primary: median 0.906, max 0.977, min 0.747). Elemental ATK % → ATK %: n 7128 median 0.889 max 0.952; DMG % → DMG %: n 845 median 0.886 max 0.950. Cross-type pairs into a percent stat sit lower (Attack → ATK % median 0.804 max 0.934; Crit Rate % → ATK % median 0.723 max 0.785).",
+    "replaces": "The earlier model: (initial + primary rolls before Titan × maxRoll) at full Titan growth (×1.1 + flat). Nothing reached it (max 0.972), and items with equal primaries differed by type: Crit Rate % primaries got 5226–5986 elemental Resistance, Elemental Resistance % primaries 4125–5515.",
+    "unresolved": "The share is random per added stat; its exact distribution, whether the true maximum is 1.0, and why cross-type pairs into percent stats sit lower are unknown.",
+    "replacesUpstream": "tof-tools 52a960e src/models/gear/gear.ts getMaxTitanGear: added elemental ATK / ATK % / DMG % = 0.95 × the primary's total (augmentStatsPullUpFactor1, src/definitions/gear.ts); other added stats = their own initial value with full Titan growth (e.g. Frost Resistance 215 × 1.1 + 1017 = 1253.5), far below captured values (4,000–6,000)."
+  }
+}

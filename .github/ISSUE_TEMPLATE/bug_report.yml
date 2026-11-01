@@ -1,0 +1,40 @@
+name: Bug report
+description: Something on the site or in the code does not work as expected.
+labels: [bug]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The URL where it happens, on the live site or your own installation.
+      placeholder: https://tof.smilekritik.beer/tools/build/
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you did, what you expected and what you saw instead. Screenshots help.
+    validations:
+      required: true
+  - type: dropdown
+    id: where
+    attributes:
+      label: Where
+      options:
+        - Live site
+        - Self-hosted installation
+        - Local development
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Chrome 140 on Windows 11
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: For self-hosted installations, the relevant output of `docker compose logs`. Remove anything private.
+      render: text

@@ -1,0 +1,33 @@
+{
+  "version": 2,
+  "export_metadata": {
+    "exported_at": "2026-10-05T18:38:04.056Z",
+    "exporter_name": "JSON example",
+    "exporter_version": "2.0.0"
+  },
+  "account": {
+    "uid": "130021000000001",
+    "nickname": "Demo Wanderer",
+    "region": "EU",
+    "server_id": "13002",
+    "timezone": "UTC"
+  },
+  "batches": [
+    {
+      "batch_id": "example-permanent-1",
+      "banner_id": "standard-weapon",
+      "raw_banner_code": "WeaponLottery_2",
+      "banner_type": "standard_weapon",
+      "group_ticks": "639268222840560000",
+      "timestamp": "2026-10-05T18:38:04.056Z",
+      "pulls": [
+        {
+          "index_in_batch": 0,
+          "item_id": "suspension_thunder",
+          "rarity": 5,
+          "is_featured": false
+        }
+      ]
+    }
+  ]
+}
