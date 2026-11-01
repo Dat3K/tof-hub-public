@@ -173,31 +173,10 @@ See [capture details](docs/screenshots/README.md).
 
 ## How it works
 
-```mermaid
-flowchart LR
-    subgraph Pipeline["Content pipeline (offline)"]
-        Game[(Installed game client)] --> Extract[Selective extraction]
-        Extract --> Processors[Processor DAG]
-        Processors --> Normalize[Normalize + localize]
-        Normalize --> Generators[Site generators]
-        Generators --> Media[Media resolution]
-        Media --> Validate[Validation]
-        Validate --> Release[[Full / delta update]]
-    end
-
-    subgraph Site["Website (Docker Compose)"]
-        Nginx[Nginx] --> Web[Next.js]
-        Nginx --> API[NestJS API]
-        API --> PG[(PostgreSQL)]
-        API --> Redis[(Redis)]
-    end
-
-    Release -->|apps/web/public| Nginx
-    User([Player JSON / file import]) --> API
-```
-
-- **Game content** (catalogs, localizations, images) is produced offline by the pipeline and served as static files.
-- **User content** (builds, wish histories, player rankings) is imported as JSON, validated against shared schemas, processed through a job queue and stored in PostgreSQL.
+| Data | How it reaches the site |
+| --- | --- |
+| **Game content** | ToF Exporter reads the installed client offline and builds catalogs, localizations and images. The site serves the generated files. |
+| **Player content** | The API validates JSON and file imports, processes them through a queue and stores builds, wish histories and rankings in PostgreSQL. |
 
 More detail: [architecture](docs/architecture/overview.md) · [pipeline](docs/pipeline.md) · [imports](docs/imports.md).
 
