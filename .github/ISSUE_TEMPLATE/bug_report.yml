@@ -1,12 +1,12 @@
 name: Bug report
 description: Something on the site or in the code does not work as expected.
-labels: [bug]
+labels: [bug, needs triage]
 body:
   - type: input
     id: page
     attributes:
-      label: Page
-      description: The URL where it happens, on the live site or your own installation.
+      label: Page, tool or command
+      description: The affected URL, or the exporter/patcher command you ran.
       placeholder: https://tof.smilekritik.beer/tools/build/
     validations:
       required: true
@@ -25,13 +25,19 @@ body:
         - Live site
         - Self-hosted installation
         - Local development
+        - ToF Exporter or branch patcher
     validations:
       required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: The dataset version shown in the header, exporter version or Git commit, if known.
   - type: input
     id: browser
     attributes:
       label: Browser and device
-      placeholder: Chrome 140 on Windows 11
+      placeholder: Chrome on Windows 11, Safari on iPhone, or the OS used by the tool
   - type: textarea
     id: logs
     attributes:

@@ -1,0 +1,75 @@
+[
+  { "name": "bug", "color": "d73a4a", "description": "Something is not working as expected." },
+  { "name": "enhancement", "color": "a2eeef", "description": "A new feature or improvement." },
+  {
+    "name": "documentation",
+    "color": "0075ca",
+    "description": "Documentation, guides or examples."
+  },
+  {
+    "name": "question",
+    "color": "d876e3",
+    "description": "A question about using or contributing to ToF Hub."
+  },
+  {
+    "name": "accessibility",
+    "color": "f143ab",
+    "description": "A barrier affecting people with disabilities."
+  },
+  {
+    "name": "good first issue",
+    "color": "7057ff",
+    "description": "A small, well-scoped task suitable for a first contribution."
+  },
+  { "name": "help wanted", "color": "008672", "description": "Community help would be useful." },
+  {
+    "name": "needs triage",
+    "color": "fef2c0",
+    "description": "Needs review or reproduction before work can start."
+  },
+  {
+    "name": "needs information",
+    "color": "f9d0c4",
+    "description": "Waiting for details needed to reproduce or investigate."
+  },
+  {
+    "name": "area: web",
+    "color": "1d76db",
+    "description": "Website UI, accessibility, responsiveness and navigation."
+  },
+  {
+    "name": "area: game-data",
+    "color": "5319e7",
+    "description": "Game catalogs, encounter data, names, descriptions and images."
+  },
+  {
+    "name": "area: formulas",
+    "color": "b60205",
+    "description": "Damage, gear ratings, stat inheritance and other calculations."
+  },
+  {
+    "name": "area: exporter",
+    "color": "006b75",
+    "description": "ToF Exporter, extraction, normalization and generated assets."
+  },
+  {
+    "name": "area: api",
+    "color": "0e8a16",
+    "description": "Backend endpoints, persistence, caching and queues."
+  },
+  {
+    "name": "area: imports",
+    "color": "0052cc",
+    "description": "Build, wish and player data imports and validation."
+  },
+  {
+    "name": "area: localization",
+    "color": "fbca04",
+    "description": "Interface translations and language-specific rendering."
+  },
+  {
+    "name": "area: infrastructure",
+    "color": "563d7c",
+    "description": "Builds, Docker, CI and self-hosted setup."
+  }
+]

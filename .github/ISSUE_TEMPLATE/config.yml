@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Documentation
+    url: https://github.com/smilekritik/tof-hub-public/blob/main/docs/README.md
+    about: Setup, imports, calculations and game-data reference.
+  - name: Report a security vulnerability privately
+    url: https://github.com/smilekritik/tof-hub-public/security/advisories/new
+    about: Send a confidential report to the maintainer.

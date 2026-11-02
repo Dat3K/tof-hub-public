@@ -6,6 +6,19 @@ Thanks for helping with ToF Hub. Bug reports, data corrections, translations and
 
 - **Bugs and wrong data:** open an issue with the page URL, what you expected and what you saw. For game data, say which edition (Global or MMO), region and game version.
 - **Larger changes:** open an issue first so we can agree on the approach before you spend time on it.
+- **Security reports:** use the private channel described in [SECURITY.md](SECURITY.md).
+
+## Reporting and organizing issues
+
+The [issue forms](https://github.com/smilekritik/tof-hub-public/issues/new/choose)
+cover bugs, incorrect game data, feature requests and questions. English and
+Russian reports are welcome.
+
+Forms apply a type label and `needs triage`. Maintainers can add an `area:` label
+for the affected part of the project, or `needs information` when a report needs
+more detail. `good first issue` and `help wanted` identify tasks open to contributors.
+The maintained label names, colors and descriptions are in
+[.github/labels.json](.github/labels.json).
 
 ## Setting up
 
@@ -19,6 +32,9 @@ Much of the site reads generated game data. Without it, the web typecheck and se
 2. Keep each pull request to one topic.
 3. Run the checks from [development](docs/development.md#checks) for the parts you touched, plus `node scripts/check-public-source.mjs`.
 4. Open a pull request and describe what changed, why, and how you checked it. Add screenshots for UI changes.
+
+Use a short Conventional Commit title, such as `fix: correct resistance calculation`,
+`feat: add a comparison filter`, `docs: clarify setup` or `chore: update tooling`.
 
 ## Rules for this repository
 

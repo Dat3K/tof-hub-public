@@ -1,6 +1,6 @@
 name: Wrong or missing game data
 description: A value, name, image or description that does not match the game.
-labels: [data]
+labels: [bug, "area: game-data", needs triage]
 body:
   - type: input
     id: page
@@ -20,9 +20,14 @@ body:
     validations:
       required: true
   - type: textarea
+    id: version
+    attributes:
+      label: Region and version
+      description: The game region, client version and website dataset version, if known.
+  - type: textarea
     id: difference
     attributes:
       label: What is wrong
-      description: What the site shows and what the game shows. Include the region, the game version and a screenshot from the game if you can.
+      description: Compare what the site shows with the game. Attach a screenshot or link to the source when possible.
     validations:
       required: true

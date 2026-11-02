@@ -1,0 +1,23 @@
+name: Feature request
+description: Suggest a useful addition or improvement to ToF Hub.
+labels: [enhancement, needs triage]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Describe the task or problem that the current tools do not handle well.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed improvement
+      description: What should change, and how would it help?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Examples or alternatives
+      description: Optional screenshots, links or another way to solve the same problem.
