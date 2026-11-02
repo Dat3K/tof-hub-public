@@ -55,6 +55,9 @@ Afterwards, open a known profile, run a test import and check the queue page.
 1. Back up the database, key and `.env`.
 2. Read the release notes.
 3. Pull the new version. If `config/bootstrap.json` changed, restore the new bootstrap package.
+   Regenerate derived runtime catalogs with `pnpm generate:runtime-data`, including
+   after installing an older bootstrap. The [runtime guide](architecture/runtime-data.md)
+   explains the raid index/detail boundary and matching data releases.
 4. Rebuild and start:
 
    ```bash
@@ -114,6 +117,7 @@ Telegram notification code is included but off by default. If you enable it, run
 | `Missing site input` during generation | Run the bootstrap step before generating data or packaging the exporter. |
 | `/raw/Hotta` not found | `RAW_GAME_DIR` must point at the folder that contains `Hotta`, not its parent. |
 | Info or Build pages are empty | Generated data is not installed in `apps/web/public`. |
+| Ranking cannot load its catalog or raid rankings are unavailable after a code update | Run `pnpm generate:runtime-data` against the installed data, then deploy the matching runtime index and detail files together. |
 | API complains about `DATABASE_URL` or `IP_HASH_SALT` | Run `setup` and check `.env`. An empty `.env.example` copied as `.env` will not work. |
 | `migrate` or `provision` failed | `docker compose logs migrate provision`. Do not delete the volume to "fix" it. |
 | `Port is already allocated` | Change `WEB_PORT`, update both site URLs and rebuild `web`. |

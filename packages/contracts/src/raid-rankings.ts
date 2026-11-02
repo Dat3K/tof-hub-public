@@ -22,6 +22,8 @@ export const RaidRankingDatasetSchema = z.object({
   })),
   boards: z.array(z.object({
     id: z.string().min(1), seasonId: z.string().min(1), sourceId: z.string().min(1),
+    _detail: z.string().regex(/^runtime\/details\/raid-rankings\/[a-f0-9]{24}$/).optional(),
+    entryCount: z.number().int().nonnegative().optional(),
     scope: z.object({ kind: z.enum(['region', 'server']), region: z.string().min(1), subregion: z.string().min(1).optional(), serverId: z.string().nullable(), serverName: z.string().nullable() }),
     coverage: z.enum(['summary', 'partial', 'complete']), capturedAt: z.iso.datetime().nullable(),
     raw: z.record(z.string(), z.union([z.string(), z.number(), z.null()])).optional(),

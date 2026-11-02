@@ -120,17 +120,14 @@ export class RankingCacheService implements OnModuleInit, OnModuleDestroy {
   }
 
   /**
-   * Only whitelist queries that represent standard top-100 or default views without search/verified/custom filters.
+   * Share bounded first-page boards, including public role, verification, place and sort filters.
+   * Search and deep pagination remain uncached to avoid filling Redis with one-off queries.
    */
   isWhitelisted(query: RankingQuery, board: CachedBoard = 'players'): boolean {
     if (query.offset && query.offset > 0) return false;
     if (![50, 100].includes(query.limit)) return false;
     if (query.q) return false;
     if (query.dataset) return false;
-    if (query.verified) return false;
-    if (query.places && query.places !== 'region') return false;
-    if (query.sort && query.sort !== 'grv') return false;
-    if (query.role && query.role !== 'dps') return false;
     if (!query.track) return false;
     if ((board === 'players' && query.slot) || (query.slots && query.slots.length > 0)) return false;
     if (board === 'gear' && query.slot && !Object.hasOwn(loadScoringCatalog()?.allowedStats ?? {}, query.slot)) return false;
@@ -138,14 +135,18 @@ export class RankingCacheService implements OnModuleInit, OnModuleDestroy {
   }
 
   /**
-   * Canonical key representing the query parameters: role:track:region:limit.
+   * Every cacheable result-shaping filter participates in the key.
+   * Keep default-view keys compatible with existing warm snapshots.
    */
   canonicalQueryKey(query: RankingQuery): string {
     const role = query.role || 'dps';
     const track = query.track;
     const region = !query.region || query.region === 'all' ? 'all' : query.region;
     const limit = query.limit || 50;
-    return `${role}:${track}:${region}:${limit}`;
+    return `${role}:${track}:${region}:${limit}`
+      + (query.verified ? ':verified=1' : '')
+      + (query.places === 'global' ? ':places=global' : '')
+      + (query.sort && query.sort !== 'grv' ? `:sort=${query.sort}` : '');
   }
 
   /**

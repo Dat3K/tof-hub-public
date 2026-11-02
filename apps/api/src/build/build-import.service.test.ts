@@ -134,6 +134,18 @@ describe('encrypted card import',()=>{
     await stored.import(seal({...build,capture:{...build.capture,exporterVersion:'2.0.0',scan:{...build.capture.scan!,status:'interrupted',finishedAt:null}}}));
     expect(normal).toHaveLength(3);expect(normal[2]).not.toHaveProperty('build');
   });
+  it('imports and stores a profile under flat or unknown temporary ATK buffs',async()=>{
+    const snapshots:unknown[]=[];
+    const stored=new BuildImportService({store:async(snapshot:unknown)=>{snapshots.push(snapshot);return {};}} as never);
+    const records=['Default__buff_Wormhole_Atk_Level1_C','Default__Buff_Matrix_SSR_4_level4_3_OS_C','UnknownFutureBuff']
+      .map(definition=>({definition,stackCount:1,durationSeconds:60,remainingSeconds:50,expiresAt:null}));
+    const imported=await stored.import(seal({...fixture,buffs:{...fixture.buffs,records}}));
+    expect(imported.success).toBe(true);
+    expect(imported.data.buffs.records).toEqual(records);
+    expect(imported.data.combat).toEqual(fixture.combat);
+    expect(imported.source.signature).toBeTruthy();
+    expect(snapshots).toHaveLength(1);
+  });
   it('shows a live card of an unknown or Warp (MMO) server without storing anything',async()=>{
     let writes=0;
     const stored=new BuildImportService({store:async()=>{writes++;return {};}} as never,null,noopPioneer as never);

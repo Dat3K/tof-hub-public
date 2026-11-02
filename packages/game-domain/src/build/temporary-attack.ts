@@ -8,7 +8,8 @@ export interface CapturedEffect {definition:string;stackCount:number|null;durati
 
 /**
  * The profile ATK is a login snapshot (source observation), so temporary ATK effects active at login inflate it.
- * Constant ATK% is removed per element; flat ATK or an unknown magnitude makes the capture unusable.
+ * Constant ATK% is removed per element. `blocking` lists effects whose contribution cannot be
+ * reconstructed; it does not invalidate a profile or prevent importing/saving one.
  */
 export function temporaryAttackAtCapture(records:readonly CapturedEffect[],catalog:TemporaryAttackCatalog) {
   const percent:Record<string,number>={},sources:string[]=[],blocking:string[]=[];

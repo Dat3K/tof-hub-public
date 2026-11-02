@@ -75,11 +75,37 @@ describe('Ranking cache consistency and bounded snapshots',()=>{
   });
   it('does not let searched, paginated or oversized gear queries fill Redis',async()=>{
     const compute=vi.fn(async()=>({available:true,entries:[]}));
-    for(const extra of [{q:'someone'},{offset:100},{slots:['helmet']},{slot:'inventedslot'},{sort:'aug' as const}]) {
+    for(const extra of [{q:'someone'},{offset:100},{slots:['helmet']},{slot:'inventedslot'}]) {
       await cache.getOrCompute({...query,...extra},compute,{board:'gear'});
     }
     await cache.getOrCompute(query,async()=>({available:true,entries:['a'.repeat(2*1024*1024)]}),{board:'gear'});
     expect(redis.set).not.toHaveBeenCalled();
+  });
+  it('shares the same filtered board across clients without mixing verification, roles, sorting or places',async()=>{
+    const queries=[
+      query,
+      {...query,verified:true},
+      {...query,verified:true,role:'healer' as const},
+      {...query,verified:true,sort:'cs' as const},
+      {...query,verified:true,places:'global' as const},
+      {...query,verified:true,sort:'cs' as const,places:'global' as const},
+    ];
+    const computes=queries.map((_,index)=>vi.fn(async()=>({available:true,entries:[{kind:index}]})));
+    for(const [index,filtered] of queries.entries()) {
+      await cache.getOrCompute(filtered,computes[index]);
+      const anotherClient=new RankingCacheService({scoringRevision:{findUnique:vi.fn(async()=>({fingerprint:revision}))}} as never);
+      Object.assign(anotherClient,{redis,isConnected:true});
+      expect(await anotherClient.getOrCompute(filtered,computes[index])).toMatchObject({entries:[{kind:index}]});
+      expect(computes[index]).toHaveBeenCalledOnce();
+    }
+    expect(new Set(queries.map(filtered=>cache.buildCacheKey(filtered,revision))).size).toBe(queries.length);
+    expect(cache.buildCacheKey({...query,verified:false,sort:'grv',places:'region'},revision)).toBe(cache.buildCacheKey(query,revision));
+    const filtered={...query,verified:true};
+    await cache.getOrCompute(filtered,computes[1],{board:'gear'});
+    expect(computes[1]).toHaveBeenCalledTimes(2);
+    revision='3';
+    await cache.getOrCompute(filtered,computes[1]);
+    expect(computes[1]).toHaveBeenCalledTimes(3);
   });
   it('keeps a small Pioneer snapshot responsive while one refresh runs',async()=>{
     const key=cache.pioneerKey({...query,dataset:'pioneer'});

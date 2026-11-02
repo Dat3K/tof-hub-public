@@ -13,12 +13,19 @@ function buildCapturePolicy(foodRows,foodCatalog,attack,itemRows={}) {
     if(modifiers?.length&&modifiers.every(modifier=>modifier.kind==='percent'&&[2.5/100,3.5/100].includes(modifier.magnitude)))
       allowed[definition]={kind:'injection',rows:[item.id]};
   }
-  return {schemaVersion:1,allowed,provenance:{
+  // Editorial warning scope: Coco matrices only. Resolve every available rank/region
+  // from verified generated effect sources; the app never maintains game class IDs.
+  const cocoritter=Object.entries(attack.effects).filter(([,effect])=>
+    /\/Buff\/Matrix\/Matrix_SSR\/Buff_Matrix_SSR_4\//.test(effect.source??'')).map(([definition])=>definition);
+  return {schemaVersion:1,allowed,warnings:{cocoritter},provenance:{
     food:{relativePath:'Hotta/Content/Resources/CoreBlueprints/DataTable/cooking/CookingFoodDataTable.json',table:'CookingFoodDataTable',fields:['row key','Buffs[].BuffClass.AssetPathName']},
     itemFoods:{relativePath:'Hotta/Content/Resources/CoreBlueprints/DataTable/Item/ItemConfigs.json',table:'ItemConfigs',fields:['row key','ItemType=ITEM_TYPE_FOOD','Buffs[].BuffClass.AssetPathName']},
     injections:{source:'pipeline en/food.json potions: subcategory=shots; buffs[].buff_id',
       modifiers:'temporary-attack-effects.json effects[].modifiers; raw Properties.Modifiers / ModuleExtraModifierInfos',
       conversion:'User policy permits ATK fractions 2.5/100 and 3.5/100; every modifier must match; no display-text matching'},
+    comparisonWarnings:{source:'temporary-attack-effects.json effects[].source',
+      rawFamily:'Hotta/Content/Resources/Abilities/Buff/Matrix/Matrix_SSR/Buff_Matrix_SSR_4/',
+      policy:'Non-blocking gear-comparison advice for temporary Coco matrix ATK effects only'},
     version:'Raw export version unknown; generated 2026-10-11'}};
 }
 module.exports={buildCapturePolicy};

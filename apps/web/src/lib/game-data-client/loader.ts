@@ -11,7 +11,7 @@ import { FALLBACK_LOCALE } from '@tof-hub/i18n';
 export function buildDatasetUrl(locale: string, dataset: string, baseUrl = '/game-data'): string {
   const normalizedBase = baseUrl.replace(/\/+$/, '');
   const normalizedDataset = runtimeDatasetName(normalizeDatasetName(dataset));
-  return `${normalizedBase}/${locale}/${normalizedDataset}.json`;
+  return `${normalizedBase}/${[locale, normalizedDataset].filter(Boolean).join('/')}.json`;
 }
 
 /**
@@ -42,7 +42,7 @@ export async function fetchGameData<T>(
 
     // Only an absent culture/dataset falls back. Network, server and JSON errors
     // remain visible, and the requested locale keeps its own cache entry.
-    const usesFallback = response.status === 404 && locale !== FALLBACK_LOCALE;
+    const usesFallback = response.status === 404 && locale !== FALLBACK_LOCALE && locale !== '' && locale !== 'handbook';
     if (usesFallback) {
       response = await fetchFn(buildDatasetUrl(FALLBACK_LOCALE, dataset, options.baseUrl), {
         signal: options.signal,

@@ -44,6 +44,17 @@ pnpm generate:link-previews
 
 Saved build pages show only the public name, level, role, element and approved artwork. Nothing else from the capture enters metadata.
 
+Each web process renders one preview at a time, retaining that slot until its
+streamed body finishes. Identical pending URLs share the work. At most eight
+distinct jobs may be pending; overflow receives 429 with `Retry-After: 2`.
+Successful public output has a 60-second LRU bounded by 32 entries and 4 MiB;
+private, `no-store` and cookie-setting responses are excluded. Failures release
+the queue. This does not replace the response cache policies above.
+
+Local image reads and Sharp processing are also serialized, with an 8 MiB native
+cache and one processing thread. `render-cache.test.ts` checks streaming
+completion, admission limits, expiry and private-response behavior.
+
 ## Indexing
 
 | Pages | Policy |

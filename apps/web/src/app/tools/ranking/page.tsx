@@ -2,15 +2,14 @@ import {generatePageMetadata, type SeoPageProps} from '@/lib/seo/server';
 export async function generateMetadata(props: SeoPageProps) { return generatePageMetadata('/tools/ranking/', props); }
 
 import {loadServerGameData} from '@/lib/game-data-server';
-import {buildRankingCatalog} from '@/features/ranking/catalog';
+import {buildRankingCatalog, type RankingCatalogSource} from '@/features/ranking/catalog';
 import {RankingView} from '@/features/ranking/ranking-view';
-import type {BuildCatalog} from '@/features/build/types';
 
 type Search=Record<string,string|string[]|undefined>;
 const first=(value:string|string[]|undefined)=>Array.isArray(value)?value[0]??null:value??null;
 
 export default async function Page({searchParams}:{searchParams?:Promise<Search>}) {
-  const catalog=await loadServerGameData<BuildCatalog>('','build-page');
+  const catalog=await loadServerGameData<RankingCatalogSource>('','runtime/ranking-page');
   if(catalog.schemaVersion!==1)throw new Error('Unsupported build catalog version');
   const params=(searchParams?await searchParams:undefined)??{};
   const ranking=buildRankingCatalog(catalog);

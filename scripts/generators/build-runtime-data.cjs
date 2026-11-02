@@ -86,6 +86,27 @@ function projectInfo(dataset, data, write, growth = {}) {
   return output;
 }
 
+/** Raid observations use the same content-addressed detail boundary as Info entities. */
+function projectRaidRankings(data, write) {
+  const {latestRaidBoards, firstRaidResult} = require('../../packages/game-domain/src/encounters/raid-rankings.ts');
+  return {...data, boards: latestRaidBoards(data.boards).map(({raw: _raw, ...board}) => {
+    const detail = {...board, entries: board.entries.map(({raw: _entryRaw, ...entry}) => entry)};
+    const hash = createHash('sha256').update(JSON.stringify(detail)).digest('hex').slice(0,24);
+    const file = `runtime/details/raid-rankings/${hash}`;
+    write(file, detail);
+    const first = firstRaidResult(detail);
+    return {...detail, entries: first ? [first] : [], entryCount: detail.entries.length, _detail: file};
+  })};
+}
+
+/** Ranking never reads pet skills, cosmetics, matrix growth or weapon descriptions. */
+function projectRankingSource(data) {
+  return {...pick(data,'schemaVersion titanMark reference statTypeIcons displayIcons elementIcons resistanceIcons demoDraft'.split(' ')),
+    gear:(data.gear || []).map(({baseStats:_baseStats,...item})=>item),
+    weapons:(data.weapons || []).map(weapon=>({...pick(weapon,['elements']),
+      ...(weapon.selectableElements ? {selectableElements:weapon.selectableElements.map(row=>pick(row,['elements']))} : {})}))};
+}
+
 function buildRuntimeData(dataRoot = path.join(publicDir, 'game-data')) {
   const read = file => JSON.parse(fs.readFileSync(file, 'utf8'));
   const growthFile = path.join(dataRoot, 'weapon-growth.json');
@@ -153,12 +174,39 @@ function buildRuntimeData(dataRoot = path.join(publicDir, 'game-data')) {
   for (const entry of fs.readdirSync(dataRoot,{withFileTypes:true})) {
     if (!entry.isFile() || !entry.name.endsWith('.json') || entry.name === 'comp.json') continue;
     const target = path.join(dataRoot,'runtime',entry.name);
-    writeRuntimeJson(target, read(path.join(dataRoot,entry.name)));
+    const data = read(path.join(dataRoot,entry.name));
+    writeRuntimeJson(target, data);
+    if (entry.name === 'build-page.json') writeRuntimeJson(path.join(dataRoot,'runtime','ranking-page.json'),projectRankingSource(data));
   }
+  const raidSize = buildRaidRankingRuntime(dataRoot);
+  if (raidSize) sizes.push(raidSize);
   return sizes;
 }
 
-module.exports = {buildRuntimeData,projectInfo,summary,writeRuntimeJson};
+function buildRaidRankingRuntime(dataRoot, {check=false}={}) {
+  const raidSource = path.join(dataRoot,'handbook','raid-rankings.json');
+  if (fs.existsSync(raidSource)) {
+    const written = new Set();
+    const write = (name, value) => {
+      const target = path.join(dataRoot,'handbook',`${name}.json`);
+      if (check) require('node:assert/strict').equal(fs.readFileSync(target,'utf8'),JSON.stringify(value)+'\n',`Stale raid runtime file: ${name}`);
+      else writeRuntimeJson(target,value);
+      written.add(target);
+    };
+    const {RaidRankingDatasetSchema} = require('../../packages/contracts/src/raid-rankings.ts');
+    const source = RaidRankingDatasetSchema.parse(JSON.parse(fs.readFileSync(raidSource,'utf8')));
+    const index = projectRaidRankings(source,write);
+    write('runtime/raid-rankings',index);
+    const details = path.join(dataRoot,'handbook','runtime','details','raid-rankings');
+    for (const name of fs.existsSync(details) ? fs.readdirSync(details) : []) {
+      const file = path.join(details,name);
+      if (!check && /^[a-f0-9]{24}\.json$/.test(name) && !written.has(file)) fs.unlinkSync(file);
+    }
+    return {locale:'handbook',dataset:'raid-rankings',source:fs.statSync(raidSource).size,runtime:fs.statSync(path.join(dataRoot,'handbook','runtime','raid-rankings.json')).size};
+  }
+}
+
+module.exports = {buildRuntimeData,buildRaidRankingRuntime,projectInfo,projectRaidRankings,projectRankingSource,summary,writeRuntimeJson};
 if (require.main === module) {
   const sizes = buildRuntimeData(process.argv[2]);
   console.log(JSON.stringify(sizes,null,2));

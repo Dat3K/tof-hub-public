@@ -3,10 +3,13 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import {afterEach,describe,expect,it,vi} from 'vitest';
-import {buildRuntimeData} from '../../scripts/generators/build-runtime-data.cjs';
+import {buildRuntimeData,buildRaidRankingRuntime} from '../../scripts/generators/build-runtime-data.cjs';
 import {loadServerGameData,loadServerSimulacra,resolveServerDatasetPath} from '../../apps/web/src/lib/game-data-server';
 import {buildDatasetUrl} from '../../apps/web/src/lib/game-data-client/loader';
 import {adaptCompCatalog} from '../../packages/game-domain/src/adapters/comp-adapter';
+import {RaidRankingDatasetSchema} from '../../packages/contracts/src/raid-rankings';
+import {buildRankingCatalog} from '../../apps/web/src/features/ranking/catalog';
+import type {BuildCatalog} from '../../apps/web/src/features/build/types';
 
 const roots:string[]=[];
 afterEach(()=>{for(const root of roots.splice(0)) fs.rmSync(root,{recursive:true,force:true});});
@@ -18,6 +21,51 @@ function fixture() {
 }
 
 describe('generated runtime data',()=>{
+  it('projects the ranking source without changing any displayed catalog or scoring reference',()=>{
+    const {root,write,read}=fixture();
+    const data={schemaVersion:1,reference:{},statTypeIcons:{},displayIcons:{},elementIcons:{},resistanceIcons:{},
+      gear:[{id:'slot',allowedStats:[],baseStats:{large:'only Build needs this'}}],
+      weapons:[{elements:['Frost','Volt'],description:'not used',selectableElements:[{elements:['Flame','Physical'],name:'not used'}]}],
+      pets:[{description:'not used'}],matrices:[{description:'not used'}],
+      demoDraft:{profile:{name:'Example',uid:'1',server:'EU / Server'},gear:[{equipped:true}]}} as unknown as BuildCatalog;
+    write('build-page.json',data);
+    buildRuntimeData(root);
+    const projected=read('runtime/ranking-page.json');
+    expect(buildRankingCatalog(projected)).toEqual(buildRankingCatalog(data));
+    expect(projected.pets).toBeUndefined();
+    expect(projected.gear[0].baseStats).toBeUndefined();
+    expect(projected.weapons[0]).toEqual({elements:['Frost','Volt'],selectableElements:[{elements:['Flame','Physical']}]});
+  });
+  it('keeps raid source provenance out of SSR and restores only a selected immutable observation',async()=>{
+    const {root,write,read}=fixture();
+    const entry=(rank:number,nickname:string)=>({id:`entry-${rank}`,rank,duration:{raw:'1:00:00',milliseconds:60000},recordedAt:null,
+      members:[{nickname,identifier:String(rank),resonance:null}],raw:{provenance:'not for the browser'.repeat(200)}});
+    const board={id:'board',seasonId:'season',sourceId:'source',scope:{kind:'region',region:'EU',serverId:null,serverName:null},
+      coverage:'complete',capturedAt:'2026-10-01T00:00:00Z',entries:[entry(1,'First'),entry(2,'Second')],raw:{provenance:'archive only'}};
+    const dataset={schemaVersion:1,sources:[{id:'source',kind:'capture',title:'Fixture',url:null,author:null,observedAt:'2026-10-01',sha256:'a'.repeat(64)}],
+      seasons:[{id:'season',label:'S1',bossLabel:null,raidId:null,raidJoin:'unresolved'}],boards:[board,
+        {...board,id:'empty-partial',coverage:'partial',capturedAt:'2026-10-02T00:00:00Z',entries:[]}]};
+    write('handbook/raid-rankings.json',dataset);
+    buildRuntimeData(root);
+    const index=RaidRankingDatasetSchema.parse(read('handbook/runtime/raid-rankings.json'));
+    expect(index.boards.map(board=>board.id)).toEqual(['board']);
+    expect(index.boards[0]).toMatchObject({entryCount:2,entries:[{rank:1,members:[{nickname:'First'}]}]});
+    expect(JSON.stringify(index)).not.toContain('provenance');
+    const detail=index.boards[0]._detail!;
+    expect(()=>buildRaidRankingRuntime(root,{check:true})).not.toThrow();
+    expect(read(`handbook/${detail}.json`).entries.map((row:{rank:number})=>row.rank)).toEqual([1,2]);
+    const reading=vi.spyOn(fs.promises,'readFile');
+    expect(await loadServerGameData('handbook','raid-rankings',{dataRoot:root})).toEqual(index);
+    expect(reading.mock.calls.every(([file])=>!String(file).endsWith('handbook/raid-rankings.json'))).toBe(true);
+    reading.mockRestore();
+    dataset.boards[0].entries[1].members[0].nickname='Renamed';
+    write('handbook/raid-rankings.json',dataset);
+    expect(()=>buildRaidRankingRuntime(root,{check:true})).toThrow();
+    buildRaidRankingRuntime(root);
+    expect(read('handbook/runtime/raid-rankings.json').boards[0]._detail).not.toBe(detail);
+    expect(fs.existsSync(path.join(root,'handbook',`${detail}.json`))).toBe(false);
+    expect(read('handbook/raid-rankings.json').boards[0].raw).toEqual(board.raw);
+  });
   it('preserves unchanged files and updates a file when Windows denies rename',()=>{
     const {root,write,read}=fixture();
     write('link-previews.json',{version:1});

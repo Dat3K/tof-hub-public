@@ -45,18 +45,18 @@ describe('RankingCacheService', () => {
       expect(cache.isWhitelisted({track: 'all', role: 'dps', limit: 50, dataset: 'pioneer'})).toBe(false);
     });
 
-    it('bypasses when verified filter is active', () => {
-      expect(cache.isWhitelisted({track: 'all', role: 'dps', limit: 50, verified: true})).toBe(false);
+    it('shares verified boards between visitors', () => {
+      expect(cache.isWhitelisted({track: 'all', role: 'dps', limit: 50, verified: true})).toBe(true);
     });
 
-    it('bypasses non-grv sorts', () => {
-      expect(cache.isWhitelisted({track: 'all', role: 'dps', limit: 50, sort: 'cs'})).toBe(false);
-      expect(cache.isWhitelisted({track: 'all', role: 'dps', limit: 50, sort: 'name-asc'})).toBe(false);
+    it('shares sorted and global-place boards', () => {
+      expect(cache.isWhitelisted({track: 'all', role: 'dps', limit: 50, sort: 'cs'})).toBe(true);
+      expect(cache.isWhitelisted({track: 'all', role: 'dps', limit: 50, sort: 'name-asc', places: 'global'})).toBe(true);
     });
 
-    it('bypasses non-dps roles', () => {
-      expect(cache.isWhitelisted({track: 'all', role: 'healer', limit: 50})).toBe(false);
-      expect(cache.isWhitelisted({track: 'all', role: 'tank', limit: 50})).toBe(false);
+    it('shares healer and tank boards', () => {
+      expect(cache.isWhitelisted({track: 'all', role: 'healer', limit: 50})).toBe(true);
+      expect(cache.isWhitelisted({track: 'all', role: 'tank', limit: 50})).toBe(true);
     });
   });
 

@@ -2,6 +2,7 @@ import {ImageResponse} from 'next/og';
 import {getLinkPreview} from '@/lib/seo/server';
 import {HUB_PREVIEW_PATHS, hubPreviewCard} from './hub-card';
 import {localImage, OG_BRAND, OG_FOOTER} from './local-image';
+import {renderPreview} from './render-cache';
 
 export const runtime = 'nodejs';
 
@@ -16,6 +17,10 @@ function areaLabel(path: string, section: string): string | null {
 export async function GET(request: Request) {
   const href = new URL(request.url).searchParams.get('path') || '/';
   if (!href.startsWith('/') || href.startsWith('//') || href.length > 65536) return new Response('Invalid preview path', {status:400});
+  return renderPreview(href,()=>renderImage(href));
+}
+
+async function renderImage(href:string) {
   const preview = await getLinkPreview(href);
   const headers = {'Cache-Control':preview.noindex?'public, max-age=60, s-maxage=60':'public, max-age=3600, s-maxage=3600','X-Robots-Tag':'noindex'};
   // Section hubs get their own card with live counts and art (hub-card.tsx).

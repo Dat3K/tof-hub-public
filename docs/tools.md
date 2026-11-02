@@ -23,6 +23,11 @@ pair, filter by region and slot, and search by nickname or UID. The all-elements
 board shows each item or player on its best track. Supported tracks follow the
 catalog and role rules.
 
+`Me` finds the imported browser owner under the active filters and shows their
+original place. Repeated off/on toggles reuse the result; changing filters,
+refreshing board data or importing another owner clears it. See the
+[ranking-cache guide](architecture/ranking-cache.md) for Redis reuse and warmup.
+
 ### Best known gear and equipped gear
 
 These answer different questions:
@@ -48,6 +53,8 @@ Build brings weapons, matrices, equipment, relics and supporting progression
 systems into one editable card. You can inspect item details, view progression
 costs, change the role and element, and export a PNG. Global and MMO use their
 own generated catalogs and calculation rules.
+
+The full editor catalog loads once into the browser cache.
 
 **Personal Roll Value (PRV)** adapts gear weights to the current profile. A crit
 roll can matter less when that profile approaches its crit cap; ATK and ATK%

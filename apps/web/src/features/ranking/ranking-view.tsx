@@ -7,7 +7,7 @@ import Link from 'next/link';
 import {GearSlotChips} from '../build/gear-slot-chips';
 import {Button,CatalogControls,CatalogCounter,CatalogSearch,CatalogSort,Collapsible,EmptyState,FilterChip,FilterGroup,LoadingState,ModeSwitcher,Spinner,Toast,useToast} from '@tof-hub/ui';
 import {gameAsset} from '@tof-hub/game-assets';
-import {getServerById,normalizeSearchText} from '@tof-hub/contracts';
+import {getServerById,normalizeSearchText,SEALED_FILES} from '@tof-hub/contracts';
 import {Hint,Nickname,RegionCell,RegionCode,RegionFilters} from '../players/player-identity';
 import {useLocale} from '@/lib/i18n';
 import {getPlayerRoleLabel,standardRVProfile} from '@tof-hub/game-domain';
@@ -123,7 +123,7 @@ function copyFor(locale:BuildLocale) {
     example:t('Example: the sample build card from Tools → Build, not a real upload.'),
     upload:t('Upload your build'),loading:t('Loading rankings…'),error:t('Could not load the rankings.'),
     total:t('Build GRV'),slots:t('Best known gear'),updated:t('Updated','Обновлено'),maxCsSeen:t('Max CS recorded'),
-    uploadPlayers:t('Upload players (.tofplayers)'),uploading:t('Uploading…'),
+    uploadPlayers:t('Upload players (.tofplayers)').replace(SEALED_FILES.players.extension,`${SEALED_FILES.players.extension}, ${SEALED_FILES.build.extension}`),uploading:t('Uploading…'),
     uploadFailed:t('The players archive could not be imported'),
     blankName:'blank',
     blankNameHint:t('Invisible characters:'),
@@ -994,8 +994,8 @@ export function RankingView({catalog,initial,initialSearch='',initialCompare}:{c
         return same(buildGain({value,track:rowTrack},{value:playerRowScore(ref,refTrack,catalog,role).total.value,track:refTrack},catalog,role),name(ref),false,true);
       }};
   },[compare,pinnedEntry,gearEntries,playerEntries,catalog,track,query.role,copy]);
-  // players-<date>.tofplayers from the capture app: every observed player in one sealed text file.
-  async function uploadPlayers(file:File,kind:'players'|'build'='players') {
+  // The shared Ranking picker accepts Build/Players files; public JSON follows the same validation and import endpoint.
+  async function uploadPlayers(file:File,kind:'players'|'build'=file.name.toLowerCase().endsWith(SEALED_FILES.build.extension)?'build':'players') {
     setUploading(true);setUploadNote('');
     try {
       // A foreign, broken or cut-off file is refused before it is sent.
@@ -1063,7 +1063,7 @@ export function RankingView({catalog,initial,initialSearch='',initialCompare}:{c
 
         </span>
         {/* The upload lives in the right rail (as on Build and Wish); this hidden field is its file picker. */}
-        <input ref={playersInput} className="sr-only" type="file" accept=".tofplayers,.json" disabled={uploading} aria-label={copy.uploadPlayers}
+        <input ref={playersInput} className="sr-only" type="file" accept={`${SEALED_FILES.players.extension},${SEALED_FILES.build.extension},.json`} disabled={uploading} aria-label={copy.uploadPlayers}
           onChange={event=>{const file=event.target.files?.[0];event.target.value='';if(file)void uploadPlayers(file);}}/>
         <input ref={buildInput} className="sr-only" type="file" accept=".tofbuild,.json" disabled={uploading} aria-label={copy.t('Upload .tofbuild','Загрузить .tofbuild')}
           onChange={event=>{const file=event.target.files?.[0];event.target.value='';if(file)void uploadPlayers(file,'build');}}/>

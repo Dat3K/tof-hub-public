@@ -177,6 +177,8 @@ export class RankingCacheWarmupService implements OnApplicationBootstrap, OnModu
       { track: 'all', role: 'dps', dataset: 'pioneer', limit: 100 },
       { track: 'all', role: 'dps', limit: 50 },
       { track: 'all', role: 'dps', limit: 100 },
+      { track: 'all', role: 'dps', limit: 50, verified: true },
+      { track: 'all', role: 'dps', limit: 100, verified: true },
       // Only the default gear board is precomputed; slot/region variants fill on demand.
       { board: 'gear', track: 'all', role: 'dps', limit: 100 },
       { track: 'Physical-Flame', role: 'dps', region: 'AP', limit: 50 },

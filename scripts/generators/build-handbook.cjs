@@ -24,6 +24,7 @@ function raidRankings() {
   const dataset=fs.existsSync(input)?RaidRankingDatasetSchema.parse(JSON.parse(fs.readFileSync(input,'utf8')))
     :{schemaVersion:1,sources:[],seasons:[],boards:[]};
   write('raid-rankings',dataset);
+  require('./build-runtime-data.cjs').buildRaidRankingRuntime(gameData,{check});
 }
 
 const rawCache = new Map();

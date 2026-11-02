@@ -5,6 +5,17 @@ import { GameDataCache } from './cache';
 import { useGameData } from './use-game-data';
 
 describe('useGameData locale changes', () => {
+  it('shares unlocalized tools catalogs across UI languages without a double slash',async()=>{
+    const cache=new GameDataCache();
+    const data={schemaVersion:1};
+    const fetchFn=vi.fn<typeof fetch>(async()=>({ok:true,status:200,json:async()=>data}) as Response);
+    const {result,rerender}=renderHook(({locale}:{locale:Locale})=>useGameData('build-page',{locale,namespace:'',fetchFn},cache),{initialProps:{locale:'en' as Locale}});
+    await waitFor(()=>expect(result.current.data).toEqual(data));
+    expect(fetchFn.mock.calls[0][0]).toBe('/game-data/runtime/build-page.json');
+    rerender({locale:'ru'});
+    expect(result.current.data).toEqual(data);
+    expect(fetchFn).toHaveBeenCalledOnce();
+  });
   it('fetches the new culture instead of seeding it with untagged SSR data', async () => {
     const cache = new GameDataCache();
     const initialData = { '1': { name: 'English item' } };

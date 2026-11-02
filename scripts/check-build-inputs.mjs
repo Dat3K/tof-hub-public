@@ -9,4 +9,9 @@ for (const file of ['relic-resistance-icons.json','wish-demo-banners.json','wish
   if(!fs.existsSync(relative))throw new Error('Missing '+file+'. Restore the matching bootstrap artifact or generate game data; see README.md.');
   JSON.parse(fs.readFileSync(relative,'utf8'));
 }
-console.log('Build-time manifests are available. Game-data generation remains a separate pipeline step.');
+for (const file of ['runtime/ranking-page.json','handbook/runtime/raid-rankings.json']) {
+  const full=`${webRoot}/public/game-data/${file}`;
+  if(!fs.existsSync(full))throw new Error(`Missing ${file}. Run pnpm generate:runtime-data against the installed bootstrap before building; see docs/architecture/runtime-data.md.`);
+  JSON.parse(fs.readFileSync(full,'utf8'));
+}
+console.log('Build-time manifests and runtime catalogs are available. Game-data generation remains a separate pipeline step.');

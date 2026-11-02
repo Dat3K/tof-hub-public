@@ -45,6 +45,9 @@ describe('Ranking Me',()=>{
     expect(includeOwnerEntries(loaded,[own],item=>item.player.uid!)).toEqual([own,...loaded]);
     expect(includeOwnerEntries([own],[own],item=>item.player.uid!)).toEqual([own]);
     expect(includeOwnerEntries([...loaded,own],[{...own,ownerPin:true}],item=>item.player.uid!,true)).toEqual([{...own,ownerPin:true},...loaded,own]);
+    act(()=>result.current.hide());expect(result.current.entries).toEqual([]);
+    act(()=>result.current.reveal());expect(result.current.entries).toEqual([{...own,ownerPin:true}]);
+    expect(result.current.status).toBe('ready');expect(fetcher).toHaveBeenCalledOnce();
     rerender({board:'flame'});expect(result.current.active).toBe(false);expect(result.current.entries).toEqual([]);
     rerender({board:'frost'});expect(result.current.active).toBe(false);
     expect(fetcher).toHaveBeenCalledOnce();
@@ -57,17 +60,30 @@ describe('Ranking Me',()=>{
     act(()=>result.current.reveal());await waitFor(()=>expect(result.current.status).toBe('error'));
     act(()=>result.current.reveal());await waitFor(()=>expect(result.current.status).toBe('missing'));
     expect(fetcher).toHaveBeenCalledTimes(2);
+    act(()=>result.current.hide());act(()=>result.current.reveal());
+    expect(result.current.status).toBe('missing');expect(fetcher).toHaveBeenCalledTimes(2);
   });
-  it('aborts an obsolete lookup and updates the identity when another import completes',async()=>{
+  it('shares a pending lookup across toggles, but aborts it when another imported owner replaces it',async()=>{
     rememberBrowserOwner({uid,nickname:null});let signal:AbortSignal|undefined;
     vi.stubGlobal('fetch',vi.fn((_url,options)=>{signal=options.signal;return new Promise(()=>{});}));
     const loaded:PlayerTopEntry[]=[];
     const {result,unmount}=renderHook(()=>useRankingOwner('board','/api/v1/ranking/players',loaded));
     act(()=>result.current.reveal());await waitFor(()=>expect(signal).toBeDefined());
-    act(()=>result.current.hide());expect(signal?.aborted).toBe(true);
+    act(()=>result.current.hide());expect(signal?.aborted).toBe(false);
     act(()=>result.current.reveal());
+    expect(fetch).toHaveBeenCalledOnce();
     act(()=>rememberBrowserOwner({uid:'1302104472',nickname:'New owner'}));
     expect(signal?.aborted).toBe(true);expect(result.current.active).toBe(false);
     expect(result.current.owner?.nickname).toBe('New owner');unmount();
+  });
+  it('does not retain an owner rank after the board data version changes',async()=>{
+    rememberBrowserOwner({uid,nickname:'Owner'});
+    const fetcher=vi.fn().mockImplementation(async()=>new Response(JSON.stringify({available:true,entries:[entry(uid)]})));
+    vi.stubGlobal('fetch',fetcher);const loaded:PlayerTopEntry[]=[];
+    const {result,rerender}=renderHook(({version})=>useRankingOwner(`board-v${version}`,'/api/v1/ranking/players?track=all',loaded),{initialProps:{version:1}});
+    act(()=>result.current.reveal());await waitFor(()=>expect(result.current.status).toBe('ready'));
+    rerender({version:2});expect(result.current.active).toBe(false);
+    act(()=>result.current.reveal());await waitFor(()=>expect(result.current.status).toBe('ready'));
+    expect(fetcher).toHaveBeenCalledTimes(2);
   });
 });

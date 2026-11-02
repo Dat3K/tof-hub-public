@@ -4,6 +4,10 @@ import sharp from 'sharp';
 import {resolveGameAsset} from '@tof-hub/game-assets';
 import {getServerGameDataRoot} from '@/lib/game-data-server';
 
+sharp.cache({memory:8,files:0,items:16});
+sharp.concurrency(1);
+let imageTail:Promise<void>=Promise.resolve();
+
 /** Fixed card texts. Link previews are English only, whatever the UI locale (docs/architecture/link-previews.md). */
 export const OG_BRAND = 'TOF HUB';
 export const OG_FOOTER = 'Tower of Fantasy · game data and tools';
@@ -21,6 +25,13 @@ export interface LocalImageSize {
  */
 export async function localImage(url: string | null | undefined, size: LocalImageSize = {width:480, height:590}): Promise<string | undefined> {
   if (!url || !url.startsWith('/') || url.startsWith('//') || url.includes('..') || url.includes('\\')) return;
+  const source=url;
+  const pending=imageTail.then(()=>readLocalImage(source,size));
+  imageTail=pending.then(()=>undefined,()=>undefined);
+  return pending;
+}
+
+async function readLocalImage(url:string,size:LocalImageSize):Promise<string|undefined> {
   if (/^\/(?:datamine\/shared\/media\/(?:Hotta|Engine)\/|game-assets\/)/.test(url)) {
     const resolved = resolveGameAsset({path:url, silent:true});
     if (!resolved.isFallback) url = `/game-assets/${resolved.format}/${resolved.fileRelativePath}`;

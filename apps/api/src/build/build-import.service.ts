@@ -9,10 +9,7 @@ import {decryptEnvelope,IMPORT_KEY_ID,importPublicKeyInfo,loadImportKey,sealedEn
 import {PLAYER_STORE} from '../players/players.module';
 import type {PlayerStoreService} from '../players/player-store.service';
 import {snapshotFromCapture} from '../players/capture-snapshot';
-import {gameDataDirectory,loadScoringCatalog} from '../players/scoring-catalog';
-import {temporaryAttackAtCapture,type TemporaryAttackCatalog} from '@tof-hub/game-domain';
-import fs from 'node:fs';
-import path from 'node:path';
+import {loadScoringCatalog} from '../players/scoring-catalog';
 import {TestAccountsService} from '../players/test-accounts.service';
 import {NegativeCombatScoreService} from '../players/negative-combat-score.service';
 import {PwgIdentityService} from '../players/pwg-identity.service';
@@ -95,12 +92,7 @@ export class BuildImportService implements OnModuleInit {
     // Taiwan and Korea DEV clients: the card is shown (the page marks the DEV client), nothing is stored or ranked.
     // Their participation is already recorded above (test accounts).
     const devClient=isBlockedCaptureClient(capture.data.capture.scan);
-    // Login ATK under a flat or unknown temporary ATK buff cannot be corrected (source observation): ask for a clean capture.
-    const temporary=this.temporaryAttack();
-    if(temporary) {
-      const {blocking}=temporaryAttackAtCapture(capture.data.buffs.records,temporary);
-      if(blocking.length)throw new BadRequestException(`Temporary ATK buffs were active at login: ${blocking.map(id=>id.replace(/^Default__|_C$/g,'')).join(', ')}. Leave combat, wait for them to expire, re-enter the game and capture again.`);
-    }
+    // Buffs describe the observed login state; they do not invalidate a profile import.
     // Duplicate slots would otherwise overwrite one another during mapping.
     for(const keys of [capture.data.weapons.map(x=>x.slot),capture.data.gear.map(x=>x.slotKey),
       capture.data.matrices.map(x=>`${x.weaponSlot}:${x.slot}`),capture.data.relics.map(x=>x.slot)]) {
@@ -141,15 +133,6 @@ export class BuildImportService implements OnModuleInit {
       // Viewable, but its gear is not verified (buildGearDestination): the browser asks for a newer capture app.
       ...(outdatedExporter?{outdatedExporter}:{}),
     };
-  }
-
-  private temporaryCatalog:TemporaryAttackCatalog|null|undefined;
-  private temporaryAttack() {
-    if(this.temporaryCatalog===undefined) {
-      const file=path.join(gameDataDirectory(),'temporary-attack-effects.json');
-      this.temporaryCatalog=fs.existsSync(file)?JSON.parse(fs.readFileSync(file,'utf8')) as TemporaryAttackCatalog:null;
-    }
-    return this.temporaryCatalog;
   }
 
   /** MMO player identity, profile and account counters (docs/imports.md); the card stays in the browser. */

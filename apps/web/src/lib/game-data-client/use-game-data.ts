@@ -20,7 +20,7 @@ export function useGameData<T>(
   cache: GameDataCache = gameDataCache
 ): UseGameDataReturn<T> {
   const { locale: contextLocale } = useLocale();
-  const activeLocale: Locale = options.locale ?? contextLocale ?? DEFAULT_LOCALE;
+  const activeLocale: Locale | string = options.namespace ?? options.locale ?? contextLocale ?? DEFAULT_LOCALE;
   const enabled = options.enabled !== false && Boolean(dataset);
 
   // The module cache lives for the whole server process, so on the server it would serve another request's data

@@ -35,6 +35,8 @@ export interface FetchGameDataOptions {
  * Options for the useGameData React hook.
  */
 export interface UseGameDataOptions extends FetchGameDataOptions {
+  /** Shared, unlocalized catalogs use the data root or the Handbook namespace. */
+  namespace?: '' | 'handbook';
   /**
    * Explicit locale override. Defaults to active locale from useLocale().
    */

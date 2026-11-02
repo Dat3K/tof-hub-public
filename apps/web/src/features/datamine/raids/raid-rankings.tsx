@@ -17,6 +17,8 @@ import {raidPlayerKey as playerKey} from './raid-player-identity';
 import {RaidPlayerShowcase, raidRoleLabels} from './raid-player-showcase';
 import {useKnownRaidPlayer} from './use-known-raid-player';
 import {loadRaidPlayers} from './raid-player-cache';
+import {useRaidRankingData} from './use-raid-ranking-data';
+import {LoadingState} from '@tof-hub/ui';
 import css from './raid-rankings.module.css';
 
 export interface RaidRankingSelection {
@@ -169,25 +171,25 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
   const [sort, setSort] = useEncounterSelection('sort', 'time', initial.sort, 'time');
   const [places, setPlaces] = useEncounterSelection('places', 'region', initial.places, 'region');
   const preferences = usePresentation(initial);
-  const currentNames = useCurrentNames(data, preferences.value.current);
   const roleOrder = useMemo(() => new Map((data?.resonances ?? []).map(item => [item.value, ROLE_LIST_ORDER[item.roleId] ?? 3])), [data?.resonances]);
   const season = data?.seasons.find(item => item.id === seasonId);
   const seasonOptions = [...(data?.seasons ?? [])].sort((a, b) => a.label.localeCompare(b.label, undefined, {numeric: true}));
   const regions = rankingRegions();
   const latestBoards = useMemo(() => latestRaidBoards(data?.boards ?? []), [data]);
-  const seasonBoards = useMemo(() => latestBoards.filter(board => board.seasonId === seasonId && board.scope.kind === 'region'), [latestBoards, seasonId]);
-  const globalPlaces = useMemo(() => globalRaidPlaces(seasonBoards), [seasonBoards]);
   const overall = region === 'all' || places === 'global';
+  const requestedBoards = useMemo(() => latestBoards.filter(board => board.seasonId === seasonId && board.scope.kind === 'region' && (overall || board.scope.region === region)), [latestBoards, seasonId, overall, region]);
+  const details = useRaidRankingData(data, requestedBoards.map(board => board.id));
+  const currentNames = useCurrentNames(details.data, preferences.value.current && !details.isLoading && !details.error);
+  const seasonBoards = details.data?.boards ?? [];
+  const globalPlaces = useMemo(() => globalRaidPlaces(seasonBoards), [seasonBoards]);
   const placeOf = (entry: RaidRankingEntry) => overall ? globalPlaces.get(entry.id) ?? entry.rank : entry.rank;
   const boards = useMemo(() => seasonBoards.filter(board => region === 'all' || board.scope.region === region), [seasonBoards, region]);
   const orderedEntries = useMemo(() => {
     const search = query.trim().normalize('NFKC').toLocaleLowerCase();
     const projected = boards.flatMap(board => {
-      // Deduplicate and search the entire board before applying the display limit.
+      // Match historical/current names and UID aliases, then retain the entire matching roster.
       const matching = new Set([...uidMatches, ...(search ? board.entries.flatMap(entry => entry.members ?? []).filter(member => member.identifier && currentNames.names[member.identifier]?.normalize('NFKC').toLocaleLowerCase().includes(search)).map(member => member.identifier!) : [])]);
-      const entries = projectRaidRanking(board, preferences.value.unique, matching.size ? '' : query);
-      const visible = matching.size ? entries.map(entry => ({...entry, members: entry.members?.filter(member => matching.has(member.identifier ?? '') || member.nickname.normalize('NFKC').toLocaleLowerCase().includes(search)) ?? null})).filter(entry => entry.members?.length) : entries;
-      return visible.map(entry => ({board, entry}));
+      return projectRaidRanking(board, preferences.value.unique, query, matching).map(entry => ({board, entry}));
     });
     const rank = (entry: RaidRankingEntry) => overall ? globalPlaces.get(entry.id) ?? entry.rank : entry.rank;
     return projected.sort((a, b) => (sort === 'time-desc' ? compareRaidDurations(b.entry.duration, a.entry.duration) : compareRaidDurations(a.entry.duration, b.entry.duration)) || rank(a.entry) - rank(b.entry) || a.board.id.localeCompare(b.board.id));
@@ -197,7 +199,7 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
   const count = orderedEntries.length;
   const uniquePlayerCount = useMemo(() => new Set(orderedEntries.flatMap(({board, entry}) => entry.members?.map(member => member.identifier ? playerKey(member) : `${board.scope.region}:${board.scope.subregion ?? ''}:${playerKey(member)}`) ?? [])).size, [orderedEntries]);
   useRaidRankingReturn({visibleCount: visibleEntries.length, totalCount: count, hasMore, loadMore,
-    ready: seasonReady && regionReady && preferences.ready && !currentNames.loading && !uidLoading});
+    ready: seasonReady && regionReady && preferences.ready && !details.isLoading && !details.error && !currentNames.loading && !uidLoading});
   const selectSeason = (id: string) => {
     setSeason(id);
     const url = new URL(window.location.href);
@@ -207,7 +209,7 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
     window.dispatchEvent(new PopStateEvent('popstate'));
   };
   const inspectPlayer = (player: string, trigger: HTMLButtonElement) => openRaidPlayer(player, trigger, visibleEntries.length);
-  return <CurrentNames.Provider value={currentNames.names}><Resonances.Provider value={data?.resonances ?? []}><section className={`${css.panel} ${css.rankingPanel}`} aria-label={t('Raid rankings', 'Рейтинг рейдов')} data-ranking-ready={seasonReady && regionReady && preferences.ready}>
+  return <CurrentNames.Provider value={currentNames.names}><Resonances.Provider value={data?.resonances ?? []}><section className={`${css.panel} ${css.rankingPanel}`} aria-label={t('Raid rankings', 'Рейтинг рейдов')} data-ranking-ready={seasonReady && regionReady && preferences.ready && !details.isLoading}>
     <CatalogControls id="raid-ranking-controls" ariaLabel={t('Filters', 'Фильтры')} textSelectable>
       <CatalogControls.Top><CatalogSearch value={query} onChange={setQuery} placeholder={t('Search by nickname or UID', 'Поиск по нику или UID')} serverModeSlot={
         <ModeSwitcher value={preferences.value.layout} onChange={layout => preferences.update({...preferences.value, layout})} ariaLabel={t('Display', 'Вид')}
@@ -235,7 +237,7 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
         })))}/>
       </CatalogControls.Bottom>
     </CatalogControls>
-    {!count ? <Unavailable text={text} error={error} filtered={!!boards.length} /> : preferences.value.layout === 'teams'
+    {details.isLoading ? <LoadingState message={t('Loading rankings…', 'Загрузка рейтинга…')} /> : details.error ? <Unavailable text={text} error /> : !count ? <Unavailable text={text} error={error} filtered={!!boards.length} /> : preferences.value.layout === 'teams'
       ? <div className={css.teams}>{visibleEntries.map(({board, entry}) => <EntryCard key={`${board.id}:${entry.id}`} entry={entry} board={board} place={placeOf(entry)} overall={overall} text={text} onInspect={inspectPlayer} />)}</div>
       : <HandbookTable stickyHeader={false} caption={t('Raid rankings', 'Рейтинг рейдов')} columns={[
         {label: overall ? t('Overall #', 'Общее №') : '#', width: 75}, {label: t('Region', 'Регион'), width: 85, align: 'start'},
@@ -259,6 +261,7 @@ function seasonRaidTitle(season: RaidRankingDataset['seasons'][number] | undefin
 export function RaidRankingComparison({data, raids = EMPTY_RAIDS, error, initial = {}}: {data: RaidRankingDataset | null; raids?: RaidCatalog; error?: boolean; initial?: RaidRankingSelection}) {
   const text = useHandbookText(), {t} = text;
   const [player] = useEncounterSelection('player', '', initial.player, '');
+  const details = useRaidRankingData(data, data?.boards.map(board => board.id) ?? [], !!player);
   const preferences = usePresentation(initial);
   const boards = latestRaidBoards(data?.boards ?? []).filter(board => board.scope.kind === 'region');
   const regionOrder = new Map<string, number>(rankingRegions().map((region, index) => [region.code, index]));
@@ -273,7 +276,7 @@ export function RaidRankingComparison({data, raids = EMPTY_RAIDS, error, initial
     {player && <div className={css.heading}><h2>{t('Nickname statistics', 'Статистика по нику')}</h2>
       <Button variant="secondary" size="sm" onClick={backToRaidRanking}>{t('Back to rankings', 'Назад к рейтингу')}</Button>
     </div>}
-    {player && data ? <RaidPlayerShowcase data={data} player={player} current={preferences.value.current} initialSeason={initial.season} titleForSeason={season => seasonRaidTitle(season, raids, text)}/> : !rows.length ? <Unavailable text={text} error={error} /> : <HandbookTable caption={t('First place by season', 'Первые места по сезонам')} highlightColumnHeader highlightRowOnHover columns={[
+    {player && details.isLoading ? <LoadingState message={t('Loading player history…', 'Загрузка истории игрока…')} /> : player && details.error ? <Unavailable text={text} error /> : player && details.data ? <RaidPlayerShowcase data={details.data} player={player} current={preferences.value.current} initialSeason={initial.season} titleForSeason={season => seasonRaidTitle(season, raids, text)}/> : !rows.length ? <Unavailable text={text} error={error} /> : <HandbookTable caption={t('First place by season', 'Первые места по сезонам')} highlightColumnHeader highlightRowOnHover columns={[
       {label: t('Region', 'Регион'), pinned: true, width: 100},
       ...seasons.map(season => ({label: <span className={css.column}><b>{season.label}</b><span>{seasonRaidTitle(season, raids, text)}</span></span>, width: 180})),
     ]} rows={rows.map(([key, row]) => ({key, cells: [<span key="label" className={css.scope}><RegionCode region={row.region}/>{row.subregion && <small>{row.subregion}</small>}</span>, ...seasons.map(season => {

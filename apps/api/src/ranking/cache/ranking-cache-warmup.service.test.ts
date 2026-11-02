@@ -15,7 +15,7 @@ describe('RankingCacheWarmupService', () => {
       isReady:vi.fn().mockReturnValue(true),
       hasSnapshot:vi.fn(async(q:any)=>cached.has(key(q))),
       getRevision: vi.fn().mockResolvedValue('1'),
-      canonicalQueryKey: vi.fn().mockImplementation((q) => `${q.role || 'dps'}:${q.track}:${q.region || 'all'}:${q.limit}`),
+      canonicalQueryKey: vi.fn().mockImplementation((q) => `${q.role || 'dps'}:${q.track}:${q.region || 'all'}:${q.limit}${q.verified ? ':verified=1' : ''}`),
       get: vi.fn(async(q:any,_revision:string,board='players')=>cached.has(key(q,board))?{available:true,entries:[]}:null),
       recordWarmup: vi.fn(),
     };
@@ -38,11 +38,15 @@ describe('RankingCacheWarmupService', () => {
     const summary = await warmup.triggerWarmup('initial');
 
     expect(summary).not.toBeNull();
-    expect(summary?.planned).toBe(12);
-    expect(summary?.warmed).toBe(12);
+    expect(summary?.planned).toBe(14);
+    expect(summary?.warmed).toBe(14);
     expect(summary?.failed).toBe(0);
     expect(mockRanking.players).toHaveBeenCalledWith(expect.objectContaining({track:'all',dataset:'pioneer'}),{refresh:false});
     expect(mockRanking.gear).toHaveBeenCalledExactlyOnceWith({track:'all',role:'dps',limit:100},{refresh:false});
+    expect(mockRanking.players.mock.calls.filter(([query]:[any])=>query.verified).map(([query]:[any])=>query)).toEqual([
+      {track:'all',role:'dps',limit:50,verified:true},
+      {track:'all',role:'dps',limit:100,verified:true},
+    ]);
   });
 
   it('skips already cached queries', async () => {
@@ -52,7 +56,7 @@ describe('RankingCacheWarmupService', () => {
     cached.add(key({track:'Physical-Flame',role:'dps',region:'AP',limit:50}));
     const summary = await warmup.triggerWarmup('initial');
     expect(summary?.skipped).toBe(3);
-    expect(summary?.warmed).toBe(9);
+    expect(summary?.warmed).toBe(11);
   });
 
   it('prevents multiple simultaneous warmups', async () => {
@@ -100,7 +104,7 @@ describe('RankingCacheWarmupService', () => {
     mockCache.hasSnapshot.mockResolvedValue(true);
     const summary=await warmup.triggerWarmup('daily','minimal',true);
     expect(summary?.skipped).toBe(0);
-    expect(mockRanking.players).toHaveBeenCalledTimes(11);
+    expect(mockRanking.players).toHaveBeenCalledTimes(13);
     expect(mockRanking.players).toHaveBeenCalledWith(expect.anything(),{refresh:true});
     expect(mockRanking.gear).toHaveBeenCalledExactlyOnceWith({track:'all',role:'dps',limit:100},{refresh:true});
   });
@@ -116,7 +120,7 @@ describe('RankingCacheWarmupService', () => {
     expect(await warmup.triggerWarmup('daily-03:01-utc','full',true)).toBeNull();
     await vi.runAllTimersAsync();
     await initial;
-    expect(warmup.getLastSummary()?.planned).toBe(129);
-    expect(mockRanking.players.mock.calls.filter(([,options]:[unknown,{refresh:boolean}])=>options.refresh)).toHaveLength(128);
+    expect(warmup.getLastSummary()?.planned).toBe(131);
+    expect(mockRanking.players.mock.calls.filter(([,options]:[unknown,{refresh:boolean}])=>options.refresh)).toHaveLength(130);
   });
 });

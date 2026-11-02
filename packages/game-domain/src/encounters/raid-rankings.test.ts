@@ -53,11 +53,24 @@ describe('raid ranking observations', () => {
     expect(result[0].members![0].resonance?.label).toBe('1');
     expect(input.entries[1].members).toHaveLength(2);
   });
-  it('deduplicates before search and preserves exact Unicode/whitespace identities', () => {
+  it('searches full teams before unique-player presentation and preserves Unicode/whitespace identities', () => {
     const input = board([[' Suica', 'Alice'], ['Suica', 'alice', 'Ａlice'], ['Alice']]);
-    expect(projectRaidRanking(input, true, 'alice').map(entry => entry.rank)).toEqual([1, 2]);
+    expect(projectRaidRanking(input, true, 'alice').map(entry => entry.rank)).toEqual([1, 2, 3]);
+    expect(projectRaidRanking(input, true, 'alice')[0].members?.map(member=>member.nickname)).toEqual([' Suica','Alice']);
     expect(projectRaidRanking(input, true).flatMap(entry => entry.members!).map(member => member.nickname)).toEqual([' Suica', 'Alice', 'Suica', 'alice', 'Ａlice']);
     expect(projectRaidRanking(input, true, 'Suica')).toHaveLength(2);
+  });
+  it('keeps all teammates in repeated runs matched by an identifier or current-name alias', () => {
+    const input = board([['Old name', 'Teammate'], ['Old name', 'Another teammate'], ['Unrelated']]);
+    input.entries[0].members![0].identifier='role-1';
+    input.entries[1].members![0].identifier='role-1';
+    const original=structuredClone(input);
+    for(const unique of [true,false]) {
+      const results=projectRaidRanking(input,unique,'Renamed player',new Set(['role-1']));
+      expect(results.map(entry=>entry.rank)).toEqual([1,2]);
+      expect(results.map(entry=>entry.members?.length)).toEqual([2,2]);
+    }
+    expect(input).toEqual(original);
   });
   it('preserves unknown rosters and never reconstructs missing first place', () => {
     const input = board([['Alice']]); input.entries[0].members = null;

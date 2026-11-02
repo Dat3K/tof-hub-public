@@ -9,4 +9,5 @@ export const RUNTIME_DATASETS: ReadonlySet<string> = new Set([
   'build-page', 'optimizer-demo', 'hub-summary', 'main-hub', 'version-tracker',
   'fce-cards', 'handbook', 'supercomputing', 'weapon-growth', 'weapon-options',
   'build-reference', 'server-list',
+  'raid-rankings',
 ]);

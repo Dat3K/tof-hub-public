@@ -67,6 +67,9 @@ Example:
 
 Up to 640 px, each filter group becomes a horizontally scrolling row with a sticky label, and sort takes its own full-width row. Every page must stay within the viewport at 320 px.
 
+See [runtime data](runtime-data.md) for the index/detail loading boundary and
+the compact catalogs used by the tools.
+
 ## Adding a page
 
 1. Look for an existing building block before writing a new one.

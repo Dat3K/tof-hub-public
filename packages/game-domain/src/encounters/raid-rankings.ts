@@ -29,6 +29,9 @@ export interface RaidRankingBoard {
   coverage: 'summary' | 'partial' | 'complete';
   capturedAt: string | null;
   entries: RaidRankingEntry[];
+  /** Runtime index: the first place stays inline; the complete observation is an immutable detail shard. */
+  _detail?: string;
+  entryCount?: number;
   raw?: Record<string, string | number | null>;
 }
 
@@ -40,13 +43,19 @@ export interface RaidRankingDataset {
   boards: RaidRankingBoard[];
 }
 
-/** Deduplicate before searching; preserve emptied team places unless a search excludes them. */
-export function projectRaidRanking(board: RaidRankingBoard, unique: boolean, query = ''): RaidRankingEntry[] {
+/** Search selects complete teams. Without a search, unique view retains the first appearance of each player. */
+export function projectRaidRanking(board: RaidRankingBoard, unique: boolean, query = '', identifiers?: ReadonlySet<string>): RaidRankingEntry[] {
   const seen = new Set<string>();
   const search = query.trim().normalize('NFKC').toLocaleLowerCase();
   const result: RaidRankingEntry[] = [];
   for (const entry of [...board.entries].sort((a, b) => a.rank - b.rank)) {
     let members = entry.members;
+    if (search || identifiers?.size) {
+      if (!members?.some(member => member.identifier && identifiers?.has(member.identifier)
+        || search && member.nickname.normalize('NFKC').toLocaleLowerCase().includes(search))) continue;
+      result.push({...entry, members});
+      continue;
+    }
     if (members && unique) {
       members = members.filter(member => {
         const key = member.identifier ? `role:${member.identifier}` : member.observationId ? `observation:${member.observationId}` : `name:${member.nickname}`;
@@ -54,10 +63,6 @@ export function projectRaidRanking(board: RaidRankingBoard, unique: boolean, que
         seen.add(key);
         return true;
       });
-    }
-    if (search) {
-      members = members?.filter(member => member.nickname.normalize('NFKC').toLocaleLowerCase().includes(search)) ?? null;
-      if (!members?.length) continue;
     }
     result.push({ ...entry, members });
   }

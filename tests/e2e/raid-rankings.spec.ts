@@ -1,5 +1,31 @@
 import { expect, test } from '@playwright/test';
 
+test('raid archive loads only the selected boards and reuses them when switching back', async ({page}) => {
+  const details: {seasonId: string; scope: {region: string}}[] = [];
+  page.on('response', response => {
+    if (/\/handbook\/runtime\/details\/raid-rankings\/[a-f0-9]{24}\.json$/.test(response.url())) {
+      void response.json().then(board => details.push(board));
+    }
+  });
+  await page.goto('/datamine/raids/?tab=comparison&lang=en', {waitUntil: 'domcontentloaded'});
+  await expect(page.getByRole('table', {name: 'First place by season', exact: true})).toBeVisible();
+  expect(details).toEqual([]);
+  await page.getByRole('link', {name: 'AP · S16 · #1 · 00:27:496', exact: true}).click();
+  const ready = page.locator('[data-ranking-ready="true"]');
+  await expect(ready).toBeVisible();
+  expect(details.length).toBeGreaterThan(0);
+  expect(details.every(board => board.seasonId === 'S16' && board.scope.region === 'AP')).toBe(true);
+  const ranking = page.getByRole('region', {name: 'Raid rankings', exact: true});
+  await ranking.getByRole('button', {name: 'EU', exact: true}).click();
+  await expect(ready).toBeVisible();
+  expect(details.some(board => board.scope.region === 'EU')).toBe(true);
+  expect(details.every(board => board.seasonId === 'S16')).toBe(true);
+  const count = details.length;
+  await ranking.getByRole('button', {name: 'AP', exact: true}).click();
+  await expect(ready).toBeVisible();
+  expect(details).toHaveLength(count);
+});
+
 test('current nicknames survive fast toggles, a failed refresh batch and cache expiry', async ({page}) => {
   await page.clock.install();
   let refresh = false, authoritativeEmpty = false, started = 0;
@@ -14,7 +40,7 @@ test('current nicknames survive fast toggles, a failed refresh batch and cache e
   await page.goto('/datamine/raids/?tab=ranking&season=S16&region=AP&lang=en', {waitUntil: 'domcontentloaded'});
   const ranking = page.getByRole('region', {name: 'Raid rankings', exact: true});
   await expect(page.locator('[data-ranking-ready="true"]')).toBeVisible({timeout: 60000});
-  const toggle = ranking.getByRole('button', {name: 'Current nicknames', exact: true});
+  const toggle = ranking.getByRole('button', {name: /Current nicknames$/});
   await toggle.click();
   await expect.poll(() => started).toBeGreaterThan(0);
   await toggle.click(); await toggle.click(); await toggle.click(); await toggle.click();
@@ -84,7 +110,7 @@ test('S16 teams, filtering, current names and player statistics through comparis
   await expect(ranking.getByRole('heading')).toHaveCount(0);
   await expect(ranking.getByText('Source data', {exact: true})).toHaveCount(0);
   await expect(ranking.getByText('Nickname statistics', {exact: true})).toHaveCount(0);
-  await expect(ranking.getByRole('img', {name: 'Fortitude', exact: true}).first()).toBeVisible();
+  await expect(ranking.getByRole('img', {name: 'Tank', exact: true}).first()).toBeVisible();
   await page.screenshot({path: 'ignore/documentation-media/generated/raid-ranking-s16-en.png'});
   await ranking.getByRole('button', {name: 'Unique players only', exact: true}).click();
   await expect(ranking.getByRole('button', {name: 'Unique players only', exact: true})).toHaveAttribute('aria-pressed', 'true');
@@ -93,13 +119,14 @@ test('S16 teams, filtering, current names and player statistics through comparis
   await ranking.getByRole('textbox').fill('nightcore');
   await expect(ranking.getByRole('article')).toHaveCount(1);
   await expect(ranking.getByRole('article').first()).toHaveAccessibleName('AP · #2');
+  await expect(ranking.getByRole('article').first().locator('[data-raid-player]')).toHaveCount(8);
   await ranking.getByRole('textbox').fill('');
   await expect(ranking.getByRole('article')).not.toHaveCount(1);
   await ranking.getByRole('radio', {name: 'List', exact: true}).click();
   await expect.poll(() => ranking.getByRole('radiogroup', {name: 'Display', exact: true}).evaluate(toggle => new DOMMatrixReadOnly(getComputedStyle(toggle, '::before').transform).m41)).toBeGreaterThan(40);
   const list = ranking.getByRole('table', {name: 'Raid rankings', exact: true});
   await expect(list).toBeVisible();
-  expect(await list.getByRole('img').evaluateAll(icons => icons.slice(0, 8).map(icon => icon.getAttribute('aria-label')))).toEqual(['Attack', 'Attack', 'Attack', 'Fortitude', 'Benediction', 'Benediction', 'Benediction', 'Benediction']);
+  expect(await list.getByRole('img').evaluateAll(icons => icons.slice(0, 8).map(icon => icon.getAttribute('aria-label')))).toEqual(['DPS', 'DPS', 'DPS', 'Tank', 'Healer', 'Healer', 'Healer', 'Healer']);
   await list.evaluate(table => window.scrollTo(0, table.getBoundingClientRect().top + window.scrollY + 200));
   await expect.poll(() => list.locator('thead').evaluate(header => header.getBoundingClientRect().bottom)).toBeLessThan(0);
   await page.route('**/api/v1/ranking/player-names', route => route.fulfill({json: {available: true, entries: [{identifier: '47300474936903', nickname: 'Current Sr1ver', observedAt: '2026-10-26T10:00:00.000Z'}]}}));
@@ -213,6 +240,7 @@ test('UID search resolves database identities while keeping historical nicknames
   await expect(page.locator('[data-ranking-ready="true"]')).toBeVisible({timeout: 60000});
   await ranking.getByPlaceholder('Search by nickname or UID').fill('1234567890');
   await expect(ranking.getByRole('article')).toHaveCount(1);
+  await expect(ranking.getByRole('article').first().locator('[data-raid-player]')).toHaveCount(8);
   await expect(ranking.getByRole('button', {name: 'Sr1ver', exact: true})).toBeVisible();
   await expect(ranking.getByText('Database nickname', {exact: true})).toHaveCount(0);
   expect(requests).toContainEqual({identifiers: [], uids: ['1234567890']});
@@ -221,6 +249,9 @@ test('UID search resolves database identities while keeping historical nicknames
   await expect(ranking.getByText('Current nicknames are unavailable. Historical names are shown.', {exact: true})).toHaveCount(0);
   await expect(ranking.getByRole('button', {name: 'Database nickname', exact: true}).first()).toBeVisible();
   await expect(ranking.getByRole('button', {name: 'Shonya', exact: true}).first()).toBeVisible();
+  await ranking.getByPlaceholder('Search by nickname or UID').fill('Database nickname');
+  await expect(ranking.getByRole('article')).toHaveCount(1);
+  await expect(ranking.getByRole('article').first().locator('[data-raid-player]')).toHaveCount(8);
 });
 
 test('historical OCR keeps rosters, one-time identity evidence, and blank participants', async ({page}) => {
