@@ -1,10 +1,13 @@
 'use client';
 
-import React from 'react';
+import React, {useEffect,useId,useRef,useState} from 'react';
 import Link from 'next/link';
+import {useLocale} from '@/lib/i18n';
+import {localeText} from '@/lib/i18n/text';
+import styles from './tool-rail.module.css';
 
 /**
- * Fixed tool navigation rail: right edge on desktop, bottom centre on phones.
+ * Fixed tool navigation rail: desktop side actions, collapsible bottom actions on phones.
  * Used by Wish Tracker and Build card; items are links, page tabs or dialog triggers.
  */
 export type ToolRailTone = 'accent' | 'gold' | 'sky' | 'neutral';
@@ -29,7 +32,7 @@ const ACTIVE: Record<ToolRailTone, string> = {
   neutral: 'border-white/20 bg-white/10 text-white',
 };
 // Square buttons with the same 5px corners as the tool toolbar; never stretched to the rail width.
-const BASE = 'flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-[5px] border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 disabled:pointer-events-none disabled:opacity-40';
+const BASE = 'flex h-10 w-10 shrink-0 cursor-pointer items-center justify-center rounded-[0.3125rem] border transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300/70 disabled:pointer-events-none disabled:opacity-40';
 const IDLE = 'border-transparent text-slate-400 hover:border-white/10 hover:bg-white/5 hover:text-white';
 const PRIMARY = 'border-white/10 bg-white/[0.04] text-sky-300 hover:border-sky-300/40 hover:bg-sky-300/10 hover:text-sky-100';
 
@@ -49,15 +52,28 @@ function RailTooltip({ label, children }: { label: string; children: React.React
   );
 }
 
-/** `side` keeps the rail on the right edge on phones too, for pages with their own bottom toolbar. */
-export function ToolRail({ label, items, title, placement = 'responsive' }: { label: string; items: ToolRailItem[]; title?: string; placement?: 'responsive' | 'side' }) {
-  const position = placement === 'side'
-    ? 'fixed right-3 top-1/2 z-[60] -translate-y-1/2 max-sm:right-1.5'
-    : 'fixed right-3 top-1/2 z-[60] -translate-y-1/2 max-lg:bottom-3 max-lg:left-1/2 max-lg:right-auto max-lg:top-auto max-lg:-translate-x-1/2 max-lg:translate-y-0';
+/** Desktop side rail; phones reveal the bottom-centred actions from a compact bottom-left toggle. */
+export function ToolRail({ label, items, title }: { label: string; items: ToolRailItem[]; title?: string }) {
+  const {locale}=useLocale(),t=localeText(locale);
+  const [open,setOpen]=useState(false);
+  const [ready,setReady]=useState(false);
+  const root=useRef<HTMLElement>(null),toggle=useRef<HTMLButtonElement>(null);
+  const id=useId();
+  useEffect(()=>setReady(true),[]);
+  useEffect(()=>{
+    if(!open)return;
+    const outside=(event:PointerEvent)=>{if(event.target instanceof Node&&!root.current?.contains(event.target))setOpen(false);};
+    const escape=(event:KeyboardEvent)=>{if(event.key==='Escape'){setOpen(false);toggle.current?.focus({preventScroll:true});}};
+    document.addEventListener('pointerdown',outside);document.addEventListener('keydown',escape);
+    return()=>{document.removeEventListener('pointerdown',outside);document.removeEventListener('keydown',escape);};
+  },[open]);
   return (
-    <header className={position}>
+    <header ref={root} className={styles.rail} data-tool-rail>
       {title && <h1 className="sr-only">{title}</h1>}
-      <nav aria-label={label} className={`group/rail flex justify-center gap-2 rounded-[5px] border border-white/[0.12] [background:var(--tool-table-surface)] p-2 shadow-lg ${placement === 'side' ? 'flex-col max-sm:p-1.5' : 'flex-row flex-wrap lg:flex-col'}`}>
+      <button ref={toggle} type="button" className={styles.toggle} disabled={!ready} aria-label={open?t('Close'):t('More actions')} aria-expanded={open} aria-controls={id} onClick={()=>setOpen(value=>!value)}><RailGlyph name="equipment"/></button>
+      <nav id={id} aria-label={label} className={styles.actions} data-open={open} onClickCapture={event=>{
+        if(open&&event.target instanceof Element&&event.target.closest('button,a')){setOpen(false);toggle.current?.focus({preventScroll:true});}
+      }}>
         {items.map((item) => {
           const className = `${BASE} ${item.active ? ACTIVE[item.tone ?? 'gold'] : item.tone === 'accent' ? PRIMARY : IDLE}`;
           const common = { 'aria-label': item.label, className };
@@ -66,7 +82,7 @@ export function ToolRail({ label, items, title, placement = 'responsive' }: { la
               {item.href ? (
                 <Link href={item.href} aria-current={item.active ? 'page' : undefined} {...common}>{item.icon}</Link>
               ) : (
-                <button type="button" onClick={item.onClick} disabled={item.disabled} aria-current={item.active ? 'page' : undefined} {...common}>{item.icon}</button>
+                <button type="button" onClick={item.onClick} disabled={!ready||item.disabled} aria-current={item.active ? 'page' : undefined} {...common}>{item.icon}</button>
               )}
             </RailTooltip>
           );
@@ -80,7 +96,7 @@ export function ToolRail({ label, items, title, placement = 'responsive' }: { la
 export type RailGlyphName = 'import' | 'history' | 'simulation' | 'rules' | 'download' | 'edit' | 'formula' | 'equipment' | 'clear' | 'add' | 'help' | 'profiles' | 'user';
 export function RailGlyph({ name }: { name: RailGlyphName }) {
   const common = {
-    className: 'h-[19px] w-[19px]', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8,
+    className: 'h-[1.1875rem] w-[1.1875rem]', viewBox: '0 0 24 24', fill: 'none', stroke: 'currentColor', strokeWidth: 1.8,
     strokeLinecap: 'round' as const, strokeLinejoin: 'round' as const, 'aria-hidden': true as const,
   };
   switch (name) {

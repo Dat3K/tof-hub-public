@@ -22,6 +22,7 @@ and [My journey in Tower of Fantasy](case-study.md) ([Русский](case-study
 | [Job queue](architecture/job-queue.md) | How imports are queued, limited and delivered |
 | [Localization](architecture/localization.md) | Game cultures, UI translations and fallbacks |
 | [Frontend](architecture/frontend.md) | Shared UI components, design tokens and the Info standard |
+| [Responsive layout](architecture/responsive-layout.md) | Desktop scaling, mobile controls and fixed export scenes |
 | [Runtime data](architecture/runtime-data.md) | Catalog projections, raid detail files and loading boundaries |
 | [Ranking caches](architecture/ranking-cache.md) | Shared Redis responses, warmup, identities and the Me control |
 | [Project story page](architecture/project-story-page.md) | EN/RU article, chapter links, editorial media and sticker controls |

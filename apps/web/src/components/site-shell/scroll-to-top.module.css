@@ -6,12 +6,12 @@
 
 .scrollTop {
   position: fixed;
-  right: 24px;
-  bottom: 24px;
+  right: 1.5rem;
+  bottom: 1.5rem;
   z-index: 70;
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.375rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(21, 17, 25, 0.92);
   color: #f5d97a;
@@ -19,11 +19,11 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.5);
-  -webkit-backdrop-filter: blur(8px);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 0.75rem 1.75rem rgba(0, 0, 0, 0.5);
+  -webkit-backdrop-filter: blur(0.5rem);
+  backdrop-filter: blur(0.5rem);
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(0.5rem);
   pointer-events: none;
   transition: opacity 0.2s ease, transform 0.2s ease, background 0.16s ease, border-color 0.16s ease;
   padding: 0;
@@ -42,20 +42,20 @@
 }
 
 .scrollTop:focus-visible {
-  outline: 2px solid #f5d97a;
-  outline-offset: 2px;
+  outline: 0.125rem solid #f5d97a;
+  outline-offset: 0.125rem;
 }
 
 .icon {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   display: block;
 }
 
 @media (max-width: 600px) {
   .scrollTop {
-    right: 14px;
-    bottom: 14px;
+    right: 0.875rem;
+    bottom: 0.875rem;
   }
 }
 

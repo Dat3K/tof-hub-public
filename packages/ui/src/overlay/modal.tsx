@@ -142,7 +142,7 @@ export const Modal: React.FC<ModalProps> & {
           ref={dialogRef}
           tabIndex={-1}
           style={viewportTopInset>0?{maxHeight:`min(90dvh, calc(100dvh - ${viewportTopInset+32}px))`}:undefined}
-          className={`w-full max-h-[90vh] flex flex-col ${appearance==='table'?'tool-table-panel':appearance==='tool'?'tool-panel':'bg-[var(--tool-panel-surface)]'} border border-white/10 rounded-xl shadow-[0_16px_40px_rgba(0,0,0,0.65)] overflow-hidden focus-visible:outline-none ${sizeClasses} ${className}`.trim()}
+          className={`w-full max-h-[90vh] flex flex-col ${appearance==='table'?'tool-table-panel':appearance==='tool'?'tool-panel':'bg-[var(--tool-panel-surface)]'} border border-white/10 rounded-xl shadow-[0_1rem_2.5rem_rgba(0,0,0,0.65)] overflow-hidden focus-visible:outline-none ${sizeClasses} ${className}`.trim()}
         >
           {children}
         </div>
@@ -208,7 +208,7 @@ export const ModalClose: React.FC<{
       type="button"
       onClick={handleClick}
       aria-label={ariaLabel}
-      className={`p-1.5 -mr-1.5 min-w-[36px] min-h-[36px] inline-flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2ba6df] ${className}`.trim()}
+      className={`p-1.5 -mr-1.5 min-w-[2.25rem] min-h-[2.25rem] inline-flex items-center justify-center text-[#9ca3af] hover:text-white hover:bg-white/10 rounded-lg transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2ba6df] ${className}`.trim()}
     >
       <svg
         className="w-5 h-5"

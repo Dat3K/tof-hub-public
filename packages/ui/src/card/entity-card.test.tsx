@@ -134,7 +134,7 @@ describe('EntityCard & EntityGrid Primitives', () => {
       );
 
       expect(html).toContain('ring-2 ring-[#2ba6df]');
-      expect(html).toContain('shadow-[0_0_18px_rgba(43,166,223,0.4)]');
+      expect(html).toContain('shadow-[0_0_1.125rem_rgba(43,166,223,0.4)]');
     });
 
     it('renders loading status when loading is true', () => {

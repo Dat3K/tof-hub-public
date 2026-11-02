@@ -14,8 +14,8 @@
   --seq-rose: #ff9bb2;
   --seq-negative: #ff8f8f;
 
-  min-height: calc(100vh - 64px);
-  padding-bottom: 32px;
+  min-height: calc(100vh - 4rem);
+  padding-bottom: 2rem;
   color: var(--dm-text);
   background: var(--dm-bg);
   font-family: "Manrope", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -24,9 +24,9 @@
 }
 
 .layout {
-  max-width: min(100%, 1440px);
+  max-width: min(100%, var(--layout-wide, 90rem));
   margin: 0 auto;
-  padding: 12px 28px 40px;
+  padding: 0.75rem 1.75rem 2.5rem;
   box-sizing: border-box;
 }
 
@@ -35,21 +35,21 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 16px;
+  gap: 1rem;
   flex-wrap: wrap;
-  margin-bottom: 10px;
+  margin-bottom: 0.625rem;
 }
 
 .heroContent {
-  max-width: 800px;
+  max-width: 50rem;
   margin: 0;
   text-align: left;
 }
 
 .heroEyebrow {
-  margin: 0 0 4px;
+  margin: 0 0 0.25rem;
   color: var(--seq-gold);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.04em;
@@ -59,50 +59,50 @@
 .heroTitle {
   margin: 0;
   color: var(--dm-text-strong);
-  font-size: 26px;
+  font-size: 1.625rem;
   font-weight: 700;
   line-height: 1.25;
   letter-spacing: -0.01em;
 }
 
 .heroSubtitle {
-  margin: 4px 0 0;
+  margin: 0.25rem 0 0;
   color: var(--dm-muted);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 400;
   line-height: 1.45;
 }
 
 /* Section */
 .section {
-  margin-bottom: 18px;
+  margin-bottom: 1.125rem;
 }
 
 .sectionInner {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .sectionHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: 1rem;
   flex-wrap: wrap;
 }
 
 .sectionTitle {
   margin: 0;
   color: var(--dm-text-strong);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
 }
 
 .sectionBody {
-  margin: 4px 0 0;
+  margin: 0.25rem 0 0;
   color: var(--dm-muted);
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.4;
 }
 
@@ -110,41 +110,41 @@
 .controlsGroup {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
   flex-wrap: wrap;
 }
 
 .controlItem {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .controlLabel {
   color: var(--dm-muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 500;
 }
 
 .switchWrap {
   display: inline-flex;
-  padding: 2px;
+  padding: 0.125rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--dm-border);
-  border-radius: 6px;
-  gap: 2px;
+  border-radius: 0.375rem;
+  gap: 0.125rem;
 }
 
 .switchBtn {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  padding: 4px 8px;
-  border-radius: 4px;
+  gap: 0.375rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
   border: none;
   background: transparent;
   color: var(--dm-muted);
-  font-size: 11.5px;
+  font-size: 0.71875rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -163,8 +163,8 @@
 }
 
 .paletteIcon {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   fill: none;
   stroke: currentColor;
   stroke-width: 2;
@@ -176,14 +176,14 @@
 .chartStack {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.875rem;
 }
 
 .chartCard {
   background: var(--sim-surface, var(--surface-panel));
   border: 1px solid var(--dm-border);
-  border-radius: 8px;
-  padding: 10px 12px;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
   box-shadow: none;
 }
 
@@ -191,35 +191,35 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .chartCardTitle {
   margin: 0;
   color: var(--dm-text-strong);
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 
 .actionGroup {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-height: 30px;
-  padding: 6px 11px;
-  border-radius: 6px;
+  min-height: 1.875rem;
+  padding: 0.375rem 0.6875rem;
+  border-radius: 0.375rem;
   border: 1px solid var(--dm-border);
   background: var(--seq-gold);
   color: #17111f;
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -245,7 +245,7 @@
 .requiredControls {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   flex-wrap: wrap;
   flex: 1 1 auto;
   min-width: 0;
@@ -255,16 +255,16 @@
 .multiplierBlock {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
-  min-height: 32px;
-  padding: 2px 4px 2px 10px;
+  gap: 0.5rem;
+  min-height: 2rem;
+  padding: 0.125rem 0.25rem 0.125rem 0.625rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid var(--dm-border);
-  border-radius: 6px;
+  border-radius: 0.375rem;
 }
 
 .rangeBlock input[type='range'] {
-  width: 120px;
+  width: 7.5rem;
   accent-color: var(--seq-gold);
   cursor: pointer;
 }
@@ -275,11 +275,11 @@
   align-items: center;
   justify-content: center;
   min-width: 3.4em;
-  padding: 3px 7px;
-  border-radius: 4px;
+  padding: 0.1875rem 0.4375rem;
+  border-radius: 0.25rem;
   background: rgba(245, 217, 122, 0.14);
   color: var(--seq-gold);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
@@ -293,10 +293,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
   border: 0;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: transparent;
   color: var(--dm-muted);
   cursor: pointer;
@@ -310,8 +310,8 @@
 }
 
 .formulaButton svg {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
 }
 
 /* SVG Chart Frame */
@@ -319,7 +319,7 @@
   position: relative;
   width: 100%;
   aspect-ratio: 1800 / 760;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   overflow: hidden;
   background: #0f0b15;
   border: 1px solid var(--dm-border);
@@ -346,7 +346,7 @@
 .tableWrap {
   background: var(--sim-surface, var(--surface-panel));
   border: 1px solid var(--dm-border);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   overflow-x: auto;
   scrollbar-width: thin;
   scrollbar-color: rgba(255, 255, 255, 0.16) transparent;
@@ -356,13 +356,13 @@
   width: 100%;
   border-collapse: collapse;
   text-align: center;
-  font-size: 12px;
+  font-size: 0.75rem;
   white-space: nowrap;
 }
 
 .table th {
-  padding: 8px 12px;
-  font-size: 11px;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   color: var(--dm-muted);
@@ -375,7 +375,7 @@
 }
 
 .table td {
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.04);
   color: var(--dm-text);
 }
@@ -391,13 +391,13 @@
 .enemyCell {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .enemyAvatarBtn {
-  width: 32px;
-  height: 32px;
-  border-radius: 6px;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 0.375rem;
   overflow: hidden;
   border: 1px solid var(--dm-border);
   background: rgba(255, 255, 255, 0.05);
@@ -425,7 +425,7 @@
   border: none;
   color: var(--dm-text-strong);
   font-weight: 600;
-  font-size: 13px;
+  font-size: 0.8125rem;
   cursor: pointer;
   text-align: left;
   padding: 0;
@@ -456,50 +456,50 @@
   position: absolute;
   inset: 0;
   background: rgba(7, 5, 11, 0.88);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
 }
 
 .modalDialog {
   position: relative;
   z-index: 2;
-  width: min(94vw, 1560px);
-  height: min(92vh, 920px);
+  width: min(94vw, 97.5rem);
+  height: min(92vh, 57.5rem);
   background: var(--dm-surface);
   border: 1px solid var(--dm-border);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.6);
 }
 
 .modalHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--dm-border);
   background: var(--dm-surface-raised);
 }
 
 .modalEyebrow {
-  margin: 0 0 2px;
+  margin: 0 0 0.125rem;
   color: var(--seq-gold);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
 }
 
 .modalTitle {
   margin: 0;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
   color: var(--dm-text-strong);
 }
 
 .modalHint {
-  padding: 6px 24px;
-  font-size: 11.5px;
+  padding: 0.375rem 1.5rem;
+  font-size: 0.71875rem;
   color: var(--dm-muted);
   background: rgba(255, 255, 255, 0.02);
   border-bottom: 1px solid var(--dm-border);
@@ -530,17 +530,17 @@
 .bossModalDialog {
   position: relative;
   z-index: 2;
-  width: min(90vw, 560px);
+  width: min(90vw, 35rem);
   background: var(--dm-surface);
   border: 1px solid var(--dm-border);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: hidden;
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.6);
 }
 
 .bossModalImg {
   width: 100%;
-  max-height: 480px;
+  max-height: 30rem;
   object-fit: cover;
   display: block;
 }
@@ -554,7 +554,7 @@
 /* Responsive */
 @media (max-width: 900px) {
   .layout {
-    padding: 12px 16px 32px;
+    padding: 0.75rem 1rem 2rem;
   }
   .controlsGroup {
     width: 100%;
@@ -564,7 +564,7 @@
 
 @media (max-width: 600px) {
   .chartCard {
-    padding: 9px;
+    padding: 0.5625rem;
   }
 
   .chartCardHeader {
@@ -583,6 +583,6 @@
   }
 
   .chartTooltip {
-    width: min(250px, calc(100vw - 20px));
+    width: min(15.625rem, calc(100vw - 1.25rem));
   }
 }

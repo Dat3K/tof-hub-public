@@ -225,7 +225,6 @@ export function BuildInfoRail({
   return (
     <>
       <ToolRail
-        placement="side"
         label={t('Build card help')}
         items={[
           { id: 'import', label: t('Import .tofbuild', 'Импорт .tofbuild'), icon: <RailGlyph name="import" />, onClick: onImport, tone: 'accent' },

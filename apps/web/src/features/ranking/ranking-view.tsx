@@ -5,7 +5,7 @@ import {scrollToSection} from '@/lib/scroll-to-section';
 import {Fragment,createContext,memo,useCallback,useContext,useDeferredValue,useEffect,useMemo,useRef,useState,type CSSProperties,type ReactElement,type ReactNode} from 'react';
 import Link from 'next/link';
 import {GearSlotChips} from '../build/gear-slot-chips';
-import {Button,CatalogControls,CatalogCounter,CatalogSearch,CatalogSort,Collapsible,EmptyState,FilterChip,FilterGroup,LoadingState,ModeSwitcher,Spinner,Toast,useToast} from '@tof-hub/ui';
+import {Button,CatalogControls,CatalogCounter,CatalogSearch,CatalogSort,Collapsible,EmptyState,FilterChip,FilterGroup,LoadingState,ModeSwitcher,Spinner,Toast,useToast,revealHorizontalFocus} from '@tof-hub/ui';
 import {gameAsset} from '@tof-hub/game-assets';
 import {getServerById,normalizeSearchText,SEALED_FILES} from '@tof-hub/contracts';
 import {Hint,Nickname,RegionCell,RegionCode,RegionFilters} from '../players/player-identity';
@@ -1035,7 +1035,7 @@ export function RankingView({catalog,initial,initialSearch='',initialCompare}:{c
         serverModeSlot={<span className={styles.modeSwitches}><span className={styles.roleDesktop}>{roleSwitch}</span><ModeSwitcher value={query.board} onChange={board=>update({board})} ariaLabel={copy.board} dataAttribute="data-board"
           options={[{value:'players',label:copy.players,tone:'sky'},{value:'gear',label:copy.gear,tone:'gold'}]}/></span>}/>
       <div className={styles.roleMobile}>{roleSwitch}</div>
-      <CatalogControls.Middle><CatalogControls.Left>
+      <CatalogControls.Middle><CatalogControls.Left className="info-ui">
         <RegionFilters regions={catalog.regions} value={query.dataset==='pioneer'?'pioneer':query.region} onChange={region=>update({region,dataset:undefined})} label={copy.region} allLabel={copy.all}>
           <FilterChip value="pioneer" variant="indigo" active={query.dataset==='pioneer'} onClick={()=>update({dataset:'pioneer',region:null,verified:false,places:'region',sort:'grv'})}>Pioneer</FilterChip></RegionFilters>
         {/* Tank: resistance icons, white until hovered or chosen (then the element colour, as in the build stat table). */}
@@ -1051,15 +1051,17 @@ export function RankingView({catalog,initial,initialSearch='',initialCompare}:{c
       <CatalogControls.Bottom className={styles.statusBar}>
         <CatalogCounter count={shownCount} total={totalCount} entityLabel={query.board==='gear'?copy.items:copy.playersCount}
           formatString={(count,total,label)=><span>{copy.showing} <strong className={styles.counterNumber}>{count}</strong> {copy.of} <strong className={styles.counterNumber}>{total}</strong> {label}</span>}/>
-        <span className={styles.barActions}>
-          {me.owner&&!query.dataset&&<button type="button" className={styles.barButton} data-tone="me" aria-pressed={me.active} aria-busy={me.status==='loading'} data-busy={me.status==='loading'||undefined} title={copy.t('Show my place in this ranking','Показать моё место в этом рейтинге')} onClick={()=>{if(me.active){me.hide();return;}setSearch('');setUrlSearch('');me.reveal();setRevealAttempt(value=>value+1);}}><RailGlyph name="user"/>{copy.t('Me','Я')}</button>}
+        <span className={styles.barActions} onFocusCapture={revealHorizontalFocus}>
+          {me.owner&&!query.dataset&&<button type="button" className={styles.barButton} data-tone="me" aria-pressed={me.active} aria-busy={me.status==='loading'} data-busy={me.status==='loading'||undefined} data-hint={copy.t('Show my place in this ranking','Показать моё место в этом рейтинге')} onClick={()=>{if(me.active){me.hide();return;}setSearch('');setUrlSearch('');me.reveal();setRevealAttempt(value=>value+1);}}><RailGlyph name="user"/>{copy.t('Me','Я')}</button>}
           <button type="button" className={styles.barButton} data-tone="update" aria-haspopup="dialog" disabled={uploading} onClick={()=>setRailDialog('update')}><RailGlyph name="help"/>{copy.t('Update data','Обновить данные')}</button>
-          <BuildTooltip portal align="end" delayMs={1000} dismissOnAction className={buildStyles.itemTooltip} content={<><InspectionHeading title={copy.verifiedOnly}/><p className={styles.sealTip}>{query.board==='gear'?copy.knownBase:copy.knownBaseBuild}</p></>}>
+          <BuildTooltip portal delayMs={1000} dismissOnAction className={buildStyles.itemTooltip} content={query.board==='gear'?copy.knownBase:copy.knownBaseBuild}>
             <label className={styles.barButton} data-tone="gold" data-checked={query.verified||undefined}><input className={styles.verifiedCheckbox} type="checkbox" checked={!!query.verified} onChange={event=>update({verified:event.target.checked})}/><svg className={styles.verifiedCheck} viewBox="0 0 10 10" aria-hidden="true"><path d="M2.4 5.2l1.7 1.7 3.6-3.8"/></svg>{copy.verifiedOnly}</label>
           </BuildTooltip>
           {/* Under All the perfect item is one reference for every element (see GenericElementContext). */}
+          <BuildTooltip portal delayMs={1000} dismissOnAction className={buildStyles.itemTooltip} content={query.board==='gear'?copy.idealHint:copy.maxGrvBuildHint}>
           <button type="button" className={`${styles.barButton} ${buildStyles.rollValueTheme}`} data-grade="titan" data-tone="perfect" aria-pressed={ideal} onClick={()=>setIdeal(value=>!value)}>
             <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 1.5l1.9 4 4.4.5-3.3 3 .9 4.3L8 11.1l-3.9 2.2.9-4.3-3.3-3 4.4-.5z"/></svg><span className={styles.perfectLabel}>{query.board==='gear'?(ideal?copy.hideIdeal:copy.ideal):(ideal?copy.hideIdealPlayer:copy.idealPlayer)}</span></button>
+          </BuildTooltip>
 
         </span>
         {/* The upload lives in the right rail (as on Build and Wish); this hidden field is its file picker. */}
@@ -1073,7 +1075,7 @@ export function RankingView({catalog,initial,initialSearch='',initialCompare}:{c
       <div className={styles.boardHead}>{!allTracks&&<TrackIcon track={track}/>}<h2>{query.dataset==='pioneer'?`${localeText(locale)('Pioneer')} · `:''}{allTracks?(query.board==='players'?(query.dataset==='pioneer'?copy.allServersElements:copy.allPlayersElements):copy.allElements):trackLabel(track,locale)}{query.board==='gear'&&query.slot?` · ${catalog.gear.find(item=>item.id===query.slot)?.name[locale]??''}`:''}</h2>
         {databaseEmpty&&!loading&&!query.dataset&&<Button size="sm" variant="ghost" aria-pressed={example} onClick={()=>{collapseAll();setExample(value=>!value);}}>{example?copy.hideExample:copy.showExample}</Button>}
         {(!query.dataset||query.board==='gear')&&<div className={styles.boardActions}>
-          <CatalogSort label={copy.t('Order','Порядок')} ariaLabel={copy.displayOrder}
+          <CatalogSort presentation="inline" label={copy.t('Order','Порядок')} ariaLabel={copy.displayOrder}
             value={`${(query.board==='gear'&&query.sort?.startsWith('cs'))||(query.board==='players'&&query.sort?.startsWith('aug'))?'grv':query.sort??'grv'}:${query.region?query.places??'region':'region'}`}
             onChange={value=>{const [sort,places]=value.split(':');update({sort:sort as RankingQueryState['sort'],...(query.region?{places:places as RankingQueryState['places']}:{})});}}
             options={[

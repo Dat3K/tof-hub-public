@@ -168,12 +168,12 @@ export const TabsTrigger: React.FC<TabsTriggerProps> = ({
       : 'text-[#9ca3af] hover:text-white hover:bg-white/5';
   } else if (variant === 'underline') {
     activeClasses = isActive
-      ? 'text-[#2ba6df] border-b-2 border-[#2ba6df] font-semibold -mb-px shadow-[0_2px_8px_rgba(43,166,223,0.3)]'
+      ? 'text-[#2ba6df] border-b-2 border-[#2ba6df] font-semibold -mb-px shadow-[0_0.125rem_0.5rem_rgba(43,166,223,0.3)]'
       : 'text-[#9ca3af] hover:text-white border-b-2 border-transparent';
   } else {
     // neon variant
     activeClasses = isActive
-      ? 'bg-[rgba(43,166,223,0.18)] text-[#55c2ef] border border-[#2ba6df]/70 shadow-[0_0_12px_rgba(43,166,223,0.3)] font-semibold'
+      ? 'bg-[rgba(43,166,223,0.18)] text-[#55c2ef] border border-[#2ba6df]/70 shadow-[0_0_0.75rem_rgba(43,166,223,0.3)] font-semibold'
       : 'text-[#9ca3af] hover:text-[#f3f4f6] hover:bg-white/5 border border-transparent';
   }
 

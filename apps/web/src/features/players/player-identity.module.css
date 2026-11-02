@@ -1,7 +1,7 @@
 .blankName {font-style:italic;font-weight:500;color:var(--ranking-dim,#93a1b6)}
-.regionCell {display:grid;grid-template-columns:minmax(0,1fr);gap:2px;min-width:0}
+.regionCell {display:grid;grid-template-columns:minmax(0,1fr);gap:0.125rem;min-width:0}
 .regionCell > div {justify-self:start;max-width:100%;min-width:0}
-.regionCode {font-size:12px;letter-spacing:.06em;color:#e2e8f0}
+.regionCode {font-size:0.75rem;letter-spacing:.06em;color:#e2e8f0}
 .regionCode[data-region=AP] {color:#a855f7}
 .regionCode[data-region=NA] {color:#ef4444}
 .regionCode[data-region=EU] {color:#f59e0b}
@@ -10,18 +10,18 @@
 .regionCode[data-region=SEA] {color:#06b6d4}
 .regionCode[data-region=TW] {color:#ec4899}
 .regionCode[data-region=PS] {color:#3b82f6}
-.regionCell small {display:block;min-width:0;max-width:100%;font-size:11px;color:var(--ranking-dim,#93a1b6);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
-.hintText {margin:4px 0 0;max-width:280px;font-size:12px;color:#cbd5e1}
-.hintRows {display:grid;gap:4px;margin:6px 0 0;min-width:220px;font-size:12px}
-.hintRows > div {display:flex;align-items:baseline;justify-content:space-between;gap:16px}
+.regionCell small {display:block;min-width:0;max-width:100%;font-size:0.6875rem;color:var(--ranking-dim,#93a1b6);overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.hintText {margin:0.25rem 0 0;max-width:17.5rem;font-size:0.75rem;color:#cbd5e1}
+.hintRows {display:grid;gap:0.25rem;margin:0.375rem 0 0;min-width:13.75rem;font-size:0.75rem}
+.hintRows > div {display:flex;align-items:baseline;justify-content:space-between;gap:1rem}
 .hintRows strong {font-weight:500;color:#93a1b6}
 .hintRows b {font-weight:600;color:#f8fafc;font-variant-numeric:tabular-nums;white-space:nowrap}
-.hintTitle {display:block;font-size:13px;font-weight:700;color:#f8fafc;white-space:nowrap}
-.nameWithBadge {display:flex;align-items:center;gap:6px;min-width:0}
-.testServerBadge {display:inline-flex;align-items:center;justify-content:center;width:18px;height:18px;padding:0;border:1px solid var(--surface-border-strong);border-radius:4px;background:var(--surface-inset);color:var(--tool-input-focus,#2ba6df);font-size:10px;font-weight:700;cursor:pointer;flex:none}
+.hintTitle {display:block;font-size:0.8125rem;font-weight:700;color:#f8fafc;white-space:nowrap}
+.nameWithBadge {display:flex;align-items:center;gap:0.375rem;min-width:0}
+.testServerBadge {display:inline-flex;align-items:center;justify-content:center;width:1.125rem;height:1.125rem;padding:0;border:1px solid var(--surface-border-strong);border-radius:0.25rem;background:var(--surface-inset);color:var(--tool-input-focus,#2ba6df);font-size:0.625rem;font-weight:700;cursor:pointer;flex:none}
 .testServerBadge:hover {background:var(--surface-hover)}
-.testServerBadge:focus-visible {outline:2px solid var(--tool-input-focus);outline-offset:2px}
-.testServerDates {display:grid;gap:8px;margin-top:6px;font-size:12px;white-space:normal;min-width:220px}
-.testServerDates section {display:grid;gap:2px}
+.testServerBadge:focus-visible {outline:0.125rem solid var(--tool-input-focus);outline-offset:0.125rem}
+.testServerDates {display:grid;gap:0.5rem;margin-top:0.375rem;font-size:0.75rem;white-space:normal;min-width:13.75rem}
+.testServerDates section {display:grid;gap:0.125rem}
 .testServerDates strong {font-weight:600}
 .testServerDates time {font-variant-numeric:tabular-nums}

@@ -58,7 +58,7 @@ export function MmoBuildInfoRail({locale,catalog,onImport,uid,viewing,version=0,
   const owner=viewing?.uid??uid;
   const profiles=useMmoProfiles(open==='profiles'?owner:null,version);
   return <>
-    <ToolRail placement="side" label={t('MMO build card help')} items={[
+    <ToolRail label={t('MMO build card help')} items={[
       {id:'import',label:t('Import .tofbuild','Импорт .tofbuild'),icon:<RailGlyph name="import"/>,onClick:onImport,tone:'accent'},
       {id:'app',label:t('Capture app'),icon:<RailGlyph name="download"/>,onClick:()=>setOpen('app')},
       {id:'fields',label:t('What you can edit'),icon:<RailGlyph name="edit"/>,onClick:()=>setOpen('fields'),active:open==='fields'},

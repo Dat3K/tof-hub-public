@@ -92,18 +92,18 @@ export function TallyItemBreakdownTable({
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-1">
                     <span className="break-words text-xs font-bold leading-snug text-white">{itemName}</span>
                     {item.is_featured && (
-                      <Badge variant="warning" size="sm" className="shrink-0 text-[9px] py-0 px-1.5 font-bold">
+                      <Badge variant="warning" size="sm" className="shrink-0 text-[0.5625rem] py-0 px-1.5 font-bold">
                         {localeText(locale)('FEATURED')}
                       </Badge>
                     )}
                   </div>
-                  <span className="text-[10px] uppercase text-[#6b7280]">
+                  <span className="text-[0.625rem] uppercase text-[#6b7280]">
                     {item.item_type === 'matrix' ? (localeText(locale)('Matrix')) : (localeText(locale)('Weapon', 'Оружие'))}
                   </span>
                 </div>
               </div>
 
-              <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/[0.07] pt-2.5 text-[10px]">
+              <dl className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/[0.07] pt-2.5 text-[0.625rem]">
                 <div>
                   <dt className="text-[#9ca3af]">{t.tallyThTotal}</dt>
                   <dd className="mt-0.5 font-mono text-xs font-bold text-white">{formatNumber(item.count, locale)}</dd>
@@ -130,7 +130,7 @@ export function TallyItemBreakdownTable({
       <div className="mt-4 hidden overflow-x-auto lg:block">
         <table className="w-full text-left border-collapse text-xs">
           <thead>
-            <tr className="border-b border-white/10 text-[11px] text-[#9ca3af] uppercase font-semibold">
+            <tr className="border-b border-white/10 text-[0.6875rem] text-[#9ca3af] uppercase font-semibold">
               <th className="py-3 px-4">{t.tallyThItem}</th>
               <th className="py-3 px-4 text-right">{t.tallyThTotal}</th>
               <th className="py-3 px-4 text-right">
@@ -188,12 +188,12 @@ export function TallyItemBreakdownTable({
                             {itemName}
                           </span>
                           {item.is_featured && (
-                            <Badge variant="warning" size="sm" className="text-[9px] py-0 px-1.5 font-bold">
+                            <Badge variant="warning" size="sm" className="text-[0.5625rem] py-0 px-1.5 font-bold">
                               {localeText(locale)('FEATURED')}
                             </Badge>
                           )}
                         </div>
-                        <span className="text-[10px] text-[#6b7280] uppercase">
+                        <span className="text-[0.625rem] text-[#6b7280] uppercase">
                           {item.item_type === 'matrix'
                             ? (localeText(locale)('Matrix'))
                             : (localeText(locale)('Weapon', 'Оружие'))}

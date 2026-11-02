@@ -5,23 +5,23 @@
 .bannerControls {
   position: absolute;
   z-index: 5;
-  top: 18px;
-  right: 18px;
+  top: calc(18 * var(--ui-unit));
+  right: calc(18 * var(--ui-unit));
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 7px;
+  gap: calc(7 * var(--ui-unit));
 }
 
 .collapsedSummary {
   display: flex;
-  min-height: 76px;
+  min-height: calc(76 * var(--ui-unit));
   align-items: center;
-  gap: 12px;
-  padding: 16px 255px 16px 24px;
+  gap: calc(12 * var(--ui-unit));
+  padding: calc(16 * var(--ui-unit)) calc(255 * var(--ui-unit)) calc(16 * var(--ui-unit)) calc(24 * var(--ui-unit));
   overflow: hidden;
   border: 1px solid rgba(240, 215, 174, 0.2);
-  border-radius: 16px;
+  border-radius: calc(16 * var(--ui-unit));
   background:
     linear-gradient(90deg, rgba(18, 22, 28, 0.98), rgba(26, 27, 30, 0.9)),
     radial-gradient(circle at 90% 0%, rgba(199, 127, 53, 0.15), transparent 45%);
@@ -31,7 +31,7 @@
 .collapsedTitle {
   min-width: 0;
   color: #f6f3ed;
-  font-size: 18px;
+  font-size: calc(18 * var(--ui-unit));
   font-weight: 800;
   letter-spacing: -0.03em;
   overflow: hidden;
@@ -41,10 +41,10 @@
 
 .collapsedCount {
   flex: 0 0 auto;
-  padding-left: 12px;
+  padding-left: calc(12 * var(--ui-unit));
   border-left: 1px solid rgba(244, 202, 131, 0.3);
   color: #d4b887;
-  font-size: 11px;
+  font-size: calc(11 * var(--ui-unit));
   font-weight: 700;
   white-space: nowrap;
 }
@@ -55,16 +55,16 @@
 
 .exportButton {
   display: inline-flex;
-  min-height: 34px;
+  min-height: calc(34 * var(--ui-unit));
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 7px 13px;
+  gap: calc(8 * var(--ui-unit));
+  padding: calc(7 * var(--ui-unit)) calc(13 * var(--ui-unit));
   border: 1px solid rgba(240, 198, 126, 0.4);
-  border-radius: 8px;
+  border-radius: calc(8 * var(--ui-unit));
   background: rgba(17, 20, 26, 0.84);
   color: #f3d6a3;
-  font-size: 12px;
+  font-size: calc(12 * var(--ui-unit));
   font-weight: 700;
   line-height: 1;
   cursor: pointer;
@@ -79,12 +79,12 @@
 
 .collapseButton {
   display: inline-grid;
-  width: 34px;
-  height: 34px;
-  flex: 0 0 34px;
+  width: calc(34 * var(--ui-unit));
+  height: calc(34 * var(--ui-unit));
+  flex: 0 0 calc(34 * var(--ui-unit));
   place-items: center;
   border: 1px solid rgba(240, 198, 126, 0.4);
-  border-radius: 8px;
+  border-radius: calc(8 * var(--ui-unit));
   background: rgba(17, 20, 26, 0.84);
   color: #f3d6a3;
   cursor: pointer;
@@ -97,8 +97,8 @@
 }
 
 .collapseButton:focus-visible {
-  outline: 2px solid #f4ca80;
-  outline-offset: 3px;
+  outline: calc(2 * var(--ui-unit)) solid #f4ca80;
+  outline-offset: calc(3 * var(--ui-unit));
 }
 
 .chevronDown {
@@ -106,8 +106,8 @@
 }
 
 .exportButton:focus-visible {
-  outline: 2px solid #f4ca80;
-  outline-offset: 3px;
+  outline: calc(2 * var(--ui-unit)) solid #f4ca80;
+  outline-offset: calc(3 * var(--ui-unit));
 }
 
 .exportButton:disabled {
@@ -117,23 +117,24 @@
 
 .exportError {
   position: absolute;
-  top: 42px;
+  top: calc(42 * var(--ui-unit));
   right: 0;
   width: max-content;
-  max-width: min(310px, 80vw);
-  padding: 7px 10px;
+  max-width: min(calc(310 * var(--ui-unit)), 80vw);
+  padding: calc(7 * var(--ui-unit)) calc(10 * var(--ui-unit));
   border: 1px solid rgba(253, 164, 175, 0.25);
-  border-radius: 6px;
+  border-radius: calc(6 * var(--ui-unit));
   background: rgba(27, 17, 20, 0.94);
   color: #fda4af;
-  font-size: 12px;
+  font-size: calc(12 * var(--ui-unit));
 }
 
 .exportRoot {
+  --ui-unit: 1px;
   position: fixed;
   top: 0;
-  left: -10000px;
-  width: 1216px;
+  left: calc(-10000 * var(--ui-unit));
+  width: calc(1216 * var(--ui-unit));
   pointer-events: none;
 }
 
@@ -145,14 +146,14 @@
 .exportProfile {
   position: absolute;
   z-index: 4;
-  top: 29px;
-  right: 30px;
-  width: 278px;
-  padding: 14px 17px 15px;
+  top: calc(29 * var(--ui-unit));
+  right: calc(30 * var(--ui-unit));
+  width: calc(278 * var(--ui-unit));
+  padding: calc(14 * var(--ui-unit)) calc(17 * var(--ui-unit)) calc(15 * var(--ui-unit));
   border: 1px solid rgba(255, 223, 166, 0.32);
-  border-radius: 10px;
+  border-radius: calc(10 * var(--ui-unit));
   background: linear-gradient(125deg, rgba(14, 17, 23, 0.89), rgba(18, 18, 20, 0.72));
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.26), inset 0 1px rgba(255, 240, 213, 0.1);
+  box-shadow: 0 calc(12 * var(--ui-unit)) calc(30 * var(--ui-unit)) rgba(0, 0, 0, 0.26), inset 0 1px rgba(255, 240, 213, 0.1);
   color: #f6f3ed;
   text-align: left;
 }
@@ -160,8 +161,8 @@
 .exportProfile::before {
   position: absolute;
   top: -1px;
-  right: 22px;
-  left: 17px;
+  right: calc(22 * var(--ui-unit));
+  left: calc(17 * var(--ui-unit));
   height: 1px;
   content: "";
   background: linear-gradient(90deg, #e8bb76, rgba(232, 187, 118, 0));
@@ -169,22 +170,22 @@
 
 /* Author mark at the end of the PNG plate's server row (export only), in the Build card footer style. */
 .exportProfileDetails > span.exportProfileBranded {
-  grid-template-columns: 53px minmax(0, 1fr) auto;
+  grid-template-columns: calc(53 * var(--ui-unit)) minmax(0, 1fr) auto;
 }
 
 .exportProfileBrand {
   align-self: end;
   color: #b3c6d7;
-  font-size: 11px;
+  font-size: calc(11 * var(--ui-unit));
   font-weight: 600;
-  letter-spacing: 2px;
+  letter-spacing: calc(2 * var(--ui-unit));
 }
 
 .exportProfileHeading {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 6px 0 11px;
+  gap: calc(12 * var(--ui-unit));
+  margin: calc(6 * var(--ui-unit)) 0 calc(11 * var(--ui-unit));
 }
 
 .exportProfileHeading .exportProfileName {
@@ -193,21 +194,21 @@
 
 .exportProfileAvatar {
   flex-shrink: 0;
-  padding: 4px;
+  padding: calc(4 * var(--ui-unit));
 }
 
 .exportProfileEyebrow {
   color: #e8bd78;
-  font-size: 9px;
+  font-size: calc(9 * var(--ui-unit));
   font-weight: 800;
   letter-spacing: 0.19em;
 }
 
 .exportProfileName {
   display: block;
-  margin: 6px 0 11px;
+  margin: calc(6 * var(--ui-unit)) 0 calc(11 * var(--ui-unit));
   overflow-wrap: anywhere;
-  font-size: 19px;
+  font-size: calc(19 * var(--ui-unit));
   font-weight: 800;
   letter-spacing: -0.035em;
   line-height: 1.15;
@@ -215,24 +216,24 @@
 
 .exportProfileDetails {
   display: grid;
-  gap: 5px;
-  padding-top: 9px;
+  gap: calc(5 * var(--ui-unit));
+  padding-top: calc(9 * var(--ui-unit));
   border-top: 1px solid rgba(255, 255, 255, 0.13);
   color: #e7e2db;
-  font-size: 11px;
+  font-size: calc(11 * var(--ui-unit));
   line-height: 1.3;
 }
 
 .exportProfileDetails > span {
   display: grid;
-  grid-template-columns: 53px minmax(0, 1fr);
-  gap: 6px;
+  grid-template-columns: calc(53 * var(--ui-unit)) minmax(0, 1fr);
+  gap: calc(6 * var(--ui-unit));
   overflow-wrap: anywhere;
 }
 
 .exportProfileLabel {
   color: #c9aa7c;
-  font-size: 9px;
+  font-size: calc(9 * var(--ui-unit));
   font-weight: 800;
   letter-spacing: 0.08em;
 }
@@ -244,14 +245,14 @@
   justify-content: flex-end;
   overflow: hidden;
   border: 1px solid rgba(240, 215, 174, 0.19);
-  border-radius: 20px;
+  border-radius: calc(20 * var(--ui-unit));
   background: #11151c;
   color: #f6f3ed;
   isolation: isolate;
-  min-height: 730px;
+  min-height: calc(730 * var(--ui-unit));
   box-shadow:
     inset 0 1px rgba(255, 240, 214, 0.1),
-    0 18px 42px rgba(0, 0, 0, 0.16);
+    0 calc(18 * var(--ui-unit)) calc(42 * var(--ui-unit)) rgba(0, 0, 0, 0.16);
 }
 
 .hero {
@@ -297,14 +298,14 @@
   pointer-events: none;
   right: -11%;
   bottom: -10%;
-  width: min(75%, 900px);
-  filter: drop-shadow(-16px 18px 34px rgba(0, 0, 0, 0.24));
+  width: min(75%, calc(900 * var(--ui-unit)));
+  filter: drop-shadow(calc(-16 * var(--ui-unit)) calc(18 * var(--ui-unit)) calc(34 * var(--ui-unit)) rgba(0, 0, 0, 0.24));
 }
 
 .heroContent {
   position: relative;
-  width: min(62%, 730px);
-  padding: 36px 38px 0;
+  width: min(62%, calc(730 * var(--ui-unit)));
+  padding: calc(36 * var(--ui-unit)) calc(38 * var(--ui-unit)) 0;
 }
 
 .eyebrow {
@@ -313,12 +314,12 @@
   letter-spacing: 0.18em;
   text-transform: uppercase;
   color: #f4ca80;
-  font-size: 10px;
+  font-size: calc(10 * var(--ui-unit));
 }
 
 .period {
-  margin: 7px 0 0;
-  font-size: 12px;
+  margin: calc(7 * var(--ui-unit)) 0 0;
+  font-size: calc(12 * var(--ui-unit));
   font-weight: 600;
   letter-spacing: 0.04em;
   color: #ede1d0;
@@ -328,19 +329,19 @@
   display: block;
   object-fit: contain;
   object-position: left center;
-  max-width: min(100%, 335px);
-  max-height: 84px;
-  filter: drop-shadow(0 3px 10px rgba(0, 0, 0, 0.48));
+  max-width: min(100%, calc(335 * var(--ui-unit)));
+  max-height: calc(84 * var(--ui-unit));
+  filter: drop-shadow(0 calc(3 * var(--ui-unit)) calc(10 * var(--ui-unit)) rgba(0, 0, 0, 0.48));
 }
 
 .heroTitle {
-  max-width: 570px;
+  max-width: calc(570 * var(--ui-unit));
   margin: 0;
   font-weight: 850;
   letter-spacing: -0.055em;
   line-height: 0.94;
   text-wrap: balance;
-  font-size: clamp(29px, 3.9vw, 50px);
+  font-size: clamp(calc(29 * var(--ui-unit)), 3.9vw, calc(50 * var(--ui-unit)));
 }
 
 .aggregate .hero {
@@ -357,7 +358,7 @@
 }
 
 .aggregate .heroContent {
-  width: min(72%, 760px);
+  width: min(72%, calc(760 * var(--ui-unit)));
 }
 
 /* Aggregate artwork can put bright spots under the title: a soft dark backing (stronger on bright art) keeps the white type readable. */
@@ -376,25 +377,25 @@
   z-index: 2;
 }
 .showcase[data-artwork-tone] :is(.eyebrow, .period, .heroTitle) {
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.55), 0 0 22px rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px calc(2 * var(--ui-unit)) rgba(0, 0, 0, 0.55), 0 0 calc(22 * var(--ui-unit)) rgba(0, 0, 0, 0.4);
 }
 .aggregate .heroTitle {
-  font-size: clamp(38px, 5.5vw, 70px);
+  font-size: clamp(calc(38 * var(--ui-unit)), 5.5vw, calc(70 * var(--ui-unit)));
 }
 
 .aggregateArtwork {
   position: absolute;
   right: -4%;
   top: 50%;
-  width: min(51vw, 530px);
+  width: min(51vw, calc(530 * var(--ui-unit)));
   aspect-ratio: 1;
   transform: translateY(-50%);
   border: 1px solid rgba(245, 192, 102, 0.28);
   border-radius: 50%;
   box-shadow:
-    0 0 0 36px rgba(237, 179, 91, 0.045),
-    0 0 0 92px rgba(237, 179, 91, 0.035),
-    inset 0 0 90px rgba(228, 170, 82, 0.07);
+    0 0 0 calc(36 * var(--ui-unit)) rgba(237, 179, 91, 0.045),
+    0 0 0 calc(92 * var(--ui-unit)) rgba(237, 179, 91, 0.035),
+    inset 0 0 calc(90 * var(--ui-unit)) rgba(228, 170, 82, 0.07);
 }
 
 .aggregateArtwork::before,
@@ -417,19 +418,19 @@
   display: grid;
   place-items: center;
   color: #e9bd74;
-  font-size: clamp(64px, 10vw, 130px);
+  font-size: clamp(calc(64 * var(--ui-unit)), 10vw, calc(130 * var(--ui-unit)));
   line-height: 1;
-  text-shadow: 0 0 55px rgba(245, 181, 79, 0.55);
+  text-shadow: 0 0 calc(55 * var(--ui-unit)) rgba(245, 181, 79, 0.55);
 }
 
 .aggregateCustomArtwork {
   position: absolute;
   z-index: 0;
-  width: min(42%, 560px);
-  height: min(68%, 520px);
+  width: min(42%, calc(560 * var(--ui-unit)));
+  height: min(68%, calc(520 * var(--ui-unit)));
   object-fit: contain;
   transform: translate(-50%, -50%);
-  filter: brightness(var(--wish-artwork-brightness, 1)) drop-shadow(0 12px 28px rgba(0, 0, 0, 0.38));
+  filter: brightness(var(--wish-artwork-brightness, 1)) drop-shadow(0 calc(12 * var(--ui-unit)) calc(28 * var(--ui-unit)) rgba(0, 0, 0, 0.38));
   cursor: grab;
   touch-action: none;
   user-select: none;
@@ -440,43 +441,43 @@
 }
 
 .aggregateCustomArtwork:focus-visible {
-  outline: 2px solid #f4ca80;
-  outline-offset: 4px;
+  outline: calc(2 * var(--ui-unit)) solid #f4ca80;
+  outline-offset: calc(4 * var(--ui-unit));
 }
 
 .aggregateArtworkControls {
   position: absolute;
   z-index: 3;
-  right: 22px;
-  bottom: 18px;
+  right: calc(22 * var(--ui-unit));
+  bottom: calc(18 * var(--ui-unit));
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  gap: 8px;
+  gap: calc(8 * var(--ui-unit));
 }
 
 .aggregateArtworkSize {
   display: inline-flex;
-  min-height: 30px;
+  min-height: calc(30 * var(--ui-unit));
   align-items: center;
-  gap: 9px;
-  padding: 0 9px;
+  gap: calc(9 * var(--ui-unit));
+  padding: 0 calc(9 * var(--ui-unit));
   border: 1px solid rgba(245, 192, 102, 0.3);
-  border-radius: 7px;
+  border-radius: calc(7 * var(--ui-unit));
   background: rgba(15, 19, 25, 0.82);
   color: #e9d2a8;
-  font-size: 10px;
+  font-size: calc(10 * var(--ui-unit));
   font-weight: 700;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(calc(8 * var(--ui-unit)));
 }
 
 /* Size and brightness sliders stack with equal label columns. */
 .aggregateArtworkSize span {
-  min-width: 58px;
+  min-width: calc(58 * var(--ui-unit));
 }
 
 .aggregateArtworkSize input {
-  width: 116px;
+  width: calc(116 * var(--ui-unit));
   accent-color: #f4ca80;
   cursor: pointer;
 }
@@ -485,23 +486,23 @@
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 8px;
+  gap: calc(8 * var(--ui-unit));
 }
 
 .aggregateArtworkButton {
   display: inline-flex;
-  min-height: 32px;
+  min-height: calc(32 * var(--ui-unit));
   align-items: center;
   justify-content: center;
-  padding: 0 10px;
+  padding: 0 calc(10 * var(--ui-unit));
   border: 1px solid rgba(245, 192, 102, 0.42);
-  border-radius: 7px;
+  border-radius: calc(7 * var(--ui-unit));
   background: rgba(15, 19, 25, 0.86);
   color: #f3d49b;
-  font-size: 11px;
+  font-size: calc(11 * var(--ui-unit));
   font-weight: 700;
   cursor: pointer;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(calc(8 * var(--ui-unit)));
   transition: background 140ms ease, border-color 140ms ease;
 }
 
@@ -512,8 +513,8 @@
 
 .aggregateArtworkButton:focus-within,
 .aggregateArtworkButton:focus-visible {
-  outline: 2px solid #f4ca80;
-  outline-offset: 2px;
+  outline: calc(2 * var(--ui-unit)) solid #f4ca80;
+  outline-offset: calc(2 * var(--ui-unit));
 }
 
 .aggregateArtworkButton input {
@@ -529,28 +530,28 @@
 .dashboard {
   position: relative;
   z-index: 1;
-  width: min(710px, calc(100% - 64px));
-  margin: 225px 0 27px 32px;
+  width: min(calc(710 * var(--ui-unit)), calc(100% - calc(64 * var(--ui-unit))));
+  margin: calc(225 * var(--ui-unit)) 0 calc(27 * var(--ui-unit)) calc(32 * var(--ui-unit));
 }
 
 .aggregate .dashboard {
   margin-right: 0;
-  margin-left: 32px;
-  margin-top: 205px;
+  margin-left: calc(32 * var(--ui-unit));
+  margin-top: calc(205 * var(--ui-unit));
 }
 
 @media (min-width: 961px) {
   .historyWideAggregate .dashboard {
-    width: calc(100% - 64px);
+    width: calc(100% - calc(64 * var(--ui-unit)));
     max-width: none;
-    margin-top: 155px;
+    margin-top: calc(155 * var(--ui-unit));
   }
 
   .historyWideAggregate .statsPanel {
     display: grid;
-    grid-template-columns: minmax(0, 1.8fr) minmax(300px, 1fr);
-    column-gap: 16px;
-    row-gap: 10px;
+    grid-template-columns: minmax(0, 1.8fr) minmax(calc(300 * var(--ui-unit)), 1fr);
+    column-gap: calc(16 * var(--ui-unit));
+    row-gap: calc(10 * var(--ui-unit));
     align-items: start;
     width: 100%;
   }
@@ -586,7 +587,7 @@
   .historyWideAggregate .aggregateHistoryReserve {
     grid-column: 1;
     grid-row: 4;
-    min-height: 120px;
+    min-height: calc(120 * var(--ui-unit));
   }
 
   .historyWideAggregate .luckGrid {
@@ -610,15 +611,15 @@
   }
 
   .historyWideAggregate .heroTitle {
-    font-size: clamp(36px, 5vw, 62px);
+    font-size: clamp(calc(36 * var(--ui-unit)), 5vw, calc(62 * var(--ui-unit)));
   }
 }
 
 .statsPanel {
   border: 1px solid rgba(243, 220, 182, 0.085);
   position: relative;
-  padding: 18px 20px;
-  border-radius: 15px;
+  padding: calc(18 * var(--ui-unit)) calc(20 * var(--ui-unit));
+  border-radius: calc(15 * var(--ui-unit));
   background: linear-gradient(
     108deg,
     rgba(12, 16, 22, 0.88) 0%,
@@ -626,20 +627,20 @@
     rgba(12, 16, 22, 0.58)
   );
   box-shadow:
-    0 18px 44px rgba(0, 0, 0, 0.15),
+    0 calc(18 * var(--ui-unit)) calc(44 * var(--ui-unit)) rgba(0, 0, 0, 0.15),
     inset 0 1px rgba(255, 255, 255, 0.035);
-  backdrop-filter: blur(12px);
+  backdrop-filter: blur(calc(12 * var(--ui-unit)));
 }
 
 .metrics {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(calc(155 * var(--ui-unit)), 1fr));
+  gap: calc(8 * var(--ui-unit));
 }
 
 .metricLabel {
-  margin: 0 0 8px;
-  font-size: 10px;
+  margin: 0 0 calc(8 * var(--ui-unit));
+  font-size: calc(10 * var(--ui-unit));
   font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
@@ -653,20 +654,20 @@
   font-weight: 750;
   letter-spacing: -0.07em;
   line-height: 1;
-  font-size: clamp(28px, 2.7vw, 35px);
+  font-size: clamp(calc(28 * var(--ui-unit)), 2.7vw, calc(35 * var(--ui-unit)));
 }
 
 .winRateWithPure {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 1.25fr);
   align-items: center;
-  gap: 10px;
+  gap: calc(10 * var(--ui-unit));
 }
 
 .pureWinRateLabel {
-  margin: 0 0 4px;
+  margin: 0 0 calc(4 * var(--ui-unit));
   color: rgba(255, 255, 255, 0.7);
-  font-size: 9px;
+  font-size: calc(9 * var(--ui-unit));
   font-weight: 700;
   line-height: 1.25;
 }
@@ -675,22 +676,22 @@
   min-width: 0;
   text-align: right;
   border-left: 1px solid rgba(255, 255, 255, 0.1);
-  padding-left: 10px;
+  padding-left: calc(10 * var(--ui-unit));
 }
 
 .pureWinRateValue {
   margin: 0;
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-  font-size: clamp(18px, 1.8vw, 24px);
+  font-size: clamp(calc(18 * var(--ui-unit)), 1.8vw, calc(24 * var(--ui-unit)));
   font-weight: 800;
   letter-spacing: -0.055em;
   line-height: 1;
 }
 
 .pureWinRateHint {
-  margin: 3px 0 0;
+  margin: calc(3 * var(--ui-unit)) 0 0;
   color: rgba(255, 255, 255, 0.55);
-  font-size: 8px;
+  font-size: calc(8 * var(--ui-unit));
   line-height: 1.2;
 }
 
@@ -700,36 +701,36 @@
 .cashbackAmount {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: calc(8 * var(--ui-unit));
 }
 .cashbackIcon {
   object-fit: contain;
-  width: 34px;
-  height: 34px;
+  width: calc(34 * var(--ui-unit));
+  height: calc(34 * var(--ui-unit));
 }
 .metricUnit {
-  font-size: 12px;
+  font-size: calc(12 * var(--ui-unit));
   letter-spacing: 0;
 }
 
 .outcomes {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
-  gap: 8px;
-  margin-top: 13px;
+  grid-template-columns: repeat(auto-fit, minmax(calc(125 * var(--ui-unit)), 1fr));
+  gap: calc(8 * var(--ui-unit));
+  margin-top: calc(13 * var(--ui-unit));
   padding: 0;
   color: #c8c4bd;
-  font-size: 10px;
+  font-size: calc(10 * var(--ui-unit));
 }
 
 .luckGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 0;
-  margin-top: 14px;
+  margin-top: calc(14 * var(--ui-unit));
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 9px;
+  border-radius: calc(9 * var(--ui-unit));
   background: rgba(4, 8, 14, 0.22);
 }
 
@@ -739,23 +740,23 @@
 
 .luckItem {
   min-width: 0;
-  padding: 13px 14px;
+  padding: calc(13 * var(--ui-unit)) calc(14 * var(--ui-unit));
 }
 
 .luckMetricHeader {
   display: flex;
-  min-height: 39px;
+  min-height: calc(39 * var(--ui-unit));
   flex-direction: column;
   align-items: flex-start;
   justify-content: flex-start;
-  gap: 4px;
+  gap: calc(4 * var(--ui-unit));
 }
 
 .luckHeading {
   display: inline-flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 5px;
+  gap: calc(5 * var(--ui-unit));
 }
 
 .luckHeadingPrefix {
@@ -772,7 +773,7 @@
 
 .luckHeadingDropExtreme {
   color: #fcd34d;
-  text-shadow: 0 0 10px rgba(251, 191, 36, 0.28);
+  text-shadow: 0 0 calc(10 * var(--ui-unit)) rgba(251, 191, 36, 0.28);
 }
 
 .luckItem + .luckItem {
@@ -780,62 +781,62 @@
 }
 
 .pityPanel {
-  margin-top: 13px;
-  padding: 11px 13px 12px;
+  margin-top: calc(13 * var(--ui-unit));
+  padding: calc(11 * var(--ui-unit)) calc(13 * var(--ui-unit)) calc(12 * var(--ui-unit));
   border: 1px solid rgba(241, 195, 113, 0.17);
-  border-left: 2px solid rgba(241, 195, 113, 0.7);
-  border-radius: 7px;
+  border-left: calc(2 * var(--ui-unit)) solid rgba(241, 195, 113, 0.7);
+  border-radius: calc(7 * var(--ui-unit));
   background: linear-gradient(90deg, rgba(241, 195, 113, 0.075), rgba(255, 255, 255, 0.015));
 }
 .aggregatePityPanel {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: calc(8 * var(--ui-unit));
 }
 .aggregatePityCard {
   min-width: 0;
-  padding: 8px 10px;
+  padding: calc(8 * var(--ui-unit)) calc(10 * var(--ui-unit));
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  border-radius: calc(6 * var(--ui-unit));
   background: rgba(5, 9, 15, 0.32);
 }
 
 .heroContent::before {
   position: absolute;
-  top: 37px;
+  top: calc(37 * var(--ui-unit));
   bottom: 0;
-  left: 38px;
-  width: 2px;
+  left: calc(38 * var(--ui-unit));
+  width: calc(2 * var(--ui-unit));
   content: "";
   background: linear-gradient(#f1c778, rgba(241, 199, 120, 0.48) 70%, transparent);
 }
 
 .identityMeta,
 .titleLockup {
-  padding-left: 18px;
+  padding-left: calc(18 * var(--ui-unit));
 }
 
 .titleLockup {
   display: flex;
-  width: min(100%, 640px);
-  max-width: 520px;
+  width: min(100%, calc(640 * var(--ui-unit)));
+  max-width: calc(520 * var(--ui-unit));
   flex-direction: column;
   align-items: flex-start;
-  gap: 4px;
-  margin: 18px 0 0;
-  padding-left: 18px;
+  gap: calc(4 * var(--ui-unit));
+  margin: calc(18 * var(--ui-unit)) 0 0;
+  padding-left: calc(18 * var(--ui-unit));
   text-align: left;
 }
 
 .logoLockup {
   position: relative;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 240px;
+  grid-template-columns: minmax(0, 1fr) calc(240 * var(--ui-unit));
   align-items: center;
-  gap: 4px;
-  width: min(100%, 640px);
-  max-width: 640px;
-  padding: 8px 20px 8px 18px;
+  gap: calc(4 * var(--ui-unit));
+  width: min(100%, calc(640 * var(--ui-unit)));
+  max-width: calc(640 * var(--ui-unit));
+  padding: calc(8 * var(--ui-unit)) calc(20 * var(--ui-unit)) calc(8 * var(--ui-unit)) calc(18 * var(--ui-unit));
   background:
     radial-gradient(ellipse at 23% 48%, rgba(237, 184, 101, 0.08), transparent 65%),
     linear-gradient(90deg, rgba(12, 16, 22, 0.52), rgba(12, 16, 22, 0.18) 69%, transparent);
@@ -844,13 +845,13 @@
 .logoLockup .heroTitle {
   max-width: none;
   min-height: 0;
-  font-size: clamp(29px, 3.3vw, 42px);
+  font-size: clamp(calc(29 * var(--ui-unit)), 3.3vw, calc(42 * var(--ui-unit)));
 }
 
 .logoLockup .titleImage {
   width: 100%;
-  max-width: 240px;
-  max-height: 105px;
+  max-width: calc(240 * var(--ui-unit));
+  max-height: calc(105 * var(--ui-unit));
   object-position: left center;
 }
 
@@ -858,24 +859,24 @@
   position: absolute;
   top: 0;
   right: 24%;
-  left: 18px;
+  left: calc(18 * var(--ui-unit));
   height: 1px;
   content: "";
   background: linear-gradient(90deg, rgba(244, 202, 131, 0.38), transparent);
 }
 .aggregate {
-  min-height: 730px;
+  min-height: calc(730 * var(--ui-unit));
 }
 .compactShowcase {
-  min-height: 730px;
+  min-height: calc(730 * var(--ui-unit));
 }
 .compactShowcase .dashboard {
-  margin-top: 185px;
+  margin-top: calc(185 * var(--ui-unit));
 }
 
 .statsPanel::before {
   position: absolute;
-  inset: 0 20px auto;
+  inset: 0 calc(20 * var(--ui-unit)) auto;
   height: 1px;
   content: "";
   background: linear-gradient(
@@ -888,10 +889,10 @@
 
 .metric {
   min-width: 0;
-  min-height: 76px;
-  padding: 11px 13px;
+  min-height: calc(76 * var(--ui-unit));
+  padding: calc(11 * var(--ui-unit)) calc(13 * var(--ui-unit));
   border: 1px solid rgba(255, 255, 255, 0.055);
-  border-radius: 7px;
+  border-radius: calc(7 * var(--ui-unit));
   background: linear-gradient(150deg, rgba(255, 255, 255, 0.028), rgba(255, 255, 255, 0.01));
 }
 .metric:first-child {
@@ -902,17 +903,17 @@
   display: flex;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 2px;
+  gap: calc(2 * var(--ui-unit));
   min-width: 0;
-  padding-left: 9px;
+  padding-left: calc(9 * var(--ui-unit));
   border-left: 1px solid rgba(244, 202, 131, 0.3);
 }
 .outcomes > .outcomeCount {
   display: inline-flex;
   align-items: baseline;
   justify-self: start;
-  gap: 2px;
-  padding: 0 0 0 9px;
+  gap: calc(2 * var(--ui-unit));
+  padding: 0 0 0 calc(9 * var(--ui-unit));
   border: 0;
   border-left: 1px solid rgba(244, 202, 131, 0.3);
   color: #c8c4bd;
@@ -932,21 +933,21 @@
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 5px;
-  margin-top: 12px;
-  padding: 8px 10px;
-  border-left: 2px solid rgba(244, 202, 131, 0.4);
+  gap: calc(5 * var(--ui-unit));
+  margin-top: calc(12 * var(--ui-unit));
+  padding: calc(8 * var(--ui-unit)) calc(10 * var(--ui-unit));
+  border-left: calc(2 * var(--ui-unit)) solid rgba(244, 202, 131, 0.4);
   background: linear-gradient(90deg, rgba(244, 202, 131, 0.065), transparent 90%);
-  font-size: 10px;
+  font-size: calc(10 * var(--ui-unit));
 }
 
 .singleDrop {
   width: max-content;
   max-width: 100%;
-  padding-right: 16px;
+  padding-right: calc(16 * var(--ui-unit));
 }
 .dropLabel {
-  margin-right: 5px;
+  margin-right: calc(5 * var(--ui-unit));
   color: #aaa9a5;
   font-weight: 700;
   letter-spacing: 0.055em;
@@ -954,11 +955,11 @@
 .dropChip {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  min-height: 20px;
-  padding: 3px 7px;
+  gap: calc(4 * var(--ui-unit));
+  min-height: calc(20 * var(--ui-unit));
+  padding: calc(3 * var(--ui-unit)) calc(7 * var(--ui-unit));
   border: 1px solid rgba(244, 202, 131, 0.12);
-  border-radius: 5px;
+  border-radius: calc(5 * var(--ui-unit));
   background: rgba(244, 202, 131, 0.045);
   color: #e9e3d9;
   line-height: 1.2;
@@ -980,7 +981,7 @@
   align-items: center;
   justify-content: center;
   min-width: 1ch;
-  margin-left: 2px;
+  margin-left: calc(2 * var(--ui-unit));
   color: #f1cf92;
   font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
   line-height: 1;
@@ -991,18 +992,18 @@
 }
 .luckTrack {
   position: relative;
-  height: 5px;
-  margin-top: 9px;
-  border-radius: 999px;
+  height: calc(5 * var(--ui-unit));
+  margin-top: calc(9 * var(--ui-unit));
+  border-radius: calc(999 * var(--ui-unit));
   background: linear-gradient(90deg, #f87171 0%, #fbbf24 25%, #a3e635 50%, #34d399 100%);
 }
 .luckMarker {
   position: absolute;
   top: 50%;
-  width: 10px;
-  height: 10px;
+  width: calc(10 * var(--ui-unit));
+  height: calc(10 * var(--ui-unit));
   transform: translate(-50%, -50%);
-  border: 2px solid #141920;
+  border: calc(2 * var(--ui-unit)) solid #141920;
   border-radius: 50%;
   background: #f4f1e9;
   box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.36);
@@ -1010,9 +1011,9 @@
 }
 .pityTrack {
   position: relative;
-  height: 5px;
-  margin-top: 10px;
-  border-radius: 999px;
+  height: calc(5 * var(--ui-unit));
+  margin-top: calc(10 * var(--ui-unit));
+  border-radius: calc(999 * var(--ui-unit));
   background: rgba(255, 255, 255, 0.15);
 }
 .pityFill {
@@ -1023,11 +1024,11 @@
 .pityStartMark {
   position: absolute;
   top: 50%;
-  width: 2px;
-  height: 11px;
+  width: calc(2 * var(--ui-unit));
+  height: calc(11 * var(--ui-unit));
   transform: translateY(-50%);
   background: #f5f0e6;
-  box-shadow: 0 0 4px rgba(255, 255, 255, 0.42);
+  box-shadow: 0 0 calc(4 * var(--ui-unit)) rgba(255, 255, 255, 0.42);
 }
 
 @media (max-width: 960px) {
@@ -1037,12 +1038,12 @@
   }
   .hero {
     position: relative;
-    height: 350px;
+    height: calc(350 * var(--ui-unit));
   }
   .heroContent,
   .aggregate .heroContent {
     width: 100%;
-    padding: 25px 24px;
+    padding: calc(25 * var(--ui-unit)) calc(24 * var(--ui-unit));
   }
   .hero::after {
     background: linear-gradient(
@@ -1061,23 +1062,23 @@
   }
   .titleImage {
     max-width: 100%;
-    max-height: 86px;
+    max-height: calc(86 * var(--ui-unit));
   }
   .logoLockup {
-    grid-template-columns: minmax(0, 1fr) 200px;
-    gap: 4px;
-    max-width: min(100%, 520px);
-    padding-right: 10px;
+    grid-template-columns: minmax(0, 1fr) calc(200 * var(--ui-unit));
+    gap: calc(4 * var(--ui-unit));
+    max-width: min(100%, calc(520 * var(--ui-unit)));
+    padding-right: calc(10 * var(--ui-unit));
   }
   .logoLockup .heroTitle {
-    font-size: clamp(28px, 4.5vw, 38px);
+    font-size: clamp(calc(28 * var(--ui-unit)), 4.5vw, calc(38 * var(--ui-unit)));
   }
   .logoLockup .titleImage {
-    max-width: 200px;
-    max-height: 95px;
+    max-width: calc(200 * var(--ui-unit));
+    max-height: calc(95 * var(--ui-unit));
   }
   .aggregate .hero {
-    height: 300px;
+    height: calc(300 * var(--ui-unit));
   }
   .aggregateArtwork {
     right: -28%;
@@ -1085,21 +1086,21 @@
     opacity: 0.65;
   }
   .aggregateCustomArtwork {
-    width: min(62%, 400px);
+    width: min(62%, calc(400 * var(--ui-unit)));
     height: 72%;
   }
   .aggregateArtworkControls {
-    right: 12px;
-    bottom: 12px;
-    max-width: calc(100% - 24px);
+    right: calc(12 * var(--ui-unit));
+    bottom: calc(12 * var(--ui-unit));
+    max-width: calc(100% - calc(24 * var(--ui-unit)));
   }
   .aggregateArtworkSize input {
-    width: 104px;
+    width: calc(104 * var(--ui-unit));
   }
   .aggregateArtworkButton {
-    min-height: 30px;
-    padding: 0 8px;
-    font-size: 10px;
+    min-height: calc(30 * var(--ui-unit));
+    padding: 0 calc(8 * var(--ui-unit));
+    font-size: calc(10 * var(--ui-unit));
   }
   .aggregate .heroContent {
     position: relative;
@@ -1108,22 +1109,22 @@
   .dashboard,
   .aggregate .dashboard {
     width: auto;
-    margin: -26px 14px 16px;
+    margin: calc(-26 * var(--ui-unit)) calc(14 * var(--ui-unit)) calc(16 * var(--ui-unit));
   }
   .compactShowcase .dashboard {
-    margin-top: -26px;
+    margin-top: calc(-26 * var(--ui-unit));
   }
   .statsPanel {
-    padding: 15px;
+    padding: calc(15 * var(--ui-unit));
     background: rgba(12, 16, 22, 0.94);
   }
   .metrics {
-    gap: 12px;
+    gap: calc(12 * var(--ui-unit));
   }
   .heroContent::before {
-    top: 25px;
-    bottom: 24px;
-    left: 24px;
+    top: calc(25 * var(--ui-unit));
+    bottom: calc(24 * var(--ui-unit));
+    left: calc(24 * var(--ui-unit));
   }
   .titleLockup {
     max-width: 72%;
@@ -1145,20 +1146,20 @@
 
 @media (max-width: 470px) {
   .logoLockup {
-    grid-template-columns: minmax(0, 110px) 112px;
-    gap: 2px;
+    grid-template-columns: minmax(0, calc(110 * var(--ui-unit))) calc(112 * var(--ui-unit));
+    gap: calc(2 * var(--ui-unit));
     width: max-content;
     max-width: 100%;
-    padding: 9px 8px 9px 18px;
+    padding: calc(9 * var(--ui-unit)) calc(8 * var(--ui-unit)) calc(9 * var(--ui-unit)) calc(18 * var(--ui-unit));
   }
   .logoLockup .heroTitle {
     min-height: 0;
-    font-size: clamp(22px, 6vw, 26px);
+    font-size: clamp(calc(22 * var(--ui-unit)), 6vw, calc(26 * var(--ui-unit)));
     line-height: 0.98;
   }
   .logoLockup .titleImage {
-    max-width: 112px;
-    max-height: 75px;
+    max-width: calc(112 * var(--ui-unit));
+    max-height: calc(75 * var(--ui-unit));
   }
   .bannerCharacter {
     right: -20%;
@@ -1170,15 +1171,15 @@
   }
   .metric:nth-child(3) {
     grid-column: 1 / -1;
-    min-height: 65px;
+    min-height: calc(65 * var(--ui-unit));
     border: 1px solid rgba(255, 255, 255, 0.09);
-    padding-left: 11px;
+    padding-left: calc(11 * var(--ui-unit));
   }
   .period {
     max-width: 80%;
   }
   .metric {
-    padding: 11px;
+    padding: calc(11 * var(--ui-unit));
   }
   .outcomes {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1191,23 +1192,23 @@
 @media (max-width: 640px) {
   .winRateWithPure {
     grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
-    gap: 7px;
+    gap: calc(7 * var(--ui-unit));
   }
 
   .winRateWithPure .metricValue {
-    font-size: clamp(22px, 6vw, 30px);
+    font-size: clamp(calc(22 * var(--ui-unit)), 6vw, calc(30 * var(--ui-unit)));
   }
 
   .pureWinRateInline {
-    padding-left: 7px;
+    padding-left: calc(7 * var(--ui-unit));
   }
 
   .pureWinRateValue {
-    font-size: clamp(16px, 4.2vw, 21px);
+    font-size: clamp(calc(16 * var(--ui-unit)), 4.2vw, calc(21 * var(--ui-unit)));
   }
 
   .pureWinRateHint {
-    font-size: 7px;
+    font-size: calc(7 * var(--ui-unit));
   }
 
   .aggregatePityPanel {
@@ -1215,12 +1216,12 @@
   }
 
   .bannerControls {
-    top: 12px;
-    right: 12px;
+    top: calc(12 * var(--ui-unit));
+    right: calc(12 * var(--ui-unit));
   }
 
   .bannerControls .exportButton {
-    width: 34px;
+    width: calc(34 * var(--ui-unit));
     padding: 0;
   }
 
@@ -1229,12 +1230,12 @@
   }
 
   .collapsedSummary {
-    min-height: 58px;
-    padding: 12px 96px 12px 16px;
+    min-height: calc(58 * var(--ui-unit));
+    padding: calc(12 * var(--ui-unit)) calc(96 * var(--ui-unit)) calc(12 * var(--ui-unit)) calc(16 * var(--ui-unit));
   }
 
   .collapsedTitle {
-    font-size: 15px;
+    font-size: calc(15 * var(--ui-unit));
   }
 
   .collapsedCount {
@@ -1245,7 +1246,7 @@
 /* Export is a fixed-width desktop composition even when the viewer uses a phone. */
 .exportRoot .showcase {
   display: flex;
-  min-height: 730px;
+  min-height: calc(730 * var(--ui-unit));
   border: 0;
   border-radius: 0;
   box-shadow: none;
@@ -1273,59 +1274,59 @@
 }
 
 .exportRoot .heroContent {
-  width: min(62%, 730px);
-  padding: 36px 38px 0;
+  width: min(62%, calc(730 * var(--ui-unit)));
+  padding: calc(36 * var(--ui-unit)) calc(38 * var(--ui-unit)) 0;
 }
 
 .exportRoot .aggregate .heroContent {
-  width: min(72%, 760px);
-  padding: 36px 38px 0;
+  width: min(72%, calc(760 * var(--ui-unit)));
+  padding: calc(36 * var(--ui-unit)) calc(38 * var(--ui-unit)) 0;
 }
 
 .exportRoot .heroContent::before {
-  top: 37px;
+  top: calc(37 * var(--ui-unit));
   bottom: 0;
-  left: 38px;
+  left: calc(38 * var(--ui-unit));
 }
 
 .exportRoot .bannerCharacter {
   right: -11%;
   bottom: -10%;
-  width: min(75%, 900px);
+  width: min(75%, calc(900 * var(--ui-unit)));
   height: 116%;
   opacity: 1;
 }
 
 .exportRoot .heroTitle {
-  font-size: 50px;
+  font-size: calc(50 * var(--ui-unit));
 }
 
 .exportRoot .aggregate .heroTitle {
-  font-size: 70px;
+  font-size: calc(70 * var(--ui-unit));
 }
 
 .exportRoot .titleLockup {
-  width: min(100%, 640px);
-  max-width: 520px;
+  width: min(100%, calc(640 * var(--ui-unit)));
+  max-width: calc(520 * var(--ui-unit));
 }
 
 .exportRoot .logoLockup {
-  grid-template-columns: minmax(0, 1fr) 240px;
-  gap: 4px;
-  width: min(100%, 640px);
-  max-width: 640px;
-  padding: 8px 20px 8px 18px;
+  grid-template-columns: minmax(0, 1fr) calc(240 * var(--ui-unit));
+  gap: calc(4 * var(--ui-unit));
+  width: min(100%, calc(640 * var(--ui-unit)));
+  max-width: calc(640 * var(--ui-unit));
+  padding: calc(8 * var(--ui-unit)) calc(20 * var(--ui-unit)) calc(8 * var(--ui-unit)) calc(18 * var(--ui-unit));
 }
 
 .exportRoot .logoLockup .heroTitle {
-  font-size: 42px;
+  font-size: calc(42 * var(--ui-unit));
   line-height: 0.94;
   min-height: 0;
 }
 
 .exportRoot .logoLockup .titleImage {
-  max-width: 240px;
-  max-height: 105px;
+  max-width: calc(240 * var(--ui-unit));
+  max-height: calc(105 * var(--ui-unit));
 }
 
 .exportRoot .period {
@@ -1379,22 +1380,22 @@
 
 .exportRoot .aggregateArtwork {
   right: -4%;
-  width: 530px;
+  width: calc(530 * var(--ui-unit));
   opacity: 1;
 }
 
 .exportRoot .dashboard,
 .exportRoot .aggregate .dashboard {
-  width: min(710px, calc(100% - 64px));
-  margin: 225px 0 27px 32px;
+  width: min(calc(710 * var(--ui-unit)), calc(100% - calc(64 * var(--ui-unit))));
+  margin: calc(225 * var(--ui-unit)) 0 calc(27 * var(--ui-unit)) calc(32 * var(--ui-unit));
 }
 
 .exportRoot .aggregate .dashboard {
-  margin-top: 205px;
+  margin-top: calc(205 * var(--ui-unit));
 }
 
 .exportRoot .historyWideAggregate .dashboard {
-  width: calc(100% - 64px);
+  width: calc(100% - calc(64 * var(--ui-unit)));
   max-width: none;
 }
 
@@ -1406,7 +1407,7 @@
 .exportRoot .historyWideAggregate .outcomes,
 .exportRoot .historyWideAggregate .luckGrid,
 .exportRoot .historyWideAggregate .pityPanel {
-  max-width: 710px;
+  max-width: calc(710 * var(--ui-unit));
 }
 
 .exportRoot .historyWideAggregate .pityPanel {
@@ -1414,29 +1415,29 @@
 }
 
 .exportRoot .compactShowcase .dashboard {
-  margin-top: 185px;
+  margin-top: calc(185 * var(--ui-unit));
 }
 
 .exportRoot .statsPanel {
-  padding: 18px 20px;
+  padding: calc(18 * var(--ui-unit)) calc(20 * var(--ui-unit));
 }
 
 .exportRoot .metrics {
-  grid-template-columns: repeat(auto-fit, minmax(155px, 1fr));
-  gap: 8px;
+  grid-template-columns: repeat(auto-fit, minmax(calc(155 * var(--ui-unit)), 1fr));
+  gap: calc(8 * var(--ui-unit));
 }
 
 .exportRoot .metric {
-  padding: 11px 13px;
+  padding: calc(11 * var(--ui-unit)) calc(13 * var(--ui-unit));
 }
 
 .exportRoot .metric:nth-child(3) {
   grid-column: auto;
-  min-height: 76px;
+  min-height: calc(76 * var(--ui-unit));
 }
 
 .exportRoot .outcomes {
-  grid-template-columns: repeat(auto-fit, minmax(125px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(calc(125 * var(--ui-unit)), 1fr));
 }
 
 .exportRoot .luckGrid {

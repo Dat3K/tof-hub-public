@@ -62,7 +62,7 @@ function placePortalTooltip(
   return { left: Math.min(maxLeft, Math.max(edge, left)), top: Math.min(maxTop, Math.max(topEdge, top)), zIndex };
 }
 
-const TOOLTIP_SURFACE = 'rounded-md bg-[rgba(14,18,28,0.96)] border border-[rgba(120,160,255,0.35)] px-2.5 py-1 text-xs text-[#f3f4f6] shadow-[0_8px_24px_rgba(0,0,0,0.6),0_0_12px_rgba(59,130,246,0.2)] backdrop-blur-md transition-opacity duration-150 animate-fade-in';
+const TOOLTIP_SURFACE = 'rounded-md bg-[rgba(14,18,28,0.96)] border border-[rgba(120,160,255,0.35)] px-2.5 py-1 text-xs text-[#f3f4f6] shadow-[0_0.5rem_1.5rem_rgba(0,0,0,0.6),0_0_0.75rem_rgba(59,130,246,0.2)] backdrop-blur-md transition-opacity duration-150 animate-fade-in';
 
 export const Tooltip: React.FC<TooltipProps> = ({
   content,
@@ -201,7 +201,7 @@ export const Tooltip: React.FC<TooltipProps> = ({
         visibility: portalPosition ? 'visible' : 'hidden',
         zIndex:portalPosition?.zIndex??100,
       } : undefined}
-      className={`${portal ? 'z-[100]' : 'z-50'} ${interactive ? 'pointer-events-auto select-text' : 'pointer-events-none'} whitespace-nowrap ${TOOLTIP_SURFACE} ${portal ? 'max-w-[calc(100vw-16px)]' : `absolute ${placementClasses}`} ${className}`.trim()}
+      className={`${portal ? 'z-[100]' : 'z-50'} ${interactive ? 'pointer-events-auto select-text' : 'pointer-events-none'} whitespace-nowrap ${TOOLTIP_SURFACE} ${portal ? 'max-w-[calc(100vw-1rem)]' : `absolute ${placementClasses}`} ${className}`.trim()}
     >
       {content}
     </div>
@@ -332,7 +332,7 @@ export function HintLayer({ viewportTopInset = 0, delayMs = 250 }: { viewportTop
       role="tooltip"
       data-hint-popup
       style={{ position: 'fixed', top: position?.top ?? 0, left: position?.left ?? 0, visibility: position ? 'visible' : 'hidden', zIndex: position?.zIndex ?? 100 }}
-      className={`pointer-events-none w-max max-w-[min(360px,calc(100vw-16px))] whitespace-normal break-words leading-normal ${TOOLTIP_SURFACE}`}
+      className={`pointer-events-none w-max max-w-[min(22.5rem,calc(100vw-1rem))] whitespace-normal break-words leading-normal ${TOOLTIP_SURFACE}`}
     >
       {hint.text}
     </div>,

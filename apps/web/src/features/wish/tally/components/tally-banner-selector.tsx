@@ -100,12 +100,12 @@ export function TallyBannerSelector({
                   <div className={`text-xs font-bold truncate ${isSelected ? 'text-amber-300' : 'text-white'}`}>
                     {itemChar}
                   </div>
-                  <div className="text-[10px] text-[#9ca3af] truncate">
+                  <div className="text-[0.625rem] text-[#9ca3af] truncate">
                     {formatNumber(item.total_pulls, locale)} {localeText(locale)('wishes')}
                   </div>
                 </div>
               </div>
-              <div className="text-[10px] text-[#6b7280] line-clamp-1">
+              <div className="text-[0.625rem] text-[#6b7280] line-clamp-1">
                 {itemTitle}
               </div>
             </button>
@@ -114,7 +114,7 @@ export function TallyBannerSelector({
       </div>
 
       {/* Featured Banner Hero Card */}
-      <div className="relative isolate min-h-[270px] rounded-2xl border border-white/10 bg-[var(--surface-panel)] overflow-hidden shadow-xl">
+      <div className="relative isolate min-h-[16.875rem] rounded-2xl border border-white/10 bg-[var(--surface-panel)] overflow-hidden shadow-xl">
         {summary.splash ? (
           <div className="absolute inset-y-0 right-0 w-full md:w-[70%] pointer-events-none" aria-hidden="true">
             <Image
@@ -131,7 +131,7 @@ export function TallyBannerSelector({
           </div>
         ) : null}
 
-        <div className="relative z-10 flex min-h-[270px] flex-col md:flex-row items-start md:items-center justify-between p-6 sm:p-8 gap-6">
+        <div className="relative z-10 flex min-h-[16.875rem] flex-col md:flex-row items-start md:items-center justify-between p-6 sm:p-8 gap-6">
           {/* Banner Meta Info */}
           <div className="w-full space-y-4 md:max-w-[68%]">
             <div className="flex flex-wrap items-center gap-2">
@@ -164,7 +164,7 @@ export function TallyBannerSelector({
             {/* Quick Community Stats Chips */}
             <div className="flex flex-wrap gap-3 pt-2">
               <div className="bg-black/30 border border-white/10 rounded-lg px-3.5 py-2">
-                <div className="text-[10px] text-[#9ca3af] uppercase font-semibold">
+                <div className="text-[0.625rem] text-[#9ca3af] uppercase font-semibold">
                   {t.tallyTotalWishes}
                 </div>
                 <div className="text-base font-bold text-white">
@@ -173,7 +173,7 @@ export function TallyBannerSelector({
               </div>
 
               <div className="bg-black/30 border border-white/10 rounded-lg px-3.5 py-2">
-                <div className="text-[10px] text-[#9ca3af] uppercase font-semibold">
+                <div className="text-[0.625rem] text-[#9ca3af] uppercase font-semibold">
                   {t.tallyAvgSsrPity}
                 </div>
                 <div className="text-base font-bold text-amber-400">
@@ -183,7 +183,7 @@ export function TallyBannerSelector({
 
               {banner.banner_type.includes('limited') && (
                 <div className="bg-black/30 border border-white/10 rounded-lg px-3.5 py-2">
-                  <div className="text-[10px] text-[#9ca3af] uppercase font-semibold">
+                  <div className="text-[0.625rem] text-[#9ca3af] uppercase font-semibold">
                     {t.tallyWinRate5050}
                   </div>
                   <div
@@ -198,7 +198,7 @@ export function TallyBannerSelector({
               )}
 
               <div className="bg-black/30 border border-white/10 rounded-lg px-3.5 py-2">
-                <div className="text-[10px] text-[#9ca3af] uppercase font-semibold">
+                <div className="text-[0.625rem] text-[#9ca3af] uppercase font-semibold">
                   {t.tallySubmissions}
                 </div>
                 <div className="text-base font-bold text-cyan-400">

@@ -10,7 +10,7 @@ export interface SortListboxProps extends CatalogSortProps {
   /** Rich option content; string labels still drive typeahead and accessible names. */
   renderOption?: (option: SortOption) => ReactNode;
   /** Full-width form field rather than a compact catalog sort control. */
-  presentation?: 'catalog' | 'field';
+  presentation?: 'catalog' | 'field' | 'inline';
 }
 
 export interface SortListboxState {
@@ -421,7 +421,7 @@ export function SortListbox({
         "sim-sort-box",
         "flex gap-1.5 relative z-20 shrink-0",
         // Pin to right edge on desktop, stretch on mobile
-        presentation === 'field' ? "w-full min-w-0 self-stretch flex-col items-stretch" : "items-center self-center ml-auto max-sm:w-full max-sm:ml-0 max-sm:self-stretch max-sm:justify-between max-sm:mt-1.5",
+        presentation === 'field' ? "w-full min-w-0 self-stretch flex-col items-stretch" : presentation === 'inline' ? "items-center self-center min-w-0" : "items-center self-center ml-auto max-sm:w-full max-sm:ml-0 max-sm:self-stretch max-sm:justify-between max-sm:mt-1.5",
         className,
       ]
         .filter(Boolean)
@@ -430,7 +430,7 @@ export function SortListbox({
       {label && (
         <span
           id={labelId}
-          className="sim-filter-label text-[11px] font-bold uppercase tracking-[0.03em] leading-none text-[#9ca3af] shrink-0 select-none mr-0.5 inline-flex items-center h-7"
+          className={`sim-filter-label text-[0.6875rem] font-bold uppercase tracking-[0.03em] leading-none text-[#9ca3af] shrink-0 select-none mr-0.5 inline-flex items-center h-7 ${presentation==='inline'?'max-sm:hidden':''}`}
         >
           {label}
         </span>
@@ -440,7 +440,7 @@ export function SortListbox({
         data-sort-listbox
         className={[
           "sim-sort-control",
-          presentation === 'field' ? "relative w-full min-w-0" : "relative min-w-[min(264px,78vw)] max-sm:flex-1 max-sm:min-w-0",
+          presentation === 'field' ? "relative w-full min-w-0" : presentation === 'inline' ? "relative w-[min(13.75rem,46vw)] max-sm:w-[min(9.375rem,38vw)] min-w-0" : "relative min-w-[min(16.5rem,78vw)] max-sm:flex-1 max-sm:min-w-0",
           isOpen ? "is-open" : "",
         ]
           .filter(Boolean)
@@ -467,14 +467,14 @@ export function SortListbox({
           }}
           className={[
             "sim-sort-trigger",
-            "min-h-7 px-3 py-[3px] rounded-lg border border-[var(--surface-border-strong)]",
-            "bg-[var(--surface-panel)] text-[12px] font-[650] tracking-[0.01em] text-[#f4f8ff]",
+            "min-h-7 px-3 py-[0.1875rem] rounded-lg border border-[var(--surface-border-strong)]",
+            "bg-[var(--surface-panel)] text-[0.75rem] font-[650] tracking-[0.01em] text-[#f4f8ff]",
             "flex items-center justify-between gap-2 w-full cursor-pointer select-none",
             "shadow-[inset_0_1px_0_rgba(255,255,255,0.03)]",
             "hover:border-[rgba(255,255,255,0.24)]",
             "transition-[border-color,background-color,box-shadow] duration-150",
             isOpen
-              ? "border-[#38bdf8] shadow-[0_0_0_2px_rgba(56,189,248,0.12)]"
+              ? "border-[#38bdf8] shadow-[0_0_0_0.125rem_rgba(56,189,248,0.12)]"
               : "",
             // Visible focus indicator
             "focus:outline-none focus-visible:ring-2 focus-visible:ring-[#2ba6df] focus-visible:ring-offset-2 focus-visible:ring-offset-[#0b0d13] focus-visible:border-[#2ba6df]",
@@ -492,7 +492,7 @@ export function SortListbox({
           <svg
             className={[
               "sim-sort-trigger__chevron",
-              "w-[14px] h-[14px] shrink-0 transition-transform duration-200",
+              "w-[0.875rem] h-[0.875rem] shrink-0 transition-transform duration-200",
               "text-[#9ca3af]",
               isOpen ? "rotate-180" : "",
             ]
@@ -527,11 +527,11 @@ export function SortListbox({
           }}
           className={[
             "sim-sort-menu",
-            "absolute left-0 right-0 top-[calc(100%+7px)] z-[120]",
-            presentation === 'field' ? "w-full min-w-full max-w-full max-h-80 overflow-y-auto" : "w-full min-w-full max-w-[min(340px,92vw)]",
-            "max-sm:left-0 max-sm:right-0 max-sm:w-full",
+            "absolute left-0 right-0 top-[calc(100%+0.4375rem)] z-[120]",
+            presentation === 'field' ? "w-full min-w-full max-w-full max-h-80 overflow-y-auto" : presentation === 'inline' ? "w-max min-w-full max-w-[min(21.25rem,calc(100vw-2rem))]" : "w-full min-w-full max-w-[min(21.25rem,92vw)]",
+            presentation === 'inline' ? "left-0 right-auto" : "max-sm:left-0 max-sm:right-0 max-sm:w-full",
             "bg-[var(--surface-panel)] border border-[var(--surface-border-strong)]",
-            "rounded-[13px] p-1.5 shadow-[0_12px_30px_rgba(0,0,0,0.32)] flex flex-col gap-[3px] outline-none",
+            "rounded-[0.8125rem] p-1.5 shadow-[0_0.75rem_1.875rem_rgba(0,0,0,0.32)] flex flex-col gap-[0.1875rem] outline-none",
             !isOpen ? "hidden" : "",
           ]
             .filter(Boolean)
@@ -564,14 +564,14 @@ export function SortListbox({
                 }}
                 className={[
                   "sim-sort-option",
-                  "min-h-[28px] max-sm:min-h-[36px] px-2.5 py-1 max-sm:py-2 rounded-md text-[12px] font-[560] leading-[1.25]",
+                  "min-h-[1.75rem] max-sm:min-h-[2.25rem] px-2.5 py-1 max-sm:py-2 rounded-md text-[0.75rem] font-[560] leading-[1.25]",
                   "text-left w-full cursor-pointer flex items-center justify-between gap-2 border border-transparent transition-[color,background-color,border-color] outline-none font-sans",
                   // Visible focus indicator
                   "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-[#2ba6df] focus-visible:ring-inset",
                   // Single-line invariant
                   "whitespace-nowrap overflow-hidden text-ellipsis",
                   option.dividerBefore
-                    ? "sim-sort-option--divider mt-[8px] pt-[4px] border-t border-[var(--surface-border)]"
+                    ? "sim-sort-option--divider mt-[0.5rem] pt-[0.25rem] border-t border-[var(--surface-border)]"
                     : "",
                   isSelected
                     ? "is-selected bg-[rgba(43,166,223,0.16)] text-[#78d5f8] border-[rgba(43,166,223,0.28)] font-bold"
@@ -591,7 +591,7 @@ export function SortListbox({
                 {isSelected && (
                   <svg
                     aria-hidden="true"
-                    className="sim-sort-check w-[17px] h-[17px] text-current shrink-0"
+                    className="sim-sort-check w-[1.0625rem] h-[1.0625rem] text-current shrink-0"
                     viewBox="0 0 20 20"
                     fill="none"
                     stroke="currentColor"

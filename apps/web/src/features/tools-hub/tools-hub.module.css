@@ -4,13 +4,13 @@
 
 /* ---------- Ranking: live top five ---------- */
 .leaderboard {
-  --leader-cols: 26px minmax(96px, 0.7fr) minmax(0, 1.4fr) minmax(170px, 1fr);
+  --leader-cols: 1.625rem minmax(6rem, 0.7fr) minmax(0, 1.4fr) minmax(10.625rem, 1fr);
   display: flex;
   height: 100%;
   flex-direction: column;
   overflow: hidden;
   border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
-  border-radius: var(--dm-radius-sm, 6px);
+  border-radius: var(--dm-radius-sm, 0.375rem);
   background: linear-gradient(180deg, rgba(10, 12, 18, 0.55), rgba(10, 12, 18, 0.25));
   box-sizing: border-box;
 }
@@ -19,15 +19,15 @@
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  gap: 10px;
-  padding: 7px 12px 6px;
+  gap: 0.625rem;
+  padding: 0.4375rem 0.75rem 0.375rem;
   border-bottom: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
   background: rgba(255, 255, 255, 0.025);
 }
 
 .leaderboardTitle {
   color: var(--dm-gold, #f5d97a);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -35,7 +35,7 @@
 
 .leaderboardColumns {
   color: var(--dm-muted, #b4abbf);
-  font-size: 9.5px;
+  font-size: 0.59375rem;
   font-weight: 700;
   letter-spacing: 0.06em;
 }
@@ -43,7 +43,7 @@
 .leaderboardRows {
   display: grid;
   flex: 1 1 auto;
-  grid-auto-rows: minmax(30px, 1fr);
+  grid-auto-rows: minmax(1.875rem, 1fr);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -58,8 +58,8 @@
   height: 100%;
   grid-template-columns: var(--leader-cols);
   align-items: center;
-  gap: 10px;
-  padding: 2px 12px;
+  gap: 0.625rem;
+  padding: 0.125rem 0.75rem;
   color: var(--dm-text, #ded8e6);
   text-decoration: none;
   box-sizing: border-box;
@@ -71,22 +71,22 @@ a.leaderRow:hover {
 }
 
 .leaderRow:focus-visible {
-  outline: 2px solid var(--dm-gold, #f5d97a);
-  outline-offset: -2px;
+  outline: 0.125rem solid var(--dm-gold, #f5d97a);
+  outline-offset: -0.125rem;
 }
 
 .leaderRank {
   --place-color: var(--dm-muted, #b4abbf);
   display: grid;
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   place-items: center;
   border: 1px solid color-mix(in srgb, var(--place-color) 45%, transparent);
   border-radius: 50%;
   background: color-mix(in srgb, var(--place-color) 10%, transparent);
   color: var(--place-color);
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
 }
 
@@ -103,14 +103,14 @@ a.leaderRow:hover {
   display: flex;
   min-width: 0;
   align-items: baseline;
-  gap: 6px;
+  gap: 0.375rem;
   line-height: 1.2;
 }
 
 .leaderRegion small {
   overflow: hidden;
   color: var(--dm-muted, #b4abbf);
-  font-size: 10.5px;
+  font-size: 0.65625rem;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
@@ -119,12 +119,12 @@ a.leaderRow:hover {
   display: flex;
   min-width: 0;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .leaderName img {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   flex-shrink: 0;
   object-fit: contain;
 }
@@ -132,18 +132,18 @@ a.leaderRow:hover {
 .leaderNick {
   overflow: hidden;
   color: var(--dm-text-strong, #f4f0f6);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 650;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .leaderVerified {
-  width: 10px;
+  width: 0.625rem;
   flex-shrink: 0;
   text-align: center;
   color: var(--dm-gold, #f5d97a);
-  font-size: 11px;
+  font-size: 0.6875rem;
 }
 
 /* Grade colours of the Ranking score meter (build.module.css .rollValueTheme). */
@@ -151,7 +151,7 @@ a.leaderRow:hover {
   --rv-color: #9aa4b1;
   --rv-start: #8f99a6;
   display: grid;
-  gap: 2px;
+  gap: 0.125rem;
   justify-items: end;
   line-height: 1.15;
 }
@@ -165,33 +165,33 @@ a.leaderRow:hover {
 .leaderScoreValues {
   display: flex;
   align-items: baseline;
-  gap: 10px;
+  gap: 0.625rem;
   white-space: nowrap;
 }
 
 .leaderPoints {
   color: var(--rv-color);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-variant-numeric: tabular-nums;
   opacity: 0.85;
 }
 
 .leaderPoints small {
-  font-size: 9.5px;
+  font-size: 0.59375rem;
 }
 
 .leaderScore b {
   color: var(--rv-color);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 
 .leaderMeter {
   width: 100%;
-  height: 4px;
+  height: 0.25rem;
   overflow: hidden;
-  border-radius: 2px;
+  border-radius: 0.125rem;
   background: rgba(255, 255, 255, 0.07);
 }
 
@@ -203,8 +203,8 @@ a.leaderRow:hover {
 }
 
 .leaderSkeleton .skeletonLine {
-  height: 8px;
-  border-radius: 4px;
+  height: 0.5rem;
+  border-radius: 0.25rem;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.11) 50%, rgba(255, 255, 255, 0.05) 100%);
   background-size: 200% 100%;
   animation: hub-skeleton 1.4s ease-in-out infinite;
@@ -219,10 +219,10 @@ a.leaderRow:hover {
   display: grid;
   flex: 1 1 auto;
   margin: 0;
-  padding: 16px;
+  padding: 1rem;
   place-items: center;
   color: var(--dm-muted, #b4abbf);
-  font-size: 12.5px;
+  font-size: 0.78125rem;
   text-align: center;
 }
 
@@ -231,18 +231,18 @@ a.leaderRow:hover {
 .wishPreview {
   display: grid;
   grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .banner {
   position: relative;
   display: block;
   height: 100%;
-  min-height: 108px;
+  min-height: 6.75rem;
   overflow: hidden;
   isolation: isolate;
   border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
-  border-radius: var(--dm-radius-sm, 6px);
+  border-radius: var(--dm-radius-sm, 0.375rem);
   background: radial-gradient(ellipse at 79% 32%, #a85a30 0, #513026 38%, #171b21 82%);
   text-decoration: none;
 }
@@ -261,8 +261,8 @@ a.leaderRow:hover {
 }
 
 .banner:focus-visible {
-  outline: 2px solid var(--dm-gold, #f5d97a);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--dm-gold, #f5d97a);
+  outline-offset: 0.125rem;
 }
 
 .bannerBackground {
@@ -282,7 +282,7 @@ a.leaderRow:hover {
   height: 165%;
   object-fit: contain;
   object-position: right bottom;
-  filter: drop-shadow(-12px 14px 26px rgba(0, 0, 0, 0.3));
+  filter: drop-shadow(-0.75rem 0.875rem 1.625rem rgba(0, 0, 0, 0.3));
   transition: transform 200ms ease;
 }
 
@@ -292,16 +292,16 @@ a.leaderRow:hover {
 
 .bannerText {
   position: absolute;
-  left: 16px;
-  bottom: 14px;
+  left: 1rem;
+  bottom: 0.875rem;
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.125rem;
 }
 
 .bannerLabel {
   color: var(--dm-gold, #f5d97a);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -309,27 +309,27 @@ a.leaderRow:hover {
 
 .bannerName {
   color: #fff;
-  font-size: 18px;
+  font-size: 1.125rem;
   font-weight: 700;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  text-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6);
 }
 
 .wishShortcuts {
   display: grid;
   width: 100%;
   grid-auto-rows: 1fr;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .wishShortcut {
   display: grid;
   min-width: 0;
-  grid-template-columns: 26px minmax(0, 1fr);
+  grid-template-columns: 1.625rem minmax(0, 1fr);
   align-items: center;
-  gap: 9px;
-  padding: 3px 9px;
+  gap: 0.5625rem;
+  padding: 0.1875rem 0.5625rem;
   border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
-  border-radius: var(--dm-radius-sm, 6px);
+  border-radius: var(--dm-radius-sm, 0.375rem);
   background: rgba(255, 255, 255, 0.025);
   color: inherit;
   text-decoration: none;
@@ -342,35 +342,35 @@ a.leaderRow:hover {
 }
 
 .wishShortcut:focus-visible {
-  outline: 2px solid var(--dm-gold, #f5d97a);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--dm-gold, #f5d97a);
+  outline-offset: 0.125rem;
 }
 
 .wishShortcutIcon {
   display: grid;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
   place-items: center;
   border: 1px solid rgba(245, 217, 122, 0.2);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   background: rgba(245, 217, 122, 0.07);
   color: var(--dm-gold, #f5d97a);
 }
 
 .wishShortcutIcon svg {
-  width: 17px;
-  height: 17px;
+  width: 1.0625rem;
+  height: 1.0625rem;
 }
 
 .wishShortcutText {
   display: grid;
   min-width: 0;
-  gap: 2px;
+  gap: 0.125rem;
 }
 
 .wishShortcutTitle {
   color: var(--dm-text-strong, #f4f0f6);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 650;
   line-height: 1.3;
 }
@@ -384,20 +384,20 @@ a.leaderRow:hover {
 
 .wishShortcutDescription {
   color: var(--dm-muted, #b4abbf);
-  font-size: 10.5px;
+  font-size: 0.65625rem;
   line-height: 1.4;
 }
 
 /* ---------- Page miniatures (Build / Optimizer / Comp) ---------- */
 .mini {
   display: grid;
-  max-height: 122px;
+  max-height: 7.625rem;
   align-content: start;
-  gap: 7px;
-  padding: 9px;
+  gap: 0.4375rem;
+  padding: 0.5625rem;
   overflow: hidden;
   border: 1px solid var(--dm-border, rgba(255, 255, 255, 0.08));
-  border-radius: var(--dm-radius-sm, 6px);
+  border-radius: var(--dm-radius-sm, 0.375rem);
   background: linear-gradient(180deg, rgba(10, 12, 18, 0.6), rgba(10, 12, 18, 0.3));
   box-sizing: border-box;
   /* The page continues below the miniature. */
@@ -414,8 +414,8 @@ a.leaderRow:hover {
 
 .miniBar {
   display: block;
-  height: 5px;
-  border-radius: 3px;
+  height: 0.3125rem;
+  border-radius: 0.1875rem;
   background: rgba(255, 255, 255, 0.1);
 }
 
@@ -425,12 +425,12 @@ a.leaderRow:hover {
 
 .miniIcon {
   display: block;
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   flex-shrink: 0;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: rgba(255, 255, 255, 0.04);
   box-sizing: border-box;
 }
@@ -444,7 +444,7 @@ a.leaderRow:hover {
 .miniLabel {
   overflow: hidden;
   color: var(--dm-muted, #b4abbf);
-  font-size: 8.5px;
+  font-size: 0.53125rem;
   font-weight: 700;
   letter-spacing: 0.06em;
   text-overflow: ellipsis;
@@ -456,19 +456,19 @@ a.leaderRow:hover {
   display: grid;
   min-width: 0;
   flex: 1 1 auto;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 /* Build card */
 .miniHeader {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .miniAvatar {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   border-color: rgba(245, 217, 122, 0.45);
   border-radius: 50%;
 }
@@ -479,32 +479,32 @@ a.leaderRow:hover {
 }
 
 .miniHeader .miniLines {
-  max-width: 160px;
+  max-width: 10rem;
 }
 
 .miniChip {
-  width: 54px;
-  height: 12px;
+  width: 3.375rem;
+  height: 0.75rem;
   margin-left: auto;
   border: 1px solid rgba(245, 217, 122, 0.35);
-  border-radius: 3px;
+  border-radius: 0.1875rem;
   background: rgba(245, 217, 122, 0.08);
 }
 
 .miniBuildBody {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr) minmax(0, 2.2fr);
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .miniColumn {
   display: grid;
   min-width: 0;
   align-content: start;
-  gap: 5px;
-  padding: 6px;
+  gap: 0.3125rem;
+  padding: 0.375rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: rgba(255, 255, 255, 0.025);
 }
 
@@ -512,58 +512,58 @@ a.leaderRow:hover {
   display: flex;
   min-width: 0;
   align-items: center;
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 .miniWeapon .miniIcon {
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
 }
 
 .miniDots {
   display: flex;
-  gap: 2px;
+  gap: 0.125rem;
 }
 
 .miniDots i {
-  width: 6px;
-  height: 6px;
+  width: 0.375rem;
+  height: 0.375rem;
   border-radius: 1px;
   background: rgba(245, 217, 122, 0.28);
 }
 
 .miniStat {
   display: grid;
-  gap: 4px;
-  padding-bottom: 3px;
+  gap: 0.25rem;
+  padding-bottom: 0.1875rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .miniGear {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .miniGearCell {
   display: flex;
   min-width: 0;
   align-items: center;
-  gap: 4px;
-  padding: 3px;
+  gap: 0.25rem;
+  padding: 0.1875rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 3px;
+  border-radius: 0.1875rem;
   background: rgba(255, 255, 255, 0.03);
 }
 
 .miniGearCell .miniIcon {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   border-color: rgba(245, 217, 122, 0.3);
 }
 
 .miniGearCell .miniBar {
-  height: 4px;
+  height: 0.25rem;
 }
 
 /* Optimizer */
@@ -571,7 +571,7 @@ a.leaderRow:hover {
   display: grid;
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 4px;
+  border-radius: 0.25rem;
 }
 
 .miniTableHead,
@@ -579,14 +579,14 @@ a.leaderRow:hover {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) repeat(4, minmax(0, 1fr));
   align-items: center;
-  gap: 10px;
-  padding: 6px 9px;
+  gap: 0.625rem;
+  padding: 0.375rem 0.5625rem;
 }
 
 .miniTableHead {
   background: rgba(255, 255, 255, 0.04);
   color: var(--dm-muted, #b4abbf);
-  font-size: 8.5px;
+  font-size: 0.53125rem;
   font-weight: 700;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -610,14 +610,14 @@ a.leaderRow:hover {
   display: flex;
   min-width: 0;
   align-items: center;
-  gap: 7px;
+  gap: 0.4375rem;
 }
 
 /* Attribute glyphs are dark; draw them light like HubMediaStrip variant="glyph". */
 .miniGlyph {
-  width: 16px;
-  height: 16px;
-  padding: 2px;
+  width: 1rem;
+  height: 1rem;
+  padding: 0.125rem;
   border: 0;
   background: none;
 }
@@ -628,19 +628,19 @@ a.leaderRow:hover {
 
 /* Comp: row colours of the Comp page (tank gold, healer green, DPS red). */
 .miniComp {
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 .miniCompRow {
   --role-color: #94a3b8;
   display: grid;
-  grid-template-columns: 18px 48px 28px auto auto auto;
+  grid-template-columns: 1.125rem 3rem 1.75rem auto auto auto;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  padding: 5px 9px;
+  gap: 0.625rem;
+  padding: 0.3125rem 0.5625rem;
   border: 1px solid color-mix(in srgb, var(--role-color) 32%, transparent);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   background: color-mix(in srgb, var(--role-color) 9%, transparent);
 }
 
@@ -652,16 +652,16 @@ a.leaderRow:hover {
 .miniCompIndex {
   color: var(--dm-muted, #b4abbf);
   font-family: var(--font-mono, monospace);
-  font-size: 9.5px;
+  font-size: 0.59375rem;
 }
 
 .miniCompRole {
   justify-self: start;
-  padding: 1px 5px;
-  border-radius: 3px;
+  padding: 1px 0.3125rem;
+  border-radius: 0.1875rem;
   background: color-mix(in srgb, var(--role-color) 22%, transparent);
   color: color-mix(in srgb, var(--role-color) 80%, white);
-  font-size: 8.5px;
+  font-size: 0.53125rem;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
@@ -673,8 +673,8 @@ a.leaderRow:hover {
 }
 
 .miniPortrait {
-  width: 28px;
-  height: 28px;
+  width: 1.75rem;
+  height: 1.75rem;
   border-color: rgba(245, 217, 122, 0.55);
   border-radius: 50%;
 }
@@ -686,12 +686,12 @@ a.leaderRow:hover {
 
 .miniSlots {
   display: flex;
-  gap: 3px;
+  gap: 0.1875rem;
 }
 
 .miniSlots .miniIcon {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   background: rgba(10, 12, 18, 0.5);
 }
 
@@ -711,7 +711,7 @@ a.leaderRow:hover {
 
 @media (max-width: 640px) {
   .leaderboard {
-    --leader-cols: 24px minmax(30px, auto) minmax(0, 1fr) minmax(70px, auto);
+    --leader-cols: 1.5rem minmax(1.875rem, auto) minmax(0, 1fr) minmax(4.375rem, auto);
   }
 
   .leaderPoints {
@@ -723,7 +723,7 @@ a.leaderRow:hover {
   }
 
   .banner {
-    height: 140px;
+    height: 8.75rem;
   }
 
   .wishShortcuts {
@@ -744,36 +744,36 @@ a.leaderRow:hover {
   }
 
   .miniCompRow {
-    grid-template-columns: 18px 44px 28px auto auto;
-    gap: 7px;
+    grid-template-columns: 1.125rem 2.75rem 1.75rem auto auto;
+    gap: 0.4375rem;
   }
 
   .miniTableHead,
   .miniTableRow {
-    gap: 6px;
+    gap: 0.375rem;
   }
 
   .wishShortcuts {
-    gap: 6px;
+    gap: 0.375rem;
   }
 
   .wishShortcut {
-    grid-template-columns: 26px minmax(0, 1fr);
-    gap: 6px;
-    padding: 8px 6px;
+    grid-template-columns: 1.625rem minmax(0, 1fr);
+    gap: 0.375rem;
+    padding: 0.5rem 0.375rem;
   }
 
   .wishShortcutIcon {
-    width: 26px;
-    height: 26px;
+    width: 1.625rem;
+    height: 1.625rem;
   }
 
   .wishShortcutTitle {
-    font-size: 11px;
+    font-size: 0.6875rem;
   }
 
   .wishShortcutDescription {
-    font-size: 9px;
+    font-size: 0.5625rem;
   }
 }
 

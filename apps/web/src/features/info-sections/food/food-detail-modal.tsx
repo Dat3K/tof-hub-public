@@ -236,7 +236,7 @@ export const FoodDetailModal: React.FC<FoodDetailModalProps> = ({
                     <div className={styles.foodModalIngredientText}>
                       <span className={styles.foodModalIngredientName}>{ingName}</span>
                       {sources.length > 0 && (
-                        <span className="text-[11px] text-[#38bdf8] truncate">
+                        <span className="text-[0.6875rem] text-[#38bdf8] truncate">
                           {sources.join(', ')}
                         </span>
                       )}

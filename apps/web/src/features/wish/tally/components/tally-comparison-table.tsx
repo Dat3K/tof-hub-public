@@ -65,14 +65,14 @@ export function TallyComparisonTable({
                 </span>
                 <span className="min-w-0 flex-1">
                   <span className={`block break-words text-sm font-bold leading-snug ${isSelected ? 'text-amber-300' : 'text-white'}`}>{charName}</span>
-                  <span className="mt-0.5 block break-words text-[11px] leading-snug text-[#9ca3af]">{bannerName}</span>
+                  <span className="mt-0.5 block break-words text-[0.6875rem] leading-snug text-[#9ca3af]">{bannerName}</span>
                 </span>
-                <Badge variant={isLimited ? 'warning' : 'default'} size="sm" className="max-w-[42%] shrink-0 whitespace-normal text-center text-[9px] leading-tight uppercase font-semibold">
+                <Badge variant={isLimited ? 'warning' : 'default'} size="sm" className="max-w-[42%] shrink-0 whitespace-normal text-center text-[0.5625rem] leading-tight uppercase font-semibold">
                   {typeName}
                 </Badge>
               </span>
 
-              <span className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/[0.07] pt-2.5 text-[10px]">
+              <span className="mt-3 grid grid-cols-2 gap-x-4 gap-y-2 border-t border-white/[0.07] pt-2.5 text-[0.625rem]">
                 <span>
                   <span className="block text-[#9ca3af]">{t.tallyThWishes}</span>
                   <span className="mt-0.5 block font-mono text-xs font-bold text-white">{formatNumber(item.total_pulls, locale)}</span>
@@ -100,7 +100,7 @@ export function TallyComparisonTable({
                   <span className="mt-0.5 block font-mono text-xs text-[#d1d5db]">{formatNumber(item.total_users, locale)}</span>
                 </span>
               </span>
-              <span className="mt-2.5 block text-right text-[10px] font-bold text-amber-300">
+              <span className="mt-2.5 block text-right text-[0.625rem] font-bold text-amber-300">
                 {isSelected ? (localeText(locale)('Selected')) : t.tallyViewBannerBtn}
               </span>
             </button>
@@ -111,7 +111,7 @@ export function TallyComparisonTable({
       <div className="mt-4 hidden overflow-x-auto lg:block">
         <table className="w-full text-left border-collapse text-xs">
           <thead>
-            <tr className="border-b border-white/10 text-[11px] text-[#9ca3af] uppercase font-semibold">
+            <tr className="border-b border-white/10 text-[0.6875rem] text-[#9ca3af] uppercase font-semibold">
               <th className="py-3 px-4">{t.tallyThBanner}</th>
               <th className="py-3 px-4">{t.tallyThType}</th>
               <th className="py-3 px-4 text-right">{t.tallyThWishes}</th>
@@ -152,7 +152,7 @@ export function TallyComparisonTable({
                         <div className={`font-bold truncate ${isSelected ? 'text-amber-300' : 'text-white'}`}>
                           {charName}
                         </div>
-                        <div className="text-[10px] text-[#6b7280] truncate">
+                        <div className="text-[0.625rem] text-[#6b7280] truncate">
                           {bannerName}
                         </div>
                       </div>
@@ -164,7 +164,7 @@ export function TallyComparisonTable({
                     <Badge
                       variant={isLimited ? 'warning' : 'default'}
                       size="sm"
-                      className="text-[9px] uppercase font-semibold"
+                      className="text-[0.5625rem] uppercase font-semibold"
                     >
 
                       {item.banner_type === 'weapon_limited'
@@ -223,7 +223,7 @@ export function TallyComparisonTable({
                     <Button
                       variant={isSelected ? 'primary' : 'outline'}
                       size="sm"
-                      className="text-[10px] py-1 px-2.5 h-auto font-bold"
+                      className="text-[0.625rem] py-1 px-2.5 h-auto font-bold"
                       onClick={(e) => {
                         e.stopPropagation();
                         onSelectBanner(item.banner_id);

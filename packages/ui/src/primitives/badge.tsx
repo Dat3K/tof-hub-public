@@ -6,49 +6,49 @@ function getVariantClasses(variant: BadgeVariant = 'default'): { classes: string
     // Rarities
     case 'ssr':
       return {
-        classes: 'bg-[rgba(245,217,122,0.18)] text-[#fde68a] border-[#f5d97a]/50 shadow-[0_0_8px_rgba(245,217,122,0.2)]',
+        classes: 'bg-[rgba(245,217,122,0.18)] text-[#fde68a] border-[#f5d97a]/50 shadow-[0_0_0.5rem_rgba(245,217,122,0.2)]',
         dotColor: 'bg-[#f5d97a]',
       };
     case 'sr':
       return {
-        classes: 'bg-[rgba(168,85,247,0.18)] text-[#e9d5ff] border-[#a855f7]/50 shadow-[0_0_8px_rgba(168,85,247,0.2)]',
+        classes: 'bg-[rgba(168,85,247,0.18)] text-[#e9d5ff] border-[#a855f7]/50 shadow-[0_0_0.5rem_rgba(168,85,247,0.2)]',
         dotColor: 'bg-[#a855f7]',
       };
     case 'r':
       return {
-        classes: 'bg-[rgba(59,130,246,0.18)] text-[#bfdbfe] border-[#3b82f6]/50 shadow-[0_0_8px_rgba(59,130,246,0.2)]',
+        classes: 'bg-[rgba(59,130,246,0.18)] text-[#bfdbfe] border-[#3b82f6]/50 shadow-[0_0_0.5rem_rgba(59,130,246,0.2)]',
         dotColor: 'bg-[#3b82f6]',
       };
     case 'n':
       return {
-        classes: 'bg-[rgba(16,185,129,0.18)] text-[#a7f3d0] border-[#10b981]/50 shadow-[0_0_8px_rgba(16,185,129,0.2)]',
+        classes: 'bg-[rgba(16,185,129,0.18)] text-[#a7f3d0] border-[#10b981]/50 shadow-[0_0_0.5rem_rgba(16,185,129,0.2)]',
         dotColor: 'bg-[#10b981]',
       };
 
     // Elements
     case 'phys':
       return {
-        classes: 'bg-[rgba(245,158,11,0.18)] text-[#fde68a] border-[#f59e0b]/50 shadow-[0_0_8px_rgba(245,158,11,0.2)]',
+        classes: 'bg-[rgba(245,158,11,0.18)] text-[#fde68a] border-[#f59e0b]/50 shadow-[0_0_0.5rem_rgba(245,158,11,0.2)]',
         dotColor: 'bg-[#f59e0b]',
       };
     case 'flame':
       return {
-        classes: 'bg-[rgba(239,68,68,0.18)] text-[#fca5a5] border-[#ef4444]/50 shadow-[0_0_8px_rgba(239,68,68,0.2)]',
+        classes: 'bg-[rgba(239,68,68,0.18)] text-[#fca5a5] border-[#ef4444]/50 shadow-[0_0_0.5rem_rgba(239,68,68,0.2)]',
         dotColor: 'bg-[#ef4444]',
       };
     case 'frost':
       return {
-        classes: 'bg-[rgba(6,182,212,0.18)] text-[#a5f3fc] border-[#06b6d4]/50 shadow-[0_0_8px_rgba(6,182,212,0.2)]',
+        classes: 'bg-[rgba(6,182,212,0.18)] text-[#a5f3fc] border-[#06b6d4]/50 shadow-[0_0_0.5rem_rgba(6,182,212,0.2)]',
         dotColor: 'bg-[#06b6d4]',
       };
     case 'volt':
       return {
-        classes: 'bg-[rgba(168,85,247,0.18)] text-[#e9d5ff] border-[#a855f7]/50 shadow-[0_0_8px_rgba(168,85,247,0.2)]',
+        classes: 'bg-[rgba(168,85,247,0.18)] text-[#e9d5ff] border-[#a855f7]/50 shadow-[0_0_0.5rem_rgba(168,85,247,0.2)]',
         dotColor: 'bg-[#a855f7]',
       };
     case 'altered':
       return {
-        classes: 'bg-[rgba(16,185,129,0.18)] text-[#a7f3d0] border-[#10b981]/50 shadow-[0_0_8px_rgba(16,185,129,0.2)]',
+        classes: 'bg-[rgba(16,185,129,0.18)] text-[#a7f3d0] border-[#10b981]/50 shadow-[0_0_0.5rem_rgba(16,185,129,0.2)]',
         dotColor: 'bg-[#10b981]',
       };
 
@@ -85,7 +85,7 @@ function getVariantClasses(variant: BadgeVariant = 'default'): { classes: string
     // Semantics
     case 'primary':
       return {
-        classes: 'bg-[#2ba6df]/15 text-[#7dd3fc] border-[#2ba6df]/40 shadow-[0_0_8px_rgba(43,166,223,0.2)]',
+        classes: 'bg-[#2ba6df]/15 text-[#7dd3fc] border-[#2ba6df]/40 shadow-[0_0_0.5rem_rgba(43,166,223,0.2)]',
         dotColor: 'bg-[#2ba6df]',
       };
     case 'success':

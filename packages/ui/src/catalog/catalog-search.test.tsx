@@ -16,9 +16,9 @@ describe('CatalogSearch embedded controls',()=>{
     const onChange=vi.fn();
     const view=render(<CatalogSearch value="Alex" onChange={onChange} serverModeSlot={<span>Modes</span>} serverModeSizing="content"/>);
     const input=screen.getByRole('textbox'),clear=screen.getByRole('button',{name:'Clear search'});
-    expect(input.style.paddingRight).toContain('356px');expect(input.style.paddingRight).toContain('100% - 40px');expect(clear.style.right).toBe('332px');
+    expect(input.style.paddingRight).toContain('320px + 2.25rem');expect(input.style.paddingRight).toContain('100% - 2.5rem');expect(clear.style.right).toBe('calc(320px + 0.75rem)');
     act(()=>{width=120;resize();});
-    expect(input.style.paddingRight).toContain('156px');expect(clear.style.right).toBe('132px');
+    expect(input.style.paddingRight).toContain('120px + 2.25rem');expect(clear.style.right).toBe('calc(120px + 0.75rem)');
     fireEvent.click(clear);expect(onChange).toHaveBeenCalledWith('');expect(document.activeElement).toBe(input);
     view.unmount();expect(disconnect).toHaveBeenCalledTimes(1);
   });

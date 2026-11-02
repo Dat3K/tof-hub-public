@@ -2,6 +2,7 @@
 
 import React from 'react';
 import type { FilterGroupProps } from './types';
+import {revealHorizontalFocus} from '../utils/reveal-horizontal-focus';
 
 /**
  * FilterGroup — Logical grouping container for filter chips (.sim-filter-group).
@@ -27,6 +28,7 @@ export function FilterGroup({
       data-filter-group={filterGroup}
       role={role}
       aria-label={ariaLabel}
+      onFocusCapture={revealHorizontalFocus}
       className={[
         'sim-filter-group',
         layout === 'flow' ? 'sim-filter-group--flow' : '',
@@ -40,7 +42,7 @@ export function FilterGroup({
       <span
         className={[
           'sim-filter-label',
-          'text-[11px] font-bold uppercase tracking-[0.03em] leading-none text-[#9ca3af] shrink-0 select-none [[data-text-selectable]_&]:select-text mr-1 inline-flex items-center h-[26px] max-sm:w-full max-sm:mr-0 max-sm:mb-0.5 max-sm:h-auto',
+          'text-[0.6875rem] font-bold uppercase tracking-[0.03em] leading-none text-[#9ca3af] shrink-0 select-none [[data-text-selectable]_&]:select-text mr-1 inline-flex items-center h-[1.625rem] max-sm:w-full max-sm:mr-0 max-sm:mb-0.5 max-sm:h-auto',
           labelClassName,
         ]
           .filter(Boolean)

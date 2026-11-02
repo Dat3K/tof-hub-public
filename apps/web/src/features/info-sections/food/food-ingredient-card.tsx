@@ -120,7 +120,7 @@ export const FoodIngredientCard: React.FC<FoodIngredientCardProps> = ({
                   title={dName}
                 >
                   <img src={dIconUrl} alt="" className={styles.usedInIcon} loading="lazy" />
-                  <span className="truncate max-w-[150px]">{dName}</span>
+                  <span className="truncate max-w-[9.375rem]">{dName}</span>
                 </button>
               );
             })}

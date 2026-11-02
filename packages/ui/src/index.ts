@@ -184,3 +184,4 @@ export { ProfileAvatar } from './primitives/profile-avatar';
 export type { ProfileAvatarImage, ProfileAvatarProps } from './primitives/profile-avatar';
 export { EditorialHeader, EditorialMetadata, EditorialSectionHeading } from './primitives/editorial';
 export type { EditorialHeaderProps, EditorialMetadataItem, EditorialMetadataProps, EditorialSectionHeadingProps } from './primitives/editorial';
+export {revealHorizontalFocus} from './utils/reveal-horizontal-focus';

@@ -8,7 +8,7 @@ function getVariantClasses(variant: SkeletonVariant = 'rectangular'): string {
     case 'circular':
       return 'rounded-full aspect-square';
     case 'card':
-      return 'w-full aspect-[4/5] rounded-[14px]';
+      return 'w-full aspect-[4/5] rounded-[0.875rem]';
     case 'rectangular':
     default:
       return 'rounded-lg';

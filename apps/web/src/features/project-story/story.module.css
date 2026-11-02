@@ -1,48 +1,48 @@
 .page {
-  --story-reading-width: min(1040px, calc(100vw - 560px));
-  max-width: 1680px;
-  padding-top: 44px;
+  --story-reading-width: min(65rem, calc(100vw - 35rem));
+  max-width: 105rem;
+  padding-top: 2.75rem;
 }
 
 .header {
   max-width: var(--story-reading-width);
-  margin: 0 auto 30px;
-  scroll-margin-top: 100px;
+  margin: 0 auto 1.875rem;
+  scroll-margin-top: 6.25rem;
 }
 
 .byline {
-  margin: 20px 0 0;
+  margin: 1.25rem 0 0;
   color: var(--dm-muted);
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 
 .reader {
   display: grid;
   grid-template-columns: minmax(0, 1fr) minmax(0, var(--story-reading-width)) minmax(0, 1fr);
-  gap: 32px;
+  gap: 2rem;
   align-items: start;
 }
 
 .sidebar {
   grid-column: 3;
   grid-row: 1;
-  width: min(100%, 230px);
+  width: min(100%, 14.375rem);
   position: sticky;
-  top: 100px;
-  max-height: calc(100dvh - 130px);
+  top: 6.25rem;
+  max-height: calc(100dvh - 8.125rem);
   overflow-y: auto;
   scrollbar-width: thin;
 }
 
 .contentsLabel {
-  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
   color: var(--dm-text-strong);
   font-weight: 600;
 }
 
 .chapterList {
   display: grid;
-  gap: 3px;
+  gap: 0.1875rem;
   margin: 0;
   padding: 0;
   list-style: none;
@@ -50,11 +50,11 @@
 
 .chapterList a {
   display: grid;
-  grid-template-columns: 16px minmax(0, 1fr);
-  gap: 9px;
-  padding: 7px 0;
+  grid-template-columns: 1rem minmax(0, 1fr);
+  gap: 0.5625rem;
+  padding: 0.4375rem 0;
   color: var(--dm-muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.5;
   text-decoration: none;
 }
@@ -71,23 +71,23 @@
 
 .topicList {
   display: grid;
-  gap: 2px;
-  margin: 2px 0 10px 25px;
-  padding: 0 0 0 12px;
+  gap: 0.125rem;
+  margin: 0.125rem 0 0.625rem 1.5625rem;
+  padding: 0 0 0 0.75rem;
   border-left: 1px solid var(--surface-border);
   list-style: none;
 }
 
 .topicList a {
   display: block;
-  padding: 4px 0;
-  font-size: 11px;
+  padding: 0.25rem 0;
+  font-size: 0.6875rem;
   line-height: 1.5;
 }
 
 .topicList a[aria-current] {
   text-decoration: underline;
-  text-underline-offset: 3px;
+  text-underline-offset: 0.1875rem;
 }
 
 .readingColumn {
@@ -100,16 +100,16 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px 20px;
-  padding: 13px 0;
-  margin-bottom: 28px;
+  gap: 0.75rem 1.25rem;
+  padding: 0.8125rem 0;
+  margin-bottom: 1.75rem;
   border-block: 1px solid var(--surface-border);
   color: var(--dm-muted);
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 
 .toolbar button {
-  padding: 3px 0;
+  padding: 0.1875rem 0;
   border: 0;
   background: transparent;
   color: var(--dm-text);
@@ -132,7 +132,7 @@
 }
 
 .prose {
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.85;
   overflow-wrap: break-word;
 }
@@ -140,41 +140,41 @@
 .prose p,
 .prose ul,
 .prose ol {
-  margin: 0 0 20px;
+  margin: 0 0 1.25rem;
 }
 
 .prose :is(ul, ol) {
-  padding-left: 23px;
+  padding-left: 1.4375rem;
 }
 
 .prose li {
-  margin-bottom: 9px;
-  padding-left: 3px;
+  margin-bottom: 0.5625rem;
+  padding-left: 0.1875rem;
 }
 
 .prose :is(h2, h3, h4) {
   color: var(--dm-text-strong);
-  scroll-margin-top: 100px;
+  scroll-margin-top: 6.25rem;
   text-wrap: balance;
 }
 
 .prose h2 {
-  margin: 64px 0 24px;
-  padding-top: 26px;
+  margin: 4rem 0 1.5rem;
+  padding-top: 1.625rem;
   border-top: 1px solid var(--surface-border-strong);
-  font-size: clamp(23px, 2.5vw, 28px);
+  font-size: clamp(1.4375rem, 2.5vw, 1.75rem);
   line-height: 1.35;
 }
 
 .prose h3 {
-  margin: 38px 0 16px;
-  font-size: 19px;
+  margin: 2.375rem 0 1rem;
+  font-size: 1.1875rem;
   line-height: 1.45;
 }
 
 .prose h4 {
-  margin: 30px 0 13px;
-  font-size: 16px;
+  margin: 1.875rem 0 0.8125rem;
+  font-size: 1rem;
   font-weight: 600;
 }
 
@@ -188,15 +188,15 @@
 }
 
 .prose code {
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 0.125rem 0.3125rem;
+  border-radius: 0.1875rem;
   background: var(--surface-panel);
   font-size: 0.85em;
   overflow-wrap: anywhere;
 }
 
 .prose hr {
-  margin: 40px 0;
+  margin: 2.5rem 0;
   border: 0;
   border-top: 1px solid var(--surface-border);
 }
@@ -207,12 +207,12 @@
 
 .prose :global(.story-note),
 .prose blockquote {
-  margin: 24px 0;
-  padding: 18px 22px;
+  margin: 1.5rem 0;
+  padding: 1.125rem 1.375rem;
   border-block: 1px solid var(--surface-border);
   background: var(--surface-panel);
   color: var(--dm-text);
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .prose :is(blockquote, :global(.story-note)) > :last-child {
@@ -222,19 +222,19 @@
 .prose :global(.story-table) {
   max-width: 100%;
   overflow-x: auto;
-  margin: 24px 0;
+  margin: 1.5rem 0;
   scrollbar-width: thin;
 }
 
 .prose table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.7;
 }
 
 .prose :is(th, td) {
-  padding: 12px 14px;
+  padding: 0.75rem 0.875rem;
   border-bottom: 1px solid var(--surface-border);
   text-align: left;
   vertical-align: top;
@@ -247,7 +247,7 @@
 }
 
 .prose figure {
-  margin: 30px 0;
+  margin: 1.875rem 0;
   text-align: center;
 }
 
@@ -258,13 +258,13 @@
   height: auto;
   margin: 0 auto;
   border: 1px solid var(--surface-border);
-  border-radius: 7px;
+  border-radius: 0.4375rem;
 }
 
 .prose figcaption {
-  margin-top: 12px;
+  margin-top: 0.75rem;
   color: var(--dm-muted);
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.6;
 }
 
@@ -274,21 +274,21 @@
 
 .prose :global([data-story-sticker]) {
   display: inline-block;
-  width: 48px;
-  height: 48px;
-  margin: 0 4px;
+  width: 3rem;
+  height: 3rem;
+  margin: 0 0.25rem;
   vertical-align: middle;
 }
 
 .prose :global([data-story-sticker]) img {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: 3rem;
+  height: 3rem;
 }
 
 .prose p[align='right'] {
-  margin-top: 28px;
-  font-size: 12px;
+  margin-top: 1.75rem;
+  font-size: 0.75rem;
 }
 
 @media (max-width: 1200px) {
@@ -302,14 +302,14 @@
 
   .header,
   .readingColumn {
-    max-width: 1040px;
+    max-width: 65rem;
     margin-inline: auto;
   }
 
   .mobileContents {
     display: block;
-    margin-bottom: 28px;
-    padding: 12px 0;
+    margin-bottom: 1.75rem;
+    padding: 0.75rem 0;
     border-bottom: 1px solid var(--surface-border);
   }
 
@@ -319,17 +319,17 @@
   }
 
   .mobileContents .chapterList {
-    margin-top: 12px;
+    margin-top: 0.75rem;
   }
 }
 
 @media (max-width: 640px) {
   .page {
-    padding: 28px 18px 48px;
+    padding: 1.75rem 1.125rem 3rem;
   }
 
   .toolbar {
-    gap: 10px 16px;
+    gap: 0.625rem 1rem;
   }
 
   .toolbar a {
@@ -337,16 +337,16 @@
   }
 
   .prose {
-    font-size: 14px;
+    font-size: 0.875rem;
     line-height: 1.85;
   }
 
   .prose :is(th, td) {
-    padding: 10px;
+    padding: 0.625rem;
   }
 
   .prose :global(.story-table) table {
-    min-width: 480px;
+    min-width: 30rem;
   }
 }
 

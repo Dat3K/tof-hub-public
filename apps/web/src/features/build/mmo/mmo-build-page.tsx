@@ -2,7 +2,7 @@
 import { fillText } from '@/lib/i18n/text';
 import {localeText} from '@/lib/i18n/text';
 import {useRouter} from 'next/navigation';
-import {useCallback,useEffect,useId,useLayoutEffect,useRef,useState} from 'react';
+import {useCallback,useEffect,useId,useRef,useState} from 'react';
 import {Button,Dialog,ExportButton,ServerModeSwitcher,Spinner,Toast,useToast} from '@tof-hub/ui';
 import {QueueNotice} from '../../queue/queue-notice';
 import type {QueueJob} from '../../queue/client';
@@ -15,6 +15,7 @@ import {downloadPng} from '@/lib/download';
 import {useLocale} from '@/lib/i18n';
 import {BuildInspection} from '../build-inspection';
 import {CardPreview} from '../card-preview';
+import {useCardPreviewScale} from '../use-card-preview-scale';
 import {BUILD_CARD_HEIGHT,BUILD_CARD_WIDTH,BUILD_EXPORT_SCALE} from '../layout';
 import {MmoBuildCard} from './mmo-build-card';
 import {MmoBuildEditing,MmoAdvancedEditor,type MmoEditTarget} from './mmo-build-editing';
@@ -55,10 +56,11 @@ export function MmoBuildPage({catalog,profile}:{catalog:MmoBuildCatalog;profile?
   const [queueJob,setQueueJob]=useState<QueueJob|null>(null);
   const fileInput=useRef<HTMLInputElement>(null);
   const clearInset=useSiteHeaderInset(confirmClear);
-  const [scale,setScale]=useState(1);
   const {notify,dismiss}=useToast(),noticeId=useId();
   const setNotice=useCallback((message:string)=>{if(message)notify(message,{id:noticeId});else dismiss(noticeId);},[notify,dismiss,noticeId]);
   const stage=useRef<HTMLDivElement>(null),card=useRef<HTMLElement>(null),moreActions=useRef<HTMLDetailsElement>(null),artMenu=useRef<HTMLDetailsElement>(null);
+  const toolbar=useRef<HTMLDivElement>(null);
+  const scale=useCardPreviewScale({stage,toolbar,ready});
   const [profileError,setProfileError]=useState<'not-found'|'unavailable'|null>(null);
   const [viewRole,setViewRole]=useState<MmoProfileRole|null>(profile?.role??null);
   const [savedVersion,setSavedVersion]=useState(0);
@@ -103,17 +105,6 @@ export function MmoBuildPage({catalog,profile}:{catalog:MmoBuildCatalog;profile?
     const timer=setTimeout(()=>{try {localStorage.setItem(MMO_DRAFT_KEY,JSON.stringify(draft));}catch {setNotice(t('The draft could not be saved. Keep this tab open or export the card.'));}},300);
     return ()=>clearTimeout(timer);
   },[draft,ready]);
-  useLayoutEffect(()=>{
-    const node=stage.current;if(!node)return;
-    const resize=()=>{
-      const top=node.getBoundingClientRect().top+window.scrollY;
-      const available=Math.max(1,window.innerHeight-top-24);
-      setScale(Math.min(1,node.clientWidth/BUILD_CARD_WIDTH,editing?1:available/BUILD_CARD_HEIGHT));
-    };
-    const observer=new ResizeObserver(resize);observer.observe(node);resize();
-    window.addEventListener('resize',resize);
-    return ()=>{observer.disconnect();window.removeEventListener('resize',resize);};
-  },[ready,editing]);
   useEffect(()=>{
     const close=(event:PointerEvent)=>{if(moreActions.current&&event.target instanceof Node&&!moreActions.current.contains(event.target))moreActions.current.removeAttribute('open');if(artMenu.current&&event.target instanceof Node&&!artMenu.current.contains(event.target))artMenu.current.removeAttribute('open');};
     document.addEventListener('pointerdown',close);return ()=>document.removeEventListener('pointerdown',close);
@@ -197,7 +188,7 @@ export function MmoBuildPage({catalog,profile}:{catalog:MmoBuildCatalog;profile?
     <div className={styles.rotateNotice} role="status"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="15" y="6" width="18" height="30" rx="3"/><path d="M24 31.5h.01"/><path d="M8 30a16 16 0 0 0 13 13.5"/><path d="M17 41l4 2.5-1.5 4"/></svg>
       <strong>{t('Turn your device')}</strong><span>{t('The build card is wide: hold the phone horizontally to view and edit it.')}</span></div>
     <MmoBuildInfoRail locale={locale} catalog={catalog} onImport={()=>{if(profile)router.push('/tools/build/mmo/');else openImport();}} uid={ownUid} viewing={viewing} version={savedVersion} appRequest={appRequest}/>
-    <div className={styles.exportAction} style={{width:BUILD_CARD_WIDTH*scale}}>
+    <div ref={toolbar} className={styles.exportAction} style={{width:BUILD_CARD_WIDTH*scale}}>
       <div className={styles.toolbarGroup} role="group" aria-label={t('Editing')}>
         <ServerModeSwitcher value="mmo" ariaLabel={t('Game mode')} onChange={mode=>{if(mode==='gacha')router.push('/tools/build/');}}/>
         {profile?<>

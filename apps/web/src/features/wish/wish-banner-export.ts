@@ -133,7 +133,10 @@ export function buildWishBannerExportScene(
   root.setAttribute('aria-hidden', 'true');
 
   const card = sourceCard.cloneNode(true) as HTMLElement;
-  carryOverInheritedCustomProperties(sourceCard, card);
+  carryOverInheritedCustomProperties(sourceCard, card, {remSize:16});
+  // Live UI grows with the desktop; this composition always exports at 1216px.
+  card.style.setProperty('--ui-unit', '1px');
+  card.style.fontSize = '16px';
   card.querySelector('[data-wish-artwork-controls]')?.remove();
   card.removeAttribute('id');
   card.classList.remove(styles.collapsedShowcase);

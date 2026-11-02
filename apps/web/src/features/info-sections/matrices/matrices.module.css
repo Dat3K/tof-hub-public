@@ -2,7 +2,7 @@
 
 .matricesContainer {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--layout-wide, 90rem);
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
   box-sizing: border-box;
@@ -30,15 +30,15 @@
   min-width: 0;
   user-select: auto;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 14px !important;
+  border-radius: 0.875rem !important;
   box-shadow: none !important;
 }
 
 .matrixCard:hover,
 .matrixCard:focus-visible {
-  transform: translateY(-4px) !important;
+  transform: translateY(-0.25rem) !important;
   border-color: rgba(120, 160, 255, 0.3) !important;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0.875rem 2rem rgba(0, 0, 0, 0.5) !important;
 }
 
 .matrixCardArtStage {
@@ -82,51 +82,51 @@
   object-position: center 22%;
   transform: none;
   transform-origin: center 25%;
-  filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 0.25rem 0.875rem rgba(0, 0, 0, 0.65));
   image-rendering: -webkit-optimize-contrast;
   transition: filter 0.22s ease;
 }
 
 .matrixCard:hover .matrixCardChipImg {
-  filter: drop-shadow(0 6px 20px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 0.375rem 1.25rem rgba(0, 0, 0, 0.85));
 }
 
 .matrixCardBadgesOverlay,
 .matrixCardRarityOverlay {
   position: absolute;
-  top: 8px;
+  top: 0.5rem;
   z-index: 3;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.3125rem;
   pointer-events: none;
 }
 
 .matrixCardBadgesOverlay {
-  left: 8px;
-  max-width: calc(100% - 56px);
+  left: 0.5rem;
+  max-width: calc(100% - 3.5rem);
 }
 
 .matrixCardRarityOverlay {
-  right: 8px;
-  gap: 4px;
+  right: 0.5rem;
+  gap: 0.25rem;
 }
 
 
 .matrixCard .badgeIcon {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 
 
 
 .matrixCardTitles {
   min-width: 0;
-  padding: 7px 10px 8px;
+  padding: 0.4375rem 0.625rem 0.5rem;
   background: var(--info-panel);
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 0.1875rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   text-align: left;
   user-select: text;
@@ -146,10 +146,10 @@
 
 .matrixCardOwner {
   display: flex;
-  min-height: 40px;
+  min-height: 2.5rem;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 0.375rem;
   color: var(--info-link);
   font-size: 0.75rem;
   font-weight: 500;
@@ -161,7 +161,7 @@
   min-width: 0;
   flex: 1;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   overflow: hidden;
   opacity: 0.85;
   text-overflow: ellipsis;
@@ -183,68 +183,68 @@
 }
 
 .matrixCard .weaponCornerBox {
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   flex-shrink: 0;
-  border-radius: 9px;
-  border: 1.5px solid rgba(255, 255, 255, 0.35);
-  padding: 2px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5625rem;
+  border: 0.09375rem solid rgba(255, 255, 255, 0.35);
+  padding: 0.125rem;
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5);
 }
 
 .matrixCard .weaponCornerBox[data-element="physical"] {
   border-color: #eab308;
-  box-shadow: 0 0 8px rgba(234, 179, 8, 0.5);
+  box-shadow: 0 0 0.5rem rgba(234, 179, 8, 0.5);
 }
 
 .matrixCard .weaponCornerBox[data-element="flame"] {
   border-color: #ef4444;
-  box-shadow: 0 0 8px rgba(239, 68, 68, 0.5);
+  box-shadow: 0 0 0.5rem rgba(239, 68, 68, 0.5);
 }
 
 .matrixCard .weaponCornerBox[data-element="frost"] {
   border-color: #06b6d4;
-  box-shadow: 0 0 8px rgba(6, 182, 212, 0.5);
+  box-shadow: 0 0 0.5rem rgba(6, 182, 212, 0.5);
 }
 
 .matrixCard .weaponCornerBox[data-element="volt"] {
   border-color: #a855f7;
-  box-shadow: 0 0 8px rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0 0.5rem rgba(168, 85, 247, 0.5);
 }
 
 .matrixCard .weaponCornerBox[data-element="altered"] {
   border-color: #ec4899;
-  box-shadow: 0 0 8px rgba(236, 72, 153, 0.5);
+  box-shadow: 0 0 0.5rem rgba(236, 72, 153, 0.5);
 }
 
 /* Keep the legacy six-column density on desktop while retaining the shared responsive grid. */
 .matricesContainer :global(.matrices-grid) {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)) !important;
-  gap: 18px !important;
+  grid-template-columns: repeat(auto-fill, minmax(12.5rem, 1fr)) !important;
+  gap: 1.125rem !important;
 }
 
 /* Badge Icon */
 .badgeIcon {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   object-fit: contain;
   display: block;
 }
 
 /* Weapon Corner Box */
 .weaponCornerBox {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(11, 14, 22, 0.9);
   border: 1px solid rgba(43, 166, 223, 0.35);
-  border-radius: 8px;
-  padding: 2px;
+  border-radius: 0.5rem;
+  padding: 0.125rem;
   box-sizing: border-box;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(0.375rem);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.45);
   overflow: hidden;
 }
 
@@ -252,33 +252,33 @@
   width: 100%;
   height: 100%;
   object-fit: contain;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.6));
 }
 
 /* Legacy-style matrix detail card */
 .matrixModal {
   width: 100% !important;
-  max-width: 680px !important;
-  max-height: calc(100vh - 24px) !important;
+  max-width: 42.5rem !important;
+  max-height: calc(100vh - 1.5rem) !important;
   background: #0f1420 !important;
   border: 1px solid rgba(255, 255, 255, 0.12) !important;
-  border-radius: 18px !important;
+  border-radius: 1.125rem !important;
   box-shadow:
-    0 22px 55px rgba(0, 0, 0, 0.72),
-    0 0 28px rgba(43, 166, 223, 0.08) !important;
+    0 1.375rem 3.4375rem rgba(0, 0, 0, 0.72),
+    0 0 1.75rem rgba(43, 166, 223, 0.08) !important;
   overflow: visible !important;
-  transform: translateY(-31px);
+  transform: translateY(-1.9375rem);
 }
 
 /* Keep the site header crisp while the page below it receives the legacy blur. */
 .matrixModalOverlay {
-  top: 54px !important;
+  top: 3.375rem !important;
   z-index: 700 !important;
 }
 
 .modalHeaderContainer {
   align-items: flex-start !important;
-  padding: 16px 22px 14px !important;
+  padding: 1rem 1.375rem 0.875rem !important;
   background: transparent !important;
   border-bottom: 0 !important;
 }
@@ -291,16 +291,16 @@
 .modalHeader {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
   width: 100%;
 }
 
 .artShowcase {
   position: relative;
   width: 100%;
-  height: 200px;
-  min-height: 200px;
-  max-width: 460px;
+  height: 12.5rem;
+  min-height: 12.5rem;
+  max-width: 28.75rem;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -319,9 +319,9 @@
   overflow: hidden;
   z-index: 0;
   opacity: 0.28;
-  filter: blur(2px);
+  filter: blur(0.125rem);
   mix-blend-mode: screen;
-  border-radius: 12px;
+  border-radius: 0.75rem;
   -webkit-mask-image: radial-gradient(
     ellipse 75% 65% at 50% 50%,
     rgba(0, 0, 0, 0.95) 20%,
@@ -352,21 +352,21 @@
   align-items: center;
   justify-content: center;
   cursor: zoom-in;
-  transform: translateY(-13px);
+  transform: translateY(-0.8125rem);
   transition: filter 0.25s ease;
 }
 
 .heroChipStage:hover {
-  transform: translateY(-13px);
+  transform: translateY(-0.8125rem);
 }
 
 .heroChipImg {
-  width: 280px;
-  height: 280px;
+  width: 17.5rem;
+  height: 17.5rem;
   max-width: none;
   max-height: none;
   object-fit: contain;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0 0.875rem 1.75rem rgba(0, 0, 0, 0.75));
 }
 
 /* Slots Around Chip */
@@ -385,24 +385,24 @@
   flex-direction: column;
   justify-content: space-between;
   position: absolute;
-  top: 4px;
-  bottom: 4px;
+  top: 0.25rem;
+  bottom: 0.25rem;
   gap: 0;
   pointer-events: auto;
 }
 
 .slotsGroup:first-child {
-  left: 6px;
+  left: 0.375rem;
 }
 
 .slotsGroup:last-child {
-  right: 6px;
+  right: 0.375rem;
 }
 
 .slotBadgeWrap {
   position: relative;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -410,41 +410,41 @@
 
 .slotBadge {
   position: relative;
-  width: 40px;
-  height: 40px;
-  border-radius: 10px;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.625rem;
   background: rgba(14, 11, 20, 0.94);
-  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  border: 0.09375rem solid rgba(255, 255, 255, 0.28);
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   transition: all 0.2s ease;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.7);
 }
 
 .slotBadge:hover,
 .slotBadge:focus-visible {
   border-color: #2ba6df;
   transform: scale(1.08);
-  box-shadow: 0 0 12px rgba(43, 166, 223, 0.4);
+  box-shadow: 0 0 0.75rem rgba(43, 166, 223, 0.4);
 }
 
 .slotBadgeImg {
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
   object-fit: contain;
 }
 
 .slotTooltip {
   position: absolute;
-  width: 260px;
-  max-width: calc(100vw - 32px);
-  padding: 10px 14px;
+  width: 16.25rem;
+  max-width: calc(100vw - 2rem);
+  padding: 0.625rem 0.875rem;
   background: rgba(14, 11, 20, 0.96);
   border: 1px solid rgba(43, 166, 223, 0.5);
-  border-radius: 8px;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.85), 0 0 16px rgba(43, 166, 223, 0.3);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.85), 0 0 1rem rgba(43, 166, 223, 0.3);
   box-sizing: border-box;
   color: #d1d5db;
   text-align: center;
@@ -466,8 +466,8 @@
 /* Slot 1/2 are on the left, slot 3/4 on the right. Keep the tooltip over the hero. */
 .slotBadgeWrap[data-slot="1"] .slotTooltip,
 .slotBadgeWrap[data-slot="4"] .slotTooltip {
-  bottom: calc(100% + 8px);
-  transform: translateY(4px);
+  bottom: calc(100% + 0.5rem);
+  transform: translateY(0.25rem);
 }
 
 .slotBadgeWrap[data-slot="1"] .slotTooltip {
@@ -480,8 +480,8 @@
 
 .slotBadgeWrap[data-slot="2"] .slotTooltip,
 .slotBadgeWrap[data-slot="3"] .slotTooltip {
-  top: calc(100% + 8px);
-  transform: translateY(-4px);
+  top: calc(100% + 0.5rem);
+  transform: translateY(-0.25rem);
 }
 
 .slotBadgeWrap[data-slot="2"] .slotTooltip {
@@ -497,9 +497,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  margin-bottom: 6px;
-  padding-bottom: 4px;
+  gap: 0.125rem;
+  margin-bottom: 0.375rem;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   text-align: center;
 }
@@ -541,7 +541,7 @@
   align-items: center;
   width: 100%;
   text-align: center;
-  margin-top: -20px;
+  margin-top: -1.25rem;
 }
 
 .badgesRow {
@@ -549,8 +549,8 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 5px;
-  margin-bottom: 2px;
+  gap: 0.3125rem;
+  margin-bottom: 0.125rem;
 }
 
 .matrixId {
@@ -576,13 +576,13 @@
 }
 
 .modalBody {
-  padding: 4px 22px 20px !important;
+  padding: 0.25rem 1.375rem 1.25rem !important;
 }
 
 .effectList {
   display: flex;
   flex-direction: column;
-  gap: 11px;
+  gap: 0.6875rem;
 }
 
 /* Star Rank Selector */
@@ -594,8 +594,8 @@
   padding: 0.3125rem 0.75rem;
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
-  margin: 0 0 10px;
+  border-radius: 0.375rem;
+  margin: 0 0 0.625rem;
 }
 
 .starRankLabel {
@@ -609,14 +609,14 @@
 .starTabs {
   display: flex;
   align-items: center;
-  gap: 3px;
+  gap: 0.1875rem;
 }
 
 .starTab {
-  padding: 3px 9px;
+  padding: 0.1875rem 0.5625rem;
   font-size: 0.72rem;
   font-weight: 700;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
   background: rgba(255, 255, 255, 0.04);
   color: #9ca3af;
@@ -633,15 +633,15 @@
   background: #2ba6df;
   border-color: #2ba6df;
   color: #ffffff;
-  box-shadow: 0 0 8px rgba(43, 166, 223, 0.35);
+  box-shadow: 0 0 0.5rem rgba(43, 166, 223, 0.35);
 }
 
 /* Effect Card */
 .effectCard {
   background: rgba(13, 17, 26, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 13px 18px;
+  border-radius: 0.625rem;
+  padding: 0.8125rem 1.125rem;
   margin-bottom: 0;
   transition:
     border-color 0.2s ease,
@@ -650,7 +650,7 @@
 
 .effectCard:hover {
   border-color: rgba(43, 166, 223, 0.4);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
 }
 
 .effectHeader {
@@ -658,8 +658,8 @@
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: 8px;
+  gap: 0.375rem;
+  margin-bottom: 0.5rem;
 }
 
 .effectTitle {
@@ -671,8 +671,8 @@
   display: flex;
   align-items: center;
   gap: 0.375rem;
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.25rem;
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -687,9 +687,9 @@
 .carrierBlock {
   background: rgba(10, 8, 14, 0.55);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 11px 18px;
-  margin-top: 11px;
+  border-radius: 0.625rem;
+  padding: 0.6875rem 1.125rem;
+  margin-top: 0.6875rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -718,17 +718,17 @@
 }
 
 .carrierWeaponFrame {
-  width: 52px;
-  height: 52px;
-  flex: 0 0 52px;
+  width: 3.25rem;
+  height: 3.25rem;
+  flex: 0 0 3.25rem;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(11, 14, 22, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px;
-  padding: 4px;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
 }
 
 .carrierWeaponImg {
@@ -761,8 +761,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
-  margin-top: 4px;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
 }
 
 .carrierTitle {
@@ -777,8 +777,8 @@
   color: #9ca3af;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 1.5px 6px;
-  border-radius: 4px;
+  padding: 0.09375rem 0.375rem;
+  border-radius: 0.25rem;
 }
 
 .carrierLink {
@@ -788,7 +788,7 @@
   font-size: 0.75rem;
   font-weight: 700;
   padding: 0.2rem 0.6rem;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: rgba(43, 166, 223, 0.15);
   border: 1px solid rgba(43, 166, 223, 0.4);
   color: #55c2ef;
@@ -805,13 +805,13 @@
 /* Match the legacy circular close control while retaining the shared button. */
 .matrixModal :global(button[aria-label="Close modal"]) {
   position: absolute;
-  top: 12px;
-  right: 16px;
+  top: 0.75rem;
+  right: 1rem;
   z-index: 10;
-  width: 34px;
-  min-width: 34px !important;
-  height: 34px;
-  min-height: 34px !important;
+  width: 2.125rem;
+  min-width: 2.125rem !important;
+  height: 2.125rem;
+  min-height: 2.125rem !important;
   padding: 0 !important;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
@@ -827,31 +827,31 @@
 
 @media (max-width: 640px) {
   .matrixModalOverlay {
-    top: 68px !important;
-    height: calc(100dvh - 68px) !important;
+    top: 4.25rem !important;
+    height: calc(100dvh - 4.25rem) !important;
   }
 
   .matrixModal {
     max-width: calc(100vw - 1rem) !important;
-    max-height: calc(100dvh - 84px) !important;
+    max-height: calc(100dvh - 5.25rem) !important;
   }
 
   .modalHeaderContainer {
-    padding: 14px 14px 12px !important;
+    padding: 0.875rem 0.875rem 0.75rem !important;
   }
 
   .modalBody {
-    padding: 4px 14px 16px !important;
+    padding: 0.25rem 0.875rem 1rem !important;
   }
 
   .artShowcase {
-    height: 220px;
-    min-height: 220px;
+    height: 13.75rem;
+    min-height: 13.75rem;
   }
 
   .heroChipImg {
-    width: min(220px, 70vw);
-    height: min(220px, 70vw);
+    width: min(13.75rem, 70vw);
+    height: min(13.75rem, 70vw);
   }
 
   .heroChipStage:hover {
@@ -867,33 +867,33 @@
   }
 
   .slotBadge {
-    width: 38px;
-    height: 38px;
+    width: 2.375rem;
+    height: 2.375rem;
   }
 
   .slotBadgeImg {
-    width: 24px;
-    height: 24px;
+    width: 1.5rem;
+    height: 1.5rem;
   }
 
   .slotsGroup {
-    top: 6px;
-    bottom: 6px;
+    top: 0.375rem;
+    bottom: 0.375rem;
   }
 
   .slotsGroup:first-child {
-    left: 2px;
+    left: 0.125rem;
   }
 
   .slotsGroup:last-child {
-    right: 2px;
+    right: 0.125rem;
   }
 
   .titleBlock {
-    margin-top: -4px;
+    margin-top: -0.25rem;
   }
 
   .effectCard {
-    padding: 12px 14px;
+    padding: 0.75rem 0.875rem;
   }
 }

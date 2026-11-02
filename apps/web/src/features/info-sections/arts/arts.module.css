@@ -1,6 +1,6 @@
 .artsContainer {
   width: 100%;
-  max-width: 1600px;
+  max-width: var(--layout-gallery, 100rem);
   margin: 0 auto;
   padding: 0 1rem 3rem;
 }
@@ -35,14 +35,14 @@
 }
 
 .artCard:hover {
-  transform: translateY(-3px);
+  transform: translateY(-0.1875rem);
   border-color: rgba(43, 166, 223, 0.4);
-  box-shadow: 0 8px 24px -4px rgba(0, 0, 0, 0.5), 0 0 12px -2px rgba(43, 166, 223, 0.2);
+  box-shadow: 0 0.5rem 1.5rem -0.25rem rgba(0, 0, 0, 0.5), 0 0 0.75rem -0.125rem rgba(43, 166, 223, 0.2);
 }
 
 .artCard:focus-visible {
-  outline: 2px solid #2ba6df;
-  outline-offset: 2px;
+  outline: 0.125rem solid #2ba6df;
+  outline-offset: 0.125rem;
 }
 
 /* Preview Box with Checkerboard Pattern */
@@ -77,38 +77,38 @@
 /* Overlay Badges */
 .resBadge {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 0.5rem;
+  left: 0.5rem;
   background: rgba(9, 11, 16, 0.88);
   border: 1px solid rgba(255, 255, 255, 0.16);
   color: #f1f5f9;
   font-size: 0.75rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-weight: 600;
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.25rem;
   letter-spacing: 0.3px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.45);
   z-index: 2;
   pointer-events: none;
 }
 
 .catBadge {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 0.5rem;
+  right: 0.5rem;
   font-size: 0.68rem;
   font-weight: 700;
-  padding: 3px 9px;
-  border-radius: 5px;
+  padding: 0.1875rem 0.5625rem;
+  border-radius: 0.3125rem;
   background: rgba(11, 15, 25, 0.88);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(0.5rem);
+  -webkit-backdrop-filter: blur(0.5rem);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   letter-spacing: 0.3px;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.85);
+  text-shadow: 0 1px 0.125rem rgba(0, 0, 0, 0.85);
   line-height: 1.25;
   display: inline-flex;
   align-items: center;
@@ -120,42 +120,42 @@
   background: rgba(38, 12, 22, 0.88);
   border: 1px solid rgba(244, 63, 94, 0.65);
   color: #fb7185;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(244, 63, 94, 0.25);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6), 0 0 0.625rem rgba(244, 63, 94, 0.25);
 }
 
 .catBadge--character-bg {
   background: rgba(28, 14, 42, 0.88);
   border: 1px solid rgba(168, 85, 247, 0.65);
   color: #c084fc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(168, 85, 247, 0.25);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6), 0 0 0.625rem rgba(168, 85, 247, 0.25);
 }
 
 .catBadge--loading {
   background: rgba(6, 26, 38, 0.88);
   border: 1px solid rgba(6, 182, 212, 0.65);
   color: #38bdf8;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(6, 182, 212, 0.25);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6), 0 0 0.625rem rgba(6, 182, 212, 0.25);
 }
 
 .catBadge--gashapon {
   background: rgba(38, 26, 8, 0.88);
   border: 1px solid rgba(245, 158, 11, 0.65);
   color: #fbbf24;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(245, 158, 11, 0.25);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6), 0 0 0.625rem rgba(245, 158, 11, 0.25);
 }
 
 .catBadge--events {
   background: rgba(18, 20, 52, 0.88);
   border: 1px solid rgba(99, 102, 241, 0.65);
   color: #a5b4fc;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6), 0 0 10px rgba(99, 102, 241, 0.25);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6), 0 0 0.625rem rgba(99, 102, 241, 0.25);
 }
 
 .catBadge--others {
   background: rgba(15, 23, 42, 0.88);
   border: 1px solid rgba(148, 163, 184, 0.5);
   color: #e2e8f0;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.6);
 }
 
 /* Category filters use the same accents as the category labels on the cards. */
@@ -170,14 +170,14 @@
   background: var(--category-chip-bg);
   border-color: var(--category-chip-border);
   color: var(--category-chip-text);
-  box-shadow: 0 0 10px var(--category-chip-glow);
+  box-shadow: 0 0 0.625rem var(--category-chip-glow);
 }
 
 .categoryChip:not(:global(.active)):not(:global(.is-active)):is(:hover, :focus-visible) {
   background: color-mix(in srgb, var(--category-chip-bg) 72%, transparent);
   border-color: var(--category-chip-border);
   color: var(--category-chip-text);
-  box-shadow: 0 0 10px var(--category-chip-glow);
+  box-shadow: 0 0 0.625rem var(--category-chip-glow);
 }
 
 .categoryChip--neutral {
@@ -231,19 +231,19 @@
 
 .sizeBadge {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
+  bottom: 0.5rem;
+  right: 0.5rem;
   font-size: 0.72rem;
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
   font-weight: 600;
   color: #cbd5e1;
   background: rgba(9, 11, 16, 0.9);
   border: 1px solid rgba(255, 255, 255, 0.14);
-  padding: 3px 8px;
-  border-radius: 4px;
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  padding: 0.1875rem 0.5rem;
+  border-radius: 0.25rem;
+  backdrop-filter: blur(0.25rem);
+  -webkit-backdrop-filter: blur(0.25rem);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.4);
   z-index: 2;
   pointer-events: none;
 }
@@ -272,10 +272,10 @@
 .pathRow {
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   background: rgba(0, 0, 0, 0.45);
-  padding: 5px 8px;
-  border-radius: 6px;
+  padding: 0.3125rem 0.5rem;
+  border-radius: 0.375rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
   min-width: 0;
   max-width: 100%;
@@ -297,10 +297,10 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 2px 5px;
+  padding: 0.125rem 0.3125rem;
   color: #94a3b8;
   font-size: 0.78rem;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -315,8 +315,8 @@
 
 .downloadIcon {
   flex-shrink: 0;
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   transition: transform 0.18s ease;
 }
 
@@ -325,10 +325,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 0.375rem;
   width: 100%;
-  padding: 7px 10px;
-  border-radius: 6px;
+  padding: 0.4375rem 0.625rem;
+  border-radius: 0.375rem;
   font-size: 0.78rem;
   font-weight: 600;
   text-decoration: none;
@@ -345,7 +345,7 @@
   background: var(--dm-gold, #f5d97a);
   color: #17111f;
   border-color: var(--dm-gold, #f5d97a);
-  box-shadow: 0 2px 10px rgba(229, 180, 86, 0.3);
+  box-shadow: 0 0.125rem 0.625rem rgba(229, 180, 86, 0.3);
 }
 
 .downloadLink:active {
@@ -359,23 +359,23 @@
 /* Legacy card controls */
 .copyPathBtn:focus-visible,
 .downloadLink:focus-visible {
-  outline: 2px solid #2ba6df;
-  outline-offset: 2px;
+  outline: 0.125rem solid #2ba6df;
+  outline-offset: 0.125rem;
 }
 
 @container (max-width: 180px) {
   .resBadge {
-    top: 6px;
-    left: 6px;
-    padding: 2px 5px;
+    top: 0.375rem;
+    left: 0.375rem;
+    padding: 0.125rem 0.3125rem;
     font-size: 0.62rem;
   }
 
   .catBadge {
-    top: 6px;
-    right: 6px;
-    max-width: calc(100% - 82px);
-    padding: 2px 5px;
+    top: 0.375rem;
+    right: 0.375rem;
+    max-width: calc(100% - 5.125rem);
+    padding: 0.125rem 0.3125rem;
     overflow: hidden;
     font-size: 0.6rem;
     text-overflow: ellipsis;
@@ -388,8 +388,8 @@
   }
 
   .downloadLink {
-    gap: 4px;
-    padding-inline: 6px;
+    gap: 0.25rem;
+    padding-inline: 0.375rem;
     font-size: 0.7rem;
     white-space: nowrap;
   }

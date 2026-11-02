@@ -2,11 +2,11 @@
 .modeSwitcher {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .modeLabel {
-  font: 700 11px/1 "Manrope", var(--font-sans, system-ui);
+  font: 700 0.6875rem/1 "Manrope", var(--font-sans, system-ui);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #948aa8;
@@ -17,17 +17,17 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 999px;
-  padding: 4px;
+  border-radius: 62.4375rem;
+  padding: 0.25rem;
 }
 
 .modePill {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font: 700 13px/1 "Manrope", var(--font-sans, system-ui);
-  padding: 8px 18px;
-  border-radius: 999px;
+  font: 700 0.8125rem/1 "Manrope", var(--font-sans, system-ui);
+  padding: 0.5rem 1.125rem;
+  border-radius: 62.4375rem;
   border: 1px solid transparent;
   background: transparent;
   color: #7a7290;
@@ -41,8 +41,8 @@
 }
 
 .modePill:focus-visible {
-  outline: 2px solid #f5d97a;
-  outline-offset: 2px;
+  outline: 0.125rem solid #f5d97a;
+  outline-offset: 0.125rem;
 }
 
 .modePill:hover:not(.modePillActive) {
@@ -52,7 +52,7 @@
 .modePillActive {
   background: linear-gradient(135deg, #f5d97a, #f0b94e);
   color: #17111f;
-  box-shadow: 0 2px 8px rgba(245, 217, 122, 0.25);
+  box-shadow: 0 0.125rem 0.5rem rgba(245, 217, 122, 0.25);
   cursor: default;
 }
 
@@ -62,18 +62,18 @@
 .mainTabs {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   flex-wrap: wrap;
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 
 .tabBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font: 700 13px/1 "Manrope", var(--font-sans, system-ui);
-  padding: 8px 14px;
-  border-radius: 9px;
+  font: 700 0.8125rem/1 "Manrope", var(--font-sans, system-ui);
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5625rem;
   border: 1px solid rgba(255, 255, 255, 0.09);
   background: rgba(255, 255, 255, 0.05);
   color: #cbc2de;
@@ -86,8 +86,8 @@
 }
 
 .tabBtn:focus-visible {
-  outline: 2px solid #f5d97a;
-  outline-offset: 2px;
+  outline: 0.125rem solid #f5d97a;
+  outline-offset: 0.125rem;
 }
 
 .tabBtn:hover:not(.tabActive) {
@@ -100,7 +100,7 @@
   background: linear-gradient(135deg, #f5d97a, #f0b94e);
   color: #17111f;
   border-color: transparent;
-  box-shadow: 0 2px 10px rgba(245, 217, 122, 0.2);
+  box-shadow: 0 0.125rem 0.625rem rgba(245, 217, 122, 0.2);
   /* Strict 700 weight prevents layout recalculation and width jump */
   font-weight: 700;
   cursor: default;
@@ -108,18 +108,18 @@
 
 @media (max-width: 900px) {
   .modeSwitcher {
-    gap: 8px;
+    gap: 0.5rem;
   }
   .modeLabel {
-    font-size: 10px;
+    font-size: 0.625rem;
   }
   .modePill {
-    font-size: 11.5px;
-    padding: 6px 12px;
+    font-size: 0.71875rem;
+    padding: 0.375rem 0.75rem;
   }
   .tabBtn {
-    font-size: 12px;
-    padding: 7px 12px;
+    font-size: 0.75rem;
+    padding: 0.4375rem 0.75rem;
   }
 }
 

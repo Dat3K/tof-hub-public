@@ -121,17 +121,17 @@ export function WishLuckSection({
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-5 pb-3 border-b border-white/5">
         <div>
           <div className="flex items-center gap-2">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#10b981] shadow-[0_0_8px_#10b981]" />
+            <span className="w-2.5 h-2.5 rounded-full bg-[#10b981] shadow-[0_0_calc(8*var(--ui-unit))_#10b981]" />
             <h3 className="text-sm font-extrabold text-white tracking-wider uppercase">
               {t.luckSectionTitle}
             </h3>
-            <span className="rounded border border-white/10 bg-white/5 px-2 py-0.5 text-[11px] font-mono font-bold">
+            <span className="rounded border border-white/10 bg-white/5 px-2 py-0.5 text-[length:calc(11*var(--ui-unit))] font-mono font-bold">
               <span className={overallPresentation.className} style={overallPresentation.style}>
                 {dropRateLuck.hasReliableExposure === false ? '?' : `${overallScore.toFixed(1)}x — ${getTierText(overallTier, t)}`}
               </span>
             </span>
           </div>
-          <p className="text-[11px] text-[#9ca3af] mt-0.5">
+          <p className="text-[length:calc(11*var(--ui-unit))] text-[#9ca3af] mt-0.5">
             {t.luckSectionSubtitle}
           </p>
         </div>
@@ -142,7 +142,7 @@ export function WishLuckSection({
             <button
               type="button"
               onClick={() => setViewMode('both')}
-              className={`px-2.5 py-1 rounded text-[11px] font-bold transition-all ${
+              className={`px-2.5 py-1 rounded text-[length:calc(11*var(--ui-unit))] font-bold transition-all ${
                 viewMode === 'both'
                   ? 'bg-white/20 text-white'
                   : 'text-[#9ca3af] hover:text-white'
@@ -153,7 +153,7 @@ export function WishLuckSection({
             <button
               type="button"
               onClick={() => setViewMode('winrate')}
-              className={`px-2.5 py-1 rounded text-[11px] font-bold transition-all ${
+              className={`px-2.5 py-1 rounded text-[length:calc(11*var(--ui-unit))] font-bold transition-all ${
                 viewMode === 'winrate'
                   ? 'bg-white/20 text-white'
                   : 'text-[#9ca3af] hover:text-white'
@@ -164,7 +164,7 @@ export function WishLuckSection({
             <button
               type="button"
               onClick={() => setViewMode('droprate')}
-              className={`px-2.5 py-1 rounded text-[11px] font-bold transition-all ${
+              className={`px-2.5 py-1 rounded text-[length:calc(11*var(--ui-unit))] font-bold transition-all ${
                 viewMode === 'droprate'
                   ? 'bg-white/20 text-white'
                   : 'text-[#9ca3af] hover:text-white'
@@ -191,7 +191,7 @@ export function WishLuckSection({
             <div className="rounded-xl p-4 bg-[var(--surface-panel)]/60 border border-white/5 space-y-3">
               {/* Header Line */}
               <div className="flex items-center justify-between text-xs">
-                <span className="font-extrabold tracking-wider text-[#d1d5db] uppercase text-[11px] sm:text-xs">
+                <span className="font-extrabold tracking-wider text-[#d1d5db] uppercase text-[length:calc(11*var(--ui-unit))] sm:text-xs">
                   {t.luckVsExpectedWinRate}
                 </span>
                 <span className="font-mono font-bold text-sm flex items-center gap-1.5">
@@ -210,13 +210,13 @@ export function WishLuckSection({
                 <div className="h-2 w-full rounded-full bg-gradient-to-r from-[#ef4444] via-[#78350f] via-[#fbbf24]/60 to-[#10b981] relative">
                   {/* Thumb Indicator (White circle with glow) */}
                   <div
-                    className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.95)] border-2 border-[var(--surface-panel)] transition-all duration-500 ease-out z-10"
+                    className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-[0_0_calc(10*var(--ui-unit))_rgba(255,255,255,0.95)] border-2 border-[var(--surface-panel)] transition-all duration-500 ease-out z-10"
                     style={{ left: `${winRateLuck.positionPct}%` }}
                   />
                 </div>
 
                 {/* Scale Labels */}
-                <div className="flex justify-between items-center text-[11px] font-semibold text-[#9ca3af] mt-2">
+                <div className="flex justify-between items-center text-[length:calc(11*var(--ui-unit))] font-semibold text-[#9ca3af] mt-2">
                   <span>{t.luckScaleUnlucky}</span>
                   <span className="text-[#d1d5db]">{t.luckScaleExpected}</span>
                   <span>{t.luckScaleVeryLucky}</span>
@@ -240,7 +240,7 @@ export function WishLuckSection({
           <div className="rounded-xl p-4 bg-[var(--surface-panel)]/60 border border-white/5 space-y-3">
             {/* Header Line */}
             <div className="flex items-center justify-between text-xs">
-              <span className="font-extrabold tracking-wider text-[#d1d5db] uppercase text-[11px] sm:text-xs">
+              <span className="font-extrabold tracking-wider text-[#d1d5db] uppercase text-[length:calc(11*var(--ui-unit))] sm:text-xs">
                 {t.luckVsExpectedDropRate}
               </span>
               <span className="font-mono font-bold text-sm flex items-center gap-1.5">
@@ -259,13 +259,13 @@ export function WishLuckSection({
               <div className="h-2 w-full rounded-full bg-gradient-to-r from-[#ef4444] via-[#78350f] via-[#fbbf24]/60 to-[#10b981] relative">
                 {/* Thumb Indicator (White circle with glow) */}
                 <div
-                  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-[0_0_10px_rgba(255,255,255,0.95)] border-2 border-[var(--surface-panel)] transition-all duration-500 ease-out z-10"
+                  className="absolute top-1/2 -translate-y-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white shadow-[0_0_calc(10*var(--ui-unit))_rgba(255,255,255,0.95)] border-2 border-[var(--surface-panel)] transition-all duration-500 ease-out z-10"
                   style={{ left: `${dropRateLuck.positionPct}%` }}
                 />
               </div>
 
               {/* Scale Labels */}
-              <div className="flex justify-between items-center text-[11px] font-semibold text-[#9ca3af] mt-2">
+              <div className="flex justify-between items-center text-[length:calc(11*var(--ui-unit))] font-semibold text-[#9ca3af] mt-2">
                 <span>{t.luckScaleUnlucky}</span>
                 <span className="text-[#d1d5db]">{t.luckScaleExpected}</span>
                 <span>{t.luckScaleVeryLucky}</span>

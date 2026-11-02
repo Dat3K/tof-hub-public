@@ -56,7 +56,7 @@ export function RulesModal({ isOpen, onClose, locale }: RulesModalProps) {
                 <h3 id="rules-rates-title" className="text-sm font-bold text-white">{t.rulesRatesTitle}</h3>
                 <p className="mt-1 text-xs text-slate-400">{t.rulesRatesIntro}</p>
               </div>
-              <span className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[10px] font-semibold uppercase tracking-wide text-slate-400">
+              <span className="rounded-full border border-white/10 bg-white/[0.03] px-2.5 py-1 text-[0.625rem] font-semibold uppercase tracking-wide text-slate-400">
                 {t.rulesRateLegend}
               </span>
             </div>
@@ -67,7 +67,7 @@ export function RulesModal({ isOpen, onClose, locale }: RulesModalProps) {
                 <InfoCard key={row.name}>
                   <div className="flex items-center justify-between gap-2">
                     <SectionHeading>{row.name}</SectionHeading>
-                    <span className="rounded-md border border-amber-300/25 bg-amber-300/[0.08] px-2 py-0.5 font-mono text-[11px] font-bold text-amber-200">{t.rulesEvery} {row.cycle}</span>
+                    <span className="rounded-md border border-amber-300/25 bg-amber-300/[0.08] px-2 py-0.5 font-mono text-[0.6875rem] font-bold text-amber-200">{t.rulesEvery} {row.cycle}</span>
                   </div>
                   <InfoRows>
                     <InfoRow title={t.rulesBaseSsr} value={row.ssr} valueClassName="text-amber-300" />
@@ -97,11 +97,11 @@ export function RulesModal({ isOpen, onClose, locale }: RulesModalProps) {
               <SectionHeading>{t.rulesFeaturedTitle}</SectionHeading>
               <div className="mt-3 grid grid-cols-2 gap-2">
                 <div className="rounded-lg border border-emerald-400/20 bg-emerald-400/[0.06] p-3">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-emerald-300">{t.rulesWin}</div>
+                  <div className="text-[0.625rem] font-bold uppercase tracking-wider text-emerald-300">{t.rulesWin}</div>
                   <div className="mt-1 font-mono text-xl font-bold text-emerald-300">50%</div>
                 </div>
                 <div className="rounded-lg border border-rose-400/20 bg-rose-400/[0.06] p-3">
-                  <div className="text-[10px] font-bold uppercase tracking-wider text-rose-300">{t.rulesLoss}</div>
+                  <div className="text-[0.625rem] font-bold uppercase tracking-wider text-rose-300">{t.rulesLoss}</div>
                   <div className="mt-1 font-mono text-xl font-bold text-rose-300">50%</div>
                 </div>
               </div>
@@ -111,7 +111,7 @@ export function RulesModal({ isOpen, onClose, locale }: RulesModalProps) {
                 <InfoRow title="L-L" value={t.rulesForcedWin} valueClassName="text-emerald-300" />
                 <InfoRow title="W-L / L-W" value={t.rulesNeutral} valueClassName="text-amber-200" />
               </InfoRows>
-              <p className="mt-3 border-t border-white/[0.07] pt-3 text-[11px] leading-relaxed text-slate-500">{t.rulesStreakDisclaimer}</p>
+              <p className="mt-3 border-t border-white/[0.07] pt-3 text-[0.6875rem] leading-relaxed text-slate-500">{t.rulesStreakDisclaimer}</p>
             </InfoCard>
           </section>
 
@@ -124,7 +124,7 @@ export function RulesModal({ isOpen, onClose, locale }: RulesModalProps) {
                 {matrixSlots.map((slot) => {
                   const visual = getMatrixSlotVisual(slot.id, locale);
                   return (
-                    <span key={slot.id} className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/20 px-2.5 py-1.5 text-[11px] font-medium text-slate-200">
+                    <span key={slot.id} className="inline-flex items-center gap-1.5 rounded-md border border-white/10 bg-black/20 px-2.5 py-1.5 text-[0.6875rem] font-medium text-slate-200">
                       {visual && <img src={visual.image} alt="" className="h-4 w-4 object-contain" />}
                       {slot.label}
                     </span>

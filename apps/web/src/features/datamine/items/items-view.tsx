@@ -427,6 +427,7 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
             <div className={styles.emptyState}>{copy.noRows}</div>
           ) : (
             <table className={styles.table}>
+              <colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup>
               <thead>
                 <tr>
                   {([

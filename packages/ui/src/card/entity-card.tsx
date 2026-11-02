@@ -17,35 +17,35 @@ function getRarityClasses(rarity?: RarityVariant): {
     case 'ssr':
       return {
         cardClass:
-          'border-[rgba(245,217,122,0.35)] hover:border-[#f5d97a] hover:shadow-[0_10px_24px_rgba(0,0,0,0.55),0_0_20px_rgba(230,162,60,0.35)]',
+          'border-[rgba(245,217,122,0.35)] hover:border-[#f5d97a] hover:shadow-[0_0.625rem_1.5rem_rgba(0,0,0,0.55),0_0_1.25rem_rgba(230,162,60,0.35)]',
         badgeVariant: 'ssr',
         glowColor: 'rgba(230, 162, 60, 0.35)',
       };
     case 'sr':
       return {
         cardClass:
-          'border-[rgba(168,85,247,0.35)] hover:border-[#c084fc] hover:shadow-[0_10px_24px_rgba(0,0,0,0.55),0_0_20px_rgba(168,85,247,0.35)]',
+          'border-[rgba(168,85,247,0.35)] hover:border-[#c084fc] hover:shadow-[0_0.625rem_1.5rem_rgba(0,0,0,0.55),0_0_1.25rem_rgba(168,85,247,0.35)]',
         badgeVariant: 'sr',
         glowColor: 'rgba(168, 85, 247, 0.35)',
       };
     case 'r':
       return {
         cardClass:
-          'border-[rgba(59,130,246,0.35)] hover:border-[#3b82f6] hover:shadow-[0_10px_24px_rgba(0,0,0,0.55),0_0_20px_rgba(59,130,246,0.35)]',
+          'border-[rgba(59,130,246,0.35)] hover:border-[#3b82f6] hover:shadow-[0_0.625rem_1.5rem_rgba(0,0,0,0.55),0_0_1.25rem_rgba(59,130,246,0.35)]',
         badgeVariant: 'r',
         glowColor: 'rgba(59, 130, 246, 0.35)',
       };
     case 'n':
       return {
         cardClass:
-          'border-[rgba(16,185,129,0.35)] hover:border-[#10b981] hover:shadow-[0_10px_24px_rgba(0,0,0,0.55),0_0_20px_rgba(16,185,129,0.35)]',
+          'border-[rgba(16,185,129,0.35)] hover:border-[#10b981] hover:shadow-[0_0.625rem_1.5rem_rgba(0,0,0,0.55),0_0_1.25rem_rgba(16,185,129,0.35)]',
         badgeVariant: 'n',
         glowColor: 'rgba(16, 185, 129, 0.35)',
       };
     default:
       return {
         cardClass:
-          'border-[rgba(255,255,255,0.08)] hover:border-[rgba(120,160,255,0.3)] hover:shadow-[0_14px_32px_rgba(0,0,0,0.5)]',
+          'border-[rgba(255,255,255,0.08)] hover:border-[rgba(120,160,255,0.3)] hover:shadow-[0_0.875rem_2rem_rgba(0,0,0,0.5)]',
         badgeVariant: 'ssr',
         glowColor: 'rgba(43, 166, 223, 0.25)',
       };
@@ -116,14 +116,14 @@ export const EntityCard: React.FC<EntityCardProps> & {
   const isInteractive = Boolean(href || onClick);
 
   const baseClasses =
-    'sim-grid-card group relative flex flex-col bg-[rgba(16,13,22,0.92)] rounded-[14px] overflow-hidden transition-all duration-200 backdrop-blur-[8px] text-inherit no-underline select-none outline-none';
+    'sim-grid-card group relative flex flex-col bg-[rgba(16,13,22,0.92)] rounded-[0.875rem] overflow-hidden transition-all duration-200 backdrop-blur-[0.5rem] text-inherit no-underline select-none outline-none';
 
   const interactiveClasses = isInteractive && !disabled
     ? 'cursor-pointer hover:-translate-y-1 focus-visible:ring-2 focus-visible:ring-[#2ba6df]'
     : '';
 
   const selectedClasses = selected
-    ? 'ring-2 ring-[#2ba6df] border-[#2ba6df] shadow-[0_0_18px_rgba(43,166,223,0.4)]'
+    ? 'ring-2 ring-[#2ba6df] border-[#2ba6df] shadow-[0_0_1.125rem_rgba(43,166,223,0.4)]'
     : '';
 
   const disabledClasses = disabled
@@ -166,7 +166,7 @@ export const EntityCard: React.FC<EntityCardProps> & {
 
         {/* Top-Left Badges Overlay */}
         {(badges.length > 0 || element || property || role) && (
-          <div className="sim-grid-card__badges-overlay absolute top-2 left-2 z-10 flex flex-row items-center gap-1.5 max-w-[calc(100%-60px)]">
+          <div className="sim-grid-card__badges-overlay absolute top-2 left-2 z-10 flex flex-row items-center gap-1.5 max-w-[calc(100%-3.75rem)]">
             {element && <Badge variant={element} size="sm">{element}</Badge>}
             {property && <Badge variant={property} size="sm">{property}</Badge>}
             {role && <Badge variant={role} size="sm">{role}</Badge>}
@@ -293,7 +293,7 @@ export const EntityCardBadges: React.FC<{ children: React.ReactNode; className?:
   children,
   className = '',
 }) => (
-  <div className={`sim-grid-card__badges-overlay absolute top-2 left-2 z-10 flex flex-row items-center gap-1.5 max-w-[calc(100%-60px)] ${className}`.trim()}>
+  <div className={`sim-grid-card__badges-overlay absolute top-2 left-2 z-10 flex flex-row items-center gap-1.5 max-w-[calc(100%-3.75rem)] ${className}`.trim()}>
     {children}
   </div>
 );

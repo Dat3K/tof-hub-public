@@ -5,12 +5,12 @@ import { Spinner } from './spinner';
 function getVariantClasses(variant: ButtonVariant = 'secondary'): string {
   switch (variant) {
     case 'primary':
-      return 'bg-[#2ba6df] hover:bg-[#38bdf8] text-white border border-[#2ba6df]/70 shadow-[0_0_12px_rgba(43,166,223,0.35)] active:translate-y-[1px]';
+      return 'bg-[#2ba6df] hover:bg-[#38bdf8] text-white border border-[#2ba6df]/70 shadow-[0_0_0.75rem_rgba(43,166,223,0.35)] active:translate-y-[1px]';
     case 'gold':
     case 'accent':
-      return 'bg-[rgba(245,217,122,0.18)] hover:bg-[rgba(245,217,122,0.28)] border border-[#f5d97a] text-[#fde68a] shadow-[0_0_12px_rgba(245,217,122,0.25)] active:translate-y-[1px]';
+      return 'bg-[rgba(245,217,122,0.18)] hover:bg-[rgba(245,217,122,0.28)] border border-[#f5d97a] text-[#fde68a] shadow-[0_0_0.75rem_rgba(245,217,122,0.25)] active:translate-y-[1px]';
     case 'danger':
-      return 'bg-[rgba(239,68,68,0.2)] hover:bg-[rgba(239,68,68,0.32)] border border-[#ef4444] text-[#fca5a5] shadow-[0_0_12px_rgba(239,68,68,0.25)] active:translate-y-[1px]';
+      return 'bg-[rgba(239,68,68,0.2)] hover:bg-[rgba(239,68,68,0.32)] border border-[#ef4444] text-[#fca5a5] shadow-[0_0_0.75rem_rgba(239,68,68,0.25)] active:translate-y-[1px]';
     case 'ghost':
       return 'bg-transparent hover:bg-white/10 text-[#d7d0dd] hover:text-white border-transparent';
     case 'outline':

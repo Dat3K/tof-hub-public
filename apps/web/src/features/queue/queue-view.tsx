@@ -16,7 +16,7 @@ const STATE_TONE:Record<QueueState,string>={queued:'text-amber-200',processing:'
 
 function RegionBadge({region}:{region:string}) {
   return (
-    <span className="inline-flex items-center rounded border border-sky-400/30 bg-sky-400/15 px-1.5 py-0.5 text-[11px] font-bold tracking-wide text-sky-200">
+    <span className="inline-flex items-center rounded border border-sky-400/30 bg-sky-400/15 px-1.5 py-0.5 text-[0.6875rem] font-bold tracking-wide text-sky-200">
       {region}
     </span>
   );
@@ -133,22 +133,22 @@ function PlayersResultLine({result,region,server,locale}:{result:Record<string,u
                       >
                         {pName}
                       </Link>
-                      {pUid&&<span className="text-slate-400 font-mono text-[11px]">{pUid}</span>}
+                      {pUid&&<span className="text-slate-400 font-mono text-[0.6875rem]">{pUid}</span>}
                     </div>
                     <div className="flex items-center gap-2">
                       {typeof player.gear==='number'&&<span className="text-slate-400">{fillText(t('{0} gear items','{0} предметов снаряжения'),[player.gear])}</span>}
                       {player.status==='new'&&(
-                        <span className="rounded bg-emerald-400/15 px-1.5 py-0.5 text-[10px] font-semibold text-emerald-300">
+                        <span className="rounded bg-emerald-400/15 px-1.5 py-0.5 text-[0.625rem] font-semibold text-emerald-300">
                           {t('new','новый')}
                         </span>
                       )}
                       {player.status==='repeated'&&(
-                        <span className="rounded bg-sky-400/15 px-1.5 py-0.5 text-[10px] font-semibold text-sky-300">
+                        <span className="rounded bg-sky-400/15 px-1.5 py-0.5 text-[0.625rem] font-semibold text-sky-300">
                           {t('updated','обновлён')}
                         </span>
                       )}
                       {player.status==='rejected'&&(
-                        <span className="rounded bg-rose-400/15 px-1.5 py-0.5 text-[10px] font-semibold text-rose-300">
+                        <span className="rounded bg-rose-400/15 px-1.5 py-0.5 text-[0.625rem] font-semibold text-rose-300">
                           {t('rejected','отклонён')}
                         </span>
                       )}
@@ -266,7 +266,7 @@ export function QueueView() {
   return <main className="info-ui min-h-screen bg-[#0b0d13] px-4 pb-12 pt-4 text-[#e8e6e5] md:px-8">
     <div className="mx-auto max-w-5xl">
       <header className="mb-5 mt-3 border-l-2 border-sky-400/70 pl-4">
-        <p className="text-[11px] font-bold tracking-[0.23em] text-sky-300">{t('TOOLS / QUEUE')}</p>
+        <p className="text-[0.6875rem] font-bold tracking-[0.23em] text-sky-300">{t('TOOLS / QUEUE')}</p>
         <h1 className="mt-1 text-3xl font-black tracking-tight text-white md:text-4xl">{t('Processing queue')}</h1>
         <p className="mt-2 max-w-4xl text-sm leading-6 text-slate-300">{t(
           'Imports and saved builds run here, one at a time. Follow your action here or on the page that sent it.')}</p>
@@ -321,13 +321,13 @@ function ActionResult({job,locale}:{job:QueueJob;locale:Locale}) {
 function QueueTable({rows,locale}:{locale:Locale;rows:{seq:number;kind:QueueKind;state:QueueState;position:number;createdAt:string;startedAt:string|null;finishedAt:string|null;durationMs:number|null;mine:boolean}[]}) {
   const ru=locale==='ru',t=localeText(locale);
   return <div className="overflow-x-auto rounded-xl border border-white/10 bg-[var(--surface-panel)]">
-    <table className="w-full min-w-[520px] text-left text-sm">
+    <table className="w-full min-w-[32.5rem] text-left text-sm">
       <thead className="border-b border-white/10 text-xs text-slate-400"><tr>
         <th className="px-3 py-1.5 font-medium">№</th><th className="px-3 py-1.5 font-medium">{t('Action')}</th><th className="px-3 py-1.5 font-medium">{t('State')}</th>
         <th className="px-3 py-1.5 font-medium">{t('Sent')}</th><th className="px-3 py-1.5 font-medium">{t('Took')}</th></tr></thead>
       <tbody>{rows.map(row=><tr key={row.seq} className={`border-b border-white/5 last:border-0 ${row.mine?'bg-sky-400/10':''}`}>
         <td className="px-3 py-1.5 tabular-nums text-slate-300">{row.seq}</td>
-        <td className="px-3 py-1.5 text-white">{label(row.kind,locale)}{row.mine&&<span className="ml-2 rounded bg-sky-400/20 px-1.5 py-0.5 text-[11px] text-sky-100">{t('you')}</span>}</td>
+        <td className="px-3 py-1.5 text-white">{label(row.kind,locale)}{row.mine&&<span className="ml-2 rounded bg-sky-400/20 px-1.5 py-0.5 text-[0.6875rem] text-sky-100">{t('you')}</span>}</td>
         <td className={`px-3 py-1.5 ${STATE_TONE[row.state]}`}>{queueStateLabel(row.state,locale)}{row.state==='queued'?` · ${row.position}`:''}</td>
         <td className="px-3 py-1.5 tabular-nums text-slate-400">{time(row.createdAt,ru?'ru':'en')}</td>
         <td className="px-3 py-1.5 tabular-nums text-slate-400">{row.durationMs!==null?formatWait(row.durationMs,ru).replace('≈ ',''):'—'}</td>

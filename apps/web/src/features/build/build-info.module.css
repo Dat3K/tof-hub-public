@@ -1,39 +1,39 @@
 /* Build help dialogs: a schematic card whose zones explain what is captured and what is edited by hand. */
-.fieldsLayout {display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:16px;align-items:start}
+.fieldsLayout {display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:calc(16 * var(--ui-unit));align-items:start}
 /* Proportions of the 1760px card (layout.ts / build.module.css): header 56px; weapons 300px, combat 325px, gear the rest
    (594px row); the systems row (120px) with Consumables third, at x 385-493. Art lies behind the whole card. */
-.cardMap {position:relative;display:grid;gap:5px;aspect-ratio:2.05;padding:24px 10px 10px;border:1px solid rgba(255,255,255,.12);border-radius:10px;
+.cardMap {position:relative;display:grid;gap:calc(5 * var(--ui-unit));aspect-ratio:2.05;padding:calc(24 * var(--ui-unit)) calc(10 * var(--ui-unit)) calc(10 * var(--ui-unit));border:1px solid rgba(255,255,255,.12);border-radius:calc(10 * var(--ui-unit));
   background:linear-gradient(140deg,rgba(43,166,223,.08),transparent 45%),#0f141f;
   grid-template-columns:300fr 85fr 108fr 152fr 1055fr;grid-template-rows:56fr 594fr 120fr;
   grid-template-areas:"header header header header header" "weapons stats stats stats gear" "systems systems buffs systems2 systems2"}
 .cardMap>.zone {position:relative;z-index:1}
 /* The art zone is the whole card backdrop; its label sits in the top strip. */
-.cardMap>.zone[data-zone="art"] {z-index:0;grid-area:1 / 1 / -1 / -1;margin:-21px -7px -7px;align-items:flex-start;justify-content:flex-end;padding:4px 10px;border-radius:8px}
-.zone {display:flex;align-items:flex-end;padding:8px 10px;border:1px dashed rgba(255,255,255,.18);border-radius:9px;background:rgba(255,255,255,.025);
-  color:#a6b5cc;font-size:11px;font-weight:700;text-align:left;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}
+.cardMap>.zone[data-zone="art"] {z-index:0;grid-area:1 / 1 / -1 / -1;margin:calc(-21 * var(--ui-unit)) calc(-7 * var(--ui-unit)) calc(-7 * var(--ui-unit));align-items:flex-start;justify-content:flex-end;padding:calc(4 * var(--ui-unit)) calc(10 * var(--ui-unit));border-radius:calc(8 * var(--ui-unit))}
+.zone {display:flex;align-items:flex-end;padding:calc(8 * var(--ui-unit)) calc(10 * var(--ui-unit));border:1px dashed rgba(255,255,255,.18);border-radius:calc(9 * var(--ui-unit));background:rgba(255,255,255,.025);
+  color:#a6b5cc;font-size:calc(11 * var(--ui-unit));font-weight:700;text-align:left;cursor:pointer;transition:background .15s ease,border-color .15s ease,color .15s ease}
 .zone[data-captured] {border-style:solid;border-color:rgba(43,166,223,.3)}
 .zone:hover,.zone[aria-pressed="true"] {background:rgba(245,217,122,.1);border-color:rgba(245,217,122,.6);color:#f8e7b0}
-.zone:focus-visible {outline:2px solid #3b82f6;outline-offset:2px}
+.zone:focus-visible {outline:calc(2 * var(--ui-unit)) solid #3b82f6;outline-offset:calc(2 * var(--ui-unit))}
 /* Verified view: zones changed right on the locked card stand out; the rest fade until hovered. */
 .cardMap[data-mode="verified"] .zone[data-direct] {border-style:solid;border-color:rgba(56,189,248,.65);background:rgba(56,189,248,.08)}
 .cardMap[data-mode="verified"] .zone:not([data-direct]):not(:hover):not([aria-pressed="true"]) {opacity:.45}
 .source[data-direct] {border-color:rgba(56,189,248,.55);color:#bae6fd}
 .zoneDetails {min-height:100%}
-.source {display:inline-block;margin-top:8px;padding:2px 8px;border-radius:999px;border:1px solid rgba(255,255,255,.14);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#cbd5e1}
+.source {display:inline-block;margin-top:calc(8 * var(--ui-unit));padding:calc(2 * var(--ui-unit)) calc(8 * var(--ui-unit));border-radius:calc(999 * var(--ui-unit));border:1px solid rgba(255,255,255,.14);font-size:calc(10 * var(--ui-unit));font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#cbd5e1}
 .source[data-captured] {border-color:rgba(43,166,223,.45);color:#a4dcf7}
-.otherFormulas>summary {cursor:pointer;margin-bottom:16px;font-size:12px;font-weight:700;color:#cbd5e1}
+.otherFormulas>summary {cursor:pointer;margin-bottom:calc(16 * var(--ui-unit));font-size:calc(12 * var(--ui-unit));font-weight:700;color:#cbd5e1}
 /* Calculation groups: one column, a gap between groups, a title over each group's cards. */
-.calcGroups {display:grid;gap:24px}
-.calcGroup {display:grid;gap:12px}
-.groupTitle {margin:0;font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#f5d97a}
-.topicList {display:grid;gap:12px}
-.rvCardBody {display:grid;gap:10px;margin-top:10px}
-.formula {display:block;margin-top:8px;padding:6px 8px;border-radius:6px;background:rgba(0,0,0,.3);font:12px/1.4 ui-monospace,Consolas,monospace;color:#f8e7b0;overflow-wrap:anywhere}
+.calcGroups {display:grid;gap:calc(24 * var(--ui-unit))}
+.calcGroup {display:grid;gap:calc(12 * var(--ui-unit))}
+.groupTitle {margin:0;font-size:calc(11 * var(--ui-unit));font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#f5d97a}
+.topicList {display:grid;gap:calc(12 * var(--ui-unit))}
+.rvCardBody {display:grid;gap:calc(10 * var(--ui-unit));margin-top:calc(10 * var(--ui-unit))}
+.formula {display:block;margin-top:calc(8 * var(--ui-unit));padding:calc(6 * var(--ui-unit)) calc(8 * var(--ui-unit));border-radius:calc(6 * var(--ui-unit));background:rgba(0,0,0,.3);font:calc(12 * var(--ui-unit))/1.4 ui-monospace,Consolas,monospace;color:#f8e7b0;overflow-wrap:anywhere}
 @media (max-width:720px) {
   .fieldsLayout {grid-template-columns:1fr}
   .cardMap {aspect-ratio:auto;grid-template-columns:1fr 1fr;grid-template-rows:auto;
     grid-template-areas:"header header" "weapons stats" "gear gear" "systems buffs"}
-  .zone {min-height:44px}
+  .zone {min-height:calc(44 * var(--ui-unit))}
   .cardMap>.zone[data-zone="systems2"] {display:none}
 }
 @media (prefers-reduced-motion:reduce) {.zone {transition:none}}

@@ -65,8 +65,10 @@ Example:
 
 ### Mobile
 
-Up to 640 px, each filter group becomes a horizontally scrolling row with a sticky label, and sort takes its own full-width row. Every page must stay within the viewport at 320 px.
+Up to 640 px, each filter group becomes a horizontally scrolling row with a sticky label, and catalog sort takes its own full-width row. `CatalogSort` also accepts `presentation="inline"` for bounded controls such as Ranking's sort/max-score row. Every page must stay within the viewport at 320 px.
 
+The shared [responsive layout contract](responsive-layout.md) covers relative
+desktop scaling, fixed export canvases, mobile tool rails and keyboard behavior.
 See [runtime data](runtime-data.md) for the index/detail loading boundary and
 the compact catalogs used by the tools.
 

@@ -1,9 +1,9 @@
 .luckValueFrame {
   display: inline-flex;
   align-items: center;
-  padding: 2px 8px;
+  padding: calc(2 * var(--ui-unit)) calc(8 * var(--ui-unit));
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 9999px;
+  border-radius: calc(9999 * var(--ui-unit));
   background: rgba(7, 10, 16, 0.32);
   white-space: nowrap;
 }
@@ -11,7 +11,7 @@
 .luckValueFrameExtreme {
   border-color: rgba(52, 211, 153, 0.48);
   background: linear-gradient(115deg, rgba(16, 185, 129, 0.16), rgba(6, 78, 59, 0.2) 62%, rgba(251, 191, 36, 0.1));
-  box-shadow: 0 0 14px rgba(16, 185, 129, 0.12), inset 0 1px rgba(236, 253, 245, 0.12);
+  box-shadow: 0 0 calc(14 * var(--ui-unit)) rgba(16, 185, 129, 0.12), inset 0 1px rgba(236, 253, 245, 0.12);
 }
 
 .luckValueFrameHigh {

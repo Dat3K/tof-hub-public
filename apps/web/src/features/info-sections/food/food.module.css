@@ -2,7 +2,7 @@
 
 .foodContainer {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--layout-wide, 90rem);
   min-width: 0;
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
@@ -35,8 +35,8 @@
 }
 
 .foodPreviewButton:focus-visible {
-  outline: 2px solid rgba(56, 189, 248, 0.85);
-  outline-offset: 3px;
+  outline: 0.125rem solid rgba(56, 189, 248, 0.85);
+  outline-offset: 0.1875rem;
 }
 
 /* Category Tab Bar */
@@ -58,7 +58,7 @@
 
 .effectDivider {
   width: 1px;
-  height: 20px;
+  height: 1.25rem;
   background: rgba(255, 255, 255, 0.15);
   margin: 0 0.25rem;
   flex-shrink: 0;
@@ -68,9 +68,9 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 34px;
-  height: 34px;
-  border-radius: 8px;
+  width: 2.125rem;
+  height: 2.125rem;
+  border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
@@ -87,12 +87,12 @@
 .effectFilterBtnActive {
   background: rgba(43, 166, 223, 0.25);
   border-color: #2ba6df;
-  box-shadow: 0 0 10px rgba(43, 166, 223, 0.35);
+  box-shadow: 0 0 0.625rem rgba(43, 166, 223, 0.35);
 }
 
 .effectFilterIcon {
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   object-fit: contain;
 }
 
@@ -101,7 +101,7 @@
 .board {
   margin-top: 1.25rem;
   border: 1px solid var(--surface-border);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   background: var(--tool-table-surface);
   overflow: hidden;
 }
@@ -112,8 +112,8 @@
   align-items: center;
   background: var(--tool-table-header);
   border-bottom: 1px solid var(--surface-border);
-  padding: 8px 16px;
-  font-size: 10px;
+  padding: 0.5rem 1rem;
+  font-size: 0.625rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -121,7 +121,7 @@
 }
 
 .colItem {
-  width: 260px;
+  width: 16.25rem;
   flex-shrink: 0;
 }
 
@@ -131,7 +131,7 @@
 }
 
 .colRecipe {
-  width: 320px;
+  width: 20rem;
   flex-shrink: 0;
 }
 
@@ -141,7 +141,7 @@
 .foodContainer:not(.ingredientsView) .tableHeader,
 .foodContainer:not(.ingredientsView) .foodCard {
   display: grid;
-  grid-template-columns: minmax(250px, 280px) minmax(360px, 500px) minmax(260px, 320px);
+  grid-template-columns: minmax(15.625rem, 17.5rem) minmax(22.5rem, 31.25rem) minmax(16.25rem, 20rem);
   justify-content: center;
   column-gap: 1.5rem;
 }
@@ -182,7 +182,7 @@
   border: 0;
   border-bottom: 1px solid var(--surface-border);
   border-radius: 0;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   transition: background-color 0.16s ease, box-shadow 0.16s ease;
   box-sizing: border-box;
 }
@@ -193,7 +193,7 @@
 
 .foodCard:hover {
   background: var(--tool-table-hover);
-  box-shadow: inset 3px 0 0 var(--row-rarity);
+  box-shadow: inset 0.1875rem 0 0 var(--row-rarity);
 }
 
 .cardInteractive {
@@ -201,8 +201,8 @@
 }
 
 .cardInteractive:focus-visible {
-  outline: 2px solid rgba(56, 189, 248, 0.85);
-  outline-offset: -2px;
+  outline: 0.125rem solid rgba(56, 189, 248, 0.85);
+  outline-offset: -0.125rem;
 }
 
 /* Rarity Variations */
@@ -227,7 +227,7 @@
 .ingredientsView .tableHeader,
 .ingredientsView .foodCard[data-ingredient-id] {
   display: grid;
-  grid-template-columns: minmax(220px, 260px) minmax(260px, 380px) minmax(280px, 380px);
+  grid-template-columns: minmax(13.75rem, 16.25rem) minmax(16.25rem, 23.75rem) minmax(17.5rem, 23.75rem);
   justify-content: center;
   column-gap: 1.5rem;
 }
@@ -332,9 +332,9 @@
 
 .iconBox {
   position: relative;
-  width: 64px;
-  height: 64px;
-  border-radius: 12px;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 0.75rem;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.1);
   display: flex;
@@ -370,42 +370,45 @@
   background: rgba(168, 85, 247, 0.18);
   color: #e9d5ff;
   border-color: rgba(168, 85, 247, 0.5);
-  box-shadow: 0 0 8px rgba(168, 85, 247, 0.2);
+  box-shadow: 0 0 0.5rem rgba(168, 85, 247, 0.2);
 }
 
 :global(.info-ui) .foodRarityBadge.foodRarityBadge[data-variant='sr'] {
   background: rgba(59, 130, 246, 0.18);
   color: #bfdbfe;
   border-color: rgba(59, 130, 246, 0.5);
-  box-shadow: 0 0 8px rgba(59, 130, 246, 0.2);
+  box-shadow: 0 0 0.5rem rgba(59, 130, 246, 0.2);
 }
 
 :global(.info-ui) .foodRarityBadge.foodRarityBadge[data-variant='r'] {
   background: rgba(16, 185, 129, 0.18);
   color: #a7f3d0;
   border-color: rgba(16, 185, 129, 0.5);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 0.5rem rgba(16, 185, 129, 0.2);
 }
 
 :global(.info-ui) .foodRarityBadge.foodRarityBadge[data-variant='n'] {
   background: rgba(107, 114, 128, 0.18);
   color: #d1d5db;
   border-color: rgba(107, 114, 128, 0.5);
-  box-shadow: 0 0 8px rgba(107, 114, 128, 0.2);
+  box-shadow: 0 0 0.5rem rgba(107, 114, 128, 0.2);
 }
 
 /* Search accessory: rarity chips, then the Gacha / MMO switcher at the right edge. */
 .foodSearchAccessory {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 @media (max-width: 640px) {
   .foodSearchAccessory {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
     flex-wrap: wrap;
     justify-content: space-between;
-    gap: 8px;
+    gap: 0.5rem;
   }
 }
 
@@ -421,14 +424,14 @@
   background: rgba(168, 85, 247, 0.15);
   border-color: rgba(168, 85, 247, 0.65);
   color: #e9d5ff;
-  box-shadow: 0 0 10px rgba(168, 85, 247, 0.22);
+  box-shadow: 0 0 0.625rem rgba(168, 85, 247, 0.22);
 }
 
 :global(.info-ui) .foodRarityFilter[data-val='SSR'][aria-pressed='true'] {
   background: rgba(168, 85, 247, 0.22);
   border-color: rgba(168, 85, 247, 0.75);
   color: #e9d5ff;
-  box-shadow: 0 0 12px rgba(168, 85, 247, 0.35);
+  box-shadow: 0 0 0.75rem rgba(168, 85, 247, 0.35);
 }
 
 :global(.info-ui) .foodRarityFilter[data-val='SR'][aria-pressed='false'] {
@@ -441,14 +444,14 @@
   background: rgba(59, 130, 246, 0.15);
   border-color: rgba(59, 130, 246, 0.65);
   color: #bfdbfe;
-  box-shadow: 0 0 10px rgba(59, 130, 246, 0.22);
+  box-shadow: 0 0 0.625rem rgba(59, 130, 246, 0.22);
 }
 
 :global(.info-ui) .foodRarityFilter[data-val='SR'][aria-pressed='true'] {
   background: rgba(59, 130, 246, 0.22);
   border-color: rgba(59, 130, 246, 0.75);
   color: #bfdbfe;
-  box-shadow: 0 0 12px rgba(59, 130, 246, 0.35);
+  box-shadow: 0 0 0.75rem rgba(59, 130, 246, 0.35);
 }
 
 :global(.info-ui) .foodRarityFilter[data-val='R'][aria-pressed='false'] {
@@ -461,14 +464,14 @@
   background: rgba(16, 185, 129, 0.15);
   border-color: rgba(16, 185, 129, 0.65);
   color: #a7f3d0;
-  box-shadow: 0 0 10px rgba(16, 185, 129, 0.22);
+  box-shadow: 0 0 0.625rem rgba(16, 185, 129, 0.22);
 }
 
 :global(.info-ui) .foodRarityFilter[data-val='R'][aria-pressed='true'] {
   background: rgba(16, 185, 129, 0.22);
   border-color: rgba(16, 185, 129, 0.75);
   color: #a7f3d0;
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 0.75rem rgba(16, 185, 129, 0.35);
 }
 
 :global(.info-ui) .foodRarityFilter[data-val='N'][aria-pressed='false'] {
@@ -481,19 +484,19 @@
   background: rgba(107, 114, 128, 0.15);
   border-color: rgba(107, 114, 128, 0.65);
   color: #d1d5db;
-  box-shadow: 0 0 10px rgba(107, 114, 128, 0.2);
+  box-shadow: 0 0 0.625rem rgba(107, 114, 128, 0.2);
 }
 
 :global(.info-ui) .foodRarityFilter[data-val='N'][aria-pressed='true'] {
   background: rgba(107, 114, 128, 0.22);
   border-color: rgba(107, 114, 128, 0.75);
   color: #d1d5db;
-  box-shadow: 0 0 12px rgba(107, 114, 128, 0.3);
+  box-shadow: 0 0 0.75rem rgba(107, 114, 128, 0.3);
 }
 
 .dishIcon {
-  width: 52px;
-  height: 52px;
+  width: 3.25rem;
+  height: 3.25rem;
   object-fit: contain;
 }
 
@@ -501,23 +504,23 @@
 .cornerBadgeTL,
 .cornerBadgeTR {
   position: absolute;
-  top: 3px;
-  width: 18px;
-  height: 18px;
-  border-radius: 4px;
+  top: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 0.25rem;
   background: rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
-  backdrop-filter: blur(4px);
+  backdrop-filter: blur(0.25rem);
 }
 
 .cornerBadgeTL {
-  left: 3px;
+  left: 0.1875rem;
 }
 
 .cornerBadgeTR {
-  right: 3px;
+  right: 0.1875rem;
 }
 
 .cornerBadgeHeal {
@@ -526,8 +529,8 @@
 }
 
 .cornerBadgeIcon {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   object-fit: contain;
 }
 
@@ -592,7 +595,7 @@
   gap: 0.375rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 0.2rem 0.5rem 0.2rem 0.25rem;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -646,9 +649,9 @@
 
 .ingredientIconStage {
   position: relative;
-  width: 28px;
-  height: 28px;
-  border-radius: 6px;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 0.375rem;
   background: rgba(0, 0, 0, 0.3);
   display: flex;
   align-items: center;
@@ -656,18 +659,18 @@
 }
 
 .ingredientIcon {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: contain;
 }
 
 .ingredientCountBadge {
   position: absolute;
-  bottom: -2px;
-  right: -2px;
+  bottom: -0.125rem;
+  right: -0.125rem;
   background: #0f172a;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   font-size: 0.625rem;
   font-weight: 700;
   color: #fff;
@@ -695,7 +698,7 @@
   gap: 0.3rem;
   background: rgba(43, 166, 223, 0.1);
   border: 1px solid rgba(43, 166, 223, 0.25);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   padding: 0.2rem 0.5rem;
   font-size: 0.75rem;
   color: #38bdf8;
@@ -714,7 +717,7 @@
   gap: 0.35rem;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   padding: 0.2rem 0.45rem;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
@@ -729,19 +732,19 @@
 }
 
 .usedInIcon {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   object-fit: contain;
 }
 
 /* Food detail modal follows the centered Info detail template used by Relics. */
 .foodDetailOverlay {
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   background: rgba(0, 0, 0, 0.75);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
   z-index: 700 !important;
-  top: 54px !important;
-  height: calc(100dvh - 54px) !important;
+  top: 3.375rem !important;
+  height: calc(100dvh - 3.375rem) !important;
   box-sizing: border-box;
   overflow-y: auto;
 }
@@ -749,8 +752,8 @@
 .foodDetailModal {
   position: relative;
   width: 100%;
-  max-width: 680px;
-  max-height: calc(100dvh - 70px);
+  max-width: 42.5rem;
+  max-height: calc(100dvh - 4.375rem);
   margin: auto;
   min-width: 0;
   overflow-x: hidden;
@@ -758,14 +761,14 @@
   color: #dbe4f0;
   background: rgba(18, 22, 34, 0.96);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.85), 0 0 30px rgba(43, 166, 223, 0.12);
+  border-radius: 1rem;
+  box-shadow: 0 1.5rem 3.75rem rgba(0, 0, 0, 0.85), 0 0 1.875rem rgba(43, 166, 223, 0.12);
 }
 
 .foodModalHeader {
   position: relative;
   display: block;
-  padding: 16px 22px 8px;
+  padding: 1rem 1.375rem 0.5rem;
   background: transparent;
   border: 0;
 }
@@ -776,11 +779,11 @@
 
 .foodModalHeader :global(button[aria-label='Close modal']) {
   position: absolute;
-  top: 12px;
-  right: 12px;
+  top: 0.75rem;
+  right: 0.75rem;
   z-index: 10;
-  width: 34px;
-  height: 34px;
+  width: 2.125rem;
+  height: 2.125rem;
   padding: 0;
   color: #f4f0f6;
   background: rgba(255, 255, 255, 0.08);
@@ -800,7 +803,7 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  gap: 4px;
+  gap: 0.25rem;
   text-align: center;
 }
 
@@ -815,16 +818,16 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 142px;
+  height: 8.875rem;
   margin: 0 auto;
 }
 
 .foodHeroStage {
   position: relative;
-  width: 116px;
-  height: 116px;
+  width: 7.25rem;
+  height: 7.25rem;
   padding: 0;
-  border-radius: 14px;
+  border-radius: 0.875rem;
   cursor: zoom-in;
   transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
@@ -834,10 +837,10 @@
 }
 
 .foodHeroImage {
-  width: 96px;
-  height: 96px;
+  width: 6rem;
+  height: 6rem;
   object-fit: contain;
-  filter: drop-shadow(0 8px 20px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 0.5rem 1.25rem rgba(0, 0, 0, 0.65));
 }
 
 .foodModalTitleWrap {
@@ -845,7 +848,7 @@
   flex-direction: column;
   align-items: center;
   width: 100%;
-  gap: 8px;
+  gap: 0.5rem;
   text-align: center;
 }
 
@@ -854,7 +857,7 @@
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 0.375rem;
   max-width: 100%;
 }
 
@@ -862,11 +865,11 @@
 .foodCopyIdBadge {
   display: inline-flex;
   align-items: center;
-  min-height: 26px;
+  min-height: 1.625rem;
   box-sizing: border-box;
-  padding: 0 7px;
+  padding: 0 0.4375rem;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   font-size: 0.6875rem;
   font-weight: 700;
   line-height: 1;
@@ -887,7 +890,7 @@
 .foodCopyIdBadge {
   gap: 0.25rem;
   padding: 0.15rem 0.5rem;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   color: #94a3b8;
   background: rgba(255, 255, 255, 0.04);
   border-color: rgba(255, 255, 255, 0.1);
@@ -921,14 +924,14 @@
   line-height: 1.25;
   letter-spacing: -0.015em;
   text-align: center;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 0.125rem 0.625rem rgba(0, 0, 0, 0.45);
   max-width: 100%;
   overflow-wrap: anywhere;
 }
 
 .foodModalFlavor {
   width: 100%;
-  max-width: 580px;
+  max-width: 36.25rem;
   margin: 0;
   color: #94a3b8;
   font-size: 0.82rem;
@@ -941,8 +944,8 @@
   display: flex;
   flex: none;
   flex-direction: column;
-  gap: 12px;
-  padding: 0 22px 18px;
+  gap: 0.75rem;
+  padding: 0 1.375rem 1.125rem;
   overflow: visible;
 }
 
@@ -950,26 +953,26 @@
   width: 100%;
   min-width: 0;
   box-sizing: border-box;
-  padding: 13px 18px;
+  padding: 0.8125rem 1.125rem;
   background: rgba(13, 17, 26, 0.65);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .foodModalSectionHeader {
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 
 .foodModalSectionTitle {
   display: inline-flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.3125rem;
   margin: 0;
-  padding: 3px 8px;
+  padding: 0.1875rem 0.5rem;
   color: #c084fc;
   background: rgba(168, 85, 247, 0.14);
   border: 1px solid rgba(168, 85, 247, 0.32);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   font-size: 0.74rem;
   font-weight: 700;
   letter-spacing: 0.04em;
@@ -984,12 +987,12 @@
 .foodModalSectionContent {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 10px 12px;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
   color: #cbd6e7;
   background: rgba(13, 18, 30, 0.5);
   border: 1px solid rgba(111, 137, 174, 0.18);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   min-width: 0;
   overflow-wrap: anywhere;
 }
@@ -1003,18 +1006,18 @@
 .foodModalIngredientsGrid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .foodModalIngredientCard {
   display: flex;
   align-items: center;
   min-width: 0;
-  gap: 12px;
-  padding: 10px 12px;
+  gap: 0.75rem;
+  padding: 0.625rem 0.75rem;
   background: rgba(13, 18, 30, 0.5);
   border: 1px solid rgba(111, 137, 174, 0.18);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
   transition: background 0.15s ease, border-color 0.15s ease;
 }
@@ -1062,32 +1065,32 @@
 @media (max-width: 640px) {
   .foodDetailOverlay {
     align-items: flex-start !important;
-    padding: 8px;
+    padding: 0.5rem;
   }
 
   .foodDetailModal {
-    width: calc(100vw - 16px);
-    max-width: calc(100vw - 16px);
-    max-height: calc(100dvh - 70px);
+    width: calc(100vw - 1rem);
+    max-width: calc(100vw - 1rem);
+    max-height: calc(100dvh - 4.375rem);
   }
 
   .foodModalHeader,
   .foodModalBody {
-    padding-inline: 14px;
+    padding-inline: 0.875rem;
   }
 
   .foodModalArtStage {
-    height: 124px;
+    height: 7.75rem;
   }
 
   .foodHeroStage {
-    width: 104px;
-    height: 104px;
+    width: 6.5rem;
+    height: 6.5rem;
   }
 
   .foodHeroImage {
-    width: 86px;
-    height: 86px;
+    width: 5.375rem;
+    height: 5.375rem;
   }
 
   .foodModalIngredientsGrid {
@@ -1104,18 +1107,18 @@
   }
 
   .foodModalSectionCard {
-    padding: 12px;
+    padding: 0.75rem;
   }
 
   .foodModalSectionContent {
-    padding: 9px 10px;
+    padding: 0.5625rem 0.625rem;
   }
 
   .foodModalIngredientCard {
     width: 100%;
     box-sizing: border-box;
-    gap: 10px;
-    padding: 9px 10px;
+    gap: 0.625rem;
+    padding: 0.5625rem 0.625rem;
   }
 
   .foodModalIngredientName {
@@ -1142,7 +1145,7 @@
   gap: 0.25rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   padding: 0.15rem 0.45rem;
   font-size: 0.75rem;
   color: rgba(255, 255, 255, 0.8);
@@ -1169,8 +1172,8 @@
   transform: scale(1.04);
 }
 .iconBoxButton:focus-visible {
-  outline: 2px solid rgba(56, 189, 248, 0.85);
-  outline-offset: 3px;
+  outline: 0.125rem solid rgba(56, 189, 248, 0.85);
+  outline-offset: 0.1875rem;
 }
 @media (prefers-reduced-motion: reduce) {
   .iconBoxButton { transition: none; }

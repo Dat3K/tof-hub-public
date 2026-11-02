@@ -51,24 +51,24 @@ export function AnalyticsTab({
       {/* KPI Overview Grid */}
       <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
         {/* Total Pulls & SSRs */}
-        <div className="p-4 rounded-[14px] bg-[var(--surface-panel)] border border-white/10">
+        <div className="p-4 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10">
           <span className="text-xs text-[#9ca3af] block mb-1">{t.statTotalPulls}</span>
           <div className="flex items-baseline gap-2">
             <span className="text-2xl font-black text-white font-mono">{analytics.total_pulls}</span>
             <span className="text-xs text-[#f59e0b] font-bold font-mono">({analytics.total_ssr} SSR)</span>
           </div>
-          <span className="text-[11px] text-[#9ca3af] mt-1 block">
+          <span className="text-[0.6875rem] text-[#9ca3af] mt-1 block">
             {t.statSsrRate}: <strong className="text-white font-mono">{fmtPct(analytics.ssr_rate)}</strong>
           </span>
         </div>
 
         {/* Early vs Hard Pity */}
-        <div className="p-4 rounded-[14px] bg-[var(--surface-panel)] border border-white/10">
+        <div className="p-4 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10">
           <span className="text-xs text-[#9ca3af] block mb-1">{t.statEarlyVsHard}</span>
           <div className="text-2xl font-black text-[#a855f7] font-mono">
             {analytics.early_ssr_count} <span className="text-sm text-[#6b7280]">/</span> {analytics.pity_ssr_count}
           </div>
-          <span className="text-[11px] text-[#9ca3af] mt-1 block">
+          <span className="text-[0.6875rem] text-[#9ca3af] mt-1 block">
             {analytics.total_ssr > 0
               ? `${((analytics.early_ssr_count / analytics.total_ssr) * 100).toFixed(0)}% ${localeText(locale)('early')}`
               : '—'}
@@ -76,18 +76,18 @@ export function AnalyticsTab({
         </div>
 
         {/* Intervals (Median & Average) */}
-        <div className="p-4 rounded-[14px] bg-[var(--surface-panel)] border border-white/10">
+        <div className="p-4 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10">
           <span className="text-xs text-[#9ca3af] block mb-1">{t.statMedianInterval}</span>
           <div className="text-2xl font-black text-[#fbbf24] font-mono">
             {analytics.median_ssr_interval > 0 ? analytics.median_ssr_interval : '—'}
           </div>
-          <span className="text-[11px] text-[#9ca3af] mt-1 block">
+          <span className="text-[0.6875rem] text-[#9ca3af] mt-1 block">
             {t.statAvgInterval}: <strong className="text-white font-mono">{analytics.avg_ssr_interval.toFixed(1)}</strong>
           </span>
         </div>
 
         {/* Pure 50/50 Win Rate */}
-        <div className="p-4 rounded-[14px] bg-[var(--surface-panel)] border border-white/10">
+        <div className="p-4 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10">
           <span className="text-xs text-[#9ca3af] block mb-1">{t.statPureWinRate}</span>
           <div
             className="text-2xl font-black font-mono transition-colors duration-300"
@@ -97,14 +97,14 @@ export function AnalyticsTab({
           >
             {fmtPct(analytics.neutral_50_50_rate)}
           </div>
-          <span className="text-[10px] text-[#9ca3af] mt-1 block leading-tight">
+          <span className="text-[0.625rem] text-[#9ca3af] mt-1 block leading-tight">
             {t.statPureWinRateHint}
           </span>
         </div>
       </div>
 
       {/* Interval Distribution Chart & Breakdown */}
-      <div className="p-4 rounded-[14px] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
+      <div className="p-4 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
         <div className="flex items-center justify-between mb-2 pb-2 border-b border-white/5">
           <h3 className="text-base font-bold text-white">
             {t.distributionTitle}
@@ -120,7 +120,7 @@ export function AnalyticsTab({
           </div>
         ) : (
           <div>
-            <div className="mb-1 flex items-center justify-center text-[10px] text-slate-300">
+            <div className="mb-1 flex items-center justify-center text-[0.625rem] text-slate-300">
               <span className="inline-flex items-center gap-1.5">
                 <span className="h-2.5 w-3 rounded-sm bg-[#f5ad3b]" aria-hidden="true" />
                 {t.distributionCount}
@@ -176,7 +176,7 @@ export function AnalyticsTab({
       {/* Currency Yield Breakdown & Matrix 4-Slot Breakdown */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* Currency Yield */}
-        <div className="p-5 rounded-[14px] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
+        <div className="p-5 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
           <h3 className="text-base font-bold text-white mb-3 pb-2 border-b border-white/5">
             {t.statCurrencyBreakdown}
           </h3>
@@ -188,7 +188,7 @@ export function AnalyticsTab({
                   <span className="text-[#9ca3af]">{localeText(locale)('Weapon currency:', 'Оружейная валюта:')}</span>
                   <span className="font-mono font-bold text-white">
                     +{weaponAnalytics.cashback_breakdown.base_currency + weaponAnalytics.cashback_breakdown.extra_duplicate_currency}
-                    <span className="ml-2 text-[10px] font-normal text-[#9ca3af]">
+                    <span className="ml-2 text-[0.625rem] font-normal text-[#9ca3af]">
                       ({localeText(locale)('base')} +{weaponAnalytics.cashback_breakdown.base_currency}, {localeText(locale)('duplicates')} +{weaponAnalytics.cashback_breakdown.extra_duplicate_currency})
                     </span>
                   </span>
@@ -221,7 +221,7 @@ export function AnalyticsTab({
 
         {/* Matrix Slot Distribution */}
         {(activeKind === 'matrix' || isAllBanners) && analytics.matrix_distribution ? (
-          <div className="p-5 rounded-[14px] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
+          <div className="p-5 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
             <h3 className="text-base font-bold text-white mb-3 pb-2 border-b border-white/5">
               {t.slotDistributionTitle}
             </h3>
@@ -236,7 +236,7 @@ export function AnalyticsTab({
                 const count = analytics.matrix_distribution?.[s.slot] ?? 0;
                 return (
                   <div key={s.slot} className="p-3 rounded-lg bg-[var(--surface-inset)] border border-white/5 text-center">
-                    <span className="text-[11px] text-[#9ca3af] block">{s.name}</span>
+                    <span className="text-[0.6875rem] text-[#9ca3af] block">{s.name}</span>
                     <span className="text-xl font-mono font-bold text-[#fbbf24] mt-1 block">
                       {count}x
                     </span>
@@ -258,7 +258,7 @@ export function AnalyticsTab({
             )}
           </div>
         ) : (
-          <div className="p-5 rounded-[14px] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
+          <div className="p-5 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
             <h3 className="text-base font-bold text-white mb-3 pb-2 border-b border-white/5">
               {localeText(locale)('50/50 Outcomes Ratio')}
             </h3>

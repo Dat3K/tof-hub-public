@@ -529,7 +529,7 @@ export function HistoryTab({
                   aria-pressed={viewMode === option.value}
                   className={`relative flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold transition-all ${
                     viewMode === option.value
-                      ? 'z-10 bg-[#fbbf24] text-black ring-2 ring-amber-100 shadow-[0_0_0_2px_#07090f,0_0_12px_rgba(251,191,36,0.35)]'
+                      ? 'z-10 bg-[#fbbf24] text-black ring-2 ring-amber-100 shadow-[0_0_0_0.125rem_#07090f,0_0_0.75rem_rgba(251,191,36,0.35)]'
                       : 'text-[#9ca3af] hover:bg-white/[0.06] hover:text-white'
                   }`}
                 >
@@ -549,7 +549,7 @@ export function HistoryTab({
                   aria-pressed={filters.rarity === r}
                   className={`w-8 h-8 rounded-full text-xs font-black transition-all flex items-center justify-center ${
                     filters.rarity === r
-                      ? 'bg-[#fbbf24] text-black shadow-[0_0_0_1px_#fde68a,0_0_10px_rgba(251,191,36,0.25)]'
+                      ? 'bg-[#fbbf24] text-black shadow-[0_0_0_1px_#fde68a,0_0_0.625rem_rgba(251,191,36,0.25)]'
                       : 'bg-[var(--surface-panel)] text-[#9ca3af] hover:bg-[#202534] hover:text-white border border-white/5'
                   }`}
                 >
@@ -579,13 +579,13 @@ export function HistoryTab({
             placement="top"
             portal
             delayMs={120}
-            className="!max-w-64 !whitespace-normal !rounded-lg !border-emerald-400/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_18px_rgba(16,185,129,0.12)]"
+            className="!max-w-64 !whitespace-normal !rounded-lg !border-emerald-400/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_0.75rem_2.25rem_rgba(0,0,0,0.65),0_0_1.125rem_rgba(16,185,129,0.12)]"
             content={(
               <div className="flex items-start gap-2.5">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-emerald-300/20 bg-emerald-300/10 text-[9px] font-black text-emerald-200">CSV</span>
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-emerald-300/20 bg-emerald-300/10 text-[0.5625rem] font-black text-emerald-200">CSV</span>
                 <span className="min-w-0">
-                  <span className="block text-[11px] font-bold text-white">Excel</span>
-                  <span className="mt-0.5 block text-[10px] leading-relaxed text-slate-300">{t.exportExcelTitle}</span>
+                  <span className="block text-[0.6875rem] font-bold text-white">Excel</span>
+                  <span className="mt-0.5 block text-[0.625rem] leading-relaxed text-slate-300">{t.exportExcelTitle}</span>
                 </span>
               </div>
             )}
@@ -596,13 +596,13 @@ export function HistoryTab({
             placement="top"
             portal
             delayMs={120}
-            className="!max-w-64 !whitespace-normal !rounded-lg !border-sky-400/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_18px_rgba(56,189,248,0.12)]"
+            className="!max-w-64 !whitespace-normal !rounded-lg !border-sky-400/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_0.75rem_2.25rem_rgba(0,0,0,0.65),0_0_1.125rem_rgba(56,189,248,0.12)]"
             content={(
               <div className="flex items-start gap-2.5">
-                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-sky-300/20 bg-sky-300/10 text-[9px] font-black text-sky-200">JSON</span>
+                <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-md border border-sky-300/20 bg-sky-300/10 text-[0.5625rem] font-black text-sky-200">JSON</span>
                 <span className="min-w-0">
-                  <span className="block text-[11px] font-bold text-white">JSON</span>
-                  <span className="mt-0.5 block text-[10px] leading-relaxed text-slate-300">{t.exportJsonTitle}</span>
+                  <span className="block text-[0.6875rem] font-bold text-white">JSON</span>
+                  <span className="mt-0.5 block text-[0.625rem] leading-relaxed text-slate-300">{t.exportJsonTitle}</span>
                 </span>
               </div>
             )}
@@ -659,7 +659,7 @@ export function HistoryTab({
                   <span>{group.dateLabel}</span>
                 </span>
                 <div className="flex shrink-0 items-center gap-2">
-                  <span className="text-[11px] text-[#6b7280]">
+                  <span className="text-[0.6875rem] text-[#6b7280]">
                     {group.items.length} {localeText(locale)('pulls')}
                   </span>
                   <button
@@ -701,7 +701,7 @@ export function HistoryTab({
 
                   // Token ring color by rarity
                   const ringClass = isFeaturedEvent
-                    ? 'border-2 border-amber-300/85 bg-[#1b1713] shadow-[0_0_8px_rgba(241,181,80,0.16)]'
+                    ? 'border-2 border-amber-300/85 bg-[#1b1713] shadow-[0_0_0.5rem_rgba(241,181,80,0.16)]'
                     : isSSR
                     ? 'border border-amber-200/55 bg-[#191817]'
                     : isSR
@@ -723,30 +723,30 @@ export function HistoryTab({
 
                   return (
                     <React.Fragment key={record.id}>
-                    {gapsBefore.has(record.id) && <div className="flex min-h-16 max-w-36 items-center px-2 text-[11px] text-slate-400" role="note">
+                    {gapsBefore.has(record.id) && <div className="flex min-h-16 max-w-36 items-center px-2 text-[0.6875rem] text-slate-400" role="note">
                       {localeText(locale)(`Missing: ${gapsBefore.get(record.id)} pulls`, `Пропуск: ${gapsBefore.get(record.id)} круток`)}
                     </div>}
                     <Tooltip
                       placement="top"
                       open={pinnedTooltipRecordId ? pinnedTooltipRecordId === record.id : undefined}
                       interactive={pinnedTooltipRecordId === record.id}
-                      className="w-64 !whitespace-normal !border-amber-300/30 !bg-[var(--surface-panel)] !shadow-[0_12px_36px_rgba(0,0,0,0.7),0_0_18px_rgba(245,190,90,0.12)]"
+                      className="w-64 !whitespace-normal !border-amber-300/30 !bg-[var(--surface-panel)] !shadow-[0_0.75rem_2.25rem_rgba(0,0,0,0.7),0_0_1.125rem_rgba(245,190,90,0.12)]"
                       content={(
                         <div className="space-y-1.5 whitespace-normal">
                           <div className="flex items-start justify-between gap-3 border-b border-white/10 pb-1.5">
-                            <p className="min-w-0 text-[10px] font-bold uppercase leading-snug tracking-wide text-sky-300">{bannerName}</p>
-                            <span className="shrink-0 rounded border border-white/10 bg-white/[0.05] px-1.5 py-0.5 font-mono text-[9px] text-slate-300">#{formatWishPosition(pullNumber)}</span>
+                            <p className="min-w-0 text-[0.625rem] font-bold uppercase leading-snug tracking-wide text-sky-300">{bannerName}</p>
+                            <span className="shrink-0 rounded border border-white/10 bg-white/[0.05] px-1.5 py-0.5 font-mono text-[0.5625rem] text-slate-300">#{formatWishPosition(pullNumber)}</span>
                           </div>
                           <p className="text-sm font-semibold leading-snug text-white">{media.displayName}</p>
-                          <div className="flex flex-wrap items-center gap-1.5 text-[10px]">
+                          <div className="flex flex-wrap items-center gap-1.5 text-[0.625rem]">
                             <span className={`rounded border px-1.5 py-0.5 font-bold ${isSSR ? 'border-amber-300/25 bg-amber-300/10 text-amber-200' : isSR ? 'border-violet-300/25 bg-violet-300/10 text-violet-200' : 'border-slate-300/15 bg-slate-300/5 text-slate-300'}`}>
                               {isSSR ? '5★ SSR' : isSR ? '4★ SR' : rarity === 3 ? '3★ R' : '—'}
                             </span>
                             {isFeaturedEvent && <span className="rounded border border-amber-300/25 bg-amber-300/10 px-1.5 py-0.5 font-semibold text-amber-200">{localeText(locale)('Featured item')}</span>}
                             {isHardPity && <span className="rounded border border-orange-300/25 bg-orange-300/10 px-1.5 py-0.5 font-semibold text-orange-200">{t.modalGuaranteed}</span>}
                           </div>
-                          <p className="text-[10px] text-white/65">{t.bannerDropDate} {formatPullDate(record.pull_timestamp, locale)}</p>
-                          <div className="flex items-center justify-between border-t border-white/10 pt-1.5 text-[10px]">
+                          <p className="text-[0.625rem] text-white/65">{t.bannerDropDate} {formatPullDate(record.pull_timestamp, locale)}</p>
+                          <div className="flex items-center justify-between border-t border-white/10 pt-1.5 text-[0.625rem]">
                             {showOutcome ? <span className={`font-bold ${outcome === 'win' ? 'text-emerald-300' : 'text-rose-300'}`}>{outcome === 'win' ? localeText(locale)('WIN') : localeText(locale)('LOSS')}</span> : <span className="text-white/50">{record.item_type === 'matrix' ? (localeText(locale)('Matrix')) : (localeText(locale)('Weapon', 'Оружие'))}</span>}
                             <span className="font-mono text-slate-300">{formatWishPosition(record.pity_count)} {t.pullDistance}</span>
                           </div>
@@ -775,7 +775,7 @@ export function HistoryTab({
 
                       {/* A star marks the featured item, independently of the pity guarantee. */}
                       {isFeaturedEvent && (
-                        <div className="absolute -top-1 -left-1 w-4 h-4 rounded-full border border-amber-200/70 bg-[#b98526] text-[#17120a] flex items-center justify-center text-[10px] font-black leading-none">
+                        <div className="absolute -top-1 -left-1 w-4 h-4 rounded-full border border-amber-200/70 bg-[#b98526] text-[#17120a] flex items-center justify-center text-[0.625rem] font-black leading-none">
                           ★
                         </div>
                       )}
@@ -790,7 +790,7 @@ export function HistoryTab({
                       )}
 
                       {/* Bottom-Right: Pity number pill */}
-                      <div className={`absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-full text-[9px] leading-none ${pityBadgeClass}`}>
+                      <div className={`absolute -bottom-1 -right-1 px-1.5 py-0.5 rounded-full text-[0.5625rem] leading-none ${pityBadgeClass}`}>
                         {formatWishPosition(record.pity_count)}
                       </div>
                     </div>
@@ -838,13 +838,13 @@ export function HistoryTab({
               return (
                 <li key={record.id ?? i} className="min-w-0 px-3 py-2.5">
                   <div className="flex min-w-0 items-center justify-between gap-2">
-                    <span className="shrink-0 font-mono text-[10px] font-bold text-amber-200">#{i + 1}</span>
-                    <time className="min-w-0 truncate text-right font-mono text-[10px] text-slate-400">
+                    <span className="shrink-0 font-mono text-[0.625rem] font-bold text-amber-200">#{i + 1}</span>
+                    <time className="min-w-0 truncate text-right font-mono text-[0.625rem] text-slate-400">
                       {record.pull_timestamp.slice(0, 19).replace('T', ' ')}
                     </time>
                   </div>
 
-                  <div className="mt-1 flex min-w-0 items-center gap-1.5 text-[10px] text-slate-500">
+                  <div className="mt-1 flex min-w-0 items-center gap-1.5 text-[0.625rem] text-slate-500">
                     {bannerObj?.assets.icon && <img src={bannerObj.assets.icon} alt="" className="h-3.5 w-3.5 shrink-0 rounded-full object-cover" />}
                     <span className="truncate">{bannerName}</span>
                   </div>
@@ -861,26 +861,26 @@ export function HistoryTab({
                     {slotVisual && <img src={slotVisual.image} alt={slotVisual.label} title={slotVisual.label} className="h-4 w-4 shrink-0 object-contain" />}
                     <div className="min-w-0 flex-1">
                       <div className="break-words text-xs font-semibold leading-snug text-white">{media.primaryName}</div>
-                      {media.secondaryName && <div className="mt-0.5 truncate text-[10px] text-slate-500">{media.secondaryName}</div>}
+                      {media.secondaryName && <div className="mt-0.5 truncate text-[0.625rem] text-slate-500">{media.secondaryName}</div>}
                     </div>
                   </div>
 
                   <div className="mt-2 flex min-w-0 flex-wrap items-center gap-1.5">
-                    <span className={`rounded border px-1.5 py-0.5 font-mono text-[9px] font-bold ${rarityClass}`}>
+                    <span className={`rounded border px-1.5 py-0.5 font-mono text-[0.5625rem] font-bold ${rarityClass}`}>
                       {isSSR ? '5★ SSR' : isSR ? '4★ SR' : rarity === 3 ? '3★ R' : '—'}
                     </span>
-                    <span className="rounded border border-white/10 bg-white/[0.03] px-1.5 py-0.5 font-mono text-[9px] text-slate-300">
+                    <span className="rounded border border-white/10 bg-white/[0.03] px-1.5 py-0.5 font-mono text-[0.5625rem] text-slate-300">
                       {isBlackNucleus ? `#${formatWishPosition(record.pity_count)}` : `${formatWishPosition(record.pity_count)}/${cycleMax}`}
                       {record.is_guaranteed_pity && <span className="ml-1 text-amber-200">★ {t.hardPityBadge}</span>}
                     </span>
                     {showOutcome ? (
-                      <span className={`rounded border px-1.5 py-0.5 font-mono text-[9px] font-black ${outcome === 'win' ? 'border-emerald-300/25 bg-emerald-300/10 text-emerald-300' : 'border-rose-300/25 bg-rose-300/10 text-rose-300'}`}>
+                      <span className={`rounded border px-1.5 py-0.5 font-mono text-[0.5625rem] font-black ${outcome === 'win' ? 'border-emerald-300/25 bg-emerald-300/10 text-emerald-300' : 'border-rose-300/25 bg-rose-300/10 text-rose-300'}`}>
                         {outcome === 'win' ? localeText(locale)('WIN') : localeText(locale)('LOSS')}
                       </span>
                     ) : (isStandard || isBlackNucleus) && isSSR ? (
-                      <span className="rounded border border-white/10 bg-white/[0.04] px-1.5 py-0.5 font-mono text-[9px] font-bold text-slate-400">{localeText(locale)('STD')}</span>
+                      <span className="rounded border border-white/10 bg-white/[0.04] px-1.5 py-0.5 font-mono text-[0.5625rem] font-bold text-slate-400">{localeText(locale)('STD')}</span>
                     ) : null}
-                    {record.compensation && <span className="ml-auto whitespace-nowrap font-mono text-[10px] font-bold text-amber-200">+{record.compensation.amount} {currencyUnit}</span>}
+                    {record.compensation && <span className="ml-auto whitespace-nowrap font-mono text-[0.625rem] font-bold text-amber-200">+{record.compensation.amount} {currencyUnit}</span>}
                   </div>
                 </li>
               );
@@ -891,7 +891,7 @@ export function HistoryTab({
 
       {viewMode === 'table' && (
         <div className="hidden w-full overflow-x-auto rounded-xl border border-white/10 bg-[var(--surface-inset)]/90 md:block">
-          <table className="w-full min-w-[980px] table-fixed text-left text-xs text-[#d7d0dd]">
+          <table className="w-full min-w-[61.25rem] table-fixed text-left text-xs text-[#d7d0dd]">
             <colgroup>
               <col style={{ width: '4%' }} />
               <col style={{ width: '15%' }} />
@@ -902,7 +902,7 @@ export function HistoryTab({
               <col style={{ width: '11%' }} />
               <col style={{ width: '12%' }} />
             </colgroup>
-            <thead className="bg-[var(--surface-inset)] border-b border-white/10 text-[11px] font-mono text-[#9ca3af] uppercase">
+            <thead className="bg-[var(--surface-inset)] border-b border-white/10 text-[0.6875rem] font-mono text-[#9ca3af] uppercase">
               <tr>
                 <th className="py-3 px-3">#</th>
                 <th className="py-3 px-3">{t.thDate}</th>
@@ -937,13 +937,13 @@ export function HistoryTab({
                     {/* Pull Number */}
                     <td className="py-2.5 px-3 font-mono font-bold text-white">
                       #{formatWishPosition(pullNumber)}
-                      {gapsBefore.has(record.id) && <span className="block text-[10px] font-normal text-slate-400">
+                      {gapsBefore.has(record.id) && <span className="block text-[0.625rem] font-normal text-slate-400">
                         {localeText(locale)(`Missing: ${gapsBefore.get(record.id)} pulls`, `Пропуск: ${gapsBefore.get(record.id)} круток`)}
                       </span>}
                     </td>
 
                     {/* Date & Time */}
-                    <td className="py-2.5 px-3 font-mono text-[#9ca3af] text-[11px] whitespace-nowrap">
+                    <td className="py-2.5 px-3 font-mono text-[#9ca3af] text-[0.6875rem] whitespace-nowrap">
                       {record.pull_timestamp.slice(0, 19).replace('T', ' ')}
                     </td>
 
@@ -983,7 +983,7 @@ export function HistoryTab({
                         <div className="flex min-w-0 items-center gap-1.5 flex-wrap">
                           <span className="break-words font-semibold text-white">{media.primaryName}</span>
                           {media.secondaryName && (
-                            <span className="text-[11px] text-[#9ca3af] font-normal">
+                            <span className="text-[0.6875rem] text-[#9ca3af] font-normal">
                               • {media.secondaryName}
                             </span>
                           )}
@@ -993,7 +993,7 @@ export function HistoryTab({
 
                     {/* Rarity */}
                     <td className="py-2.5 px-3 font-mono">
-                      <span className={`inline-block px-1.5 py-0.5 rounded text-[10px] font-black font-mono ${
+                      <span className={`inline-block px-1.5 py-0.5 rounded text-[0.625rem] font-black font-mono ${
                         isSSR
                           ? 'bg-[#fbbf24]/20 text-[#fbbf24] border border-[#fbbf24]/40'
                           : isSR
@@ -1011,14 +1011,14 @@ export function HistoryTab({
                       ) : record.is_guaranteed_pity ? (
                         <span className="inline-flex items-center gap-1 font-bold text-[#fbbf24]">
                           <span>{formatWishPosition(record.pity_count)} / {cycleMax}</span>
-                          <span className="text-[10px] px-1 py-0.5 rounded bg-[#fbbf24]/20 border border-[#fbbf24]/40">
+                          <span className="text-[0.625rem] px-1 py-0.5 rounded bg-[#fbbf24]/20 border border-[#fbbf24]/40">
                             ★ {t.hardPityBadge}
                           </span>
                         </span>
                       ) : isSSR ? (
                         <span className="inline-flex items-center gap-1 font-bold text-[#c084fc]">
                           <span>{formatWishPosition(record.pity_count)} / {cycleMax}</span>
-                          <span className="text-[10px] px-1 py-0.5 rounded bg-[#a855f7]/20 border border-[#a855f7]/40">
+                          <span className="text-[0.625rem] px-1 py-0.5 rounded bg-[#a855f7]/20 border border-[#a855f7]/40">
                             {t.earlyPityBadge}
                           </span>
                         </span>
@@ -1033,19 +1033,19 @@ export function HistoryTab({
                     <td className="py-2.5 px-3">
                       {isStandard || isBlackNucleus ? (
                         isSSR ? (
-                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase bg-white/10 text-[#d1d5db] border border-white/20">
+                          <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[0.625rem] font-mono font-bold uppercase bg-white/10 text-[#d1d5db] border border-white/20">
                             {localeText(locale)('STD')}
                           </span>
                         ) : (
                           <span className="text-[#4b5563] font-mono select-none">—</span>
                         )
                       ) : record.streak_outcome === 'win' || (isSSR && record.is_featured) ? (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-black tracking-wider uppercase bg-[#10b981]/20 text-[#10b981] border border-[#10b981]/40 shadow-[0_0_8px_rgba(16,185,129,0.2)]">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[0.625rem] font-mono font-black tracking-wider uppercase bg-[#10b981]/20 text-[#10b981] border border-[#10b981]/40 shadow-[0_0_0.5rem_rgba(16,185,129,0.2)]">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
                           {localeText(locale)('WIN')}
                         </span>
                       ) : record.streak_outcome === 'loss' || (isSSR && !record.is_featured) ? (
-                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[10px] font-mono font-black tracking-wider uppercase bg-[#ef4444]/20 text-[#ef4444] border border-[#ef4444]/40 shadow-[0_0_8px_rgba(239,68,68,0.2)]">
+                        <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded text-[0.625rem] font-mono font-black tracking-wider uppercase bg-[#ef4444]/20 text-[#ef4444] border border-[#ef4444]/40 shadow-[0_0_0.5rem_rgba(239,68,68,0.2)]">
                           <span className="w-1.5 h-1.5 rounded-full bg-[#ef4444]" />
                           {localeText(locale)('LOSS')}
                         </span>
@@ -1068,7 +1068,7 @@ export function HistoryTab({
                           placement="top"
                           portal
                           delayMs={120}
-                          className="!max-w-64 !whitespace-normal !rounded-lg !border-sky-300/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_18px_rgba(56,189,248,0.12)]"
+                          className="!max-w-64 !whitespace-normal !rounded-lg !border-sky-300/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_0.75rem_2.25rem_rgba(0,0,0,0.65),0_0_1.125rem_rgba(56,189,248,0.12)]"
                           content={(
                             <div className="flex items-center gap-2.5">
                               {mediaMap?.byKey['weapon_exp_r']?.image ? (
@@ -1082,7 +1082,7 @@ export function HistoryTab({
                             </div>
                           )}
                         >
-                          <span tabIndex={0} className="flex items-center gap-1.5 text-sky-300 font-bold text-[11px]">
+                          <span tabIndex={0} className="flex items-center gap-1.5 text-sky-300 font-bold text-[0.6875rem]">
                             {mediaMap?.byKey['weapon_exp_r']?.image ? (
                               <img
                                 src={mediaMap.byKey['weapon_exp_r'].image}
@@ -1121,7 +1121,7 @@ export function HistoryTab({
                               placement="top"
                               portal
                               delayMs={120}
-                              className="!max-w-64 !whitespace-normal !rounded-lg !border-amber-300/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_12px_36px_rgba(0,0,0,0.65),0_0_18px_rgba(251,191,36,0.12)]"
+                              className="!max-w-64 !whitespace-normal !rounded-lg !border-amber-300/25 !bg-[var(--surface-panel)] !px-3 !py-2.5 !shadow-[0_0.75rem_2.25rem_rgba(0,0,0,0.65),0_0_1.125rem_rgba(251,191,36,0.12)]"
                               content={(
                                 <div className="flex items-center gap-2.5">
                                   {compImg && (
@@ -1131,12 +1131,12 @@ export function HistoryTab({
                                   )}
                                   <span className="min-w-0">
                                     <span className="block text-xs font-bold text-white">{currencyName}</span>
-                                    <span className="mt-0.5 block text-[10px] font-medium text-amber-200/80">{t.cashbackLabel} +{record.compensation.amount} {unitLabel}</span>
+                                    <span className="mt-0.5 block text-[0.625rem] font-medium text-amber-200/80">{t.cashbackLabel} +{record.compensation.amount} {unitLabel}</span>
                                   </span>
                                 </div>
                               )}
                             >
-                              <span tabIndex={0} className="flex items-center gap-1.5 text-[11px] text-[#fbbf24]">
+                              <span tabIndex={0} className="flex items-center gap-1.5 text-[0.6875rem] text-[#fbbf24]">
                                 {compImg && <img src={compImg} alt="" className="inline-block h-4 w-4 shrink-0 object-contain" />}
                                 <span>+{record.compensation.amount} {unitLabel}</span>
                               </span>

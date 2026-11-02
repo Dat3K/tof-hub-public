@@ -23,7 +23,7 @@ export function CatalogCounter({
       id={id}
       className={[
         'sim-status-count',
-        'text-[12.8px] text-[#9ca3af] mr-auto inline-flex items-center gap-1 font-sans',
+        'text-[0.8rem] text-[#9ca3af] mr-auto inline-flex items-center gap-1 font-sans',
         'select-none [[data-text-selectable]_&]:select-text',
         className,
       ]

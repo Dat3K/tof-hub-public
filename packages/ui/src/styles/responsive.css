@@ -1,0 +1,47 @@
+/* Full HD is the reference composition. Relative lengths grow together on
+   larger desktops; short windows keep the readable base and use normal reflow.
+   Browser zoom and pointer coordinates remain native CSS pixels. */
+:root {
+  --ui-root-size: clamp(16px, min(.8333333333vw, calc(16px + (100dvh - 900px) * .0148148148)), 32px);
+  --ui-unit: .0625rem;
+  --layout-wide: 90rem;
+  --layout-gallery: 100rem;
+  --layout-ranking: 80rem;
+  --layout-scene: 95rem;
+  --ui-text-xs: .6875rem;
+  --ui-text-sm: .75rem;
+  --ui-text-body: .8125rem;
+  --ui-text-title: 1.625rem;
+}
+html { font-size: var(--ui-root-size); }
+/* Intrinsic small icons follow the same scale when a component has no size
+   class. Zero specificity lets component CSS and utility classes take priority.
+   Source canvases inherit their own 1px unit. New icons should use rem classes. */
+:where(svg[viewBox][width="8"],img[width="8"]) {width:calc(8 * var(--ui-unit))}
+:where(svg[viewBox][height="8"],img[height="8"]) {height:calc(8 * var(--ui-unit))}
+:where(svg[viewBox][width="10"],img[width="10"]) {width:calc(10 * var(--ui-unit))}
+:where(svg[viewBox][height="10"],img[height="10"]) {height:calc(10 * var(--ui-unit))}
+:where(svg[viewBox][width="12"],img[width="12"]) {width:calc(12 * var(--ui-unit))}
+:where(svg[viewBox][height="12"],img[height="12"]) {height:calc(12 * var(--ui-unit))}
+:where(svg[viewBox][width="14"],img[width="14"]) {width:calc(14 * var(--ui-unit))}
+:where(svg[viewBox][height="14"],img[height="14"]) {height:calc(14 * var(--ui-unit))}
+:where(svg[viewBox][width="15"],img[width="15"]) {width:calc(15 * var(--ui-unit))}
+:where(svg[viewBox][height="15"],img[height="15"]) {height:calc(15 * var(--ui-unit))}
+:where(svg[viewBox][width="16"],img[width="16"]) {width:calc(16 * var(--ui-unit))}
+:where(svg[viewBox][height="16"],img[height="16"]) {height:calc(16 * var(--ui-unit))}
+:where(svg[viewBox][width="18"],img[width="18"]) {width:calc(18 * var(--ui-unit))}
+:where(svg[viewBox][height="18"],img[height="18"]) {height:calc(18 * var(--ui-unit))}
+:where(svg[viewBox][width="20"],img[width="20"]) {width:calc(20 * var(--ui-unit))}
+:where(svg[viewBox][height="20"],img[height="20"]) {height:calc(20 * var(--ui-unit))}
+:where(svg[viewBox][width="22"],img[width="22"]) {width:calc(22 * var(--ui-unit))}
+:where(svg[viewBox][height="22"],img[height="22"]) {height:calc(22 * var(--ui-unit))}
+:where(svg[viewBox][width="24"],img[width="24"]) {width:calc(24 * var(--ui-unit))}
+:where(svg[viewBox][height="24"],img[height="24"]) {height:calc(24 * var(--ui-unit))}
+:where(svg[viewBox][width="28"],img[width="28"]) {width:calc(28 * var(--ui-unit))}
+:where(svg[viewBox][height="28"],img[height="28"]) {height:calc(28 * var(--ui-unit))}
+:where(svg[viewBox][width="32"],img[width="32"]) {width:calc(32 * var(--ui-unit))}
+:where(svg[viewBox][height="32"],img[height="32"]) {height:calc(32 * var(--ui-unit))}
+/* A phone changes composition rather than reducing text and touch targets. */
+@media (max-width: 1023px), (max-width: 1366px) and (pointer: coarse) {
+  :root { --ui-root-size: 16px; }
+}

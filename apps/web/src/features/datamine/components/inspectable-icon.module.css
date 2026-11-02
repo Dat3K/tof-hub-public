@@ -1,6 +1,6 @@
 .action { position: relative; display: inline-flex; align-items: center; justify-content: center; flex: none; padding: 0; border: 0; background: transparent; color: inherit; cursor: zoom-in; }
-.action::after { content: ''; position: absolute; inset: -3px; }
+.action::after { content: ''; position: absolute; inset: -0.1875rem; }
 .action:disabled { cursor: default; }
-.action:focus-visible { outline: 2px solid var(--tool-input-focus); outline-offset: 3px; border-radius: 3px; }
+.action:focus-visible { outline: 0.125rem solid var(--tool-input-focus); outline-offset: 0.1875rem; border-radius: 0.1875rem; }
 
 .action img { display: block; object-fit: contain; }

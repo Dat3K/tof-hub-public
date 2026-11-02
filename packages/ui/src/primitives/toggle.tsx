@@ -60,10 +60,10 @@ export const Toggle: React.FC<ToggleProps> = ({
 
   // Colors when active
   const activeColorMap = {
-    cyan: 'bg-[#2ba6df] shadow-[0_0_10px_rgba(43,166,223,0.4)]',
-    amber: 'bg-[#f59e0b] shadow-[0_0_10px_rgba(245,158,11,0.4)]',
-    emerald: 'bg-[#10b981] shadow-[0_0_10px_rgba(16,185,129,0.4)]',
-    purple: 'bg-[#a855f7] shadow-[0_0_10px_rgba(168,85,247,0.4)]',
+    cyan: 'bg-[#2ba6df] shadow-[0_0_0.625rem_rgba(43,166,223,0.4)]',
+    amber: 'bg-[#f59e0b] shadow-[0_0_0.625rem_rgba(245,158,11,0.4)]',
+    emerald: 'bg-[#10b981] shadow-[0_0_0.625rem_rgba(16,185,129,0.4)]',
+    purple: 'bg-[#a855f7] shadow-[0_0_0.625rem_rgba(168,85,247,0.4)]',
   }[color];
 
   return (

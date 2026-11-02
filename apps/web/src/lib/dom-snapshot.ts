@@ -34,7 +34,7 @@ export function loadDomSnapshot(): Promise<SnapshotLibrary> {
   return vendorPromise;
 }
 
-export function carryOverInheritedCustomProperties(source: HTMLElement, clone: HTMLElement): void {
+export function carryOverInheritedCustomProperties(source: HTMLElement, clone: HTMLElement, options: {remSize?: number} = {}): void {
   const carried = new Map<string, string>();
   const computed = window.getComputedStyle(source);
   for (let i = 0; i < computed.length; i++) {
@@ -50,7 +50,13 @@ export function carryOverInheritedCustomProperties(source: HTMLElement, clone: H
     }
     ancestor = ancestor.parentElement;
   }
-  for (const [name, value] of carried) clone.style.setProperty(name, value);
+  for (const [name, value] of carried) {
+    // Fixed export compositions resolve theme tokens against their source root,
+    // while preserving quoted content and asset URLs verbatim.
+    const fixed = options.remSize === undefined ? value : value.replace(/url\([^)]*\)|"[^"]*"|'[^']*'|(-?(?:\d*\.)?\d+)rem\b/g,
+      (match: string, amount: string | undefined) => amount === undefined ? match : `${Number((Number(amount) * options.remSize!).toFixed(6))}px`);
+    clone.style.setProperty(name, fixed);
+  }
 }
 
 export async function waitForDomSnapshotAssets(root: HTMLElement, options: {freezeAnimations?: boolean} = {}): Promise<void> {

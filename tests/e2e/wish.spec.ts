@@ -201,6 +201,9 @@ test.describe('Special Orders Wish Tracker (/tools/wish)', () => {
   });
 
   test('downloads the selected banner as a full-resolution PNG', async ({ page }) => {
+    const heights:number[]=[];
+    for(const viewport of [{width:1280,height:900},{width:3840,height:2160}]){
+    await page.setViewportSize(viewport);
     await page.goto('/tools/wish/?profileId=full-history-demo&bannerId=weapon-zoey');
     const button = page.getByRole('button', { name: /Download banner PNG|Скачать баннер PNG/ });
     await expect(button).toBeEnabled();
@@ -214,6 +217,9 @@ test.describe('Special Orders Wish Tracker (/tools/wish)', () => {
     expect(png.subarray(0, 8).toString('hex')).toBe('89504e470d0a1a0a');
     expect(png.readUInt32BE(16)).toBe(2432);
     expect(png.readUInt32BE(20)).toBeGreaterThan(1000);
+    heights.push(png.readUInt32BE(20));
+    }
+    expect(heights[1]).toBe(heights[0]);
   });
 
   test('collapses the live banner while keeping full-card export available', async ({ page }) => {

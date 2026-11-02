@@ -15,12 +15,12 @@ export function ToolInfoModal({ isOpen, onClose, eyebrow, title, intro, closeLab
       size="xl"
       appearance="table"
       overlayClassName="z-[70] items-start px-3 pt-[calc(env(safe-area-inset-top)+4.5rem)] pb-3 sm:items-center sm:p-4"
-      className="max-w-4xl shadow-[0_24px_80px_rgba(0,0,0,.72)] sm:translate-y-4"
+      className="max-w-4xl shadow-[0_1.5rem_5rem_rgba(0,0,0,.72)] sm:translate-y-4"
     >
       {/* Compact plain header (2026-10-08): no gradient, smaller title and spacing. */}
       <ModalHeader className="border-b border-white/[0.08] px-5 py-3 sm:px-6">
         <div className="min-w-0">
-          <div className="text-[10px] font-bold uppercase tracking-[.18em] text-amber-300">{eyebrow}</div>
+          <div className="text-[0.625rem] font-bold uppercase tracking-[.18em] text-amber-300">{eyebrow}</div>
           <ModalTitle className="text-base font-bold tracking-tight text-[#f6f3ed]">{title}</ModalTitle>
           {intro && <p className="mt-0.5 max-w-3xl text-xs leading-snug text-slate-400">{intro}</p>}
         </div>
@@ -66,7 +66,7 @@ export function InfoDisclosure({ title, children, className = '' }: { title: Rea
 export function RulePoint({ title, text }: { title: React.ReactNode; text: React.ReactNode }) {
   return (
     <li className="flex gap-2.5">
-      <span aria-hidden="true" className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
+      <span aria-hidden="true" className="mt-[0.3125rem] h-1.5 w-1.5 shrink-0 rounded-full bg-amber-300" />
       <p><strong className="font-semibold text-slate-200">{title}</strong> {text}</p>
     </li>
   );
@@ -82,7 +82,7 @@ export function InfoNote({ label, children, tone = 'amber' }: { label?: string; 
  * value on one line, the explanation under it; rows are divided by thin lines.
  */
 export function InfoRows({ children, className = '' }: { children: React.ReactNode; className?: string }) {
-  return <div className={`mt-3 divide-y divide-white/[0.06] overflow-hidden rounded-[10px] border border-white/[0.08] bg-black/20 ${className}`}>{children}</div>;
+  return <div className={`mt-3 divide-y divide-white/[0.06] overflow-hidden rounded-[0.625rem] border border-white/[0.08] bg-black/20 ${className}`}>{children}</div>;
 }
 
 export function InfoRow({ title, formula, value, valueClassName = 'text-slate-100', children }: {
@@ -91,8 +91,8 @@ export function InfoRow({ title, formula, value, valueClassName = 'text-slate-10
   return (
     <div className="px-3.5 py-2.5">
       <div className="flex flex-wrap items-baseline justify-between gap-x-3.5 gap-y-1">
-        <b className="text-[13px] font-semibold text-slate-200">{title}</b>
-        {formula && <code className="rounded-[5px] bg-black/30 px-1.5 py-0.5 font-mono text-[11.5px] leading-snug text-[#f8e7b0]">{formula}</code>}
+        <b className="text-[0.8125rem] font-semibold text-slate-200">{title}</b>
+        {formula && <code className="rounded-[0.3125rem] bg-black/30 px-1.5 py-0.5 font-mono text-[0.71875rem] leading-snug text-[#f8e7b0]">{formula}</code>}
         {value !== undefined && <span className={`font-mono text-sm font-bold ${valueClassName}`}>{value}</span>}
       </div>
       {children && <p className="mt-1 text-xs leading-relaxed text-slate-400">{children}</p>}

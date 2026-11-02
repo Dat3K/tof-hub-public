@@ -101,7 +101,7 @@ export function TallyPityDistributionChart({
           </div>
 
           {/* Scale mode toggle */}
-          <div className="flex items-center rounded-lg bg-black/40 p-0.5 border border-white/10 text-[11px] font-semibold">
+          <div className="flex items-center rounded-lg bg-black/40 p-0.5 border border-white/10 text-[0.6875rem] font-semibold">
             <button
               onClick={() => setScaleMode('sqrt')}
               className={`px-2.5 py-1 rounded-md transition-colors ${
@@ -130,19 +130,19 @@ export function TallyPityDistributionChart({
       <div className="mt-6 relative h-64 sm:h-72 w-full pt-4">
         {/* Background Grid Lines (0%, 25%, 50%, 75%, 100% cumulative) */}
         <div className="absolute inset-0 flex flex-col justify-between pointer-events-none opacity-20">
-          <div className="border-b border-cyan-400/50 w-full flex justify-between text-[10px] text-cyan-300">
+          <div className="border-b border-cyan-400/50 w-full flex justify-between text-[0.625rem] text-cyan-300">
             <span>100%</span>
           </div>
-          <div className="border-b border-white/20 w-full flex justify-between text-[10px] text-[#9ca3af]">
+          <div className="border-b border-white/20 w-full flex justify-between text-[0.625rem] text-[#9ca3af]">
             <span>75%</span>
           </div>
-          <div className="border-b border-white/20 w-full flex justify-between text-[10px] text-[#9ca3af]">
+          <div className="border-b border-white/20 w-full flex justify-between text-[0.625rem] text-[#9ca3af]">
             <span>50%</span>
           </div>
-          <div className="border-b border-white/20 w-full flex justify-between text-[10px] text-[#9ca3af]">
+          <div className="border-b border-white/20 w-full flex justify-between text-[0.625rem] text-[#9ca3af]">
             <span>25%</span>
           </div>
-          <div className="border-b border-white/30 w-full flex justify-between text-[10px] text-[#9ca3af]">
+          <div className="border-b border-white/30 w-full flex justify-between text-[0.625rem] text-[#9ca3af]">
             <span>0%</span>
           </div>
         </div>
@@ -164,7 +164,7 @@ export function TallyPityDistributionChart({
         </svg>
 
         {/* Histogram Columns Container */}
-        <div className="absolute inset-0 flex items-end justify-between gap-[1px] sm:gap-[2px] z-20">
+        <div className="absolute inset-0 flex items-end justify-between gap-[1px] sm:gap-[0.125rem] z-20">
           {distribution.map((pt) => {
             const isHovered = hoveredPoint?.pity === pt.pity;
             const barHeightPct = Math.max(getHeightPct(pt.total_ssr), 2);
@@ -213,7 +213,7 @@ export function TallyPityDistributionChart({
 
                 {/* Hard Pity Marker Indicator */}
                 {isHardPity && (
-                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 text-[9px] font-black text-amber-300 bg-amber-950/80 px-1.5 py-0.5 rounded border border-amber-500/40 pointer-events-none whitespace-nowrap shadow-md">
+                  <div className="absolute -top-7 left-1/2 -translate-x-1/2 text-[0.5625rem] font-black text-amber-300 bg-amber-950/80 px-1.5 py-0.5 rounded border border-amber-500/40 pointer-events-none whitespace-nowrap shadow-md">
                     {pt.pity} ★
                   </div>
                 )}
@@ -224,7 +224,7 @@ export function TallyPityDistributionChart({
       </div>
 
       {/* X-Axis Ticks */}
-      <div className="relative mt-2 flex justify-between text-[11px] font-mono text-[#9ca3af] px-1 border-t border-white/10 pt-2">
+      <div className="relative mt-2 flex justify-between text-[0.6875rem] font-mono text-[#9ca3af] px-1 border-t border-white/10 pt-2">
         <span>1</span>
         {distribution.length >= 80 ? (
           <>

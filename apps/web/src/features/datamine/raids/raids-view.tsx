@@ -15,6 +15,7 @@ import { BossDefenses, BossStatsToggle, useBossStatsVisible, type BossDefensesDa
 import { challengeDefenses } from './boss-stats';
 import { DEFAULT_RAID_NAME_COLOR, RAID_NAME_COLORS } from './raid-name-colors';
 import raidStyles from './raids.module.css';
+import {EncounterChoices} from '../components/encounter-choices';
 import type { CSSProperties, ReactNode } from 'react';
 import { RaidRankingComparison, RaidRankingPanel, type RaidRankingSelection } from './raid-rankings';
 import { withoutRaidDifficulty } from './raid-title';
@@ -75,7 +76,6 @@ function rangeText(range: Range, text: Text) {
 const SCENE_WIDTH = 1920;
 const SCENE_HEIGHT = 1080;
 /** Height of the three-row Original catalog below the hero, reserved on both servers so the card keeps one size. */
-const CATALOG_RESERVE = 126;
 
 /**
  * Rendered without a per-boss key (like the FCE card) so the drifting backdrop keeps running
@@ -117,6 +117,7 @@ function RaidCard({ eyebrow, title, level, bosses, facts, mechanics, art, artTit
   const [rendering, setRendering] = useState(false);
   const shellRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const exportBarRef = useRef<HTMLDivElement>(null);
   const cardRef = useRef<HTMLElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const nameRef = useRef<HTMLSpanElement>(null);
@@ -130,10 +131,11 @@ function RaidCard({ eyebrow, title, level, bosses, facts, mechanics, art, artTit
     if (!shell || !viewport) return;
     // Same fit as FCE: the whole card stays within the window below the catalog.
     const update = () => {
-      const hero = shell.closest('[data-encounter-ready]')?.querySelector('header');
-      const top = hero ? hero.getBoundingClientRect().bottom + window.scrollY + CATALOG_RESERVE : shell.getBoundingClientRect().top + window.scrollY;
+      const top = shell.getBoundingClientRect().top + window.scrollY;
+      const unit = parseFloat(getComputedStyle(document.documentElement).fontSize) / 16;
+      const actionsTop = exportBarRef.current?.getBoundingClientRect().top ?? window.innerHeight - 48 * unit;
       // Stepped so sub-pixel differences between the two headers don't change the card size.
-      const scale = Math.floor(Math.min(Math.min(shell.clientWidth, 1520) / SCENE_WIDTH, Math.max(window.innerHeight - top - 48, 1) / SCENE_HEIGHT, 0.7916) * 200) / 200;
+      const scale = Math.floor(Math.min(shell.clientWidth / SCENE_WIDTH, Math.max(actionsTop - top - 12 * unit, 1) / SCENE_HEIGHT) * 200) / 200;
       viewport.style.width = `${Math.round(SCENE_WIDTH * scale)}px`;
       viewport.style.height = `${Math.round(SCENE_HEIGHT * scale)}px`;
       viewport.style.setProperty('--raid-scale', scale.toFixed(5));
@@ -142,6 +144,7 @@ function RaidCard({ eyebrow, title, level, bosses, facts, mechanics, art, artTit
     update();
     const observer = new ResizeObserver(update);
     observer.observe(shell);
+    if (exportBarRef.current) observer.observe(exportBarRef.current);
     window.addEventListener('resize', update);
     return () => { observer.disconnect(); window.removeEventListener('resize', update); };
   }, []);
@@ -223,7 +226,7 @@ function RaidCard({ eyebrow, title, level, bosses, facts, mechanics, art, artTit
     </div>
     {art && <MediaLightbox isOpen={lightbox} onClose={() => setLightbox(false)} src={gameAsset(art)} webpSrc={gameAsset(art)} showPngDownload={false}
       downloadWebpLabel={t('Download WebP', 'Скачать WebP')} title={artTitle} alt={bossLabel || title} zoomable={false} locale={locale} />}
-    <div className={raidStyles.exportBar}>
+    <div ref={exportBarRef} className={raidStyles.exportBar}>
       {defenses && <BossStatsToggle visible={statsVisible} onToggle={toggleStats} />}
       <ExportButton aria-label={t('Download raid card as PNG', 'Скачать карточку рейда в PNG')} busy={rendering} onClick={download}>
         {rendering ? t('Rendering…', 'Рендер…') : t('Download PNG', 'Скачать PNG')}
@@ -288,18 +291,6 @@ function ScheduleHistory({ schedules, raidArt }: {schedules: HandbookMmoRaidData
       </li>;
     })}</ol>
   </details>;
-}
-
-/** Catalogs can opt into FCE column order; narrow screens scroll three rows sideways. */
-function RaidChoices({ label, selectedKey, children, className = '' }: {label: string; selectedKey: string; children: ReactNode; className?: string}) {
-  const ref = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const panel = ref.current, selected = panel?.querySelector<HTMLElement>('[aria-pressed="true"]');
-    if (!panel || !selected) return;
-    const bounds = panel.getBoundingClientRect(), item = selected.getBoundingClientRect();
-    if (item.left < bounds.left || item.right > bounds.right) panel.scrollLeft += item.left - bounds.left - (panel.clientWidth - item.width) / 2;
-  }, [selectedKey]);
-  return <nav ref={ref} className={`${raidStyles.list} ${className}`} aria-label={label}>{children}</nav>;
 }
 
 export function RaidsView({ originalData, mmoData, critIcon, hpIcon, selection, rankingData = null, rankingError = false }: {
@@ -381,7 +372,7 @@ function MmoRaidsContent({ data, selection, header, serverReady, background, rai
           {difficulties.map(value => <button type="button" key={value} aria-pressed={stage.difficultyEnum === value} disabled={!ready} onClick={() => change({difficultyEnum: value})}>{difficultyLabel(value)}</button>)}
         </div>)}
     <section className={raidStyles.catalog}>
-      <RaidChoices label={t('Raid stage', 'Этап рейда')} selectedKey={stage.id}>
+      <EncounterChoices label={t('Raid stage', 'Этап рейда')} selectedKey={stage.id} className={raidStyles.list}>
         {stageNumbers.map(number => {
           // Same boss thumbnail as the Gacha catalog for this Team8P raid; the stage tab image is the fallback.
           const chipArt = (row: Stage | undefined) => row ? raidArt[row.id.replace(/_D(?:_II)?$/, '')] ?? row.stageImages.small : null;
@@ -395,7 +386,7 @@ function MmoRaidsContent({ data, selection, header, serverReady, background, rai
               active={stage.stageNumber === number && stage.floorEnum === floor} disabled={!ready} onClick={() => change({stageNumber: number, floorEnum: floor})} />;
           })}</div>;
         })}
-      </RaidChoices>
+      </EncounterChoices>
     </section>
     <RaidCard eyebrow={`${t('Stage', 'Этап')} ${stat(stage.stageNumber)} · ${difficultyLabel(stage.difficultyEnum)} · ${floorLabel(stage.floorEnum)}`}
       title={title} bosses={stage.bosses.map(boss => name(boss.name, boss.id))} mechanics={stage.mechanics}
@@ -484,7 +475,7 @@ function OriginalRaidsContent({ data, selection, header, ready, critIcon, hpIcon
   return <div className={`${styles.page} ${raidStyles.page} info-ui`} data-encounter-ready={ready && selectionReady}>
     {header()}
     {!ranking && <section className={raidStyles.catalog}>
-      <RaidChoices label={t('Original raid selection', 'Выбор рейда оригинального сервера')} selectedKey={raid.id} className={raidStyles.columnOrder}>
+      <EncounterChoices label={t('Original raid selection', 'Выбор рейда оригинального сервера')} selectedKey={raid.id} layout="columns" className={raidStyles.list}>
         {data.raids.map(entry => {
           const display = withoutRaidDifficulty(name(entry.variants[0]?.name, entry.id));
           const preview = challenge(entry)?.artwork;
@@ -498,7 +489,7 @@ function OriginalRaidsContent({ data, selection, header, ready, critIcon, hpIcon
               window.dispatchEvent(new PopStateEvent('popstate'));
             }} />;
         })}
-      </RaidChoices>
+      </EncounterChoices>
     </section>}
     {ranking ? <RaidRankingPanel data={rankingData ?? null} error={rankingError} raidId={raid.id} title={title} initial={selection} /> : <>
     <RaidCard eyebrow={`${t('Challenge', 'Испытание')} · ${t('Raid', 'Рейд')} ${stat(raid.index)}${seasonIndex < 0 ? '' : ` · ${t('Season', 'Сезон')} ${stat(seasonIndex)}`}`}

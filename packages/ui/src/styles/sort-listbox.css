@@ -5,7 +5,7 @@
 }
 
 @keyframes tof-sort-open {
-  from { opacity: 0; transform: translateY(-4px); clip-path: inset(0 0 100% 0); }
+  from { opacity: 0; transform: translateY(-0.25rem); clip-path: inset(0 0 100% 0); }
   to { opacity: 1; transform: translateY(0); clip-path: inset(0 0 0 0); }
 }
 

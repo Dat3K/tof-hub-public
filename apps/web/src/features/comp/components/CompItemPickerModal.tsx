@@ -326,10 +326,10 @@ export const CompItemPickerModal: React.FC<CompItemPickerModalProps> = ({
       <Modal.Body>
         <EntityGrid columns={5} gap="sm">
           {/* Custom text card FIRST */}
-          <PickerActionCard className="min-h-[205px]" icon="✎" title={strings.customText} description={strings.customTextSub}
+          <PickerActionCard className="min-h-[12.8125rem]" icon="✎" title={strings.customText} description={strings.customTextSub}
             ariaLabel={strings.customText} onClick={() => setShowCustomTextInput((v) => !v)} />
           {/* Custom photo upload card SECOND */}
-          <PickerActionCard className="min-h-[205px]" icon="📷" title={strings.uploadPhoto} description={strings.uploadPhotoSub}
+          <PickerActionCard className="min-h-[12.8125rem]" icon="📷" title={strings.uploadPhoto} description={strings.uploadPhotoSub}
             ariaLabel={strings.uploadPhoto} onClick={() => fileInputRef.current?.click()} />
           <input
             ref={fileInputRef}

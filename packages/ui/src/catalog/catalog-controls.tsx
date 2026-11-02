@@ -71,7 +71,7 @@ export function CatalogControls({
         className={[
           "sim-controls-bar",
           "relative z-20 w-full bg-[var(--surface-panel)] border border-[var(--surface-border)]",
-          "rounded-xl p-[14px_18px] mb-5 flex flex-col gap-3 box-border font-sans backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
+          "rounded-xl p-[0.875rem_1.125rem] mb-5 flex flex-col gap-3 box-border font-sans backdrop-blur-md shadow-[0_0.5rem_2rem_rgba(0,0,0,0.4)]",
           className,
         ]
           .filter(Boolean)
@@ -114,7 +114,7 @@ export function CatalogControls({
 
         {/* Tier 3: Bottom Row (Counter left, Reset button right) */}
         {(count !== undefined || (hasActiveFilters && onResetFilters)) && (
-          <div className="sim-status-bar flex items-center justify-between w-full pt-1.5 mt-0 border-t border-[rgba(255,255,255,0.08)] text-[12.8px] text-[#9ca3af] box-border">
+          <div className="sim-status-bar flex items-center justify-between w-full pt-1.5 mt-0 border-t border-[rgba(255,255,255,0.08)] text-[0.8rem] text-[#9ca3af] box-border">
             {count !== undefined && total !== undefined ? (
               <CatalogCounter
                 count={count}
@@ -148,7 +148,7 @@ export function CatalogControls({
       className={[
         "sim-controls-bar",
         "relative z-20 w-full bg-[var(--surface-panel)] border border-[var(--surface-border)]",
-        "rounded-xl p-[14px_18px] mb-5 flex flex-col gap-3 box-border font-sans backdrop-blur-md shadow-[0_8px_32px_rgba(0,0,0,0.4)]",
+        "rounded-xl p-[0.875rem_1.125rem] mb-5 flex flex-col gap-3 box-border font-sans backdrop-blur-md shadow-[0_0.5rem_2rem_rgba(0,0,0,0.4)]",
         className,
       ]
         .filter(Boolean)
@@ -252,7 +252,7 @@ CatalogControls.Bottom = function CatalogControlsBottom({
     <div
       className={[
         "sim-status-bar",
-        "flex items-center justify-between w-full pt-1.5 mt-0 border-t border-[rgba(255,255,255,0.08)] text-[12.8px] text-[#9ca3af] box-border",
+        "flex items-center justify-between w-full pt-1.5 mt-0 border-t border-[rgba(255,255,255,0.08)] text-[0.8rem] text-[#9ca3af] box-border",
         className,
       ]
         .filter(Boolean)

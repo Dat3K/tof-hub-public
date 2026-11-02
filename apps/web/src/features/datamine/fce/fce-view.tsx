@@ -15,6 +15,7 @@ import { exportFceBossCard } from './fce-export';
 import { renderFceMechanicText } from './fce-rich-text';
 import { useSiteHeaderInset } from '@/components/site-shell/use-site-header-inset';
 import styles from './fce.module.css';
+import {EncounterChoices} from '../components/encounter-choices';
 
 const SCENE_WIDTH = 1920;
 const SCENE_HEIGHT = 1080;
@@ -56,13 +57,13 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
   const [selectedSlug, setSelectedSlug] = useState<string>(() => {
     return initialBoss || getDefaultBossSlug(initialMode === 'mmo' ? 'mmo' : 'standard', initialCards?.[initialMode === 'mmo' ? 'mmo' : 'standard']);
   });
-  const [rowCount, setRowCount] = useState<number>(3);
   const [isRendering, setIsRendering] = useState<boolean>(false);
   const [artOpen, setArtOpen] = useState(false);
   const hasInitializedSelectionRef = useRef(false);
 
   const shellRef = useRef<HTMLDivElement>(null);
   const viewportRef = useRef<HTMLDivElement>(null);
+  const exportBarRef = useRef<HTMLDivElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const visualRef = useRef<HTMLDivElement>(null);
 
@@ -240,29 +241,24 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
     return () => window.removeEventListener('keydown', handleGlobalKeyDown);
   }, [bosses, selectedSlug, handleBossSelect]);
 
-  // Responsive row count & scaling
+  // Responsive scene scaling
   const updateSceneScale = useCallback(() => {
     if (typeof window === 'undefined') return;
-    const width = window.innerWidth;
-    // Original roster: three scrolling rows on every width (phones included); MMO season rows keep their own layout.
-    if (mode !== 'mmo') setRowCount(3);
-    else setRowCount(width <= 760 ? 1 : 2);
 
     const shell = shellRef.current;
     const viewport = viewportRef.current;
     if (!shell || !viewport) return;
 
     const shellRect = shell.getBoundingClientRect();
-    const availableWidth = Math.min(
-      shell.clientWidth || shellRect.width || (window.innerWidth - 32),
-      1520
-    );
+    const availableWidth = shell.clientWidth || shellRect.width || (window.innerWidth - 32);
     const topOffset = Math.max(0, shellRect.top + window.scrollY);
-    const availableHeight = Math.max(window.innerHeight - topOffset - 48, 1);
+    const unit = parseFloat(getComputedStyle(document.documentElement).fontSize) / 16;
+    const actionsTop = exportBarRef.current?.getBoundingClientRect().top ?? window.innerHeight - 48 * unit;
+    const availableHeight = Math.max(actionsTop - topOffset - 12 * unit, 1);
     const scaleByWidth = availableWidth / SCENE_WIDTH;
     const scaleByHeight = availableHeight / SCENE_HEIGHT;
 
-    const scale = Math.min(scaleByWidth, scaleByHeight, 0.7916);
+    const scale = Math.min(scaleByWidth, scaleByHeight);
 
     viewport.style.width = `${Math.round(SCENE_WIDTH * scale)}px`;
     viewport.style.height = `${Math.round(SCENE_HEIGHT * scale)}px`;
@@ -285,6 +281,7 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
         updateSceneScale();
       });
       ro.observe(shellRef.current);
+      if (exportBarRef.current) ro.observe(exportBarRef.current);
     }
 
     const rafId = requestAnimationFrame(updateSceneScale);
@@ -302,16 +299,6 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
   const activeBoss = useMemo(() => {
     return bosses.find((b) => b.slug === selectedSlug) || bosses[0];
   }, [bosses, selectedSlug]);
-
-  // Partition bosses into rows for switcher (standard mode)
-  const rows = useMemo(() => {
-    const safeCount = Math.max(1, Math.min(rowCount, bosses.length || 1));
-    const result: FceBossItem[][] = Array.from({ length: safeCount }, () => []);
-    bosses.forEach((b, idx) => {
-      result[idx % safeCount].push(b);
-    });
-    return result.filter((r) => r.length > 0);
-  }, [bosses, rowCount]);
 
   // Group bosses by season for MMO mode (S1, S2, S3, S4...)
   interface SeasonRow {
@@ -356,6 +343,7 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
       if (isLatestSeason) {
         el.scrollTo({ top: el.scrollHeight, behavior: 'instant' as ScrollBehavior });
         el.scrollTop = el.scrollHeight;
+        el.querySelector<HTMLElement>('[aria-pressed="true"]')?.scrollIntoView({block:'nearest',inline:'nearest'});
       } else {
         const activeChip = el.querySelector<HTMLElement>('[aria-pressed="true"]');
         if (activeChip) {
@@ -510,10 +498,8 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
 
             </div>
           ) : (
-            <div className={styles.switcher}>
-              {rows.map((row, rowIdx) => (
-                <div key={rowIdx} className={styles.switcherRow}>
-                  {row.map((boss) => {
+            <EncounterChoices label={translateUiText('Boss Selector', activeLocale)} selectedKey={selectedSlug} layout="columns">
+                  {bosses.map((boss) => {
                     const isActive = boss.slug === selectedSlug;
                     const bName = bossDisplayName(boss, currentLocale);
                     const avatarSrc = resolveAsset(boss.cardThumbnail || boss.preview || boss.art);
@@ -530,9 +516,7 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
                       />
                     );
                   })}
-                </div>
-              ))}
-            </div>
+            </EncounterChoices>
           )}
         </section>
 
@@ -656,7 +640,7 @@ export function FceView({ initialData, initialCards, initialMode, initialBoss, s
 
       {/* Floating Download Button (Fixed to bottom-right of viewport, matching legacy) */}
       {activeBoss && (
-        <div className={styles.exportBar}>
+        <div ref={exportBarRef} className={styles.exportBar}>
           {activeBoss.last_phase && mode !== 'mmo' && <BossStatsToggle visible={statsVisible} onToggle={toggleStats} />}
           <ExportButton
             aria-label={copy.downloadAria}

@@ -2,7 +2,7 @@
 
 .simulacraContainer {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--layout-wide, 90rem);
   margin: 0 auto;
   padding: 1.5rem 1rem 3rem;
   box-sizing: border-box;
@@ -91,9 +91,9 @@
   /* Scale the card weapon slot down with the mobile card width instead of
      leaving the desktop 64px badge fixed in a two-column grid. */
   .weaponBadgeBox {
-    width: clamp(50px, 14vw, 56px);
-    height: clamp(50px, 14vw, 56px);
-    border-radius: 7px;
+    width: clamp(3.125rem, 14vw, 3.5rem);
+    height: clamp(3.125rem, 14vw, 3.5rem);
+    border-radius: 0.4375rem;
   }
 }
 
@@ -123,30 +123,30 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   isolation: isolate;
   overflow: hidden;
-  width: 132px;
-  gap: 2px !important;
-  padding: 3px !important;
+  width: 8.25rem;
+  gap: 0.125rem !important;
+  padding: 0.1875rem !important;
   border: 1px solid rgba(148, 163, 184, 0.24) !important;
-  border-radius: 8px !important;
+  border-radius: 0.5rem !important;
   background: rgba(8, 12, 20, 0.92) !important;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 3px 10px rgba(0, 0, 0, 0.22);
+    0 0.1875rem 0.625rem rgba(0, 0, 0, 0.22);
 }
 
 .simulacraContainer :global(.sim-mode-toggle)::before {
   position: absolute;
   z-index: 0;
-  top: 3px;
-  bottom: 3px;
-  left: 3px;
-  width: calc((100% - 8px) / 2);
+  top: 0.1875rem;
+  bottom: 0.1875rem;
+  left: 0.1875rem;
+  width: calc((100% - 0.5rem) / 2);
   border: 1px solid rgba(251, 146, 60, 0.62);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: rgba(255, 255, 255, 0.075);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 7px rgba(249, 115, 22, 0.12);
+    0 0 0.4375rem rgba(249, 115, 22, 0.12);
   content: "";
   pointer-events: none;
   transition:
@@ -156,11 +156,11 @@
 }
 
 .simulacraContainer :global(.sim-mode-toggle[data-active-mode="mmo"])::before {
-  transform: translateX(calc(100% + 2px));
+  transform: translateX(calc(100% + 0.125rem));
   border-color: rgba(244, 63, 94, 0.62);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.08),
-    0 0 7px rgba(225, 29, 72, 0.12);
+    0 0 0.4375rem rgba(225, 29, 72, 0.12);
 }
 
 .simulacraContainer :global(.sim-mode-toggle .sim-mode-btn) {
@@ -168,10 +168,10 @@
   z-index: 1;
   min-width: 0 !important;
   width: 100%;
-  height: 24px !important;
-  padding: 0 8px !important;
+  height: 1.5rem !important;
+  padding: 0 0.5rem !important;
   border: 1px solid transparent !important;
-  border-radius: 6px !important;
+  border-radius: 0.375rem !important;
   background: transparent !important;
   box-shadow: none !important;
   color: #8792a5 !important;
@@ -203,11 +203,11 @@
 }
 
 .simulacraContainer :global(.sim-mode-indicator) {
-  width: 4px;
-  height: 4px;
-  flex: 0 0 4px;
-  margin-right: 5px;
-  border-radius: 999px;
+  width: 0.25rem;
+  height: 0.25rem;
+  flex: 0 0 0.25rem;
+  margin-right: 0.3125rem;
+  border-radius: 62.4375rem;
   background: currentColor;
   opacity: 0;
   transform: scale(0.6);
@@ -220,18 +220,18 @@
 }
 
 .simulacraContainer :global(.sim-mode-btn:focus-visible) {
-  outline: 2px solid rgba(125, 211, 252, 0.9) !important;
-  outline-offset: 2px;
+  outline: 0.125rem solid rgba(125, 211, 252, 0.9) !important;
+  outline-offset: 0.125rem;
   box-shadow: none !important;
 }
 
 @media (max-width: 640px) {
   .simulacraContainer :global(.sim-mode-toggle) {
-    width: 132px;
+    width: 8.25rem;
   }
 
   .simulacraContainer :global(.sim-mode-toggle .sim-mode-btn) {
-    height: 24px !important;
+    height: 1.5rem !important;
     font-size: 0.72rem !important;
   }
 
@@ -239,7 +239,7 @@
     flex-wrap: nowrap !important;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    padding-bottom: 2px;
+    padding-bottom: 0.125rem;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
@@ -254,10 +254,10 @@
     z-index: 2;
     left: 0;
     width: auto;
-    height: 28px;
-    margin-right: 2px;
-    padding-right: 8px;
-    background: rgb(18, 22, 34);
+    height: 1.75rem;
+    margin-right: 0.125rem;
+    padding-right: 0.5rem;
+    background: var(--surface-panel, #101218);
   }
 
   .simulacraContainer
@@ -270,7 +270,7 @@
     flex-wrap: nowrap !important;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    padding-bottom: 2px;
+    padding-bottom: 0.125rem;
     scrollbar-width: none;
     -webkit-overflow-scrolling: touch;
   }
@@ -285,10 +285,10 @@
     z-index: 2;
     left: 0;
     width: auto !important;
-    height: 28px;
-    margin-right: 2px !important;
-    padding-right: 8px;
-    background: rgb(18, 22, 34);
+    height: 1.75rem;
+    margin-right: 0.125rem !important;
+    padding-right: 0.5rem;
+    background: var(--surface-panel, #101218);
   }
 
   .simulacraContainer
@@ -299,12 +299,12 @@
   /* Keep the three mobile stat cards aligned when labels wrap to different
      line counts (ATK / HP / CRIT). */
   .simBaseStatsGrid {
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   .simStatBox {
     min-width: 0;
-    padding-inline: 4px;
+    padding-inline: 0.25rem;
   }
 
   .simStatBoxLabel {
@@ -331,16 +331,16 @@
 .simCard {
   background: rgba(18, 22, 34, 0.85) !important;
   border: 1px solid rgba(255, 255, 255, 0.08) !important;
-  border-radius: 14px !important;
+  border-radius: 0.875rem !important;
   box-shadow: none !important;
 }
 
 
 .simCard:hover,
 .simCard:focus-visible {
-  transform: translateY(-4px) !important;
+  transform: translateY(-0.25rem) !important;
   border-color: rgba(120, 160, 255, 0.3) !important;
-  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.5) !important;
+  box-shadow: 0 0.875rem 2rem rgba(0, 0, 0, 0.5) !important;
 }
 
 .simCard :global(.sim-grid-card__art) {
@@ -348,32 +348,32 @@
 }
 
 .simCard :global(.sim-grid-card__info) {
-  padding: 8px 10px !important;
+  padding: 0.5rem 0.625rem !important;
   background: rgba(18, 22, 34, 0.85) !important;
-  gap: 2px !important;
+  gap: 0.125rem !important;
 }
 
 .simCardBadge {
-  min-width: 26px !important;
-  height: 26px !important;
-  padding: 4px !important;
+  min-width: 1.625rem !important;
+  height: 1.625rem !important;
+  padding: 0.25rem !important;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 6px !important;
+  border-radius: 0.375rem !important;
   gap: 0 !important;
   box-sizing: border-box;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.15) !important;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  text-shadow: 0 1px 0.125rem rgba(0, 0, 0, 0.75);
 }
 
 .simCardBadgeIcon,
 .simCardBadge .badgeIcon {
-  width: 20px !important;
-  height: 20px !important;
+  width: 1.25rem !important;
+  height: 1.25rem !important;
   margin: 0 !important;
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.75)) brightness(1.2) contrast(1.15);
+  filter: drop-shadow(0 1px 0.1875rem rgba(0, 0, 0, 0.75)) brightness(1.2) contrast(1.15);
 }
 
 /* Legacy dual-element cards use a brighter neutral frame around the combined icon. */
@@ -414,15 +414,15 @@
   background: linear-gradient(135deg, rgba(160, 20, 20, 0.95), rgba(90, 10, 10, 0.95)) !important;
   border-color: rgba(248, 113, 113, 0.65) !important;
   box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.5),
-    0 0 10px rgba(239, 68, 68, 0.35) !important;
+    0 0.125rem 0.375rem rgba(0, 0, 0, 0.5),
+    0 0 0.625rem rgba(239, 68, 68, 0.35) !important;
 }
 
 .simCardBadge[data-variant="dps"] .simCardBadgeIcon,
 .simHeroRoleBadge[data-variant="dps"] .badgeIcon,
 .simCardBadge[data-variant="dps"] > span[aria-hidden="true"] img,
 .simHeroRoleBadge[data-variant="dps"] > span[aria-hidden="true"] img {
-  filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.75)) brightness(1.2) contrast(1.15);
+  filter: drop-shadow(0 1px 0.1875rem rgba(0, 0, 0, 0.75)) brightness(1.2) contrast(1.15);
 }
 
 .simCardBadge[data-variant="tank"] {
@@ -436,10 +436,10 @@
 }
 
 .simCardRarityBadge {
-  min-width: 26px !important;
-  height: 26px !important;
-  padding: 0 7px !important;
-  border-radius: 6px !important;
+  min-width: 1.625rem !important;
+  height: 1.625rem !important;
+  padding: 0 0.4375rem !important;
+  border-radius: 0.375rem !important;
   font-size: 0.7rem !important;
   line-height: 1 !important;
   color: #ffffff !important;
@@ -448,25 +448,25 @@
 .simCardRarityBadge[data-variant="ssr"] {
   background: linear-gradient(135deg, #f59e0b, #b45309) !important;
   border-color: rgba(254, 240, 138, 0.6) !important;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5) !important;
+  box-shadow: 0 0.125rem 0.5rem rgba(245, 158, 11, 0.5) !important;
 }
 
 .simCardRarityBadge[data-variant="sr"] {
   background: linear-gradient(135deg, #a855f7, #6b21a8) !important;
   border-color: rgba(233, 213, 255, 0.6) !important;
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.5) !important;
+  box-shadow: 0 0.125rem 0.5rem rgba(168, 85, 247, 0.5) !important;
 }
 
 /* MMO Season Badges matching legacy .sim-badge--season */
 .seasonBadge {
-  height: 26px;
-  min-width: 38px;
+  height: 1.625rem;
+  min-width: 2.375rem;
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 7px;
-  border-radius: 6px;
+  padding: 0 0.4375rem;
+  border-radius: 0.375rem;
   line-height: 1;
   font-size: 0.7rem;
   font-weight: 800;
@@ -479,29 +479,29 @@
 .seasonBadge1 {
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   border: 1px solid rgba(191, 219, 254, 0.6);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0.125rem 0.5rem rgba(59, 130, 246, 0.5);
 }
 
 .seasonBadge2 {
   background: linear-gradient(135deg, #f59e0b, #b45309);
   border: 1px solid rgba(254, 240, 138, 0.6);
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0.125rem 0.5rem rgba(245, 158, 11, 0.5);
 }
 
 /* Weapon Corner Badge in EntityCard */
 .weaponBadgeBox {
-  width: 64px;
-  height: 64px;
+  width: 4rem;
+  height: 4rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(11, 14, 22, 0.88);
   border: 1px solid rgba(43, 166, 223, 0.35);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   padding: 0;
   box-sizing: border-box;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(0.375rem);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.45);
   transition:
     transform 0.2s ease,
     border-color 0.2s ease,
@@ -514,25 +514,25 @@
   height: 100%;
   object-fit: contain;
   transform: scale(1.42);
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 0.125rem 0.375rem rgba(0, 0, 0, 0.6));
 }
 
 /* Badge Icon Sizing */
 .badgeIcon {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   object-fit: contain;
   display: block;
 }
 
 /* Legacy simulacra hero badges: visible element/resonance labels, not icon-only pills. */
 .simHeroBadge {
-  height: 28px !important;
-  min-width: 28px;
+  height: 1.75rem !important;
+  min-width: 1.75rem;
   box-sizing: border-box;
-  padding: 0 8px !important;
-  border-radius: 6px !important;
-  gap: 5px !important;
+  padding: 0 0.5rem !important;
+  border-radius: 0.375rem !important;
+  gap: 0.3125rem !important;
   font-size: 0.7rem !important;
   font-weight: 700 !important;
   line-height: 1 !important;
@@ -540,8 +540,8 @@
   text-transform: uppercase;
   color: #ffffff !important;
   border: 1px solid rgba(255, 255, 255, 0.3) !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.4);
+  text-shadow: 0 1px 0.125rem rgba(0, 0, 0, 0.75);
   white-space: nowrap;
 }
 
@@ -557,8 +557,8 @@
 }
 
 .simHeroBadge .badgeIcon {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   margin-right: 0;
   flex-shrink: 0;
 }
@@ -670,7 +670,7 @@
 .simHeroRoleBadge[data-variant="dps"] {
   background: linear-gradient(135deg, #9f2528 0%, #690d10 100%) !important;
   border-color: rgba(248, 113, 113, 0.72) !important;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.45);
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.45);
 }
 
 .simHeroRoleBadge[data-variant="tank"] {
@@ -681,8 +681,8 @@
   ) !important;
   border-color: rgba(251, 191, 36, 0.65) !important;
   box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.5),
-    0 0 10px rgba(245, 158, 11, 0.35);
+    0 0.125rem 0.375rem rgba(0, 0, 0, 0.5),
+    0 0 0.625rem rgba(245, 158, 11, 0.35);
 }
 
 .simHeroRoleBadge[data-variant="benediction"] {
@@ -693,8 +693,8 @@
   ) !important;
   border-color: rgba(52, 211, 153, 0.65) !important;
   box-shadow:
-    0 2px 6px rgba(0, 0, 0, 0.5),
-    0 0 10px rgba(16, 185, 129, 0.35);
+    0 0.125rem 0.375rem rgba(0, 0, 0, 0.5),
+    0 0 0.625rem rgba(16, 185, 129, 0.35);
 }
 
 .simHeroRarityBadge[data-variant="ssr"] {
@@ -702,7 +702,7 @@
   border-color: rgba(254, 240, 138, 0.6) !important;
   font-weight: 800 !important;
   letter-spacing: 0.05em !important;
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0.125rem 0.5rem rgba(245, 158, 11, 0.5);
 }
 
 .simHeroRarityBadge[data-variant="sr"] {
@@ -710,7 +710,7 @@
   border-color: rgba(233, 213, 255, 0.6) !important;
   font-weight: 800 !important;
   letter-spacing: 0.05em !important;
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.5);
+  box-shadow: 0 0.125rem 0.5rem rgba(168, 85, 247, 0.5);
 }
 
 /* ==========================================================================
@@ -723,15 +723,15 @@
   align-self: stretch;
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 
 .simDetailNav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
   flex-wrap: wrap;
 }
 
@@ -739,14 +739,14 @@
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
   color: var(--sim-text-main, #f3f4f6);
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   transition: all 0.15s ease;
   user-select: none;
 }
@@ -760,23 +760,23 @@
 .simDetailPager {
   display: inline-flex;
   align-items: center;
-  flex: 0 0 250px;
-  width: 250px;
-  min-width: 250px;
+  flex: 0 0 15.625rem;
+  width: 15.625rem;
+  min-width: 15.625rem;
   box-sizing: border-box;
-  gap: 6px;
+  gap: 0.375rem;
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 8px;
-  padding: 4px 6px;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.375rem;
 }
 
 .simPagerBtn {
   background: transparent;
   border: 1px solid transparent;
   color: var(--sim-text-main, #f3f4f6);
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -785,7 +785,7 @@
   min-width: 0;
   box-sizing: border-box;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   transition: all 0.15s ease;
   user-select: none;
 }
@@ -818,8 +818,8 @@
 }
 
 .simPagerCounter {
-  flex: 0 0 58px;
-  min-width: 58px;
+  flex: 0 0 3.625rem;
+  min-width: 3.625rem;
   box-sizing: border-box;
   text-align: center;
   font-size: 0.8rem;
@@ -834,12 +834,12 @@
    ========================================================================== */
 .simDetailColumns {
   display: grid;
-  grid-template-columns: minmax(320px, 1.05fr) 1.25fr 1fr;
+  grid-template-columns: minmax(20rem, 1.05fr) 1.25fr 1fr;
   grid-template-rows: max-content 1fr;
-  gap: 16px;
+  gap: 1rem;
   align-items: start;
   align-content: start;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -849,7 +849,7 @@
   flex-direction: column;
   justify-content: flex-start;
   align-items: stretch;
-  gap: 14px;
+  gap: 0.875rem;
   min-width: 0;
 }
 
@@ -922,7 +922,7 @@
   .simDetailNav {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    gap: 0.625rem;
     width: 100%;
     box-sizing: border-box;
   }
@@ -939,7 +939,7 @@
   .simMatrixCardHeader {
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 0.5rem;
   }
   .simMatrixStarSelector {
     width: 100%;
@@ -950,8 +950,8 @@
     text-align: center;
   }
   .simAssetsGrid {
-    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
-    gap: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(8.75rem, 1fr));
+    gap: 0.625rem;
   }
 }
 
@@ -961,18 +961,18 @@
 .simCharHero {
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 14px;
+  border-radius: 0.875rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.35);
 }
 
 .simCharHeroArtWrap {
   position: relative;
   width: 100%;
   aspect-ratio: 16 / 13;
-  max-height: 380px;
+  max-height: 23.75rem;
   overflow: hidden;
   background: #0d111a;
   cursor: zoom-in;
@@ -1017,41 +1017,41 @@
 
 .simCharHeroBadges {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 0.625rem;
+  left: 0.625rem;
   display: flex;
-  gap: 6px;
+  gap: 0.375rem;
   z-index: 10;
 }
 
 .simCharHeroRarity {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   z-index: 10;
 }
 
 .simCharHeroWeaponBadge {
   position: absolute;
-  bottom: 12px;
-  right: 12px;
-  width: 72px;
-  height: 72px;
+  bottom: 0.75rem;
+  right: 0.75rem;
+  width: 4.5rem;
+  height: 4.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(11, 14, 22, 0.88);
   border: 1px solid rgba(43, 166, 223, 0.35);
-  border-radius: 8px;
-  padding: 4px;
+  border-radius: 0.5rem;
+  padding: 0.25rem;
   margin: 0;
   box-sizing: border-box;
   overflow: hidden;
-  backdrop-filter: blur(6px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(0.375rem);
+  box-shadow: 0 0.125rem 0.5rem rgba(0, 0, 0, 0.45);
   cursor: pointer;
   outline: none;
   font: inherit;
@@ -1065,7 +1065,7 @@
 .simCharHeroWeaponBadge:focus-visible {
   transform: none;
   border-color: #2ba6df;
-  box-shadow: 0 0 12px rgba(43, 166, 223, 0.35);
+  box-shadow: 0 0 0.75rem rgba(43, 166, 223, 0.35);
 }
 
 .simCharHeroWeaponBadge img {
@@ -1074,22 +1074,22 @@
   max-width: 100%;
   max-height: 100%;
   object-fit: contain;
-  transform: translateY(1.5px) scale(1.33);
-  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.6));
+  transform: translateY(0.09375rem) scale(1.33);
+  filter: drop-shadow(0 0.125rem 0.375rem rgba(0, 0, 0, 0.6));
   pointer-events: none;
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 
 .simCharHeroWeaponBadge:hover img {
-  transform: translateY(1.5px) scale(1.39);
-  filter: drop-shadow(0 2px 8px rgba(43, 166, 223, 0.4));
+  transform: translateY(0.09375rem) scale(1.39);
+  filter: drop-shadow(0 0.125rem 0.5rem rgba(43, 166, 223, 0.4));
 }
 
 .simCharHeroBody {
-  padding: 12px 14px 14px;
+  padding: 0.75rem 0.875rem 0.875rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simCharHeroHeader {
@@ -1102,7 +1102,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .simHeroPrimaryStats {
@@ -1110,15 +1110,15 @@
   align-items: center;
   gap: 0;
   flex-shrink: 0;
-  transform: translateY(8px);
+  transform: translateY(0.5rem);
 }
 
 .simHeroPrimaryStat {
   display: inline-flex;
   align-items: baseline;
-  gap: 6px;
+  gap: 0.375rem;
   position: relative;
-  padding: 3px 10px;
+  padding: 0.1875rem 0.625rem;
   white-space: nowrap;
 }
 
@@ -1128,11 +1128,11 @@
 
 .simHeroPrimaryStat::after {
   position: absolute;
-  right: 10px;
+  right: 0.625rem;
   bottom: 0;
-  left: 10px;
-  height: 2px;
-  border-radius: 999px;
+  left: 0.625rem;
+  height: 0.125rem;
+  border-radius: 62.4375rem;
   background: currentColor;
   content: "";
   opacity: 0.75;
@@ -1184,18 +1184,18 @@
 .simBaseStatsGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simStatBox {
   background: rgba(13, 17, 26, 0.6);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 8px;
-  padding: 8px 6px;
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.375rem;
   text-align: center;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
   transition:
     border-color 0.15s ease,
     background-color 0.15s ease,
@@ -1222,9 +1222,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 0.25rem;
   letter-spacing: 0.05em;
-  margin-bottom: 3px;
+  margin-bottom: 0.1875rem;
 }
 
 .simStatBoxShatter .simStatBoxLabel {
@@ -1236,8 +1236,8 @@
 }
 
 .simStatBoxIcon {
-  width: 15px;
-  height: 15px;
+  width: 0.9375rem;
+  height: 0.9375rem;
   object-fit: contain;
   vertical-align: middle;
   flex-shrink: 0;
@@ -1256,17 +1256,17 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .simStatGradeImg {
-  height: 22px;
+  height: 1.375rem;
   width: auto;
   object-fit: contain;
   vertical-align: middle;
   display: inline-block;
   flex-shrink: 0;
-  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+  filter: drop-shadow(0 0.125rem 0.25rem rgba(0, 0, 0, 0.4));
   image-rendering: -webkit-optimize-contrast;
 }
 
@@ -1303,7 +1303,7 @@
 .simSection {
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 
@@ -1311,7 +1311,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   cursor: pointer;
   user-select: text;
   background: rgba(255, 255, 255, 0.02);
@@ -1330,7 +1330,7 @@
 .simSectionTitleLeft {
   display: flex;
   align-items: center;
-  gap: 9px;
+  gap: 0.5625rem;
 }
 
 .simSectionTitle {
@@ -1357,11 +1357,11 @@ details[open] > .simSectionSummary .simSectionArrow {
 }
 
 .simSectionBody {
-  padding: 14px 16px;
+  padding: 0.875rem 1rem;
   border-top: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .simEmptyNote {
@@ -1385,15 +1385,15 @@ details[open] > .simSectionSummary .simSectionArrow {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-evenly;
-  gap: 20px;
+  gap: 1.25rem;
   width: 100%;
   box-sizing: border-box;
 }
 
 .simRadarSvgWrap {
-  flex: 0 0 320px;
+  flex: 0 0 20rem;
   width: 100%;
-  max-width: 320px;
+  max-width: 20rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -1401,7 +1401,7 @@ details[open] > .simSectionSummary .simSectionArrow {
 
 .simRadarSvg {
   width: 100%;
-  max-width: 320px;
+  max-width: 20rem;
   height: auto;
   overflow: visible;
 }
@@ -1409,7 +1409,7 @@ details[open] > .simSectionSummary .simSectionArrow {
 .simRadarPoly {
   fill: rgba(59, 130, 246, 0.35);
   stroke: #3b82f6;
-  stroke-width: 2px;
+  stroke-width: 0.125rem;
   transition: fill 0.2s ease, stroke 0.2s ease;
 }
 
@@ -1419,7 +1419,7 @@ details[open] > .simSectionSummary .simSectionArrow {
 }
 
 .simRadarLabel {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-family: inherit;
   font-weight: 600;
   fill: var(--sim-text-sub, #94a3b8);
@@ -1430,33 +1430,33 @@ details[open] > .simSectionSummary .simSectionArrow {
 }
 
 .simRadarDot:hover {
-  r: 5px;
+  r: 0.3125rem;
 }
 
 .simRadarStatsGrid {
-  flex: 1 1 260px;
+  flex: 1 1 16.25rem;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
+  gap: 0.5rem;
   width: 100%;
-  min-width: 220px;
+  min-width: 13.75rem;
 }
 
 .simRadarStatItem {
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 6px;
-  padding: 6px 8px;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.5rem;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .simRadarStatHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   font-size: 0.72rem;
 }
 
@@ -1472,16 +1472,16 @@ details[open] > .simSectionSummary .simSectionArrow {
 }
 
 .simRadarBarTrack {
-  height: 4px;
+  height: 0.25rem;
   background: rgba(255, 255, 255, 0.08);
-  border-radius: 2px;
+  border-radius: 0.125rem;
   overflow: hidden;
 }
 
 .simRadarBarFill {
   height: 100%;
   background: linear-gradient(90deg, #3b82f6, #60a5fa);
-  border-radius: 2px;
+  border-radius: 0.125rem;
   transition: width 0.3s ease;
 }
 
@@ -1489,12 +1489,12 @@ details[open] > .simSectionSummary .simSectionArrow {
   .simRadarContainer {
     flex-direction: column;
     align-items: center;
-    gap: 16px;
+    gap: 1rem;
   }
 
   .simRadarSvgWrap {
     flex: 0 0 auto;
-    max-width: 280px;
+    max-width: 17.5rem;
   }
 
   .simRadarStatsGrid {
@@ -1511,8 +1511,8 @@ details[open] > .simSectionSummary .simSectionArrow {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--sim-text-sub, #9ca3af);
-  padding: 4px 10px;
-  border-radius: 6px;
+  padding: 0.25rem 0.625rem;
+  border-radius: 0.375rem;
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
@@ -1529,13 +1529,13 @@ details[open] > .simSectionSummary .simSectionArrow {
 .simAdvGrid {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simAdvItem {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -1553,8 +1553,8 @@ details[open] > .simSectionSummary .simSectionArrow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
-  padding: 10px 12px;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem;
   cursor: pointer;
   user-select: text;
   list-style: none;
@@ -1568,13 +1568,13 @@ details[open] > .simSectionSummary .simSectionArrow {
 .simAdvItem:hover {
   border-color: var(--sim-border-highlight, rgba(120, 160, 255, 0.3));
   background: rgba(20, 26, 40, 0.5);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.35);
 }
 
 .simAdvHeader {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   flex: 1;
   min-width: 0;
 }
@@ -1582,12 +1582,12 @@ details[open] > .simSectionSummary .simSectionArrow {
 .simAdvStar {
   display: inline-flex;
   align-items: center;
-  gap: 2px;
+  gap: 0.125rem;
   background: linear-gradient(135deg, rgba(245, 217, 122, 0.2), rgba(245, 217, 122, 0.05));
   border: 1px solid rgba(245, 217, 122, 0.35);
   color: #f5d97a;
-  border-radius: 5px;
-  padding: 2px 6px;
+  border-radius: 0.3125rem;
+  padding: 0.125rem 0.375rem;
   font-size: 0.75rem;
   font-weight: 800;
 }
@@ -1610,7 +1610,7 @@ details[open] > .simSectionSummary .simSectionArrow {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  margin-left: 8px;
+  margin-left: 0.5rem;
   color: #f5d97a;
   font-size: 0.75rem;
   user-select: none;
@@ -1623,7 +1623,7 @@ details[open] > .simSectionSummary .simSectionArrow {
 }
 
 .simAdvBody {
-  padding: 6px 12px 10px;
+  padding: 0.375rem 0.75rem 0.625rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
@@ -1643,17 +1643,17 @@ details[open] > .simSectionSummary .simSectionArrow {
 .simTraitsGrid {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .simTraitCard {
   background: rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  padding: 10px 12px;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.375rem;
   transition:
     border-color 0.2s ease,
     background-color 0.2s ease,
@@ -1663,14 +1663,14 @@ details[open] > .simSectionSummary .simSectionArrow {
 .simTraitCard:hover {
   border-color: var(--sim-border-highlight, rgba(120, 160, 255, 0.3));
   background: rgba(20, 26, 40, 0.5);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.35);
 }
 
 .simTraitCardTop {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simTraitName {
@@ -1685,7 +1685,7 @@ details[open] > .simSectionSummary .simSectionArrow {
   color: #f472b6;
   display: inline-flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .simAffinityHeart {
@@ -1722,9 +1722,9 @@ details[open] > .simSectionSummary .simSectionArrow {
   gap: 0;
   background: rgba(13, 17, 26, 0.7);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 10px;
+  border-radius: 0.625rem;
   overflow: hidden;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
+  box-shadow: inset 0 1px 0.1875rem rgba(0, 0, 0, 0.3);
 }
 
 .simPassiveItem {
@@ -1748,7 +1748,7 @@ details[open] > .simSectionSummary .simSectionArrow {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 12px;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
   user-select: text;
   list-style: none;
@@ -1766,7 +1766,7 @@ details[open] > .simSectionSummary .simSectionArrow {
 .simPassiveTitle {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   min-width: 0;
   flex: 1;
 }
@@ -1775,7 +1775,7 @@ details[open] > .simSectionSummary .simSectionArrow {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 12px;
+  width: 0.75rem;
   flex-shrink: 0;
   font-size: 0.7rem;
   color: #f5d97a;
@@ -1791,10 +1791,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simPassiveIcon {
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   object-fit: contain;
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   flex-shrink: 0;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1802,9 +1802,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simPassiveIconBlank {
   display: inline-block;
-  width: 22px;
-  height: 22px;
-  border-radius: 5px;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 0.3125rem;
   flex-shrink: 0;
   background: rgba(255, 255, 255, 0.03);
   border: 1px dashed rgba(255, 255, 255, 0.12);
@@ -1824,7 +1824,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simPassiveBody {
-  padding: 8px 14px 12px 42px;
+  padding: 0.5rem 0.875rem 0.75rem 2.625rem;
   border-top: 1px solid rgba(255, 255, 255, 0.04);
   background: rgba(0, 0, 0, 0.18);
 }
@@ -1852,10 +1852,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
     rgba(16, 13, 22, 0.95) 100%
   );
   border: 1px solid rgba(230, 162, 60, 0.24);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: visible;
-  margin-bottom: 8px;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.45);
+  margin-bottom: 0.5rem;
+  box-shadow: 0 0.25rem 1.125rem rgba(0, 0, 0, 0.45);
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -1865,14 +1865,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simMatrixChipBox:hover {
   border-color: rgba(230, 162, 60, 0.4);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 0.375rem 1.5rem rgba(0, 0, 0, 0.55);
 }
 
 .simMatrixChipStage {
   position: relative;
   width: 100%;
-  height: 240px;
-  border-radius: 11px 11px 0 0;
+  height: 15rem;
+  border-radius: 0.6875rem 0.6875rem 0 0;
   overflow: hidden;
   background: rgba(10, 8, 14, 0.65);
   display: flex;
@@ -1887,7 +1887,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   pointer-events: none;
   z-index: 0;
   opacity: 0.28;
-  filter: blur(2px);
+  filter: blur(0.125rem);
   mix-blend-mode: screen;
   -webkit-mask-image: radial-gradient(
     ellipse 65% 55% at 50% 45%,
@@ -1920,23 +1920,23 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   align-items: center;
   justify-content: center;
   z-index: 1;
-  padding: 12px;
+  padding: 0.75rem;
   box-sizing: border-box;
 }
 
 .simMatrixChipImg {
   width: 100%;
   height: 100%;
-  max-height: 215px;
+  max-height: 13.4375rem;
   object-fit: contain;
-  filter: drop-shadow(0 14px 28px rgba(0, 0, 0, 0.75));
+  filter: drop-shadow(0 0.875rem 1.75rem rgba(0, 0, 0, 0.75));
   transition:
     transform 0.25s ease,
     filter 0.25s ease;
 }
 
 .simMatrixChipStage:hover .simMatrixChipImg {
-  filter: drop-shadow(0 16px 36px rgba(43, 166, 223, 0.45));
+  filter: drop-shadow(0 1rem 2.25rem rgba(43, 166, 223, 0.45));
 }
 
 .simMatrixChipFallback {
@@ -1946,10 +1946,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simMatrixCornerSlots {
   position: absolute;
-  top: 12px;
-  left: 12px;
-  right: 12px;
-  height: 216px;
+  top: 0.75rem;
+  left: 0.75rem;
+  right: 0.75rem;
+  height: 13.5rem;
   pointer-events: none;
   z-index: 30;
   overflow: visible;
@@ -1957,22 +1957,22 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simMatrixCornerSlot {
   position: absolute;
-  width: 38px;
-  height: 38px;
+  width: 2.375rem;
+  height: 2.375rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 9px;
+  border-radius: 0.5625rem;
   background: rgba(14, 11, 20, 0.88);
-  border: 1.5px solid rgba(255, 255, 255, 0.22);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.65);
+  border: 0.09375rem solid rgba(255, 255, 255, 0.22);
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.65);
   pointer-events: auto;
   transition:
     border-color 0.2s ease,
     transform 0.2s ease,
     box-shadow 0.2s ease,
     background 0.2s ease;
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
   cursor: default;
   z-index: 1;
   overflow: visible;
@@ -1982,16 +1982,16 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simMatrixCornerSlot:focus-visible {
   border-color: #2ba6df;
   background: rgba(18, 14, 26, 0.96);
-  box-shadow: 0 0 14px rgba(43, 166, 223, 0.45);
+  box-shadow: 0 0 0.875rem rgba(43, 166, 223, 0.45);
   transform: scale(1.08);
   z-index: 100;
 }
 
 .simMatrixCornerSlotIcon {
-  width: 24px;
-  height: 24px;
+  width: 1.5rem;
+  height: 1.5rem;
   object-fit: contain;
-  filter: drop-shadow(0 0 2px rgba(255, 255, 255, 0.25));
+  filter: drop-shadow(0 0 0.125rem rgba(255, 255, 255, 0.25));
 }
 
 .simMatrixCornerSlot1,
@@ -2017,19 +2017,19 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .matrixSlotTooltip {
   display: none;
   position: absolute;
-  top: 20px;
-  left: 40px;
-  width: 260px;
-  max-width: calc(100vw - 32px);
+  top: 1.25rem;
+  left: 2.5rem;
+  width: 16.25rem;
+  max-width: calc(100vw - 2rem);
   background: rgba(14, 11, 20, 0.96);
   border: 1px solid rgba(43, 166, 223, 0.5);
-  border-radius: 8px;
-  padding: 10px 14px;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
   z-index: 1000;
   box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.85),
-    0 0 16px rgba(43, 166, 223, 0.3);
-  backdrop-filter: blur(8px);
+    0 0.5rem 1.5rem rgba(0, 0, 0, 0.85),
+    0 0 1rem rgba(43, 166, 223, 0.3);
+  backdrop-filter: blur(0.5rem);
   pointer-events: none;
   text-align: center;
   box-sizing: border-box;
@@ -2038,14 +2038,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simMatrixCornerSlot3 .matrixSlotTooltip,
 .simMatrixCornerSlot4 .matrixSlotTooltip {
   left: auto;
-  right: 40px;
+  right: 2.5rem;
   transform: none;
 }
 
 .simMatrixCornerSlot1 .matrixSlotTooltip,
 .simMatrixCornerSlot4 .matrixSlotTooltip {
   top: auto;
-  bottom: 20px;
+  bottom: 1.25rem;
 }
 
 .simMatrixCornerSlot:hover .matrixSlotTooltip,
@@ -2058,10 +2058,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
-  margin-bottom: 6px;
+  gap: 0.125rem;
+  margin-bottom: 0.375rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  padding-bottom: 4px;
+  padding-bottom: 0.25rem;
 }
 
 .matrixSlotTooltipTag {
@@ -2094,8 +2094,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   }
 
   .matrixSlotTooltip {
-    width: min(260px, calc(100vw - 32px));
-    max-width: calc(100vw - 32px);
+    width: min(16.25rem, calc(100vw - 2rem));
+    max-width: calc(100vw - 2rem);
   }
 
   /* Keep the tooltip inside the matrix chip instead of offsetting it outside
@@ -2117,10 +2117,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: baseline;
   justify-content: space-between;
-  padding: 10px 14px;
+  padding: 0.625rem 0.875rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
   background: rgba(14, 11, 20, 0.85);
-  border-radius: 0 0 11px 11px;
+  border-radius: 0 0 0.6875rem 0.6875rem;
   user-select: text;
 }
 
@@ -2142,14 +2142,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simMatrixCards {
   display: flex;
   flex-direction: column;
-  gap: 9px;
+  gap: 0.5625rem;
 }
 
 .simMatrixCard {
   background: rgba(13, 17, 26, 0.65);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 10px;
-  padding: 14px 16px;
+  border-radius: 0.625rem;
+  padding: 0.875rem 1rem;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
@@ -2157,7 +2157,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simMatrixCard:hover {
   border-color: rgba(43, 166, 223, 0.45);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.3);
 }
 
 .simMatrixCardHeader {
@@ -2165,8 +2165,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   align-items: center;
   flex-wrap: wrap;
   justify-content: space-between;
-  gap: 8px;
-  margin-bottom: 10px;
+  gap: 0.5rem;
+  margin-bottom: 0.625rem;
 }
 
 
@@ -2174,19 +2174,19 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simMatrixStarSelector {
   display: inline-flex;
   align-items: center;
-  gap: 3px;
+  gap: 0.1875rem;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 7px;
-  padding: 2px 4px;
+  border-radius: 0.4375rem;
+  padding: 0.125rem 0.25rem;
 }
 
 .simMatrixStarBtn {
   background: transparent;
   border: 1px solid transparent;
   color: var(--sim-text-sub, #a2b0c6);
-  border-radius: 5px;
-  padding: 3px 8px;
+  border-radius: 0.3125rem;
+  padding: 0.1875rem 0.5rem;
   font-size: 0.75rem;
   font-weight: 700;
   cursor: pointer;
@@ -2201,7 +2201,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   background: rgba(245, 217, 122, 0.2);
   border-color: rgba(245, 217, 122, 0.5);
   color: #f5d97a;
-  box-shadow: 0 0 10px rgba(245, 217, 122, 0.2);
+  box-shadow: 0 0 0.625rem rgba(245, 217, 122, 0.2);
 }
 
 @media (max-width: 480px) {
@@ -2228,7 +2228,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   font-size: 0.835rem;
   color: #d1d5db;
   line-height: 1.5;
-  margin: 0 0 12px;
+  margin: 0 0 0.75rem;
   text-align: justify;
   text-justify: inter-word;
   text-align-last: left;
@@ -2245,7 +2245,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDetailContainer :global(.sim-matrix-num--lit) {
   color: var(--sim-blue, #2ba6df) !important;
   font-weight: 700;
-  text-shadow: 0 0 8px rgba(43, 166, 223, 0.35);
+  text-shadow: 0 0 0.5rem rgba(43, 166, 223, 0.35);
 }
 
 .simulacraContainer :global(.sim-matrix-num--dim),
@@ -2267,7 +2267,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDetailContainer :global(.sim-matrix-keyword) {
   color: var(--sim-blue, #2ba6df);
   font-weight: 600;
-  text-shadow: 0 0 6px rgba(43, 166, 223, 0.3);
+  text-shadow: 0 0 0.375rem rgba(43, 166, 223, 0.3);
 }
 
 /* ==========================================================================
@@ -2277,19 +2277,19 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  padding-bottom: 8px;
+  padding-bottom: 0.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .simSkillTabs {
   display: inline-flex;
   flex-wrap: wrap;
-  gap: 4px;
+  gap: 0.25rem;
   background: rgba(0, 0, 0, 0.35);
-  padding: 3px;
-  border-radius: 8px;
+  padding: 0.1875rem;
+  border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
 }
 
@@ -2297,14 +2297,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   background: transparent;
   border: none;
   color: var(--sim-text-sub, #9ca3af);
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   transition: all 0.15s ease;
 }
 
@@ -2320,18 +2320,18 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simTabCount {
   font-size: 0.6875rem;
   background: rgba(255, 255, 255, 0.1);
-  padding: 1px 5px;
-  border-radius: 10px;
+  padding: 1px 0.3125rem;
+  border-radius: 0.625rem;
 }
 
 .simLevelSliderWrap {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
-  padding: 4px 10px;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.625rem;
 }
 
 .simLevelSliderLabel {
@@ -2341,8 +2341,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simLevelSlider {
-  width: 110px;
-  height: 4px;
+  width: 6.875rem;
+  height: 0.25rem;
   accent-color: #2ba6df;
   cursor: pointer;
 }
@@ -2352,15 +2352,15 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   font-weight: 700;
   color: #2ba6df;
   font-family: monospace;
-  min-width: 44px;
+  min-width: 2.75rem;
 }
 
 .simLevelMaxBtn {
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--sim-text-sub, #9ca3af);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
   font-size: 0.6875rem;
   font-weight: 800;
   cursor: pointer;
@@ -2378,8 +2378,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   background: rgba(43, 166, 223, 0.15);
   border: 1px solid rgba(43, 166, 223, 0.4);
   color: #2ba6df;
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -2395,16 +2395,16 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simSkillCards {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .simSkillCard {
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 10px;
-  padding: 14px 16px;
+  border-radius: 0.625rem;
+  padding: 0.875rem 1rem;
   display: flex;
-  gap: 16px;
+  gap: 1rem;
   align-items: flex-start;
   transition:
     border-color 0.2s ease,
@@ -2414,8 +2414,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simSkillCard:focus-visible {
-  outline: 2px solid var(--sim-blue, #2ba6df);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--sim-blue, #2ba6df);
+  outline-offset: 0.125rem;
 }
 
 .simSkillCardHighlight {
@@ -2430,45 +2430,45 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   }
   12% {
     border-color: var(--sim-blue, #2ba6df);
-    box-shadow: 0 0 18px rgba(43, 166, 223, 0.46);
+    box-shadow: 0 0 1.125rem rgba(43, 166, 223, 0.46);
   }
   38% {
     border-color: rgba(43, 166, 223, 0.7);
-    box-shadow: 0 0 28px rgba(43, 166, 223, 0.22);
+    box-shadow: 0 0 1.75rem rgba(43, 166, 223, 0.22);
   }
 }
 
 .simSkillCard:hover {
   border-color: var(--sim-border-highlight, rgba(255, 255, 255, 0.16));
   background: rgba(20, 26, 40, 0.5);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.25rem 1rem rgba(0, 0, 0, 0.35);
 }
 
 .simSkillCardMedia {
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   flex-shrink: 0;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .simSkillCardIcon {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
   object-fit: contain;
   background: #0c1017;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.35);
   flex-shrink: 0;
 }
 
 .simSkillCardIconPlaceholder {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
   display: flex;
@@ -2479,13 +2479,13 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   flex-shrink: 0;
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.06),
-    0 2px 6px rgba(0, 0, 0, 0.35);
+    0 0.125rem 0.375rem rgba(0, 0, 0, 0.35);
 }
 
 .simSkillCardContent {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
   flex: 1;
   min-width: 0;
 }
@@ -2494,14 +2494,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.625rem;
   flex-wrap: wrap;
 }
 
 .simSkillCardTitleGroup {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   flex-wrap: wrap;
   min-width: 0;
 }
@@ -2522,8 +2522,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   color: var(--sim-text-sub, #a2b0c6);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
   line-height: 1;
   white-space: nowrap;
 }
@@ -2532,8 +2532,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   font-size: 0.65rem;
   font-weight: 700;
   text-transform: uppercase;
-  padding: 2px 7px;
-  border-radius: 4px;
+  padding: 0.125rem 0.4375rem;
+  border-radius: 0.25rem;
   letter-spacing: 0.04em;
   line-height: 1.1;
   white-space: nowrap;
@@ -2570,9 +2570,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 8px;
-  margin: 2px 0;
-  padding: 2px 0;
+  gap: 0.5rem;
+  margin: 0.125rem 0;
+  padding: 0.125rem 0;
   width: fit-content;
   max-width: 100%;
 }
@@ -2580,17 +2580,17 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simComboChip {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   background: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 6px;
-  padding: 3px 8px;
+  border-radius: 0.375rem;
+  padding: 0.1875rem 0.5rem;
   font-size: 0.72rem;
   font-weight: 700;
   color: #e2e8f0;
   letter-spacing: 0.02em;
   box-shadow:
-    0 2px 4px rgba(0, 0, 0, 0.3),
+    0 0.125rem 0.25rem rgba(0, 0, 0, 0.3),
     inset 0 1px 0 rgba(255, 255, 255, 0.08);
   white-space: nowrap;
   line-height: 1.1;
@@ -2600,7 +2600,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 14px;
+  min-width: 0.875rem;
   color: #ffffff;
   font-size: 0.9rem;
   line-height: 1;
@@ -2608,17 +2608,17 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simComboGlyphIcon {
   display: block;
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
 }
 
 .simComboSprite {
   display: block;
   width: auto;
-  height: 20px;
-  max-width: 46px;
+  height: 1.25rem;
+  max-width: 2.875rem;
   object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.6));
+  filter: drop-shadow(0 1px 0.125rem rgba(0, 0, 0, 0.6));
 }
 
 .simComboStepLabel {
@@ -2638,10 +2638,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simComboArrowImg {
   display: block;
-  width: 14px;
-  height: 19px;
+  width: 0.875rem;
+  height: 1.1875rem;
   object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 1px 0.125rem rgba(0, 0, 0, 0.5));
 }
 
 .simSkillCardDesc {
@@ -2665,8 +2665,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 @media (max-width: 640px) {
   .simSkillCard {
     flex-direction: column;
-    gap: 10px;
-    padding: 12px;
+    gap: 0.625rem;
+    padding: 0.75rem;
   }
 
   .simSkillCardMedia {
@@ -2676,7 +2676,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   .simSkillCardHeaderLine {
     flex-direction: column;
     align-items: flex-start;
-    gap: 6px;
+    gap: 0.375rem;
   }
 }
 
@@ -2690,7 +2690,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simAssetsCollapsible {
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 
@@ -2698,7 +2698,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   cursor: pointer;
   user-select: text;
   background: rgba(255, 255, 255, 0.02);
@@ -2714,30 +2714,30 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simAssetsContent {
-  padding: 14px 16px;
+  padding: 0.875rem 1rem;
   border-top: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.875rem;
 }
 
 .simAssetsDisclaimer {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 0.625rem;
   background: rgba(43, 166, 223, 0.08);
   border: 1px solid rgba(43, 166, 223, 0.2);
-  border-radius: 8px;
-  padding: 10px 14px;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
 }
 
 .simDisclaimerIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 15px;
-  height: 15px;
-  flex: 0 0 15px;
+  width: 0.9375rem;
+  height: 0.9375rem;
+  flex: 0 0 0.9375rem;
   color: #bfdbfe;
 }
 
@@ -2753,7 +2753,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simAssetsFilters {
   display: flex;
-  gap: 6px;
+  gap: 0.375rem;
   flex-wrap: wrap;
 }
 
@@ -2761,14 +2761,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--sim-text-sub, #9ca3af);
-  padding: 5px 12px;
-  border-radius: 6px;
+  padding: 0.3125rem 0.75rem;
+  border-radius: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   transition: all 0.15s ease;
 }
 
@@ -2786,20 +2786,20 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simFilterCount {
   font-size: 0.6875rem;
   background: rgba(0, 0, 0, 0.3);
-  padding: 1px 5px;
-  border-radius: 8px;
+  padding: 1px 0.3125rem;
+  border-radius: 0.5rem;
 }
 
 .simAssetsGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 0.875rem;
 }
 
 .simAssetCard {
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 10px;
+  border-radius: 0.625rem;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -2831,49 +2831,49 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simAssetResBadge {
   position: absolute;
-  top: 8px;
-  left: 8px;
+  top: 0.5rem;
+  left: 0.5rem;
   font-size: 0.6875rem;
   font-weight: 700;
   font-family: monospace;
   color: #ffffff;
   background: rgba(0, 0, 0, 0.7);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
   z-index: 5;
 }
 
 .simAssetSubBadge {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 0.5rem;
+  right: 0.5rem;
   font-size: 0.6875rem;
   font-weight: 700;
   color: #f5d97a;
   background: rgba(0, 0, 0, 0.7);
-  padding: 2px 6px;
-  border-radius: 4px;
+  padding: 0.125rem 0.375rem;
+  border-radius: 0.25rem;
   z-index: 5;
 }
 
 .simAssetSizeBadge {
   position: absolute;
-  bottom: 8px;
-  right: 8px;
+  bottom: 0.5rem;
+  right: 0.5rem;
   font-size: 0.6875rem;
   font-family: monospace;
   color: var(--sim-text-sub, #9ca3af);
   background: rgba(0, 0, 0, 0.7);
-  padding: 1px 5px;
-  border-radius: 4px;
+  padding: 1px 0.3125rem;
+  border-radius: 0.25rem;
   z-index: 5;
 }
 
 .simAssetMeta {
-  padding: 10px 12px;
+  padding: 0.625rem 0.75rem;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
   background: rgba(18, 22, 34, 0.95);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
@@ -2897,10 +2897,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 0.375rem;
   background: rgba(0, 0, 0, 0.3);
-  padding: 3px 6px;
-  border-radius: 4px;
+  padding: 0.1875rem 0.375rem;
+  border-radius: 0.25rem;
   border: 1px solid rgba(255, 255, 255, 0.04);
 }
 
@@ -2918,8 +2918,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   border: none;
   color: var(--sim-text-sub, #9ca3af);
   cursor: pointer;
-  padding: 2px 4px;
-  border-radius: 4px;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
   font-size: 0.75rem;
   transition: color 0.15s ease;
 }
@@ -2930,7 +2930,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simAssetActions {
   display: flex;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .simAssetDownloadBtn {
@@ -2938,15 +2938,15 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
   color: var(--sim-text-main, #f3f4f6);
-  padding: 4px 8px;
-  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
   font-size: 0.75rem;
   font-weight: 600;
   text-decoration: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 4px;
+  gap: 0.25rem;
   transition: all 0.15s ease;
 }
 
@@ -2976,7 +2976,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevDetails {
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 
@@ -2984,7 +2984,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   cursor: pointer;
   user-select: text;
   background: rgba(255, 255, 255, 0.02);
@@ -2996,21 +2996,21 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simDevContent {
-  padding: 16px 20px;
+  padding: 1rem 1.25rem;
   border-top: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .simDevDisclaimer {
   display: flex;
   align-items: flex-start;
-  gap: 10px;
+  gap: 0.625rem;
   background: rgba(245, 217, 122, 0.08);
   border: 1px solid rgba(245, 217, 122, 0.2);
-  border-radius: 8px;
-  padding: 10px 14px;
+  border-radius: 0.5rem;
+  padding: 0.625rem 0.875rem;
 }
 
 .simDevWarning {
@@ -3019,21 +3019,21 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   overflow: hidden;
   background: rgba(127, 29, 29, 0.24);
   border: 1px solid rgba(248, 113, 113, 0.45);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   color: #fee2e2;
 }
 
 .simDevWarningStripe {
-  width: 4px;
-  flex: 0 0 4px;
+  width: 0.25rem;
+  flex: 0 0 0.25rem;
   background: #ef4444;
 }
 
 .simDevWarningBody {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  padding: 10px 14px;
+  gap: 0.25rem;
+  padding: 0.625rem 0.875rem;
 }
 
 .simDevWarningTitle {
@@ -3051,8 +3051,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevWarningPaths {
   display: flex;
   flex-direction: column;
-  gap: 4px;
-  margin-top: 4px;
+  gap: 0.25rem;
+  margin-top: 0.25rem;
   color: #fda4af;
   font-size: 0.75rem;
 }
@@ -3060,7 +3060,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevWarningPathList {
   display: flex;
   flex-wrap: wrap;
-  gap: 4px 8px;
+  gap: 0.25rem 0.5rem;
 }
 
 .simDevWarningPathList code {
@@ -3072,7 +3072,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevGroup {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 /* The category buttons toggle the native hidden attribute on each group. */
@@ -3087,25 +3087,25 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   color: var(--sim-text-main, #f8fafc);
   display: flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   border-bottom: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  padding-bottom: 6px;
+  padding-bottom: 0.375rem;
 }
 
 .simDevGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(auto-fill, minmax(13.75rem, 1fr));
+  gap: 0.625rem;
 }
 
 .simDevCard {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
   background: rgba(0, 0, 0, 0.25);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 6px;
-  padding: 8px 12px;
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.75rem;
 }
 
 .simDevLabel {
@@ -3126,13 +3126,13 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevFilters {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .simDevFilterBtn {
-  padding: 6px 10px;
+  padding: 0.375rem 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: rgba(255, 255, 255, 0.03);
   color: #94a3b8;
   cursor: pointer;
@@ -3147,7 +3147,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simFilterCount {
-  margin-left: 4px;
+  margin-left: 0.25rem;
   color: inherit;
   font-weight: 700;
 }
@@ -3155,19 +3155,19 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevSourcesCard {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 8px 12px;
-  margin-bottom: 2px;
+  gap: 0.375rem;
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.125rem;
   background: rgba(0, 0, 0, 0.22);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .simDevSourcesHeader {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 2px;
+  margin-bottom: 0.125rem;
 }
 
 .simDevSourcesTag {
@@ -3179,9 +3179,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simDevSourcesCount {
-  padding: 1px 6px;
+  padding: 1px 0.375rem;
   border: 1px solid rgba(56, 189, 248, 0.25);
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   background: rgba(56, 189, 248, 0.12);
   color: #38bdf8;
   font-size: 0.68rem;
@@ -3191,7 +3191,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevSourcesList {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 0.3125rem;
 }
 
 .simDevSourcesItem {
@@ -3199,9 +3199,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   min-width: 0;
   max-width: 100%;
   box-sizing: border-box;
-  padding: 5px 8px;
+  padding: 0.3125rem 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.04);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -3210,7 +3210,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   min-width: 0;
   flex: 1;
   flex-direction: column;
-  gap: 2px;
+  gap: 0.125rem;
 }
 
 .simDevSourcesPath {
@@ -3242,14 +3242,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simDevMatrixCard,
 .simDevTraitCard {
-  padding: 10px;
+  padding: 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -3258,22 +3258,22 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .simDevMatrixDesc,
 .simDevTraitDriver {
-  margin: 7px 0;
+  margin: 0.4375rem 0;
   color: #cbd5e1;
   line-height: 1.45;
 }
 
 .simDevMatrixTier {
   display: grid;
-  grid-template-columns: 42px minmax(220px, 0.85fr) minmax(0, 1.15fr);
+  grid-template-columns: 2.625rem minmax(13.75rem, 0.85fr) minmax(0, 1.15fr);
   align-items: start;
-  column-gap: 12px;
-  padding: 7px 0;
+  column-gap: 0.75rem;
+  padding: 0.4375rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   color: #94a3b8;
   font-size: 0.76rem;
@@ -3300,7 +3300,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simDevListRow {
-  padding: 7px 0;
+  padding: 0.4375rem 0;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   color: #94a3b8;
   font-size: 0.76rem;
@@ -3308,8 +3308,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 @media (max-width: 640px) {
   .simDevMatrixTier {
-    grid-template-columns: 36px minmax(0, 1fr);
-    row-gap: 4px;
+    grid-template-columns: 2.25rem minmax(0, 1fr);
+    row-gap: 0.25rem;
   }
 
   .simDevMatrixTierText {
@@ -3320,22 +3320,22 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevLadder {
   display: flex;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 0.375rem;
   color: #f5d97a;
   font-size: 0.75rem;
 }
 
 .simDevNestedDetails {
-  padding: 8px 10px;
+  padding: 0.5rem 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 7px;
+  border-radius: 0.4375rem;
   background: rgba(0, 0, 0, 0.16);
 }
 
 .simDevNestedDetails summary {
   display: flex;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.625rem;
   cursor: pointer;
   color: #f8fafc;
 }
@@ -3343,15 +3343,15 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevAdvItem {
   display: flex;
   align-items: flex-start;
-  gap: 12px;
-  padding: 6px 10px;
+  gap: 0.75rem;
+  padding: 0.375rem 0.625rem;
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: rgba(0, 0, 0, 0.2);
 }
 
 .simDevAdvStar {
-  min-width: 32px;
+  min-width: 2rem;
   color: #f5d97a;
   font-size: 0.8rem;
   font-weight: 800;
@@ -3361,7 +3361,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   min-width: 0;
   flex-wrap: wrap;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .simDevMultiplierTag {
@@ -3370,10 +3370,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   max-width: 100%;
   flex-wrap: wrap;
   align-items: baseline;
-  gap: 5px;
-  padding: 3px 7px;
+  gap: 0.3125rem;
+  padding: 0.1875rem 0.4375rem;
   border: 1px solid rgba(43, 166, 223, 0.2);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: rgba(43, 166, 223, 0.08);
   color: #cbd5e1;
   font-size: 0.76rem;
@@ -3388,22 +3388,22 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevSkillParamsList {
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simDevSkillParamCard {
   overflow: hidden;
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 6px;
+  border-radius: 0.375rem;
   background: rgba(0, 0, 0, 0.2);
 }
 
 .simDevSkillParamSummary {
   display: grid;
   align-items: center;
-  grid-template-columns: minmax(0, 1fr) 60px 12px;
-  column-gap: 12px;
-  padding: 8px 12px;
+  grid-template-columns: minmax(0, 1fr) 3.75rem 0.75rem;
+  column-gap: 0.75rem;
+  padding: 0.5rem 0.75rem;
   cursor: pointer;
   list-style: none;
   background: rgba(255, 255, 255, 0.02);
@@ -3430,7 +3430,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   min-width: 0;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simDevParamTitle strong {
@@ -3439,8 +3439,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simDevParamTitle code {
-  padding: 1px 5px;
-  border-radius: 4px;
+  padding: 1px 0.3125rem;
+  border-radius: 0.25rem;
   background: rgba(0, 0, 0, 0.3);
   color: var(--sim-blue, #2ba6df);
   font-family: var(--font-mono, ui-monospace, monospace);
@@ -3448,11 +3448,11 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simDevParamBadge {
-  width: 60px;
+  width: 3.75rem;
   box-sizing: border-box;
-  padding: 2px 7px;
+  padding: 0.125rem 0.4375rem;
   border: 1px solid rgba(43, 166, 223, 0.3);
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background: rgba(43, 166, 223, 0.15);
   color: var(--sim-blue, #2ba6df);
   font-size: 0.7rem;
@@ -3462,9 +3462,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simDevParamTableWrap {
   overflow-x: auto;
-  margin: 0 12px 10px;
+  margin: 0 0.75rem 0.625rem;
   border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 6px;
+  border-radius: 0.375rem;
 }
 
 .simDevParamTable,
@@ -3479,7 +3479,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevParamTable td,
 .simDevProvenanceTable th,
 .simDevProvenanceTable td {
-  padding: 6px 12px;
+  padding: 0.375rem 0.75rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
   text-align: left;
   vertical-align: top;
@@ -3516,7 +3516,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDevProvenanceWrap {
   overflow-x: auto;
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: rgba(0, 0, 0, 0.2);
 }
 
@@ -3553,7 +3553,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 /* Character changelog on the detail page */
 .simChangelogSection {
   width: 100%;
-  margin-top: 14px;
+  margin-top: 0.875rem;
   padding: 0;
   border: none;
   background: transparent;
@@ -3563,7 +3563,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogDetails {
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px dashed var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  border-radius: 0.75rem;
   overflow: hidden;
 }
 
@@ -3571,7 +3571,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogEntrySummary {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.625rem;
   cursor: pointer;
   user-select: none;
   list-style: none;
@@ -3579,7 +3579,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simChangelogSummary {
   justify-content: space-between;
-  padding: 12px 18px;
+  padding: 0.75rem 1.125rem;
   background: rgba(0, 0, 0, 0.2);
   color: var(--sim-text-sub, #9ca3af);
   font-family: var(--font-mono, monospace);
@@ -3597,15 +3597,15 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogSummaryTitle {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simChangelogSummaryIcon {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   color: currentColor;
 }
 
@@ -3617,25 +3617,25 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogContent {
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 16px 20px;
+  gap: 1.25rem;
+  padding: 1rem 1.25rem;
   background: rgba(0, 0, 0, 0.15);
 }
 
 .simChangelogEntry {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 18px 20px;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 12px;
+  border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.02);
 }
 
 .simChangelogEntrySummary {
   flex-wrap: wrap;
-  gap: 12px;
-  padding: 0 0 12px;
+  gap: 0.75rem;
+  padding: 0 0 0.75rem;
   border-bottom: 1px solid var(--border-color, rgba(255, 255, 255, 0.08));
   background: transparent;
 }
@@ -3657,10 +3657,10 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogEntryCount {
-  min-width: 22px;
-  padding: 2px 6px;
+  min-width: 1.375rem;
+  padding: 0.125rem 0.375rem;
   text-align: center;
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   background: rgba(245, 217, 122, 0.12);
   color: #f5d97a;
 }
@@ -3668,14 +3668,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogChanges {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.875rem;
   padding: 0;
 }
 
 .simChangelogChange {
-  padding: 16px;
+  padding: 1rem;
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  border-radius: 0.75rem;
   background: rgba(13, 17, 26, 0.45);
   box-shadow: none;
 }
@@ -3684,8 +3684,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 6px;
+  gap: 0.625rem;
+  margin-bottom: 0.375rem;
   color: #f8fafc;
 }
 
@@ -3704,7 +3704,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simChangelogPath {
   display: block;
-  margin-top: 8px;
+  margin-top: 0.5rem;
   overflow-wrap: anywhere;
   color: #64748b;
   font-size: 0.7rem;
@@ -3720,11 +3720,11 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogSection .simDevDetails {
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
 .simChangelogSection .simDevSummary {
-  padding: 12px 16px;
+  padding: 0.75rem 1rem;
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -3741,16 +3741,16 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogList {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 .simChangelogPatch {
   display: flex;
   flex-direction: column;
-  gap: 16px;
-  padding: 18px 20px;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 12px;
+  border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.02);
 }
 
@@ -3758,8 +3758,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 12px;
-  padding-bottom: 12px;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
   border-bottom: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
 }
 
@@ -3771,9 +3771,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogPatchClient {
-  padding: 3px 8px;
+  padding: 0.1875rem 0.5rem;
   border: 1px solid rgba(43, 166, 223, 0.24);
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   background: rgba(43, 166, 223, 0.08);
   color: #7dd3fc;
   font-size: 0.72rem;
@@ -3783,13 +3783,13 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogSections {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 0.875rem;
 }
 
 .simChangelogGroup {
   overflow: hidden;
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background: rgba(13, 17, 26, 0.45);
 }
 
@@ -3797,8 +3797,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  padding: 12px 14px;
+  gap: 0.75rem;
+  padding: 0.75rem 0.875rem;
   cursor: pointer;
   list-style: none;
   color: #f8fafc;
@@ -3831,15 +3831,15 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogGroupBody {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  padding: 12px 14px 14px;
+  gap: 0.625rem;
+  padding: 0.75rem 0.875rem 0.875rem;
   border-top: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .simChangelogSkillCard {
-  padding: 12px 14px;
+  padding: 0.75rem 0.875rem;
   border: 1px solid rgba(255, 255, 255, 0.06);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: rgba(0, 0, 0, 0.22);
 }
 
@@ -3847,8 +3847,8 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-bottom: 8px;
+  gap: 0.625rem;
+  margin-bottom: 0.5rem;
   color: #f8fafc;
 }
 
@@ -3859,22 +3859,22 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simChangelogList {
-  gap: 14px;
-  padding: 14px 16px 16px;
+  gap: 0.875rem;
+  padding: 0.875rem 1rem 1rem;
   background: rgba(0, 0, 0, 0.12);
 }
 
 .simChangelogSection .simChangelogPatch {
-  gap: 12px;
-  padding: 14px 16px;
-  border-radius: 10px;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.625rem;
   background: rgba(13, 17, 26, 0.45);
   box-shadow: none;
 }
 
 .simChangelogSection .simChangelogPatchHeader {
-  gap: 8px;
-  padding-bottom: 10px;
+  gap: 0.5rem;
+  padding-bottom: 0.625rem;
 }
 
 .simChangelogSection .simChangelogPatchVersion {
@@ -3886,24 +3886,24 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simChangelogPatchClient {
-  padding: 2px 7px;
-  border-radius: 6px;
+  padding: 0.125rem 0.4375rem;
+  border-radius: 0.375rem;
   color: #7dd3fc;
   font-size: 0.6875rem;
   font-weight: 700;
 }
 
 .simChangelogSection .simChangelogSections {
-  gap: 10px;
+  gap: 0.625rem;
 }
 
 .simChangelogSection .simChangelogGroup {
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: rgba(18, 22, 34, 0.72);
 }
 
 .simChangelogSection .simChangelogGroupSummary {
-  padding: 10px 12px;
+  padding: 0.625rem 0.75rem;
   color: #ffffff;
   font-size: 0.8125rem;
   font-weight: 600;
@@ -3919,13 +3919,13 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simChangelogGroupBody {
-  gap: 8px;
-  padding: 10px 12px 12px;
+  gap: 0.5rem;
+  padding: 0.625rem 0.75rem 0.75rem;
 }
 
 .simChangelogSection .simChangelogSkillCard {
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.5rem;
   background: rgba(13, 17, 26, 0.55);
 }
 
@@ -3938,7 +3938,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simChangelogSkillHeader {
-  margin-bottom: 5px;
+  margin-bottom: 0.3125rem;
   font-size: 0.875rem;
 }
 
@@ -3964,15 +3964,15 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simChangelogSection .simAdvItem,
 .simChangelogSection .simPassiveItem,
 .simChangelogSection .simMatrixCard {
-  border-radius: 8px;
+  border-radius: 0.5rem;
 }
 
 .simulacraContainer :global(.diff-ins),
 .simDetailContainer :global(.diff-ins) {
   display: inline;
-  padding: 1px 5px;
+  padding: 1px 0.3125rem;
   border: 1px solid rgba(46, 160, 67, 0.4);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: rgba(46, 160, 67, 0.2);
   color: #3fb950;
   font-weight: 700;
@@ -3982,9 +3982,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simulacraContainer :global(.diff-del),
 .simDetailContainer :global(.diff-del) {
   display: inline;
-  padding: 1px 5px;
+  padding: 1px 0.3125rem;
   border: 1px solid rgba(248, 81, 73, 0.4);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: rgba(248, 81, 73, 0.2);
   color: #ff7b72;
   opacity: 0.85;
@@ -4010,7 +4010,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDetailContainer :global(a) {
   color: var(--sim-blue, #2ba6df);
   text-decoration-color: rgba(43, 166, 223, 0.45);
-  text-underline-offset: 2px;
+  text-underline-offset: 0.125rem;
 }
 
 .simulacraContainer :global(a.sim-keyword-link),
@@ -4018,7 +4018,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   font-weight: 600;
   text-decoration: underline;
   text-decoration-style: dotted;
-  text-underline-offset: 2px;
+  text-underline-offset: 0.125rem;
   cursor: pointer;
   transition: color 0.15s ease, text-shadow 0.15s ease;
 }
@@ -4036,13 +4036,13 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 .simDetailContainer :global(a.sim-keyword-link:hover),
 .simDetailContainer :global(a.sim-keyword-link:focus-visible) {
   text-decoration-style: solid;
-  text-shadow: 0 0 8px rgba(125, 211, 252, 0.4);
+  text-shadow: 0 0 0.5rem rgba(125, 211, 252, 0.4);
 }
 
 .simulacraContainer :global(a.sim-keyword-link--self),
 .simDetailContainer :global(a.sim-keyword-link--self) {
   text-decoration-style: dashed;
-  text-underline-offset: 3px;
+  text-underline-offset: 0.1875rem;
 }
 
 .simKeywordTargetHighlight {
@@ -4058,12 +4058,12 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   45% {
     box-shadow:
       0 0 0 1px rgba(43, 166, 223, 0.45),
-      0 0 0 8px rgba(43, 166, 223, 0.08);
+      0 0 0 0.5rem rgba(43, 166, 223, 0.08);
   }
   100% {
     box-shadow:
       0 0 0 1px rgba(43, 166, 223, 0),
-      0 0 0 12px rgba(43, 166, 223, 0);
+      0 0 0 0.75rem rgba(43, 166, 223, 0);
   }
 }
 
@@ -4075,22 +4075,22 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simChangelogList {
-  gap: 20px;
-  margin-top: 16px;
+  gap: 1.25rem;
+  margin-top: 1rem;
   padding: 0;
   background: transparent;
 }
 
 .simChangelogSection .simChangelogPatch {
-  gap: 16px;
-  padding: 18px 20px;
-  border-radius: 12px;
+  gap: 1rem;
+  padding: 1.125rem 1.25rem;
+  border-radius: 0.75rem;
   background: rgba(255, 255, 255, 0.02);
 }
 
 .simChangelogSection .simChangelogPatchHeader {
-  gap: 12px;
-  padding-bottom: 12px;
+  gap: 0.75rem;
+  padding-bottom: 0.75rem;
 }
 
 .simChangelogSection .simChangelogPatchVersion {
@@ -4102,29 +4102,29 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simChangelogPatchClient {
-  padding: 2px 8px;
+  padding: 0.125rem 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: rgba(255, 255, 255, 0.04);
   color: #d7d0dd;
   font-family: var(--font-ui, sans-serif);
-  font-size: 12.5px;
+  font-size: 0.78125rem;
   font-weight: 600;
   letter-spacing: 0.02em;
 }
 
 .simChangelogSection .simChangelogSections {
-  gap: 14px;
+  gap: 0.875rem;
 }
 
 .simChangelogSection .simChangelogGroup {
-  padding: 16px;
-  border-radius: 12px;
+  padding: 1rem;
+  border-radius: 0.75rem;
   background: rgba(13, 17, 26, 0.45);
 }
 
 .simChangelogSection .simChangelogGroupSummary {
-  padding: 0 0 12px;
+  padding: 0 0 0.75rem;
   border-bottom: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
   background: transparent;
   color: var(--sim-text-main, #f3f4f6);
@@ -4144,30 +4144,30 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simChangelogGroupBody {
-  gap: 12px;
-  padding: 16px 0 0;
+  gap: 0.75rem;
+  padding: 1rem 0 0;
   border-top: none;
 }
 
 .simChangelogSection .simTraitCard {
   background: rgba(13, 17, 26, 0.65);
-  border-radius: 10px;
-  padding: 14px 16px;
+  border-radius: 0.625rem;
+  padding: 0.875rem 1rem;
 }
 
 .simChangelogSection .simAdvItem {
   background: rgba(13, 17, 26, 0.65);
-  border-radius: 10px;
+  border-radius: 0.625rem;
 }
 
 .simChangelogSection .simAdvSummary {
-  padding: 10px 14px;
+  padding: 0.625rem 0.875rem;
 }
 
 .simChangelogSection .simAdvStar {
-  min-width: 32px;
-  height: 32px;
-  border-radius: 7px;
+  min-width: 2rem;
+  height: 2rem;
+  border-radius: 0.4375rem;
   font-size: 0.88rem;
 }
 
@@ -4176,16 +4176,16 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSection .simAdvBody {
-  padding: 10px 14px 12px;
-  margin-top: 2px;
+  padding: 0.625rem 0.875rem 0.75rem;
+  margin-top: 0.125rem;
 }
 
 .simChangelogSection .simChangelogSkillCard {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  padding: 14px 16px;
-  border-radius: 10px;
+  gap: 1rem;
+  padding: 0.875rem 1rem;
+  border-radius: 0.625rem;
   background: rgba(0, 0, 0, 0.25);
 }
 
@@ -4198,9 +4198,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 
 .simChangelogSkillIcon,
 .simChangelogSkillIconPlaceholder {
-  width: 44px;
-  height: 44px;
-  border-radius: 8px;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.5rem;
   flex-shrink: 0;
 }
 
@@ -4208,7 +4208,7 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   object-fit: contain;
   background: #0c1017;
   border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.35);
 }
 
 .simChangelogSkillIconPlaceholder {
@@ -4227,14 +4227,14 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
   flex: 1;
   min-width: 0;
   flex-direction: column;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .simChangelogSkillHeaderLine {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
+  gap: 0.625rem;
   flex-wrap: wrap;
 }
 
@@ -4247,9 +4247,9 @@ details[open] > .simPassiveSummary .simPassiveIndicator {
 }
 
 .simChangelogSkillBadge {
-  padding: 2px 7px;
+  padding: 0.125rem 0.4375rem;
   border: 1px solid rgba(255, 255, 255, 0.14);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   color: #cbd5e1;
   font-size: 0.65rem;
   font-weight: 700;

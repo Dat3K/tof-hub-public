@@ -4,13 +4,13 @@ import React from 'react';
 import type { ModeSwitcherProps, ModeSwitcherTone } from './types';
 
 const TONE_CLASSES: Record<ModeSwitcherTone, string> = {
-  orange: 'bg-[rgba(249,115,22,0.22)] border-[#fb923c] text-[#fdba74] shadow-[0_0_8px_rgba(249,115,22,0.35)]',
-  rose: 'bg-[rgba(225,29,72,0.22)] border-[#f43f5e] text-[#fda4af] shadow-[0_0_8px_rgba(225,29,72,0.35)]',
-  gold: 'bg-[rgba(245,217,122,0.2)] border-[#f5d97a] text-[#fde68a] shadow-[0_0_8px_rgba(245,217,122,0.3)]',
-  sky: 'bg-[rgba(56,189,248,0.2)] border-[#38bdf8] text-[#bae6fd] shadow-[0_0_8px_rgba(56,189,248,0.3)]',
-  dps: 'bg-[rgba(239,68,68,0.22)] border-[#ef4444] text-[#fca5a5] shadow-[0_0_8px_rgba(239,68,68,0.35)]',
-  tank: 'bg-[rgba(59,130,246,0.22)] border-[#3b82f6] text-[#93c5fd] shadow-[0_0_8px_rgba(59,130,246,0.35)]',
-  benediction: 'bg-[rgba(16,185,129,0.22)] border-[#10b981] text-[#6ee7b7] shadow-[0_0_8px_rgba(16,185,129,0.35)]',
+  orange: 'bg-[rgba(249,115,22,0.22)] border-[#fb923c] text-[#fdba74] shadow-[0_0_0.5rem_rgba(249,115,22,0.35)]',
+  rose: 'bg-[rgba(225,29,72,0.22)] border-[#f43f5e] text-[#fda4af] shadow-[0_0_0.5rem_rgba(225,29,72,0.35)]',
+  gold: 'bg-[rgba(245,217,122,0.2)] border-[#f5d97a] text-[#fde68a] shadow-[0_0_0.5rem_rgba(245,217,122,0.3)]',
+  sky: 'bg-[rgba(56,189,248,0.2)] border-[#38bdf8] text-[#bae6fd] shadow-[0_0_0.5rem_rgba(56,189,248,0.3)]',
+  dps: 'bg-[rgba(239,68,68,0.22)] border-[#ef4444] text-[#fca5a5] shadow-[0_0_0.5rem_rgba(239,68,68,0.35)]',
+  tank: 'bg-[rgba(59,130,246,0.22)] border-[#3b82f6] text-[#93c5fd] shadow-[0_0_0.5rem_rgba(59,130,246,0.35)]',
+  benediction: 'bg-[rgba(16,185,129,0.22)] border-[#10b981] text-[#6ee7b7] shadow-[0_0_0.5rem_rgba(16,185,129,0.35)]',
 };
 
 /** Index selected by an arrow key (cyclic), or null for any other key. */
@@ -48,7 +48,7 @@ export function ModeSwitcher<T extends string>({
     <div
       className={[
         presentation === 'standalone' ? 'sim-mode-standalone' : 'sim-mode-toggle',
-        'inline-flex items-center bg-[var(--surface-inset)] border border-[var(--surface-border-strong)] rounded-[5px] p-[2px] gap-[2px] select-none [[data-text-selectable]_&]:select-text box-border',
+        'inline-flex items-center bg-[var(--surface-inset)] border border-[var(--surface-border-strong)] rounded-[0.3125rem] p-[0.125rem] gap-[0.125rem] select-none [[data-text-selectable]_&]:select-text box-border',
         className,
       ]
         .filter(Boolean)
@@ -73,10 +73,10 @@ export function ModeSwitcher<T extends string>({
             className={[
               'sim-filter-btn sim-mode-btn',
               `sim-filter-btn--${option.tone ?? 'orange'} sim-mode-btn--${option.tone ?? 'orange'}`,
-              'rounded-[3px] border cursor-pointer transition-all duration-200 select-none [[data-text-selectable]_&]:select-text flex items-center justify-center font-sans',
+              'rounded-[0.1875rem] border cursor-pointer transition-all duration-200 select-none [[data-text-selectable]_&]:select-text flex items-center justify-center font-sans',
               presentation === 'standalone'
                 ? 'min-h-8 px-3 py-2 text-xs leading-tight whitespace-nowrap gap-1.5'
-                : 'h-5 max-sm:h-7 min-w-[46px] max-sm:min-w-[56px] px-1.5 max-sm:px-2.5 text-[11px] max-sm:text-xs leading-none',
+                : 'h-5 max-sm:h-7 min-w-[2.875rem] max-sm:min-w-[3.5rem] px-1.5 max-sm:px-2.5 text-[0.6875rem] max-sm:text-xs leading-none',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3b82f6] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0b0d13]',
               active
                 ? `active is-active ${TONE_CLASSES[option.tone ?? 'orange']} font-bold`

@@ -573,7 +573,7 @@ export function WishBannerCard({
       >
         {icon && <img src={icon} alt="" className="h-6 w-6 object-contain" />}
         <span>{locale === 'ru' ? item.name_ru : item.name_en}</span>
-        <span className="font-mono text-[10px] text-slate-500">{pullCount}</span>
+        <span className="font-mono text-[length:calc(10*var(--ui-unit))] text-slate-500">{pullCount}</span>
       </button>
     );
   };
@@ -603,13 +603,13 @@ export function WishBannerCard({
             type="button"
             onClick={() => onBannerIdChange('all')}
             aria-pressed={isAllBanners}
-            className={`row-span-2 min-h-[74px] w-[100px] self-stretch rounded-lg border px-2 py-1.5 text-[10px] font-bold transition-colors sm:min-h-0 sm:w-auto sm:px-4 sm:py-2 sm:text-xs ${isAllBanners ? 'border-amber-300/50 bg-amber-300/15 text-white' : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:text-white'}`}
+            className={`row-span-2 min-h-[calc(74*var(--ui-unit))] w-[calc(100*var(--ui-unit))] self-stretch rounded-lg border px-2 py-1.5 text-[length:calc(10*var(--ui-unit))] font-bold transition-colors sm:min-h-0 sm:w-auto sm:px-4 sm:py-2 sm:text-xs ${isAllBanners ? 'border-amber-300/50 bg-amber-300/15 text-white' : 'border-white/10 bg-white/[0.03] text-slate-300 hover:border-white/20 hover:text-white'}`}
           >
             <span className="relative flex w-full items-center justify-center gap-1.5 sm:w-auto">
               {allBannersIcon && <img src={allBannersIcon} alt="" className="absolute left-0 h-4 w-4 shrink-0 object-contain sm:static sm:h-6 sm:w-6" />}
               <span className="text-center leading-tight">{t.bannerAll}</span>
             </span>
-            <span className="mt-0.5 block font-mono text-[9px] text-slate-500 sm:mt-1 sm:text-[10px]">{totalRecordedPulls}</span>
+            <span className="mt-0.5 block font-mono text-[length:calc(9*var(--ui-unit))] text-slate-500 sm:mt-1 sm:text-[length:calc(10*var(--ui-unit))]">{totalRecordedPulls}</span>
           </button>
           {[
             {
@@ -639,7 +639,7 @@ export function WishBannerCard({
                       {groupIcon && <img src={groupIcon} alt="" className="h-6 w-6 shrink-0 object-contain" />}
                       {row.label}
                     </span>
-                    <span className="shrink-0 font-mono text-[10px] text-slate-500">{row.count}</span>
+                    <span className="shrink-0 font-mono text-[length:calc(10*var(--ui-unit))] text-slate-500">{row.count}</span>
                   </button>
                   {row.items.length > 0 ? row.items.map(renderBannerButton) : (
                     <span className="px-2 py-2 text-xs italic text-slate-600">{t.bannerNoPulls}</span>
@@ -898,7 +898,7 @@ export function WishBannerCard({
                           className="w-64 whitespace-normal"
                           content={(
                             <div className="space-y-1">
-                              <p className="text-[10px] font-bold uppercase tracking-wide text-sky-300">{bannerTitle}</p>
+                              <p className="text-[length:calc(10*var(--ui-unit))] font-bold uppercase tracking-wide text-sky-300">{bannerTitle}</p>
                               <div className="flex items-center gap-2">
                                 {pullMedia.image && (
                                   <img
@@ -909,11 +909,11 @@ export function WishBannerCard({
                                 )}
                                 <div className="min-w-0">
                                   <p className="text-xs font-semibold text-white">{formatDropName(itemName, pull.item_type === 'matrix')}</p>
-                                  {slotVisual && <p className="mt-1 flex items-center gap-1.5 text-[10px] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
+                                  {slotVisual && <p className="mt-1 flex items-center gap-1.5 text-[length:calc(10*var(--ui-unit))] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
                                 </div>
                               </div>
-                              <p className="text-[10px] text-white/70">{t.bannerDropDate} {formatPullDate(pull.pull_timestamp, locale)}</p>
-                              <div className="flex items-center gap-2 text-[10px]">
+                              <p className="text-[length:calc(10*var(--ui-unit))] text-white/70">{t.bannerDropDate} {formatPullDate(pull.pull_timestamp, locale)}</p>
+                              <div className="flex items-center gap-2 text-[length:calc(10*var(--ui-unit))]">
                                 <span className={isWin ? 'font-bold text-emerald-300' : isLoss ? 'font-bold text-rose-300' : 'text-white/70'}>{isWin ? localeText(locale)('WIN') : isLoss ? localeText(locale)('LOSS') : '?'}</span>
                                 <span className="text-white/70">{formatWishPosition(pull.pity_count)} {t.pullDistance}</span>
                               </div>
@@ -964,14 +964,14 @@ export function WishBannerCard({
                     const luckPresentation = getLuckMultiplierPresentation(item.metric.multiplier, luckStyles.luckShimmer);
                     const luckValue = (
                       <span className={`${luckStyles.luckValueFrame} ${item.metric.multiplier > 2 ? luckStyles.luckValueFrameHigh : ''} ${item.metric.multiplier > 3 ? luckStyles.luckValueFrameExtreme : ''}`}>
-                        <span className={`shrink-0 font-mono text-[11px] ${luckPresentation.className}`} style={luckPresentation.style}>
+                        <span className={`shrink-0 font-mono text-[length:calc(11*var(--ui-unit))] ${luckPresentation.className}`} style={luckPresentation.style}>
                         {item.value} · {t[`luckTier${item.metric.tier.split('_').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}` as keyof typeof t]}
                         </span>
                       </span>
                     );
                     return (
                     <div key={item.label} className={styles.luckItem}>
-                      <div className={`${styles.luckMetricHeader} text-[11px] font-bold uppercase tracking-[0.08em] text-white/70`}>
+                      <div className={`${styles.luckMetricHeader} text-[length:calc(11*var(--ui-unit))] font-bold uppercase tracking-[0.08em] text-white/70`}>
                         <span className={styles.luckHeading}>
                           <span className={styles.luckHeadingPrefix}>{t.luckVsExpectedPrefix}</span>
                           <strong className={item.kind === 'dropRate'
@@ -991,7 +991,7 @@ export function WishBannerCard({
                           aria-hidden="true"
                         />
                       </div>
-                      <div className="mt-1 flex justify-between text-[9px] font-medium text-white/50">
+                      <div className="mt-1 flex justify-between text-[length:calc(9*var(--ui-unit))] font-medium text-white/50">
                         <span>{t.luckScaleUnlucky}</span>
                         <span>{t.luckScaleExpected}</span>
                         <span>{t.luckScaleVeryLucky}</span>
@@ -1005,7 +1005,7 @@ export function WishBannerCard({
                 </div>
               </>
             ) : (
-              <p className="mt-3 text-[11px] text-white/60">{t.bannerNo5050}</p>
+              <p className="mt-3 text-[length:calc(11*var(--ui-unit))] text-white/60">{t.bannerNo5050}</p>
             )}
 
             {standardSsrDrops.length > 0 && (
@@ -1026,7 +1026,7 @@ export function WishBannerCard({
                     className="w-64 whitespace-normal"
                     content={(
                       <div className="space-y-1">
-                        <p className="text-[10px] font-bold uppercase tracking-wide text-sky-300">{bannerTitle}</p>
+                        <p className="text-[length:calc(10*var(--ui-unit))] font-bold uppercase tracking-wide text-sky-300">{bannerTitle}</p>
                         <div className="flex items-center gap-2">
                           {pullMedia.image && (
                             <img
@@ -1037,12 +1037,12 @@ export function WishBannerCard({
                           )}
                           <div className="min-w-0">
                             <p className="text-xs font-semibold text-white">{formatDropName(itemName, pull.item_type === 'matrix')}</p>
-                            {slotVisual && <p className="mt-1 flex items-center gap-1.5 text-[10px] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
+                            {slotVisual && <p className="mt-1 flex items-center gap-1.5 text-[length:calc(10*var(--ui-unit))] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
                           </div>
                         </div>
-                        <p className="text-[10px] text-white/70">{t.bannerDropDate} {formatPullDate(pull.pull_timestamp, locale)}</p>
-                        <p className="text-[10px] text-white/70">{t.bannerPullNumber} {formatWishPosition(pullNumber)}</p>
-                        <p className="text-[10px] text-white/70">
+                        <p className="text-[length:calc(10*var(--ui-unit))] text-white/70">{t.bannerDropDate} {formatPullDate(pull.pull_timestamp, locale)}</p>
+                        <p className="text-[length:calc(10*var(--ui-unit))] text-white/70">{t.bannerPullNumber} {formatWishPosition(pullNumber)}</p>
+                        <p className="text-[length:calc(10*var(--ui-unit))] text-white/70">
                           {banner.banner_type === 'black_nucleus' ? t.bannerPullsSincePrevious : t.bannerPityAtDrop} {formatWishPosition(pull.pity_count)} {t.pullDistance}
                         </p>
                       </div>
@@ -1068,16 +1068,16 @@ export function WishBannerCard({
             {banner.banner_type === 'black_nucleus' && (
               <div className={`${styles.luckGrid} ${styles.luckGridSingle}`}>
                 <div className={styles.luckItem}>
-                  <div className="flex flex-wrap items-baseline justify-between gap-2 text-[11px] font-bold uppercase tracking-[0.08em] text-white/70">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2 text-[length:calc(11*var(--ui-unit))] font-bold uppercase tracking-[0.08em] text-white/70">
                     <span>{t.luckVsExpectedDropRate}</span>
-                    <span className={`shrink-0 font-mono text-[11px] ${blackNucleusDropPresentation.className}`} style={blackNucleusDropPresentation.style}>
+                    <span className={`shrink-0 font-mono text-[length:calc(11*var(--ui-unit))] ${blackNucleusDropPresentation.className}`} style={blackNucleusDropPresentation.style}>
                       {dropRateLuck.hasReliableExposure === false ? '?' : `${dropRateLuck.multiplier.toFixed(2)}x`} · {t[`luckTier${dropRateLuck.tier.split('_').map((part) => part[0].toUpperCase() + part.slice(1)).join('')}` as keyof typeof t]}
                     </span>
                   </div>
                   <div className={styles.luckTrack} role="img" aria-label={`${t.luckVsExpectedDropRate}: ${dropRateLuck.multiplier.toFixed(2)}x`}>
                     <span className={styles.luckMarker} style={{ left: `${Math.min(100, Math.max(0, dropRateLuck.positionPct))}%` }} aria-hidden="true" />
                   </div>
-                  <div className="mt-1 flex justify-between text-[9px] font-medium text-white/50">
+                  <div className="mt-1 flex justify-between text-[length:calc(9*var(--ui-unit))] font-medium text-white/50">
                     <span>{t.luckScaleUnlucky}</span>
                     <span>{t.luckScaleExpected}</span>
                     <span>{t.luckScaleVeryLucky}</span>
@@ -1105,11 +1105,11 @@ export function WishBannerCard({
                     : t.cardStreakNoData;
                   return (
                     <div key={key} className={styles.aggregatePityCard}>
-                      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[10px]">
+                      <div className="flex flex-wrap items-center justify-between gap-x-3 gap-y-1 text-[length:calc(10*var(--ui-unit))]">
                         <span className="font-semibold text-white/75">{label}</span>
                         <span className="font-mono font-bold text-amber-200">{t.bannerPityNow} {formatWishPosition(state.currentPity)}/{state.pityTarget}</span>
                       </div>
-                      <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[10px]">
+                      <div className="mt-1.5 flex flex-wrap items-center justify-between gap-x-2 gap-y-1 text-[length:calc(10*var(--ui-unit))]">
                         <span className="inline-flex items-center gap-1.5">
                           <span className="text-white/50">{t.cardStreakNext}</span>
                           <strong className={`rounded border px-1.5 py-0.5 font-bold ${getPredictionColorClass(prediction)}`}>{predictionLabel}</strong>
@@ -1125,7 +1125,7 @@ export function WishBannerCard({
               </div>
             ) : bannerLuck.pityTarget > 0 ? (
               <div className={styles.pityPanel}>
-                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-[10px]">
+                <div className="flex flex-wrap items-baseline justify-between gap-x-3 gap-y-1 text-[length:calc(10*var(--ui-unit))]">
                   {isSharedPityAggregate ? (
                     <>
                       <span className="text-white/65">
@@ -1163,12 +1163,12 @@ export function WishBannerCard({
                 </div>
               </div>
             ) : banner.banner_type === 'black_nucleus' ? (
-              <p className="mt-3 border-t border-white/10 pt-2.5 text-[10px] text-white/65">
+              <p className="mt-3 border-t border-white/10 pt-2.5 text-[length:calc(10*var(--ui-unit))] text-white/65">
                 {t.bannerSinceLastSsr}:{' '}
                 <strong className="font-mono text-amber-200">{bannerLuck.currentIncompleteInterval}</strong>
               </p>
             ) : (
-              <p className="mt-3 border-t border-white/10 pt-2.5 text-[10px] text-white/55">{t.bannerNoPity}</p>
+              <p className="mt-3 border-t border-white/10 pt-2.5 text-[length:calc(10*var(--ui-unit))] text-white/55">{t.bannerNoPity}</p>
             )}
           </div>
         </div>

@@ -1,21 +1,21 @@
-.link {--build-element:var(--tool-panel-text,#e2e8f0);display:inline-flex;align-items:center;gap:8px;min-width:0;border:1px solid var(--surface-border-strong);border-radius:6px;background:var(--surface-inset);padding:7px 9px;color:var(--tool-panel-text,#e2e8f0);text-decoration:none;transition:border-color .18s,background .18s,color .18s}
+.link {--build-element:var(--tool-panel-text,#e2e8f0);display:inline-flex;align-items:center;gap:calc(8 * var(--ui-unit));min-width:0;border:1px solid var(--surface-border-strong);border-radius:calc(6 * var(--ui-unit));background:var(--surface-inset);padding:calc(7 * var(--ui-unit)) calc(9 * var(--ui-unit));color:var(--tool-panel-text,#e2e8f0);text-decoration:none;transition:border-color .18s,background .18s,color .18s}
 .link[data-element=Frost] {--build-element:var(--elem-frost,#72c4ef)}
 .link[data-element=Volt] {--build-element:var(--elem-volt,#c2a0f2)}
 .link[data-element=Flame] {--build-element:var(--elem-flame,#ef9383)}
 .link[data-element=Physical] {--build-element:var(--elem-phys,#e4c271)}
 .link[data-element=Altered] {--build-element:var(--elem-altered,#cfa5dc)}
 .link:hover,.link[data-current] {border-color:var(--build-element);background:var(--surface-raised);color:white}
-.link:focus-visible {outline:2px solid var(--tool-input-focus);outline-offset:3px}
-.link img {width:17px;height:17px;object-fit:contain;flex:none}
-.label {display:grid;gap:3px;min-width:0}
-.label b {font-size:11px;font-weight:600;white-space:nowrap}
-.label small {font-size:10px;color:var(--tool-panel-dim,#93a1b6);font-variant-numeric:tabular-nums}
-.arrow {margin-left:auto;color:var(--build-element);font-size:17px;line-height:1}
-.link[data-presentation=card] {width:100%;padding:12px;gap:12px}
-.link[data-presentation=card] img {width:24px;height:24px}
-.link[data-presentation=card] .label b {font-size:13px}
-.link[data-presentation=compact] {gap:5px;padding:5px 6px;min-height:29px}
-.link[data-presentation=compact] img {width:14px;height:14px}
-.link[data-presentation=compact] .label b {font-size:10px}
-.link[data-presentation=compact] .arrow {font-size:14px}
+.link:focus-visible {outline:calc(2 * var(--ui-unit)) solid var(--tool-input-focus);outline-offset:calc(3 * var(--ui-unit))}
+.link img {width:calc(17 * var(--ui-unit));height:calc(17 * var(--ui-unit));object-fit:contain;flex:none}
+.label {display:grid;gap:calc(3 * var(--ui-unit));min-width:0}
+.label b {font-size:calc(11 * var(--ui-unit));font-weight:600;white-space:nowrap}
+.label small {font-size:calc(10 * var(--ui-unit));color:var(--tool-panel-dim,#93a1b6);font-variant-numeric:tabular-nums}
+.arrow {margin-left:auto;color:var(--build-element);font-size:calc(17 * var(--ui-unit));line-height:1}
+.link[data-presentation=card] {width:100%;padding:calc(12 * var(--ui-unit));gap:calc(12 * var(--ui-unit))}
+.link[data-presentation=card] img {width:calc(24 * var(--ui-unit));height:calc(24 * var(--ui-unit))}
+.link[data-presentation=card] .label b {font-size:calc(13 * var(--ui-unit))}
+.link[data-presentation=compact] {gap:calc(5 * var(--ui-unit));padding:calc(5 * var(--ui-unit)) calc(6 * var(--ui-unit));min-height:calc(29 * var(--ui-unit))}
+.link[data-presentation=compact] img {width:calc(14 * var(--ui-unit));height:calc(14 * var(--ui-unit))}
+.link[data-presentation=compact] .label b {font-size:calc(10 * var(--ui-unit))}
+.link[data-presentation=compact] .arrow {font-size:calc(14 * var(--ui-unit))}
 @media(prefers-reduced-motion:reduce) {.link {transition:none}}

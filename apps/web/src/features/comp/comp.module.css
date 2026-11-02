@@ -5,14 +5,14 @@
 
 .compContainer {
   width: 100%;
-  max-width: 1560px;
+  max-width: 97.5rem;
   margin: 0 auto;
-  padding: 24px 20px 80px;
+  padding: 1.5rem 1.25rem 5rem;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  gap: 20px;
+  gap: 1.25rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -25,9 +25,9 @@
 .eyebrow {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   letter-spacing: 0.1em;
   text-transform: uppercase;
@@ -36,11 +36,11 @@
 }
 
 .eyebrowDot {
-  width: 8px;
-  height: 8px;
+  width: 0.5rem;
+  height: 0.5rem;
   border-radius: 50%;
   background: #38bdf8;
-  box-shadow: 0 0 8px #38bdf8;
+  box-shadow: 0 0 0.5rem #38bdf8;
 }
 
 .title {
@@ -57,7 +57,7 @@
   line-height: 1.5;
   color: #94a3b8;
   margin: 0;
-  max-width: 840px;
+  max-width: 52.5rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -67,24 +67,24 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 16px;
-  width: 256px;
+  gap: 1rem;
+  width: 16rem;
   flex-shrink: 0;
   background: #101420;
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 12px;
-  padding: 16px;
+  border-radius: 0.75rem;
+  padding: 1rem;
   box-sizing: border-box;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0.25rem 1.25rem rgba(0, 0, 0, 0.25);
   position: sticky;
-  top: 24px;
+  top: 1.5rem;
 }
 
 .serverSwitchWrap {
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding-bottom: 16px;
+  padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -92,7 +92,7 @@
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  gap: 10px;
+  gap: 0.625rem;
   width: 100%;
 }
 
@@ -102,9 +102,9 @@
   box-sizing: border-box;
   background: rgba(0, 0, 0, 0.35);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 8px;
-  padding: 3px;
-  gap: 2px;
+  border-radius: 0.5rem;
+  padding: 0.1875rem;
+  gap: 0.125rem;
   flex-shrink: 0;
 }
 
@@ -115,8 +115,8 @@
   color: #94a3b8;
   font-size: 0.8125rem;
   font-weight: 600;
-  padding: 7px 10px;
-  border-radius: 6px;
+  padding: 0.4375rem 0.625rem;
+  border-radius: 0.375rem;
   cursor: pointer;
   transition: all 0.18s ease;
   white-space: nowrap;
@@ -130,7 +130,7 @@
 .modeBtnActive {
   background: #38bdf8;
   color: #08101e;
-  box-shadow: 0 2px 8px rgba(56, 189, 248, 0.35);
+  box-shadow: 0 0.125rem 0.5rem rgba(56, 189, 248, 0.35);
   font-weight: 700;
 }
 
@@ -155,19 +155,19 @@
 .presetTrigger {
   width: 100%;
   box-sizing: border-box;
-  min-height: 38px;
+  min-height: 2.375rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 14px;
+  grid-template-columns: minmax(0, 1fr) 0.875rem;
   align-items: center;
-  gap: 8px;
-  padding: 8px 12px;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid var(--surface-border-strong);
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background: var(--surface-panel);
   color: #f4f8ff;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
   font-family: inherit;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 600;
   letter-spacing: 0.01em;
   text-align: left;
@@ -180,15 +180,15 @@
 }
 
 .presetTrigger:focus-visible {
-  outline: 2px solid #38bdf8;
-  outline-offset: 2px;
+  outline: 0.125rem solid #38bdf8;
+  outline-offset: 0.125rem;
   border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 0 0.125rem rgba(56, 189, 248, 0.12);
 }
 
 .presetControlOpen .presetTrigger {
   border-color: #38bdf8;
-  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.12);
+  box-shadow: 0 0 0 0.125rem rgba(56, 189, 248, 0.12);
 }
 
 .presetValue {
@@ -198,8 +198,8 @@
 }
 
 .presetChevron {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   fill: none;
   stroke: #55c2ef;
   stroke-width: 2.2;
@@ -214,39 +214,39 @@
 
 .presetMenu {
   position: absolute;
-  top: calc(100% + 6px);
+  top: calc(100% + 0.375rem);
   left: 0;
   right: 0;
   width: 100%;
   box-sizing: border-box;
-  padding: 6px;
+  padding: 0.375rem;
   border: 1px solid var(--surface-border-strong);
-  border-radius: 10px;
+  border-radius: 0.625rem;
   background: var(--surface-panel);
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.32);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(1.125rem);
+  -webkit-backdrop-filter: blur(1.125rem);
   z-index: 2500;
 }
 
 .presetOption {
   width: 100%;
   box-sizing: border-box;
-  min-height: 32px;
+  min-height: 2rem;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 16px;
+  grid-template-columns: minmax(0, 1fr) 1rem;
   align-items: center;
-  gap: 8px;
-  padding: 6px 10px;
+  gap: 0.5rem;
+  padding: 0.375rem 0.625rem;
   border: 1px solid transparent;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   text-align: left;
   cursor: pointer;
   transition: color 140ms ease, background-color 140ms ease, border-color 140ms ease;
   background: transparent;
   color: #e5e7eb;
   font-family: inherit;
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 500;
 }
 
@@ -257,8 +257,8 @@
 }
 
 .presetOptionDivider {
-  margin-top: 5px;
-  padding-top: 10px;
+  margin-top: 0.3125rem;
+  padding-top: 0.625rem;
   border-top: 1px solid var(--surface-border);
   border-top-left-radius: 0;
   border-top-right-radius: 0;
@@ -280,8 +280,8 @@
 }
 
 .presetOption svg {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   fill: none;
   stroke: currentColor;
   stroke-width: 2.25;
@@ -312,10 +312,10 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  padding: 8px 14px;
-  border-radius: 8px;
-  font-size: 13px;
+  gap: 0.4375rem;
+  padding: 0.5rem 0.875rem;
+  border-radius: 0.5rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.18s ease;
@@ -340,7 +340,7 @@
 .sideBtnPrimary:hover:not(:disabled) {
   background: #38bdf8;
   color: #08101e;
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 0.75rem rgba(56, 189, 248, 0.25);
 }
 .sideBtnAccent {
   background: rgba(192, 132, 252, 0.14);
@@ -350,7 +350,7 @@
 .sideBtnAccent:hover:not(:disabled) {
   background: #c084fc;
   color: #08101e;
-  box-shadow: 0 0 12px rgba(192, 132, 252, 0.22);
+  box-shadow: 0 0 0.75rem rgba(192, 132, 252, 0.22);
 }
 .sideBtnDanger {
   background: rgba(239, 68, 68, 0.12);
@@ -360,7 +360,7 @@
 .sideBtnDanger:hover:not(:disabled) {
   background: #ef4444;
   color: #ffffff;
-  box-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
+  box-shadow: 0 0 0.75rem rgba(239, 68, 68, 0.35);
 }
 
 /* --------------------------------------------------------------------------
@@ -371,9 +371,9 @@
   min-width: 0;
   background: var(--surface-panel);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   overflow: hidden;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0.5rem 1.875rem rgba(0, 0, 0, 0.35);
 }
 
 .tableScroll {
@@ -384,19 +384,19 @@
 
 .tableHead {
   display: grid;
-  grid-template-columns: 210px 80px 270px 270px 185px minmax(80px, 1fr);
+  grid-template-columns: 13.125rem 5rem 16.875rem 16.875rem 11.5625rem minmax(5rem, 1fr);
   align-items: center;
-  gap: 8px;
-  padding: 10px 16px;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
   background: #141926;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-  min-width: 1080px;
+  min-width: 67.5rem;
   box-sizing: border-box;
 }
 
 .tableHeadMmo {
-  grid-template-columns: 210px 80px 270px 270px 185px minmax(80px, 1fr);
-  min-width: 1080px;
+  grid-template-columns: 13.125rem 5rem 16.875rem 16.875rem 11.5625rem minmax(5rem, 1fr);
+  min-width: 67.5rem;
 }
 
 .tableHeadTh {
@@ -413,7 +413,7 @@
 
 .tableHeadThOrder {
   text-align: left;
-  padding-left: 6px;
+  padding-left: 0.375rem;
 }
 
 .tableSignature {text-align:right;text-transform:none;font-family:var(--font-mono,monospace);white-space:nowrap}
@@ -421,22 +421,22 @@
 .tableBody {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  padding: 6px 8px;
-  min-width: 1080px;
+  gap: 0.375rem;
+  padding: 0.375rem 0.5rem;
+  min-width: 67.5rem;
   box-sizing: border-box;
 }
 
-.tableBodyMmo { min-width: 1080px; }
+.tableBodyMmo { min-width: 67.5rem; }
 
 /* Player Row with Role Coloring */
 .row {
   display: grid;
-  grid-template-columns: 210px 80px 270px 270px 185px minmax(80px, 1fr);
+  grid-template-columns: 13.125rem 5rem 16.875rem 16.875rem 11.5625rem minmax(5rem, 1fr);
   align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  border-radius: 9px;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 0.5625rem;
   border: 1px solid transparent;
   transition: all 0.18s ease;
   position: relative;
@@ -449,12 +449,12 @@
 }
 
 .rowDropTarget {
-  outline: 2px solid rgba(56, 189, 248, 0.72);
-  outline-offset: 2px;
-  box-shadow: 0 0 18px rgba(56, 189, 248, 0.2);
+  outline: 0.125rem solid rgba(56, 189, 248, 0.72);
+  outline-offset: 0.125rem;
+  box-shadow: 0 0 1.125rem rgba(56, 189, 248, 0.2);
 }
 
-.rowMmo { grid-template-columns: 210px 80px 270px 270px 185px minmax(80px, 1fr); }
+.rowMmo { grid-template-columns: 13.125rem 5rem 16.875rem 16.875rem 11.5625rem minmax(5rem, 1fr); }
 
 .rowDragging {
   opacity: 0.4;
@@ -467,7 +467,7 @@
 }
 .rowTank:hover {
   border-color: rgba(245, 158, 11, 0.7);
-  box-shadow: 0 0 16px rgba(245, 158, 11, 0.2);
+  box-shadow: 0 0 1rem rgba(245, 158, 11, 0.2);
 }
 
 .rowHealer {
@@ -476,7 +476,7 @@
 }
 .rowHealer:hover {
   border-color: rgba(16, 185, 129, 0.7);
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 0 1rem rgba(16, 185, 129, 0.2);
 }
 
 .rowDps {
@@ -485,7 +485,7 @@
 }
 .rowDps:hover {
   border-color: rgba(239, 68, 68, 0.7);
-  box-shadow: 0 0 16px rgba(239, 68, 68, 0.2);
+  box-shadow: 0 0 1rem rgba(239, 68, 68, 0.2);
 }
 
 .rowBalance {
@@ -494,20 +494,20 @@
 }
 .rowBalance:hover {
   border-color: rgba(148, 163, 184, 0.7);
-  box-shadow: 0 0 16px rgba(148, 163, 184, 0.15);
+  box-shadow: 0 0 1rem rgba(148, 163, 184, 0.15);
 }
 
 /* Col 1: Player Meta */
 .colPlayer {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .dragHandle {
   color: #64748b;
   cursor: grab;
-  font-size: 14px;
+  font-size: 0.875rem;
   user-select: none;
 }
 .dragHandle:active {
@@ -519,13 +519,13 @@
   font-size: 0.8125rem;
   font-weight: 700;
   color: #94a3b8;
-  width: 20px;
+  width: 1.25rem;
 }
 
 .playerMeta {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
   flex: 1;
   min-width: 0;
 }
@@ -534,23 +534,23 @@
   display: inline-flex;
   align-self: flex-start;
   align-items: center;
-  gap: 3px;
-  padding: 2px;
+  gap: 0.1875rem;
+  padding: 0.125rem;
   border: 1px solid rgba(148, 163, 184, 0.24);
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   background: rgba(7, 10, 17, 0.72);
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.35);
+  box-shadow: inset 0 1px 0.125rem rgba(0, 0, 0, 0.35);
 }
 .weaponModeButton {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  min-height: 23px;
-  min-width: 56px;
-  padding: 3px 9px;
+  gap: 0.3125rem;
+  min-height: 1.4375rem;
+  min-width: 3.5rem;
+  padding: 0.1875rem 0.5625rem;
   border: 1px solid transparent;
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   background: transparent;
   color: #9aa8ba;
   font-size: 0.67rem;
@@ -565,32 +565,32 @@
   background: rgba(255, 255, 255, 0.07);
 }
 .weaponModeButton:focus-visible {
-  outline: 2px solid #7dd3fc;
-  outline-offset: 2px;
+  outline: 0.125rem solid #7dd3fc;
+  outline-offset: 0.125rem;
   z-index: 1;
 }
 .weaponModeButtonActive {
   color: #e0f6ff;
   border-color: rgba(56, 189, 248, 0.56);
   background: linear-gradient(180deg, rgba(14, 116, 144, 0.58), rgba(8, 76, 102, 0.58));
-  box-shadow: 0 0 10px rgba(34, 211, 238, 0.13), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 0.625rem rgba(34, 211, 238, 0.13), inset 0 1px rgba(255, 255, 255, 0.1);
 }
 .weaponModeButtonActive::before {
-  width: 5px;
-  height: 5px;
-  flex: 0 0 5px;
+  width: 0.3125rem;
+  height: 0.3125rem;
+  flex: 0 0 0.3125rem;
   border-radius: 50%;
   background: #67e8f9;
-  box-shadow: 0 0 6px rgba(103, 232, 249, 0.65);
+  box-shadow: 0 0 0.375rem rgba(103, 232, 249, 0.65);
   content: '';
 }
 
 .roleBadge {
   display: inline-flex;
   align-items: center;
-  gap: 4px;
-  padding: 2px 8px;
-  border-radius: 4px;
+  gap: 0.25rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 0.25rem;
   font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
@@ -606,11 +606,11 @@
 .playerNameInput {
   background: transparent;
   border: 1px solid transparent;
-  border-radius: 4px;
+  border-radius: 0.25rem;
   color: #f8fafc;
   font-size: 0.8125rem;
   font-weight: 600;
-  padding: 2px 4px;
+  padding: 0.125rem 0.25rem;
   width: 100%;
   box-sizing: border-box;
 }
@@ -631,11 +631,11 @@
 }
 
 .traitAvatar {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   border-radius: 50%;
-  border: 2px solid #fbbf24;
-  box-shadow: 0 0 10px rgba(251, 191, 36, 0.25);
+  border: 0.125rem solid #fbbf24;
+  box-shadow: 0 0 0.625rem rgba(251, 191, 36, 0.25);
   overflow: hidden;
   position: relative;
   display: flex;
@@ -650,21 +650,21 @@
 .traitAvatar:hover {
   border-color: #fbbf24;
   transform: scale(1.05);
-  box-shadow: 0 0 14px rgba(251, 191, 36, 0.3);
+  box-shadow: 0 0 0.875rem rgba(251, 191, 36, 0.3);
 }
 
 .traitEmpty {
-  width: 60px;
-  height: 60px;
+  width: 3.75rem;
+  height: 3.75rem;
   border-radius: 50%;
-  border: 1.5px dashed rgba(255, 255, 255, 0.2);
+  border: 0.09375rem dashed rgba(255, 255, 255, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   cursor: pointer;
   color: #64748b;
-  font-size: 10px;
+  font-size: 0.625rem;
   transition: all 0.15s ease;
 }
 .traitEmpty:hover {
@@ -678,7 +678,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 /* Col 4: Matrices */
@@ -686,7 +686,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .colWeaponMode {
@@ -701,34 +701,34 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 /* Col 6: Order Actions */
 .colActions {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   width: 100%;
 }
 
 .orderBtns {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .actionBtn {
   background: var(--surface-panel);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: #94a3b8;
-  border-radius: 5px;
-  width: 24px;
-  height: 24px;
+  border-radius: 0.3125rem;
+  width: 1.5rem;
+  height: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 11px;
+  font-size: 0.6875rem;
   cursor: pointer;
   transition: all 0.15s ease;
   flex-shrink: 0;
@@ -745,11 +745,11 @@
 
 .actionBtnClear {
   margin-left: auto;
-  width: 28px;
-  height: 28px;
-  min-width: 28px;
-  min-height: 28px;
-  border-radius: 6px;
+  width: 1.75rem;
+  height: 1.75rem;
+  min-width: 1.75rem;
+  min-height: 1.75rem;
+  border-radius: 0.375rem;
   color: #f87171;
   background: rgba(239, 68, 68, 0.08);
   border: 1px solid rgba(239, 68, 68, 0.25);
@@ -766,16 +766,16 @@
   border-color: #ef4444;
   color: #ffffff;
   transform: scale(1.12);
-  box-shadow: 0 0 10px rgba(239, 68, 68, 0.45);
+  box-shadow: 0 0 0.625rem rgba(239, 68, 68, 0.45);
 }
 
 /* --------------------------------------------------------------------------
    Slot Shared Styles
    -------------------------------------------------------------------------- */
 .slot {
-  width: 74px;
-  height: 74px;
-  border-radius: 8px;
+  width: 4.625rem;
+  height: 4.625rem;
+  border-radius: 0.5rem;
   background: var(--surface-inset);
   border: 1px solid rgba(255, 255, 255, 0.12);
   position: relative;
@@ -789,7 +789,7 @@
 }
 .slot:hover {
   border-color: rgba(56, 189, 248, 0.5);
-  box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+  box-shadow: 0 0 0.75rem rgba(56, 189, 248, 0.2);
 }
 
 .slotImg {
@@ -803,13 +803,13 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2px;
+  gap: 0.125rem;
   color: #64748b;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 600;
   text-transform: uppercase;
   text-align: center;
-  padding: 4px;
+  padding: 0.25rem;
 }
 .slotEmpty:hover {
   color: #38bdf8;
@@ -817,17 +817,17 @@
 
 .starBadge {
   position: absolute;
-  bottom: 3px;
-  right: 3px;
+  bottom: 0.1875rem;
+  right: 0.1875rem;
   background: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(251, 191, 36, 0.5);
   color: #fbbf24;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 800;
   line-height: 1;
-  border-radius: 3px;
-  padding: 2px 5px;
+  border-radius: 0.1875rem;
+  padding: 0.125rem 0.3125rem;
   cursor: pointer;
   z-index: 4;
   transition:
@@ -842,18 +842,18 @@
   color: #0b0d13;
   border-color: #f59e0b;
   transform: scale(1.15);
-  box-shadow: 0 0 8px rgba(251, 191, 36, 0.65);
+  box-shadow: 0 0 0.5rem rgba(251, 191, 36, 0.65);
 }
 
 .elementBadge {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 18px;
-  height: 18px;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 1.125rem;
+  height: 1.125rem;
   background: rgba(8, 12, 20, 0.9);
   border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 1px 0.25rem rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -861,34 +861,34 @@
   padding: 0;
 }
 .elementBadge img {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   object-fit: contain;
 }
 
 /* Dual-element badge: pill with two icons (legacy parity). */
 .elemBadgeDual {
   width: auto;
-  min-width: 18px;
-  padding: 1px 3px;
-  border-radius: 4px;
-  gap: 2px;
+  min-width: 1.125rem;
+  padding: 1px 0.1875rem;
+  border-radius: 0.25rem;
+  gap: 0.125rem;
 }
 .elemBadgeDual img {
-  width: 12px;
-  height: 12px;
+  width: 0.75rem;
+  height: 0.75rem;
 }
 
 /* Element badge inside 2+2 chips: smaller circular badge (legacy parity). */
 .chipElemBadge {
   position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 14px;
-  height: 14px;
+  top: 0.125rem;
+  left: 0.125rem;
+  width: 0.875rem;
+  height: 0.875rem;
   background: rgba(8, 12, 20, 0.9);
   border-radius: 50%;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.7);
+  box-shadow: 0 1px 0.25rem rgba(0, 0, 0, 0.7);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -896,28 +896,28 @@
   padding: 0;
 }
 .chipElemBadge img {
-  width: 11px;
-  height: 11px;
+  width: 0.6875rem;
+  height: 0.6875rem;
   object-fit: contain;
 }
 .chipElemBadgeDual {
   width: auto;
-  min-width: 18px;
-  padding: 1px 2px;
-  border-radius: 4px;
-  gap: 2px;
+  min-width: 1.125rem;
+  padding: 1px 0.125rem;
+  border-radius: 0.25rem;
+  gap: 0.125rem;
 }
 
 .matrixCountBadge {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 0.1875rem;
+  right: 0.1875rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 800;
   line-height: 1;
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 0.125rem 0.3125rem;
+  border-radius: 0.1875rem;
   background: rgba(192, 132, 252, 0.3);
   color: #e9d5ff;
   border: 1px solid rgba(192, 132, 252, 0.55);
@@ -936,19 +936,19 @@
   background: #c084fc;
   color: #0b0d13;
   border-color: #d8b4fe;
-  box-shadow: 0 0 10px rgba(192, 132, 252, 0.65);
+  box-shadow: 0 0 0.625rem rgba(192, 132, 252, 0.65);
 }
 
 .badge2Plus2 {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 0.1875rem;
+  right: 0.1875rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 9px;
+  font-size: 0.5625rem;
   font-weight: 800;
   line-height: 1;
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 0.125rem 0.3125rem;
+  border-radius: 0.1875rem;
   background: rgba(192, 132, 252, 0.4);
   color: #e9d5ff;
   border: 1px solid rgba(192, 132, 252, 0.55);
@@ -967,22 +967,22 @@
   background: #c084fc;
   color: #0b0d13;
   border-color: #d8b4fe;
-  box-shadow: 0 0 10px rgba(192, 132, 252, 0.65);
+  box-shadow: 0 0 0.625rem rgba(192, 132, 252, 0.65);
 }
 
 .relicRankBadge {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 0.1875rem;
+  right: 0.1875rem;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 22px;
-  height: 18px;
-  padding: 0 4px;
-  border-radius: 4px;
+  min-width: 1.375rem;
+  height: 1.125rem;
+  padding: 0 0.25rem;
+  border-radius: 0.25rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 800;
   line-height: 1;
   letter-spacing: 0.05em;
@@ -996,29 +996,29 @@
 .relicRankR5 {
   background: linear-gradient(135deg, #f59e0b, #d97706);
   color: #000000;
-  box-shadow: 0 0 8px rgba(245, 158, 11, 0.5);
+  box-shadow: 0 0 0.5rem rgba(245, 158, 11, 0.5);
 }
 
 .relicRankR5:hover {
   transform: scale(1.18);
-  box-shadow: 0 0 12px rgba(245, 158, 11, 0.8);
+  box-shadow: 0 0 0.75rem rgba(245, 158, 11, 0.8);
 }
 
 .relicRankR4 {
   background: linear-gradient(135deg, #c084fc, #9333ea);
   color: #ffffff;
-  box-shadow: 0 0 6px rgba(192, 132, 252, 0.4);
+  box-shadow: 0 0 0.375rem rgba(192, 132, 252, 0.4);
 }
 
 .relicRankR3 {
   background: linear-gradient(135deg, #38bdf8, #0284c7);
   color: #000000;
-  box-shadow: 0 0 6px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 0.375rem rgba(56, 189, 248, 0.4);
 }
 
 .relicRankR3:hover {
   transform: scale(1.18);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+  box-shadow: 0 0 0.625rem rgba(56, 189, 248, 0.7);
 }
 
 .relicRankR2,
@@ -1050,12 +1050,12 @@
 
 .chipBack {
   position: absolute;
-  top: 3px;
-  left: 3px;
-  width: 44px;
-  height: 44px;
+  top: 0.1875rem;
+  left: 0.1875rem;
+  width: 2.75rem;
+  height: 2.75rem;
   z-index: 1;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   overflow: hidden;
   border: none;
   background: transparent;
@@ -1063,45 +1063,45 @@
 
 .chipFront {
   position: absolute;
-  bottom: 3px;
-  right: 3px;
-  width: 44px;
-  height: 44px;
+  bottom: 0.1875rem;
+  right: 0.1875rem;
+  width: 2.75rem;
+  height: 2.75rem;
   z-index: 2;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   overflow: hidden;
   border: none;
   background: transparent;
-  box-shadow: -1px -1px 5px rgba(0, 0, 0, 0.45);
+  box-shadow: -1px -1px 0.3125rem rgba(0, 0, 0, 0.45);
 }
 
 .badge2Plus2 {
   position: absolute;
-  top: 3px;
-  right: 3px;
+  top: 0.1875rem;
+  right: 0.1875rem;
   background: rgba(192, 132, 252, 0.4);
   border: 1px solid rgba(192, 132, 252, 0.55);
   color: #e9d5ff;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 9px;
+  font-size: 0.5625rem;
   font-weight: 800;
-  border-radius: 3px;
-  padding: 0 3px;
+  border-radius: 0.1875rem;
+  padding: 0 0.1875rem;
   z-index: 3;
 }
 
 /* Split weapon button: hidden until hover, cyan; collapse state is rose. */
 .splitBtn {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  width: 22px;
-  height: 22px;
-  border-radius: 4px;
+  top: 0.1875rem;
+  right: 0.1875rem;
+  width: 1.375rem;
+  height: 1.375rem;
+  border-radius: 0.25rem;
   background: rgba(10, 14, 24, 0.88);
   border: 1px solid rgba(56, 189, 248, 0.45);
   color: #38bdf8;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 700;
   line-height: 1;
   display: flex;
@@ -1130,7 +1130,7 @@
   background: #38bdf8;
   border-color: #38bdf8;
   color: #000;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+  box-shadow: 0 0 0.625rem rgba(56, 189, 248, 0.6);
 }
 .splitBtnCollapse {
   border-color: rgba(244, 63, 94, 0.5);
@@ -1140,19 +1140,19 @@
   background: #f43f5e !important;
   border-color: #f43f5e !important;
   color: #fff !important;
-  box-shadow: 0 0 10px rgba(244, 63, 94, 0.5) !important;
+  box-shadow: 0 0 0.625rem rgba(244, 63, 94, 0.5) !important;
 }
 
 /* Weapon 2+2 runs the opposite diagonal from matrix chips (legacy parity):
    back chip bottom-left, front chip top-right. */
 .chipBackWeapon {
   position: absolute;
-  bottom: 3px;
-  left: 3px;
-  width: 44px;
-  height: 44px;
+  bottom: 0.1875rem;
+  left: 0.1875rem;
+  width: 2.75rem;
+  height: 2.75rem;
   z-index: 1;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   overflow: hidden;
   border: none;
   background: transparent;
@@ -1164,16 +1164,16 @@
 }
 .chipFrontWeapon {
   position: absolute;
-  top: 3px;
-  right: 3px;
-  width: 44px;
-  height: 44px;
+  top: 0.1875rem;
+  right: 0.1875rem;
+  width: 2.75rem;
+  height: 2.75rem;
   z-index: 3;
-  border-radius: 6px;
+  border-radius: 0.375rem;
   overflow: hidden;
   border: none;
   background: transparent;
-  box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.45);
+  box-shadow: -1px 1px 0.3125rem rgba(0, 0, 0, 0.45);
   transition:
     transform 0.15s ease,
     z-index 0.15s ease,
@@ -1184,22 +1184,22 @@
 .chipFrontWeapon:hover {
   z-index: 5;
   transform: scale(1.08);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 0.625rem rgba(56, 189, 248, 0.25);
 }
 
 /* Star badge inside 2+2 chips (legacy parity). */
 .chipStar {
   position: absolute;
-  bottom: 2px;
-  right: 2px;
+  bottom: 0.125rem;
+  right: 0.125rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 8px;
+  font-size: 0.5rem;
   font-weight: 800;
   background: rgba(0, 0, 0, 0.85);
   color: #fbbf24;
   border: 1px solid rgba(251, 191, 36, 0.6);
-  border-radius: 2px;
-  padding: 0 3px;
+  border-radius: 0.125rem;
+  padding: 0 0.1875rem;
   line-height: 1.2;
   cursor: pointer;
   z-index: 10;
@@ -1215,11 +1215,11 @@
   background: #fbbf24 !important;
   color: #0b0d13 !important;
   border-color: #f59e0b !important;
-  box-shadow: 0 0 8px rgba(251, 191, 36, 0.7);
+  box-shadow: 0 0 0.5rem rgba(251, 191, 36, 0.7);
 }
 .chipStarBack {
-  top: 2px;
-  left: 2px;
+  top: 0.125rem;
+  left: 0.125rem;
   bottom: auto;
   right: auto;
 }
@@ -1242,32 +1242,32 @@
   position: fixed;
   z-index: 3500;
   background: var(--tool-panel-surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(1rem);
+  -webkit-backdrop-filter: blur(1rem);
   border: 1px solid rgba(56, 189, 248, 0.4);
-  border-radius: 10px;
-  padding: 10px 12px;
-  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.75), 0 0 16px rgba(56, 189, 248, 0.2);
+  border-radius: 0.625rem;
+  padding: 0.625rem 0.75rem;
+  box-shadow: 0 0.75rem 2rem rgba(0, 0, 0, 0.75), 0 0 1rem rgba(56, 189, 248, 0.2);
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  min-width: 210px;
+  gap: 0.5rem;
+  min-width: 13.125rem;
   width: max-content;
-  max-width: min(440px, 95vw);
+  max-width: min(27.5rem, 95vw);
   user-select: none;
   animation: popFadeIn 0.14s ease-out;
 }
 
 .popMmo {
   box-sizing: border-box;
-  width: min(440px, calc(100vw - 20px));
-  max-width: min(440px, calc(100vw - 20px));
+  width: min(27.5rem, calc(100vw - 1.25rem));
+  max-width: min(27.5rem, calc(100vw - 1.25rem));
 }
 
 @keyframes popFadeIn {
   from {
     opacity: 0;
-    transform: translateY(-4px) scale(0.97);
+    transform: translateY(-0.25rem) scale(0.97);
   }
   to {
     opacity: 1;
@@ -1277,22 +1277,22 @@
 
 .popTitle {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 800;
   text-transform: uppercase;
   letter-spacing: 0.06em;
   color: #94a3b8;
-  padding-bottom: 4px;
+  padding-bottom: 0.25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   margin: 0;
 }
 
 .popSubtitle {
-  font-size: 10px;
+  font-size: 0.625rem;
   color: #38bdf8;
   white-space: nowrap;
 }
@@ -1300,11 +1300,11 @@
 .popSection {
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .popLabel {
-  font-size: 10px;
+  font-size: 0.625rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
   color: #94a3b8;
   text-transform: uppercase;
@@ -1314,7 +1314,7 @@
 .popRow {
   display: flex;
   flex-wrap: nowrap;
-  gap: 4px;
+  gap: 0.25rem;
   align-items: center;
 }
 
@@ -1322,7 +1322,7 @@
   display: grid;
   grid-template-columns: repeat(6, minmax(0, 1fr));
   align-items: stretch;
-  gap: 6px;
+  gap: 0.375rem;
   width: 100%;
 }
 
@@ -1331,7 +1331,7 @@
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
-  padding-inline: 2px;
+  padding-inline: 0.125rem;
   flex-shrink: 1;
 }
 
@@ -1339,19 +1339,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .popMmoStepControls {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .popMmoStarGrid {
   display: grid;
   grid-template-columns: repeat(8, minmax(0, 1fr));
-  gap: 5px;
+  gap: 0.3125rem;
   width: 100%;
 }
 
@@ -1359,9 +1359,9 @@
   box-sizing: border-box;
   width: 100%;
   min-width: 0;
-  height: 30px;
-  padding-inline: 2px;
-  font-size: 11px;
+  height: 1.875rem;
+  padding-inline: 0.125rem;
+  font-size: 0.6875rem;
 }
 
 @media (max-width: 480px) {
@@ -1374,19 +1374,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .popBtn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 30px;
-  height: 28px;
-  padding: 0 6px;
-  border-radius: 5px;
+  min-width: 1.875rem;
+  height: 1.75rem;
+  padding: 0 0.375rem;
+  border-radius: 0.3125rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 12px;
+  font-size: 0.75rem;
   font-weight: 700;
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.14);
@@ -1402,25 +1402,25 @@
   color: #fff;
   transform: translateY(-1px);
 }
-.popBtnStar { min-width: 36px; }
+.popBtnStar { min-width: 2.25rem; }
 .popBtnActive {
   background: #38bdf8;
   border-color: #38bdf8;
   color: #08101e;
   font-weight: 800;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 0.625rem rgba(56, 189, 248, 0.25);
 }
 .popBtnStarActive {
   background: #fbbf24;
   border-color: #f59e0b;
   color: #000;
-  box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+  box-shadow: 0 0 0.625rem rgba(251, 191, 36, 0.4);
 }
 .popBtnMatrixActive {
   background: #c084fc;
   border-color: #a855f7;
   color: #000;
-  box-shadow: 0 0 10px rgba(192, 132, 252, 0.22);
+  box-shadow: 0 0 0.625rem rgba(192, 132, 252, 0.22);
 }
 .popBtnR5Active {
   background: linear-gradient(135deg, #f59e0b, #d97706);
@@ -1439,14 +1439,14 @@
 }
 
 .popStepper {
-  min-width: 28px;
-  height: 28px;
-  font-size: 15px;
+  min-width: 1.75rem;
+  height: 1.75rem;
+  font-size: 0.9375rem;
   font-weight: 800;
   color: #94a3b8;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   cursor: pointer;
   user-select: none;
   transition: all 0.15s ease;
@@ -1471,13 +1471,13 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-top: 6px;
-  padding-top: 6px;
+  gap: 0.625rem;
+  margin-top: 0.375rem;
+  padding-top: 0.375rem;
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
 .popInputWrap .popLabel {
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 600;
   color: #cbd5e1;
   letter-spacing: 0.02em;
@@ -1485,20 +1485,20 @@
   flex: 1;
 }
 .popNumInput {
-  min-width: 50px;
+  min-width: 3.125rem;
   width: auto;
-  max-width: 100px;
-  height: 28px;
+  max-width: 6.25rem;
+  height: 1.75rem;
   background: rgba(10, 14, 26, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.16);
-  border-radius: 6px;
+  border-radius: 0.375rem;
   color: #ffffff;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
-  line-height: 26px;
+  line-height: 1.625rem;
   text-align: center;
-  padding: 0 8px;
+  padding: 0 0.5rem;
   box-sizing: border-box;
   appearance: textfield;
   -moz-appearance: textfield;
@@ -1518,17 +1518,17 @@
   background: rgba(10, 15, 30, 0.95);
   border-color: #38bdf8;
   outline: none;
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+  box-shadow: 0 0 0.625rem rgba(56, 189, 248, 0.4);
 }
 
 .popChipPick {
-  font-size: 10px;
-  padding: 2px 7px;
-  height: 22px;
+  font-size: 0.625rem;
+  padding: 0.125rem 0.4375rem;
+  height: 1.375rem;
   background: rgba(56, 189, 248, 0.12);
   color: #38bdf8;
   border: 1px solid rgba(56, 189, 248, 0.35);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   cursor: pointer;
   white-space: nowrap;
   font-weight: 700;
@@ -1536,7 +1536,7 @@
 .popChipPick:hover {
   background: #38bdf8;
   color: #08101e;
-  box-shadow: 0 0 8px rgba(56, 189, 248, 0.25);
+  box-shadow: 0 0 0.5rem rgba(56, 189, 248, 0.25);
 }
 
 .popRemove {
@@ -1554,16 +1554,16 @@
 .popRoleBtn {
   width: 100%;
   justify-content: flex-start;
-  gap: 8px;
+  gap: 0.5rem;
   font-family: var(--font-sans);
   font-weight: 600;
-  padding: 6px 10px;
+  padding: 0.375rem 0.625rem;
   height: auto;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 .popRoleBtn img {
-  width: 14px;
-  height: 14px;
+  width: 0.875rem;
+  height: 0.875rem;
   object-fit: contain;
 }
 
@@ -1573,7 +1573,7 @@
 
 .pickerSubtitle {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   color: #38bdf8;
   margin: 0;
 }
@@ -1583,7 +1583,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px 16px;
+  gap: 0.5rem 1rem;
   width: 100%;
 }
 
@@ -1591,9 +1591,9 @@
   position: relative;
   background: var(--tool-panel-card);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 10px;
-  padding-top: 30px;
+  border-radius: 0.625rem;
+  padding: 0.625rem;
+  padding-top: 1.875rem;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -1603,57 +1603,57 @@
   user-select: none;
   color: inherit;
   font: inherit;
-  min-height: 205px;
+  min-height: 12.8125rem;
   box-sizing: border-box;
 }
 .pickCard:hover {
   background: rgba(24, 32, 50, 0.9);
   border-color: #38bdf8;
-  transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.25);
+  transform: translateY(-0.125rem);
+  box-shadow: 0 0.375rem 1rem rgba(56, 189, 248, 0.25);
 }
 
 .pickCardSsr:hover {
   border-color: rgba(230, 162, 60, 0.65);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), 0 0 14px rgba(230, 162, 60, 0.3);
+  box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.5), 0 0 0.875rem rgba(230, 162, 60, 0.3);
 }
 .pickCardSr:hover {
   border-color: rgba(168, 85, 247, 0.65);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.5), 0 0 14px rgba(168, 85, 247, 0.3);
+  box-shadow: 0 0.375rem 1rem rgba(0, 0, 0, 0.5), 0 0 0.875rem rgba(168, 85, 247, 0.3);
 }
 
 .pickTopBar {
   position: absolute;
-  top: 6px;
-  left: 6px;
-  right: 6px;
+  top: 0.375rem;
+  left: 0.375rem;
+  right: 0.375rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   z-index: 2;
 }
 
 .pickBadgesLeft {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
 }
 
 .pickQuality {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  height: 26px;
+  height: 1.625rem;
   box-sizing: border-box;
-  font-size: 10px;
+  font-size: 0.625rem;
   font-weight: 800;
-  padding: 2px 5px;
-  border-radius: 3px;
+  padding: 0.125rem 0.3125rem;
+  border-radius: 0.1875rem;
   text-transform: uppercase;
   letter-spacing: 0.04em;
   line-height: 1;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5);
 }
 .pickQualitySsr {
   background: rgba(230, 162, 60, 0.15);
@@ -1681,19 +1681,19 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 30px;
-  height: 26px;
-  gap: 2px;
-  padding: 2px 4px;
-  border-radius: 4px;
+  width: 1.875rem;
+  height: 1.625rem;
+  gap: 0.125rem;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
   background: rgba(10, 8, 14, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5);
   flex-shrink: 0;
 }
 .pickElemBadge img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   object-fit: contain;
   vertical-align: middle;
 }
@@ -1720,23 +1720,23 @@
 
 .pickElemDual {
   border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5);
 }
 .pickElemDual img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 .pickElemDualPair img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 }
 .pickElemBadge.pickElemDualPair {
-  width: 42px;
+  width: 2.625rem;
   gap: 0;
-  padding: 2px 5px;
+  padding: 0.125rem 0.3125rem;
 }
 .pickElemDualPair img + img {
-  margin-left: -10px;
+  margin-left: -0.625rem;
 }
 .pickElemFlamePhysical {
   background: linear-gradient(135deg, rgba(239, 68, 68, 0.95) 0%, rgba(217, 119, 6, 0.95) 100%);
@@ -1760,39 +1760,39 @@
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 30px;
-  height: 26px;
-  padding: 2px 4px;
-  border-radius: 4px;
+  width: 1.875rem;
+  height: 1.625rem;
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
   border: 1px solid rgba(255, 255, 255, 0.25);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0.125rem 0.3125rem rgba(0, 0, 0, 0.4);
   flex-shrink: 0;
 }
 .pickRoleBadge img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   object-fit: contain;
   vertical-align: middle;
 }
 .pickRoleDps {
   background: linear-gradient(135deg, rgba(160, 20, 20, 0.95) 0%, rgba(90, 10, 10, 0.95) 100%);
   border: 1px solid rgba(248, 113, 113, 0.65);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 8px rgba(239, 68, 68, 0.35);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5), 0 0 0.5rem rgba(239, 68, 68, 0.35);
 }
 .pickRoleTank {
   background: linear-gradient(135deg, rgba(165, 80, 10, 0.95) 0%, rgba(95, 45, 5, 0.95) 100%);
   border: 1px solid rgba(251, 191, 36, 0.65);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 8px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5), 0 0 0.5rem rgba(245, 158, 11, 0.35);
 }
 .pickRoleBenediction {
   background: linear-gradient(135deg, rgba(10, 110, 75, 0.95) 0%, rgba(5, 60, 40, 0.95) 100%);
   border: 1px solid rgba(52, 211, 153, 0.65);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 8px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5), 0 0 0.5rem rgba(16, 185, 129, 0.35);
 }
 .pickRoleBalance {
   background: linear-gradient(135deg, rgba(140, 90, 20, 0.95) 0%, rgba(80, 50, 10, 0.95) 100%);
   border: 1px solid rgba(245, 158, 11, 0.65);
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5), 0 0 8px rgba(245, 158, 11, 0.35);
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.5), 0 0 0.5rem rgba(245, 158, 11, 0.35);
 }
 
 .pickArtStage {
@@ -1800,54 +1800,54 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  height: 114px;
-  margin-top: 2px;
-  margin-bottom: 6px;
+  height: 7.125rem;
+  margin-top: 0.125rem;
+  margin-bottom: 0.375rem;
   position: relative;
 }
 
 .pickThumb {
   object-fit: contain;
-  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.65));
+  filter: drop-shadow(0 0.25rem 0.625rem rgba(0, 0, 0, 0.65));
   transition: transform 0.2s ease, filter 0.2s ease;
 }
 .pickCard:hover .pickThumb {
   transform: scale(1.08);
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 0.375rem 0.875rem rgba(0, 0, 0, 0.85));
 }
 
 .pickThumbWeapon {
   width: 100%;
   height: 100%;
-  max-width: 136px;
-  max-height: 112px;
+  max-width: 8.5rem;
+  max-height: 7rem;
 }
 
 .pickThumbMatrix {
   width: 100%;
   height: 100%;
-  max-width: 130px;
-  max-height: 110px;
+  max-width: 8.125rem;
+  max-height: 6.875rem;
   transform: scale(1.22);
 }
 .pickCard:hover .pickThumbMatrix {
   transform: scale(1.32);
-  filter: drop-shadow(0 6px 14px rgba(0, 0, 0, 0.85));
+  filter: drop-shadow(0 0.375rem 0.875rem rgba(0, 0, 0, 0.85));
 }
 
 .pickThumbRelic {
   width: 100%;
   height: 100%;
-  max-width: 103px;
-  max-height: 103px;
+  max-width: 6.4375rem;
+  max-height: 6.4375rem;
 }
 
 .pickThumbTrait {
-  width: 94px;
-  height: 94px;
+  width: 5.875rem;
+  height: 5.875rem;
   object-fit: contain;
   flex-shrink: 0;
-  margin-bottom: 2px;
+  margin-bottom: 0.125rem;
   transition: transform 0.2s ease;
 }
 .pickCard:hover .pickThumbTrait {
@@ -1863,11 +1863,11 @@
 }
 
 .pickName {
-  font-size: 13px;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: #f8fafc;
   line-height: 1.25;
-  margin: 0 0 3px;
+  margin: 0 0 0.1875rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -1876,11 +1876,11 @@
 
 .pickMeta {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 11.5px;
+  font-size: 0.71875rem;
   color: #94a3b8;
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 0.25rem;
   margin: 0;
   white-space: nowrap;
   overflow: hidden;
@@ -1890,25 +1890,25 @@
 
 .pickDiamond {
   color: #fbbf24;
-  font-size: 9px;
+  font-size: 0.5625rem;
   flex-shrink: 0;
 }
 
 .pickEmpty {
   grid-column: 1 / -1;
-  padding: 48px 0;
+  padding: 3rem 0;
   text-align: center;
   color: #64748b;
-  font-size: 14px;
+  font-size: 0.875rem;
 }
 
 .pickerCustomPanel {
   display: flex;
-  gap: 8px;
+  gap: 0.5rem;
   align-items: center;
   background: var(--surface-panel);
-  padding: 8px;
-  border-radius: 8px;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 .pickerCustomInput {
@@ -1916,9 +1916,9 @@
   min-width: 0;
   background: rgba(0, 0, 0, 0.4);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 6px;
-  padding: 6px 12px;
-  font-size: 12px;
+  border-radius: 0.375rem;
+  padding: 0.375rem 0.75rem;
+  font-size: 0.75rem;
   color: #fff;
 }
 .pickerCustomInput:focus {
@@ -1928,9 +1928,9 @@
 .pickerApplyBtn {
   display: inline-flex;
   align-items: center;
-  padding: 6px 14px;
-  border-radius: 6px;
-  font-size: 13px;
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.375rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
   background: rgba(56, 189, 248, 0.14);
@@ -1980,8 +1980,8 @@
    -------------------------------------------------------------------------- */
 @media (max-width: 768px) {
   .compContainer {
-    padding: 12px 8px 60px;
-    gap: 12px;
+    padding: 0.75rem 0.5rem 3.75rem;
+    gap: 0.75rem;
   }
 
   .tableHead {
@@ -1996,18 +1996,18 @@
     min-width: 0 !important;
     width: 100%;
     padding: 0;
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .row {
-    grid-template-columns: clamp(44px, 12vw, 50px) 1fr auto;
+    grid-template-columns: clamp(2.75rem, 12vw, 3.125rem) 1fr auto;
     grid-template-areas:
-      "player   player   actions"
+      "player   player   player"
       "trait    weapons  relics"
       "trait    matrices relics";
-    gap: 6px 8px;
-    padding: 8px 10px;
-    border-radius: 10px;
+    gap: 0.375rem 0.5rem;
+    padding: 0.5rem 0.625rem;
+    border-radius: 0.625rem;
     min-width: 0 !important;
     width: 100%;
     box-sizing: border-box;
@@ -2015,23 +2015,24 @@
 
   .rowMmo {
     grid-template-columns: minmax(0, 1fr) auto;
-    grid-template-areas: "player actions" "weapons relics" "weaponMode weaponMode";
+    grid-template-areas: "player player" "weapons relics" "weaponMode weaponMode";
   }
 
   .colPlayer {
     grid-area: player;
+    padding-right: 5.5rem;
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 0.375rem;
     min-width: 0;
-    padding-bottom: 5px;
+    padding-bottom: 0.3125rem;
     border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 
   .playerMeta {
     flex-direction: row;
     align-items: center;
-    gap: 9px;
+    gap: 0.5625rem;
     flex: 1;
     min-width: 0;
   }
@@ -2046,7 +2047,7 @@
   }
 
   .weaponModeControl { align-self: center; flex: 0 0 auto; }
-  .weaponModeButton { padding: 3px 5px; }
+  .weaponModeButton { padding: 0.1875rem 0.3125rem; }
 
   .colTrait {
     grid-area: trait;
@@ -2060,8 +2061,8 @@
 
   .traitAvatar,
   .traitEmpty {
-    width: clamp(44px, 12vw, 50px);
-    height: clamp(44px, 12vw, 50px);
+    width: clamp(2.75rem, 12vw, 3.125rem);
+    height: clamp(2.75rem, 12vw, 3.125rem);
   }
 
   .colWeapons {
@@ -2069,7 +2070,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125rem;
   }
 
   .colWeaponMode {
@@ -2082,7 +2083,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125rem;
   }
 
   .colRelics {
@@ -2091,67 +2092,70 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 5px;
+    gap: 0.3125rem;
     align-self: center;
   }
 
   .colActions {
-    grid-area: actions;
+    position: absolute;
+    top: .5rem;
+    right: .625rem;
+    width: auto;
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    gap: 3px;
-    padding-bottom: 5px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+    gap: 0.1875rem;
+    padding-bottom: 0.3125rem;
+    border-bottom: 0;
   }
 
   .slot {
-    width: clamp(44px, 12vw, 50px);
-    height: clamp(44px, 12vw, 50px);
-    border-radius: 6px;
+    width: clamp(2.75rem, 12vw, 3.125rem);
+    height: clamp(2.75rem, 12vw, 3.125rem);
+    border-radius: 0.375rem;
   }
 
   .chipBack,
   .chipFront,
   .chipBackWeapon,
   .chipFrontWeapon {
-    width: 29px;
-    height: 29px;
-    border-radius: 4px;
+    width: 1.8125rem;
+    height: 1.8125rem;
+    border-radius: 0.25rem;
   }
 
   .chipStar {
-    font-size: 7px;
-    padding: 0 2px;
+    font-size: 0.4375rem;
+    padding: 0 0.125rem;
   }
 
   .elementBadge,
   .chipElemBadge {
-    top: 2px;
-    left: 2px;
-    width: 13px;
-    height: 13px;
+    top: 0.125rem;
+    left: 0.125rem;
+    width: 0.8125rem;
+    height: 0.8125rem;
   }
 
   .elementBadge img,
   .chipElemBadge img {
-    width: 11px;
-    height: 11px;
+    width: 0.6875rem;
+    height: 0.6875rem;
   }
 
   .starBadge {
-    bottom: 2px;
-    right: 2px;
-    font-size: 8.5px;
-    padding: 0 3px;
+    bottom: 0.125rem;
+    right: 0.125rem;
+    font-size: 0.53125rem;
+    padding: 0 0.1875rem;
   }
 
   .matrixCountBadge,
   .badge2Plus2 {
-    top: 2px;
-    right: 2px;
-    font-size: 8px;
-    padding: 1px 3px;
+    top: 0.125rem;
+    right: 0.125rem;
+    font-size: 0.5rem;
+    padding: 1px 0.1875rem;
   }
 }
 
@@ -2160,10 +2164,10 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 3px;
+  gap: 0.1875rem;
   width: 100%;
-  max-width: calc(74px - 8px);
-  margin-top: 3px;
+  max-width: calc(4.625rem - 0.5rem);
+  margin-top: 0.1875rem;
   box-sizing: border-box;
 }
 .slotCustomInput {
@@ -2173,12 +2177,12 @@
   border-radius: 0;
   color: #94a3b8;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 8px;
+  font-size: 0.5rem;
   font-weight: 600;
   text-align: center;
-  padding: 1px 2px;
-  height: 15px;
-  line-height: 13px;
+  padding: 1px 0.125rem;
+  height: 0.9375rem;
+  line-height: 0.8125rem;
   outline: none;
   transition: all 0.15s ease;
   flex: 1 1 auto;
@@ -2197,12 +2201,12 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 15px;
-  height: 15px;
+  width: 0.9375rem;
+  height: 0.9375rem;
   padding: 0;
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  border-radius: 3px;
+  border-radius: 0.1875rem;
   color: #94a3b8;
   cursor: pointer;
   flex-shrink: 0;
@@ -2213,57 +2217,57 @@
   border-color: #38bdf8;
 }
 .slotCustomUploadBtn svg {
-  width: 10px;
-  height: 10px;
+  width: 0.625rem;
+  height: 0.625rem;
 }
 .traitEmpty .slotCustomRow {
-  max-width: 44px;
+  max-width: 2.75rem;
 }
 .traitEmpty .slotCustomInput {
-  font-size: 7px;
-  height: 13px;
+  font-size: 0.4375rem;
+  height: 0.8125rem;
 }
 
 /* Slot drag & drop states (parity with legacy is-slot-dragging/is-slot-drop-target) */
 .slotDrag {
   opacity: 0.35;
-  outline: 2px dashed #38bdf8;
+  outline: 0.125rem dashed #38bdf8;
   outline-offset: 1px;
   transform: scale(0.95);
-  box-shadow: 0 0 10px rgba(56, 189, 248, 0.3);
+  box-shadow: 0 0 0.625rem rgba(56, 189, 248, 0.3);
 }
 
 .slotDropTarget {
-  outline: 2px solid #38bdf8;
+  outline: 0.125rem solid #38bdf8;
   outline-offset: 1px;
   background: rgba(56, 189, 248, 0.22);
-  box-shadow: 0 0 14px rgba(56, 189, 248, 0.5);
+  box-shadow: 0 0 0.875rem rgba(56, 189, 248, 0.5);
   transform: scale(1.06);
   z-index: 10;
 }
 
 /* Floating slot tooltip (parity with legacy #comp-tooltip) */
-.slotTooltip[role="tooltip"] {white-space:normal;max-width:min(360px,calc(100vw - 16px));line-height:1.5}
-.slotTipTitle {display:block;margin-bottom:4px;font-size:14px;color:var(--color-text-primary,#edf2f8)}
+.slotTooltip[role="tooltip"] {white-space:normal;max-width:min(22.5rem,calc(100vw - 1rem));line-height:1.5}
+.slotTipTitle {display:block;margin-bottom:0.25rem;font-size:0.875rem;color:var(--color-text-primary,#edf2f8)}
 .compTooltip {
   position: fixed;
   z-index: 1500;
-  max-width: 320px;
+  max-width: 20rem;
   background: var(--tool-panel-surface);
   border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
-  padding: 12px 14px;
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.55);
+  border-radius: 0.625rem;
+  padding: 0.75rem 0.875rem;
+  box-shadow: 0 0.75rem 1.875rem rgba(0, 0, 0, 0.55);
   pointer-events: none;
   opacity: 0;
-  transform: translateY(4px);
+  transform: translateY(0.25rem);
   transition: opacity 0.15s ease, transform 0.15s ease;
-  font-size: 12px;
+  font-size: 0.75rem;
   line-height: 1.45;
   color: #f3f4f6;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 @media (hover: none), (pointer: coarse) {
@@ -2281,7 +2285,7 @@
 
 .tipTitle {
   font-family: 'Spectral', Georgia, serif;
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 700;
   color: #f4f0f6;
   margin: 0;
@@ -2289,7 +2293,7 @@
 
 .tipSubtitle {
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 700;
   color: #38bdf8;
   margin: 0;
@@ -2310,17 +2314,17 @@
 /* Custom photo slot tag + hover actions (parity with legacy) */
 .customTag {
   position: absolute;
-  bottom: 2px;
-  left: 3px;
-  right: 3px;
+  bottom: 0.125rem;
+  left: 0.1875rem;
+  right: 0.1875rem;
   background: rgba(0, 0, 0, 0.82);
-  border-radius: 2px;
+  border-radius: 0.125rem;
   font-family: var(--font-mono, 'JetBrains Mono', monospace);
-  font-size: 7.5px;
+  font-size: 0.46875rem;
   font-weight: 700;
   color: #fff;
   text-align: center;
-  padding: 1px 2px;
+  padding: 1px 0.125rem;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -2330,10 +2334,10 @@
 
 .customActions {
   position: absolute;
-  top: 2px;
-  right: 2px;
+  top: 0.125rem;
+  right: 0.125rem;
   display: flex;
-  gap: 2px;
+  gap: 0.125rem;
   opacity: 0;
   transition: opacity 0.15s ease;
   z-index: 10;
@@ -2345,16 +2349,16 @@
 }
 
 .customActionBtn {
-  width: 16px;
-  height: 16px;
+  width: 1rem;
+  height: 1rem;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0, 0, 0, 0.85);
   border: 1px solid rgba(255, 255, 255, 0.25);
-  border-radius: 3px;
+  border-radius: 0.1875rem;
   color: #fff;
-  font-size: 9.5px;
+  font-size: 0.59375rem;
   cursor: pointer;
   padding: 0;
   line-height: 1;

@@ -1,9 +1,9 @@
-.chip {display:inline-flex;align-items:center;gap:4px;padding:2px 7px;border:1px solid var(--surface-border);border-radius:999px;font-size:11px;font-variant-numeric:tabular-nums;color:var(--color-text-primary,#e2e8f0);background:rgba(255,255,255,.03);white-space:nowrap}
-.chip img {width:12px;height:12px;object-fit:contain;filter:brightness(0) invert(1)}
+.chip {display:inline-flex;align-items:center;gap:calc(4 * var(--ui-unit));padding:calc(2 * var(--ui-unit)) calc(7 * var(--ui-unit));border:1px solid var(--surface-border);border-radius:calc(999 * var(--ui-unit));font-size:calc(11 * var(--ui-unit));font-variant-numeric:tabular-nums;color:var(--color-text-primary,#e2e8f0);background:rgba(255,255,255,.03);white-space:nowrap}
+.chip img {width:calc(12 * var(--ui-unit));height:calc(12 * var(--ui-unit));object-fit:contain;filter:brightness(0) invert(1)}
 .icon {position:relative;display:inline-flex}
-.icon>b {position:absolute;right:-4px;bottom:-4px;font-size:8px;line-height:1;font-weight:800;color:var(--color-text-primary,#e2e8f0);text-shadow:0 0 2px #000,0 0 2px #000}
-.chip:focus-visible {outline:2px solid var(--tool-input-focus,#2ba6df);outline-offset:2px}
-.breakdown {display:grid;gap:7px;margin-top:8px;font-size:12px}
-.breakdown>div {display:flex;justify-content:space-between;gap:20px}
+.icon>b {position:absolute;right:calc(-4 * var(--ui-unit));bottom:calc(-4 * var(--ui-unit));font-size:calc(8 * var(--ui-unit));line-height:1;font-weight:800;color:var(--color-text-primary,#e2e8f0);text-shadow:0 0 calc(2 * var(--ui-unit)) #000,0 0 calc(2 * var(--ui-unit)) #000}
+.chip:focus-visible {outline:calc(2 * var(--ui-unit)) solid var(--tool-input-focus,#2ba6df);outline-offset:calc(2 * var(--ui-unit))}
+.breakdown {display:grid;gap:calc(7 * var(--ui-unit));margin-top:calc(8 * var(--ui-unit));font-size:calc(12 * var(--ui-unit))}
+.breakdown>div {display:flex;justify-content:space-between;gap:calc(20 * var(--ui-unit))}
 .breakdown span,.breakdown small {color:var(--color-text-secondary)}
 .breakdown b {font-variant-numeric:tabular-nums}

@@ -1,7 +1,7 @@
 .tof-collapsible {height:0;overflow:hidden;opacity:0}
 .tof-collapsible[data-open] {opacity:1}
 .tof-collapsible-inner {min-height:0;overflow:hidden}
-.tof-collapsible-inner>* {transform:translateY(-6px);transition:transform .32s cubic-bezier(.25,.46,.45,.94)}
+.tof-collapsible-inner>* {transform:translateY(-0.375rem);transition:transform .32s cubic-bezier(.25,.46,.45,.94)}
 .tof-collapsible[data-open]>.tof-collapsible-inner>* {transform:none}
 @media(prefers-reduced-motion:reduce) {
   .tof-collapsible,.tof-collapsible-inner>* {transition:none}

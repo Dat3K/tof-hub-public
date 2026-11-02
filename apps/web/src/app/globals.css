@@ -13,6 +13,7 @@
 @import "../../../../packages/ui/src/styles/collapsible.css";
 @import "../../../../packages/ui/src/styles/encounter-choice.css";
 @import "../../../../packages/ui/src/styles/resistance-icons.css";
+@import "../../../../packages/ui/src/styles/responsive.css";
 @import "../../../../packages/ui/src/styles/toast.css";
 
 /* View Transition recipes shared by React transitions in the app. */
@@ -23,7 +24,7 @@
 }
 
 @keyframes fade {
-  from { filter: blur(3px); opacity: 0; }
+  from { filter: blur(0.1875rem); opacity: 0; }
   to { filter: blur(0); opacity: 1; }
 }
 
@@ -33,7 +34,7 @@
 }
 
 @keyframes slide-y {
-  from { transform: translateY(var(--slide-y-offset, 10px)); }
+  from { transform: translateY(var(--slide-y-offset, 0.625rem)); }
   to { transform: translateY(0); }
 }
 
@@ -56,50 +57,50 @@
 }
 
 ::view-transition-new(.slide-from-right) {
-  --slide-offset: 60px;
+  --slide-offset: 3.75rem;
   animation:
     var(--duration-enter) ease-out var(--duration-exit) both fade,
     var(--duration-move) ease-in-out both slide;
 }
 ::view-transition-old(.slide-to-left) {
-  --slide-offset: -60px;
+  --slide-offset: -3.75rem;
   animation:
     var(--duration-exit) ease-in both fade reverse,
     var(--duration-move) ease-in-out both slide reverse;
 }
 ::view-transition-new(.slide-from-left) {
-  --slide-offset: -60px;
+  --slide-offset: -3.75rem;
   animation:
     var(--duration-enter) ease-out var(--duration-exit) both fade,
     var(--duration-move) ease-in-out both slide;
 }
 ::view-transition-old(.slide-to-right) {
-  --slide-offset: 60px;
+  --slide-offset: 3.75rem;
   animation:
     var(--duration-exit) ease-in both fade reverse,
     var(--duration-move) ease-in-out both slide reverse;
 }
 
 ::view-transition-old(.nav-forward) {
-  --slide-offset: -60px;
+  --slide-offset: -3.75rem;
   animation:
     var(--duration-exit) ease-in both fade reverse,
     var(--duration-move) ease-in-out both slide reverse;
 }
 ::view-transition-new(.nav-forward) {
-  --slide-offset: 60px;
+  --slide-offset: 3.75rem;
   animation:
     var(--duration-enter) ease-out var(--duration-exit) both fade,
     var(--duration-move) ease-in-out both slide;
 }
 ::view-transition-old(.nav-back) {
-  --slide-offset: 60px;
+  --slide-offset: 3.75rem;
   animation:
     var(--duration-exit) ease-in both fade reverse,
     var(--duration-move) ease-in-out both slide reverse;
 }
 ::view-transition-new(.nav-back) {
-  --slide-offset: -60px;
+  --slide-offset: -3.75rem;
   animation:
     var(--duration-enter) ease-out var(--duration-exit) both fade,
     var(--duration-move) ease-in-out both slide;
@@ -112,7 +113,7 @@
   animation-name: via-blur;
 }
 @keyframes via-blur {
-  30% { filter: blur(3px); }
+  30% { filter: blur(0.1875rem); }
 }
 
 ::view-transition-group(.text-morph) {
@@ -194,7 +195,7 @@
 
   /* Build card showcase (2026-10-09): the navy card of /tools/build, also the Optimizer board. */
   --build-card-surface: radial-gradient(ellipse at 40% 40%, #273e50 0, #172735 30%, #121c28 62%, #101824 100%);
-  --build-card-stripes: repeating-linear-gradient(110deg, transparent 0, transparent 159px, #ffffff03 160px, #ffffff03 161px);
+  --build-card-stripes: repeating-linear-gradient(110deg, transparent 0, transparent 9.9375rem, #ffffff03 10rem, #ffffff03 10.0625rem);
   --build-card-border: #4b5965;
   --build-card-divider: #ffffff24;
   --build-card-inset: #0a111bf5;
@@ -268,17 +269,17 @@
   --quality-mmo: #e879f9;
 
   /* Corner Radius Scale */
-  --dm-radius-xs: 4px;
-  --dm-radius-sm: 6px;
-  --dm-radius-md: 8px;
-  --dm-radius-lg: 10px;
-  --dm-radius-full: 999px;
+  --dm-radius-xs: 0.25rem;
+  --dm-radius-sm: 0.375rem;
+  --dm-radius-md: 0.5rem;
+  --dm-radius-lg: 0.625rem;
+  --dm-radius-full: 62.4375rem;
 
   /* Layout Boundaries */
-  --dm-shell-max: 1440px;
-  --dm-editorial-max: 1220px;
-  --dm-reading-max: 820px;
-  --dm-directory-max: 960px;
+  --dm-shell-max: 90rem;
+  --dm-editorial-max: 76.25rem;
+  --dm-reading-max: 51.25rem;
+  --dm-directory-max: 60rem;
   --dm-prose-max: 74ch;
 
   /* System Font Fallback Stacks (woff2 licenses unconfirmed locally; see docs/architecture/frontend.md) */
@@ -345,20 +346,20 @@ html,
 
 html::-webkit-scrollbar,
 .dm-scrollbar::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 0.3125rem;
+  height: 0.3125rem;
 }
 
 html::-webkit-scrollbar-track,
 .dm-scrollbar::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.03);
-  border-radius: 999px;
+  border-radius: 62.4375rem;
 }
 
 html::-webkit-scrollbar-thumb,
 .dm-scrollbar::-webkit-scrollbar-thumb {
   background: rgba(245, 217, 122, 0.28);
-  border-radius: 999px;
+  border-radius: 62.4375rem;
   transition: background 0.15s ease;
 }
 
@@ -374,13 +375,13 @@ html::-webkit-scrollbar-corner,
 
 /* Slim modifier variant */
 .dm-scrollbar.dm-scrollbar--slim::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 0.3125rem;
+  height: 0.3125rem;
 }
 
 .dm-scrollbar.dm-scrollbar--slim::-webkit-scrollbar-track,
 .dm-scrollbar.dm-scrollbar--slim::-webkit-scrollbar-thumb {
-  border-radius: 999px;
+  border-radius: 62.4375rem;
 }
 
 .dm-scrollbar.dm-scrollbar--slim::-webkit-scrollbar-thumb {
@@ -397,7 +398,7 @@ html::-webkit-scrollbar-corner,
 
 .noise-bg {
   position: fixed;
-  inset: -40px;
+  inset: -2.5rem;
   z-index: -1;
   pointer-events: none;
   opacity: 0.35;
@@ -412,23 +413,23 @@ html::-webkit-scrollbar-corner,
 .shell-layout,
 .dm-container {
   width: 100%;
-  max-width: var(--dm-shell-max, 1440px);
+  max-width: var(--dm-shell-max, 90rem);
   margin-inline: auto;
-  padding-inline: 20px;
+  padding-inline: 1.25rem;
   box-sizing: border-box;
 }
 
 @media (max-width: 768px) {
   .shell-layout,
   .dm-container {
-    padding-inline: 16px;
+    padding-inline: 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .shell-layout,
   .dm-container {
-    padding-inline: 12px;
+    padding-inline: 0.75rem;
   }
 }
 
@@ -456,12 +457,12 @@ html::-webkit-scrollbar-corner,
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  padding: 24px 20px;
+  padding: 1.5rem 1.25rem;
 }
 
 @media (max-width: 480px) {
   .site-loading-frame {
-    padding-inline: 12px;
+    padding-inline: 0.75rem;
   }
 }
 
@@ -497,38 +498,38 @@ html::-webkit-scrollbar-corner,
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.88);
-  backdrop-filter: blur(8px);
+  backdrop-filter: blur(0.5rem);
   cursor: pointer;
 }
 
 .sim-lightbox__dialog {
   position: relative;
   z-index: 2;
-  width: min(90vw, 960px);
+  width: min(90vw, 60rem);
   max-width: 90vw;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-sizing: border-box;
-  padding: 24px;
+  padding: 1.5rem;
   overflow: hidden;
   background: rgba(18, 14, 24, 0.95);
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.12));
-  border-radius: 16px;
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(43, 166, 223, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 1.25rem 3.125rem rgba(0, 0, 0, 0.85), 0 0 1.875rem rgba(43, 166, 223, 0.2);
 }
 
 .sim-lightbox__close-btn {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 0.625rem;
+  right: 0.625rem;
   z-index: 3;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 2.25rem;
+  height: 2.25rem;
   padding: 0;
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 50%;
@@ -555,7 +556,7 @@ html::-webkit-scrollbar-corner,
   width: 100%;
   max-width: 80vw;
   max-height: 75vh;
-  min-height: 120px;
+  min-height: 7.5rem;
   overflow: hidden;
   user-select: none;
 }
@@ -565,8 +566,8 @@ html::-webkit-scrollbar-corner,
   max-width: 100%;
   max-height: 75vh;
   object-fit: contain;
-  border-radius: 8px;
-  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.7));
+  border-radius: 0.5rem;
+  filter: drop-shadow(0 0.625rem 1.875rem rgba(0, 0, 0, 0.7));
   cursor: zoom-in;
   user-select: none;
   -webkit-user-drag: none;
@@ -586,7 +587,7 @@ html::-webkit-scrollbar-corner,
 
 .sim-lightbox__caption {
   min-height: 1.25rem;
-  margin-top: 14px;
+  margin-top: 0.875rem;
   color: var(--sim-text-main, #f0f4fc);
   font-size: 1rem;
   font-weight: 700;
@@ -601,20 +602,20 @@ html::-webkit-scrollbar-corner,
   justify-content: center;
   flex-wrap: wrap;
   width: 100%;
-  gap: 12px;
-  margin-top: 14px;
+  gap: 0.75rem;
+  margin-top: 0.875rem;
 }
 
 .sim-lightbox__download-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 8px;
-  padding: 8px 20px;
+  gap: 0.5rem;
+  padding: 0.5rem 1.25rem;
   border: 1px solid rgba(230, 162, 60, 0.4);
-  border-radius: 9999px;
+  border-radius: 624.9375rem;
   background: rgba(230, 162, 60, 0.12);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 12px rgba(230, 162, 60, 0.18);
+  box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.35), 0 0 0.75rem rgba(230, 162, 60, 0.18);
   color: #fbbf24;
   font: inherit;
   font-size: 0.9rem;
@@ -628,7 +629,7 @@ html::-webkit-scrollbar-corner,
   transform: translateY(-1px);
   border-color: #fbbf24;
   background: rgba(230, 162, 60, 0.24);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 20px rgba(230, 162, 60, 0.4);
+  box-shadow: 0 0.375rem 1.125rem rgba(0, 0, 0, 0.45), 0 0 1.25rem rgba(230, 162, 60, 0.4);
   color: #ffffff;
 }
 
@@ -639,28 +640,28 @@ html::-webkit-scrollbar-corner,
 .sim-lightbox__download-btn:focus-visible,
 .sim-lightbox__close-btn:focus-visible,
 .sim-lightbox__nav:focus-visible {
-  outline: 2px solid #fbbf24;
-  outline-offset: 2px;
+  outline: 0.125rem solid #fbbf24;
+  outline-offset: 0.125rem;
 }
 
 .sim-lightbox__download-btn.is-success {
   border-color: #10b981;
   background: rgba(16, 185, 129, 0.2);
-  box-shadow: 0 0 16px rgba(16, 185, 129, 0.35);
+  box-shadow: 0 0 1rem rgba(16, 185, 129, 0.35);
   color: #34d399;
 }
 
 .sim-lightbox__download-btn--webp {
   border-color: rgba(16, 185, 129, 0.4);
   background: rgba(16, 185, 129, 0.12);
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35), 0 0 12px rgba(16, 185, 129, 0.18);
+  box-shadow: 0 0.25rem 0.875rem rgba(0, 0, 0, 0.35), 0 0 0.75rem rgba(16, 185, 129, 0.18);
   color: #34d399;
 }
 
 .sim-lightbox__download-btn--webp:hover {
   border-color: #34d399;
   background: rgba(16, 185, 129, 0.24);
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45), 0 0 20px rgba(16, 185, 129, 0.4);
+  box-shadow: 0 0.375rem 1.125rem rgba(0, 0, 0, 0.45), 0 0 1.25rem rgba(16, 185, 129, 0.4);
 }
 
 .sim-lightbox__download-icon {
@@ -679,8 +680,8 @@ html::-webkit-scrollbar-corner,
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 2.75rem;
+  height: 2.75rem;
   padding: 0;
   transform: translateY(-50%);
   border: 1px solid rgba(255, 255, 255, 0.15);
@@ -712,7 +713,7 @@ html::-webkit-scrollbar-corner,
 
 .sim-lightbox--art .sim-lightbox__backdrop {
   background: rgba(0, 0, 0, 0.76);
-  backdrop-filter: blur(14px);
+  backdrop-filter: blur(0.875rem);
 }
 
 .sim-lightbox--art .sim-lightbox__dialog {
@@ -735,9 +736,9 @@ html::-webkit-scrollbar-corner,
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
-  min-height: 72px;
-  padding: 14px 24px;
+  gap: 1.25rem;
+  min-height: 4.5rem;
+  padding: 0.875rem 1.5rem;
   background: linear-gradient(180deg, rgba(3, 6, 12, 0.9), rgba(3, 6, 12, 0.48), transparent);
 }
 
@@ -745,7 +746,7 @@ html::-webkit-scrollbar-corner,
   display: flex;
   align-items: center;
   min-width: 0;
-  gap: 12px;
+  gap: 0.75rem;
   color: #f4f0f6;
   font-size: 1.05rem;
 }
@@ -758,9 +759,9 @@ html::-webkit-scrollbar-corner,
 
 .sim-lightbox__resolution {
   flex-shrink: 0;
-  padding: 3px 8px;
+  padding: 0.1875rem 0.5rem;
   border: 1px solid rgba(59, 130, 246, 0.65);
-  border-radius: 5px;
+  border-radius: 0.3125rem;
   background: rgba(30, 64, 175, 0.34);
   color: #93c5fd;
   font-size: 0.75rem;
@@ -772,18 +773,18 @@ html::-webkit-scrollbar-corner,
   align-items: center;
   justify-content: flex-end;
   flex-shrink: 0;
-  gap: 8px;
+  gap: 0.5rem;
 }
 
 .sim-lightbox__toolbar-btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 7px;
-  min-height: 36px;
-  padding: 7px 13px;
+  gap: 0.4375rem;
+  min-height: 2.25rem;
+  padding: 0.4375rem 0.8125rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 7px;
+  border-radius: 0.4375rem;
   background: rgba(17, 24, 39, 0.8);
   color: #f3f4f6;
   font: inherit;
@@ -823,9 +824,9 @@ html::-webkit-scrollbar-corner,
 
 .sim-lightbox--art .sim-lightbox__close-btn {
   position: static;
-  width: 40px;
-  height: 36px;
-  border-radius: 7px;
+  width: 2.5rem;
+  height: 2.25rem;
+  border-radius: 0.4375rem;
   background: rgba(127, 29, 29, 0.48);
   border-color: rgba(248, 113, 113, 0.6);
   font-size: 1.35rem;
@@ -842,7 +843,7 @@ html::-webkit-scrollbar-corner,
 
 .sim-lightbox--art .sim-lightbox__stage {
   position: absolute;
-  inset: 72px 0 72px;
+  inset: 4.5rem 0 4.5rem;
   width: auto;
   max-width: none;
   max-height: none;
@@ -850,8 +851,8 @@ html::-webkit-scrollbar-corner,
 }
 
 .sim-lightbox--art .sim-lightbox__img {
-  max-width: calc(100vw - 180px);
-  max-height: calc(100vh - 170px);
+  max-width: calc(100vw - 11.25rem);
+  max-height: calc(100vh - 10.625rem);
   border-radius: 0;
 }
 
@@ -860,18 +861,18 @@ html::-webkit-scrollbar-corner,
   max-height: none;
 }
 
-.sim-lightbox--art .sim-lightbox__nav--prev { left: 20px; }
-.sim-lightbox--art .sim-lightbox__nav--next { right: 20px; }
+.sim-lightbox--art .sim-lightbox__nav--prev { left: 1.25rem; }
+.sim-lightbox--art .sim-lightbox__nav--next { right: 1.25rem; }
 
 .sim-lightbox--art .sim-lightbox__metadata {
   position: absolute;
-  inset: auto 24px 24px;
+  inset: auto 1.5rem 1.5rem;
   z-index: 5;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 24px;
+  gap: 1.5rem;
   color: #9ca3af;
   font-size: 0.8rem;
   text-align: center;
@@ -889,15 +890,15 @@ html::-webkit-scrollbar-corner,
   display: inline-flex;
   align-items: center;
   min-width: 0;
-  gap: 6px;
+  gap: 0.375rem;
 }
 
 .sim-lightbox--art .sim-lightbox__metadata-file code {
-  max-width: min(56vw, 900px);
+  max-width: min(56vw, 56.25rem);
   overflow: hidden;
-  padding: 3px 7px;
+  padding: 0.1875rem 0.4375rem;
   border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 4px;
+  border-radius: 0.25rem;
   background: rgba(17, 24, 39, 0.75);
   color: #93c5fd;
   font-family: var(--font-mono, monospace);
@@ -907,10 +908,10 @@ html::-webkit-scrollbar-corner,
 
 @media (max-width: 640px) {
   .sim-lightbox__dialog {
-    width: calc(100vw - 24px);
-    max-height: calc(100vh - 24px);
-    padding: 16px;
-    border-radius: 12px;
+    width: calc(100vw - 1.5rem);
+    max-height: calc(100vh - 1.5rem);
+    padding: 1rem;
+    border-radius: 0.75rem;
   }
 
   .sim-lightbox__stage {
@@ -919,19 +920,19 @@ html::-webkit-scrollbar-corner,
   }
 
   .sim-lightbox__actions {
-    gap: 8px;
+    gap: 0.5rem;
   }
 
   .sim-lightbox__download-btn {
-    padding-inline: 14px;
+    padding-inline: 0.875rem;
     font-size: 0.8rem;
   }
 
   .sim-lightbox--art .sim-lightbox__toolbar {
     align-items: flex-start;
     flex-direction: column;
-    gap: 10px;
-    padding: 12px;
+    gap: 0.625rem;
+    padding: 0.75rem;
   }
 
   .sim-lightbox--art .sim-lightbox__toolbar-actions {
@@ -940,25 +941,25 @@ html::-webkit-scrollbar-corner,
 
   .sim-lightbox--art .sim-lightbox__toolbar-btn {
     flex: 1;
-    padding-inline: 8px;
+    padding-inline: 0.5rem;
     font-size: 0.72rem;
   }
 
   .sim-lightbox--art .sim-lightbox__stage {
-    inset: 126px 0 104px;
+    inset: 7.875rem 0 6.5rem;
     width: auto;
     max-width: none;
   }
 
   .sim-lightbox--art .sim-lightbox__img {
-    max-width: calc(100vw - 76px);
-    max-height: calc(100vh - 250px);
+    max-width: calc(100vw - 4.75rem);
+    max-height: calc(100vh - 15.625rem);
   }
 
   .sim-lightbox--art .sim-lightbox__metadata {
-    inset-inline: 12px;
-    bottom: 14px;
-    gap: 8px 14px;
+    inset-inline: 0.75rem;
+    bottom: 0.875rem;
+    gap: 0.5rem 0.875rem;
     font-size: 0.7rem;
   }
 

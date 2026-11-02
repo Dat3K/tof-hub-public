@@ -32,7 +32,7 @@ export function ResetFiltersButton({
       type="button"
       className={[
         'sim-reset-filters-btn',
-        'h-[26px] px-2.5 rounded-md text-[12px] font-semibold ml-auto',
+        'h-[1.625rem] px-2.5 rounded-md text-[0.75rem] font-semibold ml-auto',
         'inline-flex items-center gap-1.5 border border-[rgba(255,255,255,0.12)]',
         'bg-[rgba(255,255,255,0.05)] text-[#9ca3af] hover:text-[#f3f4f6] hover:bg-[rgba(255,255,255,0.1)]',
         'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3b82f6] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0b0d13]',

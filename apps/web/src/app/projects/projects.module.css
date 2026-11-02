@@ -1,21 +1,21 @@
 .jump {
-  margin-top: 24px;
+  margin-top: 1.5rem;
 }
 .categoryChip {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   text-decoration: none;
 }
 .categoryChip::before,
 .categoryTitle::before {
   content: "";
   flex: none;
-  width: 7px;
-  height: 7px;
+  width: 0.4375rem;
+  height: 0.4375rem;
   border-radius: 50%;
   background: var(--accent);
-  box-shadow: 0 0 10px color-mix(in srgb, var(--accent) 60%, transparent);
+  box-shadow: 0 0 0.625rem color-mix(in srgb, var(--accent) 60%, transparent);
 }
 .categoryChip:hover {
   border-color: var(--surface-border-strong);
@@ -23,27 +23,27 @@
 .count {
   color: var(--dm-muted);
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   font-weight: 400;
 }
 .categories {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   align-items: start;
-  gap: 40px 28px;
-  margin-top: 48px;
+  gap: 2.5rem 1.75rem;
+  margin-top: 3rem;
 }
 .category {
   min-width: 0;
-  scroll-margin-top: 96px;
+  scroll-margin-top: 6rem;
 }
 .categoryTitle {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin: 0 0 14px;
+  gap: 0.625rem;
+  margin: 0 0 0.875rem;
   color: var(--dm-text-strong);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   letter-spacing: 0.01em;
 }
@@ -51,24 +51,24 @@
   display: grid;
   /* minmax(0) keeps long nowrap URLs from widening the track on phones. */
   grid-template-columns: minmax(0, 1fr);
-  gap: 10px;
+  gap: 0.625rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .list .resource {
   position: relative;
-  gap: 8px;
-  padding: 16px 18px 14px 20px;
-  border-radius: 12px;
+  gap: 0.5rem;
+  padding: 1rem 1.125rem 0.875rem 1.25rem;
+  border-radius: 0.75rem;
   text-decoration: none;
 }
 .resource::before {
   content: "";
   position: absolute;
-  inset: 14px auto 14px 0;
-  width: 2px;
-  border-radius: 2px;
+  inset: 0.875rem auto 0.875rem 0;
+  width: 0.125rem;
+  border-radius: 0.125rem;
   background: var(--accent);
   opacity: 0.45;
   transition: opacity 0.15s;
@@ -78,19 +78,19 @@
   opacity: 1;
 }
 .resource:focus-visible {
-  outline: 2px solid var(--dm-gold);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--dm-gold);
+  outline-offset: 0.125rem;
 }
 .head {
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0.75rem;
 }
 .name {
   margin: 0;
   color: var(--dm-text-strong);
-  font-size: 15px;
+  font-size: 0.9375rem;
   font-weight: 600;
   line-height: 1.35;
   transition: color 0.15s;
@@ -104,18 +104,18 @@
 .description {
   margin: 0;
   color: var(--dm-muted);
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.55;
 }
 .url {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
+  gap: 0.75rem;
   min-width: 0;
   color: var(--dm-muted);
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
 }
 .url > span:first-child {
   overflow: hidden;
@@ -127,15 +127,15 @@
   transition: transform 0.15s;
 }
 .resource:hover .arrow {
-  transform: translate(2px, -2px);
+  transform: translate(0.125rem, -0.125rem);
 }
 .disclaimer {
-  margin-top: 48px;
+  margin-top: 3rem;
 }
 @media (max-width: 900px) {
   .categories {
     grid-template-columns: minmax(0, 1fr);
-    gap: 32px;
+    gap: 2rem;
   }
 }
 @media (prefers-reduced-motion: reduce) {

@@ -27,7 +27,7 @@ describe('Shared UI Primitives & Overlays', () => {
         <Button variant="primary">Submit</Button>
       );
       expect(html).toContain('bg-[#2ba6df]');
-      expect(html).toContain('shadow-[0_0_12px_rgba(43,166,223,0.35)]');
+      expect(html).toContain('shadow-[0_0_0.75rem_rgba(43,166,223,0.35)]');
       expect(html).toContain('Submit');
     });
 

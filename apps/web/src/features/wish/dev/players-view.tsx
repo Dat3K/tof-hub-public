@@ -373,10 +373,10 @@ export function WishPlayersView() {
               aria-describedby="wish-players-admin-hint"
               className="w-full px-3 py-2 bg-[var(--surface-inset)] text-white border border-white/[0.12] rounded-md text-xs focus:outline-none focus:border-amber-300/70 focus:ring-2 focus:ring-amber-300/15"
             />
-            <p id="wish-players-admin-hint" className="text-[11px] text-[#a5a7af]">
+            <p id="wish-players-admin-hint" className="text-[0.6875rem] text-[#a5a7af]">
               {text('Imported players are listed with the dev admin key. The key is kept in this tab only.', 'Импортированные игроки показываются по ключу администратора. Ключ хранится только в этой вкладке.')}
             </p>
-            {loadError && <p role="alert" className="text-[11px] text-rose-300">{loadError}</p>}
+            {loadError && <p role="alert" className="text-[0.6875rem] text-rose-300">{loadError}</p>}
             <Button type="submit">{busy ? text('Loading…', 'Загрузка…') : text('Unlock', 'Открыть')}</Button>
           </fieldset>
         </form>
@@ -391,7 +391,7 @@ export function WishPlayersView() {
       {/* Overview Metric KPI Cards (Compact) */}
       <section className="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div className="p-3.5 rounded-lg bg-[var(--surface-inset)] border border-white/[0.09]">
-          <span className="text-[10px] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
+          <span className="text-[0.625rem] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
             {t.devKpiPlayersInDb}
           </span>
           <p className="text-lg sm:text-xl font-bold text-white mt-1 tabular-nums">
@@ -400,7 +400,7 @@ export function WishPlayersView() {
         </div>
 
         <div className="p-3.5 rounded-lg bg-[var(--surface-inset)] border border-white/[0.09]">
-          <span className="text-[10px] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
+          <span className="text-[0.625rem] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
             {t.devKpiTotalPulls}
           </span>
           <p className="text-lg sm:text-xl font-bold text-white mt-1 tabular-nums">
@@ -409,7 +409,7 @@ export function WishPlayersView() {
         </div>
 
         <div className="p-3.5 rounded-lg bg-[var(--surface-inset)] border border-white/[0.09]">
-          <span className="text-[10px] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
+          <span className="text-[0.625rem] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
             {t.devKpiTotalSsr}
           </span>
           <p className="text-lg sm:text-xl font-bold text-amber-300 mt-1 tabular-nums inline-flex items-center gap-1.5">
@@ -418,7 +418,7 @@ export function WishPlayersView() {
         </div>
 
         <div className="p-3.5 rounded-lg bg-[var(--surface-inset)] border border-white/[0.09]">
-          <span className="text-[10px] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
+          <span className="text-[0.625rem] font-semibold text-[#a5a7af] uppercase tracking-[0.08em]">
             {t.devKpiDarkCrystalsTurnover}
           </span>
           <p className="text-lg sm:text-xl font-bold text-cyan-200 mt-1 tabular-nums">
@@ -448,7 +448,7 @@ export function WishPlayersView() {
             <Button variant="ghost" onClick={lock}>
               {text('Lock', 'Закрыть')}
             </Button>
-            {loadError && <span role="alert" className="text-[11px] text-rose-300">{loadError}</span>}
+            {loadError && <span role="alert" className="text-[0.6875rem] text-rose-300">{loadError}</span>}
           </div>
 
           {/* Controls: Region Filter, Tag Filter, Search Input */}
@@ -485,7 +485,7 @@ export function WishPlayersView() {
             </div>
 
             {/* Search Input (Matching /datamine/items/) */}
-            <div className="relative flex items-center min-w-[200px] sm:min-w-[240px]">
+            <div className="relative flex items-center min-w-[12.5rem] sm:min-w-[15rem]">
               <span className="absolute left-2.5 text-white/45 pointer-events-none">
                 <WishUiIcon name="search" className="h-4 w-4" />
               </span>
@@ -513,7 +513,7 @@ export function WishPlayersView() {
         </div>
 
         {/* Scrollable Table View - Compact Spacing */}
-        <div className="overflow-x-auto max-h-[min(75vh,740px)] overflow-y-auto">
+        <div className="overflow-x-auto max-h-[min(75vh,46.25rem)] overflow-y-auto">
           {sortedPlayers.length === 0 ? (
             <div className="flex flex-col items-center justify-center p-12 text-center text-[#918899]">
               <WishUiIcon name="search" className="h-8 w-8 mb-2 text-white/35" />
@@ -531,7 +531,7 @@ export function WishPlayersView() {
             </div>
           ) : (
             <table className="w-full text-left text-xs border-collapse">
-              <thead className="sticky top-0 z-2 bg-[#17121c] border-b border-white/15 text-amber-300/90 uppercase text-[10px] font-bold tracking-wider">
+              <thead className="sticky top-0 z-2 bg-[#17121c] border-b border-white/15 text-amber-300/90 uppercase text-[0.625rem] font-bold tracking-wider">
                 <tr>
                   {/* # */}
                   <th scope="col" className="px-1.5 py-1.5 w-6 text-center text-[#918899]">
@@ -539,49 +539,49 @@ export function WishPlayersView() {
                   </th>
 
                   {/* Player / Nickname */}
-                  <th scope="col" className="px-1.5 py-1.5 min-w-[130px]">
+                  <th scope="col" className="px-1.5 py-1.5 min-w-[8.125rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors"
                       onClick={() => handleSort('nickname')}
                     >
                       <span>{t.devColPlayer}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'nickname' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* Server / Region */}
-                  <th scope="col" className="px-1.5 py-1.5 min-w-[100px]">
+                  <th scope="col" className="px-1.5 py-1.5 min-w-[6.25rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors"
                       onClick={() => handleSort('server')}
                     >
                       <span>{t.devColServer}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'server' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* UID */}
-                  <th scope="col" className="px-1.5 py-1.5 min-w-[85px]">
+                  <th scope="col" className="px-1.5 py-1.5 min-w-[5.3125rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors"
                       onClick={() => handleSort('uid')}
                     >
                       <span>{t.devColUid}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'uid' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* Ltd Weapon */}
-                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[72px]">
+                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[4.5rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors ml-auto text-amber-300"
@@ -589,14 +589,14 @@ export function WishPlayersView() {
                       title={t.devTooltipLtdWeapon}
                     >
                       <span className="whitespace-nowrap">{t.devColWeaponLtd}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'weapon_limited' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* Ltd Matrix */}
-                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[72px]">
+                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[4.5rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors ml-auto text-cyan-300"
@@ -604,14 +604,14 @@ export function WishPlayersView() {
                       title={t.devTooltipLtdMatrix}
                     >
                       <span className="whitespace-nowrap">{t.devColMatrixLtd}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'matrix_limited' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* Standard Weapon */}
-                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[72px]">
+                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[4.5rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors ml-auto text-yellow-200/80"
@@ -619,14 +619,14 @@ export function WishPlayersView() {
                       title={t.devTooltipStdWeapon}
                     >
                       <span className="whitespace-nowrap">{t.devColStandardWeapon}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'standard_weapon' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* Standard Matrix */}
-                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[72px]">
+                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[4.5rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors ml-auto text-blue-300"
@@ -634,14 +634,14 @@ export function WishPlayersView() {
                       title={t.devTooltipStdMatrix}
                     >
                       <span className="whitespace-nowrap">{t.devColStandardMatrix}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'standard_matrix' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* Black Nucleus */}
-                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[65px]">
+                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[4.0625rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors ml-auto text-purple-300"
@@ -649,14 +649,14 @@ export function WishPlayersView() {
                       title={t.devTooltipBlackNucleus}
                     >
                       <span className="whitespace-nowrap">{t.devColBlackNucleus}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'black_nucleus' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* SSR / Win Rate */}
-                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[72px]">
+                  <th scope="col" className="px-1.5 py-1.5 text-right min-w-[4.5rem]">
                     <button
                       type="button"
                       className="inline-flex items-center gap-1 hover:text-white transition-colors ml-auto text-emerald-300"
@@ -664,14 +664,14 @@ export function WishPlayersView() {
                       title={t.devTooltipSsrRate}
                     >
                       <span className="whitespace-nowrap">{t.devColSsrRate}</span>
-                      <span className="text-[9px] text-white/40">
+                      <span className="text-[0.5625rem] text-white/40">
                         {sortState.column === 'winRate5050' ? (sortState.direction === 'ascending' ? '▲' : '▼') : '↕'}
                       </span>
                     </button>
                   </th>
 
                   {/* Action */}
-                  <th scope="col" className="px-1.5 py-1.5 text-center min-w-[70px]">
+                  <th scope="col" className="px-1.5 py-1.5 text-center min-w-[4.375rem]">
                     {t.devColAction}
                   </th>
                 </tr>
@@ -686,7 +686,7 @@ export function WishPlayersView() {
                       className={`transition-colors duration-150 hover:bg-white/[0.04] ${player.canOpen ? 'cursor-pointer' : ''}`}
                     >
                       {/* # */}
-                      <td className="px-1.5 py-1.5 text-center font-mono text-[10px] text-[#918899]">
+                      <td className="px-1.5 py-1.5 text-center font-mono text-[0.625rem] text-[#918899]">
                         {index + 1}
                       </td>
 
@@ -707,14 +707,14 @@ export function WishPlayersView() {
                           </div>
                           <div className="flex items-center gap-1 min-w-0">
                             <span
-                              className="font-bold text-white text-[11.5px] tracking-tight truncate max-w-[105px]"
+                              className="font-bold text-white text-[0.71875rem] tracking-tight truncate max-w-[6.5625rem]"
                               title={player.nickname}
                             >
                               <Highlighted text={player.nickname} />
                             </span>
                             {player.unresolvedPulls > 0 && (
                               <span
-                                className="inline-flex items-center px-1.5 py-0.5 rounded-sm text-[9px] font-semibold border whitespace-nowrap shrink-0 text-rose-200 bg-rose-400/[0.07] border-rose-300/20"
+                                className="inline-flex items-center px-1.5 py-0.5 rounded-sm text-[0.5625rem] font-semibold border whitespace-nowrap shrink-0 text-rose-200 bg-rose-400/[0.07] border-rose-300/20"
                                 title={text('Pulls whose order code the banner catalog does not map yet', 'Крутки, код заказа которых ещё не сопоставлен с каталогом баннеров')}
                               >
                                 {formatNumber(player.unresolvedPulls, locale)} {text('unresolved', 'не определено')}
@@ -728,12 +728,12 @@ export function WishPlayersView() {
                       <td className="px-1.5 py-1.5">
                         <div className="flex flex-col leading-tight">
                           <span
-                            className="text-[#f4f0f6] font-medium text-[11px] truncate max-w-[95px]"
+                            className="text-[#f4f0f6] font-medium text-[0.6875rem] truncate max-w-[5.9375rem]"
                             title={player.server}
                           >
                             <Highlighted text={player.server} />
                           </span>
-                          <span className="text-[9px] text-[#918899]">
+                          <span className="text-[0.5625rem] text-[#918899]">
                             <Highlighted text={player.serverRegion} />
                           </span>
                         </div>
@@ -742,7 +742,7 @@ export function WishPlayersView() {
                       {/* UID with Copy Button */}
                       <td className="px-1.5 py-1.5">
                         <div className="flex items-center gap-1">
-                          <span className="font-mono text-[10.5px] text-amber-200/90 font-medium">
+                          <span className="font-mono text-[0.65625rem] text-amber-200/90 font-medium">
                             <Highlighted text={player.uid} />
                           </span>
                           <button
@@ -762,7 +762,7 @@ export function WishPlayersView() {
                         <div className="flex flex-col items-end leading-tight">
                           <button
                             type="button"
-                            className="px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 hover:bg-amber-500/25 border border-amber-500/20 font-bold transition-all text-[11px] disabled:cursor-default disabled:hover:bg-transparent"
+                            className="px-1.5 py-0.5 rounded bg-amber-500/10 text-amber-300 hover:bg-amber-500/25 border border-amber-500/20 font-bold transition-all text-[0.6875rem] disabled:cursor-default disabled:hover:bg-transparent"
                             disabled={!player.canOpen}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -772,7 +772,7 @@ export function WishPlayersView() {
                           >
                             {formatNumber(player.pullsByTrack.weapon_limited, locale)}
                           </button>
-                          <span className="text-[9px] text-[#8e8596] mt-0.5 font-mono">
+                          <span className="text-[0.5625rem] text-[#8e8596] mt-0.5 font-mono">
                             {formatNumber(player.pullsByTrack.weapon_limited * PULL_DC_COST, locale)} DC
                           </span>
                         </div>
@@ -783,7 +783,7 @@ export function WishPlayersView() {
                         <div className="flex flex-col items-end leading-tight">
                           <button
                             type="button"
-                            className="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/25 border border-cyan-500/20 font-bold transition-all text-[11px] disabled:cursor-default disabled:hover:bg-transparent"
+                            className="px-1.5 py-0.5 rounded bg-cyan-500/10 text-cyan-300 hover:bg-cyan-500/25 border border-cyan-500/20 font-bold transition-all text-[0.6875rem] disabled:cursor-default disabled:hover:bg-transparent"
                             disabled={!player.canOpen}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -793,7 +793,7 @@ export function WishPlayersView() {
                           >
                             {formatNumber(player.pullsByTrack.matrix_limited, locale)}
                           </button>
-                          <span className="text-[9px] text-[#8e8596] mt-0.5 font-mono">
+                          <span className="text-[0.5625rem] text-[#8e8596] mt-0.5 font-mono">
                             {formatNumber(player.pullsByTrack.matrix_limited * PULL_DC_COST, locale)} DC
                           </span>
                         </div>
@@ -804,7 +804,7 @@ export function WishPlayersView() {
                         <div className="flex flex-col items-end leading-tight">
                           <button
                             type="button"
-                            className="px-1.5 py-0.5 rounded bg-yellow-500/10 text-yellow-200/90 hover:bg-yellow-500/25 border border-yellow-500/20 font-bold transition-all text-[11px] disabled:cursor-default disabled:hover:bg-transparent"
+                            className="px-1.5 py-0.5 rounded bg-yellow-500/10 text-yellow-200/90 hover:bg-yellow-500/25 border border-yellow-500/20 font-bold transition-all text-[0.6875rem] disabled:cursor-default disabled:hover:bg-transparent"
                             disabled={!player.canOpen}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -814,7 +814,7 @@ export function WishPlayersView() {
                           >
                             {formatNumber(player.pullsByTrack.standard_weapon, locale)}
                           </button>
-                          <span className="text-[9px] text-[#8e8596] mt-0.5 font-mono">
+                          <span className="text-[0.5625rem] text-[#8e8596] mt-0.5 font-mono">
                             {formatNumber(player.pullsByTrack.standard_weapon * PULL_DC_COST, locale)} DC
                           </span>
                         </div>
@@ -825,7 +825,7 @@ export function WishPlayersView() {
                         <div className="flex flex-col items-end leading-tight">
                           <button
                             type="button"
-                            className="px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-300 hover:bg-blue-500/25 border border-blue-500/20 font-bold transition-all text-[11px] disabled:cursor-default disabled:hover:bg-transparent"
+                            className="px-1.5 py-0.5 rounded bg-blue-500/10 text-blue-300 hover:bg-blue-500/25 border border-blue-500/20 font-bold transition-all text-[0.6875rem] disabled:cursor-default disabled:hover:bg-transparent"
                             disabled={!player.canOpen}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -835,7 +835,7 @@ export function WishPlayersView() {
                           >
                             {formatNumber(player.pullsByTrack.standard_matrix, locale)}
                           </button>
-                          <span className="text-[9px] text-[#8e8596] mt-0.5 font-mono">
+                          <span className="text-[0.5625rem] text-[#8e8596] mt-0.5 font-mono">
                             {formatNumber(player.pullsByTrack.standard_matrix * PULL_DC_COST, locale)} DC
                           </span>
                         </div>
@@ -846,7 +846,7 @@ export function WishPlayersView() {
                         <div className="flex flex-col items-end leading-tight">
                           <button
                             type="button"
-                            className="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-300 hover:bg-purple-500/25 border border-purple-500/20 font-bold transition-all text-[11px] disabled:cursor-default disabled:hover:bg-transparent"
+                            className="px-1.5 py-0.5 rounded bg-purple-500/10 text-purple-300 hover:bg-purple-500/25 border border-purple-500/20 font-bold transition-all text-[0.6875rem] disabled:cursor-default disabled:hover:bg-transparent"
                             disabled={!player.canOpen}
                             onClick={(e) => {
                               e.stopPropagation();
@@ -856,7 +856,7 @@ export function WishPlayersView() {
                           >
                             {formatNumber(player.pullsByTrack.black_nucleus, locale)}
                           </button>
-                          <span className="text-[9px] text-[#8e8596] mt-0.5 font-mono">
+                          <span className="text-[0.5625rem] text-[#8e8596] mt-0.5 font-mono">
                             0 DC
                           </span>
                         </div>
@@ -865,11 +865,11 @@ export function WishPlayersView() {
                       {/* SSR Count & 50/50 Win Rate */}
                       <td className="px-1.5 py-1.5 text-right font-mono tabular-nums">
                         <div className="flex flex-col items-end leading-tight">
-                          <span className="font-bold text-amber-200 text-[11px] inline-flex items-center gap-1">
+                          <span className="font-bold text-amber-200 text-[0.6875rem] inline-flex items-center gap-1">
                             <WishUiIcon name="sparkle" className="h-3 w-3" /> {player.ssrCount}
                           </span>
                           <span
-                            className={`text-[9px] font-bold ${
+                            className={`text-[0.5625rem] font-bold ${
                               player.winRate5050 === null
                                 ? 'text-[#918899]'
                                 : player.winRate5050 >= 60
@@ -888,7 +888,7 @@ export function WishPlayersView() {
                       <td className="px-1.5 py-1.5 text-center">
                         <button
                           type="button"
-                          className="inline-flex items-center px-2 py-0.5 rounded bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-black font-bold text-[10.5px] border border-amber-500/30 transition-all duration-150 shadow-sm whitespace-nowrap disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-amber-500/15 disabled:hover:text-amber-300"
+                          className="inline-flex items-center px-2 py-0.5 rounded bg-amber-500/15 hover:bg-amber-500 text-amber-300 hover:text-black font-bold text-[0.65625rem] border border-amber-500/30 transition-all duration-150 shadow-sm whitespace-nowrap disabled:opacity-45 disabled:cursor-not-allowed disabled:hover:bg-amber-500/15 disabled:hover:text-amber-300"
                           disabled={!player.canOpen}
                           title={player.canOpen ? undefined : noAccessLabel}
                           aria-label={player.canOpen ? undefined : `${t.devHistoryBtn} ${noAccessLabel}`}

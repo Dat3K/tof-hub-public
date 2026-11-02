@@ -261,7 +261,7 @@ export function WishView() {
 
   return (
     <div
-      className="info-ui min-h-screen bg-[#0b0d13] text-[#d7d0dd] px-4 py-6 md:px-8 max-w-7xl mx-auto"
+      className={`${styles.page} info-ui min-h-screen bg-[#0b0d13] text-[#d7d0dd] px-4 py-6 md:px-8 mx-auto`}
       suppressHydrationWarning
     >
       <WishHeader
@@ -320,7 +320,7 @@ export function WishView() {
         <details className={`group ${styles.accountDetails}`} open>
           <summary ref={accountSummary} className="mb-2 flex cursor-pointer list-none items-center justify-between gap-3 [&::-webkit-details-marker]:hidden">
             <span role="heading" aria-level={2} className="text-xs font-bold text-white">{t.accountSwitcher}</span>
-            <span className="inline-flex h-7 items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-2.5 text-[11px] font-semibold text-slate-300 transition-colors hover:border-amber-300/30 hover:text-white">
+            <span className="inline-flex h-7 items-center gap-2 rounded-md border border-white/10 bg-white/[0.04] px-2.5 text-[0.6875rem] font-semibold text-slate-300 transition-colors hover:border-amber-300/30 hover:text-white">
               <span className="hidden group-open:inline">{t.accountCollapse}</span>
               <span className="group-open:hidden">{t.accountExpand}</span>
               <span className={styles.accountArrow} aria-hidden="true">
@@ -335,7 +335,7 @@ export function WishView() {
             return (
               <div
                 key={profile.id}
-                className={`grid items-center gap-2.5 rounded-lg border p-2.5 xl:grid-cols-[minmax(230px,300px)_minmax(0,1fr)_auto] ${
+                className={`grid items-center gap-2.5 rounded-lg border p-2.5 xl:grid-cols-[minmax(14.375rem,18.75rem)_minmax(0,1fr)_auto] ${
                   isCurrent ? 'border-amber-400/50 bg-[#0d0b13]' : 'border-white/10 bg-[#0d0b13]'
                 }`}
               >
@@ -346,18 +346,18 @@ export function WishView() {
                     <div className="min-w-0">
                       <div className="flex flex-wrap items-center gap-1.5">
                         <span className="text-xs font-bold text-white">{profile.nickname}</span>
-                        <span className="rounded border border-amber-400/25 bg-amber-400/10 px-1.5 py-0.5 font-mono text-[9px] font-semibold text-amber-300">
+                        <span className="rounded border border-amber-400/25 bg-amber-400/10 px-1.5 py-0.5 font-mono text-[0.5625rem] font-semibold text-amber-300">
                           UID: {profile.uid}
                         </span>
-                        <span className="text-[9px] text-[#aaa2b1]">
+                        <span className="text-[0.5625rem] text-[#aaa2b1]">
                           {profile.server}
                         </span>
                       </div>
-                      <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 text-[10px] text-[#c2bbc9]">
+                      <p className="mt-0.5 flex flex-wrap items-center gap-x-1.5 text-[0.625rem] text-[#c2bbc9]">
                         <span>
                           {nonPurplePullCount} {localeText(locale)('pulls')} <span className="text-white/30">·</span> {nonPurpleSsrCount} SSR
                         </span>
-                        <span className="text-[9px] text-slate-500">
+                        <span className="text-[0.5625rem] text-slate-500">
                           {localized(VERSION_STATUS_STRINGS, locale).updated}: {isVersionStatusLoading ? '…' : localized(versionStatus.formattedExportDate, locale)}
                         </span>
                       </p>
@@ -370,50 +370,50 @@ export function WishView() {
                 <div className="grid min-w-0 grid-cols-2 gap-2 sm:grid-cols-3 lg:grid-cols-5">
                   <div className="min-w-0 rounded-md border border-amber-300/20 bg-amber-300/[0.07] px-2 py-1.5" title={t.accountEventWeapon}>
                     <div className="flex items-center justify-between gap-2">
-                      <p className="text-[9px] font-bold uppercase tracking-wide text-amber-200">{t.accountEventWeapon}</p>
+                      <p className="text-[0.5625rem] font-bold uppercase tracking-wide text-amber-200">{t.accountEventWeapon}</p>
                       <p className="font-mono text-xs font-bold text-white">{profile.pullsByTrack.weapon_limited}</p>
                     </div>
                     <div className="mt-1 flex items-center justify-between gap-1">
-                      <span className="text-[9px] font-medium text-slate-400">{formatWishPosition(eventPity.currentPity)}/{eventPity.pityTarget} {t.accountPity}</span>
-                      <span className={`inline-flex rounded border px-1.5 py-0 text-[9px] font-bold ${getNextOutcomeClass(eventNext)}`}>
+                      <span className="text-[0.5625rem] font-medium text-slate-400">{formatWishPosition(eventPity.currentPity)}/{eventPity.pityTarget} {t.accountPity}</span>
+                      <span className={`inline-flex rounded border px-1.5 py-0 text-[0.5625rem] font-bold ${getNextOutcomeClass(eventNext)}`}>
                         {getNextOutcomeLabel(eventNext)}
                       </span>
                     </div>
                   </div>
                   <div className="min-w-0 rounded-md border border-violet-300/20 bg-violet-300/[0.06] px-2 py-1.5" title={t.accountMatrices}>
                     <div className="flex items-center justify-between gap-2">
-                      <p className="text-[9px] font-bold uppercase tracking-wide text-violet-200">{t.accountMatrices}</p>
+                      <p className="text-[0.5625rem] font-bold uppercase tracking-wide text-violet-200">{t.accountMatrices}</p>
                       <p className="font-mono text-xs font-bold text-white">{profile.pullsByTrack.matrix_limited}</p>
                     </div>
                     <div className="mt-1 flex items-center justify-between gap-1">
-                      <span className="text-[9px] font-medium text-slate-400">{formatWishPosition(matrixPity.currentPity)}/{matrixPity.pityTarget} {t.accountPity}</span>
-                      <span className={`inline-flex rounded border px-1.5 py-0 text-[9px] font-bold ${getNextOutcomeClass(matrixNext)}`}>
+                      <span className="text-[0.5625rem] font-medium text-slate-400">{formatWishPosition(matrixPity.currentPity)}/{matrixPity.pityTarget} {t.accountPity}</span>
+                      <span className={`inline-flex rounded border px-1.5 py-0 text-[0.5625rem] font-bold ${getNextOutcomeClass(matrixNext)}`}>
                         {getNextOutcomeLabel(matrixNext)}
                       </span>
                     </div>
                   </div>
                   <div className="min-w-0 rounded-md border border-white/10 bg-white/[0.035] px-2 py-1.5">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="min-w-0 whitespace-nowrap text-[8px] font-bold uppercase tracking-tight text-slate-300">{localeText(locale)('Standard Characters', 'Персонажи стандарта')}</p>
+                      <p className="min-w-0 whitespace-nowrap text-[0.5rem] font-bold uppercase tracking-tight text-slate-300">{localeText(locale)('Standard Characters', 'Персонажи стандарта')}</p>
                       <p className="shrink-0 font-mono text-xs font-bold text-white">{profile.pullsByTrack.standard_weapon}</p>
                     </div>
-                    <p className="mt-0.5 text-[9px] leading-snug text-slate-400">
+                    <p className="mt-0.5 text-[0.5625rem] leading-snug text-slate-400">
                       {formatWishPosition(standardWeaponPity.currentPity)}/{standardWeaponPity.pityTarget} {t.accountPity}
                     </p>
                   </div>
                   <div className="min-w-0 rounded-md border border-slate-300/15 bg-slate-300/[0.04] px-2 py-1.5">
                     <div className="flex items-center justify-between gap-2">
-                      <p className="min-w-0 whitespace-nowrap text-[8px] font-bold uppercase tracking-tight text-slate-300">{localeText(locale)('Standard Matrices', 'Матрицы стандарта')}</p>
+                      <p className="min-w-0 whitespace-nowrap text-[0.5rem] font-bold uppercase tracking-tight text-slate-300">{localeText(locale)('Standard Matrices', 'Матрицы стандарта')}</p>
                       <p className="shrink-0 font-mono text-xs font-bold text-white">{profile.pullsByTrack.standard_matrix}</p>
                     </div>
-                    <p className="mt-1 text-[9px] text-slate-400">{formatWishPosition(standardMatrixPity.currentPity)}/{standardMatrixPity.pityTarget} {t.accountPity}</p>
+                    <p className="mt-1 text-[0.5625rem] text-slate-400">{formatWishPosition(standardMatrixPity.currentPity)}/{standardMatrixPity.pityTarget} {t.accountPity}</p>
                   </div>
                   <div className="min-w-0 rounded-md border border-white/10 bg-[#14161a] px-2 py-1.5">
                     <div className="flex items-center justify-between gap-1">
-                      <p className="text-[9px] font-bold uppercase tracking-wide text-slate-300">{t.accountEventWinRate}</p>
+                      <p className="text-[0.5625rem] font-bold uppercase tracking-wide text-slate-300">{t.accountEventWinRate}</p>
                       <p className="font-mono text-xs font-bold" style={eventWinRate === null ? undefined : { color: getWinRateColor(eventWinRate) }}>{eventWinRate === null ? '—' : `${eventWinRate.toFixed(1)}%`}</p>
                     </div>
-                    <p className="mt-1 flex flex-wrap items-center gap-x-1 text-[9px] text-slate-400">
+                    <p className="mt-1 flex flex-wrap items-center gap-x-1 text-[0.5625rem] text-slate-400">
                       <span>{t.accountEventDropRate}:</span>
                       {eventDropRate.totalPulls > 0 && eventDropRate.hasReliableExposure !== false ? (
                         <>
@@ -433,7 +433,7 @@ export function WishView() {
                       type="button"
                       onClick={openImport}
                       disabled={importing}
-                      className="inline-flex h-7 min-w-[82px] shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-amber-400/35 bg-amber-400/10 px-2 text-center text-[11px] font-bold text-amber-300 transition-colors hover:bg-amber-400 hover:text-[#080b10] disabled:cursor-not-allowed disabled:opacity-40"
+                      className="inline-flex h-7 min-w-[5.125rem] shrink-0 cursor-pointer items-center justify-center whitespace-nowrap rounded-lg border border-amber-400/35 bg-amber-400/10 px-2 text-center text-[0.6875rem] font-bold text-amber-300 transition-colors hover:bg-amber-400 hover:text-[#080b10] disabled:cursor-not-allowed disabled:opacity-40"
                     >
                       + {t.addAccount}
                     </button>
@@ -441,7 +441,7 @@ export function WishView() {
                     <button
                       type="button"
                       onClick={() => selectPlayerProfile(profile.id)}
-                      className="inline-flex h-7 min-w-[82px] shrink-0 items-center justify-center whitespace-nowrap rounded-lg border border-sky-400/35 bg-sky-400/10 px-2 text-center text-[11px] font-bold text-sky-300 transition-colors hover:bg-sky-400 hover:text-[#080b10]"
+                      className="inline-flex h-7 min-w-[5.125rem] shrink-0 items-center justify-center whitespace-nowrap rounded-lg border border-sky-400/35 bg-sky-400/10 px-2 text-center text-[0.6875rem] font-bold text-sky-300 transition-colors hover:bg-sky-400 hover:text-[#080b10]"
                     >
                       {t.showAccount}
                     </button>

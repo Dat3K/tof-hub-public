@@ -2,9 +2,9 @@
 
 .page {
   width: 100%;
-  max-width: 1440px;
+  max-width: var(--layout-wide, 90rem);
   margin: 0 auto;
-  padding: 18px 28px 40px;
+  padding: 1.125rem 1.75rem 2.5rem;
   box-sizing: border-box;
   color: var(--dm-text, #d7d0dd);
 }
@@ -13,14 +13,14 @@
 .toolbar {
   display: flex;
   align-items: center;
-  gap: 12px;
-  min-height: 56px;
-  margin: 0 -28px;
-  padding: 8px 28px;
+  gap: 0.75rem;
+  min-height: 3.5rem;
+  margin: 0 -1.75rem;
+  padding: 0.5rem 1.75rem;
   box-sizing: border-box;
   background: rgba(11, 13, 19, 0.92);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(0.75rem);
+  -webkit-backdrop-filter: blur(0.75rem);
 }
 
 .nav {
@@ -50,26 +50,26 @@
 .panel {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  margin-top: 16px;
+  margin-top: 1rem;
 }
 
 .section {
   display: grid;
   grid-template-columns: minmax(0, 1fr);
-  gap: 14px;
+  gap: 0.875rem;
   min-width: 0;
   position: relative;
-  padding: 18px 20px;
+  padding: 1.125rem 1.25rem;
   border: 1px solid var(--surface-border);
-  border-radius: var(--dm-radius-md, 8px);
+  border-radius: var(--dm-radius-md, 0.5rem);
   background: var(--surface-panel);
 }
 
 .sectionHeader {
   /* No z-index: it would trap the "?" dialog (rendered inside) below the sticky tab bar. */
   position: absolute;
-  top: 14px;
-  right: 16px;
+  top: 0.875rem;
+  right: 1rem;
 }
 
 .empty {
@@ -82,13 +82,13 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 26px;
-  height: 26px;
+  width: 1.625rem;
+  height: 1.625rem;
   border: 1px solid var(--surface-border-strong);
   border-radius: 50%;
   background: var(--surface-inset);
   color: var(--dm-muted, #b4abbf);
-  font: 700 13px/1 var(--font-sans);
+  font: 700 0.8125rem/1 var(--font-sans);
   cursor: pointer;
   flex: none;
   transition: color 160ms ease, border-color 160ms ease;
@@ -109,18 +109,18 @@
 
 @media (max-width: 900px) {
   .page {
-    padding-inline: 16px;
+    padding-inline: 1rem;
   }
   .toolbar {
-    margin-inline: -16px;
-    padding-inline: 16px;
+    margin-inline: -1rem;
+    padding-inline: 1rem;
   }
 }
 
 @media (max-width: 640px) {
   .toolbar {
     flex-wrap: wrap;
-    gap: 6px;
+    gap: 0.375rem;
   }
   .mode {
     order: -1;
@@ -129,7 +129,7 @@
     flex-basis: 100%;
   }
   .section {
-    padding: 14px;
+    padding: 0.875rem;
   }
 }
 

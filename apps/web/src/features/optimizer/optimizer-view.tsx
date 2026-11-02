@@ -484,7 +484,7 @@ export function OptimizerView({catalog,demo}:{catalog:BuildCatalog;demo:Optimize
         <Button variant="ghost" size="sm" onClick={loadMore}>{fillText(t('Show {0} more', 'Показать ещё {0}'), [Math.min(INVENTORY_BATCH_SIZE,matching.length-visible.length)])}</Button>
       </div>}
     </section>
-    <ToolRail placement="side" label={t('Optimizer actions')} items={[
+    <ToolRail label={t('Optimizer actions')} items={[
       {id:'import',label:importing?t('Importing…'):t('Import .tofbuild','Импорт .tofbuild'),icon:<RailGlyph name="import"/>,tone:'accent',onClick:openImport,disabled:importing},
       {id:'equipment',label:t('Go to equipment'),icon:<RailGlyph name="equipment"/>,onClick:goToEquipment},
       {id:'add-gear',label:t('Add gear'),icon:<RailGlyph name="add"/>,onClick:openManualGear,disabled:importing},

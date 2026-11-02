@@ -13,7 +13,7 @@
   --fce-font-copy: "Franklin Gothic Medium Cond", "FranklinGothic-MediumCond", "Arial Narrow", "Segoe UI", sans-serif;
   --fce-font-title: "Haettenschweiler", "Arial Narrow", Impact, sans-serif;
   
-  height: calc(100dvh - var(--fce-header-inset, 56px));
+  height: calc(100dvh - var(--fce-header-inset, calc(56 * var(--ui-unit))));
   padding-bottom: 0;
   color: var(--oow-text);
   background: var(--oow-bg);
@@ -22,18 +22,18 @@
 }
 
 .layout {
-  max-width: min(100%, 1440px);
+  max-width: min(100%, var(--layout-wide, calc(1440 * var(--ui-unit))));
   margin: 0 auto;
-  padding: 14px 28px 0;
+  padding: calc(14 * var(--ui-unit)) calc(28 * var(--ui-unit)) 0;
 }
 
 .hero {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 16px;
+  gap: calc(16 * var(--ui-unit));
   flex-wrap: wrap;
-  margin-bottom: 6px;
+  margin-bottom: calc(6 * var(--ui-unit));
 }
 
 .heroContent {
@@ -42,9 +42,9 @@
 }
 
 .heroEyebrow {
-  margin: 0 0 4px;
+  margin: 0 0 calc(4 * var(--ui-unit));
   color: var(--oow-gold);
-  font: 700 11px/1 "Manrope", var(--font-sans, system-ui);
+  font: 700 calc(11 * var(--ui-unit))/1 "Manrope", var(--font-sans, system-ui);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -52,7 +52,7 @@
 .heroTitle {
   margin: 0;
   color: var(--oow-text-strong);
-  font: 700 26px/1.25 "Manrope", var(--font-sans, system-ui);
+  font: 700 var(--ui-text-title, calc(26 * var(--ui-unit)))/1.25 "Manrope", var(--font-sans, system-ui);
   letter-spacing: -0.01em;
 }
 
@@ -60,12 +60,12 @@
 .modeSwitcher {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
+  gap: calc(12 * var(--ui-unit));
   flex-shrink: 0;
 }
 
 .modeLabel {
-  font: 700 11px/1 "Manrope", var(--font-sans, system-ui);
+  font: 700 calc(11 * var(--ui-unit))/1 "Manrope", var(--font-sans, system-ui);
   letter-spacing: 0.04em;
   text-transform: uppercase;
   color: #948aa8;
@@ -76,8 +76,8 @@
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.09);
-  border-radius: 999px;
-  padding: 4px;
+  border-radius: calc(999 * var(--ui-unit));
+  padding: calc(4 * var(--ui-unit));
 }
 
 .modePill {
@@ -85,9 +85,9 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font: 700 13px/1 "Manrope", var(--font-sans, system-ui);
-  padding: 8px 18px;
-  border-radius: 999px;
+  font: 700 calc(13 * var(--ui-unit))/1 "Manrope", var(--font-sans, system-ui);
+  padding: calc(8 * var(--ui-unit)) calc(18 * var(--ui-unit));
+  border-radius: calc(999 * var(--ui-unit));
   border: 1px solid transparent;
   background: transparent;
   color: #7a7290;
@@ -99,8 +99,8 @@
 }
 
 .modePill:focus-visible {
-  outline: 2px solid #f5d97a;
-  outline-offset: 2px;
+  outline: calc(2 * var(--ui-unit)) solid #f5d97a;
+  outline-offset: calc(2 * var(--ui-unit));
 }
 
 .modePill:hover:not(.isActive) {
@@ -111,7 +111,7 @@
 .modePill[aria-pressed="true"] {
   background: linear-gradient(135deg, #f5d97a, #f0b94e);
   color: #17111f;
-  box-shadow: 0 2px 8px rgba(245, 217, 122, 0.25);
+  box-shadow: 0 calc(2 * var(--ui-unit)) calc(8 * var(--ui-unit)) rgba(245, 217, 122, 0.25);
   cursor: default;
 }
 
@@ -119,37 +119,22 @@
 .switcherSection {
   width: 100vw;
   margin-left: calc(50% - 50vw);
-  padding-inline: 24px;
+  padding-inline: calc(24 * var(--ui-unit));
   box-sizing: border-box;
-  margin-bottom: 8px;
-}
-
-.switcher {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  width: min(100%, 1520px);
-  margin: 0 auto;
-}
-
-@media (min-width: 1569px) {
-  .switcher {
-    width: max-content;
-    max-width: calc(100vw - 48px);
-  }
+  margin-bottom: calc(8 * var(--ui-unit));
 }
 
 /* MMO Season Switcher */
 .mmoSwitcher {
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  width: min(100%, 1520px);
+  gap: calc(6 * var(--ui-unit));
+  width: min(100%, var(--layout-scene, calc(1520 * var(--ui-unit))));
   margin: 0 auto;
-  max-height: 114px; /* Fits maximum 3 rows on screen */
+  max-height: calc(114 * var(--ui-unit) + 8px); /* Three rows plus the native horizontal scrollbar. */
   overflow-y: auto;
-  overflow-x: hidden;
-  padding: 2px 4px;
+  overflow-x: auto;
+  padding: calc(2 * var(--ui-unit)) calc(4 * var(--ui-unit));
   box-sizing: border-box;
   scrollbar-width: thin;
   scrollbar-color: rgba(229, 180, 86, 0.45) rgba(15, 12, 24, 0.6);
@@ -158,22 +143,22 @@
 @media (min-width: 1569px) {
   .mmoSwitcher {
     width: max-content;
-    max-width: calc(100vw - 48px);
+    max-width: calc(100vw - calc(48 * var(--ui-unit)));
   }
 }
 
 .mmoSwitcher::-webkit-scrollbar {
-  width: 5px;
+  width: calc(5 * var(--ui-unit));
 }
 
 .mmoSwitcher::-webkit-scrollbar-track {
   background: rgba(15, 12, 24, 0.6);
-  border-radius: 4px;
+  border-radius: calc(4 * var(--ui-unit));
 }
 
 .mmoSwitcher::-webkit-scrollbar-thumb {
   background: rgba(229, 180, 86, 0.45);
-  border-radius: 4px;
+  border-radius: calc(4 * var(--ui-unit));
 }
 
 .mmoSwitcher::-webkit-scrollbar-thumb:hover {
@@ -183,24 +168,28 @@
 .seasonRow {
   display: flex;
   align-items: center;
-  gap: 8px;
-  min-height: 32px;
-  max-height: 32px;
-  width: 100%;
+  gap: calc(8 * var(--ui-unit));
+  min-height: calc(32 * var(--ui-unit));
+  max-height: calc(32 * var(--ui-unit));
+  width: max-content;
+  min-width: 100%;
 }
 
 /* MMO Season Badges matching /info/simulacra/?server=mmo */
 .seasonBadge {
-  height: 26px;
-  min-width: 38px;
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  height: calc(26 * var(--ui-unit));
+  min-width: calc(38 * var(--ui-unit));
   box-sizing: border-box;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0 7px;
-  border-radius: 6px;
+  padding: 0 calc(7 * var(--ui-unit));
+  border-radius: calc(6 * var(--ui-unit));
   line-height: 1;
-  font-size: 0.7rem;
+  font-size: calc(11.2 * var(--ui-unit));
   font-weight: 800;
   letter-spacing: 0.05em;
   text-transform: uppercase;
@@ -218,35 +207,34 @@
 .seasonBadge1 {
   background: linear-gradient(135deg, #3b82f6, #1d4ed8);
   border: 1px solid rgba(191, 219, 254, 0.6);
-  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.5);
+  box-shadow: 0 calc(2 * var(--ui-unit)) calc(8 * var(--ui-unit)) rgba(59, 130, 246, 0.5);
 }
 
 .seasonBadge2 {
   background: linear-gradient(135deg, #f59e0b, #b45309);
   border: 1px solid rgba(254, 240, 138, 0.6);
-  box-shadow: 0 2px 8px rgba(245, 158, 11, 0.5);
+  box-shadow: 0 calc(2 * var(--ui-unit)) calc(8 * var(--ui-unit)) rgba(245, 158, 11, 0.5);
 }
 
 .seasonBadge3 {
   background: linear-gradient(135deg, #10b981, #047857);
   border: 1px solid rgba(167, 243, 208, 0.6);
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.5);
+  box-shadow: 0 calc(2 * var(--ui-unit)) calc(8 * var(--ui-unit)) rgba(16, 185, 129, 0.5);
 }
 
 .seasonBadge4 {
   background: linear-gradient(135deg, #a855f7, #6b21a8);
   border: 1px solid rgba(233, 213, 255, 0.6);
-  box-shadow: 0 2px 8px rgba(168, 85, 247, 0.5);
+  box-shadow: 0 calc(2 * var(--ui-unit)) calc(8 * var(--ui-unit)) rgba(168, 85, 247, 0.5);
 }
 
 .seasonChips {
   display: flex;
   align-items: center;
-  gap: 6px;
-  flex: 1;
+  gap: calc(6 * var(--ui-unit));
+  flex: none;
   min-width: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: visible;
   scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
 }
@@ -272,21 +260,9 @@
   pointer-events: none;
 }
 
-.switcherRow {
-  display: flex;
-  flex-wrap: nowrap;
-  gap: 6px;
-  min-width: 0;
-  overflow-x: auto;
-  overflow-y: hidden;
-  padding-bottom: 2px;
-  scrollbar-width: thin;
-  -webkit-overflow-scrolling: touch;
-}
-
 /* Card Shell & Viewport */
 .cardShell {
-  width: min(100%, 1520px);
+  width: min(100%, var(--layout-scene, calc(1520 * var(--ui-unit))));
   margin: 0 auto;
   display: flex;
   justify-content: center;
@@ -297,15 +273,15 @@
 .cardLoader {
   display: grid;
   place-items: center;
-  min-height: 240px;
+  min-height: calc(240 * var(--ui-unit));
   color: var(--oow-text-muted);
-  font: 600 14px/1.5 "Manrope", var(--font-sans, system-ui);
+  font: 600 calc(14 * var(--ui-unit))/1.5 "Manrope", var(--font-sans, system-ui);
 }
 
 .cardViewport {
   position: relative;
   width: 100%;
-  max-width: 1520px;
+  max-width: var(--layout-scene, calc(1520 * var(--ui-unit)));
   aspect-ratio: 16 / 9;
   margin: 0 auto;
   background: transparent;
@@ -318,24 +294,26 @@
 }
 
 .card {
+  --ui-unit: 1px;
+  font-size: 16px;
   position: absolute;
   left: 0;
   top: 0;
-  width: 1920px;
-  height: 1080px;
+  width: calc(1920 * var(--ui-unit));
+  height: calc(1080 * var(--ui-unit));
   overflow: hidden;
   transform-origin: top left;
   transform: scale(var(--fce-scale));
   background: #dfe5f5;
-  border-radius: 26px;
+  border-radius: calc(26 * var(--ui-unit));
 }
 
 /* Boss stat plate on the watermark's line, flush with the right edge of the mechanics copy. */
 .cardDefenses {
   position: absolute;
-  left: 15px;
-  width: var(--fce-copy-width, 1300px);
-  bottom: 12px;
+  left: calc(15 * var(--ui-unit));
+  width: var(--fce-copy-width, calc(1300 * var(--ui-unit)));
+  bottom: calc(12 * var(--ui-unit));
   z-index: 5;
   justify-content: flex-end;
 }
@@ -343,11 +321,11 @@
 /* Author mark, bottom-left; part of the card so the PNG export carries it. */
 .cardSignature {
   position: absolute;
-  left: 28px;
-  bottom: 20px;
+  left: calc(28 * var(--ui-unit));
+  bottom: calc(20 * var(--ui-unit));
   z-index: 5;
   font-family: var(--font-mono, monospace);
-  font-size: 26px;
+  font-size: calc(26 * var(--ui-unit));
   font-weight: 700;
   line-height: 1;
   color: rgba(40, 36, 56, 0.55);
@@ -393,10 +371,10 @@
 /* Card Copy (Mechanics) */
 .cardCopy {
   position: absolute;
-  left: 15px;
-  top: var(--fce-copy-y, 220px);
-  width: var(--fce-copy-width, 1300px);
-  min-height: 696px;
+  left: calc(15 * var(--ui-unit));
+  top: var(--fce-copy-y, calc(220 * var(--ui-unit)));
+  width: var(--fce-copy-width, calc(1300 * var(--ui-unit)));
+  min-height: calc(696 * var(--ui-unit));
   z-index: 2;
   user-select: text;
   transform-origin: top left;
@@ -405,27 +383,27 @@
 
 .cardLine {
   display: block;
-  padding: 12px 16px;
+  padding: calc(12 * var(--ui-unit)) calc(16 * var(--ui-unit));
   background: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
+  border-radius: calc(10 * var(--ui-unit));
   cursor: text;
   transition: background-color 0.18s ease, box-shadow 0.18s ease;
 }
 
 .cardLine:hover {
   background: rgba(255, 255, 255, 0.9);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34), 0 10px 24px rgba(201, 214, 255, 0.16);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.34), 0 calc(10 * var(--ui-unit)) calc(24 * var(--ui-unit)) rgba(201, 214, 255, 0.16);
 }
 
 .cardLine + .cardLine {
-  margin-top: 12px;
+  margin-top: calc(12 * var(--ui-unit));
 }
 
 .cardText {
   margin: 0;
   color: #050505;
   font-family: var(--fce-font-copy);
-  font-size: 50px;
+  font-size: calc(50 * var(--ui-unit));
   line-height: 1.05;
   font-weight: 700;
   letter-spacing: 0;
@@ -437,7 +415,7 @@
 }
 
 .cardIndex {
-  margin-right: 9px;
+  margin-right: calc(9 * var(--ui-unit));
 }
 
 .cardVisual {
@@ -460,16 +438,16 @@
 }
 
 .cardArtButton:focus-visible .cardArt {
-  outline: 4px solid var(--oow-gold);
-  outline-offset: -4px;
+  outline: calc(4 * var(--ui-unit)) solid var(--oow-gold);
+  outline-offset: calc(-4 * var(--ui-unit));
 }
 
 .cardArt {
   position: absolute;
-  left: 1121px;
-  top: 71px;
-  width: 1272px;
-  height: 993px;
+  left: calc(1121 * var(--ui-unit));
+  top: calc(71 * var(--ui-unit));
+  width: calc(1272 * var(--ui-unit));
+  height: calc(993 * var(--ui-unit));
   object-fit: contain;
   object-position: center center;
   user-select: none;
@@ -481,15 +459,15 @@
 
 .cardName {
   position: absolute;
-  right: var(--fce-name-right, 26px);
-  top: calc(891px + var(--fce-name-y, 38px));
-  width: var(--fce-name-width, 620px);
+  right: var(--fce-name-right, calc(26 * var(--ui-unit)));
+  top: calc(calc(891 * var(--ui-unit)) + var(--fce-name-y, calc(38 * var(--ui-unit))));
+  width: var(--fce-name-width, calc(620 * var(--ui-unit)));
   display: flex;
   justify-content: center;
   align-items: center;
   color: var(--fce-name-color, #72d4ca);
   font-family: var(--fce-font-title);
-  font-size: calc(110px * var(--fce-name-scale, 1));
+  font-size: calc(calc(110 * var(--ui-unit)) * var(--fce-name-scale, 1));
   line-height: 0.88;
   font-weight: 700;
   letter-spacing: 0;
@@ -498,8 +476,8 @@
   white-space: nowrap;
   user-select: text;
   pointer-events: auto;
-  -webkit-text-stroke: 3px rgba(17, 17, 17, 0.92);
-  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.34);
+  -webkit-text-stroke: calc(3 * var(--ui-unit)) rgba(17, 17, 17, 0.92);
+  text-shadow: 0 calc(3 * var(--ui-unit)) calc(10 * var(--ui-unit)) rgba(0, 0, 0, 0.34);
   transition: color 0.18s ease, text-shadow 0.18s ease, filter 0.18s ease;
   z-index: 3;
 }
@@ -517,8 +495,8 @@
 
 .cardLevelBadge {
   position: absolute;
-  right: calc(100% + 20px);
-  top: calc(50% + 14px);
+  right: calc(100% + calc(20 * var(--ui-unit)));
+  top: calc(50% + calc(14 * var(--ui-unit)));
   transform: translateY(-50%);
   display: inline-flex;
   align-items: center;
@@ -531,20 +509,20 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 5px 22px;
+  padding: calc(5 * var(--ui-unit)) calc(22 * var(--ui-unit));
   background: rgba(12, 10, 20, 0.9);
-  border: 3px solid var(--fce-name-color, #72d4ca);
-  border-radius: 9999px;
+  border: calc(3 * var(--ui-unit)) solid var(--fce-name-color, #72d4ca);
+  border-radius: calc(9999 * var(--ui-unit));
   color: var(--fce-name-color, #72d4ca);
   font-family: var(--font-sans, "Barlow", "Segoe UI", system-ui, sans-serif);
-  font-size: 46px;
+  font-size: calc(46 * var(--ui-unit));
   line-height: 1;
   font-weight: 900;
   letter-spacing: 0.04em;
   font-variant-numeric: tabular-nums lining-nums;
-  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.6), inset 0 0 10px rgba(0, 0, 0, 0.3);
-  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
-  backdrop-filter: blur(8px);
+  box-shadow: 0 calc(4 * var(--ui-unit)) calc(18 * var(--ui-unit)) rgba(0, 0, 0, 0.6), inset 0 0 calc(10 * var(--ui-unit)) rgba(0, 0, 0, 0.3);
+  text-shadow: 0 calc(2 * var(--ui-unit)) calc(6 * var(--ui-unit)) rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(calc(8 * var(--ui-unit)));
   user-select: text;
   -webkit-text-stroke: 0;
 }
@@ -553,12 +531,12 @@
 /* Floating Download Button (Fixed to bottom-right of viewport, matching legacy) */
 .exportBar {
   position:fixed;
-  right:24px;
-  bottom:22px;
+  right:calc(24 * var(--ui-unit));
+  bottom:calc(22 * var(--ui-unit));
   z-index:30;
   display:flex;
   align-items:center;
-  gap:10px;
+  gap:calc(10 * var(--ui-unit));
 }
 
 
@@ -590,28 +568,28 @@
 /* Media Queries */
 @media (max-width: 768px) {
   .switcherSection {
-    padding-inline: 12px;
+    padding-inline: calc(12 * var(--ui-unit));
   }
 
   .layout {
-    padding: 14px 12px 12px;
+    padding: calc(14 * var(--ui-unit)) calc(12 * var(--ui-unit)) calc(12 * var(--ui-unit));
   }
   .hero {
-    gap: 12px;
+    gap: calc(12 * var(--ui-unit));
   }
   .modeSwitcher {
-    gap: 8px;
+    gap: calc(8 * var(--ui-unit));
   }
   .modeLabel {
-    font-size: 10px;
+    font-size: calc(10 * var(--ui-unit));
   }
   .modePill {
-    font-size: 11.5px;
-    padding: 6px 12px;
+    font-size: calc(11.5 * var(--ui-unit));
+    padding: calc(6 * var(--ui-unit)) calc(12 * var(--ui-unit));
   }
   .exportBar {
-    right: 14px;
-    bottom: 14px;
+    right: calc(14 * var(--ui-unit));
+    bottom: calc(14 * var(--ui-unit));
   }
 }
 
@@ -620,7 +598,7 @@
   .hero {
     flex-direction: column;
     align-items: flex-start;
-    gap: 10px;
+    gap: calc(10 * var(--ui-unit));
   }
   .modeSwitcher {
     width: 100%;
@@ -640,11 +618,12 @@
    screenshot download. Drift animations are frozen at the base frame so the
    exported background always matches the resting card. */
 .fceExportRoot {
+  --ui-unit: 1px;
   position: fixed;
-  left: -10000px;
+  left: calc(-10000 * var(--ui-unit));
   top: 0;
-  width: 1920px;
-  height: 1080px;
+  width: calc(1920 * var(--ui-unit));
+  height: calc(1080 * var(--ui-unit));
   overflow: hidden;
   pointer-events: none;
 }

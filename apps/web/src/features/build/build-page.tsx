@@ -14,6 +14,7 @@ import {BuildInfoRail} from './build-info';
 import {loadDomSnapshot,waitForDomSnapshotAssets} from '@/lib/dom-snapshot';
 import {downloadPng} from '@/lib/download';
 import {BuildCard,CardPreview} from './build-card';
+import {useCardPreviewScale} from './use-card-preview-scale';
 import {lazy,Suspense} from 'react';
 const BuildEditor=lazy(()=>import('./build-editor').then(module=>({default:module.BuildEditor})));
 import {BuildInspection} from './build-inspection';
@@ -57,7 +58,6 @@ export function BuildPage({catalog,profile,preview}:{catalog:BuildCatalog;profil
   const {notify,dismiss}=useToast(),noticeId=useId();
   const shareNoticeId=useId();
   const setNotice=useCallback((message:string)=>{if(message)notify(message,{id:noticeId});else dismiss(noticeId);},[notify,dismiss,noticeId]);
-  const [scale,setScale]=useState(1);
   const [full,setFull]=useState(false);
   const [cardFullscreen,setCardFullscreen]=useState(false);
   const [manualEditor,setManualEditor]=useState(false);
@@ -86,6 +86,7 @@ export function BuildPage({catalog,profile,preview}:{catalog:BuildCatalog;profil
   const artPositionControl=useRef<HTMLDivElement>(null);
   const artPreview=useRef<{x:number;y:number;paint:(zoom:number)=>void}|null>(null);
   const stage=useRef<HTMLDivElement>(null);
+  const scale=useCardPreviewScale({stage,toolbar,ready,height:cardHeight,fullSize:full,fullscreen:cardFullscreen});
   const card=useRef<HTMLElement>(null);
   const artworkUrls=useRef(new Set<string>());
   const artworkFiles=useRef(new Map<string,Blob>());
@@ -203,19 +204,6 @@ export function BuildPage({catalog,profile,preview}:{catalog:BuildCatalog;profil
       }else if(savedArtworkUrl.current||pendingArtworkUrl.current){savedArtworkUrl.current='';pendingArtworkUrl.current='';void removeLocalArtwork('build').catch(()=>setNotice(t('Could not remove the saved background.')));}
     }catch {setNotice(t('The browser could not save background settings.'));}
   },[artworkRestored,customArt,draft.art,profile]);
-  useLayoutEffect(()=>{
-    const node=stage.current;if(!node)return;
-    const resize=()=>{
-      if(cardFullscreen){setScale(Math.min(node.clientWidth/BUILD_CARD_WIDTH,node.clientHeight/cardHeight));return;}
-      const top=node.getBoundingClientRect().top+window.scrollY;
-      node.closest<HTMLElement>('[data-static]')?.style.setProperty('--build-toolbar-height',`${toolbar.current?.offsetHeight??48}px`);
-      const availableHeight=Math.max(1,window.innerHeight-top-(toolbar.current?.offsetHeight??48)-24);
-      setScale(full?1:Math.min(1,node.clientWidth/BUILD_CARD_WIDTH,availableHeight/cardHeight));
-    };
-    const observer=new ResizeObserver(resize);observer.observe(node);if(toolbar.current)observer.observe(toolbar.current);resize();
-    window.addEventListener('resize',resize);
-    return ()=>{observer.disconnect();window.removeEventListener('resize',resize);};
-  },[full,cardFullscreen,cardHeight,ready,manualEditor,editingLocked]);
   useEffect(()=>{
     if(!ready)return;
     const node=stage.current;if(!node)return;

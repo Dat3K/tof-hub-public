@@ -152,7 +152,7 @@ export function SectionErrorState({
     <div className={`w-full py-6 px-4 ${className}`}>
       {/* Section indicator */}
       <div className="flex justify-center mb-4">
-        <span className="text-[10px] font-mono tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-negative/10 border border-negative/30 text-negative">
+        <span className="text-[0.625rem] font-mono tracking-widest uppercase px-2.5 py-0.5 rounded-full bg-negative/10 border border-negative/30 text-negative">
           {t('Section error')} // {section.toUpperCase()}
         </span>
       </div>

@@ -123,7 +123,7 @@ export function CatalogSearch({
       <div className="relative w-full">
         {/* Search Icon */}
         <svg
-          className="sim-search-icon pointer-events-none absolute left-2.5 top-1/2 -translate-y-1/2 text-[#9ca3af] shrink-0"
+          className="sim-search-icon pointer-events-none absolute left-2.5 top-1/2 h-[.875rem] w-[.875rem] -translate-y-1/2 text-[#9ca3af] shrink-0"
           viewBox="0 0 24 24"
           width="14"
           height="14"
@@ -153,16 +153,16 @@ export function CatalogSearch({
           autoFocus={autoFocus}
           autoComplete="off"
           spellCheck="false"
-          style={hasServerMode && serverModeSizing === 'content' ? {paddingRight: responsiveSlot ? `var(--catalog-slot-padding, min(${modeWidth + 36}px, calc(100% - 40px)))` : `min(${modeWidth + 36}px, calc(100% - 40px))`} : undefined}
+          style={hasServerMode && serverModeSizing === 'content' ? {paddingRight: responsiveSlot ? `var(--catalog-slot-padding, min(calc(${modeWidth}px + 2.25rem), calc(100% - 2.5rem)))` : `min(calc(${modeWidth}px + 2.25rem), calc(100% - 2.5rem))`} : undefined}
           className={[
             'sim-search-input',
             'w-full h-8 rounded-md border',
-            'text-[13px] font-normal leading-[1.3] text-[#f3f4f6] placeholder-[#6b7280]',
+            'text-[0.8125rem] font-normal leading-[1.3] text-[#f3f4f6] placeholder-[#6b7280]',
             'pl-8 transition-colors duration-150 font-sans',
             'focus:outline-none',
             disabled ? 'opacity-40 cursor-not-allowed' : '',
             // Adjust right padding when Gacha/MMO switcher is embedded
-            hasServerMode ? 'pr-[160px]' : 'pr-8',
+            hasServerMode ? 'pr-[10rem]' : 'pr-8',
           ]
             .filter(Boolean)
             .join(' ')}
@@ -177,13 +177,13 @@ export function CatalogSearch({
               'absolute top-1/2 -translate-y-1/2 z-[2] w-5 h-5 rounded',
               'flex items-center justify-center text-[#9ca3af] hover:text-[#f3f4f6]',
               'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#3b82f6] focus-visible:ring-offset-1 focus-visible:ring-offset-[#0b0d13]',
-              'text-[18px] leading-none transition-colors cursor-pointer',
-              hasServerMode ? 'right-[136px]' : 'right-2',
+              'text-[1.125rem] leading-none transition-colors cursor-pointer',
+              hasServerMode ? 'right-[8.5rem]' : 'right-2',
             ]
               .filter(Boolean)
               .join(' ')}
             onClick={handleClear}
-            style={hasServerMode && serverModeSizing === 'content' ? {right: responsiveSlot ? `var(--catalog-slot-clear-right, ${modeWidth + 12}px)` : modeWidth + 12} : undefined}
+            style={hasServerMode && serverModeSizing === 'content' ? {right: responsiveSlot ? `var(--catalog-slot-clear-right, calc(${modeWidth}px + .75rem))` : `calc(${modeWidth}px + .75rem)`} : undefined}
             onKeyDown={(e) => {
               if (e.key === ' ' || e.key === 'Enter') {
                 handleClear(e as unknown as MouseEvent<HTMLButtonElement>);

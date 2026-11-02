@@ -258,7 +258,7 @@ export function SimulationTab({
   return (
     <div className="space-y-4">
       {/* Simulation Form Card */}
-      <div className="rounded-[14px] border border-white/15 bg-[var(--surface-panel)] p-4 shadow-lg">
+      <div className="rounded-[0.875rem] border border-white/15 bg-[var(--surface-panel)] p-4 shadow-lg">
         <div className="mb-3 flex flex-col justify-between gap-2 border-b border-white/10 pb-2.5 sm:flex-row sm:items-center">
           <h3 className="text-base font-bold text-white flex items-center gap-2">
             <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
@@ -268,7 +268,7 @@ export function SimulationTab({
             {t.simSyncFromHistory}
           </Button>
         </div>
-        <p className="-mt-1 mb-3 text-[11px] leading-relaxed text-slate-400">{t.simHistoryStateHint}</p>
+        <p className="-mt-1 mb-3 text-[0.6875rem] leading-relaxed text-slate-400">{t.simHistoryStateHint}</p>
 
         <section className="mb-4 rounded-xl border border-amber-300/25 bg-[#0d1119] p-3" aria-labelledby="simulation-presets-title">
           <div className="mb-2.5">
@@ -288,7 +288,7 @@ export function SimulationTab({
                     setTargetWeaponAdvancement(preset.weaponAdvancement);
                     setTargetMatrixCopiesPerSlot(preset.matrixCopiesPerSlot);
                   }}
-                  className={`group/preset relative min-h-[78px] overflow-hidden rounded-lg border px-3 py-2.5 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 ${
+                  className={`group/preset relative min-h-[4.875rem] overflow-hidden rounded-lg border px-3 py-2.5 text-left transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-300 ${
                     isActive
                       ? 'border-amber-300/80 bg-[linear-gradient(135deg,rgba(251,191,36,0.16),var(--surface-panel)_68%)] shadow-[inset_0_0_0_1px_rgba(252,211,77,0.08)]'
                       : 'border-white/15 bg-[var(--surface-panel)] hover:border-amber-300/45 hover:bg-[var(--surface-raised)]'
@@ -298,11 +298,11 @@ export function SimulationTab({
                     <span className={`font-mono text-sm font-black tracking-wide ${isActive ? 'text-amber-200' : 'text-slate-100'}`}>
                       {preset.title}
                     </span>
-                    <span aria-hidden="true" className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[10px] transition-colors ${isActive ? 'border-amber-200/70 bg-amber-300 text-[#17120a]' : 'border-white/20 text-transparent group-hover/preset:border-amber-200/50'}`}>
+                    <span aria-hidden="true" className={`flex h-5 w-5 shrink-0 items-center justify-center rounded-full border text-[0.625rem] transition-colors ${isActive ? 'border-amber-200/70 bg-amber-300 text-[#17120a]' : 'border-white/20 text-transparent group-hover/preset:border-amber-200/50'}`}>
                       ✓
                     </span>
                   </span>
-                  <span className={`mt-1.5 block text-[11px] leading-snug ${isActive ? 'text-amber-50/85' : 'text-slate-300'}`}>{preset.description}</span>
+                  <span className={`mt-1.5 block text-[0.6875rem] leading-snug ${isActive ? 'text-amber-50/85' : 'text-slate-300'}`}>{preset.description}</span>
                 </button>
               );
             })}
@@ -346,7 +346,7 @@ export function SimulationTab({
                     </option>
                   ))}
                 </select>
-                <p className="mt-1.5 text-[10px] leading-relaxed text-slate-500">{t.simWeaponTargetHint}</p>
+                <p className="mt-1.5 text-[0.625rem] leading-relaxed text-slate-500">{t.simWeaponTargetHint}</p>
               </div>
             )}
 
@@ -365,7 +365,7 @@ export function SimulationTab({
                     </option>
                   ))}
                 </select>
-                <p className="mt-1.5 text-[10px] leading-relaxed text-slate-500">{t.simMatrixTargetHint}</p>
+                <p className="mt-1.5 text-[0.625rem] leading-relaxed text-slate-500">{t.simMatrixTargetHint}</p>
               </div>
             )}
           </div>
@@ -518,7 +518,7 @@ export function SimulationTab({
         <div className="space-y-6">
           {/* Monte Carlo Results */}
           {monteCarloResult && (
-            <div className="p-5 rounded-[14px] bg-[var(--surface-panel)] border border-[#fbbf24]/25">
+            <div className="p-5 rounded-[0.875rem] bg-[var(--surface-panel)] border border-[#fbbf24]/25">
               <h3 className="text-base font-bold text-white mb-4 flex items-center gap-2">
                 <span className="w-2 h-2 rounded-full bg-[#fbbf24]" />
                 {t.simMonteCarloTitle}
@@ -526,22 +526,22 @@ export function SimulationTab({
 
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="flex flex-col justify-between gap-3 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-3.5">
-                  <span className="text-[11px] leading-snug text-[#aeb5c1]">{t.simAvgPulls}</span>
-                  <span className="font-mono text-[28px] font-bold leading-none text-white tabular-nums">
+                  <span className="text-[0.6875rem] leading-snug text-[#aeb5c1]">{t.simAvgPulls}</span>
+                  <span className="font-mono text-[1.75rem] font-bold leading-none text-white tabular-nums">
                     {Math.round(monteCarloResult.meanPulls)}
                   </span>
                 </div>
 
                 <div className="flex flex-col justify-between gap-3 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-3.5">
-                  <span className="text-[11px] leading-snug text-[#aeb5c1]">{t.simMedianPulls}</span>
-                  <span className="font-mono text-[28px] font-bold leading-none text-[#fbbf24] tabular-nums">
+                  <span className="text-[0.6875rem] leading-snug text-[#aeb5c1]">{t.simMedianPulls}</span>
+                  <span className="font-mono text-[1.75rem] font-bold leading-none text-[#fbbf24] tabular-nums">
                     {monteCarloResult.medianPulls}
                   </span>
                 </div>
 
                 <div className="flex flex-col justify-between gap-3 rounded-lg border border-white/10 bg-white/[0.025] px-4 py-3.5">
-                  <span className="text-[11px] leading-snug text-[#aeb5c1]">{t.simP90Pulls}</span>
-                  <span className="font-mono text-[28px] font-bold leading-none text-[#fbbf24] tabular-nums">
+                  <span className="text-[0.6875rem] leading-snug text-[#aeb5c1]">{t.simP90Pulls}</span>
+                  <span className="font-mono text-[1.75rem] font-bold leading-none text-[#fbbf24] tabular-nums">
                     {monteCarloResult.percentiles.p90}
                   </span>
                 </div>
@@ -550,7 +550,7 @@ export function SimulationTab({
 
               {/* Full Percentiles Spectrum Ladder */}
               <div className="mt-5 border-t border-white/10 pt-4">
-                <div className="flex flex-col sm:flex-row sm:items-center justify-between text-[11px] mb-2 gap-1">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between text-[0.6875rem] mb-2 gap-1">
                   <span className="font-bold text-white flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-[#10b981]" />
                     {t.simPercentilesLadder}
@@ -562,35 +562,35 @@ export function SimulationTab({
 
                 <div className="grid grid-cols-4 sm:grid-cols-8 gap-2 text-center font-mono">
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-[#10b981]/30">
-                    <span className="text-[10px] text-[#10b981] font-bold block">{t.simPercentileLabels[0]}</span>
+                    <span className="text-[0.625rem] text-[#10b981] font-bold block">{t.simPercentileLabels[0]}</span>
                     <span className="text-sm font-black text-white">{monteCarloResult.percentiles.p1}</span>
                   </div>
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-white/15">
-                    <span className="text-[10px] text-[#9ca3af] block">{t.simPercentileLabels[1]}</span>
+                    <span className="text-[0.625rem] text-[#9ca3af] block">{t.simPercentileLabels[1]}</span>
                     <span className="text-sm font-bold text-white">{monteCarloResult.percentiles.p10}</span>
                   </div>
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-[#34d399]/30">
-                    <span className="text-[10px] text-[#34d399] font-bold block">{t.simPercentileLabels[2]}</span>
+                    <span className="text-[0.625rem] text-[#34d399] font-bold block">{t.simPercentileLabels[2]}</span>
                     <span className="text-sm font-bold text-white">{monteCarloResult.percentiles.p25}</span>
                   </div>
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-[#fbbf24]/40 bg-[#fbbf24]/5">
-                    <span className="text-[10px] text-[#fbbf24] font-bold block">{t.simPercentileLabels[3]}</span>
+                    <span className="text-[0.625rem] text-[#fbbf24] font-bold block">{t.simPercentileLabels[3]}</span>
                     <span className="text-sm font-black text-[#fbbf24]">{monteCarloResult.percentiles.p50}</span>
                   </div>
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-white/15">
-                    <span className="text-[10px] text-[#9ca3af] block">{t.simPercentileLabels[4]}</span>
+                    <span className="text-[0.625rem] text-[#9ca3af] block">{t.simPercentileLabels[4]}</span>
                     <span className="text-sm font-bold text-white">{monteCarloResult.percentiles.p75}</span>
                   </div>
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-white/15">
-                    <span className="text-[10px] text-[#fbbf24] block">{t.simPercentileLabels[5]}</span>
+                    <span className="text-[0.625rem] text-[#fbbf24] block">{t.simPercentileLabels[5]}</span>
                     <span className="text-sm font-bold text-white">{monteCarloResult.percentiles.p90}</span>
                   </div>
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-[#f97316]/30">
-                    <span className="text-[10px] text-[#f97316] font-bold block">{t.simPercentileLabels[6]}</span>
+                    <span className="text-[0.625rem] text-[#f97316] font-bold block">{t.simPercentileLabels[6]}</span>
                     <span className="text-sm font-bold text-white">{monteCarloResult.percentiles.p95}</span>
                   </div>
                   <div className="p-2 rounded bg-[var(--surface-inset)] border border-[#ef4444]/40 bg-[#ef4444]/5">
-                    <span className="text-[10px] text-[#ef4444] font-bold block">{t.simPercentileLabels[7]}</span>
+                    <span className="text-[0.625rem] text-[#ef4444] font-bold block">{t.simPercentileLabels[7]}</span>
                     <span className="text-sm font-black text-red-400">{monteCarloResult.percentiles.p99}</span>
                   </div>
                 </div>
@@ -602,7 +602,7 @@ export function SimulationTab({
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Zero-Extra (Only 80/40) */}
             {zeroExtraResult && (
-              <div className="p-5 rounded-[14px] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
+              <div className="p-5 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
                 <h4 className="text-sm font-bold text-white mb-2 pb-2 border-b border-white/5 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#a855f7]" />
                   {t.simZeroExtraTitle}
@@ -633,7 +633,7 @@ export function SimulationTab({
 
             {/* Worst-Case Permissible */}
             {worstCaseResult && (
-              <div className="p-5 rounded-[14px] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
+              <div className="p-5 rounded-[0.875rem] bg-[var(--surface-panel)] border border-white/10 shadow-lg">
                 <h4 className="text-sm font-bold text-white mb-2 pb-2 border-b border-white/5 flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-[#ef4444]" />
                   {t.simWorstCaseTitle}
@@ -658,7 +658,7 @@ export function SimulationTab({
                       {worstCaseResult.matrixPulls}
                     </span>
                   </div>
-                  <div className="p-2 rounded bg-[var(--surface-inset)] text-[11px] text-[#9ca3af] leading-relaxed">
+                  <div className="p-2 rounded bg-[var(--surface-inset)] text-[0.6875rem] text-[#9ca3af] leading-relaxed">
                     {localeText(locale)('Bounds account for two-loss streak forced win rule, store redemptions, and single slot blocking.', 'Ограничение учитывает правило двух поражений (L-L -> W), покупку копий в магазине и блокировку одного слота.')}
                   </div>
                 </div>

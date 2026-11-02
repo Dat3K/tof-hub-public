@@ -1,9 +1,9 @@
 :root {
-  --site-header-height: 54px;
+  --site-header-height: 3.375rem;
 }
 @media (max-width: 920px) {
   :root {
-    --site-header-height: 59px;
+    --site-header-height: 3.6875rem;
   }
 }
 .tof-loading {
@@ -12,8 +12,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 24px;
-  padding: 32px 20px;
+  gap: 1.5rem;
+  padding: 2rem 1.25rem;
   box-sizing: border-box;
   text-align: center;
 }
@@ -21,21 +21,21 @@
   min-height: calc(100dvh - var(--site-header-height));
 }
 .tof-loading--region {
-  min-height: 240px;
+  min-height: 15rem;
   height: 100%;
 }
 .tof-loading__animation {
   position: relative;
   display: grid;
   place-items: center;
-  width: var(--loading-size, 64px);
-  height: var(--loading-size, 64px);
-  flex: 0 0 var(--loading-size, 64px);
+  width: var(--loading-size, 4rem);
+  height: var(--loading-size, 4rem);
+  flex: 0 0 var(--loading-size, 4rem);
 }
 .tof-loading__outer {
   width: 100%;
   height: 100%;
-  border: 2px solid rgba(255, 255, 255, 0.08);
+  border: 0.125rem solid rgba(255, 255, 255, 0.08);
   border-top-color: #f5d97a;
   border-right-color: rgba(245, 217, 122, 0.4);
   border-radius: 50%;
@@ -45,7 +45,7 @@
   position: absolute;
   width: 62.5%;
   height: 62.5%;
-  border: 2px solid transparent;
+  border: 0.125rem solid transparent;
   border-bottom-color: #a77add;
   border-left-color: rgba(167, 122, 221, 0.5);
   border-radius: 50%;
@@ -57,21 +57,21 @@
   height: 12.5%;
   border-radius: 50%;
   background: #f5d97a;
-  box-shadow: 0 0 12px rgba(245, 217, 122, 0.8);
+  box-shadow: 0 0 0.75rem rgba(245, 217, 122, 0.8);
   animation: tof-loading-pulse 1.4s ease-in-out infinite;
 }
 .tof-loading__message {
   margin: 0;
   color: #f4f0f6;
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.025em;
   text-transform: uppercase;
 }
 .tof-loading__description {
-  margin: 4px 0 0;
+  margin: 0.25rem 0 0;
   color: #918899;
-  font: 12px var(--font-mono, monospace);
+  font: 0.75rem var(--font-mono, monospace);
 }
 @keyframes tof-loading-spin {
   to {

@@ -5,14 +5,14 @@ import { PickerActionCard } from './index';
 
 describe('PickerActionCard', () => {
   it('renders a button with its label, title, optional description and extra class', () => {
-    const html = renderToStaticMarkup(<PickerActionCard icon="📷" title="Your image" description="PNG up to 20 MB" ariaLabel="Upload" className="min-h-[205px]" onClick={() => {}} />);
+    const html = renderToStaticMarkup(<PickerActionCard icon="📷" title="Your image" description="PNG up to 20 MB" ariaLabel="Upload" className="min-h-[12.8125rem]" onClick={() => {}} />);
     expect(html).toContain('<button type="button" aria-label="Upload"');
     expect(html).toContain('Your image');
     expect(html).toContain('PNG up to 20 MB');
-    expect(html).toContain('min-h-[205px]');
+    expect(html).toContain('min-h-[12.8125rem]');
   });
   it('omits the description line when none is given', () => {
     const html = renderToStaticMarkup(<PickerActionCard icon="✎" title="Custom text" onClick={() => {}} />);
-    expect(html).not.toContain('text-[9.5px]');
+    expect(html).not.toContain('text-[0.59375rem]');
   });
 });

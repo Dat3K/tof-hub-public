@@ -14,7 +14,7 @@ function getVariantClasses(variant: CardVariant = 'default'): string {
     case 'panel':
       return 'bg-[#100d14] border border-white/10';
     case 'raised':
-      return 'bg-[#151119] border border-white/10 shadow-[0_12px_28px_rgba(0,0,0,0.5)]';
+      return 'bg-[#151119] border border-white/10 shadow-[0_0.75rem_1.75rem_rgba(0,0,0,0.5)]';
     case 'frosted':
       return 'bg-[var(--surface-panel)]/85 border border-white/10 backdrop-blur-md shadow-lg';
     case 'outline':
@@ -45,7 +45,7 @@ export const Card: React.FC<CardProps> & {
     ? 'cursor-pointer hover:border-white/20 hover:-translate-y-0.5 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#2ba6df]'
     : '';
   const selectedClasses = selected
-    ? 'ring-2 ring-[#2ba6df] border-[#2ba6df] shadow-[0_0_16px_rgba(43,166,223,0.3)]'
+    ? 'ring-2 ring-[#2ba6df] border-[#2ba6df] shadow-[0_0_1rem_rgba(43,166,223,0.3)]'
     : '';
 
   return (

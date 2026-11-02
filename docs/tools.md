@@ -54,7 +54,9 @@ systems into one editable card. You can inspect item details, view progression
 costs, change the role and element, and export a PNG. Global and MMO use their
 own generated catalogs and calculation rules.
 
-The full editor catalog loads once into the browser cache.
+The full editor catalog loads once into the browser cache. Desktop card previews
+fit the available width and height; mobile actions collapse behind a compact
+toggle. Preview scaling does not change the exported PNG geometry.
 
 **Personal Roll Value (PRV)** adapts gear weights to the current profile. A crit
 roll can matter less when that profile approaches its crit cap; ATK and ATK%

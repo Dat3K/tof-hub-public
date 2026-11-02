@@ -2,8 +2,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 8px;
+  gap: 0.75rem;
+  margin-bottom: 0.5rem;
   flex-wrap: wrap;
 }
 
@@ -11,14 +11,14 @@
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
   color: var(--sim-text-main, #f3f4f6);
-  padding: 8px 16px;
-  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
   font-size: 0.875rem;
   font-weight: 600;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   transition: all 0.15s ease;
   user-select: none;
 }
@@ -32,23 +32,23 @@
 .pager {
   display: inline-flex;
   align-items: center;
-  flex: 0 0 250px;
-  width: 250px;
-  min-width: 250px;
+  flex: 0 0 15.625rem;
+  width: 15.625rem;
+  min-width: 15.625rem;
   box-sizing: border-box;
-  gap: 6px;
+  gap: 0.375rem;
   background: var(--sim-surface, rgba(18, 22, 34, 0.85));
   border: 1px solid var(--sim-border, rgba(255, 255, 255, 0.08));
-  border-radius: 8px;
-  padding: 4px 6px;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.375rem;
 }
 
 .pagerButton {
   background: transparent;
   border: 1px solid transparent;
   color: var(--sim-text-main, #f3f4f6);
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 0.3125rem 0.625rem;
+  border-radius: 0.375rem;
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -57,7 +57,7 @@
   min-width: 0;
   box-sizing: border-box;
   align-items: center;
-  gap: 6px;
+  gap: 0.375rem;
   transition: all 0.15s ease;
   user-select: none;
 }
@@ -70,8 +70,8 @@
 
 .pagerButton:focus-visible,
 .backButton:focus-visible {
-  outline: 2px solid var(--game-blue, #38bdf8);
-  outline-offset: 2px;
+  outline: 0.125rem solid var(--game-blue, #38bdf8);
+  outline-offset: 0.125rem;
 }
 
 .pagerArrow {
@@ -96,8 +96,8 @@
 }
 
 .pagerCounter {
-  flex: 0 0 58px;
-  min-width: 58px;
+  flex: 0 0 3.625rem;
+  min-width: 3.625rem;
   box-sizing: border-box;
   text-align: center;
   font-size: 0.8rem;
@@ -111,7 +111,7 @@
   .detailNav {
     flex-direction: column;
     align-items: stretch;
-    gap: 10px;
+    gap: 0.625rem;
     width: 100%;
     box-sizing: border-box;
   }

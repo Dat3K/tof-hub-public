@@ -91,7 +91,7 @@ export function OverviewTab({
     <div className="space-y-3">
       {/* Matrix 4-Slot Progress (shown for matrix tracks and the event aggregate) */}
       {(isMatrix || isAllBanners) && (
-        <div className="rounded-[14px] border border-white/10 bg-[var(--surface-panel)] p-3.5 shadow-lg sm:p-4">
+        <div className="rounded-[0.875rem] border border-white/10 bg-[var(--surface-panel)] p-3.5 shadow-lg sm:p-4">
           <div className="mb-3 flex items-center justify-between border-b border-white/5 pb-2">
             <h3 className="text-sm font-bold text-white">
               {t.matrixSlotProgress}
@@ -111,7 +111,7 @@ export function OverviewTab({
                   key={slotKey}
                   className={`rounded-lg border p-2 text-center transition-all ${
                     isAcquired
-                      ? 'bg-[#fbbf24]/10 border-[#fbbf24]/40 shadow-[0_0_12px_rgba(251,191,36,0.1)]'
+                      ? 'bg-[#fbbf24]/10 border-[#fbbf24]/40 shadow-[0_0_0.75rem_rgba(251,191,36,0.1)]'
                       : 'bg-[var(--surface-inset)]/60 border-white/5 opacity-60'
                   }`}
                 >
@@ -122,7 +122,7 @@ export function OverviewTab({
                   <div className="text-base font-black font-mono text-[#fcd34d]">
                     {count}x
                   </div>
-                  <div className="text-[10px] mt-1 text-[#9ca3af]">
+                  <div className="text-[0.625rem] mt-1 text-[#9ca3af]">
                     {isAcquired ? t.matrixSlotAcquired : t.matrixSlotMissing}
                   </div>
                 </div>
@@ -130,14 +130,14 @@ export function OverviewTab({
             })}
           </div>
 
-          <p className="mt-2 text-[11px] italic text-[#6b7280]">
+          <p className="mt-2 text-[0.6875rem] italic text-[#6b7280]">
             {t.matrixProgressNote}
           </p>
         </div>
       )}
 
       {/* SSR Timeline Feed */}
-      <div className="rounded-[14px] border border-white/10 bg-[var(--surface-panel)] p-3.5 shadow-lg sm:p-4">
+      <div className="rounded-[0.875rem] border border-white/10 bg-[var(--surface-panel)] p-3.5 shadow-lg sm:p-4">
         <div className="mb-3 flex items-center justify-between border-b border-white/5 pb-2">
           <h3 className="text-sm font-bold text-white">
             {t.ssrTimelineTitle}
@@ -205,7 +205,7 @@ export function OverviewTab({
                         <img
                           src={media.image}
                           alt={media.name}
-                          className="w-full h-full object-contain filter drop-shadow-[0_2px_8px_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-200"
+                          className="w-full h-full object-contain filter drop-shadow-[0_0.125rem_0.5rem_rgba(0,0,0,0.8)] group-hover:scale-105 transition-transform duration-200"
                         />
                       ) : (
                         <span className="text-2xl font-black text-[#4b5563]">
@@ -231,7 +231,7 @@ export function OverviewTab({
                           </span>
                         )}
                         {record.slot && (
-                          <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-[#d1d5db] font-mono uppercase">
+                          <span className="text-[0.625rem] px-1.5 py-0.5 rounded bg-white/10 text-[#d1d5db] font-mono uppercase">
                             {record.slot}
                           </span>
                         )}
@@ -253,7 +253,7 @@ export function OverviewTab({
                   <div className="flex items-center gap-1.5 self-end sm:self-center">
                     {/* Guarantee badge */}
                     <span
-                      className={`rounded border px-1.5 py-0.5 text-[10px] font-bold font-mono ${
+                      className={`rounded border px-1.5 py-0.5 text-[0.625rem] font-bold font-mono ${
                         isGuaranteed
                           ? 'bg-[#fbbf24]/20 text-[#fbbf24] border-[#fbbf24]/40'
                           : isBlackNucleus
@@ -271,7 +271,7 @@ export function OverviewTab({
                     {/* Outcome badge */}
                     {(isWon || isLost) && (
                       <span
-                        className={`rounded border px-1.5 py-0.5 text-[10px] font-bold ${
+                        className={`rounded border px-1.5 py-0.5 text-[0.625rem] font-bold ${
                           isWon
                             ? 'bg-[#10b981]/20 text-[#10b981] border-[#10b981]/40'
                             : 'bg-[#ef4444]/20 text-[#ef4444] border-[#ef4444]/40'

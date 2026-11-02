@@ -58,7 +58,7 @@ describe('Catalog Controls System', () => {
       );
       expect(htmlPhys).toContain('active is-active');
       expect(htmlPhys).toContain('border-[#f59e0b]');
-      expect(htmlPhys).toContain('shadow-[0_0_12px_rgba(245,158,11,0.35)]');
+      expect(htmlPhys).toContain('shadow-[0_0_0.75rem_rgba(245,158,11,0.35)]');
 
       const htmlFlame = renderToStaticMarkup(
         <FilterChip value="flame" variant="flame" active>
@@ -66,7 +66,7 @@ describe('Catalog Controls System', () => {
         </FilterChip>
       );
       expect(htmlFlame).toContain('border-[#ef4444]');
-      expect(htmlFlame).toContain('shadow-[0_0_12px_rgba(239,68,68,0.35)]');
+      expect(htmlFlame).toContain('shadow-[0_0_0.75rem_rgba(239,68,68,0.35)]');
 
       const htmlFrost = renderToStaticMarkup(
         <FilterChip value="frost" variant="frost" active>
@@ -74,7 +74,7 @@ describe('Catalog Controls System', () => {
         </FilterChip>
       );
       expect(htmlFrost).toContain('border-[#06b6d4]');
-      expect(htmlFrost).toContain('shadow-[0_0_12px_rgba(6,182,212,0.35)]');
+      expect(htmlFrost).toContain('shadow-[0_0_0.75rem_rgba(6,182,212,0.35)]');
 
       const htmlVolt = renderToStaticMarkup(
         <FilterChip value="volt" variant="volt" active>
@@ -82,7 +82,7 @@ describe('Catalog Controls System', () => {
         </FilterChip>
       );
       expect(htmlVolt).toContain('border-[#a855f7]');
-      expect(htmlVolt).toContain('shadow-[0_0_12px_rgba(168,85,247,0.35)]');
+      expect(htmlVolt).toContain('shadow-[0_0_0.75rem_rgba(168,85,247,0.35)]');
 
       const htmlAltered = renderToStaticMarkup(
         <FilterChip value="altered" variant="altered" active>
@@ -90,7 +90,7 @@ describe('Catalog Controls System', () => {
         </FilterChip>
       );
       expect(htmlAltered).toContain('border-[#10b981]');
-      expect(htmlAltered).toContain('shadow-[0_0_12px_rgba(16,185,129,0.35)]');
+      expect(htmlAltered).toContain('shadow-[0_0_0.75rem_rgba(16,185,129,0.35)]');
 
       const htmlAll = renderToStaticMarkup(
         <FilterChip value="all" variant="all" active>
@@ -98,7 +98,7 @@ describe('Catalog Controls System', () => {
         </FilterChip>
       );
       expect(htmlAll).toContain('border-[#3b82f6]');
-      expect(htmlAll).toContain('shadow-[0_0_12px_rgba(59,130,246,0.35)]');
+      expect(htmlAll).toContain('shadow-[0_0_0.75rem_rgba(59,130,246,0.35)]');
     });
 
     it('renders rarity gradient variants correctly', () => {
@@ -281,7 +281,7 @@ describe('Catalog Controls System', () => {
         />
       );
 
-      expect(html).toContain('pr-[160px]');
+      expect(html).toContain('pr-[10rem]');
       expect(html).toContain('role="radiogroup"');
       expect(html).toContain('sim-mode-toggle');
     });

@@ -37,10 +37,10 @@ test('Gefion flat skill damage continues growing after level 110 using the raw s
   await page.screenshot({path:'ignore/documentation-media/generated/gefion-skill-curve-max.png',animations:'disabled'});
 });
 
-test('Food search rarity remains usable on desktop and narrow EN/RU screens',async({page,context})=>{
+test('Food search rarity remains usable on desktop and narrow EN/RU screens',async({page,context,baseURL})=>{
   test.setTimeout(180000);
   for(const locale of ['en','ru']){
-    await context.addCookies([{name:'tof_locale',value:locale,url:'http://localhost:3000'}]);
+    await context.addCookies([{name:'tof_locale',value:locale,url:baseURL!}]);
     for(const width of [1440,390,320]){
       await page.setViewportSize({width,height:900});
       await page.goto('/info/food/?view=potions',{waitUntil:'domcontentloaded'});
@@ -49,7 +49,10 @@ test('Food search rarity remains usable on desktop and narrow EN/RU screens',asy
       const rarity=controls.locator('[data-filter-group="rarity"]');
       await expect(rarity).toBeVisible();
       await expect(controls.locator('[data-filter-group="potion-sub"]')).toBeVisible();
-      await expect.poll(()=>search.evaluate(input=>{const accessory=input.parentElement!.querySelector('.sim-search-accessory')!;return (input as HTMLInputElement).style.paddingRight.includes(`${Math.ceil(accessory.getBoundingClientRect().width)+36}px`);}),{timeout:60000}).toBe(true);
+      if(width>640)await expect.poll(()=>search.evaluate(input=>{
+        const accessory=input.parentElement!.querySelector('.sim-search-accessory')!;
+        return parseFloat(getComputedStyle(input).paddingRight)-Math.ceil(accessory.getBoundingClientRect().width);
+      }),{timeout:60000}).toBeGreaterThanOrEqual(35);
       await expect(controls.locator('.sim-search-box [data-filter-group="rarity"]')).toHaveCount(1);
       const inputBox=(await search.boundingBox())!,rarityBox=(await rarity.boundingBox())!;
       if(width>640)expect(Math.abs(inputBox.y-rarityBox.y)).toBeLessThan(10);

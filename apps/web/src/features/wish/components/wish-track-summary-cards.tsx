@@ -40,7 +40,7 @@ export function WishTrackSummaryCards({
     ? consolidatedAccountSummary.eventPulls / consolidatedAccountSummary.totalPulls * 100
     : 0;
   const renderLimitedSsrBreakdown = (summary: TrackCardSummary) => (
-    <div className="mt-0.5 flex flex-wrap items-center gap-x-2 text-[9px] leading-tight">
+    <div className="mt-0.5 flex flex-wrap items-center gap-x-2 text-[0.5625rem] leading-tight">
       <span className="inline-flex items-center gap-1 whitespace-nowrap text-slate-300">
         <span aria-hidden="true" className="h-1 w-1 rounded-full bg-emerald-400" />
         {t.featuredSsrLabel}
@@ -104,7 +104,7 @@ export function WishTrackSummaryCards({
             return (
               <div
                 key="all"
-                className="relative flex flex-col rounded-[14px] border border-white/10 bg-[var(--surface-panel)] p-4 shadow-lg sm:p-5"
+                className="relative flex flex-col rounded-[0.875rem] border border-white/10 bg-[var(--surface-panel)] p-4 shadow-lg sm:p-5"
               >
                 <div className="flex min-w-0 items-center gap-2.5">
                   {icon && <img src={icon} alt="" className="h-8 w-8 shrink-0 object-contain" />}
@@ -117,7 +117,7 @@ export function WishTrackSummaryCards({
                   <div className="font-mono text-4xl font-black leading-none tracking-tight text-white">
                     {formatNumber(consolidatedAccountSummary.totalPulls, locale)}
                   </div>
-                  <span className="pb-0.5 text-right text-[11px] leading-4 text-slate-400">{t.regularPullsNote}</span>
+                  <span className="pb-0.5 text-right text-[0.6875rem] leading-4 text-slate-400">{t.regularPullsNote}</span>
                 </div>
 
                 <div className={`mt-2 flex h-1 overflow-hidden rounded-full ${consolidatedAccountSummary.totalPulls > 0 ? 'bg-amber-200/70' : 'bg-white/10'}`} aria-hidden="true">
@@ -130,7 +130,7 @@ export function WishTrackSummaryCards({
                       <span className="text-xs font-semibold text-sky-200">{t.eventPulls}</span>
                       <strong className="font-mono text-lg leading-none text-white">{formatNumber(consolidatedAccountSummary.eventPulls, locale)}</strong>
                     </div>
-                    <div className="mt-1.5 flex items-center gap-1 text-[11px] font-mono text-sky-300">
+                    <div className="mt-1.5 flex items-center gap-1 text-[0.6875rem] font-mono text-sky-300">
                       <img src="/game-assets/webp/Hotta/Content/Resources/Icon/huobi/fakediamonds.webp" alt="" className="h-3.5 w-3.5 shrink-0 object-contain" />
                       {formatNumber(consolidatedAccountSummary.eventDcEquivalent, locale)}
                     </div>
@@ -140,7 +140,7 @@ export function WishTrackSummaryCards({
                       <span className="text-xs font-semibold text-amber-100">{t.standardPulls}</span>
                       <strong className="font-mono text-lg leading-none text-white">{formatNumber(consolidatedAccountSummary.standardPulls, locale)}</strong>
                     </div>
-                    <div className="mt-1.5 flex items-center gap-2 text-[11px] font-mono text-slate-400">
+                    <div className="mt-1.5 flex items-center gap-2 text-[0.6875rem] font-mono text-slate-400">
                       <span className="inline-flex items-center gap-1" title={t.currencyBlackGold}>
                         {blackGoldIcon && <img src={blackGoldIcon} alt="" className="h-3.5 w-3.5 shrink-0 object-contain" />}
                         {consolidatedAccountSummary.standardWeaponCount > 0 ? formatNumber(consolidatedAccountSummary.standardWeaponCashback, locale) : '—'}
@@ -155,10 +155,10 @@ export function WishTrackSummaryCards({
 
                 <div className="mt-3 border-t border-white/10 pt-3">
                   <div className="flex items-baseline gap-2">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-slate-400">5★ SSR</span>
+                    <span className="text-[0.6875rem] font-bold uppercase tracking-wider text-slate-400">5★ SSR</span>
                     <strong className={`font-mono text-lg leading-none ${regularSsrCount > 0 ? 'text-amber-200' : 'text-slate-400'}`}>{formatNumber(regularSsrCount, locale)}</strong>
                   </div>
-                  <div className="mt-2 grid grid-cols-2 gap-4 text-[11px]">
+                  <div className="mt-2 grid grid-cols-2 gap-4 text-[0.6875rem]">
                     <div className="border-r border-white/10 pr-3">
                       <div className="mb-1 font-semibold text-sky-200">{t.categoryLimited}</div>
                       <div>
@@ -178,7 +178,7 @@ export function WishTrackSummaryCards({
                         <div className="flex items-center justify-between gap-2">
                           <div className="min-w-0">
                             <div className="font-semibold text-violet-300">{t.trackBlackNucleus}</div>
-                            <div className="mt-0.5 text-[10px] leading-tight text-slate-400">{t.separateFromTotal} · {consolidatedAccountSummary.blackNucleusSsrCount} SSR</div>
+                            <div className="mt-0.5 text-[0.625rem] leading-tight text-slate-400">{t.separateFromTotal} · {consolidatedAccountSummary.blackNucleusSsrCount} SSR</div>
                           </div>
                           <strong className="shrink-0 font-mono text-base text-white">{formatNumber(consolidatedAccountSummary.blackNucleusCount, locale)}</strong>
                         </div>
@@ -196,7 +196,7 @@ export function WishTrackSummaryCards({
           return (
             <div
               key={track}
-              className="relative rounded-[14px] p-4 sm:p-5 flex flex-col gap-2 bg-[var(--surface-panel)] border border-white/10 shadow-lg"
+              className="relative rounded-[0.875rem] p-4 sm:p-5 flex flex-col gap-2 bg-[var(--surface-panel)] border border-white/10 shadow-lg"
             >
               {/* Header */}
                 <div className="flex items-center justify-between gap-2 w-full">
@@ -208,7 +208,7 @@ export function WishTrackSummaryCards({
                 </div>
                   {(track === 'weapon_limited' || track === 'matrix_limited') && (
                     <div className="shrink-0 text-right leading-tight">
-                      <div className="text-[9px] font-bold uppercase tracking-wide text-[#9ca3af]">{t.bannerWinRate}</div>
+                      <div className="text-[0.5625rem] font-bold uppercase tracking-wide text-[#9ca3af]">{t.bannerWinRate}</div>
                       <div
                         className="font-mono text-sm font-bold transition-colors duration-300"
                         style={summary.featuredWinRate == null ? undefined : { color: getWinRateColor(summary.featuredWinRate) }}
@@ -251,7 +251,7 @@ export function WishTrackSummaryCards({
                   <div className="text-xs sm:text-sm font-bold text-[#e5e7eb]">
                     {t.pity5Title}
                   </div>
-                  <div className="text-[11px] text-[#9ca3af] mt-0.5">
+                  <div className="text-[0.6875rem] text-[#9ca3af] mt-0.5">
                     {summary.hasGuaranteed5
                       ? t.guaranteedAt.replace('{{count}}', String(summary.maxPity5))
                       : t.noGuaranteeCap}
@@ -268,7 +268,7 @@ export function WishTrackSummaryCards({
                   <div className="text-xs sm:text-sm font-bold text-[#e5e7eb]">
                     {t.pity4Title}
                   </div>
-                  <div className="text-[11px] text-[#9ca3af] mt-0.5">
+                  <div className="text-[0.6875rem] text-[#9ca3af] mt-0.5">
                     {summary.hasGuaranteed4
                       ? t.guaranteedAt.replace('{{count}}', String(summary.maxPity4))
                       : t.noGuaranteeCap}
@@ -283,21 +283,21 @@ export function WishTrackSummaryCards({
               {track === 'weapon_limited' || track === 'matrix_limited' ? (
                 <div className="pt-2 pb-1 w-full">
                   <div className="flex items-center justify-between gap-1.5 mb-2">
-                    <span className="text-[11px] font-bold text-[#e5e7eb] tracking-wide">
+                    <span className="text-[0.6875rem] font-bold text-[#e5e7eb] tracking-wide">
                       {t.cardStreakHistory}
                     </span>
                     <div className="flex items-center gap-1.5 shrink-0">
-                      <span className="text-[11px] text-[#9ca3af]">{t.cardStreakNext}</span>
+                      <span className="text-[0.6875rem] text-[#9ca3af]">{t.cardStreakNext}</span>
                       {summary.nextPrediction === 'forced_win' ? (
-                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-500/10">
+                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[0.625rem] font-black uppercase tracking-wider bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 shadow-sm shadow-emerald-500/10">
                           {t.cardPredictionForcedWin}
                         </span>
                       ) : summary.nextPrediction === 'forced_loss' ? (
-                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/40 shadow-sm shadow-rose-500/10">
+                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[0.625rem] font-black uppercase tracking-wider bg-rose-500/20 text-rose-400 border border-rose-500/40 shadow-sm shadow-rose-500/10">
                           {t.cardPredictionForcedLoss}
                         </span>
                       ) : (
-                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm shadow-amber-500/10">
+                        <span className="inline-flex items-center px-1.5 py-0.5 rounded text-[0.625rem] font-black uppercase tracking-wider bg-amber-500/20 text-amber-300 border border-amber-500/40 shadow-sm shadow-amber-500/10">
                           {t.cardPredictionNeutral}
                         </span>
                       )}
@@ -317,11 +317,11 @@ export function WishTrackSummaryCards({
                             placement="top"
                             content={(
                               <div className="min-w-36 max-w-56 space-y-1 whitespace-normal">
-                                <p className="text-[10px] font-bold uppercase tracking-wide text-sky-300">{bannerName}</p>
+                                <p className="text-[0.625rem] font-bold uppercase tracking-wide text-sky-300">{bannerName}</p>
                                 <p className="text-xs font-semibold text-white">{item.itemName}</p>
-                                {slotVisual && <p className="flex items-center gap-1.5 text-[10px] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
-                                <p className="text-[10px] text-white/70">{t.bannerDropDate} {formatPullDate(item.pullDate, locale)}</p>
-                                <div className="flex items-center gap-2 text-[10px]">
+                                {slotVisual && <p className="flex items-center gap-1.5 text-[0.625rem] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
+                                <p className="text-[0.625rem] text-white/70">{t.bannerDropDate} {formatPullDate(item.pullDate, locale)}</p>
+                                <div className="flex items-center gap-2 text-[0.625rem]">
                                   <span className={isWin ? 'font-bold text-emerald-300' : 'font-bold text-rose-300'}>{isWin ? translateUiText('WIN', locale) : translateUiText('LOSS', locale)}</span>
                                   <span className="text-white/70">{formatWishPosition(item.pityAtDrop)} {t.pullDistance}</span>
                                 </div>
@@ -330,7 +330,7 @@ export function WishTrackSummaryCards({
                           >
                             <div
                               tabIndex={0}
-                              className={`flex w-full min-w-0 items-center justify-between gap-1 px-1.5 py-1 rounded-md text-[11px] font-medium border transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${
+                              className={`flex w-full min-w-0 items-center justify-between gap-1 px-1.5 py-1 rounded-md text-[0.6875rem] font-medium border transition-all focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${
                                 isWin
                                   ? 'bg-emerald-950/40 border-emerald-500/30 text-emerald-200 hover:border-emerald-400/60'
                                   : 'bg-rose-950/40 border-rose-500/30 text-rose-200 hover:border-rose-400/60'
@@ -338,9 +338,9 @@ export function WishTrackSummaryCards({
                             >
                               <div className="flex min-w-0 flex-1 items-center gap-1">
                                 {slotVisual && <img src={slotVisual.image} alt="" className="h-4 w-4 shrink-0 object-contain" />}
-                                <span className="min-w-0 flex-1 truncate text-white text-[11px] font-semibold">{displayName}</span>
+                                <span className="min-w-0 flex-1 truncate text-white text-[0.6875rem] font-semibold">{displayName}</span>
                               </div>
-                              <span className="text-[10px] font-mono text-amber-200 ml-0.5 shrink-0">{formatWishPosition(item.pityAtDrop)}</span>
+                              <span className="text-[0.625rem] font-mono text-amber-200 ml-0.5 shrink-0">{formatWishPosition(item.pityAtDrop)}</span>
                             </div>
                           </Tooltip>
                         );
@@ -349,21 +349,21 @@ export function WishTrackSummaryCards({
                         Array.from({ length: 3 - summary.recentOutcomes.length }).map((_, i) => (
                           <div
                             key={`empty-${i}`}
-                            className="flex items-center justify-center px-2 py-1 rounded-lg text-[11px] border border-dashed border-white/10 text-white/30"
+                            className="flex items-center justify-center px-2 py-1 rounded-lg text-[0.6875rem] border border-dashed border-white/10 text-white/30"
                           >
                             <span>—</span>
                           </div>
                         ))}
                     </div>
                   ) : (
-                    <div className="text-[11px] text-[#9ca3af] italic py-1 text-center bg-white/[0.02] rounded-lg border border-white/5">
+                    <div className="text-[0.6875rem] text-[#9ca3af] italic py-1 text-center bg-white/[0.02] rounded-lg border border-white/5">
                       {t.cardStreakNoData}
                     </div>
                   )}
                 </div>
               ) : (
                 <div className="pt-2 pb-1 w-full">
-                  <div className="mb-2 text-[11px] font-bold text-[#e5e7eb]">{t.cardRecentLegendary}</div>
+                  <div className="mb-2 text-[0.6875rem] font-bold text-[#e5e7eb]">{t.cardRecentLegendary}</div>
                   {summary.recentOutcomes && summary.recentOutcomes.length > 0 ? (
                     <div className="grid w-full grid-cols-[repeat(3,minmax(0,1fr))] gap-1">
                       {summary.recentOutcomes.map((item, idx) => {
@@ -374,15 +374,15 @@ export function WishTrackSummaryCards({
                           content={(
                             <div className="min-w-36 max-w-56 space-y-1 whitespace-normal">
                               <p className="text-xs font-semibold text-white">{item.itemName}</p>
-                              {slotVisual && <p className="flex items-center gap-1.5 text-[10px] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
-                              <p className="text-[10px] text-white/70">{t.bannerDropDate} {formatPullDate(item.pullDate, locale)}</p>
-                              <p className="text-[10px] text-white/70">{formatWishPosition(item.pityAtDrop)} {t.pullDistance}</p>
+                              {slotVisual && <p className="flex items-center gap-1.5 text-[0.625rem] text-white/75"><img src={slotVisual.image} alt="" className="h-5 w-5 object-contain" />{slotVisual.label}</p>}
+                              <p className="text-[0.625rem] text-white/70">{t.bannerDropDate} {formatPullDate(item.pullDate, locale)}</p>
+                              <p className="text-[0.625rem] text-white/70">{formatWishPosition(item.pityAtDrop)} {t.pullDistance}</p>
                             </div>
                           )}
                         >
                           <div
                             tabIndex={0}
-                            className="flex w-full min-w-0 items-center justify-between gap-1 rounded-md border border-amber-500/20 bg-amber-950/20 px-1.5 py-1 text-[10px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
+                            className="flex w-full min-w-0 items-center justify-between gap-1 rounded-md border border-amber-500/20 bg-amber-950/20 px-1.5 py-1 text-[0.625rem] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                           >
                             {slotVisual && <img src={slotVisual.image} alt="" className="h-4 w-4 shrink-0 object-contain" />}
                             <span className="min-w-0 flex-1 truncate font-semibold text-white">
@@ -394,7 +394,7 @@ export function WishTrackSummaryCards({
                       })}
                     </div>
                   ) : (
-                    <div className="rounded-md border border-dashed border-white/10 bg-white/[0.02] px-2 py-1.5 text-center text-[11px] italic text-[#9ca3af]">
+                    <div className="rounded-md border border-dashed border-white/10 bg-white/[0.02] px-2 py-1.5 text-center text-[0.6875rem] italic text-[#9ca3af]">
                       {t.cardStreakNoData}
                     </div>
                   )}

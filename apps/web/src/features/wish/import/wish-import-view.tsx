@@ -211,16 +211,16 @@ export function WishImportView({presentation='page',isOpen=true,onClose=()=>{}}:
       <div className="mx-auto max-w-6xl">
         <div className="flex items-center justify-between gap-3"><Link href="/tools/wish/" className="text-sm text-amber-200/80 hover:text-amber-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-amber-300">← {t.back}</Link></div>
         <header className="mb-9 mt-9 border-l-2 border-amber-400/70 pl-5">
-          <p className="text-[11px] font-bold tracking-[0.23em] text-amber-300">{t.eyebrow}</p>
+          <p className="text-[0.6875rem] font-bold tracking-[0.23em] text-amber-300">{t.eyebrow}</p>
           <h1 className="mt-3 max-w-3xl text-4xl font-black tracking-tight text-white md:text-5xl">{t.title}</h1>
           <p className="mt-4 max-w-2xl text-sm leading-7 text-slate-300">{t.intro}</p>
         </header>
 
-        <div className="grid gap-7 lg:grid-cols-[minmax(0,1.3fr)_minmax(300px,0.85fr)]">
+        <div className="grid gap-7 lg:grid-cols-[minmax(0,1.3fr)_minmax(18.75rem,0.85fr)]">
           <div className="space-y-7">
             <section aria-label={t.eyebrow} className="overflow-hidden rounded-2xl border border-white/10 bg-[var(--surface-panel)]">
               {t.steps.map((step, index) => (
-                <div key={step.label} className="grid grid-cols-[44px_1fr] gap-4 border-b border-white/10 px-6 py-6 last:border-b-0">
+                <div key={step.label} className="grid grid-cols-[2.75rem_1fr] gap-4 border-b border-white/10 px-6 py-6 last:border-b-0">
                   <span className="flex h-10 w-10 items-center justify-center rounded-full border border-amber-300/40 text-sm font-bold text-amber-200">{index + 1}</span>
                   <div><h2 className="font-bold text-white">{step.label}</h2><p className="mt-2 text-sm leading-6 text-slate-300">{step.body}</p></div>
                 </div>

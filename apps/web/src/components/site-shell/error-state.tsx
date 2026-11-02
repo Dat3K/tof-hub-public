@@ -60,14 +60,14 @@ export function ErrorState({
   return (
     <div
       role="alert"
-      className={`w-full max-w-[640px] mx-auto my-8 p-6 md:p-8 rounded-lg bg-panel/90 border border-negative/30 backdrop-blur-md shadow-2xl ${className}`}
+      className={`w-full max-w-[40rem] mx-auto my-8 p-6 md:p-8 rounded-lg bg-panel/90 border border-negative/30 backdrop-blur-md shadow-2xl ${className}`}
       style={{
         boxShadow: '0 8px 32px rgba(0, 0, 0, 0.6), inset 0 0 1px rgba(255, 255, 255, 0.1)',
       }}
     >
       {/* Icon & Status Header */}
       <div className="flex items-start gap-4 mb-6">
-        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-negative/10 border border-negative/40 flex items-center justify-center text-negative shadow-[0_0_16px_rgba(223,137,155,0.25)]">
+        <div className="flex-shrink-0 w-12 h-12 rounded-lg bg-negative/10 border border-negative/40 flex items-center justify-center text-negative shadow-[0_0_1rem_rgba(223,137,155,0.25)]">
           <svg
             className="w-6 h-6"
             fill="none"
@@ -90,7 +90,7 @@ export function ErrorState({
               {t(title)}
             </h2>
             {errorCode && (
-              <span className="text-[11px] font-mono px-2 py-0.5 rounded bg-negative/15 text-negative border border-negative/30 uppercase">
+              <span className="text-[0.6875rem] font-mono px-2 py-0.5 rounded bg-negative/15 text-negative border border-negative/30 uppercase">
                 CODE {errorCode}
               </span>
             )}
@@ -111,7 +111,7 @@ export function ErrorState({
           <button
             type="button"
             onClick={copyDigest}
-            className="ml-2 text-[11px] px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-gold transition border border-hairline"
+            className="ml-2 text-[0.6875rem] px-2 py-1 rounded bg-white/5 hover:bg-white/10 text-gold transition border border-hairline"
             title={t('Copy error reference')}
           >
             {showCopied ? t('Copied') + '!' : t('Copy')}
@@ -175,10 +175,10 @@ export function ErrorState({
         <details className="mt-6 pt-4 border-t border-hairline text-xs text-text-muted group">
           <summary className="cursor-pointer font-medium hover:text-text-body transition select-none flex items-center justify-between">
             <span>{t('Diagnostics & Technical Details')}</span>
-            <span className="font-mono text-[10px] uppercase opacity-70 group-open:hidden">{t('Show')}</span>
-            <span className="font-mono text-[10px] uppercase opacity-70 hidden group-open:inline">{t('Hide')}</span>
+            <span className="font-mono text-[0.625rem] uppercase opacity-70 group-open:hidden">{t('Show')}</span>
+            <span className="font-mono text-[0.625rem] uppercase opacity-70 hidden group-open:inline">{t('Hide')}</span>
           </summary>
-          <pre className="mt-3 p-3 rounded bg-black/60 border border-hairline font-mono text-[11px] leading-relaxed text-text-sub overflow-x-auto whitespace-pre-wrap select-all">
+          <pre className="mt-3 p-3 rounded bg-black/60 border border-hairline font-mono text-[0.6875rem] leading-relaxed text-text-sub overflow-x-auto whitespace-pre-wrap select-all">
             {details}
           </pre>
         </details>

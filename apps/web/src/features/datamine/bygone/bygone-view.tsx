@@ -3,6 +3,7 @@
 import { localized, translateUiText} from '@tof-hub/i18n';
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
 import { useI18n } from '@/lib/i18n';
+import {revealHorizontalFocus} from '@tof-hub/ui';
 import type {
   BygoneViewProps,
   BygoneFloorItem,
@@ -679,7 +680,7 @@ export function BygoneView({ initialData, initialLocale, initialChartTheme }: By
                 {/* Range Presets */}
                 <div className={styles.controlItem}>
                   <span className={styles.controlLabel}>{copy.ctrlRange}</span>
-                  <div className={styles.segmentedSwitch} role="group" aria-label={translateUiText("Range Presets", activeLocale)}>
+                  <div className={styles.segmentedSwitch} role="group" onFocusCapture={revealHorizontalFocus} aria-label={translateUiText("Range Presets", activeLocale)}>
                     <button
                       type="button"
                       className={`${styles.switchBtn} ${rangeState.preset === 'latest20' ? styles.isActive : ''}`}
@@ -732,7 +733,7 @@ export function BygoneView({ initialData, initialLocale, initialChartTheme }: By
                 {/* Chart Palette Toggle */}
                 <div className={styles.controlItem}>
                   <span className={styles.controlLabel}>{copy.chartPalette}</span>
-                  <div className={styles.segmentedSwitch} role="group" aria-label={translateUiText("Chart palette", activeLocale)}>
+                  <div className={styles.segmentedSwitch} role="group" onFocusCapture={revealHorizontalFocus} aria-label={translateUiText("Chart palette", activeLocale)}>
                     <button
                       type="button"
                       className={`${styles.switchBtn} ${chartTheme === 'light' ? styles.isActive : ''}`}
@@ -1025,7 +1026,7 @@ export function BygoneView({ initialData, initialLocale, initialChartTheme }: By
 
             {/* Filter Bar */}
             <div className={styles.filterBar}>
-              <div className={styles.segmentedSwitch} role="group" aria-label={translateUiText("Floor Filters", activeLocale)}>
+              <div className={styles.segmentedSwitch} role="group" onFocusCapture={revealHorizontalFocus} aria-label={translateUiText("Floor Filters", activeLocale)}>
                 <button
                   type="button"
                   className={`${styles.switchBtn} ${directoryFilter === 'all' ? styles.isActive : ''}`}

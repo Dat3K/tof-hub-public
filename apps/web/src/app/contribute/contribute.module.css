@@ -5,58 +5,58 @@
 .tab {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr);
-  column-gap: 12px;
+  column-gap: 0.75rem;
   align-items: baseline;
-  padding: 14px 16px;
+  padding: 0.875rem 1rem;
 }
 .tabIndex {
   grid-row: span 2;
   font-family: var(--font-mono, monospace);
-  font-size: 11px;
+  font-size: 0.6875rem;
   opacity: 0.8;
 }
 .tabLabel {
-  font-size: 14px;
+  font-size: 0.875rem;
   font-weight: 600;
 }
 .tabSub {
-  font-size: 12px;
+  font-size: 0.75rem;
   opacity: 0.75;
 }
 .panel {
-  padding: 28px;
+  padding: 1.75rem;
 }
 .steps {
-  margin-top: 28px;
+  margin-top: 1.75rem;
 }
 .pending {
   display: inline-block;
-  margin-top: 12px;
+  margin-top: 0.75rem;
   border-style: dashed;
   color: var(--dm-muted);
 }
 .checklist {
   display: grid;
-  gap: 20px;
-  margin-top: 40px;
-  padding: 26px 28px;
+  gap: 1.25rem;
+  margin-top: 2.5rem;
+  padding: 1.625rem 1.75rem;
   border: 1px solid var(--surface-border);
-  border-radius: 14px;
+  border-radius: 0.875rem;
   background: var(--surface-panel);
 }
 .checklistItems {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
-  gap: 10px 28px;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 18.75rem), 1fr));
+  gap: 0.625rem 1.75rem;
   margin: 0;
   padding: 0;
   list-style: none;
 }
 .checklistItems li {
   position: relative;
-  padding-left: 22px;
+  padding-left: 1.375rem;
   color: var(--dm-text);
-  font-size: 13px;
+  font-size: 0.8125rem;
   line-height: 1.6;
 }
 .checklistItems li::before {
@@ -64,18 +64,18 @@
   position: absolute;
   left: 0;
   color: var(--dm-gold);
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 .submit {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 12px 20px;
-  padding-top: 18px;
+  gap: 0.75rem 1.25rem;
+  padding-top: 1.125rem;
   border-top: 1px solid var(--surface-border);
   color: var(--dm-muted);
-  font-size: 13px;
+  font-size: 0.8125rem;
 }
 .submit > :global(.editorial-actions) {
   margin-top: 0;
@@ -88,6 +88,6 @@
 @media (max-width: 640px) {
   .panel,
   .checklist {
-    padding: 20px;
+    padding: 1.25rem;
   }
 }

@@ -224,7 +224,7 @@ export const CompSlot: React.FC<CompSlotProps> = ({
           {traitIcon ? (
             <img src={traitIcon} alt={charName} className="w-full h-full object-cover" style={{transform:`scale(${COMP_TRAIT_IMAGE_SCALE})`}} loading="lazy" />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-[10px] text-slate-400 font-mono">CP</div>
+            <div className="w-full h-full flex items-center justify-center text-[0.625rem] text-slate-400 font-mono">CP</div>
           )}
           {renderPhotoExtras(isCp, traitCustomText ?? null, {
             type: 'trait',
@@ -302,7 +302,7 @@ export const CompSlot: React.FC<CompSlotProps> = ({
           >
             {thumb1 && <img src={thumb1} alt={name1} className={styles.slotImg} loading="lazy" />}
             {!thumb1 && w?.customText ? (
-              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[9px] text-slate-300 font-bold px-1 text-center leading-tight">
+              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[0.5625rem] text-slate-300 font-bold px-1 text-center leading-tight">
                 <span>✎</span>
                 <span className="truncate">{w.customText}</span>
               </span>
@@ -335,7 +335,7 @@ export const CompSlot: React.FC<CompSlotProps> = ({
           >
             {thumb2 && <img src={thumb2} alt={name2} className={styles.slotImg} loading="lazy" />}
             {!thumb2 && w?.customText2 ? (
-              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[9px] text-slate-300 font-bold px-1 text-center leading-tight">
+              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[0.5625rem] text-slate-300 font-bold px-1 text-center leading-tight">
                 <span>✎</span>
                 <span className="truncate">{w.customText2}</span>
               </span>
@@ -525,7 +525,7 @@ export const CompSlot: React.FC<CompSlotProps> = ({
           >
             {thumb1 && <img src={thumb1} alt={name1} className={styles.slotImg} loading="lazy" />}
             {!thumb1 && m?.customText ? (
-              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[9px] text-slate-300 font-bold px-1 text-center leading-tight">
+              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[0.5625rem] text-slate-300 font-bold px-1 text-center leading-tight">
                 <span>✎</span>
                 <span className="truncate">{m.customText}</span>
               </span>
@@ -556,7 +556,7 @@ export const CompSlot: React.FC<CompSlotProps> = ({
           >
             {thumb2 && <img src={thumb2} alt={name2} className={styles.slotImg} loading="lazy" />}
             {!thumb2 && m?.customText2 ? (
-              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[9px] text-slate-300 font-bold px-1 text-center leading-tight">
+              <span className="absolute inset-0 flex items-center justify-center gap-0.5 text-[0.5625rem] text-slate-300 font-bold px-1 text-center leading-tight">
                 <span>✎</span>
                 <span className="truncate">{m.customText2}</span>
               </span>

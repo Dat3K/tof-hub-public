@@ -571,7 +571,7 @@ export function CatalogDemo() {
   const currentEntityLabel = catalogType === 'simulacra' ? 'simulacra' : 'relics';
 
   return (
-    <div className="catalog-demo-harness w-full max-w-[1440px] mx-auto px-4 sm:px-6 py-6 font-sans text-[#f3f4f6]">
+    <div className="catalog-demo-harness w-full max-w-[90rem] mx-auto px-4 sm:px-6 py-6 font-sans text-[#f3f4f6]">
       {/* ------------------------------------------------------------------- */}
       {/* Dev Harness Action Bar (Switch Catalogs, Toggle Loading/Empty)      */}
       {/* ------------------------------------------------------------------- */}
@@ -903,7 +903,7 @@ export function CatalogDemo() {
                       });
                     }}
                   >
-                    <span className="text-[10px] font-bold text-amber-300">ART</span>
+                    <span className="text-[0.625rem] font-bold text-amber-300">ART</span>
                   </div>
                 }
               />
@@ -931,7 +931,7 @@ export function CatalogDemo() {
                       });
                     }}
                   >
-                    <span className="text-[10px] font-bold text-cyan-300">PREV</span>
+                    <span className="text-[0.625rem] font-bold text-cyan-300">PREV</span>
                   </div>
                 }
               />

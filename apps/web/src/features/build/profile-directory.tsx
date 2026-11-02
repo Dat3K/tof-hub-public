@@ -108,7 +108,7 @@ export function ProfileDirectory({catalog}:{catalog:ProfileDirectoryCatalog}) {
     </CatalogControls>
     <section className={styles.board} aria-label={t('Saved builds')} aria-busy={loading}>
       <header className={styles.boardHead}><h2>{t('Saved builds')}</h2>
-        <CatalogSort value={query.sort==='name'?'name-asc':query.sort} onChange={sort=>update({sort:sort as BuildProfileDirectoryQuery['sort']})} label={t('Order')} options={[
+        <CatalogSort presentation="inline" value={query.sort==='name'?'name-asc':query.sort} onChange={sort=>update({sort:sort as BuildProfileDirectoryQuery['sort']})} label={t('Order')} options={[
           {value:'updated',label:t('Saved: newest → oldest')},
           {value:'updated-asc',label:t('Saved: oldest → newest')},
           {value:'name-asc',label:t('Nickname: A → Z'),dividerBefore:true},
