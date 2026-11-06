@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import { overlayGameLocalization } from '../../../scripts/game-processors/processors/game-source-reader';
 import { SUPPORTED_LOCALES, type Locale } from '../../../packages/i18n/src/constants';
 import { mergeLocaleProjection as mergeShared } from '../../../scripts/lib/locale-projection.cjs';
 
@@ -29,28 +30,7 @@ const rewrite = (file: string, value: unknown) => {
   fs.writeFileSync(file, JSON.stringify(value, null, indent) + '\n');
 };
 
-/** Exact namespace/key overlay: coinciding keys from unrelated tables never mix. */
-export function overlayGameLocalization(english: Json, target: Json): { table: Json; keys: number; fallbackKeys: number } {
-  const table: Json = {};
-  let keys = 0;
-  let fallbackKeys = 0;
-  for (const namespace of new Set([...Object.keys(english), ...Object.keys(target)])) {
-    const base = english[namespace] ?? {};
-    const translated = target[namespace] ?? {};
-    table[namespace] = {};
-    for (const key of new Set([...Object.keys(base), ...Object.keys(translated)])) {
-      const value = translated[key];
-      if (typeof value === 'string' && value.trim()) {
-        table[namespace][key] = value;
-        keys++;
-      } else if (typeof base[key] === 'string') {
-        table[namespace][key] = base[key];
-        fallbackKeys++;
-      }
-    }
-  }
-  return { table, keys, fallbackKeys };
-}
+export { overlayGameLocalization } from '../../../scripts/game-processors/processors/game-source-reader';
 
 /**
  * Raw cultures not projected into datasets. The Global client's zh-Hans (191 keys) and

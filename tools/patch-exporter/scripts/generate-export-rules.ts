@@ -17,6 +17,7 @@ import path from 'node:path';
 
 /** Exported with all sub-folders (new characters/banners/seasons add folders here). */
 export const RECURSIVE_ROOTS: ReadonlyArray<{ root: string; type: 'json' | 'png'; why: string; smallMode?: boolean }> = [
+  { root: 'Hotta/Content/Resources/CoreBlueprints/DataTable/Skill/WeaponDes', type: 'json', why: 'original weapon StringTables for incomplete client localizations' },
   { root: 'Hotta/Content/Resources/UI/shuxingpiaozi', type: 'png', why: 'stat icons referenced by generated game-data' },
   { root: 'Hotta/Content/Resources/UI/liaotian', type: 'png', why: 'chat sticker posters and animation atlases, including future subfolders' },
   { root: 'Hotta/Content/Resources/UI/liaotian', type: 'json', why: 'chat sticker material, texture and animation source metadata' },

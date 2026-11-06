@@ -12,6 +12,13 @@
   },
   "rules": [
     {
+      "category": "tables",
+      "pattern": "Hotta/Content/Resources/CoreBlueprints/DataTable/Skill/WeaponDes/.*\\.uasset:json",
+      "type": "json",
+      "required": false,
+      "why": "Original weapon StringTables retain skill text when client translations are incomplete."
+    },
+    {
       "category": "tree",
       "pattern": "Hotta/Content/Resources/UI/shuxingpiaozi/.*\\.uasset:png",
       "type": "png",

@@ -1,4 +1,4 @@
-import { readGameSourceFileSync, hasGameLocalizationSource } from './game-source-reader';
+import { readGameSourceFileSync, hasGameLocalizationSource, overlayGameLocalization } from './game-source-reader';
 
 /**
  * build-simulacra.js
@@ -3038,6 +3038,43 @@ function localizeCuratedPassives(passives: any[], en: any, ru: any, culture: boo
   }
 }
 
+/** Read original StringTables as source text, then replace by exact translated namespace/key. */
+export function loadSimulacraLocalization(archiveReader, rawDir) {
+  const sourceStrings = {};
+  for (const relative of [
+    'Hotta/Content/Resources/CoreBlueprints/DataTable/Skill/WeaponDes',
+    'Hotta/Content/Resources/Text',
+  ]) {
+    const directory = path.join(rawDir, relative);
+    if (!fs.existsSync(directory)) continue;
+    for (const file of fs.readdirSync(directory, {recursive: true})) {
+      if (typeof file !== 'string' || !file.endsWith('.json')) continue;
+      const exported = archiveReader.findAndRead([`${relative}/${file.replace(/\\/g, '/')}`])?.data;
+      for (const item of Array.isArray(exported) ? exported : [exported]) {
+        const table = item?.StringTable;
+        if (table?.TableNamespace && table.KeysToEntries) {
+          sourceStrings[table.TableNamespace] = {...sourceStrings[table.TableNamespace], ...table.KeysToEntries};
+        }
+      }
+    }
+  }
+  const enRes = archiveReader.findAndRead(['Hotta/Content/Localization/Game/en/Game.json', 'en/Game.json']);
+  const ruRes = archiveReader.findAndRead(['Hotta/Content/Localization/Game/ru/Game.json', 'ru/Game.json']);
+  const zhRes = archiveReader.findAndRead(['Hotta/Content/Localization/Game/zh-CN/Game.json', 'zh-CN/Game.json']);
+  const source = overlayGameLocalization(sourceStrings, zhRes?.data || {}).table;
+  const en = overlayGameLocalization(source, enRes?.data || {}).table;
+  const ru = overlayGameLocalization(en, ruRes?.data || {}).table;
+  return {en, ru, enRes, ruRes};
+}
+
+/** Only accept an unambiguous suffix on an explicit imitation identity. */
+export function findTraitRow(rows: Map<string, any>, candidates: string[]) {
+  for (const candidate of candidates) if (rows.has(candidate)) return rows.get(candidate);
+  const matches = [...rows].filter(([key]) => candidates.some(candidate =>
+    candidate.includes('imitation') && key.startsWith(candidate + '_')));
+  return matches.length === 1 ? matches[0][1] : null;
+}
+
 function buildSimulacraDataset() {
   const projectRoot = resolveProjectRoot();
   const rawDir = resolveRawDir(projectRoot);
@@ -3073,14 +3110,11 @@ function buildSimulacraDataset() {
   }
 
   // 1. Load Localizations
-  const enRes = archiveReader.findAndRead(['Hotta/Content/Localization/Game/en/Game.json', 'en/Game.json']);
-  const ruRes = archiveReader.findAndRead(['Hotta/Content/Localization/Game/ru/Game.json', 'ru/Game.json']);
-  const en = enRes?.data || {};
-  const ru = ruRes?.data || {};
+  const {en, ru, enRes, ruRes} = loadSimulacraLocalization(archiveReader, rawDir);
 
   const locResolver = createLocalizationResolver();
-  if (enRes?.data) locResolver.loadLocale('en', en);
-  if (ruRes?.data) locResolver.loadLocale('ru', ru);
+  locResolver.loadLocale('en', en);
+  locResolver.loadLocale('ru', ru);
 
   // Precompute lowercase lookup maps for fast O(1) active text resolution
   const enNsLower = new Map<any, any>();
@@ -4122,6 +4156,7 @@ function buildSimulacraDataset() {
         let actionBase = null;
         if (/_name$/i.test(k)) actionBase = k.replace(/_name$/i, '');
         else if (/^Name_/i.test(k)) actionBase = k.replace(/^Name_/i, '');
+        else if (/^GA_/i.test(k) && entry?.tableLower.has(`${k.toLowerCase()}_des`)) actionBase = k;
         if (!actionBase) continue;
         if (isExcludedByVariant(actionBase)) continue;
 
@@ -4701,18 +4736,8 @@ function buildSimulacraDataset() {
         `buff_${token}2`
       ];
 
-      for (const p of p1List) {
-        if (!trait1Row && geTipsLower.has(p)) {
-          trait1Row = geTipsLower.get(p);
-          break;
-        }
-      }
-      for (const p of p2List) {
-        if (!trait2Row && geTipsLower.has(p)) {
-          trait2Row = geTipsLower.get(p);
-          break;
-        }
-      }
+      trait1Row ||= findTraitRow(geTipsLower, p1List);
+      trait2Row ||= findTraitRow(geTipsLower, p2List);
       if (trait1Row && trait2Row) break;
     }
 

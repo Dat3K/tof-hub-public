@@ -13,6 +13,8 @@ const assert = require('node:assert/strict');
 const weightedStatInclusion = require('../lib/weighted-stat-inclusion.cjs');
 const {getMmoBygoneHpScaling, getMmoBygoneHp, estimateMmoBygoneDefense} = require('../../packages/game-domain/src/encounters/mmo-bygone.ts');
 const root = path.resolve(__dirname, '../..');
+// The portable package bundles this file into <package>/generators and ships repo-relative sources in <package>/scripts.
+const sourceRoot = fs.existsSync(path.join(__dirname, '../scripts/game-processors')) ? path.dirname(__dirname) : root;
 const rawRoot = sitePaths.rawDir;
 const gameData = path.join(sitePaths.publicDir, 'game-data');
 const outDir = path.join(gameData, 'handbook');
@@ -621,7 +623,7 @@ function biochemicalScheduleOnly() {
   const seasons = data.seasons.map(season => {
     const activity = activityRows[season.id];
     if (!activity) {missingActivities.push(season.id); return season;}
-    assert.deepEqual(activity.OpenLevels, season.levels.map(level => level.id), `${season.id}: calendar snapshot level IDs`);
+    assert.deepEqual(activity.OpenLevels.filter(id => !season.unresolvedLevelIds?.includes(id)), season.levels.map(level => level.id), `${season.id}: calendar snapshot level IDs`);
     // This calendar export may be newer than the saved combat export. Preserve its
     // original base dates, values and hashes; only attach exact regional overrides.
     return {...season, regionalPeriods: biochemicalActivityDates(activity).regionalPeriods};
@@ -741,10 +743,9 @@ function biochemicalCollapse(ctx) {
       ...biochemicalActivityDates(activity),
       weaponLimit: activity.WeaponLimitAmount ?? null,
       joinsGroupRank: activity.JoinGroupRank ?? null,
-      levels: (activity.OpenLevels ?? []).map(levelId => {
-        assert.ok(levelRows[levelId], `${id}: missing level row ${levelId}`);
-        return level(levelId, levelRows[levelId]);
-      }),
+      // A client can schedule a season before shipping its level rows; keep the IDs instead of inventing pods.
+      levels: (activity.OpenLevels ?? []).filter(levelId => levelRows[levelId]).map(levelId => level(levelId, levelRows[levelId])),
+      unresolvedLevelIds: (activity.OpenLevels ?? []).filter(levelId => !levelRows[levelId]),
       awardTiers: (activity.AwardConfigs ?? []).map(award => ({targetScore: award.TargetScore ?? null, dropId: award.DropID ?? null})),
     };
   }).sort((a, b) => dateKey(a.start).localeCompare(dateKey(b.start)) || a.id.localeCompare(b.id));
@@ -1034,7 +1035,7 @@ function mmoBygoneMedia() {
   const sources = {};
   const data = readGenerated('handbook/mmo-bygone.json', sources);
   const mappingFile = 'scripts/game-processors/processors/monster-image-mapping.json';
-  const mappingBytes = readGameSourceFileSync(path.join(root, mappingFile));
+  const mappingBytes = readGameSourceFileSync(path.join(sourceRoot, mappingFile));
   sources[mappingFile] = {sha256: crypto.createHash('sha256').update(mappingBytes).digest('hex')};
   const mapping = JSON.parse(mappingBytes);
   const foldedMappings = new Map();
@@ -1202,7 +1203,7 @@ function biochemicalCollapseMedia() {
   const levelFile = assetFile(asset.Properties.LevelConfigDataTable_BalanceServer);
   const levels = rows(levelFile, sources), loc = localizer(sources);
   const mappingFile = 'scripts/game-processors/processors/monster-image-mapping.json';
-  const mappingBytes = readGameSourceFileSync(path.join(root, mappingFile));
+  const mappingBytes = readGameSourceFileSync(path.join(sourceRoot, mappingFile));
   sources[mappingFile] = {sha256: crypto.createHash('sha256').update(mappingBytes).digest('hex')};
   const mapping = JSON.parse(mappingBytes);
   const textKey = text => text?.Key && text?.TableId ? `${text.TableId}:${text.Key}` : null;

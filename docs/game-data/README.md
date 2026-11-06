@@ -11,6 +11,7 @@ These pages document how individual Datamine sections are derived from the game 
 | [Origin of War](origin-of-war.md) | `/datamine/oow/` |
 | [Sequential Phantasm](sequential.md) | `/datamine/seq/` |
 | [Cosmetics media](cosmetics.md) | `/info/cosmetics/`, Build account details |
+| [Simulacra localization](simulacra-localization.md) | `/info/simulacra/` |
 
 ## Conventions
 

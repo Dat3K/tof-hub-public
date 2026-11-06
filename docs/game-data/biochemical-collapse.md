@@ -31,6 +31,17 @@ Monster rows provide `MonsterName`, `MonsterLevel`, `MonsterType`, `MonsterCount
 
 Time is `LimitChallengeTime` in seconds (shown as m:ss), score is `BaseScore`. `FinalCritDef` is displayed as a percentage.
 
+An activity may list `OpenLevels` IDs whose rows are absent from the bound level
+table. The generator preserves those IDs as `unresolvedLevelIds` and emits only
+the available pods in `levels`. A calendar-only refresh compares the available
+IDs while retaining the unresolved list; it does not infer encounters or stats.
+This applies to the activity and level tables above in the current export;
+availability can differ by client region and version.
+
+Portable packages resolve `scripts/game-processors/processors/monster-image-mapping.json`
+relative to the package root. Repository runs use the checkout root. Both
+Biochemical Collapse and MMO Bygone media use this same maintained mapping.
+
 ## Description ID correction
 
 In the Global export examined on 2026-10-29 (exact build unknown),
