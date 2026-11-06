@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import type { DatasetNormalizationResult } from '../types';
 import { sortById, deepClone, extractLocalizedStrings } from '../split-merge';
+import {readArtworkHistory, trackArtworkDiscoveries} from '../artwork-history';
 
 function normalizeGameSourcePath(value: unknown): string {
   if (typeof value !== 'string') return '';
@@ -12,7 +13,7 @@ function normalizeGameSourcePath(value: unknown): string {
   return normalized;
 }
 
-export function normalizeArtsDataset(legacySourceDir: string): DatasetNormalizationResult {
+export function normalizeArtsDataset(legacySourceDir: string, previousDatasetFile?: string): DatasetNormalizationResult {
   const filePath = path.join(legacySourceDir, 'info', 'arts', 'data', 'artworks.json');
   let rawData: any = { total: 0, categories: {}, items: [] };
 
@@ -35,6 +36,11 @@ export function normalizeArtsDataset(legacySourceDir: string): DatasetNormalizat
   const overlayRuItems: any[] = [];
   const materializedEnItems: any[] = [];
   const materializedRuItems: any[] = [];
+  const histories = [readArtworkHistory(path.join(legacySourceDir, 'info/arts/artwork-history.json')),
+    previousDatasetFile ? readArtworkHistory(previousDatasetFile) : undefined].filter(Boolean).sort((a, b) => b!.revision - a!.revision);
+  const versionFile = path.join(legacySourceDir, 'export-version.json');
+  const version = fs.existsSync(versionFile) ? JSON.parse(fs.readFileSync(versionFile, 'utf8')).version : null;
+  const discovery = trackArtworkDiscoveries(rawItems, histories[0], version ?? null);
 
   for (const raw of rawItems) {
     const id = String(raw.id || '');
@@ -51,6 +57,7 @@ export function normalizeArtsDataset(legacySourceDir: string): DatasetNormalizat
 
     const core: Record<string, any> = {
       id,
+      ...discovery.metadata(raw),
       category: raw.category || 'others',
       subCategory: raw.subCategory || null,
       themeTag: raw.themeTag || null,
@@ -108,6 +115,7 @@ export function normalizeArtsDataset(legacySourceDir: string): DatasetNormalizat
   const sortedMatRu = sortById(materializedRuItems);
 
   const matEn = {
+    discoveryHistory: discovery.history,
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     total: sortedMatEn.length,
@@ -116,6 +124,7 @@ export function normalizeArtsDataset(legacySourceDir: string): DatasetNormalizat
   };
 
   const matRu = {
+    discoveryHistory: discovery.history,
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
     total: sortedMatRu.length,

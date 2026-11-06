@@ -36,6 +36,27 @@ flowchart TD
 
 The media stage runs twice because generators can reference images that the first normalized catalogs did not. Locale passes share media.
 
+### Artwork observations
+
+The Arts normalizer records first observations by normalized texture `sourcePath`
+(case-insensitive, with normalized separators), using the item ID only when no
+path is available. Each batch of new paths advances `discoveryHistory.revision`;
+items receive `addedInRevision`, `addedInVersion` and `isNew`. Removed paths
+remain known, so a returning texture is not treated as a new addition. These
+fields describe catalog observations; game release dates remain unknown.
+
+`scripts/normalize-game-data/artwork-history.ts` reads the prior English
+`arts.json` and an optional staging `info/arts/artwork-history.json`. Staging
+selects the highest available revision from curated and site inputs. Portable
+packaging carries the current journal in `site-inputs/artwork-history.json`.
+Without a prior journal, the first inventory becomes revision zero. A subsequent
+batch uses `export-version.json.version` when available.
+
+`processors/build-artworks.ts` supplies staging `info/arts/data/artworks.json`;
+the Arts adapter writes the journal and item metadata into generated locale
+catalogs. The existing runtime generator consumes those catalogs. A source
+inventory or a current game-data snapshot is supplied separately from source.
+
 ## Running it
 
 ### Windows: from an installed game

@@ -1,5 +1,11 @@
 import { z } from 'zod';
 
+export const ArtworkDiscoveryHistorySchema = z.object({
+  revision: z.number().int().nonnegative(),
+  entries: z.record(z.string(), z.object({revision: z.number().int().nonnegative(), version: z.string().nullable()})),
+});
+export type ArtworkDiscoveryHistory = z.infer<typeof ArtworkDiscoveryHistorySchema>;
+
 export const ArtworkRawSchema = z.object({
   id: z.string(),
   title: z.union([z.string(), z.record(z.string(), z.string())]).optional(),
@@ -21,12 +27,16 @@ export const ArtworkRawSchema = z.object({
   characterKey: z.string().nullable().optional(),
   characterName: z.union([z.string(), z.record(z.string(), z.string())]).nullable().optional(),
   season: z.union([z.string(), z.number()]).nullable().optional(),
+  addedInRevision: z.number().int().nonnegative().optional(),
+  addedInVersion: z.string().nullable().optional(),
+  isNew: z.boolean().optional(),
 });
 
 export const ArtworksDatasetSchema = z.object({
   total: z.number().int().nonnegative(),
   categories: z.record(z.string(), z.number()).optional(),
   items: z.array(ArtworkRawSchema),
+  discoveryHistory: ArtworkDiscoveryHistorySchema.optional(),
 });
 
 export type ArtworksDataset = z.infer<typeof ArtworksDatasetSchema>;

@@ -136,7 +136,7 @@ export async function normalizeGameData(
   totalEntities += countsByDataset.cosmetics;
 
   // 7. Arts
-  const artsRes = normalizeArtsDataset(legacySourceDir);
+  const artsRes = normalizeArtsDataset(legacySourceDir, path.join(publicOutputDir, 'en/arts.json'));
   results.push(artsRes);
   countsByDataset.arts = artsRes.counts.total || 0;
   totalEntities += countsByDataset.arts;

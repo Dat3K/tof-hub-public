@@ -5,6 +5,7 @@ import * as esbuild from 'esbuild';
 import { exporterBuildConfig } from '../build.config';
 import { SITE_BOOTSTRAP_FILES, SITE_GENERATORS, SITE_INPUT_FILES } from '../src/pipeline-run';
 import { compileProcessors, PROCESSORS_SOURCE } from './compile-processors';
+import {readArtworkHistory} from '../../../scripts/normalize-game-data/artwork-history';
 
 /**
  * Adds the game pipeline to the portable package (see src/run-command.ts packageLocations):
@@ -65,7 +66,11 @@ function collectUiReferences(): string[] {
 
 function stageSiteInputs(target: string): void {
   fs.rmSync(target, { recursive: true, force: true });
+  fs.mkdirSync(target, {recursive: true});
   const publicDir = path.join(webDir, 'public');
+  const history = readArtworkHistory(path.join(publicDir, 'game-data/en/arts.json'))
+    ?? readArtworkHistory(path.join(PROCESSORS_SOURCE, 'curated/info/arts/artwork-history.json'));
+  if (history) fs.writeFileSync(path.join(target, 'artwork-history.json'), JSON.stringify(history));
   for(const directory of ['datamine/shared/assets','info']) {
     const source=path.join(publicDir,directory);
     if(fs.existsSync(source)) {

@@ -76,6 +76,26 @@ function fixture() {
   };
 }
 
+test('staging preserves the newest artwork history from portable site inputs', async () => {
+  const f = fixture();
+  const curatedDir = path.join(f.root, 'curated');
+  const historyFile = path.join(curatedDir, 'info/arts/artwork-history.json');
+  const baseline = {revision: 0, entries: {'id:old': {revision: 0, version: null}}};
+  const current = {revision: 1, entries: {...baseline.entries, 'id:new': {revision: 1, version: 'fixture-version'}}};
+  fs.mkdirSync(path.dirname(historyFile), {recursive: true});
+  fs.writeFileSync(historyFile, JSON.stringify(baseline));
+  fs.writeFileSync(path.join(f.root, 'artwork-history.json'), JSON.stringify(current));
+  const options = {...f.options, steps: ['stage'] as const, locations: {...f.options.locations, curatedDir}};
+  try {
+    for (let run = 0; run < 2; run++) {
+      const result = await runPipeline(options);
+      assert.deepEqual(JSON.parse(fs.readFileSync(path.join(result.stageDir, 'info/arts/artwork-history.json'), 'utf8')), current);
+    }
+  } finally {
+    fs.rmSync(f.root, {recursive: true, force: true});
+  }
+});
+
 for (const jobs of [1, 2, 16]) {
   test(`generators respect ${jobs} workers and wait for prerequisites`, async () => {
     const f = fixture();

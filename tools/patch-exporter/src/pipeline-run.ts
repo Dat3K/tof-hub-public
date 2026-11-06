@@ -17,6 +17,7 @@ import { reconcileOowEnemyPngDownloads, validateOowEffectCatalogMedia } from './
 import { withGameLocalizationSource } from '../../../scripts/game-processors/processors/game-source-reader';
 import { prepareLocalizationSources, publishLocaleProjection, writeLocalizationManifest, type LocalizationSource } from './localization';
 import { SUPPORTED_LOCALES } from '../../../packages/i18n/src/constants';
+import {readArtworkHistory} from '../../../scripts/normalize-game-data/artwork-history';
 
 type WishBannerAssetRow = { assets?: Record<string, string | null> };
 type WishPoolCandidate = {
@@ -279,6 +280,14 @@ function prepareStage(options: PipelineOptions, stageDir: string): void {
   fs.rmSync(stageDir, { recursive: true, force: true });
   for (const part of ['datamine', 'datamine2', 'info']) copyTree(path.join(curated, part), path.join(stageDir, part));
   copyTree(path.join(curated, 'site'), stageDir);
+  const historyTarget = path.join(stageDir, 'info/arts/artwork-history.json');
+  const history = [historyTarget, path.join(options.locations.siteInputsDir, 'game-data/en/arts.json'),
+    path.join(options.locations.siteInputsDir, 'en/arts.json'), path.join(options.locations.siteInputsDir, 'artwork-history.json')]
+    .map(readArtworkHistory).filter(Boolean).sort((a, b) => b!.revision - a!.revision)[0];
+  if (history) {
+    fs.mkdirSync(path.dirname(historyTarget), {recursive: true});
+    fs.writeFileSync(historyTarget, JSON.stringify(history));
+  }
   const version = readExportVersion(options.rawDir);
   if (version) fs.writeFileSync(path.join(stageDir, 'export-version.json'), JSON.stringify(version, null, 2));
 }
