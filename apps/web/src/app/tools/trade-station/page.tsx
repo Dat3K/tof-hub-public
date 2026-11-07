@@ -3,7 +3,7 @@ import { generatePageMetadata, type SeoPageProps } from '@/lib/seo/server';
 import { loadServerGameData } from '@/lib/game-data-server';
 import { resolveServerLocale } from '@/lib/i18n/server';
 import { TRADE_STATION_COPY, TradeStationView } from '@/features/trade-station';
-import type { TradeSectionId, TradeSort, TradeStationDataset } from '@/features/trade-station';
+import type { TradeSort, TradeStationDataset } from '@/features/trade-station';
 
 export async function generateMetadata(props: SeoPageProps) {
   return generatePageMetadata('/tools/trade-station/', props);
@@ -32,9 +32,7 @@ export default async function Page({ searchParams }: { searchParams?: Promise<Se
 
   const params = (searchParams ? await searchParams : undefined) ?? {};
   const sectionParam = first(params.section);
-  const section = dataset.sections.some((entry) => entry.id === sectionParam)
-    ? (sectionParam as TradeSectionId)
-    : 'all';
+  const section = dataset.sections.find((entry) => entry.id === sectionParam)?.id ?? 'all';
   // `Number(null)` is 0, so an absent parameter must stay absent instead of filtering on index 0.
   const indexParam = (value: string | null) => {
     if (value === null || value.trim() === '') return null;

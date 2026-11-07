@@ -20,6 +20,7 @@ export * from './feedback';
 export type {TestServerParticipation} from './test-accounts';
 export * from './mmo-build-profiles';
 export * from './raid-rankings';
+export * from './trade-station';
 
 export * from './player-import';
 export * from './runtime-datasets';

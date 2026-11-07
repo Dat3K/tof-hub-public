@@ -12,7 +12,11 @@
  *   CN text and is never used.
  * - `TradeShopLevelDataTable` is reported for the capacity the curated rules quote.
  * - Item identity comes from the item catalogs, then `ItemConfigs` + the English `Game.json`. An id
- *   that resolves nowhere keeps `name: null` and is listed in the processor report.
+ *   that resolves nowhere keeps `name: null` and is listed in the processor report. Catalog icons
+ *   keep their file but move to the served WebP root, so the published dataset loads in a checkout
+ *   that has no `/datamine/shared/media` tree.
+ *
+ * The published shape lives in `@tof-hub/contracts` (`trade-station.ts`), shared with the page.
  *
  * Every field stays English, which is why this processor reads `Localization/Game/en/Game.json`
  * directly instead of following the locale projection the other processors share.
@@ -21,6 +25,13 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
+import type {
+  TradePriceBand,
+  TradeSection,
+  TradeStationDataset,
+  TradeStationRow,
+  TradeStationRules,
+} from '../../../packages/contracts/src/trade-station';
 
 const CONTENT = 'Hotta/Content';
 const LISTING_TABLE = `${CONTENT}/Resources/CoreBlueprints/DataTable/TradeLineItemStaticDataTable.json`;
@@ -38,8 +49,8 @@ const CURRENCY_PREFIX = 'EHottaCurrencyType::';
 const CURRENCY_NAME = 'Universal Crystal';
 /**
  * WebP tree the site serves in development and production alike. The production nginx also serves
- * `/datamine/shared/media`, but a local checkout has no such directory, so every icon here would be
- * a 404 in the preview.
+ * `/datamine/shared/media`, but a local checkout has no such directory, so every icon is emitted
+ * under this root: the catalog's own path is rewritten by `siteIconUrl`.
  */
 const MEDIA_ROOT = '/game-assets/webp';
 
@@ -56,11 +67,11 @@ export interface TradeTextContent {
   SourceString?: string;
 }
 
-export interface TradeCategoryNode {
+export interface TradeTreeCategoryNode {
   TextContent?: TradeTextContent;
   Typeindex?: number;
   TradeQuality?: string;
-  ChildrenNode?: TradeCategoryNode[];
+  ChildrenNode?: TradeTreeCategoryNode[];
 }
 
 export interface TradeTableRow {
@@ -103,17 +114,6 @@ export interface ItemIdentity {
   quality: string;
 }
 
-export interface TradeTypeNode {
-  index: number;
-  name: string;
-}
-
-export interface TradeSection {
-  id: string;
-  name: string;
-  types: TradeTypeNode[];
-}
-
 /**
  * Shard ids carry a `frag_` segment - `frag_imitation_extra_6`, `mmo_frag_Mount_038` - and their
  * reference price is exactly a tenth of the item they combine into, ten at a time.
@@ -123,57 +123,6 @@ const SHARD_PREFIXES = ['mmo_frag_', 'frag_'];
 function shardParentId(id: string): string | null {
   const prefix = SHARD_PREFIXES.find((candidate) => id.startsWith(candidate));
   return prefix ? id.slice(prefix.length) : null;
-}
-
-export interface TradeStationRow {
-  id: string;
-  name: string | null;
-  icon: string;
-  quality: string;
-  section: string;
-  type: number;
-  basePrice: number;
-  minPrice: number;
-  maxPrice: number;
-  minRatio: number;
-  maxRatio: number;
-  canList: boolean;
-  canSystemBuy: boolean;
-  systemMinPrice: number;
-  systemMaxPrice: number;
-  bindOnPurchase: boolean;
-  priceStep: number;
-  /** `client` when the band is `PutAwardRange`, `server` when a curated override replaced it. */
-  bandSource: 'client' | 'server';
-  /** A curated band's own price buttons, as the percents the station labels them with, bottom first. */
-  percentRungs?: number[];
-  /** `frag_*` ids are shards: ten of them combine into the item the id names. */
-  shard: boolean;
-  /** The item this shard combines into, or null when that item has no row in this table. */
-  shardOfId: string | null;
-}
-
-export interface TradeRulesSection {
-  title: string;
-  items: string[];
-}
-
-export interface TradeStationRules {
-  source: string;
-  observedAt: string;
-  serverTimeZone: string;
-  /** Bands the Overseas build uses instead of `PutAwardRange`; applied to the rows as they build. */
-  priceBands?: PriceBandOverride[];
-  en: { sections: TradeRulesSection[] };
-}
-
-export interface TradeStationDataset {
-  currency: { code: string; name: string };
-  /** SHA-256 of each raw table consumed, as `docs/game-data/README.md` requires of every dataset. */
-  sources: Record<string, string>;
-  sections: TradeSection[];
-  rows: TradeStationRow[];
-  rules?: TradeStationRules;
 }
 
 interface SourceFile {
@@ -240,7 +189,7 @@ function label(table: Record<string, string>, key: string | undefined): string {
  * Sections and their types in the tree's declared order. The version axis is deliberately absent:
  * measured on the client table, every listable `TQ_RATE_FASHION` row sits at `SubTypeIndex = 1`.
  */
-export function buildSections(tree: TradeCategoryNode[], labels: Record<string, string>): TradeSection[] {
+export function buildSections(tree: TradeTreeCategoryNode[], labels: Record<string, string>): TradeSection[] {
   return tree
     .filter((node) => Boolean(node.TradeQuality))
     .map((node) => ({
@@ -252,23 +201,11 @@ export function buildSections(tree: TradeCategoryNode[], labels: Record<string, 
     }));
 }
 
-export interface PriceBandOverride {
-  /** Id prefix the band applies to; a curated file cannot patch the client table it was derived from. */
-  idPrefix: string;
-  minRatio: number;
-  maxRatio: number;
-  /** The interval between rungs, as the station measures it (13.3333%). */
-  stepRatio: number;
-  /** The station's own price buttons, as percents of the reference price, bottom first. */
-  percentRungs: number[];
-  note?: string;
-}
-
 export function buildRow(
   id: string,
   raw: TradeTableRow,
   item: ItemIdentity,
-  override?: PriceBandOverride
+  override?: TradePriceBand
 ): TradeStationRow {
   const basePrice = Number(raw.TradeBasePrice?.Amount ?? 0);
   const minRatio = Number(override?.minRatio ?? raw.PutAwardRange?.X ?? 0);
@@ -308,6 +245,15 @@ function canonicalIconUrl(assetPath: unknown): string {
     .replace(/\.[^/.]*$/, '')
     .replace(/\.(?:png|webp|jpe?g|svg)$/i, '');
   return `${MEDIA_ROOT}/${CONTENT}/${packagePath}.webp`;
+}
+
+/**
+ * The item catalogs store either the served WebP URL or the production-only media root; a consumer
+ * of the published dataset must not inherit a path that 404s in a local checkout.
+ */
+export function siteIconUrl(url: string): string {
+  const legacyRoot = '/datamine/shared/media/';
+  return url.startsWith(legacyRoot) ? `${MEDIA_ROOT}/${url.slice(legacyRoot.length)}` : url;
 }
 
 function namespaceOf(tableId: string | undefined): string {
@@ -398,7 +344,7 @@ export function createItemResolver(
     // peppers.", "Zip fragments."). A hand-written `rename` is the only name it owns.
     const rename = typeof catalogItem?.rename === 'string' ? catalogItem.rename : '';
     const name = rename || clientName || catalogName || null;
-    if (catalogIcon) return { name, icon: catalogIcon, quality };
+    if (catalogIcon) return { name, icon: siteIconUrl(catalogIcon), quality };
     return {
       name,
       icon: fallbackIcon(id) || canonicalIconUrl(config?.ItemIcon?.AssetPathName),
@@ -423,7 +369,7 @@ export function buildTradeStationDataset(input: {
   sections: TradeSection[];
   describe: (id: string) => ItemIdentity;
   rules: TradeStationRules | null;
-  priceBands?: PriceBandOverride[];
+  priceBands?: TradePriceBand[];
 }): TradeStationDataset {
   const bands = input.priceBands ?? [];
   const bandFor = (id: string) => bands.find((band) => id.startsWith(band.idPrefix));
@@ -530,7 +476,7 @@ function main(): void {
   // Parsed JSON boundary: the tree shape was verified against the client export.
   const menu = assetProperties(treeSource, CATEGORY_TREE).TradeLineMenuListArray;
   if (!Array.isArray(menu)) throw new Error(`[required] TradeLineMenuListArray missing: ${CATEGORY_TREE}`);
-  const tree = menu as TradeCategoryNode[];
+  const tree = menu as TradeTreeCategoryNode[];
 
   const rows = tableRows<TradeTableRow>(listingSource, LISTING_TABLE);
   const levels = tableRows<{ TradeCapacity?: number }>(levelSource, LEVEL_TABLE);

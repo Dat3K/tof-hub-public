@@ -10,7 +10,7 @@ import { intlLocale } from '@/lib/i18n/format';
 import { resolveMediaUrl } from '@/features/datamine/items/items-domain';
 import { TRADE_STATION_COPY } from './copy';
 import { clampPrice, computeFees, priceLadder, priceStepOf } from './fees';
-import type { TradeSort, TradeStationDataset, TradeStationInitialState, TradeStationRow, TradeSectionId } from './types';
+import type { TradeSort, TradeStationDataset, TradeStationInitialState, TradeStationRow } from './types';
 import styles from './trade-station.module.css';
 
 const SORT_VALUES: TradeSort[] = ['category', 'price-desc', 'price-asc', 'name-asc'];
@@ -33,7 +33,8 @@ const FILTER_STORAGE_KEY = 'tof-hub:trade-station:filters';
 
 interface StoredFilters {
   search: string;
-  section: TradeSectionId | 'all';
+  /** A section id from the dataset, or `all`. */
+  section: string;
   type: number | null;
   sort: TradeSort;
   showUnlistable: boolean;
@@ -47,7 +48,7 @@ function readStoredFilters(): StoredFilters | null {
     const parsed = JSON.parse(raw) as Partial<StoredFilters>;
     return {
       search: typeof parsed.search === 'string' ? parsed.search : '',
-      section: typeof parsed.section === 'string' ? (parsed.section as TradeSectionId | 'all') : 'all',
+      section: typeof parsed.section === 'string' ? parsed.section : 'all',
       type: typeof parsed.type === 'number' ? parsed.type : null,
       sort: SORT_VALUES.includes(parsed.sort as TradeSort) ? (parsed.sort as TradeSort) : 'category',
       showUnlistable: parsed.showUnlistable === true,
@@ -150,7 +151,7 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
   const [priceStepPrefix, priceStepSuffix] = copy.priceStepNote.split('{step}');
 
   const [search, setSearch] = useState(initial.search);
-  const [section, setSection] = useState<TradeSectionId | 'all'>(initial.section);
+  const [section, setSection] = useState<string>(initial.section);
   const [type, setType] = useState<number | null>(initial.type);
   const [sort, setSort] = useState<TradeSort>(initial.sort);
   const [showUnlistable, setShowUnlistable] = useState(initial.showUnlistable);
@@ -193,7 +194,7 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
     (entry) => entry.index === type || (typeCounts.get(entry.index) ?? 0) > 0,
   );
 
-  const onSectionChange = useCallback((value: TradeSectionId | 'all') => {
+  const onSectionChange = useCallback((value: string) => {
     setSection(value);
     setType(null);
   }, []);

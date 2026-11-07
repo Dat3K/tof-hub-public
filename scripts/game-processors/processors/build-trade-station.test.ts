@@ -3,9 +3,10 @@ const assert = require('node:assert/strict');
 
 // `node --test` resolves the TypeScript source through the explicit extension; the type import
 // below keeps the helpers typed without asking TypeScript to accept that same specifier.
+import type { TradeStationRules } from '../../../packages/contracts/src/trade-station';
 type TradeStationModule = typeof import('./build-trade-station');
 const tradeStation: TradeStationModule = require('./build-trade-station.ts');
-const { buildRow, buildSections, buildTradeStationDataset, createIconFallback, createItemResolver, roundHalfUp, stationCapacity, tradeCurrencyCode } =
+const { buildRow, buildSections, buildTradeStationDataset, createIconFallback, createItemResolver, roundHalfUp, siteIconUrl, stationCapacity, tradeCurrencyCode } =
   tradeStation;
 
 const LISTING_ROW = {
@@ -118,7 +119,14 @@ test('buildSections resolves labels by key, sorts types, and emits no version li
 
 test('createItemResolver keeps the catalog icon and the client name, then falls back', () => {
   const resolve = createItemResolver(
-    [[{ id: 'fromCatalog', name: 'Catalog Name', icon: '/catalog.webp', quality: 'ITEM_QUALITY_EPIC' }]],
+    [[
+      { id: 'fromCatalog', name: 'Catalog Name', icon: '/catalog.webp', quality: 'ITEM_QUALITY_EPIC' },
+      {
+        id: 'fromLegacyRoot',
+        icon: '/datamine/shared/media/Hotta/Content/Resources/Icon/item/x.webp',
+        quality: 'ITEM_QUALITY_COMMON',
+      },
+    ]],
     {
       fromConfig: {
         ItemIcon: { AssetPathName: '/Game/Resources/Icon/ImitationGift/unlock6.unlock6' },
@@ -142,6 +150,12 @@ test('createItemResolver keeps the catalog icon and the client name, then falls 
     icon: '/catalog.webp',
     quality: 'ITEM_QUALITY_EPIC',
   });
+  // The production-only media root is rewritten to the tree every checkout serves.
+  assert.deepEqual(resolve('fromLegacyRoot'), {
+    name: null,
+    icon: '/game-assets/webp/Hotta/Content/Resources/Icon/item/x.webp',
+    quality: 'ITEM_QUALITY_COMMON',
+  });
   assert.deepEqual(resolve('fromConfig'), {
     name: 'Upgrade Drive - Lockhart',
     icon: '/game-assets/webp/Hotta/Content/Resources/Icon/ImitationGift/unlock6.webp',
@@ -151,8 +165,16 @@ test('createItemResolver keeps the catalog icon and the client name, then falls 
   assert.deepEqual(resolve('nowhere'), { name: null, icon: '', quality: '' });
 });
 
+test('siteIconUrl moves only the production media root onto the served WebP tree', () => {
+  assert.equal(siteIconUrl('/datamine/shared/media/Hotta/Content/Resources/Icon/item/x.webp'),
+    '/game-assets/webp/Hotta/Content/Resources/Icon/item/x.webp');
+  assert.equal(siteIconUrl('/game-assets/webp/Hotta/Content/Resources/Icon/item/x.webp'),
+    '/game-assets/webp/Hotta/Content/Resources/Icon/item/x.webp');
+  assert.equal(siteIconUrl(''), '');
+});
+
 test('buildTradeStationDataset derives the currency code, keeps table order, and embeds the rules', () => {
-  const rules = {
+  const rules: TradeStationRules = {
     source: 'observed',
     observedAt: '2026-11-07',
     serverTimeZone: 'UTC+9',
