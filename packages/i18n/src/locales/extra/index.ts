@@ -1,4 +1,4 @@
-import { publicImportTranslations } from './public-import';
+import {publicImportTranslations} from './public-import';
 import type { Locale } from '../../constants';
 import { cosmeticMediaTranslations } from './features/cosmetic-media';
 import { de } from './cultures/de';

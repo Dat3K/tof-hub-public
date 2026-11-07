@@ -1,4 +1,4 @@
-export interface NavItem { id: string; href: string; label: { en: string; ru: string } }
+export interface NavItem { id: string; href: string; label: {en: string; ru: string} }
 
 export const INFO_NAV_ITEMS: NavItem[] = [
   { id: 'simulacra', href: '/info/simulacra', label: { en: 'Simulacra', ru: 'Симулякры' } },
