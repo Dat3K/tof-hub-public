@@ -10,6 +10,7 @@ These pages document how individual Datamine sections are derived from the game 
 | [Brainfield (MMO)](brainfield.md) | `/datamine/handbook/#brainfield` |
 | [Origin of War](origin-of-war.md) | `/datamine/oow/` |
 | [Sequential Phantasm](sequential.md) | `/datamine/seq/` |
+| [Trade Station prices](trade-station.md) | `/tools/trade-station/` |
 | [Cosmetics media](cosmetics.md) | `/info/cosmetics/`, Build account details |
 | [Simulacra localization](simulacra-localization.md) | `/info/simulacra/` |
 

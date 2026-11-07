@@ -16,3 +16,4 @@ export * from './wish-banners';
 export * from './team-raids';
 export * from './mmo-team-raids';
 export * from './mmo-build';
+export * from './trade-station';

@@ -36,6 +36,7 @@ node scripts/check-public-source.mjs  # Public source, configuration and script 
 pnpm lint                     # ESLint + UI localization check
 pnpm typecheck
 pnpm test:unit                # Vitest
+pnpm test:processors          # Game processors, node --test
 pnpm prisma:validate
 pnpm build:api
 pnpm build:web

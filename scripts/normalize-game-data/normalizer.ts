@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import {buildRuntimeData} from '../generators/build-runtime-data.cjs';
+import { buildRuntimeData, writeRuntimeJson } from '../generators/build-runtime-data.cjs';
+import { LANGUAGE_MENU_LOCALES } from '../../packages/i18n/src/constants';
 import {
   findProjectRoot,
   createPathGuard,
@@ -27,6 +28,7 @@ import {
   normalizeTeamRaidsDataset,
   normalizeMmoTeamRaidsDataset,
   normalizeMmoBuildDataset,
+  normalizeTradeStationDataset,
   materializeWishTitleArt,
 } from './adapters';
 import { buildChangelogBaselines } from './changelog-baselines';
@@ -95,7 +97,7 @@ export async function normalizeGameData(
   let unmappedWishPools: Awaited<ReturnType<typeof normalizeWishBannersDataset>>['unmappedLotteryCodes'] = [];
 
   // 1. Simulacra
-  const simulacraRes = normalizeSimulacraDataset(legacySourceDir,rawDir);
+  const simulacraRes = normalizeSimulacraDataset(legacySourceDir, rawDir);
   results.push(simulacraRes);
   countsByDataset.simulacra = simulacraRes.counts.total || 0;
   totalEntities += countsByDataset.simulacra;
@@ -180,7 +182,7 @@ export async function normalizeGameData(
   // 14. Comp Catalog (Squad & Raid Builder)
   const compRes = normalizeCompDataset(
     legacySourceDir,
-    (simulacraRes.materialized.en as {mmo?:any[]}).mmo,
+    (simulacraRes.materialized.en as { mmo?: any[] }).mmo,
     path.join(path.dirname(publicOutputDir), 'game-assets', 'media-manifest.json')
   );
   results.push(compRes);
@@ -230,6 +232,12 @@ export async function normalizeGameData(
   results.push(mmoBuildRes);
   countsByDataset['mmo-build'] = mmoBuildRes.counts.total || 0;
   totalEntities += countsByDataset['mmo-build'];
+
+  // 18. Trade Station (staging file from build-trade-station; empty without a game export)
+  const tradeStationRes = normalizeTradeStationDataset(legacySourceDir);
+  results.push(tradeStationRes);
+  countsByDataset['trade-station'] = tradeStationRes.counts.total || 0;
+  totalEntities += countsByDataset['trade-station'];
 
   // Write files
   for (const res of results) {
@@ -282,6 +290,19 @@ export async function normalizeGameData(
   }
 
   if (emitMaterialized && !dryRun) buildRuntimeData(publicOutputDir);
+
+  // D. Trade Station is served from `runtime/` directly rather than through the runtime projection
+  // table: the rows are locale-independent, so the root copy is what the page reads and each menu
+  // locale carries the same copy (written after `buildRuntimeData` so it is not pruned).
+  if (emitMaterialized && !dryRun) {
+    const tradeStation = tradeStationRes.materialized.en;
+    writeRuntimeJson(path.join(publicOutputDir, 'runtime', 'trade-station.json'), tradeStation);
+    for (const locale of LANGUAGE_MENU_LOCALES) {
+      const localeDir = path.join(publicOutputDir, locale);
+      if (!fs.existsSync(localeDir)) continue;
+      writeRuntimeJson(path.join(localeDir, 'runtime', 'trade-station.json'), tradeStation);
+    }
+  }
 
   return {
     timestamp: new Date().toISOString(),

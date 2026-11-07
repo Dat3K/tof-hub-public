@@ -1,0 +1,48 @@
+{
+  "source": "observed",
+  "observedAt": "2026-11-07",
+  "serverTimeZone": "UTC+9",
+  "priceBands": [
+    {
+      "idPrefix": "StrengthenStoneMMO_B",
+      "minRatio": 0.6,
+      "maxRatio": 2.46,
+      "stepRatio": 0.13,
+      "note": "Rare weapon-enhancement modules (Enhanced Resonance Module, Advanced Restructure Component). The Overseas station opens -40% to +146% in 13% steps; the client table says 50% to 250% with a 13.3% increment. Observed 2026-11-07."
+    }
+  ],
+  "en": {
+    "sections": [
+      {
+        "title": "Listing",
+        "items": [
+          "A non-refundable fee is charged when an item is listed. It is paid in Gold and equals the listing's value in Universal Crystals, price times quantity; the Pass takes 20% off. The fee does not depend on Trade Station level.",
+          "Up to 6 items can be listed by default. The Pass unlocks more listing slots.",
+          "A listing expires after 24 hours, and the stack returns by in-game mail. The client sets that window in DA_TradeLine.",
+          "Multiple units of one listing sell individually and settle instantly; a buyer does not need the whole stack.",
+          "Equipment Expansion Packs cannot be listed."
+        ]
+      },
+      {
+        "title": "Trading",
+        "items": [
+          "A purchase is matched against the lowest current listing of the same item.",
+          "A 5% fee in Universal Crystals is taken from the seller's proceeds on every completed sale.",
+          "The station closes every day from 00:00 to 01:00 server time.",
+          "An item with a review period can only be purchased once the period ends; the client sets that period to 2 hours.",
+          "Equipment and Relics bind to the buyer on purchase."
+        ]
+      },
+      {
+        "title": "Limits",
+        "items": ["There is no purchase limit."]
+      },
+      {
+        "title": "Active status",
+        "items": [
+          "Players with low activity and a low Apex CS count as inactive, and their listings are invisible to other players."
+        ]
+      }
+    ]
+  }
+}
