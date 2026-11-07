@@ -3,7 +3,8 @@
  *
  * The listing fee is paid in Gold and equals the listing's UC value (Pass: 20% off). The
  * sale fee is 5% of the sale, taken in UC from the seller's proceeds. Neither depends on
- * Trade Station level — see docs/adr/0004-trade-station-rules-curated-per-build.md.
+ * Trade Station level: the curated rules file records the fees, and the client's level table
+ * (`PutawayPriceRatio`) has no consumer here. See `docs/game-data/trade-station.md`.
  */
 
 export const SALE_FEE_RATE = 0.05;

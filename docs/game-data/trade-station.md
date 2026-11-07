@@ -1,8 +1,10 @@
 # Trade Station prices
 
 `/tools/trade-station/` answers, for the MMO (`mmo`) edition, which items can be listed and inside
-what price range. Every number comes from two client tables; nothing is observed from the live
-market (ADR 0003), and the rules text is grafted from the server rather than the client (ADR 0004).
+what price range. Every price comes from the client tables below; nothing is observed from the live
+market. The rules text is not in the client at all: it is the curated
+`scripts/game-processors/curated/tools/trade-station-rules.json`, transcribed from the Overseas
+server build, which also records when it was observed.
 
 ## Raw tables
 
@@ -47,10 +49,11 @@ id; for the 100 ids whose catalog entry has no icon, the catalog name is a machi
 carry a hand-written `rename`; that still wins.
 
 The **icon is the site projection** when the catalog has one (it points at the webp the other pages
-use), else the cooking table, else the hair art pack, else `ItemConfigs.ItemIcon`. Every path is a
-`/game-assets/webp/Hotta/Content/...` URL: nginx also serves `/datamine/shared/media`, but a local
-checkout has no such directory, so a dataset that used it would 404 on every row in the preview.
-All 1081 rows resolve an icon; a row keeps `name: null` rather than borrowing a neighbour's name.
+use), else the cooking table, else the hair art pack, else `ItemConfigs.ItemIcon`. The catalogs store
+either the served root or `/datamine/shared/media/...`; the processor rewrites the second onto
+`/game-assets/webp/Hotta/Content/...`, so every path in the dataset loads in a local checkout too
+(nginx serves `/datamine/shared/media` in production only). All 1081 rows resolve an icon; a row
+keeps `name: null` rather than borrowing a neighbour's name.
 
 A media export only converts the assets that existed in `game-data` when it ran, so a dataset added
 later names WebPs the export never produced (the trade rows needed 91 more). Re-running the media
