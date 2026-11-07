@@ -64,9 +64,10 @@ instead of a broken image, because the view drops an `<img>` whose load fails.
 - **Client band.** Walk `minPrice` in whole UC steps of `max(1, round(base × TradePriceMinDif))` and
   always include `minPrice`, the reference price and `maxPrice`. On a 128 UC shard that is
   45, 58, 71 … 448 — 10% of the reference price, landing exactly on both ends of the band.
-- **Server band** (see below). Walk the ratio grid `minRatio + k × stepRatio` and price each rung as
-  `round(base × ratio)`. A whole UC step cannot express 13% of a 12 UC reference price, so the grid
-  is the only faithful reading: 7, 9, 10, 12 … 29 UC for -40% … +142%.
+- **Server band** (see below). Price the rungs the curated band carries,
+  `round(base × (1 + percent / 100))`, because a whole UC step cannot express 13.3333% of a 12 UC
+  reference price. The percent labels are the station's own and are not re-derived from the ratio;
+  on the 12 UC weapon-enhancement modules they read -40% … +146% and price as 7, 9, 10, 12 … 30 UC.
 
 ## Server price bands
 
@@ -76,13 +77,18 @@ applies them by id prefix, so the client table stays untouched:
 
 ```jsonc
 "priceBands": [
-  { "idPrefix": "StrengthenStoneMMO_B", "minRatio": 0.6, "maxRatio": 2.46, "stepRatio": 0.13, "note": "…" }
+  {
+    "idPrefix": "StrengthenStoneMMO_B", "minRatio": 0.6, "maxRatio": 2.46,
+    "stepRatio": 0.1333333,
+    "percentRungs": [-40, -27, -13, 0, 13, 27, 40, 53, 67, 80, 93, 106, 120, 133, 146],
+    "note": "…"
+  }
 ]
 ```
 
 | Family | Rows | Client band | Server band |
 | --- | --- | --- | --- |
-| Enhanced Resonance Module / Advanced Restructure Component | 10 | 50% – 250%, 13.3% step | **-40% … +146%, 13% step** |
+| Enhanced Resonance Module / Advanced Restructure Component | 10 | 50% – 250%, 13.3% step | **-40% … +146%, 13.3333% steps** |
 
 A row that took an override carries `bandSource: "server"`, and the calculator prints the observed
 range instead of the client step. `bandSource: "client"` means the numbers come from the table.
@@ -93,8 +99,8 @@ range instead of the client step. `bandSource: "client"` means the numbers come 
 the reference price when it buys the item and `bCanSysAutoSell` is true. It is an instant sale to the
 system, not a player purchase — the client gates it on `SysAutoSellLimitArray`
 (`ServerLevelRequired` 10…49 by row, cooldown 3600–9000 s) and caps the stack with
-`SysTradeItemAmount` (X/Y between 10/50 and 40/200). Rows with `bCanSysAutoSell: false` show
-"Not system-buyable".
+`SysTradeItemAmount` (X/Y between 10/50 and 40/200). The dataset keeps the band
+(`canSystemBuy`, `systemMinPrice`, `systemMaxPrice`); the page does not show a column for it.
 
 ## Measured facts
 
@@ -160,7 +166,8 @@ curated rules file, not in the dataset.
 - **`StarRecycleDataTable`** sits next to the trade tables and is exported; whether it feeds the
   same prices is unchecked.
 - **Whether the other rare families share the module band.** Only `StrengthenStoneMMO_B*` is
-  measured (-40% … +146%, 13% steps). The `A*` rows (step 25% of 4 UC = 1 UC) and the 150 UC `C*`
-  rows still use the client band; whether the Overseas station narrows those too is unconfirmed.
+  measured (-40% … +146%, 13.3333% steps). The `A*` rows (step 25% of 4 UC = 1 UC) and the 150 UC
+  `C*` rows still use the client band; whether the Overseas station narrows those too is
+  unconfirmed.
 - **Whether a price must sit on the step grid at all.** The client stores an increment, not a rule
   that prices are quantised, and the calculator offers only grid rungs.

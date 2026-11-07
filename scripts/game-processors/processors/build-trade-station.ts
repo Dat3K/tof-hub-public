@@ -143,6 +143,10 @@ export interface TradeStationRow {
   systemMaxPrice: number;
   bindOnPurchase: boolean;
   priceStep: number;
+  /** `client` when the band is `PutAwardRange`, `server` when a curated override replaced it. */
+  bandSource: 'client' | 'server';
+  /** A curated band's own price buttons, as the percents the station labels them with, bottom first. */
+  percentRungs?: number[];
   /** `frag_*` ids are shards: ten of them combine into the item the id names. */
   shard: boolean;
   /** The item this shard combines into, or null when that item has no row in this table. */
@@ -158,6 +162,8 @@ export interface TradeStationRules {
   source: string;
   observedAt: string;
   serverTimeZone: string;
+  /** Bands the Overseas build uses instead of `PutAwardRange`; applied to the rows as they build. */
+  priceBands?: PriceBandOverride[];
   en: { sections: TradeRulesSection[] };
 }
 
@@ -251,7 +257,10 @@ export interface PriceBandOverride {
   idPrefix: string;
   minRatio: number;
   maxRatio: number;
+  /** The interval between rungs, as the station measures it (13.3333%). */
   stepRatio: number;
+  /** The station's own price buttons, as percents of the reference price, bottom first. */
+  percentRungs: number[];
   note?: string;
 }
 
@@ -284,6 +293,7 @@ export function buildRow(
     systemMaxPrice: roundHalfUp(basePrice * systemMaxRatio),
     bindOnPurchase: raw.bForceBind === true,
     priceStep: Number(override?.stepRatio ?? raw.TradePriceMinDif ?? 0),
+    ...(override ? { percentRungs: override.percentRungs } : {}),
     bandSource: override ? 'server' : 'client',
     shard: shardParentId(id) !== null,
     shardOfId: shardParentId(id),
@@ -474,6 +484,11 @@ function readRules(filePath: string): TradeStationRules {
   const rules = data as TradeStationRules;
   if (!Array.isArray(rules.en?.sections)) {
     throw new Error(`[build-trade-station] curated rules are missing en.sections: ${filePath}`);
+  }
+  for (const band of rules.priceBands ?? []) {
+    if (!Array.isArray(band.percentRungs) || band.percentRungs.length < 2) {
+      throw new Error(`[build-trade-station] price band ${band.idPrefix} has no percentRungs: ${filePath}`);
+    }
   }
   return rules;
 }

@@ -7,8 +7,9 @@
       "idPrefix": "StrengthenStoneMMO_B",
       "minRatio": 0.6,
       "maxRatio": 2.46,
-      "stepRatio": 0.13,
-      "note": "Rare weapon-enhancement modules (Enhanced Resonance Module, Advanced Restructure Component). The Overseas station opens -40% to +146% in 13% steps; the client table says 50% to 250% with a 13.3% increment. Observed 2026-11-07."
+      "stepRatio": 0.1333333,
+      "percentRungs": [-40, -27, -13, 0, 13, 27, 40, 53, 67, 80, 93, 106, 120, 133, 146],
+      "note": "Rare weapon-enhancement modules (Enhanced Resonance Module, Advanced Restructure Component). The Overseas station opens -40% to +146% in 13.3333% steps; the labels are the percents the station shows, not a re-rounding of the ratio. The client table says 50% to 250% with a 13.3% increment. Observed 2026-11-07."
     }
   ],
   "en": {

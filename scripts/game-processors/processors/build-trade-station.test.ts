@@ -23,6 +23,15 @@ const LISTING_ROW = {
   bForceBind: false,
 };
 
+/** The curated Overseas band for the rare weapon-enhancement modules, rungs included. */
+const WEAPON_BAND = {
+  idPrefix: 'StrengthenStoneMMO_B',
+  minRatio: 0.6,
+  maxRatio: 2.46,
+  stepRatio: 0.1333333,
+  percentRungs: [-40, -27, -13, 0, 13, 27, 40, 53, 67, 80, 93, 106, 120, 133, 146],
+};
+
 test('roundHalfUp rounds exact halves up and absorbs float drift', () => {
   assert.equal(roundHalfUp(2.5), 3);
   assert.equal(roundHalfUp(2.49), 2);
@@ -181,7 +190,7 @@ test('tradeCurrencyCode rejects a table that mixes currencies', () => {
 test('stationCapacity reports a per-level split instead of throwing', () => {
   assert.equal(stationCapacity({ 1: { TradeCapacity: 6 }, 2: { TradeCapacity: 6 } }), 6);
 
-  const warnings = [];
+  const warnings: string[] = [];
   const warn = console.warn;
   console.warn = (message) => warnings.push(message);
   try {
@@ -282,13 +291,14 @@ test('a curated band replaces the client one and is marked as observed', () => {
     name: 'Enhanced Resonance Module - Burn',
     icon: '',
     quality: 'ITEM_QUALITY_EPIC',
-  }, { idPrefix: 'StrengthenStoneMMO_B', minRatio: 0.6, maxRatio: 2.46, stepRatio: 0.13 });
+  }, WEAPON_BAND);
   assert.equal(row.minRatio, 0.6);
   assert.equal(row.maxRatio, 2.46);
   // The 4 UC reference price of the fixture: 0.6 → 2.4 UC (2), 2.46 → 9.84 UC (10).
   assert.equal(row.minPrice, 2);
   assert.equal(row.maxPrice, 10);
-  assert.equal(row.priceStep, 0.13);
+  // The band carries the station's own 13.3333% interval, not the client's 13.3% one.
+  assert.equal(row.priceStep, 0.1333333);
   assert.equal(row.bandSource, 'server');
 });
 
@@ -302,7 +312,7 @@ test('buildTradeStationDataset applies a band to the ids its prefix names, and o
     sections: [],
     describe: (id) => ({ name: id, icon: '', quality: '' }),
     rules: null,
-    priceBands: [{ idPrefix: 'StrengthenStoneMMO_B', minRatio: 0.6, maxRatio: 2.46, stepRatio: 0.13 }],
+    priceBands: [WEAPON_BAND],
   });
   const [banded, plain] = dataset.rows;
   assert.equal(banded.bandSource, 'server');
