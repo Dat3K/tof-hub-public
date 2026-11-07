@@ -30,6 +30,7 @@ export const SITE_PAGE_COPY = {
   '/tools/comp/': ['Team planner', 'Plan weapons, matrices, traits and relics for a team.'],
   '/tools/wish/': ['Wish Tracker', 'Import Special Orders history and view pulls, pity and banner statistics.'],
   '/tools/queue/': ['Processing queue', 'Status of queued imports and saved builds.'],
+  '/tools/trade-station/': ['Trade Station prices', 'Which items the MMO Trade Station accepts, their reference price in Universal Crystals, the allowed listing band and the fees to sell.'],
   '/about/': ['About ToF Hub', 'What ToF Hub contains, where its data comes from and how it is maintained.'],
   '/story/': ['Project story', 'My journey in Tower of Fantasy: from a day-one player to research, spreadsheets and ToF Hub.'],
   '/changelog/': ['Site changelog', 'Updates to ToF Hub features, tools and data.'],

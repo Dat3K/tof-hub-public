@@ -1,4 +1,4 @@
-export interface NavItem { id: string; href: string; label: {en: string; ru: string} }
+export interface NavItem { id: string; href: string; label: { en: string; ru: string } }
 
 export const INFO_NAV_ITEMS: NavItem[] = [
   { id: 'simulacra', href: '/info/simulacra', label: { en: 'Simulacra', ru: 'Симулякры' } },
@@ -27,6 +27,7 @@ export const TOOLS_NAV_ITEMS: NavItem[] = [
   { id: 'optimizer', href: '/tools/optimizer', label: { en: 'Gear optimizer', ru: 'Оптимайзер гира' } },
   { id: 'wish', href: '/tools/wish', label: { en: 'Wish Tracker', ru: 'Крутки' } },
   { id: 'comp', href: '/tools/comp', label: { en: 'Comp showcase', ru: 'Конструктор' } },
+  { id: 'trade-station', href: '/tools/trade-station', label: { en: 'Trade Station', ru: 'Торговая станция' } },
 ];
 
 

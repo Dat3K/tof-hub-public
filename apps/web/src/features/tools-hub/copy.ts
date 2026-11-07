@@ -33,6 +33,7 @@ export interface ToolsHubCopy {
     };
   };
   comp: { title: string; description: string };
+  tradeStation: { title: string; description: string };
 }
 
 export const TOOLS_HUB_COPY: Record<Locale, (Record<'en' | 'ru', ToolsHubCopy>)['en']> = createLocaleCopies(({
@@ -82,6 +83,7 @@ export const TOOLS_HUB_COPY: Record<Locale, (Record<'en' | 'ru', ToolsHubCopy>)[
       },
     },
     comp: { title: 'Comp showcase', description: 'Squad and raid compositions with simulacra, matrices and relics.' },
+    tradeStation: { title: 'Trade Station', description: 'Which items can be listed, their reference price and the allowed price band.' },
   },
   ru: {
     title: 'Инструменты Tower of Fantasy',
@@ -129,5 +131,6 @@ export const TOOLS_HUB_COPY: Record<Locale, (Record<'en' | 'ru', ToolsHubCopy>)[
       },
     },
     comp: { title: 'Конструктор', description: 'Составы отрядов и рейдов с симулякрами, матрицами и реликвиями.' },
+    tradeStation: { title: 'Торговая станция', description: 'Что можно выставить, базовая цена и допустимый диапазон цен.' },
   },
 }) satisfies Pick<Record<'en' | 'ru', ToolsHubCopy>, 'en' | 'ru'>);

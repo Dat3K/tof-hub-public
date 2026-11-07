@@ -68,6 +68,7 @@ In the Genshin Impact community, each of these features is its own project, run 
 | [**Handbook**](https://tof.smilekritik.beer/datamine/handbook/) | Gear stat ranges, Titan rerolls, Combat Strength, upgrade costs, combat and resistance formulas, the MMO Brainfield talent tree and server lists |
 | [**Multiplicative buffs**](https://tof.smilekritik.beer/datamine/multype/) | Which buffs multiply and which add up, with their grouping and multipliers |
 | [**Item identifiers**](https://tof.smilekritik.beer/datamine/items/) | Internal and display names of every item |
+| [**Trade Station prices**](https://tof.smilekritik.beer/tools/trade-station/) | Which items the MMO Trade Station accepts, the reference price in Universal Crystals, the allowed listing band and the fees to sell |
 
 The [game data reference](docs/game-data/README.md) documents each page: source tables and fields, joins, formulas and the questions that remain open.
 

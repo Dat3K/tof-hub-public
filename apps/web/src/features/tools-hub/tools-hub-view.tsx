@@ -120,6 +120,15 @@ export function ToolsHubView({ summary, compPreview }: ToolsHubViewProps) {
       >
         <CompPreview rows={compPreview} copy={copy} />
       </SectionHubCard>
+
+      <SectionHubCard
+        id="trade-station"
+        href="/tools/trade-station/"
+        title={copy.tradeStation.title}
+        description={copy.tradeStation.description}
+        actionLabel={copy.openPage}
+        span="half"
+      />
     </SectionHubLayout>
   );
 }
