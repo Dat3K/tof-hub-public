@@ -71,6 +71,12 @@ export interface NormalizerOptions {
 
 export interface DatasetNormalizationResult<TC = unknown, TO = unknown, TM = unknown> {
   datasetName: string;
+  /**
+   * The dataset carries no locale-specific content, so it is served from a single
+   * `<public>/runtime/<dataset>.json` instead of per-locale copies. The normalizer also removes the
+   * `{en,ru}` copies an older run may have written, so a stale file cannot shadow the served one.
+   */
+  localeIndependent?: boolean;
   core: TC;
   overlays: Record<SupportedLocale, TO>;
   materialized: Record<SupportedLocale, TM>;

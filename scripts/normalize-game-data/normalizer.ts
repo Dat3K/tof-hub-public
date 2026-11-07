@@ -1,7 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { buildRuntimeData, writeRuntimeJson } from '../generators/build-runtime-data.cjs';
-import { LANGUAGE_MENU_LOCALES } from '../../packages/i18n/src/constants';
+import {buildRuntimeData, writeRuntimeJson} from '../generators/build-runtime-data.cjs';
 import {
   findProjectRoot,
   createPathGuard,
@@ -97,7 +96,7 @@ export async function normalizeGameData(
   let unmappedWishPools: Awaited<ReturnType<typeof normalizeWishBannersDataset>>['unmappedLotteryCodes'] = [];
 
   // 1. Simulacra
-  const simulacraRes = normalizeSimulacraDataset(legacySourceDir, rawDir);
+  const simulacraRes = normalizeSimulacraDataset(legacySourceDir,rawDir);
   results.push(simulacraRes);
   countsByDataset.simulacra = simulacraRes.counts.total || 0;
   totalEntities += countsByDataset.simulacra;
@@ -182,7 +181,7 @@ export async function normalizeGameData(
   // 14. Comp Catalog (Squad & Raid Builder)
   const compRes = normalizeCompDataset(
     legacySourceDir,
-    (simulacraRes.materialized.en as { mmo?: any[] }).mmo,
+    (simulacraRes.materialized.en as {mmo?:any[]}).mmo,
     path.join(path.dirname(publicOutputDir), 'game-assets', 'media-manifest.json')
   );
   results.push(compRes);
@@ -243,6 +242,23 @@ export async function normalizeGameData(
   for (const res of results) {
     const dsName = res.datasetName;
 
+    if (res.localeIndependent) {
+      if (emitMaterialized && !dryRun) {
+        writeRuntimeJson(path.join(publicOutputDir, 'runtime', `${dsName}.json`), res.materialized.en);
+        for (const locale of ['en', 'ru'] as const) {
+          for (const stale of [
+            path.join(publicOutputDir, locale, `${dsName}.json`),
+            path.join(publicOutputDir, locale, 'runtime', `${dsName}.json`),
+          ]) {
+            if (!fs.existsSync(stale)) continue;
+            pathGuard?.assertSafeOutput(stale);
+            fs.rmSync(stale, { force: true });
+          }
+        }
+      }
+      continue;
+    }
+
     // A. Intermediate language-independent core & overlays
     if (emitCoreAndOverlays && !dryRun) {
       safeWriteJson(path.join(normalizedOutputDir, 'core', `${dsName}.json`), res.core);
@@ -290,19 +306,6 @@ export async function normalizeGameData(
   }
 
   if (emitMaterialized && !dryRun) buildRuntimeData(publicOutputDir);
-
-  // D. Trade Station is served from `runtime/` directly rather than through the runtime projection
-  // table: the rows are locale-independent, so the root copy is what the page reads and each menu
-  // locale carries the same copy (written after `buildRuntimeData` so it is not pruned).
-  if (emitMaterialized && !dryRun) {
-    const tradeStation = tradeStationRes.materialized.en;
-    writeRuntimeJson(path.join(publicOutputDir, 'runtime', 'trade-station.json'), tradeStation);
-    for (const locale of LANGUAGE_MENU_LOCALES) {
-      const localeDir = path.join(publicOutputDir, locale);
-      if (!fs.existsSync(localeDir)) continue;
-      writeRuntimeJson(path.join(localeDir, 'runtime', 'trade-station.json'), tradeStation);
-    }
-  }
 
   return {
     timestamp: new Date().toISOString(),

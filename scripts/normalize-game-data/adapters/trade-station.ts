@@ -4,7 +4,8 @@ import type { DatasetNormalizationResult } from '../types';
 
 /**
  * Trade Station rows are locale-independent: item names and category labels stay English in every
- * locale tree, so each locale receives the same projection.
+ * locale tree. The normalizer therefore writes a single `runtime/trade-station.json`, the file the
+ * page reads, instead of one projection per locale.
  */
 interface TradeStationProjection {
   currency: { code: string; name: string };
@@ -41,6 +42,7 @@ export function normalizeTradeStationDataset(legacySourceDir: string): DatasetNo
 
   return {
     datasetName: 'trade-station',
+    localeIndependent: true,
     core: dataset,
     overlays: { en: {}, ru: {} },
     materialized: { en: dataset, ru: dataset },
