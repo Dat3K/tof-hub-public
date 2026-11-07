@@ -87,23 +87,24 @@ describe('priceLadder', () => {
     expect(new Set(prices).size).toBe(prices.length);
   });
 
-  it('walks a server band in the ratio grid it is shown with', () => {
-    // The rare weapon-enhancement modules: -40% to +146% in 13% steps on a 12 UC reference price.
+  it('offers the rungs a server band is labelled with', () => {
+    // The rare weapon-enhancement modules: -40% to +146% in 13.3333% steps on a 12 UC reference
+    // price. The labels are the station's own, so they are not re-derived from the ratio.
     const ladder = priceLadder({
       basePrice: 12,
       minPrice: 7,
       maxPrice: 30,
       minRatio: 0.6,
       maxRatio: 2.46,
-      priceStep: 0.13,
+      priceStep: 0.133,
       bandSource: 'server',
+      percentRungs: [-40, -27, -13, 0, 13, 27, 40, 53, 67, 80, 93, 106, 120, 133, 146],
     });
-    // The 12 UC reference price is 0% by definition; its grid step lands at 11.88 UC (12 UC).
     expect(ladder.map((rung) => rung.percent)).toEqual([
-      -40, -27, -14, 0, 12, 25, 38, 51, 64, 77, 90, 103, 116, 129, 142,
+      -40, -27, -13, 0, 13, 27, 40, 53, 67, 80, 93, 106, 120, 133, 146,
     ]);
     expect(ladder.map((rung) => rung.price)).toEqual([
-      7, 9, 10, 12, 13, 15, 17, 18, 20, 21, 23, 24, 26, 27, 29,
+      7, 9, 10, 12, 14, 15, 17, 18, 20, 22, 23, 25, 26, 28, 30,
     ]);
   });
 });

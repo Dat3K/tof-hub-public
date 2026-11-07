@@ -40,6 +40,11 @@ export interface TradeStationRow {
    * Overseas build that the client table cannot express.
    */
   bandSource: 'client' | 'server';
+  /**
+   * A curated band's price buttons, as the percents the station labels them with, bottom first.
+   * Absent on client bands, whose ladder the view walks in whole UC steps.
+   */
+  percentRungs?: number[];
   /** A `frag_*` id: the item is a shard, and ten of them combine into `shardOfId`. */
   shard: boolean;
   /** The item this shard combines into, when that item has its own row here. */
@@ -55,7 +60,10 @@ export interface TradePriceBand {
   idPrefix: string;
   minRatio: number;
   maxRatio: number;
+  /** The interval between rungs, as the station measures it (13.3333%). */
   stepRatio: number;
+  /** The price buttons the station shows inside the band, as percents of the reference price. */
+  percentRungs: number[];
   note?: string;
 }
 

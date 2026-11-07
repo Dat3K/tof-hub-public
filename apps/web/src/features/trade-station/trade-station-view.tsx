@@ -82,10 +82,72 @@ function formatPercent(percent: number): string {
   return `${percent > 0 ? '+' : ''}${percent}%`;
 }
 
+/** The client's own icons for `EHottaCurrencyType::TradeDiamond` (Universal Crystal) and Gold. */
+const UC_ICON = '/game-assets/webp/Hotta/Content/Resources/Icon/huobi/tradediamond.webp';
+const GOLD_ICON = '/game-assets/webp/Hotta/Content/Resources/Icon/huobi/jinbi.webp';
+
+/**
+ * Decorative where a note or label already names the unit; the fee note has replaced its words with
+ * icons, so it passes `label` and the icon keeps the currency readable for a screen reader.
+ */
+function UcIcon({ label }: { label?: string }) {
+  return <CurrencyIcon icon={UC_ICON} label={label} />;
+}
+
+function GoldIcon({ label }: { label?: string }) {
+  return <CurrencyIcon icon={GOLD_ICON} label={label} />;
+}
+
+function CurrencyIcon({ icon, label }: { icon: string; label?: string }) {
+  return <img className={styles.currencyIcon} src={icon} alt={label ?? ''} loading="lazy" />;
+}
+
+/**
+ * `10 shards → 1 × {name} · reference {price}` — the price carries the UC icon, so the template is
+ * split around `{price}` instead of substituted.
+ */
+function ShardPriceHint({ template, name, price }: { template: string; name: string; price: string }) {
+  const [before, after] = template.split('{price}');
+  return (
+    <>
+      {before.replace('{name}', name)}
+      <span className={styles.ucValue}>
+        {price} <UcIcon />
+      </span>
+      {after}
+    </>
+  );
+}
+
+/** `Listing fee is charged in {gold}, sale fee in {uc}.` — each placeholder becomes its client icon. */
+function FeeCurrencyNote({
+  template,
+  goldLabel,
+  ucLabel,
+}: {
+  template: string;
+  goldLabel: string;
+  ucLabel: string;
+}) {
+  const [prefix, rest] = template.split('{gold}');
+  const [between, suffix] = rest.split('{uc}');
+  return (
+    <>
+      {prefix}
+      <GoldIcon label={goldLabel} />
+      {between}
+      <UcIcon label={ucLabel} />
+      {suffix}
+    </>
+  );
+}
+
 export function TradeStationView({ dataset, initial }: { dataset: TradeStationDataset; initial: TradeStationInitialState }) {
   const { locale } = useI18n();
   const copy = localized(TRADE_STATION_COPY, locale);
   const numberFormat = useMemo(() => new Intl.NumberFormat(intlLocale(locale)), [locale]);
+  // The step count sits inside a sentence; splitting lets the UC icon follow the number.
+  const [priceStepPrefix, priceStepSuffix] = copy.priceStepNote.split('{step}');
 
   const [search, setSearch] = useState(initial.search);
   const [section, setSection] = useState<TradeSectionId | 'all'>(initial.section);
@@ -319,7 +381,9 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
         </div>
       </div>
 
-      <div className={styles.currencyNote}>{copy.currencyNote.replace('{currency}', dataset.currency.name)}</div>
+      <div className={styles.currencyNote}>
+        <UcIcon /> {copy.currencyNote.replace('{currency}', dataset.currency.name)}
+      </div>
 
       <div className={styles.tableWrap}>
         <table className={styles.table}>
@@ -328,7 +392,6 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
               <th scope="col">{copy.itemColumn}</th>
               <th scope="col">{copy.referencePriceColumn}</th>
               <th scope="col">{copy.listingBandColumn}</th>
-              <th scope="col">{copy.systemBandColumn}</th>
               <th scope="col">{copy.qualityColumn}</th>
               <th scope="col" aria-label={copy.viewItem} />
             </tr>
@@ -385,14 +448,15 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
                           <span className={styles.itemId}>{row.id}</span>
                           {row.shard ? (
                             <span className={styles.shardHint}>
-                              {row.shardOfId
-                                ? copy.shardCombinesIntoNamed
-                                  .replace('{name}', rowsById.get(row.shardOfId)?.name ?? row.shardOfId)
-                                  .replace(
-                                    '{price}',
-                                    numberFormat.format(rowsById.get(row.shardOfId)?.basePrice ?? 0),
-                                  )
-                                : copy.shardCombinesInto}
+                              {row.shardOfId ? (
+                                <ShardPriceHint
+                                  template={copy.shardCombinesIntoNamed}
+                                  name={rowsById.get(row.shardOfId)?.name ?? row.shardOfId}
+                                  price={numberFormat.format(rowsById.get(row.shardOfId)?.basePrice ?? 0)}
+                                />
+                              ) : (
+                                copy.shardCombinesInto
+                              )}
                             </span>
                           ) : null}
                           {!row.canList ? <span className={styles.badgeWarn}>{copy.notListable}</span> : null}
@@ -400,26 +464,22 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
                         </span>
                       </div>
                     </th>
-                    <td className={styles.numeric}>{numberFormat.format(row.basePrice)}</td>
+                    <td>
+                      <span className={styles.ucValue}>
+                        <span className={styles.numeric}>{numberFormat.format(row.basePrice)}</span> <UcIcon />
+                      </span>
+                    </td>
                     <td>
                       <div className={styles.bandCell}>
-                        <span className={styles.numeric}>
-                          {numberFormat.format(row.minPrice)} – {numberFormat.format(row.maxPrice)}
+                        <span className={styles.ucValue}>
+                          <span className={styles.numeric}>
+                            {numberFormat.format(row.minPrice)} – {numberFormat.format(row.maxPrice)}
+                          </span>{' '}
+                          <UcIcon />
                         </span>
                         <span className={styles.ratios}>
                           {bandPercent(row.minRatio)} / {bandPercent(row.maxRatio)}
                         </span>
-                      </div>
-                    </td>
-                    <td>
-                      <div className={styles.bandCell}>
-                        {row.canSystemBuy ? (
-                          <span className={styles.numeric}>
-                            {numberFormat.format(row.systemMinPrice)} – {numberFormat.format(row.systemMaxPrice)}
-                          </span>
-                        ) : (
-                          <span className={styles.muted}>{copy.systemBuyOff}</span>
-                        )}
                       </div>
                     </td>
                     <td>
@@ -437,7 +497,7 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
                   </tr>
                   {isOpen && calculator && fees ? (
                     <tr className={styles.calculatorRow} id={`calc-${row.id}`}>
-                      <td colSpan={6}>
+                      <td colSpan={5}>
                         <div
                           className={styles.calculator}
                           onKeyDown={(event) => {
@@ -450,25 +510,35 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
                           <div className={styles.calculatorHead}>
                             <h2 className={styles.calculatorTitle}>{copy.calculatorTitle}</h2>
                             <span className={styles.muted}>
-                              {copy.listingBandColumn}: {row.minPrice} – {row.maxPrice} {dataset.currency.name}
+                              {copy.listingBandColumn}:{' '}
+                              <span className={styles.ucValue}>
+                                {row.minPrice} – {row.maxPrice} <UcIcon />
+                              </span>
                             </span>
                             {row.bandSource === 'server' ? (
                               <span className={styles.muted}>
                                 {copy.serverBandNote
                                   .replace('{min}', bandPercent(row.minRatio))
                                   .replace('{max}', bandPercent(row.maxRatio))
-                                  .replace('{step}', formatPercent(Math.round(row.priceStep * 100)))}
+                                  .replace('{step}', formatPercent(Math.round(row.priceStep * 1e6) / 1e4))}
                               </span>
                             ) : (
                               <span className={styles.muted}>
-                                {copy.priceStepNote.replace('{step}', numberFormat.format(priceStepOf(row.basePrice, row.priceStep)))}
+                                {priceStepPrefix}
+                                <span className={styles.ucValue}>
+                                  {numberFormat.format(priceStepOf(row.basePrice, row.priceStep))} <UcIcon />
+                                </span>
+                                {priceStepSuffix}
                               </span>
                             )}
                           </div>
                           <div className={styles.calculatorInputs}>
                             <label className={styles.field}>
                               <span>
-                                {copy.pricePerUnit}: {numberFormat.format(price)}{' '}
+                                {copy.pricePerUnit}:{' '}
+                                <span className={styles.ucValue}>
+                                  {numberFormat.format(price)} <UcIcon />
+                                </span>{' '}
                                 <span className={styles.muted}>
                                   ({activeRung ? formatPercent(activeRung.percent) : bandPercent(price / row.basePrice)})
                                 </span>
@@ -480,7 +550,7 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
                               >
                                 {rungs.map((rung) => (
                                   <option key={rung.price} value={rung.price}>
-                                    {numberFormat.format(rung.price)} UC · {formatPercent(rung.percent)}
+                                    {numberFormat.format(rung.price)} · {formatPercent(rung.percent)}
                                   </option>
                                 ))}
                               </select>
@@ -511,22 +581,28 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
                           <dl className={styles.breakdown}>
                             <div>
                               <dt>{copy.grossLabel}</dt>
-                              <dd>{numberFormat.format(fees.grossUC)} UC</dd>
+                              <dd><span className={styles.ucValue}>{numberFormat.format(fees.grossUC)} <UcIcon /></span></dd>
                             </div>
                             <div>
                               <dt>{copy.listingFeeLabel}</dt>
-                              <dd>{numberFormat.format(fees.listingFeeGold)} {translateUiText('Gold', locale)}</dd>
+                              <dd><span className={styles.ucValue}>{numberFormat.format(fees.listingFeeGold)} <GoldIcon /></span></dd>
                             </div>
                             <div>
                               <dt>{copy.saleFeeLabel}</dt>
-                              <dd>{numberFormat.format(fees.saleFeeUC)} UC</dd>
+                              <dd><span className={styles.ucValue}>{numberFormat.format(fees.saleFeeUC)} <UcIcon /></span></dd>
                             </div>
                             <div className={styles.strong}>
                               <dt>{copy.netLabel}</dt>
-                              <dd>{numberFormat.format(fees.netUC)} UC</dd>
+                              <dd><span className={styles.ucValue}>{numberFormat.format(fees.netUC)} <UcIcon /></span></dd>
                             </div>
                           </dl>
-                          <p className={styles.feeNote}>{copy.feeCurrencyNote}</p>
+                          <p className={styles.feeNote}>
+                            <FeeCurrencyNote
+                              template={copy.feeCurrencyNote}
+                              goldLabel={translateUiText('Gold', locale)}
+                              ucLabel={dataset.currency.name}
+                            />
+                          </p>
                         </div>
                       </td>
                     </tr>
@@ -555,7 +631,6 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
       ) : null}
 
       <p className={styles.bandNote}>{copy.bandNote}</p>
-      <p className={styles.bandNote}>{copy.systemBandNote}</p>
     </div>
   );
 }

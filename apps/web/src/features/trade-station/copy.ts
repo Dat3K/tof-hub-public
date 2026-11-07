@@ -20,12 +20,10 @@ export interface TradeStationCopy {
   itemColumn: string;
   referencePriceColumn: string;
   listingBandColumn: string;
-  systemBandColumn: string;
   qualityColumn: string;
   bandNote: string;
   notListable: string;
   notListableReason: string;
-  systemBuyOff: string;
   bindOnPurchase: string;
   openCalculator: string;
   closeCalculator: string;
@@ -47,7 +45,6 @@ export interface TradeStationCopy {
   resetFilters: string;
   priceStepNote: string;
   serverBandNote: string;
-  systemBandNote: string;
   loadAll: string;
   openInItems: string;
   viewItem: string;
@@ -82,24 +79,22 @@ export const TRADE_STATION_COPY: Record<Locale, (Record<'en' | 'ru', TradeStatio
     itemColumn: 'Item',
     referencePriceColumn: 'Reference',
     listingBandColumn: 'Listing band',
-    systemBandColumn: 'System buys at',
     qualityColumn: 'Grade',
     bandNote: 'Band = reference price × PutAwardRange, rounded to whole Universal Crystals.',
     notListable: 'Cannot be listed',
     notListableReason: 'The client marks this item as unlistable. Equipment Expansion Packs have not been listable since the Overseas server launch.',
-    systemBuyOff: 'Not system-buyable',
     bindOnPurchase: 'Bound on purchase',
     openCalculator: 'Fees',
     closeCalculator: 'Close',
     calculatorTitle: 'Fee calculator',
-    pricePerUnit: 'Price per unit (UC)',
+    pricePerUnit: 'Price per unit',
     quantityLabel: 'Quantity',
     passLabel: 'Pass active (−20% listing fee)',
     grossLabel: 'Listing value',
     listingFeeLabel: 'Listing fee',
     saleFeeLabel: 'Sale fee (5%)',
     netLabel: 'You receive',
-    feeCurrencyNote: 'Listing fee is charged in Gold, sale fee in Universal Crystals.',
+    feeCurrencyNote: 'Listing fee is charged in {gold}, sale fee in {uc}.',
     rulesTitle: 'Trade Station rules',
     rulesObserved: 'Observed on the Overseas server',
     rulesTimeZone: 'Server time',
@@ -107,17 +102,15 @@ export const TRADE_STATION_COPY: Record<Locale, (Record<'en' | 'ru', TradeStatio
     datasetMissing: 'The Trade Station dataset has not been generated for this deployment yet.',
     noRows: 'No items match the current filters.',
     resetFilters: 'Reset filters',
-    priceStepNote: 'Prices move in steps of {step} UC.',
+    priceStepNote: 'Prices move in steps of {step}.',
     serverBandNote: 'Band measured on the server: {min} to {max}, {step} steps.',
-    systemBandNote:
-      'System buys at is what the station itself pays for the item: reference price × SysTradePriceRatio. It is an instant sale to the system, not a player purchase, and the client gates it on server level with a cooldown.',
     loadAll: 'Load all ({total})',
     openInItems: 'Open in the item database',
     viewItem: 'View item',
     loadMore: 'Load more ({count} left)',
     shardBadge: 'Shard',
     shardCombinesInto: '10 shards combine into 1 item',
-    shardCombinesIntoNamed: '10 shards → 1 × {name} · reference {price} UC',
+    shardCombinesIntoNamed: '10 shards → 1 × {name} · reference {price}',
     missingName: 'Unnamed item',
     currencyNote: 'Prices are in {currency}.',
   },
@@ -143,24 +136,22 @@ export const TRADE_STATION_COPY: Record<Locale, (Record<'en' | 'ru', TradeStatio
     itemColumn: 'Предмет',
     referencePriceColumn: 'Базовая',
     listingBandColumn: 'Диапазон',
-    systemBandColumn: 'Система покупает по',
     qualityColumn: 'Редкость',
     bandNote: 'Диапазон = базовая цена × PutAwardRange, округлённая до целых универсальных кристаллов.',
     notListable: 'Нельзя выставить',
     notListableReason: 'Клиент помечает предмет как невыставляемый. Наборы расширения снаряжения недоступны с запуска зарубежного сервера.',
-    systemBuyOff: 'Система не покупает',
     bindOnPurchase: 'Привязывается при покупке',
     openCalculator: 'Комиссии',
     closeCalculator: 'Закрыть',
     calculatorTitle: 'Калькулятор комиссий',
-    pricePerUnit: 'Цена за единицу (UC)',
+    pricePerUnit: 'Цена за единицу',
     quantityLabel: 'Количество',
     passLabel: 'Активен пропуск (−20% к комиссии за выставление)',
     grossLabel: 'Стоимость лота',
     listingFeeLabel: 'Комиссия за выставление',
     saleFeeLabel: 'Комиссия за продажу (5%)',
     netLabel: 'Вы получите',
-    feeCurrencyNote: 'Комиссия за выставление списывается золотом, за продажу — универсальными кристаллами.',
+    feeCurrencyNote: 'Комиссия за выставление списывается {gold}, за продажу — {uc}.',
     rulesTitle: 'Правила Торговой станции',
     rulesObserved: 'Проверено на зарубежном сервере',
     rulesTimeZone: 'Время сервера',
@@ -168,17 +159,15 @@ export const TRADE_STATION_COPY: Record<Locale, (Record<'en' | 'ru', TradeStatio
     datasetMissing: 'Набор данных Торговой станции ещё не сгенерирован для этого развёртывания.',
     noRows: 'Нет предметов, подходящих под фильтры.',
     resetFilters: 'Сбросить фильтры',
-    priceStepNote: 'Цены меняются с шагом {step} UC.',
+    priceStepNote: 'Цены меняются с шагом {step}.',
     serverBandNote: 'Диапазон измерен на сервере: от {min} до {max}, шаги по {step}.',
-    systemBandNote:
-      '«System buys at» — цена, по которой предмет покупает сама станция: базовая цена × SysTradePriceRatio. Это мгновенная продажа системе, а не другому игроку; клиент требует уровень сервера и выдерживает перезарядку.',
     loadAll: 'Показать все ({total})',
     openInItems: 'Открыть в базе предметов',
     viewItem: 'Открыть предмет',
     loadMore: 'Показать ещё ({count})',
     shardBadge: 'Осколок',
     shardCombinesInto: '10 осколков = 1 предмет',
-    shardCombinesIntoNamed: '10 осколков → 1 × {name} · базовая цена {price} UC',
+    shardCombinesIntoNamed: '10 осколков → 1 × {name} · базовая цена {price}',
     missingName: 'Предмет без названия',
     currencyNote: 'Цены в {currency}.',
   },

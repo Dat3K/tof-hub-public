@@ -56,6 +56,8 @@ export interface PriceBandInput {
   maxRatio: number;
   priceStep: number;
   bandSource: 'client' | 'server';
+  /** A curated band's own price buttons, as the percents the station labels them with. */
+  percentRungs?: number[];
 }
 
 const ratioEpsilon = 1e-9;
@@ -64,9 +66,9 @@ const ratioEpsilon = 1e-9;
  * Every price the station accepts for one item, bottom of the band first.
  *
  * A client band (`PutAwardRange`) is walked in whole UC steps from `minPrice`, which is how the
- * price buttons line up with both ends of the band. A curated band is walked in the ratio grid the
- * server shows instead: the rare weapon-enhancement modules open at -40% and climb in 13% steps,
- * where a single UC step cannot express 13% of a 12 UC reference price.
+ * price buttons line up with both ends of the band. A curated band carries the rungs the server
+ * shows instead: the rare weapon-enhancement modules open at -40% and climb in 13.3333% steps to
+ * +146%, where a whole UC step cannot express 13.3333% of a 12 UC reference price.
  */
 export function priceLadder(input: PriceBandInput): PriceRung[] {
   const { basePrice, minPrice, maxPrice } = input;
@@ -74,17 +76,14 @@ export function priceLadder(input: PriceBandInput): PriceRung[] {
   const percentOf = (ratio: number) => Math.round((ratio - 1) * 100);
 
   if (input.bandSource === 'server') {
-    const step = input.priceStep > 0 ? input.priceStep : 0.01;
-    const rungs: PriceRung[] = [];
-    for (let k = 0; ; k += 1) {
-      const ratio = input.minRatio + k * step;
-      if (ratio > input.maxRatio + ratioEpsilon) break;
-      const price = roundHalfUp(basePrice * ratio);
-      // The reference price is always 0%, even when the grid lands a rounding step beside it.
-      rungs.push({ price, percent: price === basePrice ? 0 : percentOf(ratio) });
-      if (k > 5000) break;
-    }
-    return uniqueRungs(rungs);
+    // The rung labels are the station's own: rounding the ratio would print +107% where it shows +106%.
+    return uniqueRungs(
+      (input.percentRungs ?? []).map((percent) => {
+        const price = roundHalfUp(basePrice * (1 + percent / 100));
+        // The reference price is always 0%, even when the grid lands a rounding step beside it.
+        return { price, percent: price === basePrice ? 0 : percent };
+      }),
+    );
   }
 
   const step = priceStepOf(basePrice, input.priceStep);

@@ -267,6 +267,21 @@
   white-space: nowrap;
 }
 
+.currencyIcon {
+  display: inline-block;
+  flex: none;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: -0.25em;
+  object-fit: contain;
+}
+
+.ucValue {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3125rem;
+}
+
 .bandCell {
   display: flex;
   flex-direction: column;
