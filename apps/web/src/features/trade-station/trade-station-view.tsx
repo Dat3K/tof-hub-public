@@ -10,10 +10,9 @@ import { intlLocale } from '@/lib/i18n/format';
 import { resolveMediaUrl } from '@/features/datamine/items/items-domain';
 import { TRADE_STATION_COPY } from './copy';
 import { clampPrice, computeFees, priceLadder, priceStepOf } from './fees';
+import { isTradeSort } from './types';
 import type { TradeSort, TradeStationDataset, TradeStationInitialState, TradeStationRow } from './types';
 import styles from './trade-station.module.css';
-
-const SORT_VALUES: TradeSort[] = ['category', 'price-desc', 'price-asc', 'name-asc'];
 
 interface CalculatorState {
   rowId: string;
@@ -50,7 +49,7 @@ function readStoredFilters(): StoredFilters | null {
       search: typeof parsed.search === 'string' ? parsed.search : '',
       section: typeof parsed.section === 'string' ? parsed.section : 'all',
       type: typeof parsed.type === 'number' ? parsed.type : null,
-      sort: SORT_VALUES.includes(parsed.sort as TradeSort) ? (parsed.sort as TradeSort) : 'category',
+      sort: isTradeSort(parsed.sort) ? parsed.sort : 'category',
       showUnlistable: parsed.showUnlistable === true,
     };
   } catch {
@@ -377,7 +376,7 @@ export function TradeStationView({ dataset, initial }: { dataset: TradeStationDa
             total={showUnlistable ? dataset.rows.length : listableTotal}
             entityLabel={copy.rowsUnit}
           />
-          <CatalogSort value={sort} onChange={(value) => setSort(SORT_VALUES.includes(value as TradeSort) ? (value as TradeSort) : 'category')} options={sortOptions} label={copy.sortLabel} />
+          <CatalogSort value={sort} onChange={(value) => setSort(isTradeSort(value) ? value : 'category')} options={sortOptions} label={copy.sortLabel} />
           {hasActiveFilters ? <ResetFiltersButton onClick={resetFilters} label={copy.resetFilters} /> : null}
         </div>
       </div>

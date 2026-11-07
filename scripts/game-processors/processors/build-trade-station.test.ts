@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-require-imports -- `node --test` loads this TypeScript source
+   through `require()`; tsc rejects the same `.ts` specifier in an `import`. */
 const test = require('node:test');
 const assert = require('node:assert/strict');
 

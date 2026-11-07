@@ -35,9 +35,9 @@ export function clampPrice(price: number, minPrice: number, maxPrice: number): n
 }
 
 /**
- * `TradePriceMinDif` is the client's own price increment, a ratio of the reference price. Rounding
- * it to a whole UC is what makes the two cheap Reconstruct Components land on a 1 UC and a 2 UC
- * step instead of the 0.4 UC step the raw ratio would give.
+ * `TradePriceMinDif` is the client's own price increment, a ratio of the reference price. The station
+ * shows whole UC, so `max(1, …)` keeps a 10% step on a 4 UC item from collapsing to 0 UC (0.4 → 1),
+ * and rounding turns 13.3333% of 12 UC into the 2 UC step the station lists (1.6 → 2).
  */
 export function priceStepOf(basePrice: number, priceStep: number): number {
   return Math.max(1, Math.round(basePrice * priceStep));

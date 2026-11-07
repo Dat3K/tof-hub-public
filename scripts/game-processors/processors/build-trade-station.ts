@@ -58,7 +58,7 @@ const MEDIA_ROOT = '/game-assets/webp';
 const ROUNDING_EPSILON = 1e-9;
 
 const OUTPUT = path.join('datamine', 'trade-station', 'data', 'trade-station.json');
-const STAGED_RULES = path.join('tools', 'trade-station-rules.json');
+const RULES_FILE = 'trade-station-rules.json';
 
 type LocalizationTable = Record<string, Record<string, string>>;
 
@@ -212,6 +212,7 @@ export function buildRow(
   const maxRatio = Number(override?.maxRatio ?? raw.PutAwardRange?.Y ?? 0);
   const systemMinRatio = Number(raw.SysTradePriceRatio?.X ?? 0);
   const systemMaxRatio = Number(raw.SysTradePriceRatio?.Y ?? 0);
+  const shardParent = shardParentId(id);
   return {
     id,
     name: item.name,
@@ -232,8 +233,8 @@ export function buildRow(
     priceStep: Number(override?.stepRatio ?? raw.TradePriceMinDif ?? 0),
     ...(override ? { percentRungs: override.percentRungs } : {}),
     bandSource: override ? 'server' : 'client',
-    shard: shardParentId(id) !== null,
-    shardOfId: shardParentId(id),
+    shard: shardParent !== null,
+    shardOfId: shardParent,
   };
 }
 
@@ -404,19 +405,17 @@ export function stationCapacity(levels: Record<string, { TradeCapacity?: number 
 }
 
 /**
- * The curated rules stay authored in `curated/tools`. A pipeline run stages them under
- * `<stage>/tools`, the compiled package ships them beside the processors, and a source run reads
- * the repository copy through `TOF_CURATED_DIR` or `__dirname`.
+ * The curated rules stay authored in `curated/tools`. The pipeline passes
+ * `--curated-dir=<curated>/datamine`, so `..` is the curated root; the packaged exporter ships the
+ * same folder beside the compiled processors. `--rules-file` overrides both.
  */
-function findRulesFile(projectRoot: string, explicit: string | null): string | null {
+function findRulesFile(explicit: string | null): string | null {
   const curatedRoot = process.env.TOF_CURATED_DIR;
-  const name = path.basename(STAGED_RULES);
   const candidates = [
     explicit,
-    path.join(projectRoot, STAGED_RULES),
-    curatedRoot ? path.resolve(curatedRoot, '..', 'tools', name) : null,
-    path.resolve(__dirname, '..', 'curated', 'tools', name),
-    path.resolve(__dirname, 'curated', 'tools', name),
+    curatedRoot ? path.resolve(curatedRoot, '..', 'tools', RULES_FILE) : null,
+    path.resolve(__dirname, '..', 'curated', 'tools', RULES_FILE),
+    path.resolve(__dirname, 'curated', 'tools', RULES_FILE),
   ].filter((candidate): candidate is string => Boolean(candidate));
   return candidates.find((candidate) => fs.existsSync(candidate)) ?? null;
 }
@@ -497,7 +496,7 @@ function main(): void {
     );
   }
 
-  const rulesFile = findRulesFile(projectRoot, option('rules-file'));
+  const rulesFile = findRulesFile(option('rules-file'));
   const rules = rulesFile ? readRules(rulesFile) : null;
   if (!rulesFile) {
     console.warn('[build-trade-station] curated rules not found; emitting the dataset without a rules block');

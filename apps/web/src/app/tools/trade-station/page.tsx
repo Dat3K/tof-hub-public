@@ -2,8 +2,8 @@ import { localized } from '@tof-hub/i18n';
 import { generatePageMetadata, type SeoPageProps } from '@/lib/seo/server';
 import { loadServerGameData } from '@/lib/game-data-server';
 import { resolveServerLocale } from '@/lib/i18n/server';
-import { TRADE_STATION_COPY, TradeStationView } from '@/features/trade-station';
-import type { TradeSort, TradeStationDataset } from '@/features/trade-station';
+import { isTradeSort, TRADE_STATION_COPY, TradeStationView } from '@/features/trade-station';
+import type { TradeStationDataset } from '@/features/trade-station';
 
 export async function generateMetadata(props: SeoPageProps) {
   return generatePageMetadata('/tools/trade-station/', props);
@@ -50,9 +50,7 @@ export default async function Page({ searchParams }: { searchParams?: Promise<Se
         search: first(params.q) ?? '',
         section,
         type: indexParam(first(params.type)),
-        sort: sortParam && ['category', 'price-desc', 'price-asc', 'name-asc'].includes(sortParam)
-          ? (sortParam as TradeSort)
-          : 'category',
+        sort: isTradeSort(sortParam) ? sortParam : 'category',
         showUnlistable: first(params.all) === '1',
       }}
     />
