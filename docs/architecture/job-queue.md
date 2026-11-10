@@ -46,6 +46,18 @@ Identical build files may be uploaded again so Build and Optimizer can reopen a 
 - With PostgreSQL (`WISH_DB_DRIVER=postgres`) jobs live in the `queue_jobs` table (Prisma model `QueueJob`) and survive restarts.
 - Without a database, `MemoryQueueStore` keeps them in memory. This is used by tests and quick local runs.
 
+PostgreSQL stores queued payloads and encrypted notification attachments
+larger than 1 MiB in child rows of at most 1 MiB. Each insert commits the
+metadata and its chunks together. Admission counts the complete file against
+the existing byte budget. Claims and attachment delivery read one chunk at a
+time, including bounded reads of older inline payloads. Job completion or
+expiry clears queue chunks, and delivery acknowledgement clears attachment
+chunks.
+
+Apply migration `20261110000000_bound_import_payload_io` before starting the
+new API version. Drain active jobs before switching versions. Pending chunked
+notification attachments require a compatible delivery worker.
+
 ## Code map
 
 | Area | Location |

@@ -1,5 +1,6 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { createHash } from 'node:crypto';
+import { DATABASE_BINARY_PART_BYTES } from '../database/binary-payload';
 import { NotificationImportFiles, IMPORT_FILE_PART_BYTES } from './notification-import-files';
 import { NotificationsService } from './notifications.service';
 import { TelegramClient, TelegramFailure } from './telegram-client';
@@ -24,28 +25,54 @@ describe('Encrypted import file delivery', () => {
   });
 
   it('persists every encrypted byte, splits large files reversibly, and deduplicates re-imports', async () => {
-    const rows = new Map<string, { id: string; payload: Uint8Array; filename: string; sha256: string; parts: number }>();
-    const table = { createMany: vi.fn(async ({ data }: { data: Array<typeof rows extends Map<string, infer R> ? R : never> }) => {
-      for (const row of data) if (!rows.has(row.id)) rows.set(row.id, row);
-    }) };
-    const prisma = { $transaction: async (work: (tx: unknown) => Promise<void>) => work({ notificationImportFile: table }) };
+    type FileRow = { id: string; payload?: Uint8Array; payloadBytes?: number; filename: string; sha256: string; parts: number };
+    const rows = new Map<string, FileRow>();
+    const chunks = new Map<string, Uint8Array>();
+    const table = {
+      createMany: vi.fn(async ({ data: [row] }: { data: [FileRow] }) => {
+        if (rows.has(row.id)) return {count: 0};
+        rows.set(row.id, row);
+        return {count: 1};
+      }),
+      findFirst: async () => rows.values().next().value,
+      update: vi.fn(),
+    };
+    const chunkTable = {
+      create: vi.fn(async ({data}: {data: {fileId: string; part: number; bytes: Uint8Array}}) => {
+        chunks.set(`${data.fileId}:${data.part}`, data.bytes);
+      }),
+      findUnique: async ({where: {fileId_part}}: {where: {fileId_part: {fileId: string; part: number}}}) =>
+        ({bytes: chunks.get(`${fileId_part.fileId}:${fileId_part.part}`)}),
+    };
+    const models = {notificationImportFile: table, notificationImportFilePayloadChunk: chunkTable};
+    const prisma = {...models, $transaction: async (work: (tx: unknown) => Promise<void>) => work(models)};
     const files = new NotificationImportFiles(prisma as never);
     const envelope = { format: 'tof-hub-players-sealed', ciphertext: 'x'.repeat(IMPORT_FILE_PART_BYTES + 19), tag: 'preserved' };
     await files.add('players', envelope, 'normal', {uid:'1302104471',nickname:'Owner'});
     await files.add('players', envelope, 'normal', {uid:'1302104471',nickname:'Owner'});
     expect(rows.size).toBe(2);
-    expect([...rows.values()][0]).toMatchObject({ownerUid:'1302104471',ownerNickname:'Owner'});
-    const joined = Buffer.concat([...rows.values()].map(row => Buffer.from(row.payload)));
+    const [first, last] = [...rows.values()];
+    expect(first).toMatchObject({ownerUid:'1302104471',ownerNickname:'Owner',payloadBytes:IMPORT_FILE_PART_BYTES});
+    expect(first!.payload).toBeUndefined();
+    expect(chunkTable.create).toHaveBeenCalledTimes(IMPORT_FILE_PART_BYTES / DATABASE_BINARY_PART_BYTES);
+    expect([...chunks.values()].every(bytes => bytes.length <= DATABASE_BINARY_PART_BYTES)).toBe(true);
+    const document = vi.fn().mockResolvedValue({message_id: 42});
+    await files.deliver({document} as unknown as TelegramClient, '123');
+    const joined = Buffer.concat([document.mock.calls[0]![2], last!.payload!]);
     expect(JSON.parse(joined.toString())).toEqual(envelope);
-    expect([...rows.values()][0]!.sha256).toBe(createHash('sha256').update(joined).digest('hex'));
+    expect(first!.sha256).toBe(createHash('sha256').update(joined).digest('hex'));
     expect([...rows.values()].every(row => row.parts === 2 && row.filename.includes('.tofplayers.part'))).toBe(true);
   });
 
   it('clears bytes only after Telegram acknowledges them and retains bytes on rate limits', async () => {
     const row = { id: 'file', kind: 'build', environment: 'normal', filename: 'file.tofbuild', sha256: 'a'.repeat(64),
-      ownerUid:'1302104471',ownerNickname:'Owner\nName',part: 1, parts: 1, attempts: 0, payload: Buffer.from('encrypted') };
+      ownerUid:'1302104471',ownerNickname:'Owner\nName',part: 1, parts: 1, attempts: 0, payloadBytes: null };
     const update = vi.fn();
-    const files = new NotificationImportFiles({ notificationImportFile: { findFirst: async () => row, update } } as never);
+    const legacy = Buffer.from('encrypted');
+    const files = new NotificationImportFiles({
+      notificationImportFile: {findFirst: async () => row, update},
+      $queryRaw: async ([sql]: TemplateStringsArray) => sql?.includes('octet_length') ? [{size: legacy.length}] : [{bytes: legacy}],
+    } as never);
     const document = vi.fn().mockRejectedValue(new TelegramFailure(429, 60));
     const start = Date.now();
     await files.deliver({ document } as unknown as TelegramClient, '123');
@@ -53,7 +80,7 @@ describe('Encrypted import file delivery', () => {
     expect(update.mock.calls[0]![0].data.nextAttemptAt.getTime()).toBeGreaterThanOrEqual(start + 60_000);
     document.mockResolvedValue({ message_id: 42 });
     await files.deliver({ document } as unknown as TelegramClient, '123');
-    expect(update.mock.calls[1]![0].data).toMatchObject({ payload: null, messageId: 42, deliveredAt: expect.any(Date) });
+    expect(update.mock.calls[1]![0].data).toMatchObject({payload: null, payloadBytes: null, payloadChunks: {deleteMany: {}}, messageId: 42, deliveredAt: expect.any(Date)});
     expect(document.mock.calls[1]![3]).toContain('authenticity is not attested');
     expect(document.mock.calls[1]![3]).toContain('Nickname: Owner Name\nUID: 1302104471');
   });

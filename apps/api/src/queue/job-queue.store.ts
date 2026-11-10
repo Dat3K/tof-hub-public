@@ -1,5 +1,6 @@
 import {Prisma,type PrismaClient} from '@prisma/client';
 import {HttpException,ServiceUnavailableException} from '@nestjs/common';
+import {binaryPayloadParts,DATABASE_BINARY_PART_BYTES,DATABASE_BINARY_TRANSACTION_TIMEOUT_MS,readBinaryPayload} from '../database/binary-payload';
 
 export const QUEUE_PAYLOAD_BUDGET=128*1024*1024;
 function assertAdmission(active:{ipHash:string;state:string;bytes:number}[],ipHash:string,bytes:number) {
@@ -99,10 +100,17 @@ export class PrismaQueueStore implements QueueStore {
   async insert(job:{id:string;kind:JobKind;ipHash:string;ip:string;payload:Buffer}) {
     return this.prisma.$transaction(async tx=>{
       await tx.$executeRaw`SELECT pg_advisory_xact_lock(734921)`;
-      const active=await tx.$queryRaw<{ipHash:string;state:string;bytes:number}[]>`SELECT ip_hash AS "ipHash",state,COALESCE(octet_length(payload),0) AS bytes FROM queue_jobs WHERE state IN ('queued','processing')`;
-      assertAdmission(active,job.ipHash,job.payload.length);
-      return fromRow(await tx.queueJob.create({data:{...job,payload:new Uint8Array(job.payload),state:'queued'},select:COLUMNS}));
-    });
+      const active=await tx.$queryRaw<{ipHash:string;state:string;bytes:number}[]>`SELECT ip_hash AS "ipHash",state,COALESCE(payload_bytes,octet_length(payload),0) AS bytes FROM queue_jobs WHERE state IN ('queued','processing')`;
+      const {payload,...metadata}=job;
+      assertAdmission(active,job.ipHash,payload.length);
+      const chunked=payload.length>DATABASE_BINARY_PART_BYTES;
+      const row=await tx.queueJob.create({data:{...metadata,state:'queued',
+        ...(chunked?{payloadBytes:payload.length}:{payload:new Uint8Array(payload)})},select:COLUMNS});
+      if(chunked)for(const part of binaryPayloadParts(payload)) {
+        await tx.queueJobPayloadChunk.create({data:{jobId:job.id,...part},select:{part:true}});
+      }
+      return fromRow(row);
+    },{timeout:DATABASE_BINARY_TRANSACTION_TIMEOUT_MS});
   }
   async get(id:string) {const row=await this.prisma.queueJob.findUnique({where:{id},select:COLUMNS});return row?fromRow(row):null;}
   async active() {
@@ -113,21 +121,32 @@ export class PrismaQueueStore implements QueueStore {
   }
   async claim(now:Date) {
     // Admission and claims share a lock: only one heavy job can run across API processes.
-    const rows=await this.prisma.$transaction(async tx=>{
+    return this.prisma.$transaction(async tx=>{
       await tx.$executeRaw`SELECT pg_advisory_xact_lock(734921)`;
-      return tx.$queryRaw<{id:string;payload:Uint8Array|null}[]>`
+      const [claimed]=await tx.$queryRaw<{id:string;size:number;chunked:boolean;inlinePayload:Uint8Array|null}[]>`
       UPDATE "queue_jobs" SET "state"='processing',"started_at"=${now}
       WHERE NOT EXISTS (SELECT 1 FROM queue_jobs WHERE state='processing')
       AND "id"=(SELECT "id" FROM "queue_jobs" WHERE "state"='queued' ORDER BY "seq" LIMIT 1 FOR UPDATE SKIP LOCKED)
-      RETURNING "id","payload"`;
-    });
-    const claimed=rows[0];
-    if(!claimed)return null;
-    const job=await this.get(claimed.id);
-    return job?{...job,payload:Buffer.from(claimed.payload??new Uint8Array())}:null;
+      RETURNING "id",COALESCE(payload_bytes,octet_length(payload),0) AS "size",payload_bytes IS NOT NULL AS "chunked",
+        CASE WHEN octet_length(payload)<=${DATABASE_BINARY_PART_BYTES} THEN payload END AS "inlinePayload"`;
+      if(!claimed)return null;
+      const row=await tx.queueJob.findUniqueOrThrow({where:{id:claimed.id},select:COLUMNS});
+      const payload=claimed.inlinePayload?Buffer.from(claimed.inlinePayload):await readBinaryPayload(claimed.size,async(part,offset,length)=>{
+        if(claimed.chunked) {
+          return (await tx.queueJobPayloadChunk.findUnique({
+            where:{jobId_part:{jobId:claimed.id,part}},select:{bytes:true},
+          }))?.bytes;
+        }
+        // A job queued before the migration may still have one large inline value.
+        const [legacy]=await tx.$queryRaw<{bytes:Uint8Array|null}[]>`
+          SELECT substring(payload FROM ${offset+1}::int FOR ${length}::int) AS bytes FROM queue_jobs WHERE id=${claimed.id}`;
+        return legacy?.bytes;
+      });
+      return {...fromRow(row),payload};
+    },{timeout:DATABASE_BINARY_TRANSACTION_TIMEOUT_MS});
   }
   async finish(id:string,state:'complete'|'failed',result:unknown,delivery:unknown,error:JobError|null,now:Date) {
-    await this.prisma.queueJob.update({where:{id},data:{state,finishedAt:now,payload:null,ip:null,
+    await this.prisma.queueJob.update({where:{id},data:{state,finishedAt:now,payload:null,payloadBytes:null,payloadChunks:{deleteMany:{}},ip:null,
       result:result===undefined||result===null?Prisma.JsonNull:result as Prisma.InputJsonValue,
       delivery:delivery===undefined||delivery===null?Prisma.JsonNull:delivery as Prisma.InputJsonValue,
       deliveryExpiresAt:delivery===undefined||delivery===null?null:new Date(now.getTime()+60*60*1000),
@@ -147,7 +166,14 @@ export class PrismaQueueStore implements QueueStore {
   }
   async expireStale() {
     // Never reset a live worker merely because another process started. Expired work fails, avoiding replayed writes.
-    return (await this.prisma.queueJob.updateMany({where:{state:'processing',startedAt:{lt:new Date(Date.now()-60*60*1000)}},data:{state:'failed',finishedAt:new Date(),payload:null,ip:null,error:{status:503,message:'Interrupted job expired; submit a new capture'}}})).count;
+    return this.prisma.$transaction(async tx=>{
+      const expired=await tx.queueJob.updateManyAndReturn({
+        where:{state:'processing',startedAt:{lt:new Date(Date.now()-60*60*1000)}},select:{id:true},
+        data:{state:'failed',finishedAt:new Date(),payload:null,payloadBytes:null,ip:null,error:{status:503,message:'Interrupted job expired; submit a new capture'}},
+      });
+      await tx.queueJobPayloadChunk.deleteMany({where:{jobId:{in:expired.map(row=>row.id)}}});
+      return expired.length;
+    });
   }
   async prune(limit:number) {
     await this.prisma.queueJob.deleteMany({where:{finishedAt:{lt:new Date(Date.now()-86_400_000)}}});

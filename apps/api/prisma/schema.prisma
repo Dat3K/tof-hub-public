@@ -630,6 +630,8 @@ model QueueJob {
   /// Raw IP while the job is active (access grants of the wish import); cleared when it finishes.
   ip         String?   @map("ip")
   payload    Bytes?    @map("payload")
+  payloadBytes Int?    @map("payload_bytes")
+  payloadChunks QueueJobPayloadChunk[]
   result     Json?     @map("result")
   /// Short-lived private response needed by the submitting page (for example, an imported build card).
   delivery   Json?     @map("delivery")
@@ -643,6 +645,16 @@ model QueueJob {
   @@index([ipHash, state])
   @@index([ipHash, seq(sort: Desc)], map: "queue_jobs_ip_hash_seq_idx")
   @@map("queue_jobs")
+}
+
+model QueueJobPayloadChunk {
+  jobId String @map("job_id")
+  part  Int
+  bytes Bytes
+  job   QueueJob @relation(fields: [jobId], references: [id], onDelete: Cascade)
+
+  @@id([jobId, part])
+  @@map("queue_job_payload_chunks")
 }
 
 /// Test-server participation, by UID, independent of live profiles and of gear that survives ranking compaction.
@@ -720,6 +732,8 @@ model NotificationImportFile {
   ownerUid String? @map("owner_uid")
   ownerNickname String? @map("owner_nickname")
   payload Bytes?
+  payloadBytes Int? @map("payload_bytes")
+  payloadChunks NotificationImportFilePayloadChunk[]
   attempts Int @default(0)
   nextAttemptAt DateTime @default(now()) @map("next_attempt_at")
   deliveredAt DateTime? @map("delivered_at")
@@ -727,6 +741,16 @@ model NotificationImportFile {
   createdAt DateTime @default(now()) @map("created_at")
   @@index([deliveredAt, nextAttemptAt, createdAt], map: "notification_import_files_pending")
   @@map("notification_import_files")
+}
+
+model NotificationImportFilePayloadChunk {
+  fileId String @map("file_id")
+  part   Int
+  bytes  Bytes
+  file   NotificationImportFile @relation(fields: [fileId], references: [id], onDelete: Cascade)
+
+  @@id([fileId, part])
+  @@map("notification_import_file_payload_chunks")
 }
 
 model NegativeCombatScore {
