@@ -15,7 +15,7 @@ const first = (value: string | string[] | undefined) => (Array.isArray(value) ? 
 // `runtime/trade-station.json` is produced by scripts/game-processors; a checkout without a game
 // export has no file, so the page must render without it instead of failing the route.
 export default async function Page({ searchParams }: { searchParams?: Promise<Search> }) {
-  const dataset = await loadServerGameData<TradeStationDataset>('', 'runtime/trade-station', {
+  const dataset = await loadServerGameData<TradeStationDataset>('', 'trade-station', {
     throwOnNotFound: false,
   });
   const { locale } = await resolveServerLocale();

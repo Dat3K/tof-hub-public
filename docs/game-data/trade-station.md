@@ -23,6 +23,17 @@ Icons the client keeps outside `ItemConfigs` come from two more tables, read onl
 
 Row keys are item ids, so identity is the id itself; no join on display names is needed.
 
+The dataset records SHA-256 hashes of the inputs it reads. Keys under `raw/` use paths
+relative to the export root. Keys under `stage/` identify the two item catalogs. The
+`curated/tools/trade-station-rules.json` key identifies the rules used for the run, including
+an explicitly supplied rules file. Optional inputs have a hash when present.
+
+The normalizer publishes one copy at `game-data/runtime/trade-station.json`. Site loaders
+use the canonical name `trade-station` and the root namespace. If the staging file is absent,
+normalization leaves any existing runtime file in place. If the staging file exists but
+cannot be read or parsed as a Trade Station dataset, normalization fails before publishing
+the projection.
+
 ## Derivation
 
 All money is a whole number of Universal Crystals, rounded half up (`.5` up):

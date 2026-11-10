@@ -10,6 +10,7 @@ import {adaptCompCatalog} from '../../packages/game-domain/src/adapters/comp-ada
 import {RaidRankingDatasetSchema} from '../../packages/contracts/src/raid-rankings';
 import {buildRankingCatalog} from '../../apps/web/src/features/ranking/catalog';
 import type {BuildCatalog} from '../../apps/web/src/features/build/types';
+import {normalizeTradeStationDataset} from '../../scripts/normalize-game-data/adapters/trade-station';
 
 const roots:string[]=[];
 afterEach(()=>{for(const root of roots.splice(0)) fs.rmSync(root,{recursive:true,force:true});});
@@ -21,6 +22,31 @@ function fixture() {
 }
 
 describe('generated runtime data',()=>{
+  it('loads the root Trade Station projection by its canonical name', async()=>{
+    const {root,write}=fixture();
+    const dataset={rows:[{id:'fixture',canList:true}]};
+    write('runtime/trade-station.json',dataset);
+    expect(buildDatasetUrl('','trade-station')).toBe('/game-data/runtime/trade-station.json');
+    expect(await loadServerGameData('','trade-station',{dataRoot:root})).toEqual(dataset);
+  });
+
+  it('distinguishes absent, malformed and valid Trade Station staging data', ()=>{
+    const {root,write}=fixture();
+    const file='datamine/trade-station/data/trade-station.json';
+    const dataset={
+      currency:{code:'fixture',name:'Fixture currency'},
+      sections:[{id:'fixture',name:'Fixture section',types:[]}],
+      rows:[{id:'fixture',canList:true}],
+    };
+    expect(normalizeTradeStationDataset(root)).toBeNull();
+    write(file,dataset);
+    expect(normalizeTradeStationDataset(root)?.materialized.en).toEqual(dataset);
+    write(file,{...dataset,rows:[]});
+    expect(()=>normalizeTradeStationDataset(root)).toThrow('Invalid Trade Station dataset');
+    fs.writeFileSync(path.join(root,file),'{');
+    expect(()=>normalizeTradeStationDataset(root)).toThrow('Invalid Trade Station JSON');
+  });
+
   it('projects the ranking source without changing any displayed catalog or scoring reference',()=>{
     const {root,write,read}=fixture();
     const data={schemaVersion:1,reference:{},statTypeIcons:{},displayIcons:{},elementIcons:{},resistanceIcons:{},

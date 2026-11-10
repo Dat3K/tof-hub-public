@@ -232,10 +232,10 @@ export async function normalizeGameData(
   countsByDataset['mmo-build'] = mmoBuildRes.counts.total || 0;
   totalEntities += countsByDataset['mmo-build'];
 
-  // 18. Trade Station (staging file from build-trade-station; empty without a game export)
+  // 18. Trade Station (published when the processor output is present)
   const tradeStationRes = normalizeTradeStationDataset(legacySourceDir);
-  results.push(tradeStationRes);
-  countsByDataset['trade-station'] = tradeStationRes.counts.total || 0;
+  if (tradeStationRes) results.push(tradeStationRes);
+  countsByDataset['trade-station'] = tradeStationRes?.counts.total ?? 0;
   totalEntities += countsByDataset['trade-station'];
 
   // Write files
@@ -244,7 +244,9 @@ export async function normalizeGameData(
 
     if (res.localeIndependent) {
       if (emitMaterialized && !dryRun) {
-        writeRuntimeJson(path.join(publicOutputDir, 'runtime', `${dsName}.json`), res.materialized.en);
+        const target = path.join(publicOutputDir, 'runtime', `${dsName}.json`);
+        pathGuard?.assertSafeOutput(target);
+        writeRuntimeJson(target, res.materialized.en);
         for (const locale of ['en', 'ru'] as const) {
           for (const stale of [
             path.join(publicOutputDir, locale, `${dsName}.json`),

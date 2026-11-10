@@ -125,33 +125,22 @@ function shardParentId(id: string): string | null {
   return prefix ? id.slice(prefix.length) : null;
 }
 
-interface SourceFile {
-  data: unknown;
-  sha256: string;
-}
-
 function option(name: string): string | null {
   const hit = process.argv.slice(2).find((arg) => arg.startsWith(`--${name}=`));
   return hit ? path.resolve(hit.slice(name.length + 3)) : null;
 }
 
-function readJson(filePath: string): unknown {
-  return JSON.parse(fs.readFileSync(filePath, 'utf8').replace(/^\uFEFF/, ''));
-}
-
-/** Raw bytes and their digest, so `sources` hashes the exact file the pipeline consumed. */
-function readSource(filePath: string, relative: string): SourceFile {
-  if (!fs.existsSync(filePath)) throw new Error(`[required] Trade Station source missing: ${relative}`);
+/** Hash the exact bytes that supply the parsed value. */
+function readSource(filePath: string, relative: string, sources: Record<string, string>): unknown {
+  if (!fs.existsSync(filePath)) throw new Error(`[required] Trade Station source missing: ${filePath}`);
   const bytes = fs.readFileSync(filePath);
-  return {
-    data: JSON.parse(bytes.toString('utf8').replace(/^\uFEFF/, '')),
-    sha256: createHash('sha256').update(bytes).digest('hex'),
-  };
+  sources[relative] = createHash('sha256').update(bytes).digest('hex');
+  return JSON.parse(bytes.toString('utf8').replace(/^\uFEFF/, ''));
 }
 
 /** Client DataTables and DataAssets are saved as a one-entry array. */
-function assetObject(source: SourceFile, relative: string): Record<string, unknown> {
-  const candidate = Array.isArray(source.data) ? source.data[0] : source.data;
+function assetObject(source: unknown, relative: string): Record<string, unknown> {
+  const candidate = Array.isArray(source) ? source[0] : source;
   if (!candidate || typeof candidate !== 'object') {
     throw new Error(`[required] Trade Station source malformed: ${relative}`);
   }
@@ -159,7 +148,7 @@ function assetObject(source: SourceFile, relative: string): Record<string, unkno
   return candidate as Record<string, unknown>;
 }
 
-function assetProperties(source: SourceFile, relative: string): Record<string, unknown> {
+function assetProperties(source: unknown, relative: string): Record<string, unknown> {
   const properties = assetObject(source, relative).Properties;
   if (!properties || typeof properties !== 'object') {
     throw new Error(`[required] Trade Station properties missing: ${relative}`);
@@ -168,7 +157,7 @@ function assetProperties(source: SourceFile, relative: string): Record<string, u
   return properties as Record<string, unknown>;
 }
 
-function tableRows<TRow>(source: SourceFile, relative: string): Record<string, TRow> {
+function tableRows<TRow>(source: unknown, relative: string): Record<string, TRow> {
   const rows = assetObject(source, relative).Rows;
   if (!rows || typeof rows !== 'object') throw new Error(`[required] Trade Station rows missing: ${relative}`);
   // Parsed JSON boundary: row shapes are declared by the TRow the caller asks for.
@@ -420,8 +409,8 @@ function findRulesFile(explicit: string | null): string | null {
   return candidates.find((candidate) => fs.existsSync(candidate)) ?? null;
 }
 
-function readRules(filePath: string): TradeStationRules {
-  const data = readJson(filePath);
+function readRules(filePath: string, sources: Record<string, string>): TradeStationRules {
+  const data = readSource(filePath, `curated/tools/${RULES_FILE}`, sources);
   if (!data || typeof data !== 'object' || Array.isArray(data)) {
     throw new Error(`[build-trade-station] curated rules are not an object: ${filePath}`);
   }
@@ -438,14 +427,14 @@ function readRules(filePath: string): TradeStationRules {
   return rules;
 }
 
-function readCatalogs(projectRoot: string): CatalogItem[][] {
+function readCatalogs(projectRoot: string, sources: Record<string, string>): CatalogItem[][] {
   const dir = path.join(projectRoot, 'datamine', 'items', 'data');
   return ITEM_CATALOGS.map((name) => {
     const file = path.join(dir, name);
     if (!fs.existsSync(file)) {
       throw new Error(`[required] item catalog missing (run build-items-json first): ${file}`);
     }
-    const catalog = readJson(file);
+    const catalog = readSource(file, `stage/datamine/items/data/${name}`, sources);
     if (!catalog || typeof catalog !== 'object' || Array.isArray(catalog)) {
       throw new Error(`[required] item catalog malformed: ${file}`);
     }
@@ -454,11 +443,11 @@ function readCatalogs(projectRoot: string): CatalogItem[][] {
   });
 }
 
-function readLocalization(source: SourceFile, relative: string): LocalizationTable {
-  if (!source.data || typeof source.data !== 'object' || Array.isArray(source.data)) {
+function readLocalization(source: unknown, relative: string): LocalizationTable {
+  if (!source || typeof source !== 'object' || Array.isArray(source)) {
     throw new Error(`[required] localization namespaces missing: ${relative}`);
   }
-  return source.data as LocalizationTable;
+  return source as LocalizationTable;
 }
 
 function main(): void {
@@ -468,9 +457,11 @@ function main(): void {
     throw new Error('Usage: build-trade-station.js --raw-dir=<raw> --project-root=<stage>');
   }
 
-  const treeSource = readSource(path.join(rawDir, CATEGORY_TREE), CATEGORY_TREE);
-  const listingSource = readSource(path.join(rawDir, LISTING_TABLE), LISTING_TABLE);
-  const levelSource = readSource(path.join(rawDir, LEVEL_TABLE), LEVEL_TABLE);
+  const sources: Record<string, string> = {};
+  const readRaw = (relative: string) => readSource(path.join(rawDir, relative), `raw/${relative}`, sources);
+  const treeSource = readRaw(CATEGORY_TREE);
+  const listingSource = readRaw(LISTING_TABLE);
+  const levelSource = readRaw(LEVEL_TABLE);
 
   // Parsed JSON boundary: the tree shape was verified against the client export.
   const menu = assetProperties(treeSource, CATEGORY_TREE).TradeLineMenuListArray;
@@ -479,14 +470,13 @@ function main(): void {
 
   const rows = tableRows<TradeTableRow>(listingSource, LISTING_TABLE);
   const levels = tableRows<{ TradeCapacity?: number }>(levelSource, LEVEL_TABLE);
-  const itemConfigs = tableRows<ItemConfigRow>(readSource(path.join(rawDir, ITEM_CONFIGS), ITEM_CONFIGS), ITEM_CONFIGS);
+  const itemConfigs = tableRows<ItemConfigRow>(readRaw(ITEM_CONFIGS), ITEM_CONFIGS);
   // Optional: a client build that drops the cooking or art-pack tables still gets a dataset, just
   // with those icons missing.
   const optionalRows = <TRow>(relative: string): Record<string, TRow> => {
-    const file = path.join(rawDir, relative);
-    return fs.existsSync(file) ? tableRows<TRow>(readSource(file, relative), relative) : {};
+    return fs.existsSync(path.join(rawDir, relative)) ? tableRows<TRow>(readRaw(relative), relative) : {};
   };
-  const localization = readLocalization(readSource(path.join(rawDir, ENGLISH_GAME), ENGLISH_GAME), ENGLISH_GAME);
+  const localization = readLocalization(readRaw(ENGLISH_GAME), ENGLISH_GAME);
 
   const sections = buildSections(tree, localization[''] ?? {});
   const unlabeled = sections.filter((section) => !section.name || section.types.some((type) => !type.name));
@@ -497,21 +487,17 @@ function main(): void {
   }
 
   const rulesFile = findRulesFile(option('rules-file'));
-  const rules = rulesFile ? readRules(rulesFile) : null;
+  const rules = rulesFile ? readRules(rulesFile, sources) : null;
   if (!rulesFile) {
     console.warn('[build-trade-station] curated rules not found; emitting the dataset without a rules block');
   }
 
   const dataset = buildTradeStationDataset({
     rows,
-    sources: {
-      [path.basename(LISTING_TABLE)]: listingSource.sha256,
-      [path.basename(CATEGORY_TREE)]: treeSource.sha256,
-      [path.basename(LEVEL_TABLE)]: levelSource.sha256,
-    },
+    sources,
     sections,
     describe: createItemResolver(
-      readCatalogs(projectRoot),
+      readCatalogs(projectRoot, sources),
       itemConfigs,
       localization,
       createIconFallback({

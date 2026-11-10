@@ -93,7 +93,7 @@ export interface TradeStationRow {
 
 export interface TradeStationDataset {
   currency: TradeCurrency;
-  /** SHA-256 of each raw table consumed; optional for consumers so an older file stays readable. */
+  /** SHA-256 of each input read, keyed by its logical raw, stage or curated path. */
   sources?: Record<string, string>;
   sections: TradeSection[];
   rows: TradeStationRow[];
