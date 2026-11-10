@@ -145,6 +145,8 @@ export function compareGrvTotals(a:{value:number;normalization:number},b:{value:
  */
 export type PairStatChoice={'Attack':string;'Attack %':string;'Damage %':string}|null;
 const PAIR_KINDS=['Attack','Attack %','Damage %'] as const;
+const excludedPairTypes=(track:string[],choice:NonNullable<PairStatChoice>)=>
+  new Set(PAIR_KINDS.flatMap(kind=>track.filter(element=>element!==choice[kind]).map(element=>element+' '+kind)));
 /** Drops only the unused native source of each kind; universal ATK is retained. */
 export function restrictPairStats<T extends {type:string}>(stats:readonly T[],track:string[],choice:PairStatChoice):T[] {
   if(!choice)return [...stats];
@@ -160,38 +162,79 @@ export function pairStatChoice(total:(element:string,kind:typeof PAIR_KINDS[numb
 export function pairStatChoices(track:string[]):PairStatChoice[] {
   return track.length===2?track.flatMap(flat=>track.flatMap(attack=>track.map(damage=>({'Attack':flat,'Attack %':attack,'Damage %':damage})))):[null];
 }
-const restrictInput=(gear:CurrentGearScoreInput,track:string[],choice:PairStatChoice):CurrentGearScoreInput=>
-  choice?{...gear,rows:restrictPairStats(gear.rows,track,choice),augments:restrictPairStats(gear.augments,track,choice)}:gear;
+const restrictInput=(gear:CurrentGearScoreInput,excluded:Set<string>|null):CurrentGearScoreInput=>
+  excluded?{...gear,rows:gear.rows.filter(stat=>!excluded.has(stat.type)),augments:gear.augments.filter(stat=>!excluded.has(stat.type))}:gear;
 /**
  * A whole build on a track from candidate pieces (several per slot allowed; the first wins a tie): per slot the best
  * piece, and on a pair track independent whole-set ATK, ATK% and DMG% sources. All eight combinations are tried;
  * a choice counts only when its elements really have the higher gear totals among the pieces it picks.
  */
 export function scoreBuildForTrack<T>(pieces:readonly T[],slot:(piece:T)=>string,input:(piece:T)=>CurrentGearScoreInput|null,
-  track:string[],reference:GearScoreReference,role:BuildRVRole='dps',inheritFrom?:string,scorerForSource?:(source?:string)=>ReturnType<typeof createCurrentGearScorer>):{inheritFrom?:string;choice:PairStatChoice;slots:Map<string,{piece:T;score:ReturnType<typeof scoreCurrentGearForTrack>}>;value:number;score:(gear:CurrentGearScoreInput)=>ReturnType<typeof scoreCurrentGearForTrack>} {
-  if(track[0]==='Altered'&&role!=='tank'&&!inheritFrom)return bestAlteredScore(reference,source=>scoreBuildForTrack(pieces,slot,input,track,reference,role,source,scorerForSource));
+  track:string[],reference:GearScoreReference,role:BuildRVRole='dps',inheritFrom?:string,scorerForSource?:(source?:string)=>ReturnType<typeof createCurrentGearScorer>) {
+  const build=createBuildTrackAccumulator<T,undefined>(slot,input,track,reference,role,inheritFrom,scorerForSource);
+  const scope=[undefined];
+  for(const piece of pieces)build.add(piece,scope);
+  return build.result(undefined);
+}
+
+/** Retain just the slot winners for each coherent choice, even when candidates arrive in pages.
+ * A piece can contribute to multiple scopes with the same score (for example, global and regional).
+ */
+export function createBuildTrackAccumulator<T,Scope>(slot:(piece:T)=>string,input:(piece:T)=>CurrentGearScoreInput|null,
+  track:string[],reference:GearScoreReference,role:BuildRVRole='dps',inheritFrom?:string,scorerForSource?:(source?:string)=>ReturnType<typeof createCurrentGearScorer>) {
   type Slot={piece:T;score:ReturnType<typeof scoreCurrentGearForTrack>};
-  const scoreGear=scorerForSource?.(inheritFrom)??createCurrentGearScorer(reference,inheritFrom);
   const choices=role==='tank'?[null]:pairStatChoices(track);
-  let best:{choice:PairStatChoice;slots:Map<string,Slot>;value:number;valid:boolean}|null=null;
-  for(const choice of choices) {
-    const slots=new Map<string,Slot>();
-    for(const piece of pieces) {
-      const gear=input(piece);
-      if(!gear)continue;
-      const score=scoreGear(restrictInput(gear,track,choice),track,role),current=slots.get(slot(piece));
-      if(!current||score.value>current.score.value+1e-9)slots.set(slot(piece),{piece,score});
+  const sources=track[0]==='Altered'&&role!=='tank'&&!inheritFrom?alteredAttackSources(reference):[inheritFrom];
+  const profile=standardRVProfile(reference,track[0]);
+  const candidates=sources.map(source=>{
+    const shared=scorerForSource?.(source);
+    const ceilings=new WeakMap<string[],{maximum:number;normalization:number}>();
+    const scoreGear=(gear:CurrentGearScoreInput)=>{
+      if(shared)return shared(gear,track,role);
+      let ceiling=ceilings.get(gear.allowedTypes);
+      if(!ceiling) {
+        const {maximum,normalization}=scoreCurrentGearForTrack(
+          {rows:[],augments:[],allowedTypes:gear.allowedTypes},track,reference,role,{profile,inheritFrom:source});
+        ceiling={maximum,normalization};
+        ceilings.set(gear.allowedTypes,ceiling);
+      }
+      return scoreCurrentGearForTrack(gear,track,reference,role,{profile,inheritFrom:source,ceiling});
+    };
+    return {source,scoreGear,choices:choices.map(choice=>({
+      choice,excluded:choice?excludedPairTypes(track,choice):null,scopes:new Map<Scope,Map<string,Slot>>(),
+    }))};
+  });
+  function add(piece:T,scopes:readonly Scope[]) {
+    const gear=input(piece);
+    if(!gear)return;
+    const key=slot(piece);
+    for(const {scoreGear,choices} of candidates)for(const {excluded,scopes:byScope} of choices) {
+      const score=scoreGear(restrictInput(gear,excluded));
+      for(const scope of scopes) {
+        let slots=byScope.get(scope);
+        if(!slots){slots=new Map();byScope.set(scope,slots);}
+        const current=slots.get(key);
+        if(!current||score.value>current.score.value+1e-9)slots.set(key,{piece,score});
+      }
     }
-    const value=[...slots.values()].reduce((sum,entry)=>sum+entry.score.value,0);
-    const picked=[...slots.values()].map(entry=>input(entry.piece)!);
-    const total=(element:string,kind:string)=>picked.reduce((sum,gear)=>sum+[...gear.rows,...gear.augments].filter(stat=>stat.type===element+' '+kind).reduce((v,stat)=>v+stat.value,0),0);
-    const valid=!choice||JSON.stringify(pairStatChoice(total,track))===JSON.stringify(choice);
-    if(!best||(valid&&!best.valid)||(valid===best.valid&&value>best.value+1e-9))best={choice,slots,value,valid};
   }
-  const result=best!;
-  return {inheritFrom,choice:result.choice,slots:result.slots,value:result.value,
-    /** The score of any piece inside this build, with unused native sources removed for all three pair stat kinds. */
-    score:(gear:CurrentGearScoreInput)=>scoreGear(restrictInput(gear,track,result.choice),track,role)};
+  function result(scope:Scope) {
+    return candidates.map(({source,scoreGear,choices})=>{
+      let best:{choice:PairStatChoice;excluded:Set<string>|null;slots:Map<string,Slot>;value:number;valid:boolean}|null=null;
+      for(const {choice,excluded,scopes} of choices) {
+        const slots=scopes.get(scope)??new Map<string,Slot>();
+        const value=[...slots.values()].reduce((sum,entry)=>sum+entry.score.value,0);
+        const picked=choice?[...slots.values()].map(entry=>input(entry.piece)!):[];
+        const total=(element:string,kind:string)=>picked.reduce((sum,gear)=>sum+[...gear.rows,...gear.augments].filter(stat=>stat.type===element+' '+kind).reduce((v,stat)=>v+stat.value,0),0);
+        const valid=!choice||JSON.stringify(pairStatChoice(total,track))===JSON.stringify(choice);
+        if(!best||(valid&&!best.valid)||(valid===best.valid&&value>best.value+1e-9))best={choice,excluded,slots,value,valid};
+      }
+      const {choice,excluded,slots,value}=best!;
+      return {inheritFrom:source,choice,slots,value,
+        score:(gear:CurrentGearScoreInput)=>scoreGear(restrictInput(gear,excluded))};
+    }).reduce((best,item)=>item.value>best.value+1e-9?item:best);
+  }
+  return {add,result};
 }
 
 /** The perfect item of a slot for a track (game-domain getBuildIdealItem) with the ranking' standard profile. */

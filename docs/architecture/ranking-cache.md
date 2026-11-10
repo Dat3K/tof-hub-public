@@ -16,7 +16,14 @@ Startup performs 14 sequential warmup queries, including the all-track,
 all-region Players top-50/top-100 with `verified=1`. The daily forced full run
 uses 03:01 UTC. Gear slot variants fill on demand rather than multiplying all
 slots by regions and tracks. Disabled or unavailable Redis does no speculative
-warmup. Pioneer retains its separate bounded snapshot policy.
+warmup.
+
+Pioneer retains a separate snapshot policy. Its live comparison reads gear in
+pages of 256 ordered by ID within one repeatable read transaction. The scan
+keeps slot winners for each applicable scoring combination and region, then
+caches the selected builds. Global Best and all regional builds share a scan
+per role. Concurrent requests for the same role share the pending result,
+while cold scans for different roles run in sequence.
 
 Raid current-name lookup uses separate RoleID and UID namespaces under the
 durable ranking revision. Positive responses live for one hour; negative
