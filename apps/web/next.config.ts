@@ -1,5 +1,10 @@
 import type { NextConfig } from "next";
 import { HTML_LIMITED_BOT_UA_RE } from "next/dist/shared/lib/router/utils/html-bots";
+import { dependencies } from "./package.json";
+
+const ocrVersion = [
+  dependencies["tesseract.js"], dependencies["tesseract.js-core"], dependencies["@tesseract.js-data/eng"],
+].join("-");
 
 const nextConfig: NextConfig = {
   output: "standalone",
@@ -9,9 +14,16 @@ const nextConfig: NextConfig = {
   // Every server route reads mutable catalogs from public/; keep them in the explicit copy/mount.
   outputFileTracingExcludes: { "/*": ["./public/**/*"] },
   trailingSlash: true,
-  webpack(config) {
+  webpack(config, { isServer }) {
     // Bundle the maintained editorial source on the server; do not read Markdown per request.
     config.module.rules.push({test: /case-study(?:\.ru)?\.md$/, type: 'asset/source'});
+    // Next serves these bundled OCR files with the application, including standalone deployments.
+    config.module.rules.push({
+      resourceQuery: /^\?ocr-asset$/,
+      type: "asset/resource",
+      sideEffects: true,
+      generator: { filename: `static/ocr/${ocrVersion}/[name][ext]`, emit: !isServer },
+    });
     return config;
   },
   // The Info pages are also opened through the machine's LAN address during

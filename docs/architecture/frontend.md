@@ -120,6 +120,23 @@ Source semantics and runtime outputs are documented in
 - Missing images show a blank slot, not the browser's broken-image icon.
 - Missing data shows an empty or error state, never a placeholder value.
 
+## Header navigation and disclosure
+
+`HeaderLink` uses Next.js link activation with catalog prefetch disabled.
+`HeaderNavigation` immediately selects the destination in the header and
+shows its localized `RouteLoadingForPath` until the router commits. The
+outgoing page remains mounted in a hidden React `Activity`.
+
+`Collapsible` waits two animation frames on first open so deferred content
+can mount. Later toggles measure the panel once and start in the same frame.
+`useAnimatedDetails` uses the native CSS transition when supported and the
+measured animation otherwise.
+
+`recognizeGearImage(file, prepare?)` shares the Build and Titan OCR worker.
+It validates the original raster and reserves the worker before applying the
+optional preprocessing callback. The web build emits the OCR worker, core and
+English language data alongside the application.
+
 ## Verification
 
 ```bash

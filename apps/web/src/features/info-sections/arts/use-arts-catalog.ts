@@ -13,6 +13,7 @@ import {
   getArtsSortOptions,
   cleanArtTitle,
   filterMatchesCategory,
+  compareArtsByAdded,
 } from './constants';
 import { getArtsStrings } from './copy';
 import { useBatchedList } from '@tof-hub/ui';
@@ -85,6 +86,7 @@ export function useArtsCatalog({
   const categoryCounts = useMemo<Record<string, number>>(() => {
     return {
       all: allItems.length,
+      new: allItems.filter((a) => a.isNew).length,
       wallpapers: allItems.filter((a) => a.category === 'wallpapers').length,
       characters: allItems.filter((a) => a.category === 'characters').length,
       character_bg: allItems.filter((a) => a.category === 'character_bg' || a.subCategory === 'season_bg').length,
@@ -142,9 +144,9 @@ export function useArtsCatalog({
     const list = [...filteredItems];
 
     if (sortValue === 'release_desc') {
-      list.sort((a, b) => b.id.localeCompare(a.id, undefined, { numeric: true }));
+      list.sort((a, b) => compareArtsByAdded(b, a));
     } else if (sortValue === 'release_asc') {
-      list.sort((a, b) => a.id.localeCompare(b.id, undefined, { numeric: true }));
+      list.sort(compareArtsByAdded);
     } else if (sortValue === 'title') {
       list.sort((a, b) => {
         const tA = cleanArtTitle(a.title, isRu, locale);

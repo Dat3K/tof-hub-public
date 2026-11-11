@@ -4,7 +4,7 @@ import {resolve} from 'node:path';
 import {fetchCompCatalog} from './data';
 import {compareSimulacraRelease} from '../info-sections/common/catalog-release-order';
 
-const reference=JSON.parse(readFileSync(resolve(import.meta.dirname,'../../../public/en/simulacra.json'),'utf8'));
+const reference=JSON.parse(readFileSync(resolve(import.meta.dirname,'../../../public/game-data/en/simulacra.json'),'utf8'));
 const runtime=JSON.parse(readFileSync(resolve(import.meta.dirname,'../../../public/game-data/en/runtime/comp.json'),'utf8'));
 
 describe('Comp canonical MMO roster',()=>{

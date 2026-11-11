@@ -97,7 +97,7 @@ function PodDetails({pod, media, icons}: {pod: Pod; media?: HandbookBiochemicalM
 export function MmoSequentialView({data, media, combatIcons, selection}: {data: HandbookBiochemicalData | null; media?: HandbookBiochemicalMedia | null; combatIcons?: CombatStatIcons; selection?: {season?: string; pod?: string}}) {
   const {locale, t, name, num} = useHandbookText();
   const liveSeason = currentSequentialSeason(data?.seasons ?? []);
-  const fallbackSeason = (selection?.pod ? data?.seasons.filter(entry => entry.levels.some(pod => pod.id === selection.pod)).at(-1) : undefined) ?? liveSeason ?? data?.seasons.at(-1);
+  const fallbackSeason = (selection?.pod ? data?.seasons.filter(entry => entry.levels.some(pod => pod.id === selection.pod)).at(-1) : undefined) ?? liveSeason ?? data?.seasons.slice().reverse().find(entry => entry.levels.length > 0) ?? data?.seasons.at(-1);
   const [seasonId, setSeason, ready] = useEncounterSelection('season', fallbackSeason?.id ?? '', selection?.season);
   const [podId, setPod] = useEncounterSelection('pod', '', selection?.pod);
   const [search, setSearch] = useState('');
@@ -175,7 +175,7 @@ export function MmoSequentialView({data, media, combatIcons, selection}: {data: 
               <Collapsible open={expanded} id={`culture-pod-${pod.id}`}>{() => <PodDetails pod={pod} media={media} icons={combatIcons} />}</Collapsible>
             </div>;
           })}
-          {!pods.length && <p className={styles.empty}>{t('No matching Culture Pods.', 'Инкубаторы не найдены.')}</p>}
+          {!pods.length && <p className={styles.empty}>{!season.levels.length && season.unresolvedLevelIds?.length ? t('This season is scheduled, but its Culture Pods are not in the client yet.', 'Сезон запланирован, но его инкубаторов пока нет в клиенте.') : t('No matching Culture Pods.', 'Инкубаторы не найдены.')}</p>}
         </section>
         <EncounterEffectCatalog effects={data.buffCatalog} />
       </div>

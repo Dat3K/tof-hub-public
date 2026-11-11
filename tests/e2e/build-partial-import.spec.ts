@@ -4,11 +4,11 @@ import fixture from '../../packages/contracts/src/__fixtures__/build-capture.jso
 import {BuildCaptureSchema} from '../../packages/contracts/src/build-capture';
 import {scanFixture} from '../../packages/contracts/src/__fixtures__/scan-session';
 
-test('partial live file can be saved and exported as Verified; footer keeps addition and manual edit dates',async({page})=>{
+test('completed live capture with missing optional sections saves and exports as Verified',async({page})=>{
   test.setTimeout(120000);
   const keys=generateKeyPairSync('rsa',{modulusLength:2048});
   const data=BuildCaptureSchema.parse({...fixture,schemaVersion:3,pet:null,matrices:[],support:null,
-    capture:{...fixture.capture,subject:{uid:'1300506653',roleId:''},scan:{...scanFixture('live'),status:'capturing',finishedAt:null}}});
+    capture:{...fixture.capture,subject:{uid:'1300506653',roleId:''},scan:scanFixture('live')}});
   const digest=createHash('sha256').update(JSON.stringify(data)).digest('hex');
   const signature=sign('sha256',Buffer.from(`tof-hub-build-capture:1:${digest}`),{key:keys.privateKey,padding:constants.RSA_PKCS1_PSS_PADDING,saltLength:32}).toString('base64url');
   await page.route('**/api/v1/build/import/public-key',route=>route.fulfill({json:{public_key_pem:keys.publicKey.export({type:'spki',format:'pem'}).toString()}}));
@@ -48,7 +48,9 @@ test('partial live file can be saved and exported as Verified; footer keeps addi
   await page.setViewportSize({width:844,height:390});
   await page.getByRole('button',{name:'Language selector: English',exact:true}).click();
   await page.locator('[data-datamine-language="ru"]').click();
-  await expect(page.getByRole('button',{name:'Сохранить билд',exact:true})).toBeEnabled();
+  await expect(page.getByRole('button',{name:'Сохранить билд',exact:true})).toHaveCount(0);
   await expect(date).toHaveAttribute('datetime',originalDate!);
   await expect(card.locator('.data-origin:visible')).toHaveCount(0);
+  await page.setViewportSize({width:1280,height:720});
+  await expect(page.getByRole('button',{name:'Сохранить билд',exact:true})).toBeEnabled();
 });

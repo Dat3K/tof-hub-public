@@ -80,7 +80,7 @@ export const ArtCardItem: React.FC<ArtCardItemProps> = ({
 
         {/* Top-right: Category Badge */}
         <span className={`${styles.catBadge} ${styles[`catBadge--${badgeInfo.variant}`] || ''}`}>
-          {badgeInfo.text}
+          {artwork.isNew ? `${strings.tabNew} · ${badgeInfo.text}` : badgeInfo.text}
         </span>
 
         {/* Bottom-right: File Size Badge */}

@@ -1,8 +1,13 @@
 import type {BuildCatalog,BuildDraft} from './types';
 import {detectResonance} from '../comp/state';
 import {selectedWeaponElements} from '../info-sections/common/weapon-options';
+
+export type ResonanceWeapon=Pick<BuildCatalog['weapons'][number],'id'|'weaponId'|'weapon'|'role'|'elements'|'resonances'|'elementFromResonance'|'selectableElements'>;
+type ResonanceLoadout={weapons:readonly Pick<BuildDraft['weapons'][number],'id'|'element'|'stars'>[]};
+type ResonanceCatalog={weapons:readonly ResonanceWeapon[]};
+
 /** Resolve automatic weapons from the other slots without creating a circular resonance. */
-export function buildWeaponElements(draft:BuildDraft,catalog:BuildCatalog) {
+export function buildWeaponElements(draft:ResonanceLoadout,catalog:ResonanceCatalog) {
   const slots=draft.weapons.map(chosen=>{
     const weapon=catalog.weapons.find(item=>item.id===chosen.id);
     const elements=!weapon?[]:weapon.selectableElements?.length&&!chosen.element?[]:selectedWeaponElements(weapon,chosen.element);
@@ -19,7 +24,7 @@ export function buildWeaponElements(draft:BuildDraft,catalog:BuildCatalog) {
   });
 }
 /** Catalog order is generated newest-first. Each equipped slot counts once per element. */
-export function activeWeaponResonances(draft:BuildDraft,catalog:BuildCatalog) {
+export function activeWeaponResonances(draft:ResonanceLoadout,catalog:ResonanceCatalog) {
   const resolved=buildWeaponElements(draft,catalog);
   const equipped=draft.weapons.flatMap((chosen,index)=>{
     const weapon=catalog.weapons.find(item=>item.id===chosen.id);
@@ -40,7 +45,7 @@ export function activeWeaponResonances(draft:BuildDraft,catalog:BuildCatalog) {
 }
 /** Auto names the primary element of the newest equipped weapon with an active resonance.
  * Raw resonance table order can differ from the weapon's main/secondary element order. */
-export function mainWeaponResonance(draft:BuildDraft,catalog:BuildCatalog) {
+export function mainWeaponResonance(draft:ResonanceLoadout,catalog:ResonanceCatalog) {
   const active=activeWeaponResonances(draft,catalog),resolved=buildWeaponElements(draft,catalog);
   for(const weapon of catalog.weapons) {
     for(const [slot,chosen] of draft.weapons.entries()) {
@@ -54,7 +59,7 @@ export function mainWeaponResonance(draft:BuildDraft,catalog:BuildCatalog) {
   return active[0];
 }
 /** Same role rule as the comp tab (2+ of one role, otherwise balance); the card shows it once two weapons are equipped. */
-export function activeRoleResonance(draft:BuildDraft,catalog:BuildCatalog) {
+export function activeRoleResonance(draft:ResonanceLoadout,catalog:ResonanceCatalog & Pick<BuildCatalog,'roleResonances'>) {
   const equipped=draft.weapons.filter(chosen=>catalog.weapons.some(item=>item.id===chosen.id));
   if(equipped.length<2)return null;
   const view={weapons:catalog.weapons.map(({id,weaponId,role})=>({id,weaponId,role}))} as unknown as Parameters<typeof detectResonance>[1];

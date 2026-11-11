@@ -566,10 +566,15 @@ const POTENTIAL_DELAY_MS=320;
 function BuildPotential({gear,track,catalog,locale,copy}:{gear:GearDraft[];track:ElementTrack;catalog:RankingCatalog;locale:BuildLocale;copy:ReturnType<typeof useCopy>}) {
   const role=useContext(RoleContext);
   // Computed after the details have opened (it projects all twelve pieces to full Titan), so the row opens at once.
-  const [potential,setPotential]=useState<ReturnType<typeof buildTitanMaximum>>(null);
+  // Until then its space stays reserved: on narrow boards it is a row of its own, which would add a line after the opening.
+  const [potential,setPotential]=useState<ReturnType<typeof buildTitanMaximum>|undefined>(undefined);
   useEffect(()=>{const timer=setTimeout(()=>setPotential(buildTitanMaximum(gear,track,catalog,role)),POTENTIAL_DELAY_MS);return ()=>clearTimeout(timer);},[gear,track,catalog,role]);
   const rank=useBoardRank(potential?.percent??null);
-  if(!potential)return null;
+  if(potential===null)return null;
+  if(!potential)return <div className={styles.potentialSlot} style={{visibility:'hidden'}} aria-hidden="true"><div className={styles.potential}>
+    <div className={styles.potentialHead}><span>{copy.potential}</span></div>
+    <Score percent={0} points={0} locale={locale} label={copy.potential}/>
+  </div></div>;
   return <div className={styles.potentialSlot}><Hint title={copy.potential} text={copy.potentialHint}><div className={styles.potential}>
     <div className={styles.potentialHead}><span>{copy.potential}</span>{rank!==null&&<b>#{rank} {copy.potentialRank}</b>}</div>
     <Score percent={potential.percent} points={potential.value} locale={locale} label={copy.potential}/>

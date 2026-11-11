@@ -34,8 +34,8 @@ test.describe('Error & Not-Found Page Verification', () => {
     await expect(page.locator('h1')).toContainText(/Tower of Fantasy Hub|База данных и знаний TOF/i);
   });
 
-  test('status page copy follows the RU locale', async ({ page, context }) => {
-    await context.addCookies([{ name: 'tof_locale', value: 'ru', domain: 'localhost', path: '/' }]);
+  test('status page copy follows the RU locale', async ({ page, context, baseURL }) => {
+    await context.addCookies([{ name: 'tof_locale', value: 'ru', url: baseURL! }]);
     await page.goto('/non-existent-sector/');
     await expect(page.locator('h1')).toHaveText('По этому адресу ничего нет');
   });

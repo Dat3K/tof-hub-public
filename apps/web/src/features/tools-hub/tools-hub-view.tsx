@@ -5,14 +5,16 @@ import React, { useMemo } from 'react';
 import Link from 'next/link';
 import { useI18n } from '@/lib/i18n';
 import { intlLocale } from '@/lib/i18n/format';
+import { localeText } from '@/lib/i18n/text';
 import { SectionHubCard, SectionHubLayout } from '@/components/section-hub';
 import { RailGlyph } from '@/components/tool-rail/tool-rail';
 import { hubText, type HubSummary } from '@/lib/hub-summary';
 import { resolveCompTraitIcon } from '@/features/comp/data';
 import { TOOLS_HUB_COPY } from './copy';
 import { RankingCard } from './ranking-card';
-import { BuildPreview, CompPreview, OptimizerPreview } from './tool-previews';
+import { BuildPreview, CompPreview, OptimizerPreview, TitanPreview } from './tool-previews';
 import type { CompPreviewRow } from './comp-preview';
+import type { TitanPreviewData } from './titan-preview';
 import styles from './tools-hub.module.css';
 
 export interface ToolsHubViewProps {
@@ -20,6 +22,7 @@ export interface ToolsHubViewProps {
   summary: HubSummary | null;
   /** Rows of the Comp page's default squad (comp-preview.ts); empty without the Comp catalog. */
   compPreview: CompPreviewRow[];
+  titanPreview: TitanPreviewData | null;
 }
 
 const WISH_SHORTCUTS = [
@@ -28,9 +31,10 @@ const WISH_SHORTCUTS = [
   { id: 'simulation', href: '/tools/wish/?tab=simulation', icon: 'simulation' },
 ] as const;
 
-export function ToolsHubView({ summary, compPreview }: ToolsHubViewProps) {
+export function ToolsHubView({ summary, compPreview, titanPreview }: ToolsHubViewProps) {
   const { locale } = useI18n();
   const lang = locale;
+  const t = localeText(lang);
   const copy = localizedUi(TOOLS_HUB_COPY, lang);
   const plain = useMemo(() => new Intl.NumberFormat(intlLocale(lang)), [lang]);
   const formatNumber = (value: number) => plain.format(value);
@@ -44,7 +48,7 @@ export function ToolsHubView({ summary, compPreview }: ToolsHubViewProps) {
   );
 
   return (
-    <SectionHubLayout title={copy.title} gridLabel={copy.sectionsAria}>
+    <SectionHubLayout title={copy.title} gridLabel={copy.sectionsAria} density="compact">
       <RankingCard elements={tools?.ranking.strip ?? []} copy={copy} locale={lang} formatNumber={formatNumber} />
 
       <SectionHubCard
@@ -105,7 +109,6 @@ export function ToolsHubView({ summary, compPreview }: ToolsHubViewProps) {
         title={copy.optimizer.title}
         description={copy.optimizer.description}
         actionLabel={copy.openPage}
-        span="half"
       >
         <OptimizerPreview stats={tools?.optimizer.strip ?? []} copy={copy.optimizer} />
       </SectionHubCard>
@@ -116,9 +119,18 @@ export function ToolsHubView({ summary, compPreview }: ToolsHubViewProps) {
         title={copy.comp.title}
         description={copy.comp.description}
         actionLabel={copy.openPage}
-        span="half"
       >
         <CompPreview rows={compPreview} copy={copy} />
+      </SectionHubCard>
+
+      <SectionHubCard
+        id="titan"
+        href="/tools/titan/"
+        title={t('Titan Calculator', 'Калькулятор титанки')}
+        description={t('Find the best Titan stats from a damage parse', 'Подберите статы титанки по записи урона')}
+        actionLabel={copy.openPage}
+      >
+        <TitanPreview data={titanPreview} locale={lang} />
       </SectionHubCard>
     </SectionHubLayout>
   );

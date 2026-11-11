@@ -29,7 +29,7 @@ export default async function RaidsPage({searchParams}: {searchParams?: Promise<
     variant: first(params.variant),
     stage: first(params.stage),
     schedule: first(params.schedule),
-    tab: first(params.tab), season: first(params.season), region: first(params.region),
+    tab: first(params.tab), season: first(params.season), region: first(params.region), subregion: first(params.subregion),
     layout: first(params.layout), unique: first(params.unique), q: first(params.q), player: first(params.player), names: first(params.names), sort: first(params.sort), places: first(params.places),
   }} />;
 }

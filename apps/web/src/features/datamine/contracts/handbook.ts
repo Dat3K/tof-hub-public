@@ -257,6 +257,8 @@ export interface HandbookBiochemicalData {
     regionalPeriods?: {region: string; start: HandbookBiochemicalDate | null; end: HandbookBiochemicalDate | null}[];
     weaponLimit: number | null;
     joinsGroupRank: boolean | null;
+    /** `OpenLevels` IDs without a row in this client's level table (scheduled, not shipped yet). */
+    unresolvedLevelIds?: string[];
     levels: {
       id: string;
       name: Localized | null;

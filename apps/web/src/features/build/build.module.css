@@ -196,7 +196,7 @@
 .preview :global(.card[data-stat-highlight] .role-resonance) {opacity:.3}
 .preview :global([data-stat-keys]) {transition:opacity var(--stat-highlight-duration) ease,background-color .085s ease,color .085s ease;border-radius:2px;cursor:default}
 .preview :global(.card[data-stat-highlight] [data-stat-match="false"]:not(.resistance-total)) {opacity:.3}
-.preview :global(.card[data-stat-highlight] .resistance-total[data-stat-match="false"]:not(:hover,:focus-within) :is(.stat-icon,b,small)) {opacity:.3}
+.preview :global(.card[data-stat-highlight] .resistance-total[data-stat-match="false"]:not(:hover,:focus-within) :is(b,small)) {opacity:.3}
 .preview :global(.card[data-stat-highlight] [data-stat-match="true"]) {opacity:1}
 .preview :global(.element-stat-value),.preview :global(.element-stat-label) {display:inline-block;border-radius:2px}
 .preview :global(.card[data-stat-highlight] .system:not(:has([data-stat-match="true"])) > :not(h3)),
@@ -890,6 +890,7 @@
   padding-top: 12px;
   border-top: 1px solid #ffffff13
 }
+.cardWatermark,
 .preview :global(.foot-brand) {
   font-size: 14px;
   font-weight: 600;

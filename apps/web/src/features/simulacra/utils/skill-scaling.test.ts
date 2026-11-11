@@ -5,7 +5,7 @@ import {resolve} from 'node:path';
 
 describe('skill scaling values', () => {
   it('uses Gefion raw curve times and interpolates sparse values instead of stopping at the point count',()=>{
-    const dataset=JSON.parse(readFileSync(resolve(import.meta.dirname,'../../../../public/en/simulacra.json'),'utf8'));
+    const dataset=JSON.parse(readFileSync(resolve(import.meta.dirname,'../../../../public/game-data/en/simulacra.json'),'utf8'));
     const gefion=dataset.gacha.find((item:any)=>item.id==='gefion');
     const skill=gefion.weapon.skills.normals.find((item:any)=>item.name_en==='Ascending Step');
     expect(getSkillDescriptionForLevel(skill,118)).toContain('1118% of ATK + 3525');

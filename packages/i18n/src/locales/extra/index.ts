@@ -1,6 +1,7 @@
 import {publicImportTranslations} from './public-import';
 import type { Locale } from '../../constants';
 import { cosmeticMediaTranslations } from './features/cosmetic-media';
+import { titanCalculatorTranslations } from './features/titan-calculator';
 import { de } from './cultures/de';
 import { es } from './cultures/es';
 import { fr } from './cultures/fr';
@@ -40,5 +41,5 @@ const pages: Partial<Record<Locale, Readonly<Record<string, string>>>> = {
 };
 
 export const extraTranslations: Partial<Record<Locale, Readonly<Record<string, string>>>> = Object.fromEntries(
-  (Object.keys(pages) as Locale[]).map(locale => [locale, { ...cosmeticMediaTranslations[locale], ...siteUiRaidTranslations[locale], ...siteUiFooterPageTranslations[locale], ...pages[locale], ...commonTranslations[locale], ...dishEffectTranslations[locale], ...artTitleTranslations[locale], ...buildLabelTranslations[locale], ...buildPhraseTranslations[locale], ...buildHelpTranslations[locale], ...bossPlateTranslations[locale], ...entityNames[locale], ...officialNames[locale], ...siteUiChineseTranslations[locale], ...siteUiPortugueseThaiTranslations[locale], ...siteUiJapaneseKoreanTranslations[locale], ...siteUiAdditionalTranslations[locale], ...siteUiBuildTranslations[locale], ...siteUiHandbookTranslations[locale], ...siteUiTranslations[locale], ...siteUiFollowupTranslations[locale], ...siteUiRouteBoundaryTranslations[locale], ...siteUiRenderedCopyTranslations[locale], ...siteUiDynamicLabelTranslations[locale], ...publicImportTranslations[locale] }]),
+  (Object.keys(pages) as Locale[]).map(locale => [locale, { ...cosmeticMediaTranslations[locale], ...siteUiRaidTranslations[locale], ...siteUiFooterPageTranslations[locale], ...pages[locale], ...commonTranslations[locale], ...dishEffectTranslations[locale], ...artTitleTranslations[locale], ...buildLabelTranslations[locale], ...buildPhraseTranslations[locale], ...buildHelpTranslations[locale], ...bossPlateTranslations[locale], ...entityNames[locale], ...officialNames[locale], ...siteUiChineseTranslations[locale], ...siteUiPortugueseThaiTranslations[locale], ...siteUiJapaneseKoreanTranslations[locale], ...siteUiAdditionalTranslations[locale], ...siteUiBuildTranslations[locale], ...siteUiHandbookTranslations[locale], ...siteUiTranslations[locale], ...siteUiFollowupTranslations[locale], ...siteUiRouteBoundaryTranslations[locale], ...siteUiRenderedCopyTranslations[locale], ...siteUiDynamicLabelTranslations[locale], ...titanCalculatorTranslations[locale], ...publicImportTranslations[locale] }]),
 );

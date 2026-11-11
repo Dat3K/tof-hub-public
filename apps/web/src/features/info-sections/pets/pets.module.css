@@ -1874,7 +1874,7 @@
 }
 
 /* Keep hash-driven openings animated just like the Simulacra detail panels. */
-@supports selector(details::details-content) {
+@supports (interpolate-size: allow-keywords) {
   .petDetailPage details::details-content {
     display: block;
     block-size: 0;

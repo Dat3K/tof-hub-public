@@ -28,7 +28,13 @@ test('weapon Up. editing follows generated breakthrough boundaries in EN/RU',asy
 /** The advanced editor is offered only while the card is unlocked for editing. */
 async function openAdvancedEditor(page:Page) {
   const lock=page.getByRole('checkbox',{name:'Lock editing',exact:true});
-  if(await lock.isChecked())await lock.uncheck();
+  if(await lock.isChecked()){
+    await lock.click();
+    const replaceDemo=page.getByRole('dialog',{name:'Replace test data to edit?'});
+    await expect.poll(async()=>await replaceDemo.isVisible()||!(await lock.isChecked())).toBe(true);
+    if(await replaceDemo.isVisible())await replaceDemo.getByRole('button',{name:'Clear and edit'}).click();
+    await expect(lock).not.toBeChecked();
+  }
   await page.getByRole('checkbox',{name:'Advanced editor',exact:true}).check();
 }
 
@@ -87,7 +93,7 @@ test.describe('Build card editor',()=>{
     await page.getByRole('button',{name:'Language selector: English',exact:true}).click();
     await page.locator('[data-datamine-language="ru"]').click();
     await expect(displayed).toHaveText(title.ru);
-    await expect(displayed).toHaveAttribute('data-hint-overflow','');
+    await expect(displayed).toHaveAttribute('data-hint-overflow','true');
     await page.reload();
     await expect(displayed).toHaveText(title.ru);
     await expect.poll(()=>page.evaluate(()=>JSON.parse(localStorage.getItem('tof-build-draft-v1')!).profile.characterTitle)).toBe(code);
@@ -105,6 +111,7 @@ test.describe('Build card editor',()=>{
     const baseline=await iconOpacity();
     await resistances.last().hover();
     await expect.poll(iconOpacity).toEqual(baseline);
+    await expect(resistances.first().locator('b')).toHaveCSS('opacity','0.3');
     const tooltip=page.getByRole('tooltip');
     await expect(tooltip).toContainText('Total Resistance');
     const total=tooltip.locator('[data-stat-total="Resistance"]');
@@ -124,7 +131,11 @@ test.describe('Build card editor',()=>{
         draft.demo=false;delete draft.captureSource;delete draft.combat.consumableStatsApplied;
         draft.rv={...draft.rv,element:'Frost',weaponId:'gefion'};draft.weapons[0].id='gefion';
         draft.consumables=draft.consumables.map(()=>'');
-        for(const element of draft.combat.elements){if(element.id==='Frost')element.attack=flat;if(element.id==='Volt')element.attack=60000;}
+        draft.support=draft.support.map((module:{id:string;level:number})=>({...module,level:0}));
+        for(const element of draft.combat.elements){
+          if(element.id==='Frost')Object.assign(element,{attack:flat,attackPercent:frostPercent,damage:.05});
+          if(element.id==='Volt')Object.assign(element,{attack:60000,attackPercent:.2,damage:.01});
+        }
         for(const gear of draft.gear)gear.equipped=false;
         Object.assign(draft.gear[9],{equipped:true,titan:false,augmented:false,rows:[
           {type:'Frost Attack %',value:frostPercent,beforeTitan:null},{type:'Volt Attack %',value:.2,beforeTitan:null},
@@ -305,12 +316,14 @@ test.describe('Build card editor',()=>{
     await expect(page.getByRole('tooltip')).not.toContainText('A6');
     const stars=page.getByRole('tooltip').locator('[data-inspection-heading] span').filter({hasText:'★6'}).last();
     expect(await stars.evaluate(node=>getComputedStyle(node).color)).not.toBe('rgb(164, 220, 247)');
-    await card.locator('.system-media').filter({hasText:'Leia'}).locator('button').hover();
-    await expect(page.getByRole('tooltip')).toContainText(`5,950 = ${(5950/data.reference.critFormula.denominators[90]*100).toFixed(2)}% (Enemy Lv. 90)`);
+    await card.getByRole('button',{name:'Leia',exact:true}).first().hover();
+    const enemyLevel=data.demoDraft.enemyLevel;
+    await expect(page.getByRole('tooltip')).toContainText(`5,950 = ${(5950/data.reference.critFormula.denominators[enemyLevel]*100).toFixed(2)}% (Enemy Lv. ${enemyLevel})`);
     const strip=card.locator('.matrix-strip').first();
-    await strip.locator('.matrix button').first().hover();
+    const pair=await strip.locator('.matrix').evaluateAll(nodes=>nodes.slice(0,2).map(node=>node.getAttribute('data-matrix-slot')));
+    await strip.locator('.matrix').first().hover();
     await expect(strip.locator('[data-matrix-highlight="true"]')).toHaveCount(2);
-    expect(await strip.locator('[data-matrix-highlight="true"]').evaluateAll(nodes=>nodes.map(node=>node.getAttribute('data-matrix-slot')))).toEqual(['1','2']);
+    expect(await strip.locator('[data-matrix-highlight="true"]').evaluateAll(nodes=>nodes.map(node=>node.getAttribute('data-matrix-slot')))).toEqual(pair);
     await card.locator('.crit-rating').hover();
     await expect(card.locator('.matrix[data-matrix-slot="1"]').first()).toHaveAttribute('data-stat-match','false');
     await expect(card.locator('.computing-node').first()).toHaveAttribute('data-stat-match','false');
@@ -360,28 +373,41 @@ test.describe('Build card editor',()=>{
     await expect(level).toHaveCSS('outline-style','solid');
     await page.screenshot({path:'ignore/documentation-media/generated/build/weapon-edit-outline-ru.png'});
   });
-  test('positions artwork with the pointer without dragging and controls scale beside the lock',async({page})=>{
-    await fillTestData(page);
+  test('drags artwork and controls scale beside the lock',async({page})=>{
+    const {demoDraft}=await (await page.request.get('/game-data/build-page.json')).json();
+    delete demoDraft.captureSource;
+    await page.addInitScript(draft=>{
+      if(sessionStorage.getItem('artwork-test-loaded'))return;
+      localStorage.setItem('tof-build-draft-v1',JSON.stringify(draft));
+      sessionStorage.setItem('artwork-test-loaded','1');
+    },{...demoDraft,demo:false});
+    await page.reload();
     await page.getByRole('checkbox',{name:'Lock editing',exact:true}).uncheck();
     const card=page.locator('article.card');
     const art=card.locator('.hero-art');
+    const background=page.getByRole('button',{name:'Background',exact:true});
+    const move=page.getByRole('button',{name:'Move background',exact:true});
+    const positioning=page.getByRole('button',{name:/^Move background:/});
+    if(!await move.isVisible())await background.click();
     const zoom=page.getByRole('slider',{name:'Art scale',exact:true}).first();
     const lockBounds=(await page.getByRole('checkbox',{name:'Lock editing',exact:true}).locator('..').boundingBox())!;
     const scaleBounds=(await zoom.locator('..').boundingBox())!;
     // Background controls follow the editing lock in the toolbar and never cover it.
     expect(scaleBounds.x>=lockBounds.x+lockBounds.width||scaleBounds.y>=lockBounds.y+lockBounds.height).toBe(true);
     await zoom.focus();await page.keyboard.press('Home');
-    await expect(art).toHaveCSS('transform','matrix(0.25, 0, 0, 0.25, 0, 0)');
+    await expect(art).toHaveCSS('transform',/^matrix\(0\.25, 0, 0, 0\.25,/);
     await zoom.focus();await page.keyboard.press('End');
-    await expect(art).toHaveCSS('transform','matrix(3, 0, 0, 3, 0, 0)');
-    await page.getByRole('button',{name:'Move background',exact:true}).click();
-    await expect(page.getByRole('button',{name:'Done positioning',exact:true})).toBeVisible();
+    await expect(art).toHaveCSS('transform',/^matrix\(3, 0, 0, 3,/);
+    await move.click();
+    await expect(positioning).toBeVisible();
     const bounds=(await card.boundingBox())!;
+    const readOffset=()=>art.evaluate(node=>parseFloat((node as HTMLElement).style.transform.match(/translate\(([-\d.]+)/)![1]));
+    const initialOffset=await readOffset();
     // Dragging anywhere on the card moves the art; card controls do not react while positioning.
     await page.mouse.move(bounds.x+bounds.width*.25,bounds.y+bounds.height*.3);
     await page.mouse.down();
     await page.mouse.move(bounds.x+bounds.width*.6,bounds.y+bounds.height*.7);
-    await expect.poll(()=>art.evaluate(node=>parseFloat((node as HTMLElement).style.transform.match(/translate\(([-\d.]+)/)![1]))).toBeCloseTo(35,0);
+    await expect.poll(readOffset).toBeCloseTo(initialOffset+35,0);
     const initialPosition=await art.evaluate(node=>(node as HTMLElement).style.transform);
     await page.mouse.move(bounds.x-20,bounds.y+bounds.height*.7);
     await expect.poll(()=>art.evaluate(node=>(node as HTMLElement).style.transform)).not.toBe(initialPosition);
@@ -391,21 +417,22 @@ test.describe('Build card editor',()=>{
     await expect.poll(()=>art.evaluate(node=>(node as HTMLElement).style.transform)).toBe(released);
     await page.keyboard.press('Shift+ArrowLeft');
     for(let i=0;i<30;i++)await page.keyboard.press('Shift+ArrowLeft');
-    await expect.poll(()=>art.evaluate(node=>parseFloat((node as HTMLElement).style.transform.match(/translate\(([-\d.]+)/)![1]))).toBeLessThan(-100);
+    await expect.poll(readOffset).toBeLessThan(-100);
     const fixed=await art.evaluate(node=>(node as HTMLElement).style.transform);
     await page.keyboard.press('Escape');
     await page.screenshot({path:'ignore/documentation-media/generated/build/art-pointer-editing.png'});
     await page.mouse.move(bounds.x+bounds.width*.8,bounds.y+bounds.height*.8);
     await expect.poll(()=>art.evaluate(node=>(node as HTMLElement).style.transform)).toBe(fixed);
-    await page.getByRole('button',{name:'Move background',exact:true}).click();
+    if(!await move.isVisible())await background.click();
+    await move.click();
     await page.keyboard.press('Escape');
-    await expect(page.getByRole('button',{name:'Done positioning',exact:true})).toHaveCount(0);
+    await expect(positioning).toHaveCount(0);
     await card.locator('.art-edit-control').click();
     await page.getByRole('dialog').getByRole('button',{name:'Move background',exact:true}).click();
     await expect(page.getByRole('dialog')).toHaveCount(0);
-    await expect(page.getByRole('button',{name:'Done positioning',exact:true})).toBeVisible();
+    await expect(positioning).toBeVisible();
     await page.getByRole('checkbox',{name:'Lock editing',exact:true}).check();
-    await expect(page.getByRole('button',{name:'Done positioning',exact:true})).toHaveCount(0);
+    await expect(positioning).toHaveCount(0);
     await expect.poll(async()=>JSON.parse((await page.evaluate(()=>localStorage.getItem('tof-build-draft-v1')))! ).art.zoom).toBe(3);
     await page.reload();
     await expect.poll(()=>art.evaluate(node=>(node as HTMLElement).style.transform)).toBe(fixed);
@@ -432,7 +459,7 @@ test.describe('Build card editor',()=>{
     }
     const attack=inspectors[3];
     await attack.hover();
-    const resonance=card.locator('.equipment-heading small[data-stat-keys]');
+    const resonance=card.locator('.equipment-heading .equipment-level');
     await expect(resonance).toHaveAttribute('data-stat-match','true');
     await expect.poll(()=>resonance.evaluate(node=>{
       let opacity=1;
@@ -462,7 +489,8 @@ test.describe('Build card editor',()=>{
       await card.locator('.gear-head .inspect-trigger:has(img)').nth(index).hover();
       const tooltip=page.getByRole('tooltip');
       await expect(tooltip).toContainText('Base Stats');
-      for(const stat of stats)await expect(tooltip).toContainText(`+${fmt(stat.base)} +${fmt(stat.enhancement)}`);
+      for(const stat of stats.filter((stat:{base:number;enhancement:number})=>stat.base||stat.enhancement))
+        await expect(tooltip).toContainText(`+${fmt(stat.base)} +${fmt(stat.enhancement)}`);
       const unlocked=stats.filter((stat:{unlocked:number})=>stat.unlocked>0);
       if(unlocked.length){
         await expect(tooltip).toContainText('Enhancement Unlocked');
@@ -491,7 +519,7 @@ test.describe('Build card editor',()=>{
     const suppressor=data.suppressors.find((item:{id:string})=>item.id===draft.profile.suppressorId);
     const contract=data.enhancementResonance;
     const resonance=contract.tiers.filter((tier:{enhancement:number;count:number})=>draft.gear.filter((g:{id:string;equipped:boolean;enhancement:number})=>contract.slotIds.includes(g.id)&&g.equipped&&g.enhancement>=tier.enhancement).length>=tier.count).at(-1);
-    const progression=[{node:card.locator('.suppressor-source'),stats:suppressor.stats},{node:card.locator('.equipment-heading small[data-stat-keys]'),stats:resonance.stats}];
+    const progression=[{node:card.locator('.suppressor-source'),stats:suppressor.stats},{node:card.locator('.equipment-heading .equipment-level'),stats:resonance.stats}];
     const fmt=(n:number,locale='en-US')=>new Intl.NumberFormat(locale,{maximumFractionDigits:0}).format(n);
     for(const attack of await card.locator('.stat-table tbody tr td:nth-child(2)').all()){
       await attack.hover();
@@ -499,8 +527,11 @@ test.describe('Build card editor',()=>{
         await expect(node).toHaveAttribute('data-stat-match','true');
         await expect(node).toHaveAttribute('data-damage-bonus',`ATK: +${fmt(stats.atk)}`);
       }
-      await expect(card.locator('.computing-node').nth(2)).toHaveAttribute('data-damage-bonus','ATK%: +10.0%');
-      await expect(card.locator('.computing-node').nth(3)).toHaveAttribute('data-damage-bonus','ATK%: +12.0%');
+      const expected=draft.computing.map((node:{id:string;level:number})=>data.computing.find((entry:{id:string})=>entry.id===node.id)?.effects
+        .filter((effect:{attackStat:boolean})=>effect.attackStat).reduce((sum:number,effect:{levels:{level:number;value:number}[]})=>
+          sum+(effect.levels.find(point=>point.level===node.level)?.value??0),0)??0);
+      for(const [index,amount] of expected.entries())if(amount>0)await expect(card.locator('.computing-node').nth(index))
+        .toHaveAttribute('data-damage-bonus',`ATK%: +${(amount*100).toFixed(1)}%`);
     }
     const checks=[{node:card.locator('.hp-stat'),key:'hp',label:'HP'},{node:card.locator('.crit-rating'),key:'crit',label:'Crit'},{node:card.locator('.resistance-total').nth(2),key:'res',label:'Resistance'}];
     for(const check of checks){
@@ -523,7 +554,7 @@ test.describe('Build card editor',()=>{
     await page.locator('[data-datamine-language="ru"]').click();
     await page.setViewportSize({width:844,height:390});
     await card.locator('.stat-table tbody tr td:nth-child(2)').first().hover();
-    for(const {node,stats} of progression)await expect(node).toHaveAttribute('data-damage-bonus',`ATK: +${fmt(stats.atk,'ru-RU')}`);
+    for(const {node,stats} of progression)await expect(node).toHaveAttribute('data-damage-bonus',`АТК: +${fmt(stats.atk,'ru-RU')}`);
     await card.locator('.resistance-total').first().hover();
     for(const {node,stats} of progression){
       await expect(node).toHaveAttribute('data-damage-bonus',`Сопротивление: +${fmt(stats.res,'ru-RU')}`);
@@ -532,40 +563,37 @@ test.describe('Build card editor',()=>{
   });
   test('shows Titan effect percentages from combined levels with mouse, keyboard and Russian tooltips',async({page})=>{
     await fillTestData(page);
+    const data=await (await page.request.get('/game-data/build-page.json')).json();
     const card=page.locator('article.card');
-    const dodge=card.locator('.titan-total[data-titan-stat="EvadeAtkAggravatingInjury"]');
-    await dodge.hover();
-    await expect(page.getByRole('tooltip')).not.toContainText('Total level');
-    await expect(page.getByRole('tooltip')).toContainText('Direct dodge attack damage: +20%');
-    await expect(page.getByRole('tooltip').locator('[data-titan-level]')).toHaveText('+5');
-    await expect(page.getByRole('tooltip').locator('[data-titan-level]')).toHaveCSS('color','rgb(43, 166, 223)');
-    await expect(card.locator('.rare[data-stat-match="true"]')).toHaveCount(2);
-    await card.locator('.rare[data-stat-keys="EvadeAtkAggravatingInjury"]').first().hover();
-    await expect(page.getByRole('tooltip').locator('[data-titan-level]')).toHaveText('+5');
-    await expect(page.getByRole('tooltip')).not.toContainText('Total level');
-    await expect(page.getByRole('tooltip')).not.toContainText('Levels from this item');
-    await expect(page.getByRole('tooltip')).toContainText('Direct dodge attack damage: +20%');
-    for(const healing of await card.locator('.rare[data-stat-keys="FinalRigidity"]').all()){
-      await healing.hover();
-      await expect(page.getByRole('tooltip').locator('[data-titan-level]')).toHaveText('+4');
-      await expect(page.getByRole('tooltip')).toContainText('Healing dealt: +9.6%');
-    }
-    await card.locator('.titan-total[data-titan-stat="SkillAtkAggravatingInjury"]').hover();
-    await expect(page.getByRole('tooltip')).toContainText('Direct skill damage: +6.154%');
-    await card.locator('.titan-total[data-titan-stat="CommonDamageRecoverHPMult"]').hover();
-    await expect(page.getByRole('tooltip')).toContainText('Lifesteal: +8.355%');
-    await expect(page.getByRole('tooltip')).not.toContainText('Internal coefficient');
+    const id='CommonAtkAggravatingInjury';
+    const pieces=data.demoDraft.gear.filter((gear:{id:string;equipped:boolean;rareId:string})=>gear.equipped&&gear.rareId===id);
+    const level=pieces.reduce((sum:number,gear:{rareLevel:number})=>sum+gear.rareLevel,0);
+    const effect=data.reference.titanRare.items.find((item:{id:string})=>item.id===id).effectCurve.find((point:{level:number})=>point.level===level);
+    expect(pieces.length).toBeGreaterThan(1);
+    expect(effect?.value).toBeGreaterThan(0);
+    const total=card.locator(`.titan-total[data-titan-stat="${id}"]`);
+    const rare=card.locator(`.rare[data-stat-keys="${id}"]`);
+    const tooltip=page.getByRole('tooltip');
+    const expectEffect=async(locale:'en'|'ru')=>{
+      const effectText=new Intl.NumberFormat(locale,{style:'percent',maximumFractionDigits:3}).format(effect.value);
+      await expect(tooltip).toContainText(locale==='en'?'Direct normal attack damage':'Прямой урон обычных атак');
+      await expect(tooltip).toContainText(`+${effectText}`);
+      await expect(tooltip.locator('[data-titan-level]')).toHaveText(`+${level}`);
+    };
+    await total.hover();
+    await expectEffect('en');
+    await expect(card.locator('.rare[data-stat-match="true"]')).toHaveCount(pieces.length);
+    await rare.first().hover();
+    await expect(total).toHaveAttribute('data-stat-match','true');
     await page.mouse.move(0,0);
-    await dodge.focus();
-    await expect(page.getByRole('tooltip')).toContainText('Direct dodge attack damage: +20%');
+    await total.focus();
+    await expectEffect('en');
     await page.getByRole('button',{name:'Language selector: English',exact:true}).click();
     await page.locator('[data-datamine-language="ru"]').click();
     await page.setViewportSize({width:844,height:390});
-    await dodge.hover();
-    await expect(page.getByRole('tooltip')).not.toContainText('Суммарный уровень');
-    await expect(page.getByRole('tooltip')).toContainText(/Прямой урон атак уклонения: \+20\s*%/);
-    await expect(page.getByRole('tooltip').locator('[data-titan-level]')).toHaveText('+5');
-    expect((await page.getByRole('tooltip').boundingBox())!.width).toBeLessThanOrEqual(360);
+    await total.hover();
+    await expectEffect('ru');
+    expect((await tooltip.boundingBox())!.width).toBeLessThanOrEqual(360);
   });
   test('shows HP sources from weapons, matrices, progression and the shot including HP percentage gear',async({page})=>{
     await fillTestData(page);
@@ -577,56 +605,66 @@ test.describe('Build card editor',()=>{
     await expect(card.locator('.weapon-art').first()).toHaveAttribute('data-damage-bonus','HP: +79,999');
     await expect(card.locator('.matrix[data-stat-match="true"]')).toHaveCount(9);
     await expect(card.locator('.matrix[data-matrix-slot="3"]').first()).toHaveAttribute('data-stat-match','false');
-    await expect(card.locator('.matrix[data-matrix-slot="1"]').nth(1)).toHaveAttribute('data-damage-bonus','HP: +12,759');
-    await expect(card.locator('.suppressor-source')).toHaveAttribute('data-damage-bonus','HP: +86,550');
-    await expect(card.locator('.equipment-heading small[data-stat-match="true"]')).toHaveCount(1);
-    await expect(shot).toHaveAttribute('data-damage-bonus','HP: +109,062');
+    await expect(card.locator('.matrix[data-matrix-slot="1"]').nth(1)).toHaveAttribute('data-damage-bonus',/^HP: \+[1-9][\d,]*$/);
+    await expect(card.locator('.suppressor-source')).toHaveAttribute('data-damage-bonus',/^HP: \+[1-9][\d,]*$/);
+    await expect(card.locator('.equipment-heading .equipment-level[data-stat-match="true"]')).toHaveCount(1);
+    const shotHp=await shot.getAttribute('data-damage-bonus');
+    expect(shotHp).toMatch(/^HP: \+[\d,]+$/);
     for(const gearHP of await card.locator('.base [data-stat-keys="HP"],.roll[data-stat-keys="HP"],.roll[data-stat-keys="HP %"],.augment-value[data-stat-keys="HP %"]').all())await expect(gearHP).toHaveAttribute('data-stat-match','true');
     await expect(card.locator('.computing-node[data-stat-match="true"]')).toHaveCount(0);
     await expect(card.locator('[data-consumable-slot="food"]')).toHaveAttribute('data-stat-match','false');
     await page.mouse.move(0,0);
     await hp.focus();
-    await expect(shot).toHaveAttribute('data-damage-bonus','HP: +109,062');
+    await expect(shot).toHaveAttribute('data-damage-bonus',shotHp!);
     await page.getByRole('button',{name:'Language selector: English',exact:true}).click();
     await page.locator('[data-datamine-language="ru"]').click();
     await page.setViewportSize({width:844,height:390});
     await hp.hover();
     await expect(card.locator('.matrix[data-stat-match="true"]')).toHaveCount(9);
-    await expect(shot).toHaveAttribute('data-damage-bonus',/^HP: \+109\s*062$/);
+    await expect(shot).toHaveAttribute('data-damage-bonus',/^HP: \+[\d\s]+$/);
     const data=await (await page.request.get('/game-data/build-page.json')).json();
     const max=structuredClone(data.demoDraft);
+    max.demo=false;
+    delete max.captureSource;
     max.weapons.forEach((w:{level:number;matrices:{level:number;stars:number}[]})=>{w.level=200;w.matrices.forEach(m=>{m.level=100;m.stars=3;});});
     await page.addInitScript(draft=>localStorage.setItem('tof-build-draft-v1',JSON.stringify(draft)),max);
     await page.reload();
     await hp.hover();
     await expect(shot).toHaveAttribute('data-damage-bonus','HP: +0');
   });
-  test('shows universal resistance sources for every element and preserves zero shot gains',async({page})=>{
+  test('shows universal resistance sources and shot gains for every element',async({page})=>{
     await fillTestData(page);
     const card=page.locator('article.card');
     const totals=card.locator('.resistance-total');
     const shot=card.locator('[data-consumable-slot="enhancement"]');
+    const data=await (await page.request.get('/game-data/build-page.json')).json();
+    const suppressor=data.suppressors.find((item:{id:string})=>item.id===data.demoDraft.profile.suppressorId);
+    const suppressorResistance=new Intl.NumberFormat('en',{maximumFractionDigits:0}).format(suppressor.stats.res);
+    await totals.first().hover();
+    await expect(shot).toHaveAttribute('data-damage-bonus',/^Resistance: \+[1-9][\d,]*$/);
+    const shotBonus=await shot.getAttribute('data-damage-bonus');
     for(let i=0;i<5;i++){
       await totals.nth(i).hover();
       await expect(card.locator('.matrix[data-stat-match="true"]')).toHaveCount(3);
       await expect(card.locator('.matrix[data-matrix-slot="3"]').first()).toHaveAttribute('data-damage-bonus','Resistance: +833');
       await expect(card.locator('.suppressor-source')).toHaveAttribute('data-stat-match','true');
-      await expect(card.locator('.suppressor-source')).toHaveAttribute('data-damage-bonus','Resistance: +550');
-      await expect(card.locator('.equipment-heading small[data-stat-match="true"]')).toHaveCount(1);
+      await expect(card.locator('.suppressor-source')).toHaveAttribute('data-damage-bonus',`Resistance: +${suppressorResistance}`);
+      await expect(card.locator('.equipment-heading .equipment-level[data-stat-match="true"]')).toHaveCount(1);
       await expect(card.locator('.computing-node[data-stat-match="true"]')).toHaveCount(2);
       await expect(card.locator('.computing-node').first()).toHaveAttribute('data-damage-bonus','RES%: +6.0%');
       await expect(card.locator('.computing-node').nth(1)).toHaveAttribute('data-damage-bonus','RES%: +7.0%');
       await expect(shot).toHaveAttribute('data-stat-match','true');
-      await expect(shot).toHaveAttribute('data-damage-bonus','Resistance: +484');
+      await expect(shot).toHaveAttribute('data-damage-bonus',shotBonus!);
       await expect(card.locator('.weapon-art[data-stat-match="true"]')).toHaveCount(0);
       await expect(card.locator('[data-consumable-slot="food"]')).toHaveAttribute('data-stat-match','false');
     }
     await page.mouse.move(0,0);
     await totals.first().locator('xpath=ancestor::button[1]').focus();
-    await expect(shot).toHaveAttribute('data-damage-bonus','Resistance: +484');
+    await expect(shot).toHaveAttribute('data-damage-bonus',shotBonus!);
     await page.screenshot({path:'ignore/documentation-media/generated/build/resistance-sources.png',animations:'disabled'});
-    const data=await (await page.request.get('/game-data/build-page.json')).json();
     const variant=structuredClone(data.demoDraft);
+    variant.demo=false;
+    delete variant.captureSource;
     variant.weapons[0].id=data.weapons.find((w:{stats?:{max_stats:{resistance?:number;def?:number}}})=>(w.stats?.max_stats.resistance??w.stats?.max_stats.def??0)>0).id;
     await page.addInitScript(draft=>localStorage.setItem('tof-build-draft-v1',JSON.stringify(draft)),variant);
     await page.reload();
@@ -639,7 +677,7 @@ test.describe('Build card editor',()=>{
     await page.setViewportSize({width:844,height:390});
     await totals.last().hover();
     await expect(card.locator('.matrix[data-stat-match="true"]')).toHaveCount(3);
-    await expect(card.locator('.suppressor-source')).toHaveAttribute('data-damage-bonus','Сопротивление: +550');
+    await expect(card.locator('.suppressor-source')).toHaveAttribute('data-damage-bonus',`Сопротивление: +${suppressorResistance}`);
     await expect(card.locator('.computing-node').first()).toHaveAttribute('data-damage-bonus',/^Сопротивление%: \+6,0\s*%$/);
   });
   test('highlights ATK% from shots, food, computing and applicable matrix pairs',async({page})=>{

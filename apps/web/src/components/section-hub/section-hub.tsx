@@ -8,12 +8,14 @@ export interface SectionHubLayoutProps {
   title: string;
   /** Accessible name of the card grid. */
   gridLabel: string;
+  /** Tighter vertical spacing for a desktop hub with short previews. */
+  density?: 'compact';
   children: ReactNode;
 }
 
-export function SectionHubLayout({ title, gridLabel, children }: SectionHubLayoutProps) {
+export function SectionHubLayout({ title, gridLabel, density, children }: SectionHubLayoutProps) {
   return (
-    <div className={styles.layout} data-section-hub="">
+    <div className={density === 'compact' ? `${styles.layout} ${styles.compact}` : styles.layout} data-section-hub="">
       <h1 className="sr-only">{title}</h1>
       <section className={styles.grid} aria-label={gridLabel}>
         {children}

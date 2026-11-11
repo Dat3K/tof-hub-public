@@ -14,19 +14,19 @@ for (const locale of ["en", "ru"] as const) {
       );
       await expect(page).toHaveTitle(
         locale === "ru"
-          ? "Руководство по Multype — Стаки баффов и множители | TOF Datamine"
-          : "ToF | Multype Guide",
+          ? "Справочник типов урона | ToF Hub"
+          : "Damage type guide | ToF Hub",
       );
       const example = page.locator('[data-example-key="couant"]');
       await expect(async () => {
         await example.click();
         await expect(example).toHaveAttribute("aria-pressed", "true", { timeout: 1000 });
       }).toPass();
-      await expect(page.locator("[data-pair-sub-name]")).toHaveText("Normal");
+      await expect(page.locator("[data-pair-sub-name]")).toHaveText(locale === "ru" ? "ОБЫЧНАЯ" : "Normal");
       await expect(page.locator("[data-pair-datamined-values]")).toHaveText(
         "Buff_Artifact_SSR012_DamageUp",
       );
-      await expect(page.locator("[data-pair-renamed-values]")).toHaveText("Type Couant");
+      await expect(page.locator("[data-pair-renamed-values]")).toHaveText("Type Count");
       const board = page.locator(".guide-multype-board.multype-main");
       const raw = board.locator('[data-guide-board-mode="datamined"]');
       await raw.focus();

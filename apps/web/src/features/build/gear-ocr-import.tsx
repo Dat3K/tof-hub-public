@@ -1,6 +1,6 @@
 'use client';
 import { fillText } from '@/lib/i18n/text';
-import {useId,useRef,useState,type ClipboardEvent,type DragEvent} from 'react';
+import {useId,useImperativeHandle,useRef,useState,type ClipboardEvent,type DragEvent,type Ref} from 'react';
 import {Button,useToast} from '@tof-hub/ui';
 import {localeText} from '@/lib/i18n/text';
 import {recognizeGearImage,type OcrRejection} from './gear-ocr-engine';
@@ -9,7 +9,9 @@ import styles from './build.module.css';
 
 /** "Import from screenshot" for the random or the augmentation stats of one gear piece. */
 /** `onText` applies the recognised text to the form and returns how many stats it filled. */
-export function GearOcrImport({locale,onText}:{locale:BuildLocale;onText:(text:string)=>number}) {
+/** Optional `prepare` adjusts the image (locally, like the reading itself) for screens that need it. */
+export interface GearOcrImportHandle {read:(file:File)=>void}
+export function GearOcrImport({locale,onText,prepare,ref}:{locale:BuildLocale;onText:(text:string)=>number;prepare?:(file:File)=>Promise<File>;ref?:Ref<GearOcrImportHandle>}) {
   const t=localeText(locale),input=useRef<HTMLInputElement>(null),[reading,setReading]=useState(false),[dragging,setDragging]=useState(false);
   const {notify}=useToast(),noticeId=useId();
   const reject=(reason:OcrRejection|'engine',retryAfterMs?:number)=>{
@@ -29,13 +31,14 @@ export function GearOcrImport({locale,onText}:{locale:BuildLocale;onText:(text:s
     if(!file||reading)return;
     setReading(true);
     try {
-      const result=await recognizeGearImage(file);
+      const result=await recognizeGearImage(file,prepare);
       if(!result.ok){reject(result.reason,result.retryAfterMs);return;}
       const filled=onText(result.text);
       if(!filled){notify(t('No stats found in the screenshot. Crop it to the stats section and try again.'),{id:noticeId,tone:'error'});return;}
       notify(fillText(t('Filled {0} stat(s). Check the values.', 'Заполнено статов: {0}. Проверьте значения.'), [filled]),{id:noticeId,tone:'info'});
     } finally {setReading(false);}
   }
+  useImperativeHandle(ref,()=>({read:file=>{void read(file);}}));
   const pasted=(event:ClipboardEvent<HTMLDivElement>)=>{
     const file=Array.from(event.clipboardData.files).find(item=>item.type.startsWith('image/'))??
       Array.from(event.clipboardData.items).find(item=>item.type.startsWith('image/'))?.getAsFile()??undefined;

@@ -2,13 +2,12 @@
 
 import { createLocaleCopies } from '@tof-hub/i18n';
 import React, { useCallback, useEffect, useLayoutEffect, useMemo, useRef, useState } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { useI18n } from '@/lib/i18n';
 import { LANGUAGES, LANGUAGE_MENU_LOCALES, getLanguageMenuLocale, localizedUi, translateUiText, type Locale } from '@tof-hub/i18n';
 import { LanguageFlag } from './language-flag';
 import { SiteVersionStatus } from './site-version-status';
 import { SectionSwitcher } from './section-switcher';
+import { HeaderLink, useHeaderPathname } from './header-navigation';
 import styles from './site-header.module.css';
 import { INFO_NAV_ITEMS, DATAMINE_NAV_ITEMS, TOOLS_NAV_ITEMS, MAIN_NAV_ITEMS, type NavItem } from './site-navigation';
 
@@ -93,7 +92,7 @@ export function SiteHeader({
   updateAvailable,
   className,
 }: SiteHeaderProps) {
-  const pathname = usePathname();
+  const pathname = useHeaderPathname();
 
   const section = useMemo(() => {
     if (sectionProp) return sectionProp;
@@ -400,13 +399,12 @@ export function SiteHeader({
               ]}
             />
           ) : (
-            <Link
-              prefetch={false}
+            <HeaderLink
               className={`${styles.brand} info-header__brand datamine-header__brand`}
               href={resolvedBrandHref}
             >
               {resolvedBrandTitle}
-            </Link>
+            </HeaderLink>
           )}
 
           {/* Navigation Track with Overflow Indicators */}
@@ -464,15 +462,14 @@ export function SiteHeader({
                   .join(' ');
 
                 return (
-                  <Link
+                  <HeaderLink
                     key={item.id}
-                    prefetch={false}
                     href={item.href}
                     className={linkClasses}
                     aria-current={isActive ? 'page' : undefined}
                   >
                     {localizedUi(item.label, selectedLang)}
-                  </Link>
+                  </HeaderLink>
                 );
               })}
             </nav>

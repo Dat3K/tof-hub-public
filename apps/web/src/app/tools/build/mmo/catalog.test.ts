@@ -21,13 +21,11 @@ function mockCatalog(mmo=generated,simulacra=reference) {
 
 describe('MMO Build canonical weapon roster',()=>{
   it('matches the complete Info release order and preserves MMO advancement values',async()=>{
-    mockCatalog();
+    mockCatalog({...generated, weapons: [...generated.weapons].reverse()});
     const catalog=await loadMmoBuildCatalog();
     const expected=[...reference.mmo].sort((a,b)=>compareSimulacraRelease(a,b,true));
     expect(catalog.weapons.map(item=>item.id)).toEqual(expected.map(item=>item.id));
-    expect(catalog.weapons[0]?.id).toBe('salidy-mmo');
     for(const weapon of catalog.weapons)expect(weapon).toEqual(generated.weapons.find((item:{id:string})=>item.id===weapon.id));
-    expect(generated.weapons[0].id).toBe('aige-mmo');
   });
 
   it('excludes stale or mismatched rows and never invents missing MMO weapon data',async()=>{

@@ -29,6 +29,7 @@ export const SITE_PAGE_COPY = {
   '/tools/ranking/': ['Rankings', 'Compare saved players and equipment by role, element and region.'],
   '/tools/comp/': ['Team planner', 'Plan weapons, matrices, traits and relics for a team.'],
   '/tools/wish/': ['Wish Tracker', 'Import Special Orders history and view pulls, pity and banner statistics.'],
+  '/tools/titan/': ['Titan Calculator', 'Import a damage parse and compare Titan stat combinations for your Tower of Fantasy build.'],
   '/tools/queue/': ['Processing queue', 'Status of queued imports and saved builds.'],
   '/about/': ['About ToF Hub', 'What ToF Hub contains, where its data comes from and how it is maintained.'],
   '/story/': ['Project story', 'My journey in Tower of Fantasy: from a day-one player to research, spreadsheets and ToF Hub.'],

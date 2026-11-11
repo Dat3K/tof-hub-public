@@ -75,6 +75,14 @@ describe('OCR guard',()=>{
     expect(guard.check({type:'image/png',size:5000})).toMatchObject({ok:false,reason:'size'});
     expect(guard.check({type:'image/png',size:0})).toMatchObject({ok:false,reason:'size'});
   });
+  it('applies a larger size limit only to the requested import',()=>{
+    const guard=createOcrGuard();
+    const maxBytes=20*1024*1024;
+    const file={type:'image/png',size:maxBytes};
+    expect(guard.check(file)).toMatchObject({ok:false,reason:'size'});
+    expect(guard.check(file,0,maxBytes)).toEqual({ok:true});
+    expect(guard.check({...file,size:maxBytes+1},0,maxBytes)).toMatchObject({ok:false,reason:'size'});
+  });
   it('allows one reading at a time, a gap and a per-window budget',()=>{
     const guard=createOcrGuard(limits),file={type:'image/png',size:10};
     expect(guard.check(file,0)).toEqual({ok:true});

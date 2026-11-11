@@ -24,6 +24,7 @@ export function normalizeRaidSelection(params: URLSearchParams, seasons: Seasons
       if (season.raidId === params.get('raid')) params.delete('raid');
     }
   }
+  if (params.get('region') !== 'PS' || !params.get('subregion')) params.delete('subregion');
   for (const [key, value] of Object.entries(defaults)) if (params.get(key) === value) params.delete(key);
   return params;
 }

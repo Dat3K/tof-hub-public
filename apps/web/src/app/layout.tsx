@@ -14,6 +14,7 @@ import {DocumentTitleLocalizer} from '@/components/site-shell/document-title-loc
 import {SiteNotifications} from '@/components/site-shell/site-notifications';
 import {SiteHints} from '@/components/site-shell/site-hints';
 import {BrowserErrorReporter} from '@/components/site-shell/browser-error-reporter';
+import {HeaderNavigation} from '@/components/site-shell/header-navigation';
 import {SiteAnalytics} from '@/components/site-shell/site-analytics';
 import {siteAnalyticsConfig} from '@/lib/site-analytics';
 import {FeedbackPrompt} from '@/features/feedback/feedback-prompt';
@@ -46,10 +47,9 @@ export default async function RootLayout({ children }: { children: ReactNode }) 
           <BrowserErrorReporter />
           <DocumentTitleLocalizer />
           <SiteBackground />
-          <SiteHeader />
-          <main id="main-content" className="flex-1">
+          <HeaderNavigation header={<SiteHeader />}>
             {children}
-          </main>
+          </HeaderNavigation>
           <SiteFooter />
           <ScrollToTop />
           <SiteHints />

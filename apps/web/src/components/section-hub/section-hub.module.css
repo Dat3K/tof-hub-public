@@ -39,6 +39,11 @@
   .featured {
     min-height: max(15.625rem, calc(100dvh - 42.5rem));
   }
+
+  .compact { padding-block: .875rem .625rem; }
+  .compact .grid { row-gap: .625rem; }
+  .compact .card { padding-block: .625rem; row-gap: .3125rem; }
+  .compact .featured { min-height: max(15rem, calc(100dvh - 42.5rem)); }
 }
 
 .card {

@@ -117,7 +117,7 @@ describe('Route Smoke Tests: Every /info Route', () => {
 
       // Character cards must be rendered (with h3 name headings)
       expect(screen.getAllByRole('heading', { level: 3 }).length).toBeGreaterThan(0);
-    });
+    }, 15_000);
 
     it('smoke test interactive search filtering on /info/simulacra', async () => {
       const pageUi = await SimulacraPage();

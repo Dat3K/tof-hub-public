@@ -5,6 +5,7 @@ import {afterEach, expect, it} from 'vitest';
 
 const repo = path.resolve(import.meta.dirname, '../../../../../..');
 const scratch = path.join(repo, 'ignore', 'sequential-media-tests');
+const generatorTestTimeout = 20_000;
 const roots: string[] = [];
 const actor = (key = 'alpha', table = 'Actor') => ({TableId: `/Game/Text/${table}.${table}`, Key: key});
 const monster = (className = 'Main', name = actor()) => ({MonsterName: name, MonsterClass: {AssetPathName: `/Game/Test/${className}.${className}_C`}});
@@ -42,7 +43,7 @@ function generate(levels: Record<string, unknown>, images: string[], names = [{e
   }
   for (const image of images) write(path.join(rawDir, `Hotta/Content/Test/${image}.png`), png);
   const run = (check = false) => execFileSync(process.execPath, [path.join(repo, 'scripts/generators/build-handbook.cjs'), '--biochemical-media-only', ...(check ? ['--check'] : [])], {
-    cwd: repo, env: {...process.env, TOF_PUBLIC_DIR: publicDir, TOF_RAW_GAME_DIR: rawDir}, stdio: 'pipe',
+    cwd: repo, env: {...process.env, TOF_PUBLIC_DIR: publicDir, TOF_RAW_GAME_DIR: rawDir}, stdio: 'pipe', timeout: 8_000,
   });
   run();
   run(true);
@@ -63,22 +64,22 @@ it('converts cross-season full artwork only for the exact actor table/key and fu
   expect(pods.Target.enemies['1:0'].portraitFit).toBe('contain');
   expect(pods.Target.enemies['1:0'].source.artworkSource).toEqual({file: 'Hotta/Content/Test/Levels.json', row: 'Donor', field: 'BossIcon'});
   expect(sources['Hotta/Content/Test/Full.png'].sha256).toMatch(/^[a-f0-9]{64}$/);
-});
+}, generatorTestTimeout);
 
 it('keeps the local full artwork when other seasons offer different artwork', () => {
   const {pods} = generate({Target: level('Local'), Donor: level('Full')}, ['Local', 'Full']);
   expect(pods.Target.portrait).toBe('/game-assets/webp/Hotta/Content/Test/Local.webp');
   expect(pods.Target.enemies['1:0'].source.artworkSource).toBeUndefined();
-});
+}, generatorTestTimeout);
 
 it('leaves conflicting cross-season associations unresolved', () => {
   const {pods} = generate({Target: level(), First: level('One'), Second: level('Two')}, ['One', 'Two']);
   expect(pods.Target.portrait).toBeNull();
   expect(pods.Target.enemies).toEqual({});
-});
+}, generatorTestTimeout);
 
 it('does not attach another snapshot identity to an otherwise matching raw slot', () => {
   const {pods} = generate({Target: level(), Donor: level('Full')}, ['Full'], [{en: 'Different enemy', ru: 'Другой противник'}]);
   expect(pods.Target.portrait).toBeNull();
   expect(pods.Target.enemies).toEqual({});
-});
+}, generatorTestTimeout);

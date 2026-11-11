@@ -21,9 +21,9 @@ export function createOcrGuard(limits:{maxBytes:number;types:readonly string[];m
   let starts:number[]=[];
   return {
     /** Cheap checks that need no decoding. */
-    check(file:{type:string;size:number},now=Date.now()):OcrGuardResult {
+    check(file:{type:string;size:number},now=Date.now(),maxBytes=limits.maxBytes):OcrGuardResult {
       if(!limits.types.includes(file.type))return {ok:false,reason:'type'};
-      if(file.size<=0||file.size>limits.maxBytes)return {ok:false,reason:'size'};
+      if(file.size<=0||file.size>maxBytes)return {ok:false,reason:'size'};
       if(busy)return {ok:false,reason:'busy'};
       starts=starts.filter(time=>now-time<limits.windowMs);
       const last=starts.at(-1);
@@ -42,6 +42,20 @@ type TesseractWorker=import('tesseract.js').Worker;
 let worker:Promise<TesseractWorker>|null=null;
 let idle:ReturnType<typeof setTimeout>|undefined;
 
+async function startWorker():Promise<TesseractWorker> {
+  const [{createWorker, OEM}, {getGearOcrAssets}] = await Promise.all([
+    import('tesseract.js'), import('./gear-ocr-assets'),
+  ]);
+  return new Promise((resolve, reject) => {
+    createWorker('eng', OEM.LSTM_ONLY, {
+      ...getGearOcrAssets(),
+      workerBlobURL: false,
+      // Surface worker errors in the import UI instead of the global error reporter.
+      errorHandler: reject,
+    }).then(resolve, reject);
+  });
+}
+
 function scheduleTerminate() {
   clearTimeout(idle);
   idle=setTimeout(()=>{
@@ -58,21 +72,33 @@ async function imageEdges(file:Blob) {
   return edges;
 }
 
-export async function recognizeGearImage(file:File):Promise<{ok:true;text:string}|{ok:false;reason:OcrRejection|'engine';retryAfterMs?:number}> {
-  const verdict=ocrGuard.check(file);
+export async function recognizeGearImage(file:File, prepare?:(file:File)=>Promise<File>,
+  supplement?:(file:File,text:string)=>Promise<File|null>,
+  {maxBytes=GEAR_OCR_LIMITS.maxBytes}:{maxBytes?:number}={}
+):Promise<{ok:true;text:string;extra?:string}|{ok:false;reason:OcrRejection|'engine';retryAfterMs?:number}> {
+  const verdict=ocrGuard.check(file,undefined,maxBytes);
   if(!verdict.ok)return verdict;
   ocrGuard.begin();
+  let engine:TesseractWorker|undefined;
   try {
-    if(!await checkRasterFile(file,GEAR_OCR_LIMITS.maxBytes))return {ok:false,reason:'type'};
+    if(!await checkRasterFile(file,maxBytes))return {ok:false,reason:'type'};
     const {width,height}=await imageEdges(file);
     const {minEdge,maxEdge}=GEAR_OCR_LIMITS;
     if(Math.min(width,height)<minEdge||Math.max(width,height)>maxEdge)return {ok:false,reason:'dimensions'};
     clearTimeout(idle);
-    worker??=import('tesseract.js').then(({createWorker})=>createWorker('eng'));
-    const engine=await worker;
-    const {data}=await engine.recognize(file);
+    const image=prepare?await prepare(file):file;
+    worker??=startWorker();
+    engine=await worker;
+    const {data}=await engine.recognize(image);
+    if(supplement) {
+      try {
+        const additional=await supplement(file,data.text);
+        if(additional)return {ok:true,text:data.text,extra:(await engine.recognize(additional)).data.text};
+      } catch { /* Keep the primary reading if an optional pass fails. */ }
+    }
     return {ok:true,text:data.text};
   } catch {
+    void engine?.terminate().catch(()=>undefined);
     worker=null;
     return {ok:false,reason:'engine'};
   } finally {

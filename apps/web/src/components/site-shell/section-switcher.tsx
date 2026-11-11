@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useEffect, useRef, useState } from 'react';
-import Link from 'next/link';
+import { HeaderLink } from './header-navigation';
 import styles from './site-header.module.css';
 
 export interface SectionSwitcherItem {
@@ -113,9 +113,8 @@ export function SectionSwitcher({ title, items, currentId, menuLabel }: SectionS
         {items.map((item) => {
           const current = item.id === currentId;
           return (
-            <Link
+            <HeaderLink
               key={item.id}
-              prefetch={false}
               href={item.href}
               role="menuitem"
               tabIndex={open ? 0 : -1}
@@ -125,7 +124,7 @@ export function SectionSwitcher({ title, items, currentId, menuLabel }: SectionS
               onClick={() => setOpen(false)}
             >
               <span className={styles.langOptionName}>{item.label}</span>
-            </Link>
+            </HeaderLink>
           );
         })}
       </div>

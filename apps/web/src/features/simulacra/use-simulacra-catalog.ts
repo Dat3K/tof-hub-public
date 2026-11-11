@@ -20,7 +20,7 @@ function getItemDisplayName(item: SimulacraDatasetItemRaw, locale: string): stri
 }
 
 function escapeRegex(text: string): string {
-  return text.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+  return text.replace(/[\/\\^$*+?.()|[\]{}]/g, '\\$&');
 }
 
 function matchesQuery(item: SimulacraDatasetItemRaw, query: string): boolean {

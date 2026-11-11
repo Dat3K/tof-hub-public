@@ -1,10 +1,16 @@
 import React from 'react';
 import { gameAsset } from '@tof-hub/game-assets';
 import type { CompSimulacrumView } from '@tof-hub/game-domain';
+import { localized, type Locale } from '@tof-hub/i18n';
 import type { HubCompEntry, HubSummaryStripItem } from '@/lib/hub-summary';
+import { localeText } from '@/lib/i18n/text';
 import { resolveCompTraitIcon } from '@/features/comp/data';
+import { TITAN_STAT_KEYS } from '@/features/titan-calculator/model';
+import { TitanDamageShareTable } from '@/features/titan-calculator/titan-damage-share-table';
+import { TitanLevelSet, type TitanStatInfo } from '@/features/titan-calculator/titan-stat-label';
 import type { CompPreviewRow } from './comp-preview';
 import type { ToolsHubCopy } from './copy';
+import type { TitanPreviewData } from './titan-preview';
 import styles from './tools-hub.module.css';
 
 // Miniatures of the tool pages: the real page layout drawn with real game icons. Grey bars stand in for
@@ -134,6 +140,25 @@ export function CompPreview({ rows, copy }: { rows: readonly CompPreviewRow[]; c
           </span>
         </span>
       ))}
+    </div>
+  );
+}
+
+export function TitanPreview({ data, locale }: { data: TitanPreviewData | null; locale: Locale }) {
+  if (!data) return null;
+  const t = localeText(locale);
+  const weapons = data.weapons.map(({ name, icon, damage }) => ({ name: localized(name, locale), icon, damage }));
+  const stats = Object.fromEntries(TITAN_STAT_KEYS.map((stat) => [stat, {
+    name: localized(data.stats[stat].name, locale), icon: data.stats[stat].icon ?? undefined,
+  }])) as TitanStatInfo;
+
+  return (
+    <div className={styles.titanPreview}>
+      <TitanDamageShareTable weapons={weapons} clean={data.clean} locale={locale} variant="preview" />
+      <div className={styles.titanBest}>
+        <span>{t('Best', 'Лучшая')} · {t('Without Weak Point', 'Без уязвимых мест')}</span>
+        <TitanLevelSet levels={data.bestWithoutWeakPoint} stats={stats} compact />
+      </div>
     </div>
   );
 }

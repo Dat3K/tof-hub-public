@@ -2,11 +2,27 @@ import type { Locale } from '../../../constants';
 
 /** Curated wording and explicit unchanged brand/technical labels for site-owned copy. */
 export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, string>>>> = {
+  "zh-Hans-SG": {
+    "New": "新增",
+    "Added: New → Old": "添加：最新 → 最早",
+    "Added: Old → New": "添加：最早 → 最新",
+  },
+  "zh-Hans": {
+    "New": "新增",
+    "Added: New → Old": "添加：最新 → 最早",
+    "Added: Old → New": "添加：最早 → 最新",
+  },
   ru: {
+    "New": "Новые",
+    "Added: New → Old": "Добавление: Новые → Старые",
+    "Added: Old → New": "Добавление: Старые → Новые",
     'Tower of Fantasy Hub': 'Tower of Fantasy Hub',
     Titan: 'Титан',
   },
   de: {
+    "New": "Neu",
+    "Added: New → Old": "Hinzugefügt: Neu → Alt",
+    "Added: Old → New": "Hinzugefügt: Alt → Neu",
     "Update history": "Änderungsverlauf",
     "Element boards": "Elementranglisten",
     "Top DPS · all elements": "Beste DPS · alle Elemente",
@@ -74,6 +90,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     Linear: 'Linear',
   },
   es: {
+    "New": "Nuevos",
+    "Added: New → Old": "Añadidos: Nuevos → Antiguos",
+    "Added: Old → New": "Añadidos: Antiguos → Nuevos",
     "Update history": "Historial de actualizaciones",
     "Element boards": "Clasificaciones por elemento",
     "Top DPS · all elements": "Mejores DPS · todos los elementos",
@@ -107,6 +126,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     'Community summaries will appear after players upload their wish histories.': 'Los resúmenes de la comunidad aparecerán cuando los jugadores suban sus historiales de deseos.',
   },
   fr: {
+    "New": "Nouveaux",
+    "Added: New → Old": "Ajout : Récent → Ancien",
+    "Added: Old → New": "Ajout : Ancien → Récent",
     "Update history": "Historique des mises à jour",
     "Element boards": "Classements par élément",
     "Top DPS · all elements": "Meilleurs DPS · tous les éléments",
@@ -156,6 +178,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     'Community summaries will appear after players upload their wish histories.': 'Les synthèses de la communauté apparaîtront lorsque les joueurs auront envoyé leur historique de tirages.',
   },
   id: {
+    "New": "Baru",
+    "Added: New → Old": "Ditambahkan: Baru → Lama",
+    "Added: Old → New": "Ditambahkan: Lama → Baru",
     "Update history": "Riwayat pembaruan",
     "Element boards": "Peringkat elemen",
     "Top DPS · all elements": "DPS teratas · semua elemen",
@@ -204,6 +229,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     Linear: 'Linier',
   },
   ja: {
+    "New": "新着",
+    "Added: New → Old": "追加順：新しい → 古い",
+    "Added: Old → New": "追加順：古い → 新しい",
     "Update history": "更新履歴",
     "Element boards": "属性別ランキング",
     "Top DPS · all elements": "トップDPS · 全属性",
@@ -221,6 +249,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     pp: 'pp',
   },
   ko: {
+    "New": "신규",
+    "Added: New → Old": "추가 순서: 최신 → 오래된 순",
+    "Added: Old → New": "추가 순서: 오래된 → 최신 순",
     "Update history": "업데이트 기록",
     "Element boards": "속성별 순위",
     "Top DPS · all elements": "최상위 DPS · 모든 속성",
@@ -237,6 +268,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     pp: 'pp',
   },
   pt: {
+    "New": "Novos",
+    "Added: New → Old": "Adicionados: Novos → Antigos",
+    "Added: Old → New": "Adicionados: Antigos → Novos",
     "Update history": "Histórico de atualizações",
     "Element boards": "Classificações por elemento",
     "Top DPS · all elements": "Melhores DPS · todos os elementos",
@@ -270,6 +304,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     Linear: 'Linear',
   },
   th: {
+    "New": "ใหม่",
+    "Added: New → Old": "เพิ่มล่าสุด → เก่าสุด",
+    "Added: Old → New": "เพิ่มเก่าสุด → ล่าสุด",
     "Update history": "ประวัติการอัปเดต",
     "Element boards": "อันดับแยกตามธาตุ",
     "Top DPS · all elements": "DPS สูงสุด · ทุกธาตุ",
@@ -291,6 +328,9 @@ export const siteUiCorrections: Partial<Record<Locale, Readonly<Record<string, s
     pp: 'pp',
   },
   'zh-CN': {
+    "New": "新增",
+    "Added: New → Old": "添加：最新 → 最早",
+    "Added: Old → New": "添加：最早 → 最新",
     "Update history": "更新历史",
     "Element boards": "元素排行榜",
     "Top DPS · all elements": "顶尖DPS · 全元素",

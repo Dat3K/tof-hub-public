@@ -579,3 +579,96 @@ test.describe('SEO Metadata, Robots & Sitemap Parity', () => {
     expect(xml).not.toContain('/datamine-builder');
   });
 });
+
+test('header shows the selected page while navigation is still loading', async ({ page }) => {
+  await page.goto('/info/arts/', { waitUntil: 'domcontentloaded' });
+  const header = page.locator('[data-site-header]');
+  const sectionMenu = header.locator('[data-section-switcher] > button');
+  const matrices = header.getByRole('link', { name: 'Matrices', exact: true });
+  const arts = page.locator('.arts-catalog-page');
+  const loading = page.locator('#main-content > [role="status"]');
+
+  await expect(async () => {
+    await sectionMenu.press('ArrowDown');
+    await expect(sectionMenu).toHaveAttribute('aria-expanded', 'true', { timeout: 1000 });
+  }).toPass({ timeout: 15_000 });
+  await sectionMenu.press('Escape');
+  await expect(arts).toBeVisible();
+
+  const releaseMatrices = Promise.withResolvers<void>();
+  const releaseDatamine = Promise.withResolvers<void>();
+  const isMatricesRequest = (url: URL) => url.pathname === '/info/matrices/' && url.searchParams.has('_rsc');
+  const isDatamineRequest = (url: URL) => url.pathname === '/datamine/' && url.searchParams.has('_rsc');
+  await page.route(isMatricesRequest, async (route) => {
+    await releaseMatrices.promise;
+    await route.continue();
+  });
+  await page.route(isDatamineRequest, async (route) => {
+    await releaseDatamine.promise;
+    await route.continue();
+  });
+
+  try {
+    const matricesRequested = page.waitForRequest((request) => isMatricesRequest(new URL(request.url())));
+    await matrices.press('Enter');
+    await matricesRequested;
+    await expect(matrices).toHaveAttribute('aria-current', 'page', { timeout: 3000 });
+    await expect(loading).toHaveText('Loading matrices…');
+    await expect(arts).toBeHidden();
+
+    await sectionMenu.click();
+    const datamineRequested = page.waitForRequest((request) => isDatamineRequest(new URL(request.url())));
+    await header.getByRole('menuitem', { name: 'Datamine', exact: true }).click();
+    await datamineRequested;
+    await expect(header).toHaveAttribute('data-section', 'datamine', { timeout: 3000 });
+    await expect(loading).toHaveText('Loading datamine archive…');
+
+    releaseDatamine.resolve();
+    await expect(page).toHaveURL(/\/datamine\/$/, { timeout: 20_000 });
+    await expect(page.getByRole('heading', { name: 'Tower of Fantasy archive' })).toBeVisible();
+    await expect(loading).toBeHidden();
+  } finally {
+    releaseMatrices.resolve();
+    releaseDatamine.resolve();
+  }
+
+  await page.goBack();
+  await expect(page).toHaveURL(/\/info\/arts\/$/);
+  await expect(arts).toBeVisible();
+});
+
+test('Titan Calculator opens from the Tools hub and matches its example preview', async ({page}) => {
+  test.setTimeout(90000);
+  await page.goto('/tools/', {waitUntil:'domcontentloaded'});
+  const preview = page.getByRole('table', {name: 'Example · Damage without Titan'});
+  await expect(preview.locator('tbody tr')).toHaveCount(3);
+  const previewShares = await preview.locator('tbody td').allTextContents();
+  const bestPreview = page.getByText('Best · Without Weak Point', {exact: true}).locator('..');
+  await expect(bestPreview).toBeVisible();
+  const previewLevels = await bestPreview.locator('strong').allTextContents();
+  expect(previewLevels.length).toBeGreaterThan(0);
+  await page.getByRole('main').getByRole('link', {name: 'Titan Calculator', exact: true}).click();
+  await expect(page).toHaveURL(/\/tools\/titan\/$/);
+  const finalLink = page.locator('[data-site-header]').getByRole('navigation', {name: 'Catalog sections'}).getByRole('link').last();
+  await expect(finalLink).toHaveText('Titan Calculator');
+  await expect(finalLink).toHaveAttribute('aria-current', 'page');
+  await expect(page).toHaveTitle('Titan Calculator | ToF Hub');
+
+  await page.getByRole('button', {name: 'Load example', exact: true}).click();
+  const summary = page.getByRole('region', {name: 'Parse summary'});
+  const shareTable = summary.getByRole('table');
+  await expect(shareTable.locator('tbody tr')).toHaveCount(3);
+  expect(await shareTable.locator('tbody td:first-of-type').allTextContents()).toEqual(previewShares);
+  const bestWithoutWeakPoint = summary.getByRole('heading', {name: 'Without Weak Point', exact: true}).locator('..');
+  await expect(bestWithoutWeakPoint.locator('li[data-best="true"] strong')).toHaveText(previewLevels);
+  const chart = page.getByRole('region', {name: 'Damage distribution'});
+  const weakPoint = page.locator('article[data-weak-point=true]');
+  const worn = weakPoint.getByRole('button', {name: /Used in parse/});
+  await chart.getByRole('button', {name: 'With Weak Point', exact: true}).click();
+  await expect(chart.getByText('94.26g', {exact: true})).toBeVisible();
+  await worn.click();
+  await expect(chart.getByText('93.78g', {exact: true})).toBeVisible();
+  await worn.press('Enter');
+  await expect(worn).toHaveAttribute('aria-pressed', 'false');
+  await expect(chart.getByText('94.26g', {exact: true})).toBeVisible();
+});

@@ -2,6 +2,26 @@
    Card and grid primitives: components/section-hub. The banner composition follows the Wish page banner
    (features/wish/components/wish-banner-card.module.css). */
 
+.titanPreview {
+  display: grid;
+  gap: .3125rem;
+}
+
+.titanBest {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .25rem .5rem;
+  padding: .25rem .625rem;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--dm-radius-sm, .375rem);
+  background: var(--surface-inset);
+  color: var(--dm-muted, #b4abbf);
+  font-size: .6875rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
 /* ---------- Ranking: live top five ---------- */
 .leaderboard {
   --leader-cols: 1.625rem minmax(6rem, 0.7fr) minmax(0, 1.4fr) minmax(10.625rem, 1fr);

@@ -1,0 +1,70 @@
+{
+  "version": "6.5.0",
+  "branch": "TestPC_KR2New",
+  "source": "Hotta/Content/Resources/CoreBlueprints/DataTable_MMO/OriginWar/OriginWarRoundConfigDataTable_MMO.json",
+  "floors": [
+    {
+      "row": "73",
+      "floor": 1,
+      "showBuffIds": [
+        "buff_origin_balance1_10",
+        "buff_origin_balance5_2",
+        "buff_origin_balance4_11",
+        "buff_origin_balance99_9"
+      ],
+      "weaknessIds": [
+        "buff_origin_balance99_4th"
+      ]
+    },
+    {
+      "row": "74",
+      "floor": 2,
+      "showBuffIds": [
+        "buff_origin_balance5_2",
+        "buff_origin_balance4_11",
+        "buff_origin_balance5_1",
+        "buff_origin_balance99_17"
+      ],
+      "weaknessIds": []
+    },
+    {
+      "row": "75",
+      "floor": 3,
+      "showBuffIds": [
+        "buff_origin_balance4_11",
+        "buff_origin_balance5_1",
+        "buff_origin_balance2_8",
+        "buff_origin_balance99_11"
+      ],
+      "weaknessIds": [
+        "buff_origin_balance99_3th"
+      ]
+    },
+    {
+      "row": "76",
+      "floor": 4,
+      "showBuffIds": [
+        "buff_origin_balance5_1",
+        "buff_origin_balance2_8",
+        "buff_origin_balance1_1",
+        "buff_origin_balance99_9"
+      ],
+      "weaknessIds": [
+        "buff_origin_balance99_2th"
+      ]
+    },
+    {
+      "row": "77",
+      "floor": 5,
+      "showBuffIds": [
+        "buff_origin_balance2_8",
+        "buff_origin_balance1_1",
+        "buff_origin_balance6_7",
+        "buff_origin_balance99_17"
+      ],
+      "weaknessIds": [
+        "buff_origin_balance99_1th"
+      ]
+    }
+  ]
+}

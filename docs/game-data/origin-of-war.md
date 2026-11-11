@@ -26,6 +26,15 @@ All under `Resources/CoreBlueprints/`:
 
 Global seasons use the corresponding `ResourcesOverSea` tables with base fallbacks.
 
+The Korea development client 6.5.0 (`TestPC_KR2New`) sets the first five
+season 4 floors in `OriginWarRoundConfigDataTable_MMO.json` rows 73–77.
+The [regression fixture](../../tests/fixtures/oow-mmo-6.5.0-rotation.json)
+records the `ShowBuffs[].AssetPathName` and `MonsterWeakBuffs[].AssetPathName`
+identities in order. Judgment (`buff_origin_balance4_19`) appears at
+`OriginRound=17` in row 89. Effect icons use the matching rows' `Icon.AssetPathName`
+from `GameplayEffectTipsDataTable_Balance.json`. These are identity joins with
+no unit conversion.
+
 ## Calculations
 
 **Difficulty.** The applied coefficient is the first curve key's `Value / 100`, rounded to four decimals. It scales `MaxHealth`, `CommonAtkBase` and `PhyDefBase`; the raw values stay in `baseHp`, `baseAtk` and `baseDef`.

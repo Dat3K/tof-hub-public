@@ -27,6 +27,7 @@ export const TOOLS_NAV_ITEMS: NavItem[] = [
   { id: 'optimizer', href: '/tools/optimizer', label: { en: 'Gear optimizer', ru: 'Оптимайзер гира' } },
   { id: 'wish', href: '/tools/wish', label: { en: 'Wish Tracker', ru: 'Крутки' } },
   { id: 'comp', href: '/tools/comp', label: { en: 'Comp showcase', ru: 'Конструктор' } },
+  { id: 'titan', href: '/tools/titan', label: { en: 'Titan Calculator', ru: 'Калькулятор титанки' } },
 ];
 
 

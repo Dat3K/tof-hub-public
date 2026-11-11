@@ -3,6 +3,7 @@ import type { ArtworksDataset } from '@tof-hub/contracts';
 
 export type ArtCategory =
   | 'all'
+  | 'new'
   | 'wallpapers'
   | 'loading'
   | 'character_bg'
@@ -32,6 +33,9 @@ export interface ArtworkItem {
   characterKey?: string | null;
   characterName?: string | { en?: string; ru?: string } | null;
   season?: string | number | null;
+  addedInRevision?: number;
+  addedInVersion?: string | null;
+  isNew?: boolean;
 }
 
 export interface ArtsStrings {
@@ -41,6 +45,7 @@ export interface ArtsStrings {
   searchPlaceholder: string;
   filterCategory: string;
   tabAll: string;
+  tabNew: string;
   tabWallpapers: string;
   tabLoading: string;
   tabCharacterBg: string;

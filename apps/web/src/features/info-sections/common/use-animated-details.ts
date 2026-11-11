@@ -8,9 +8,9 @@ interface UseAnimatedDetailsOptions {
 }
 
 /**
- * Keeps native details semantics while supplying the same measured-height
- * animation used by the Simulacra detail view in browsers without
- * details::details-content support.
+ * Keeps native details semantics with exactly one animation per panel. Where the stylesheet animates
+ * details::details-content, toggling `open` is enough; running both left a pause and a stale height.
+ * Browsers without interpolate-size (Firefox, Safari) use the measured-height animation below.
  */
 export function useAnimatedDetails({
   containerSelector,
@@ -30,58 +30,61 @@ export function useAnimatedDetails({
       return null;
     };
 
-    const finishImmediately = (details: HTMLDetailsElement, content: HTMLElement) => {
-      activeAnimations.get(details)?.cancel();
-      activeAnimations.delete(details);
-      details.open = !details.open;
-      content.style.height = '';
-      content.style.overflow = '';
-      content.style.boxSizing = '';
+    const styleAnimatesContent = (details: HTMLDetailsElement) =>
+      CSS.supports('interpolate-size', 'allow-keywords') &&
+      getComputedStyle(details, '::details-content').transitionDuration
+        .split(',')
+        .some((duration) => parseFloat(duration) > 0);
+
+    const boxKeyframe = (style: CSSStyleDeclaration): Keyframe => ({
+      height: style.height,
+      paddingTop: style.paddingTop,
+      paddingBottom: style.paddingBottom,
+      borderTopWidth: style.borderTopWidth,
+      borderBottomWidth: style.borderBottomWidth,
+    });
+    const collapsedKeyframe: Keyframe = {
+      height: '0px',
+      paddingTop: '0px',
+      paddingBottom: '0px',
+      borderTopWidth: '0px',
+      borderBottomWidth: '0px',
     };
 
     const animateDetails = (details: HTMLDetailsElement, opening: boolean) => {
       const content = getContent(details);
-      if (!content) {
+      if (!content || styleAnimatesContent(details) || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        activeAnimations.get(details)?.cancel();
+        activeAnimations.delete(details);
         details.open = opening;
-        return;
-      }
-
-      activeAnimations.get(details)?.cancel();
-      activeAnimations.delete(details);
-
-      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-        finishImmediately(details, content);
-        return;
-      }
-
-      const currentHeight = content.getBoundingClientRect().height;
-      if (opening) details.open = true;
-
-      content.style.overflow = 'hidden';
-      content.style.boxSizing = 'border-box';
-      content.style.height = `${currentHeight}px`;
-
-      window.requestAnimationFrame(() => {
-        const targetHeight = opening ? content.scrollHeight : 0;
-        const animation = content.animate(
-          [{ height: `${currentHeight}px` }, { height: `${targetHeight}px` }],
-          {
-            duration: 340,
-            easing: 'cubic-bezier(0.16, 1, 0.3, 1)',
-            fill: 'forwards',
-          },
-        );
-        activeAnimations.set(details, animation);
-
-        animation.onfinish = () => {
-          if (activeAnimations.get(details) !== animation) return;
-          activeAnimations.delete(details);
-          if (!opening) details.open = false;
-          content.style.height = '';
+        if (content) {
           content.style.overflow = '';
           content.style.boxSizing = '';
-        };
-      });
+        }
+        return;
+      }
+
+      // Read a running animation's box first, so a reversed click continues from what is on screen.
+      const running = activeAnimations.get(details);
+      content.style.boxSizing = 'border-box';
+      const from = running ? boxKeyframe(getComputedStyle(content)) : opening ? collapsedKeyframe : null;
+      running?.cancel();
+      details.open = true;
+      const natural = boxKeyframe(getComputedStyle(content));
+
+      content.style.overflow = 'hidden';
+      const animation = content.animate(
+        [from ?? natural, opening ? natural : collapsedKeyframe],
+        { duration: 340, easing: 'cubic-bezier(0.16, 1, 0.3, 1)' },
+      );
+      activeAnimations.set(details, animation);
+      animation.onfinish = () => {
+        if (activeAnimations.get(details) !== animation) return;
+        activeAnimations.delete(details);
+        if (!opening) details.open = false;
+        content.style.overflow = '';
+        content.style.boxSizing = '';
+      };
     };
 
     const handleDetailsClick = (event: MouseEvent) => {

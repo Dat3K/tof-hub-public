@@ -89,6 +89,7 @@ export function RaidPlayerShowcase({data, player, current, initialSeason, titleF
     const observed = boards.find(board => board.id === row.boardId)?.entries.flatMap(entry => entry.members ?? [])
       .find(member => selected?.identifier ? member.identifier === selected.identifier : selected?.observationId ? member.observationId === selected.observationId : member.nickname === selected?.nickname);
     const query = new URLSearchParams({tab: 'ranking', season: row.seasonId, region: overall ? 'all' : row.scope.region});
+    if (!overall && row.scope.subregion) query.set('subregion', row.scope.subregion);
     const search = known?.uid || (current && known ? known.nickname : observed?.nickname);
     if (search) query.set('q', search);
     if (current) query.set('names', 'current');

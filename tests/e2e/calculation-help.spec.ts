@@ -1,7 +1,22 @@
-import {test,expect} from '@playwright/test';
+import {test,expect,type Page} from '@playwright/test';
 import {readFileSync} from 'node:fs';
 
 const reference=JSON.parse(readFileSync('apps/web/public/game-data/build-page.json','utf8'));
+
+function toolRail(page:Page) {
+  return page.locator('[data-tool-rail]');
+}
+
+async function expandToolRail(page:Page,locale:'en'|'ru') {
+  if((page.viewportSize()?.width??1280)>=1024)return;
+  const rail=toolRail(page);
+  const toggle=rail.locator('button[aria-controls][aria-expanded]');
+  await expect(toggle).toBeVisible();
+  if(await toggle.getAttribute('aria-expanded')==='false') {
+    await expect(toggle).toHaveAccessibleName(locale==='ru'?'Дополнительные действия':'More actions');
+    await toggle.click();
+  }
+}
 
 for(const locale of ['en','ru'] as const){
   test(`Optimizer starts with explained formulas and separates calculation topics · ${locale}`,async({page})=>{
@@ -12,7 +27,8 @@ for(const locale of ['en','ru'] as const){
       await page.setViewportSize({width:390,height:844});
     }
     const formulas=locale==='ru'?'Формулы сравнения':'Comparison formulas';
-    await page.getByRole('navigation').getByRole('button',{name:formulas,exact:true}).click();
+    await expandToolRail(page,locale);
+    await toolRail(page).getByRole('button',{name:formulas,exact:true}).click();
     const dialog=page.getByRole('dialog').last();
     const summary=dialog.getByRole('region',{name:locale==='ru'?'Точный прирост от замены':'Exact replacement gain',exact:true});
     await expect(summary).toBeVisible();
@@ -29,6 +45,7 @@ for(const locale of ['en','ru'] as const){
     await page.screenshot({path:`ignore/documentation-media/generated/optimizer/formulas-${locale}.png`,animations:'disabled'});
     expect(await dialog.evaluate(node=>node.scrollWidth<=node.clientWidth)).toBe(true);
     await page.keyboard.press('Escape');
+    await page.getByRole('radio',{name:locale==='ru'?/^Все вещи/:/^All pieces/}).click();
     await page.getByRole('list',{name:locale==='ru'?'Сравнение инвентаря':'Inventory comparison',exact:true}).getByRole('button',{name:locale==='ru'?/^Сравнить /:/^Compare /}).first().click();
     await page.getByRole('dialog').last().getByRole('button',{name:formulas,exact:true}).click();
     const selectedHelp=page.getByRole('dialog').last();
@@ -47,15 +64,17 @@ for(const locale of ['en','ru'] as const){
     }
     const label=locale==='ru'?'Как считается рейтинг':'How ranking is calculated';
     const question=page.locator('[class*="boardHead"]').getByRole('button',{name:label,exact:true});
-    const rail=page.getByRole('navigation').getByRole('button',{name:label,exact:true});
+    const rail=toolRail(page).getByRole('button',{name:label,exact:true});
     for(const opener of [question,rail]){
+      if(opener===rail)await expandToolRail(page,locale);
+      await expect(opener).toBeEnabled();
       await opener.focus();await opener.press('Enter');
       const dialog=page.getByRole('dialog').last();
       await expect(dialog.getByRole('heading',{name:locale==='ru'?'Рейтинг: GRV, CS и сравнение':'Ranking: GRV, CS and comparison',exact:true})).toBeVisible();
       await expect(dialog.getByText(locale==='ru'?'Веса максимальных проков (GRV)':'Maximum roll weights (GRV)',{exact:true})).toBeVisible();
-      const account=dialog.getByRole('region',{name:locale==='ru'?'Публичный аккаунт Global':'Public Global account',exact:true});
+      const account=dialog.getByRole('article').filter({has:page.getByRole('heading',{name:locale==='ru'?'Публичный аккаунт Global':'Public Global account',exact:true})});
       await account.scrollIntoViewIfNeeded();await expect(account).toBeVisible();
-      await expect(account.locator('code')).toHaveCount(2);
+      await expect(account.getByRole('button',{name:locale==='ru'?/^Скопировать:/i:/^Copy:/i})).toHaveCount(2);
       expect(await account.evaluate(node=>node.parentElement?.lastElementChild===node)).toBe(true);
       expect(await account.evaluate(node=>!!node.closest('details'))).toBe(false);
       await page.keyboard.press('Escape');await expect(dialog).toHaveCount(0);
@@ -77,7 +96,9 @@ for(const locale of ['en','ru'] as const){
         ?locale==='ru'?'Формулы сравнения':'Comparison formulas'
         :route==='ranking'?locale==='ru'?'Как считается рейтинг':'How ranking is calculated'
         :locale==='ru'?'Как считаются GRV и PRV':'How GRV and PRV work';
-      const opener=page.getByRole('navigation').getByRole('button',{name:label,exact:true});
+      const opener=toolRail(page).getByRole('button',{name:label,exact:true});
+      await expandToolRail(page,locale);
+      await expect(opener).toBeEnabled();
       await opener.focus();
       await opener.press('Enter');
       const dialog=page.getByRole('dialog').last();
@@ -101,7 +122,7 @@ for(const locale of ['en','ru'] as const){
       }
       if(route==='optimizer'){
         await expect(dialog.getByRole('region',{name:locale==='ru'?'КС экипировки':'Equipment CS',exact:true})).toHaveCount(0);
-        await expect(dialog.getByText('gain = O(candidate) / O(equipped) − 1',{exact:true})).toBeVisible();
+        await expect(dialog.getByText(`${locale==='ru'?'прирост':'gain'} = O(candidate) / O(equipped) − 1`,{exact:true})).toBeVisible();
         await expect(dialog.getByRole('heading',{name:locale==='ru'?'Прогноз Titan и его ограничения':'Titan forecast and its limits',exact:true})).toBeVisible();
       }
       if(route!=='optimizer')await expect(dialog.getByText(locale==='ru'?'Обновление рейтинга':'Ranking updates',{exact:true})).toBeVisible();
@@ -122,6 +143,7 @@ for(const locale of ['en','ru'] as const){
       await expect(opener).toBeFocused();
       // Build requires landscape on phones; Ranking and Optimizer support portrait.
       await page.setViewportSize(route==='build'?{width:844,height:390}:{width:390,height:844});
+      await expandToolRail(page,locale);
       await opener.click();
       await expect(damageScope).toContainText('(M × D₂) / (M × D₁) = D₂ / D₁');
       if(route!=='ranking')await expect(formula).toBeVisible();
@@ -131,6 +153,7 @@ for(const locale of ['en','ru'] as const){
       await expect(dialog).toHaveCount(0);
       await page.setViewportSize({width:1280,height:720});
     }
+    await page.getByRole('radio',{name:locale==='ru'?/^Все вещи/:/^All pieces/}).click();
     const inventory=page.getByRole('list',{name:locale==='ru'?'Сравнение инвентаря':'Inventory comparison',exact:true});
     await inventory.getByRole('button',{name:locale==='ru'?/^Сравнить /:/^Compare /}).first().click();
     const comparison=page.getByRole('dialog').last();

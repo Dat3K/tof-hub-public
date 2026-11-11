@@ -10,7 +10,7 @@ test('shared MMO weapon picker matches the Info MMO roster and release order',as
   expect(expected[0]).toBe('salidy-mmo');
   await page.goto('/tools/comp/?c=G17JfZ28KSfYCsdU4Bt7xLLOVO8hEro9QnqHl6AujdcmLX6eMpesHFOtx6727VSd98dEENaH7oZCgLqfhp5SHu4FsJdOgLwqbwLhyCCn9c0EAIyDxTB1B7R9IwEjtCMVct9XsmUuVSovLokzExNIe7psWOu1VLFDR7zdxRgfmAkHUXStbb5T2qXuD3wj6XCF4YjrXtlqWCvZh1yuVdlpzipUulaNkDgVYFtqt7RcMSIR7fuU9Nj7foR7VdpXazyXBzsH7FQnzvT6NNKxf5CrgcxwluEohkdZgDuwTjVzVoSDl8q2ftZqdTs0KOcfEx94Ye7pvgOHkBngtgRK7CELQFUDEBrfiJ0gIX5M86fIH68',{waitUntil:'domcontentloaded'});
   await expect(page.getByRole('button',{name:'MMO',exact:true})).toHaveAttribute('aria-pressed','true');
-  const row=page.getByRole('row').filter({has:page.locator('input[value="Player 2"]')});
+  const row=page.getByRole('row').filter({has:page.getByRole('textbox',{name:/^(Player 2 name|Имя игрока 2)$/})});
   await row.locator('[class*="colWeapons"] [role="button"]').first().focus();
   await page.keyboard.press('Enter');
   const dialog=page.getByRole('dialog');

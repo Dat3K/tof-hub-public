@@ -1,4 +1,4 @@
-import { adaptCompCatalog, type CompCatalogView, type CompSimulacrumView } from '@tof-hub/game-domain';
+import type { CompCatalogView, CompSimulacrumView } from '@tof-hub/game-domain';
 import { PRESET_FROST_8P } from '@/features/comp/presets';
 import { getPlayerActiveRole } from '@/features/comp/state';
 import type { SquadRole } from '@/features/comp/types';
@@ -36,9 +36,8 @@ function pickRows<T extends { role: SquadRole }>(rows: readonly T[]): T[] {
   return rows.filter((_, index) => firsts.has(index)).slice(0, ROWS);
 }
 
-export function buildCompPreview(rawCatalog: unknown): CompPreviewRow[] {
-  if (!rawCatalog) return [];
-  const catalog: CompCatalogView = adaptCompCatalog(rawCatalog);
+export function buildCompPreview(catalog: CompCatalogView | null): CompPreviewRow[] {
+  if (!catalog) return [];
   const rows = PRESET_FROST_8P.players.map((player): CompPreviewRow => {
     const sim = byId(catalog.simulacra, player.trait);
     return {

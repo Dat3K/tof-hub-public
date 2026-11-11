@@ -1,0 +1,32 @@
+.shareTable { overflow: auto; }
+.shareTable table { width: 100%; min-width: 34rem; border-collapse: collapse; font-size: .75rem; font-variant-numeric: tabular-nums; }
+.shareTable :is(th, td) { padding: .5rem; border-bottom: 1px solid var(--surface-border); text-align: end; }
+.shareTable th:first-child { text-align: start; }
+.shareTable thead th { color: var(--titan-muted); font-weight: 500; }
+.shareTable tbody th > span { display: flex; align-items: center; gap: .375rem; }
+.shareTable img { width: 1.75rem; height: 1.75rem; object-fit: contain; }
+.shareTable tfoot { color: #9bd9fb; font-weight: 650; }
+
+.preview {
+  border: 1px solid var(--surface-border);
+  border-radius: var(--dm-radius-sm, .375rem);
+  background: var(--surface-inset);
+  color: var(--dm-text-strong, #f4f0f6);
+}
+
+.preview table { min-width: 0; }
+.preview caption {
+  padding: .375rem .625rem;
+  border-bottom: 1px solid var(--surface-border);
+  background: var(--tool-table-header);
+  color: #9bd9fb;
+  font-size: .6875rem;
+  font-weight: 650;
+  text-align: start;
+}
+
+.preview :is(th, td) { padding: .1875rem .625rem; }
+.preview tr:last-child > * { border-bottom: 0; }
+.preview th { font-weight: 600; overflow-wrap: anywhere; }
+.preview td { white-space: nowrap; }
+.preview img { width: 1.375rem; height: 1.375rem; flex: none; }

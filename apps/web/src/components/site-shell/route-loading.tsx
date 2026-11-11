@@ -6,6 +6,10 @@ import { useI18n } from "@/lib/i18n";
 
 export function RouteLoading() {
   const pathname = usePathname();
+  return <RouteLoadingForPath pathname={pathname} />;
+}
+
+export function RouteLoadingForPath({ pathname }: { pathname: string }) {
   const { t } = useI18n();
   const section = pathname?.split("/").filter(Boolean).at(-1) || "";
   const label = t(`common.routeSections.${section}`, {

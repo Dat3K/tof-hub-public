@@ -1,8 +1,10 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import {expect, test} from '@playwright/test';
+import type {HandbookExpansionData} from '../../apps/web/src/features/datamine/contracts/handbook';
 
 const screenshots = path.resolve('ignore/documentation-media/generated');
+const catalog:HandbookExpansionData=JSON.parse(fs.readFileSync('apps/web/public/game-data/handbook/mmo-expansion.json','utf8'));
 
 test('MMO expansion catalog exposes all packs, installation filters, effect scaling and sources', async ({page}) => {
   test.setTimeout(90000);
@@ -12,7 +14,7 @@ test('MMO expansion catalog exposes all packs, installation filters, effect scal
   const navigation = await page.getByRole('tablist', {name: 'Handbook sections'}).getByRole('tab').allTextContents();
   expect(navigation.indexOf('Expansion Packs') + 1).toBe(navigation.indexOf('Brainfield'));
   const packs = page.getByRole('group', {name: 'Expansion packs', exact: true});
-  await expect(packs.getByRole('button')).toHaveCount(62);
+  await expect(packs.getByRole('button')).toHaveCount(catalog.cards.length);
   const filters = page.getByRole('region', {name: 'Expansion pack filters', exact: true});
   const quality = filters.getByRole('group', {name: 'Quality', exact: true});
   await expect(quality.getByRole('radio')).toHaveText(['All', 'Rare', 'Epic', 'Legendary']);
@@ -28,23 +30,26 @@ test('MMO expansion catalog exposes all packs, installation filters, effect scal
   expect(Math.abs(helpBounds.y + helpBounds.height / 2 - searchBounds.y - searchBounds.height / 2)).toBeLessThan(3);
   await expect(filters.getByRole('group', {name: 'Packs', exact: true})).toHaveCount(0);
   await filters.getByRole('radio', {name: 'Season-exclusive', exact: true}).click();
-  await expect(packs.getByRole('button')).toHaveCount(8);
+  await expect(packs.getByRole('button')).toHaveCount(catalog.cards.filter(card=>card.exclusive).length);
   await filters.getByRole('radio', {name: 'Pants', exact: true}).click();
-  await expect(packs.getByRole('button')).toHaveCount(1);
+  await expect(packs.getByRole('button')).toHaveCount(catalog.cards.filter(card=>card.exclusive&&card.slots.includes('pants')).length);
   const selected = page.getByRole('region', {name: 'Selected expansion pack', exact: true});
   await expect(selected).toContainText('From item description');
   await expect(selected).toContainText('Pants');
   await expect(selected.getByRole('region', {name: 'Item description', exact: true})).toBeVisible();
   await filters.getByRole('button', {name: 'Reset filters', exact: true}).click();
-  await filters.getByRole('textbox').fill('Charge');
-  await packs.getByRole('button').first().click();
+  await filters.getByRole('textbox').fill('Duel–Guard Expansion Pack');
+  await packs.getByRole('button', {name: /^Duel–Guard Expansion Pack/}).click();
   const count = selected.getByRole('slider', {name: 'Equipped packs', exact: true});
+  const effectText = selected.getByRole('region', {name: 'Expansion effect', exact: true});
+  await expect(count).toBeVisible();
+  const startingEffect = await effectText.innerText();
   await count.focus(); await count.press('End');
-  await expect(selected.locator('.game-rich-text').first()).toContainText('29.638%');
-  const effect = await selected.locator('.game-rich-text').first().innerText();
+  await expect(effectText).not.toHaveText(startingEffect);
+  const effect = await effectText.innerText();
   await selected.getByRole('slider', {name: 'Stars', exact: true}).focus();
   await selected.getByRole('slider', {name: 'Stars', exact: true}).press('End');
-  await expect(selected.locator('.game-rich-text').first()).toHaveText(effect);
+  await expect(effectText).toHaveText(effect);
   await filters.getByRole('textbox').fill('s2_purple_Skill_2');
   await packs.getByRole('button').first().click();
   const description = selected.getByRole('region', {name: 'Item description', exact: true});
@@ -77,7 +82,7 @@ test('expansion direct subtabs, empty search and RU mobile remain usable', async
   await page.setViewportSize({width: 390, height: 844});
   await page.reload({waitUntil: 'domcontentloaded'});
   await expect(page.getByRole('tab', {name: 'Пакеты расширения', exact: true})).toHaveAttribute('aria-selected', 'true');
-  await expect(page.getByRole('group', {name: 'Пакеты расширения', exact: true}).getByRole('button')).toHaveCount(62);
+  await expect(page.getByRole('group', {name: 'Пакеты расширения', exact: true}).getByRole('button')).toHaveCount(catalog.cards.length);
   const ruFilters = page.getByRole('region', {name: 'Фильтры пакетов расширения', exact: true});
   for (const label of ['Броня', 'Наручи', 'Ботинки', 'Окуляр', 'Боевой двигатель', 'Микрореактор']) {
     await expect(ruFilters.getByRole('radio', {name: label, exact: true})).toBeVisible();

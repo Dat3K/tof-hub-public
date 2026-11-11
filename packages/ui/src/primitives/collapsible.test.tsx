@@ -23,7 +23,8 @@ it('mounts lazily and keeps closed content inert for closing and reopening',()=>
   expect(panel.getAttribute('aria-hidden')).toBe('true');
   expect(panel.contains(action)).toBe(true);
   rerender(<Collapsible open id="details"><button>Detail action</button></Collapsible>);
-  act(()=>vi.advanceTimersByTime(40));
+  // Only the first opening waits for mounted content; a reopening moves on the click's own frame.
+  expect(panel.hasAttribute('data-open')).toBe(true);
   expect(panel.hasAttribute('inert')).toBe(false);
   expect(panel.hasAttribute('aria-hidden')).toBe(false);
   expect(panel.contains(action)).toBe(true);

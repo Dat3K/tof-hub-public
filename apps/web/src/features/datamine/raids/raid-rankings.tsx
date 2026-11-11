@@ -22,7 +22,7 @@ import {LoadingState} from '@tof-hub/ui';
 import css from './raid-rankings.module.css';
 
 export interface RaidRankingSelection {
-  tab?: string; season?: string; region?: string;
+  tab?: string; season?: string; region?: string; subregion?: string;
   layout?: string; unique?: string; q?: string; player?: string; names?: string; sort?: string; places?: string;
 }
 type Text = ReturnType<typeof useHandbookText>;
@@ -166,6 +166,7 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
   const fallback = data?.seasons.find(season => season.raidId === raidId)?.id ?? '';
   const [seasonId, setSeason, seasonReady] = useEncounterSelection('season', fallback || latestRaidSeason(data?.seasons ?? [])?.id || '', initial.season);
   const [region, setRegion, regionReady] = useEncounterSelection('region', 'all', initial.region, 'all');
+  const [subregion, setSubregion, subregionReady] = useEncounterSelection('subregion', '', initial.subregion, '');
   const [query, setQuery] = useEncounterSelection('q', '', initial.q, '');
   const {identifiers: uidMatches, loading: uidLoading} = useUidMatches(query);
   const [sort, setSort] = useEncounterSelection('sort', 'time', initial.sort, 'time');
@@ -176,14 +177,18 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
   const seasonOptions = [...(data?.seasons ?? [])].sort((a, b) => a.label.localeCompare(b.label, undefined, {numeric: true}));
   const regions = rankingRegions();
   const latestBoards = useMemo(() => latestRaidBoards(data?.boards ?? []), [data]);
+  const psSubregions = useMemo(() => [...new Set(latestBoards.flatMap(({scope}) =>
+    scope.kind === 'region' && scope.region === 'PS' && scope.subregion ? [scope.subregion] : []))].sort(), [latestBoards]);
+  const activeSubregion = region === 'PS' && psSubregions.includes(subregion) ? subregion : '';
   const overall = region === 'all' || places === 'global';
-  const requestedBoards = useMemo(() => latestBoards.filter(board => board.seasonId === seasonId && board.scope.kind === 'region' && (overall || board.scope.region === region)), [latestBoards, seasonId, overall, region]);
+  const requestedBoards = useMemo(() => latestBoards.filter(({seasonId: boardSeason, scope}) => boardSeason === seasonId && scope.kind === 'region'
+    && (overall || (scope.region === region && (!activeSubregion || scope.subregion === activeSubregion)))), [latestBoards, seasonId, overall, region, activeSubregion]);
   const details = useRaidRankingData(data, requestedBoards.map(board => board.id));
   const currentNames = useCurrentNames(details.data, preferences.value.current && !details.isLoading && !details.error);
   const seasonBoards = details.data?.boards ?? [];
   const globalPlaces = useMemo(() => globalRaidPlaces(seasonBoards), [seasonBoards]);
   const placeOf = (entry: RaidRankingEntry) => overall ? globalPlaces.get(entry.id) ?? entry.rank : entry.rank;
-  const boards = useMemo(() => seasonBoards.filter(board => region === 'all' || board.scope.region === region), [seasonBoards, region]);
+  const boards = useMemo(() => seasonBoards.filter(({scope}) => region === 'all' || (scope.region === region && (!activeSubregion || scope.subregion === activeSubregion))), [seasonBoards, region, activeSubregion]);
   const orderedEntries = useMemo(() => {
     const search = query.trim().normalize('NFKC').toLocaleLowerCase();
     const projected = boards.flatMap(board => {
@@ -199,7 +204,7 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
   const count = orderedEntries.length;
   const uniquePlayerCount = useMemo(() => new Set(orderedEntries.flatMap(({board, entry}) => entry.members?.map(member => member.identifier ? playerKey(member) : `${board.scope.region}:${board.scope.subregion ?? ''}:${playerKey(member)}`) ?? [])).size, [orderedEntries]);
   useRaidRankingReturn({visibleCount: visibleEntries.length, totalCount: count, hasMore, loadMore,
-    ready: seasonReady && regionReady && preferences.ready && !details.isLoading && !details.error && !currentNames.loading && !uidLoading});
+    ready: seasonReady && regionReady && subregionReady && preferences.ready && !details.isLoading && !details.error && !currentNames.loading && !uidLoading});
   const selectSeason = (id: string) => {
     setSeason(id);
     const url = new URL(window.location.href);
@@ -209,14 +214,21 @@ export function RaidRankingPanel({data, error, raidId, initial = {}}: {data: Rai
     window.dispatchEvent(new PopStateEvent('popstate'));
   };
   const inspectPlayer = (player: string, trigger: HTMLButtonElement) => openRaidPlayer(player, trigger, visibleEntries.length);
-  return <CurrentNames.Provider value={currentNames.names}><Resonances.Provider value={data?.resonances ?? []}><section className={`${css.panel} ${css.rankingPanel}`} aria-label={t('Raid rankings', 'Рейтинг рейдов')} data-ranking-ready={seasonReady && regionReady && preferences.ready && !details.isLoading}>
+  return <CurrentNames.Provider value={currentNames.names}><Resonances.Provider value={data?.resonances ?? []}><section className={`${css.panel} ${css.rankingPanel}`} aria-label={t('Raid rankings', 'Рейтинг рейдов')} data-ranking-ready={seasonReady && regionReady && subregionReady && preferences.ready && !details.isLoading}>
     <CatalogControls id="raid-ranking-controls" ariaLabel={t('Filters', 'Фильтры')} textSelectable>
       <CatalogControls.Top><CatalogSearch value={query} onChange={setQuery} placeholder={t('Search by nickname or UID', 'Поиск по нику или UID')} serverModeSlot={
         <ModeSwitcher value={preferences.value.layout} onChange={layout => preferences.update({...preferences.value, layout})} ariaLabel={t('Display', 'Вид')}
           options={[{value: 'teams', label: t('Teams', 'Команды'), tone: 'gold'}, {value: 'list', label: t('List', 'Список'), tone: 'sky'}]} />
       } /></CatalogControls.Top>
       <CatalogControls.Middle><CatalogControls.Left>
-        <RegionFilters regions={regions} value={region === 'all' ? null : region} onChange={next => setRegion(next ?? 'all')} label={t('Region', 'Регион')} allLabel={t('All', 'Все')} />
+        <RegionFilters regions={regions} value={region === 'all' ? null : region} onChange={next => {
+          if (next !== 'PS' && subregion) setSubregion('');
+          setRegion(next ?? 'all');
+        }} label={t('Region', 'Регион')} allLabel={t('All', 'Все')} />
+        {region === 'PS' && psSubregions.length > 1 ? <FilterGroup label={t('PlayStation', 'PlayStation')}>
+          <FilterChip value="" variant="defense" active={!activeSubregion} onClick={() => setSubregion('')}>PS · {t('All', 'Все')}</FilterChip>
+          {psSubregions.map(value => <FilterChip key={value} value={value} variant="defense" active={activeSubregion === value} onClick={() => setSubregion(value)}>PS · {value}</FilterChip>)}
+        </FilterGroup> : null}
         <FilterGroup label={t('Season', 'Сезон')}>{seasonOptions.map(item => <FilterChip key={item.id} value={item.id} variant="physical" active={season?.id === item.id} title={item.bossLabel ?? item.label} disabled={!seasonReady} onClick={() => selectSeason(item.id)}>{item.label}</FilterChip>)}</FilterGroup>
       </CatalogControls.Left></CatalogControls.Middle>
       <CatalogControls.Bottom className={css.options}>
@@ -284,6 +296,7 @@ export function RaidRankingComparison({data, raids = EMPTY_RAIDS, error, initial
       const entry = board && firstRaidResult(board);
       if (!entry) return <span key={season.id} title={t('No data', 'Нет данных')}>—</span>;
       const query = new URLSearchParams({tab: 'ranking', season: season.id, region: row.region});
+      if (row.subregion) query.set('subregion', row.subregion);
       if (season.raidId) query.set('raid', season.raidId);
       if (board.scope.serverId) query.set('realm', board.scope.serverId);
       normalizeRaidSelection(query, data!.seasons);

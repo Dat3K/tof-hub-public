@@ -11,7 +11,15 @@ import {OPTIMIZER_STORAGE_KEY,exampleSession} from './storage';
 const language=vi.hoisted(()=>({locale:'en' as 'en'|'ru'}));
 vi.mock('@/lib/i18n',async importOriginal=>({...await importOriginal<object>(),useLocale:()=>({locale:language.locale})}));
 vi.mock('../build/capture-import',()=>({importBuildCapture:vi.fn(),serverRefusalNotice:()=>''}));
-const catalog=JSON.parse(readFileSync(resolve(import.meta.dirname,'../build/__fixtures__/catalog.json'),'utf8')) as BuildCatalog;
+const sourceCatalog=JSON.parse(readFileSync(resolve(import.meta.dirname,'../build/__fixtures__/catalog.json'),'utf8')) as BuildCatalog;
+const catalog:BuildCatalog={
+  ...sourceCatalog,
+  demoDraft:{
+    ...sourceCatalog.demoDraft,
+    // These scenarios swap the helmet. Keep every slot in the form without ranking unrelated gear on each render.
+    gear:sourceCatalog.demoDraft.gear.map((piece,index)=>index===0?piece:{...piece,equipped:false}),
+  },
+};
 const gear={...structuredClone(catalog.demoDraft.gear[0]!),equipped:false};
 gear.rows.find(row=>row.type==='Frost Attack')!.value+=1000;
 const demo={schemaVersion:1 as const,source:'demo' as const,pieces:[{key:'test-helmet',gear}]};

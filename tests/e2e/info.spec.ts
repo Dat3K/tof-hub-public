@@ -16,16 +16,16 @@ test('Gefion flat skill damage continues growing after level 110 using the raw s
   await page.getByRole('tab',{name:/^Normal/}).click();
   await expect(skill).toBeVisible();
   const selectLevel=async(level:number)=>{
-    await slider.focus();
-    const current=Number(await slider.inputValue());
-    const direction=level<current?-1:1;
-    for(let next=current+direction;direction<0?next>=level:next<=level;next+=direction){
-      await slider.press(direction<0?'ArrowLeft':'ArrowRight');
-      // Wait for the controlled input to commit before sending the next key.
-      await expect(slider).toHaveValue(String(next));
-      await expect(slider.locator('..')).toContainText(`Lv. ${next}`);
+    await slider.press('End');
+    await expect(slider).toHaveValue('200');
+    // Page Down is the range control's coarse step in Chromium.
+    for(let current=200;current>level;){
+      const coarse=current-level>=20;
+      await slider.press(coarse?'PageDown':'ArrowLeft');
+      current-=coarse?20:1;
+      await expect(slider).toHaveValue(String(current));
     }
-    await expect(slider).toHaveValue(String(level));
+    await expect(slider.locator('..')).toContainText(`Lv. ${level}`);
   };
   await selectLevel(118);
   await expect(skill).toContainText('1118% of ATK + 3525');
@@ -93,8 +93,8 @@ test('Food search rarity remains usable on desktop and narrow EN/RU screens',asy
 
 test.describe('Info Navigation: Hub -> Section -> Detail', () => {
   test('renders /info hub with all 7 encyclopedia section cards and links', async ({ page }) => {
-    await page.goto('/info');
-    await page.waitForLoadState('domcontentloaded');
+    const response = await page.goto('/info/', { waitUntil: 'domcontentloaded' });
+    expect(response?.status()).toBe(200);
 
     // 1. Verify accessible landmark heading
     const heading = page.getByRole('heading', { level: 1 });
@@ -446,4 +446,52 @@ test('Arts categories persist in query URLs and preserve artwork deep links',asy
   await page.setViewportSize({width:390,height:844});
   await loading.click();
   await expect(page).toHaveURL(/cat=loading$/);
+});
+
+test('Arts shows tracked additions first and keeps the New filter after reload on mobile', async ({page, request, context, baseURL}) => {
+  const response = await request.get('/game-data/en/runtime/arts.json');
+  expect(response.ok()).toBeTruthy();
+  const data = await response.json();
+  const added = data.items.filter((item: {isNew?: boolean}) => item.isNew);
+  expect(added.length).toBeGreaterThan(0);
+  const titles = added.map((item: {title: string}) => item.title).sort();
+  await page.goto('/info/arts/');
+  const cards = page.locator('.arts-catalog-page article');
+  await expect(cards.first()).toBeVisible();
+  const first = await cards.evaluateAll((elements, count) => elements.slice(0, count).map(element => element.getAttribute('aria-label')), added.length);
+  expect(first.sort()).toEqual(titles);
+  await page.screenshot({path: 'ignore/documentation-media/generated/arts-discovery-desktop.png', fullPage: true});
+  await page.locator('.arts-catalog-page button[data-val="new"]').click();
+  await expect(page).toHaveURL(/cat=new/);
+  await expect(cards).toHaveCount(added.length);
+  await page.setViewportSize({width: 390, height: 844});
+  await page.reload();
+  await expect(page.locator('.arts-catalog-page button[data-val="new"]')).toHaveAttribute('aria-pressed', 'true');
+  await expect(cards).toHaveCount(added.length);
+  await context.addCookies([{name: 'tof_locale', value: 'ru', url: baseURL!}]);
+  await page.reload();
+  await expect(page.locator('.arts-catalog-page button[data-val="new"]')).toContainText('Новые');
+  await expect(cards).toHaveCount(added.length);
+  await page.screenshot({path: 'ignore/documentation-media/generated/arts-discovery-mobile-ru.png', fullPage: true});
+});
+
+test('Simulacra disclosures keep their height after closing and reopening',async({page})=>{
+  await page.goto('/info/simulacra/?server=gacha&char=gefion',{waitUntil:'domcontentloaded'});
+  const item=page.locator('#advancement-4');
+  const summary=item.locator('> summary');
+  await expect(summary).toBeVisible();
+  await expect(item).toHaveAttribute('open','');
+  await page.evaluate(()=>document.fonts.ready);
+  const original=await item.evaluate(node=>node.getBoundingClientRect().height);
+  await expect(async()=>{
+    if(await item.getAttribute('open')!==null)await summary.press('Enter');
+    await expect(item).not.toHaveAttribute('open','',{timeout:600});
+  }).toPass();
+  await expect.poll(()=>item.evaluate(node=>node.getBoundingClientRect().height)).toBeLessThan(original);
+  await summary.press('Enter');
+  await expect(item).toHaveAttribute('open','');
+  // A retained animation fill used to leave the panel taller by its padding.
+  await expect.poll(()=>item.evaluate(node=>Math.round(node.getBoundingClientRect().height))).toBe(Math.round(original));
+  await page.waitForTimeout(500);
+  expect(Math.round(await item.evaluate(node=>node.getBoundingClientRect().height))).toBe(Math.round(original));
 });

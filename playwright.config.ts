@@ -1,7 +1,8 @@
 import { defineConfig, devices } from "@playwright/test";
 
-const PORT = process.env.PORT || 8080;
-const BASE_URL = process.env.PLAYWRIGHT_BASE_URL || `http://localhost:${PORT}`;
+const PORT = process.env.PORT || "8080";
+const externalBaseUrl = process.env.PLAYWRIGHT_BASE_URL;
+const BASE_URL = externalBaseUrl || `http://localhost:${PORT}`;
 
 export default defineConfig({
   testDir: "./tests/e2e",
@@ -28,11 +29,12 @@ export default defineConfig({
     viewport: { width: 1280, height: 720 },
   },
   webServer:
-    process.env.PLAYWRIGHT_SKIP_WEBSERVER || PORT === 8080 || PORT === "8080"
+    process.env.PLAYWRIGHT_SKIP_WEBSERVER || externalBaseUrl || PORT === "8080"
       ? undefined
       : {
-          command: "pnpm --filter web dev",
-          url: `http://localhost:${PORT}`,
+          command: "pnpm --filter web predev && pnpm --filter web exec next dev --webpack",
+          env: { PORT },
+          url: BASE_URL,
           reuseExistingServer: true,
           timeout: 120000,
         },

@@ -10,7 +10,7 @@
 }
 
 /* Legacy collapsible motion: animate every native details block instead of snapping it open. */
-@supports selector(details::details-content) {
+@supports (interpolate-size: allow-keywords) {
   .simulacraContainer details::details-content {
     display: block;
     block-size: 0;
@@ -32,45 +32,7 @@
   }
 }
 
-/* Fallback for browsers without details::details-content support. */
-@supports not selector(details::details-content) {
-  .simulacraContainer details > .simSectionBody,
-  .simulacraContainer details > .simAssetsContent,
-  .simulacraContainer details > .simChangelogGroupBody,
-  .simulacraContainer details > .simAdvBody,
-  .simulacraContainer details > .simPassiveBody {
-    display: grid;
-    grid-template-rows: 1fr;
-    min-height: 0;
-    overflow: hidden;
-    transition:
-      grid-template-rows 0.34s cubic-bezier(0.16, 1, 0.3, 1),
-      opacity 0.22s ease,
-      padding 0.34s cubic-bezier(0.16, 1, 0.3, 1),
-      border-color 0.22s ease;
-  }
-
-  .simulacraContainer details > .simSectionBody > *,
-  .simulacraContainer details > .simAssetsContent > *,
-  .simulacraContainer details > .simChangelogGroupBody > *,
-  .simulacraContainer details > .simAdvBody > *,
-  .simulacraContainer details > .simPassiveBody > * {
-    min-height: 0;
-    overflow: hidden;
-  }
-
-  .simulacraContainer details:not([open]) > .simSectionBody,
-  .simulacraContainer details:not([open]) > .simAssetsContent,
-  .simulacraContainer details:not([open]) > .simChangelogGroupBody,
-  .simulacraContainer details:not([open]) > .simAdvBody,
-  .simulacraContainer details:not([open]) > .simPassiveBody {
-    grid-template-rows: 0fr;
-    opacity: 0;
-    padding-block: 0;
-    border-top-color: transparent;
-  }
-}
-
+/* Browsers without interpolate-size use the measured animation in useAnimatedDetails. */
 @media (prefers-reduced-motion: reduce) {
   .simulacraContainer details::details-content,
   .simulacraContainer details[open]::details-content {

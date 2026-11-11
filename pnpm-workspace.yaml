@@ -13,9 +13,12 @@ minimumReleaseAgeExclude:
 
 overrides:
   # Security patches; Prisma config uses deepmerge only on plain trusted configuration records.
+  '@nestjs/platform-express>multer': '2.5.0'
   '@prisma/config>deepmerge-ts': '8.0.0'
+  'express>body-parser': '2.4.0'
+  fast-uri: '3.1.9'
   mysql2: '3.23.1'
-  qs: '6.16.0'
+  qs: '6.16.1'
   sharp: '0.35.5'
   source-map-js: '1.2.2'
   '@types/react': '19.3.0'

@@ -37,7 +37,7 @@ All of it, from the datamining and formula research to the website and the expor
 | --- | --- |
 | [**Datamine**](#datamine-archive) | Endgame encounters, enemy scaling, boss mechanics, combat formulas and other hidden values |
 | [**Info**](#game-database) | Encyclopedia of simulacra, matrices, relics, servants, food, cosmetics and artwork, with balance changes between patches |
-| [**Tools**](#build-and-optimization-tools) | Build card, gear optimizer, wish tracker and squad planner |
+| [**Tools**](#build-and-optimization-tools) | Build card, gear optimizer, wish tracker, squad planner and Titan calculator |
 | [**Ranking**](#gear-ranking) | Item and player gear leaderboards with a common gear-quality score |
 
 ### One project instead of six
@@ -94,6 +94,7 @@ The [game data reference](docs/game-data/README.md) documents each page: source 
 - **[Gear optimizer](https://tof.smilekritik.beer/tools/optimizer/).** Ranks every backpack piece against the equipped one using the player's own profile: damage derivatives per stat, the crit cap, element inheritance for Altered, healer and tank models (effective HP from resistance and the defense constant) and legal Titan stat pairs. Replacements compound, so each next choice reflects the ones already made.
 - **[Wish tracker](https://tof.smilekritik.beer/tools/wish/).** Replays each order track across banners with its pity state, separates event and permanent orders, shows 50/50 streaks and luck, runs pull simulations and exports banner cards.
 - **[Comp showcase](https://tof.smilekritik.beer/tools/comp/).** Plans four- or eight-player squads with roles, traits, weapons, matrices and relics in Standard or MMO mode, and shares them as a compact link or PNG.
+- **[Titan calculator](https://tof.smilekritik.beer/tools/titan/).** Takes a Global damage parse, accounts for the Titan levels worn during it and compares legal level sets with and without Weak Point. See the [calculation and data sources](docs/tools/titan-calculator.md).
 
 The [tools guide](docs/tools.md) explains the ratings, comparisons and import behavior.
 

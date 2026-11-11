@@ -108,7 +108,7 @@ it('generates all 200 floors from bound raw curves and inherited stat rows, pres
   fs.unlinkSync(path.join(f.raw, 'Hotta/Content/Test/Boss.json'));
   expect(() => f.run()).toThrow();
   expect(fs.readFileSync(f.file, 'utf8')).toBe(before);
-},30_000);
+}, 30_000);
 
 it('does not publish baseline HP as calculated HP when the curve or server-group application is unsupported', () => {
   const f = fixture();

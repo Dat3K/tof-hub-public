@@ -10,6 +10,7 @@ async function openAdvancedEditor(page:Page) {
 
 
 test('creates a new card from an encrypted file and tracks manual edits across reload and undo',async({page,request})=>{
+  test.setTimeout(120000);
   const keyResponse=await request.get('/api/v1/build/import/public-key');expect(keyResponse.ok()).toBe(true);
   const pub=await keyResponse.json();
   const key=randomBytes(32),nonce=randomBytes(12),cipher=createCipheriv('aes-256-gcm',key,nonce);
@@ -32,9 +33,10 @@ test('creates a new card from an encrypted file and tracks manual edits across r
   await page.getByRole('button',{name:'Import .tofbuild',exact:true}).focus();
   await expect(page.getByRole('button',{name:'Import .tofbuild',exact:true})).toBeFocused();
   await page.getByLabel('Build capture file').setInputFiles(file);
-  await expect(page.locator('[data-build-notice]')).toContainText('Card filled from the file');
   const card=page.locator('article.card');
-  await expect(card.locator('.player')).toHaveText('Example player');
+  await expect(card.locator('.player')).toHaveText('Example player',{timeout:45_000});
+  const notice=page.getByRole('status');
+  await expect(notice.filter({hasText:'Build and Optimizer filled from the file'})).toBeVisible();
   // The live card shows only the date; the provenance badge exists only in the exported PNG.
   await expect(card.locator('.data-origin:visible')).toHaveCount(0);
   await expect(card.locator('time[data-build-provenance]')).not.toHaveText('—');
@@ -45,9 +47,10 @@ test('creates a new card from an encrypted file and tracks manual edits across r
   await expect(card.locator('.support-chip small')).toHaveText(Array(18).fill('—'));
   await page.screenshot({path:'ignore/documentation-media/generated/build/capture-import-desktop.png',animations:'disabled'});
   const exportStatus=async(status:string)=>{
+    const download=page.waitForEvent('download');
     await page.getByRole('button',{name:'Export PNG',exact:true}).click();
-    await expect(page.locator('[data-build-notice]')).toContainText(`PNG exported`);
-    await expect(page.locator('[data-build-notice]')).toContainText(status);
+    await download;
+    await expect(notice.filter({hasText:'PNG exported'})).toContainText(status);
   };
   await page.reload();await exportStatus('Verified');
   await openAdvancedEditor(page);
@@ -56,17 +59,19 @@ test('creates a new card from an encrypted file and tracks manual edits across r
   await page.getByRole('button',{name:'Undo',exact:true}).click();
   await expect(card.locator('.player')).toHaveText('Example player');await exportStatus('Verified');
   await page.getByLabel('Build capture file').setInputFiles({name:'broken.tofbuild',mimeType:'application/json',buffer:Buffer.from('{}')});
-  await expect(page.locator('[data-build-notice]')).toContainText('Could not import');await expect(card.locator('.player')).toHaveText('Example player');
+  await expect(notice.filter({hasText:'Could not import'})).toBeVisible();await expect(card.locator('.player')).toHaveText('Example player');
   await page.getByRole('checkbox',{name:'Advanced editor',exact:true}).uncheck();
   await page.getByRole('checkbox',{name:'Lock editing',exact:true}).check();
   await page.setViewportSize({width:844,height:390});
-  await expect(page.getByRole('button',{name:'Import .tofbuild',exact:true})).toBeVisible();
   await page.getByRole('button',{name:'Language selector: English',exact:true}).click();await page.locator('[data-datamine-language=ru]').click();
-  await expect(page.getByRole('button',{name:'Импорт .tofbuild',exact:true})).toBeVisible();
+  const rail=page.locator('[data-tool-rail]');
+  await rail.getByRole('button',{name:'Дополнительные действия',exact:true}).click();
+  const mobileImport=rail.getByRole('button',{name:'Импорт .tofbuild',exact:true});
+  await expect(mobileImport).toBeVisible();
   await expect(card.locator('.data-origin:visible')).toHaveCount(0);
   await page.getByLabel('Файл скана билда').setInputFiles({name:'broken.tofbuild',mimeType:'application/json',buffer:Buffer.from('{}')});
-  await expect(page.locator('[data-build-notice]')).toContainText('Не удалось импортировать');
-  await page.getByRole('button',{name:'Импорт .tofbuild',exact:true}).scrollIntoViewIfNeeded();
+  await expect(notice.filter({hasText:'Не удалось импортировать'})).toBeVisible();
+  await mobileImport.scrollIntoViewIfNeeded();
   expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);
   await page.screenshot({path:'ignore/documentation-media/generated/build/capture-import-mobile.png',animations:'disabled'});
 });

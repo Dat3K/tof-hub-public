@@ -1,0 +1,60 @@
+{
+  "slug": "laurent",
+  "order": 101,
+  "boss_id": "boss_hum_084",
+  "name_color": "#e0424a",
+  "art": "/datamine/shared/media/Hotta/Content/Resources/UI/fuben/taofazuozhan/bosshd.webp",
+  "art_object_position": "center center",
+  "provenance": "Korea Dev 1 6.5.0: names from ST_actorname; mechanics translated from zh-CN Voidbuffdes, because the client has no EN/RU rows for them yet. See docs/game-data/fce.md.",
+  "en": {
+    "name": "Laurent",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_084_1_des",
+        "html": "Hits have a chance to prevent the target from using skills for 5s."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_084_2_des",
+        "html": "Upon hitting a target, Laurent releases a sword wave across a large area in front, dealing damage based on a percentage of Max HP. Triggers at most once every 2s."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_084_3_des",
+        "html": "When taking damage, Laurent has a 2% chance to become invincible for 3s. Triggers at most once every 10s."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_084_4_des",
+        "html": "Below 50% HP, Laurent takes 90% less damage but loses 0.5% of Max HP every second."
+      }
+    ]
+  },
+  "ru": {
+    "name": "Лоран",
+    "mechanics": [
+      {
+        "index": "1",
+        "key": "boss_hum_084_1_des",
+        "html": "При попадании есть шанс лишить цель возможности использовать навыки на 5 сек."
+      },
+      {
+        "index": "2",
+        "key": "boss_hum_084_2_des",
+        "html": "При попадании по цели Лоран выпускает волну энергии меча по большой области перед собой, нанося урон в процентах от макс. ОЗ. Срабатывает не чаще 1 раза в 2 сек."
+      },
+      {
+        "index": "3",
+        "key": "boss_hum_084_3_des",
+        "html": "При получении урона Лоран с шансом 2% становится неуязвимым на 3 сек. Срабатывает не чаще 1 раза в 10 сек."
+      },
+      {
+        "index": "4",
+        "key": "boss_hum_084_4_des",
+        "html": "При ОЗ ниже 50% Лоран получает на 90% меньше урона, но каждую секунду теряет 0,5% макс. ОЗ."
+      }
+    ]
+  },
+  "preview": "/datamine/shared/media/Hotta/Content/Resources/UI/void/boss/Boss_hum_084.webp"
+}

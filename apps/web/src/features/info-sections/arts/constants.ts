@@ -24,6 +24,7 @@ export type ArtCategoryTone =
 
 export const ART_CATEGORY_OPTIONS: ArtCategoryOption[] = [
   { id: 'all', copyKey: 'tabAll', tone: 'neutral' },
+  { id: 'new', copyKey: 'tabNew', tone: 'neutral' },
   { id: 'loading', copyKey: 'tabLoading', icon: 'loading', tone: 'loading' },
   { id: 'gashapon', copyKey: 'tabGashapon', icon: 'gashapon', tone: 'gashapon' },
   { id: 'characters', copyKey: 'tabCharacters', icon: 'characters', tone: 'characters' },
@@ -90,6 +91,7 @@ export function getArtCategoryBadge(
 
 export function filterMatchesCategory(art: ArtworkItem, category: ArtCategory): boolean {
   if (category === 'all') return true;
+  if (category === 'new') return art.isNew === true;
   if (category === 'wallpapers') return art.category === 'wallpapers';
   if (category === 'characters') return art.category === 'characters';
   if (category === 'character_bg') return art.category === 'character_bg' || art.subCategory === 'season_bg';
@@ -98,4 +100,9 @@ export function filterMatchesCategory(art: ArtworkItem, category: ArtCategory): 
   if (category === 'events') return art.subCategory === 'events';
   if (category === 'others') return art.subCategory === 'others' || art.category === 'others';
   return true;
+}
+
+export function compareArtsByAdded(a: ArtworkItem, b: ArtworkItem): number {
+  return (a.addedInRevision ?? 0) - (b.addedInRevision ?? 0)
+    || a.id.localeCompare(b.id, undefined, {numeric: true});
 }
