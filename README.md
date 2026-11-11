@@ -67,7 +67,7 @@ In the Genshin Impact community, each of these features is its own project, run 
 | [**Team raids**](https://tof.smilekritik.beer/datamine/raids/) | Raid encounters, requirements, rewards and boss mechanics |
 | [**Handbook**](https://tof.smilekritik.beer/datamine/handbook/) | Gear stat ranges, Titan rerolls, Combat Strength, upgrade costs, combat and resistance formulas, the MMO Brainfield talent tree and server lists |
 | [**Multiplicative buffs**](https://tof.smilekritik.beer/datamine/multype/) | Which buffs multiply and which add up, with their grouping and multipliers |
-| [**Item identifiers**](https://tof.smilekritik.beer/datamine/items/) | Internal and display names of every item |
+| [**Items**](https://tof.smilekritik.beer/datamine/items/) | Internal IDs and localized names, plus Trade Station prices, listing ranges and filters in MMO mode |
 
 The [game data reference](docs/game-data/README.md) documents each page: source tables and fields, joins, formulas and the questions that remain open.
 

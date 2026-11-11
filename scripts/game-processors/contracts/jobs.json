@@ -619,6 +619,36 @@
         "Game/ru/Game.json"
       ],
       "description": "MMO gear, stat, enhancement, seasonal-upgrade and expansion-card catalogs; curves are discovered through card/stat references"
+    },
+    {
+      "id": "build-trade-station",
+      "script": "build-trade-station.js",
+      "type": "processor",
+      "resourceClass": "light",
+      "estimatedMs": 4000,
+      "argsTemplate": [
+        "--raw-dir={rawDir}",
+        "--project-root={projectRoot}"
+      ],
+      "dependsOn": [
+        "build-items-json"
+      ],
+      "produces": [
+        "datamine/trade-station/data/trade-station.json"
+      ],
+      "consumes": [
+        "DataTable/TradeLineItemStaticDataTable.json",
+        "DataAsset/DA_TradeLine.json",
+        "DataTable/TradeShopLevelDataTable.json",
+        "DataTable/Item/ItemConfigs.json",
+        "DataTable/cooking/CookingFoodDataTable.json",
+        "DataTable_MMO/cooking/CookingFoodDataTable_MMO.json",
+        "DataTable/ArtPackDataTable.json",
+        "Game/en/Game.json",
+        "items/data/merged_mapping_with_original.json",
+        "items/data/merged_mapping_with_original_mmo.json"
+      ],
+      "description": "Trade Station listings with half-up rounded Universal Crystal price bands; carries the curated Overseas MMO rules"
     }
   ]
 }

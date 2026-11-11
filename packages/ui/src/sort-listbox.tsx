@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useReducer, useRef, useEffect, useId, useCallback } from "react";
+import React, { useReducer, useRef, useEffect, useLayoutEffect, useId, useCallback } from "react";
 import type { KeyboardEvent, MouseEvent, ReactNode } from "react";
 import type { CatalogSortProps, SortOption } from "./catalog/types";
 
@@ -11,6 +11,8 @@ export interface SortListboxProps extends CatalogSortProps {
   renderOption?: (option: SortOption) => ReactNode;
   /** Full-width form field rather than a compact catalog sort control. */
   presentation?: 'catalog' | 'field' | 'inline';
+  /** Space reserved at the top of the viewport for fixed chrome in field presentation. */
+  viewportTopInset?: number;
 }
 
 export interface SortListboxState {
@@ -344,6 +346,7 @@ export function SortListbox({
   disabled = false,
   renderOption,
   presentation = 'catalog',
+  viewportTopInset = 0,
 }: SortListboxProps) {
   const generatedId = useId();
   const baseId = id ?? `sim-sort-${generatedId}`;
@@ -356,28 +359,57 @@ export function SortListbox({
   const menuRef = useRef<HTMLDivElement>(null);
   const optionRefs = useRef<(HTMLButtonElement | null)[]>([]);
 
+  const select = useCallback((next: string) => {
+    onChange(next);
+    triggerRef.current?.focus();
+  }, [onChange]);
+
   const {
     isOpen,
     setOpen,
     focusedIndex,
     currentOption,
-    commitOption: rawCommit,
+    commitOption,
     handleTriggerKeyDown,
     handleMenuKeyDown,
   } = useSortListbox({
     value,
-    onChange,
+    onChange: select,
     options,
     disabled,
   });
 
-  const commitOption = useCallback(
-    (option: SortOption) => {
-      rawCommit(option);
-      triggerRef.current?.focus();
-    },
-    [rawCommit],
-  );
+  useLayoutEffect(() => {
+    const menu = menuRef.current;
+    const trigger = triggerRef.current;
+    if (!isOpen || presentation !== 'field' || !menu || !trigger) return;
+
+    const viewport = window.visualViewport;
+    const fitMenu = () => {
+      const anchor = trigger.getBoundingClientRect();
+      const viewportTop = viewport?.offsetTop ?? 0;
+      const viewportBottom = viewportTop + (viewport?.height ?? window.innerHeight);
+      const margin = 16;
+      const below = viewportBottom - anchor.bottom - margin;
+      const above = anchor.top - Math.max(viewportTop, viewportTopInset) - margin;
+      const openAbove = below < 128 && above > below;
+
+      menu.dataset.side = openAbove ? 'above' : 'below';
+      menu.style.setProperty('--sort-menu-viewport-height', `${Math.max(0, openAbove ? above : below)}px`);
+    };
+
+    fitMenu();
+    window.addEventListener('resize', fitMenu);
+    window.addEventListener('scroll', fitMenu, {passive: true});
+    viewport?.addEventListener('resize', fitMenu);
+    return () => {
+      window.removeEventListener('resize', fitMenu);
+      window.removeEventListener('scroll', fitMenu);
+      viewport?.removeEventListener('resize', fitMenu);
+      delete menu.dataset.side;
+      menu.style.removeProperty('--sort-menu-viewport-height');
+    };
+  }, [isOpen, presentation, viewportTopInset]);
 
   // Focus the option element when focusedIndex changes while open
   useEffect(() => {
@@ -528,7 +560,7 @@ export function SortListbox({
           className={[
             "sim-sort-menu",
             "absolute left-0 right-0 top-[calc(100%+0.4375rem)] z-[120]",
-            presentation === 'field' ? "w-full min-w-full max-w-full max-h-80 overflow-y-auto" : presentation === 'inline' ? "w-max min-w-full max-w-[min(21.25rem,calc(100vw-2rem))]" : "w-full min-w-full max-w-[min(21.25rem,92vw)]",
+            presentation === 'field' ? "w-full min-w-full max-w-full sim-sort-menu--field" : presentation === 'inline' ? "w-max min-w-full max-w-[min(21.25rem,calc(100vw-2rem))]" : "w-full min-w-full max-w-[min(21.25rem,92vw)]",
             presentation === 'inline' ? "left-0 right-auto" : "max-sm:left-0 max-sm:right-0 max-sm:w-full",
             "bg-[var(--surface-panel)] border border-[var(--surface-border-strong)]",
             "rounded-[0.8125rem] p-1.5 shadow-[0_0.75rem_1.875rem_rgba(0,0,0,0.32)] flex flex-col gap-[0.1875rem] outline-none",
@@ -564,6 +596,7 @@ export function SortListbox({
                 }}
                 className={[
                   "sim-sort-option",
+                  presentation === 'field' ? "shrink-0" : "",
                   "min-h-[1.75rem] max-sm:min-h-[2.25rem] px-2.5 py-1 max-sm:py-2 rounded-md text-[0.75rem] font-[560] leading-[1.25]",
                   "text-left w-full cursor-pointer flex items-center justify-between gap-2 border border-transparent transition-[color,background-color,border-color] outline-none font-sans",
                   // Visible focus indicator

@@ -27,6 +27,8 @@ export async function compileProcessors(outRoot: string, sourceRoot = PROCESSORS
   for (const part of ['processors', 'build']) {
     for (const file of walk(path.join(sourceRoot, part))) {
       if (file.endsWith('.d.ts')) continue;
+      // `node --test` sources import a `.ts` specifier; they are not part of the runtime tree.
+      if (file.endsWith('.test.ts')) continue;
       if (file.endsWith('.ts')) entryPoints.push(file);
       else {
         const target = path.join(outRoot, path.relative(sourceRoot, file));

@@ -1,0 +1,60 @@
+{
+  "source": "observed",
+  "observedAt": "2026-11-07",
+  "serverTimeZone": "UTC+9",
+  "fees": { "listingGoldPerUC": 1, "passDiscount": 0.2, "saleRatio": 0.05 },
+  "categoryLabelKeys": {
+    "TQ_COM": "CA4DBFCE4DAECF03D76D3FBFE7B98437",
+    "TQ_RATE": "1E407BC345737F5023ECB8B5D98EFF1E",
+    "TQ_RATE_FASHION": "0F02FAD244D8C92ACFDE0A925EAFD914"
+  },
+  "currencyAssets": {
+    "trade": "/Game/Resources/Icon/huobi/tradediamond.tradediamond",
+    "gold": "/Game/Resources/Icon/huobi/jinbi.jinbi"
+  },
+  "priceBands": [
+    {
+      "idPrefix": "StrengthenStoneMMO_B",
+      "clientBand": { "basePrice": 12, "minRatio": 0.5, "maxRatio": 2.5, "stepRatio": 0.133 },
+      "minRatio": 0.6,
+      "maxRatio": 2.46,
+      "stepRatio": 0.1333333,
+      "percentRungs": [-40, -27, -13, 0, 13, 27, 40, 53, 67, 80, 93, 106, 120, 133, 146],
+      "note": "Rare weapon-enhancement modules (Enhanced Resonance Module, Advanced Restructure Component). The Overseas station opens -40% to +146% in 13.3333% steps; the labels are the percents the station shows, not a re-rounding of the ratio. The client table says 50% to 250% with a 13.3% increment. Observed 2026-11-07."
+    }
+  ],
+  "en": {
+    "sections": [
+      {
+        "title": "Listing",
+        "items": [
+          "A non-refundable fee is charged when an item is listed. It is paid in Gold and equals the listing's value in Universal Crystals, price times quantity; the Pass takes 20% off. The fee does not depend on Trade Station level.",
+          "Up to 6 items can be listed by default. The Pass unlocks more listing slots.",
+          "A listing expires after 24 hours, and the stack returns by in-game mail. The client sets that window in DA_TradeLine.",
+          "Multiple units of one listing sell individually and settle instantly; a buyer does not need the whole stack.",
+          "Equipment Expansion Packs cannot be listed."
+        ]
+      },
+      {
+        "title": "Trading",
+        "items": [
+          "A purchase is matched against the lowest current listing of the same item.",
+          "A 5% fee in Universal Crystals is taken from the seller's proceeds on every completed sale.",
+          "The station closes every day from 00:00 to 01:00 server time.",
+          "An item with a review period can only be purchased once the period ends; the client sets that period to 2 hours.",
+          "Equipment and Relics bind to the buyer on purchase."
+        ]
+      },
+      {
+        "title": "Limits",
+        "items": ["There is no purchase limit."]
+      },
+      {
+        "title": "Active status",
+        "items": [
+          "Players with low activity and a low Apex CS count as inactive, and their listings are invisible to other players."
+        ]
+      }
+    ]
+  }
+}

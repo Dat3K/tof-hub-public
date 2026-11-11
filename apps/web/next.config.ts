@@ -63,6 +63,11 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: "/tools/trade-station",
+        destination: "/datamine/items/?mode=mmo",
+        statusCode: 301,
+      },
       // 12 Catalogs: /datamine/:catalog/* and /datamine2/:catalog/* -> /info/:catalog/* (301)
       {
         source: "/datamine/simulacra/:path*",

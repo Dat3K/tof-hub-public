@@ -5,7 +5,7 @@
  */
 export const RUNTIME_DATASETS: ReadonlySet<string> = new Set([
   'simulacra', 'matrices', 'relics', 'pets', 'food', 'food-mmo', 'cosmetics', 'arts',
-  'fce', 'oow', 'bygone', 'seq', 'multype', 'items', 'items-mmo', 'wish-banners',
+  'fce', 'oow', 'bygone', 'seq', 'multype', 'items', 'items-mmo', 'items-trade-rules', 'wish-banners',
   'build-page', 'optimizer-demo', 'hub-summary', 'main-hub', 'version-tracker',
   'fce-cards', 'handbook', 'supercomputing', 'weapon-growth', 'weapon-options',
   'build-reference', 'server-list',

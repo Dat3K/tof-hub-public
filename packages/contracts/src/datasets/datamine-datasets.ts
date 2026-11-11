@@ -1,4 +1,5 @@
 import { z } from 'zod';
+import { ItemTradeDataSchema } from '../trade-station';
 
 // ==========================================
 // 1. FCE (Frontier Clash Evolution) Schemas
@@ -205,6 +206,7 @@ export const DatamineItemRawSchema = z.object({
   icon: z.string(),
   description_en: z.string().optional(),
   description_ru: z.string().optional(),
+  trade: ItemTradeDataSchema.optional(),
 }).passthrough();
 
 export const DatamineItemsDatasetSchema = z.record(z.string(), DatamineItemRawSchema);

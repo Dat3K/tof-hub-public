@@ -34,6 +34,7 @@ import { siteUiRaidTranslations } from './site-ui/raids';
 import { siteUiBuildTranslations } from './site-ui/build';
 import { siteUiHandbookTranslations } from './site-ui/handbook';
 import { siteUiFooterPageTranslations } from './site-ui/footer-pages';
+import { siteUiTradeStationTranslations } from './site-ui/trade-station';
 
 /** Per-culture supplements to the core phrase table: page copy, tool labels and chart captions. */
 const pages: Partial<Record<Locale, Readonly<Record<string, string>>>> = {
@@ -41,5 +42,5 @@ const pages: Partial<Record<Locale, Readonly<Record<string, string>>>> = {
 };
 
 export const extraTranslations: Partial<Record<Locale, Readonly<Record<string, string>>>> = Object.fromEntries(
-  (Object.keys(pages) as Locale[]).map(locale => [locale, { ...cosmeticMediaTranslations[locale], ...siteUiRaidTranslations[locale], ...siteUiFooterPageTranslations[locale], ...pages[locale], ...commonTranslations[locale], ...dishEffectTranslations[locale], ...artTitleTranslations[locale], ...buildLabelTranslations[locale], ...buildPhraseTranslations[locale], ...buildHelpTranslations[locale], ...bossPlateTranslations[locale], ...entityNames[locale], ...officialNames[locale], ...siteUiChineseTranslations[locale], ...siteUiPortugueseThaiTranslations[locale], ...siteUiJapaneseKoreanTranslations[locale], ...siteUiAdditionalTranslations[locale], ...siteUiBuildTranslations[locale], ...siteUiHandbookTranslations[locale], ...siteUiTranslations[locale], ...siteUiFollowupTranslations[locale], ...siteUiRouteBoundaryTranslations[locale], ...siteUiRenderedCopyTranslations[locale], ...siteUiDynamicLabelTranslations[locale], ...titanCalculatorTranslations[locale], ...publicImportTranslations[locale] }]),
+  (Object.keys(pages) as Locale[]).map(locale => [locale, { ...cosmeticMediaTranslations[locale], ...siteUiRaidTranslations[locale], ...siteUiFooterPageTranslations[locale], ...pages[locale], ...commonTranslations[locale], ...dishEffectTranslations[locale], ...artTitleTranslations[locale], ...buildLabelTranslations[locale], ...buildPhraseTranslations[locale], ...buildHelpTranslations[locale], ...bossPlateTranslations[locale], ...entityNames[locale], ...officialNames[locale], ...siteUiChineseTranslations[locale], ...siteUiPortugueseThaiTranslations[locale], ...siteUiJapaneseKoreanTranslations[locale], ...siteUiAdditionalTranslations[locale], ...siteUiBuildTranslations[locale], ...siteUiHandbookTranslations[locale], ...siteUiTranslations[locale], ...siteUiFollowupTranslations[locale], ...siteUiRouteBoundaryTranslations[locale], ...siteUiRenderedCopyTranslations[locale], ...siteUiDynamicLabelTranslations[locale], ...titanCalculatorTranslations[locale], ...siteUiTradeStationTranslations[locale], ...publicImportTranslations[locale] }]),
 );

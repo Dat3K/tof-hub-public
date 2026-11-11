@@ -26,6 +26,7 @@ export function exportItemsJson(
         ...(row.icon ? { icon: row.icon } : {}),
         ...(row.description_en ? { description_en: row.description_en } : {}),
         ...(row.description_ru ? { description_ru: row.description_ru } : {}),
+        ...(mode === 'mmo' && row.trade ? {trade: row.trade} : {}),
       };
     }),
   };

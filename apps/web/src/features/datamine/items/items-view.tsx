@@ -1,10 +1,16 @@
 'use client';
 
-import { localized } from '@tof-hub/i18n';
-import React, { useState, useEffect, useMemo, useCallback, useRef } from 'react';
+import { localized, translateUiText, type Locale } from '@tof-hub/i18n';
+import React, { useState, useEffect, useLayoutEffect, useMemo, useCallback, useRef } from 'react';
 import { useI18n } from '@/lib/i18n';
+import { useSiteHeaderInset } from '@/components/site-shell/use-site-header-inset';
+import { intlLocale } from '@/lib/i18n/format';
 import { gameAssetPng } from '@tof-hub/game-assets';
-import { Lightbox } from '@tof-hub/ui';
+import {
+  Button, CatalogControls, CatalogCounter, CatalogSearch, FilterChip, FilterGroup,
+  Lightbox, LoadingState, ModeSwitcher, SortListbox,
+} from '@tof-hub/ui';
+import { resolveItemsFilter, resolveItemsTradeFilter } from './items-types';
 import type {
   ItemsViewProps,
   ItemsMode,
@@ -22,24 +28,112 @@ import {
   normalizeItemRows,
   resolveMediaUrl,
   getRarityBorderColor,
+  getItemsTradeCategories,
 } from './items-domain';
 import { exportItemsJson } from './items-export';
 import styles from './items.module.css';
+import {ItemsTradeCells} from './items-trade-cell';
+import {ItemsTradeRules} from './items-trade-rules';
 
 const ITEMS_BATCH_SIZE = 100;
+const itemTextMeasurements = new WeakMap<Element, () => void>();
+let itemTextObserver: ResizeObserver | undefined;
 
-export function ItemsView({ initialData, initialLocale, initialMode, initialFilter, initialSearch }: ItemsViewProps) {
+function HighlightedText({text, search}: {text: string; search: string}) {
+  return <>{buildHighlightedParts(text, search).map((part, index) => part.match
+    ? <mark key={index} className={styles.match}>{part.text}</mark>
+    : <React.Fragment key={index}>{part.text}</React.Fragment>
+  )}</>;
+}
+
+function ItemTextDisclosure({text, search}: {text: string; search: string}) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [overflowing, setOverflowing] = useState(false);
+
+  const measure = useCallback(() => {
+    const container = containerRef.current;
+    if (!container || container.querySelector('details[open]')) return;
+    const value = container.querySelector<HTMLElement>(`.${styles.itemTextValue}`);
+    if (value) setOverflowing(value.scrollWidth > container.clientWidth || text.trim().includes('\n'));
+  }, [text]);
+
+  useLayoutEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    measure();
+    itemTextObserver ??= new ResizeObserver(entries => {
+      for (const {target} of entries) itemTextMeasurements.get(target)?.();
+    });
+    itemTextMeasurements.set(container, measure);
+    itemTextObserver.observe(container);
+    return () => {
+      itemTextObserver?.unobserve(container);
+      itemTextMeasurements.delete(container);
+    };
+  }, [measure, search]);
+
+  if (!text) return null;
+  const value = <span className={styles.itemTextValue}><HighlightedText text={text} search={search} /></span>;
+  return (
+    <div ref={containerRef} className={styles.itemText}>
+      {overflowing ? <details onToggle={measure}><summary>{value}</summary></details> : value}
+    </div>
+  );
+}
+
+function ItemIconFrame({iconUrl, name, borderColor, shardLabel, viewImage, onOpen, onPreview, onLeave}: {
+  iconUrl: string;
+  name: string;
+  borderColor: string;
+  shardLabel: string;
+  viewImage: string;
+  onOpen: () => void;
+  onPreview: (rect: DOMRect) => void;
+  onLeave: () => void;
+}) {
+  const [failed, setFailed] = useState(false);
+  const imageRef = useRef<HTMLImageElement>(null);
+  const badge = shardLabel ? <span className={styles.shardBadge} title={shardLabel} /> : null;
+
+  if (!iconUrl || failed) return <div className={styles.iconFrame} style={{borderColor}}>{badge}</div>;
+
+  return (
+    <button
+      type="button"
+      className={styles.iconFrame}
+      style={{borderColor}}
+      aria-label={[`${viewImage}: ${name}`, shardLabel].filter(Boolean).join(' · ')}
+      title={viewImage}
+      onClick={() => { if (imageRef.current?.naturalWidth) onOpen(); }}
+      onPointerEnter={event => {
+        if (imageRef.current?.naturalWidth) onPreview(event.currentTarget.getBoundingClientRect());
+      }}
+      onPointerLeave={onLeave}
+    >
+      <img ref={imageRef} src={iconUrl} alt="" className={styles.iconImg} loading="lazy" onError={() => setFailed(true)} />
+      {badge}
+    </button>
+  );
+}
+
+export function ItemsView({ initialData, tradeRules, initialLocale, initialMode, initialFilter, initialSearch, initialTradeFilter }: ItemsViewProps) {
   const { locale: activeLocale } = useI18n();
   const currentLocale = activeLocale || initialLocale;
   const isRu = currentLocale === 'ru';
   const copy = localized(ITEMS_COPY, currentLocale);
+  const numberFormat = useMemo(() => new Intl.NumberFormat(intlLocale(currentLocale)), [currentLocale]);
+  const percentFormat = useMemo(() => new Intl.NumberFormat(intlLocale(currentLocale), {
+    style: 'percent', signDisplay: 'exceptZero', maximumFractionDigits: 0,
+  }), [currentLocale]);
+  const tradeLabel = translateUiText('Trade Station', currentLocale);
 
   // Seed from the server-parsed URL params (?mode=&filter=&q=) so a shared
   // link fetches the selected dataset immediately instead of loading gacha
   // and refetching after mount.
   const [mode, setMode] = useState<ItemsMode>(initialMode ?? 'gacha');
-  const [filter, setFilter] = useState<ItemsFilter>(initialFilter ?? 'all');
+  const [filter, setFilter] = useState<ItemsFilter>(resolveItemsFilter(initialMode ?? 'gacha', initialFilter));
   const [search, setSearch] = useState(initialSearch ?? '');
+  const [tradeFilter, setTradeFilter] = useState(() => initialTradeFilter ?? resolveItemsTradeFilter('gacha'));
   const [sortState, setSortState] = useState<{ column: ItemsSortColumn; direction: ItemsSortDirection }>({
     column: 'num',
     direction: 'ascending',
@@ -51,6 +145,9 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
 
   // Client Dataset Store for dynamically fetched datasets
   const [dynamicDatasets, setDynamicDatasets] = useState<Partial<Record<ItemsMode, ItemRow[]>>>({});
+  const [mmoDatasets, setMmoDatasets] = useState<Partial<Record<Locale, ItemRow[]>>>({});
+  const mmoRows = mmoDatasets[currentLocale];
+  const headerInset = useSiteHeaderInset(mode === 'mmo' && Boolean(mmoRows));
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [lightboxTarget, setLightboxTarget] = useState<{ png: string; webp: string; name: string } | null>(null);
 
@@ -65,11 +162,12 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
 
   // Base items per mode
   const currentRows = useMemo(() => {
+    if (mode === 'mmo') return mmoRows ?? [];
     if (dynamicDatasets[mode] && dynamicDatasets[mode]!.length > 0) {
       return dynamicDatasets[mode]!;
     }
     return mergeItemsData(initialData, mode);
-  }, [initialData, mode, dynamicDatasets]);
+  }, [initialData, mode, dynamicDatasets, mmoRows]);
 
   // Fetch the full gacha dataset only while gacha is active. A shared
   // ?mode=mmo link must not pay for the gacha payload before the mmo one.
@@ -110,11 +208,13 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
 
   // When mode switches to MMO, attempt fetch of MMO data if not already loaded
   useEffect(() => {
-    if (typeof window === 'undefined' || mode !== 'mmo' || dynamicDatasets.mmo) return;
+    if (mode !== 'mmo' || mmoRows) return;
+    const controller = new AbortController();
 
     const mmoUrls = [
       `/game-data/${currentLocale}/runtime/items-mmo.json`,
       `/game-data/${currentLocale}/datamine/items-mmo.json`,
+      '/game-data/en/runtime/items-mmo.json',
       `/${currentLocale}/datamine/items-mmo.json`,
       `/datamine/items/data/merged_mapping_with_original_mmo.json`,
       `/api/datamine/items?mode=mmo`,
@@ -123,7 +223,7 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
     (async () => {
       for (const url of mmoUrls) {
         try {
-          const res = await fetch(url);
+          const res = await fetch(url, {signal: controller.signal});
           if (res.ok) {
             const data = await res.json();
             if (data && typeof data === 'object') {
@@ -132,18 +232,23 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
                 : data;
               const rows = normalizeItemRows(itemsMap);
               if (rows.length > 0) {
-                setDynamicDatasets((prev) => ({ ...prev, mmo: rows }));
+                if (!controller.signal.aborted) setMmoDatasets((prev) => ({...prev, [currentLocale]: rows}));
                 return;
               }
             }
           }
-        } catch {}
+        } catch {
+          if (controller.signal.aborted) return;
+        }
       }
+      if (!controller.signal.aborted) setMmoDatasets((prev) => ({...prev, [currentLocale]: []}));
     })();
-  }, [mode, dynamicDatasets.mmo]);
+    return () => controller.abort();
+  }, [mode, mmoRows, currentLocale]);
 
   const isInitialMount = useRef(true);
-  const prevFilterState = useRef({ filter, search, mode });
+  const prevFilterState = useRef({ filter, search, mode, tradeFilter });
+  const previousUrlState = useRef({ filter, search, mode, tradeFilter });
 
   // Initialize from URL params on mount & listen to popstate / Escape
   useEffect(() => {
@@ -151,13 +256,11 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
 
     function applyUrlParams() {
       const params = new URLSearchParams(window.location.search);
-      const m = params.get('mode');
-      if (m === 'gacha' || m === 'mmo') setMode((prev) => (prev === m ? prev : m));
-      else setMode((prev) => (prev === 'gacha' ? prev : 'gacha'));
-
-      const f = params.get('filter');
-      if (f === 'renamed' || f === 'all') setFilter((prev) => (prev === f ? prev : f));
-      else setFilter((prev) => (prev === 'all' ? prev : 'all'));
+      const nextMode = params.get('mode') === 'mmo' ? 'mmo' : 'gacha';
+      setMode(nextMode);
+      setFilter(resolveItemsFilter(nextMode, params.get('filter')));
+      const category = resolveItemsTradeFilter(nextMode, params.get('section'), params.get('type'));
+      setTradeFilter(previous => previous.section === category.section && previous.type === category.type ? previous : category);
 
       const q = params.get('q') || params.get('item');
       // State is seeded from the server-parsed URL, so only correct when
@@ -191,27 +294,60 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
 
   // Sync URL query params
   useEffect(() => {
-    if (typeof window === 'undefined') return;
+    const previous = previousUrlState.current;
+    if (previous.mode === mode && previous.filter === filter && previous.search === search && previous.tradeFilter === tradeFilter) return;
+    previousUrlState.current = {mode, filter, search, tradeFilter};
 
     const params = new URLSearchParams();
     const selectedItem = new URLSearchParams(window.location.search).get('item');
     if (selectedItem && search === selectedItem) params.set('item', selectedItem);
     if (mode !== 'gacha') params.set('mode', mode);
-    if (filter !== 'all') params.set('filter', filter);
+    if (filter !== resolveItemsFilter(mode)) params.set('filter', filter);
     if (search.trim()) params.set('q', search.trim());
+    if (mode === 'mmo' && tradeFilter.section) {
+      params.set('section', tradeFilter.section);
+      if (tradeFilter.type !== null) params.set('type', String(tradeFilter.type));
+    }
     const qs = params.toString();
-    const newUrl = qs ? `${window.location.pathname}?${qs}` : window.location.pathname;
-    window.history.replaceState({}, '', newUrl);
-  }, [mode, filter, search]);
+    const newUrl = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
+    const currentUrl = `${window.location.pathname}${window.location.search}${window.location.hash}`;
+    if (newUrl !== currentUrl) window.history.replaceState(window.history.state, '', newUrl);
+  }, [mode, filter, search, tradeFilter]);
+
+  const categories = useMemo(() => mmoRows ? getItemsTradeCategories(mmoRows, tradeRules?.categories) : [], [mmoRows, tradeRules?.categories]);
+  const selectedCategory = categories.find(category => category.id === tradeFilter.section);
+  const selectedType = selectedCategory?.types.find(type => type.index === tradeFilter.type);
+  const typeOptions = useMemo(() => {
+    const unnamedType = translateUiText('Type {slot}', currentLocale);
+    return (selectedCategory ? [selectedCategory] : categories).flatMap(category =>
+      category.types.map((entry, index) => {
+        const name = entry.name && entry.name !== `#${entry.index}`
+          ? entry.name
+          : unnamedType.replace('{slot}', numberFormat.format(entry.index));
+        return {
+          value: `${category.id}:${entry.index}`,
+          label: selectedCategory ? name : `${name} · ${category.name}`,
+          name,
+          section: category.id,
+          categoryName: category.name,
+          type: entry.index,
+          dividerBefore: !selectedCategory && index === 0,
+        };
+      }),
+    );
+  }, [categories, selectedCategory, currentLocale, numberFormat]);
 
   // Filtered rows
   const filteredRows = useMemo(() => {
-    return filterItemRows(currentRows, filter, search);
-  }, [currentRows, filter, search]);
+    return filterItemRows(currentRows, filter, search, undefined, mode === 'mmo' && selectedCategory
+      ? {section: selectedCategory.id, type: selectedType?.index ?? null} : undefined);
+  }, [currentRows, filter, search, mode, selectedCategory, selectedType]);
 
   const sortedRows = useMemo(
-    () => sortItemRows(filteredRows, sortState.column, sortState.direction, currentLocale),
-    [filteredRows, sortState, currentLocale]
+    () => mode === 'gacha' && sortState.column === 'trade'
+      ? sortItemRows(filteredRows, 'num', 'ascending', currentLocale)
+      : sortItemRows(filteredRows, sortState.column, sortState.direction, currentLocale),
+    [filteredRows, sortState, currentLocale, mode]
   );
 
   const handleSort = useCallback((column: ItemsSortColumn) => {
@@ -229,20 +365,22 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
   useEffect(() => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
-      prevFilterState.current = { filter, search, mode };
+      prevFilterState.current = { filter, search, mode, tradeFilter };
       return;
     }
     if (
       prevFilterState.current.filter !== filter ||
       prevFilterState.current.search !== search ||
-      prevFilterState.current.mode !== mode
+      prevFilterState.current.mode !== mode ||
+      prevFilterState.current.tradeFilter !== tradeFilter
     ) {
-      prevFilterState.current = { filter, search, mode };
+      prevFilterState.current = { filter, search, mode, tradeFilter };
       loadAllRunRef.current += 1;
       setIsLoadingAll(false);
       setVisibleCount(ITEMS_BATCH_SIZE);
+      if (tableWrapRef.current) tableWrapRef.current.scrollTop = 0;
     }
-  }, [filter, search, mode]);
+  }, [filter, search, mode, tradeFilter]);
 
   const visibleRows = useMemo(
     () => sortedRows.slice(0, visibleCount),
@@ -300,134 +438,94 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
     [copy.copied, copy.copyFailed]
   );
 
-  // Status text calculation
-  const statusText = useMemo(() => {
-    const visibleCount = filteredRows.length;
-    const totalCount = currentRows.length;
-    const hasSearch = Boolean(search.trim());
-
-    if (filter === 'renamed' && hasSearch) {
-      return `${visibleCount.toLocaleString()} ${copy.matches} / ${totalCount.toLocaleString()} ${copy.rows}`;
-    }
-    if (filter === 'renamed') {
-      return `${visibleCount.toLocaleString()} ${copy.renamed.toLowerCase()} / ${totalCount.toLocaleString()} ${copy.rows}`;
-    }
-    if (hasSearch) {
-      return `${visibleCount.toLocaleString()} ${copy.matches} / ${totalCount.toLocaleString()} ${copy.rows}`;
-    }
-    return `${totalCount.toLocaleString()} ${copy.rows}`;
-  }, [filteredRows.length, currentRows.length, filter, search, copy]);
-
-  // Highlight helper component
-  const HighlightedText = ({ text }: { text: string }) => {
-    const parts = buildHighlightedParts(text, search);
-    return (
-      <>
-        {parts.map((part, i) =>
-          part.match ? (
-            <mark key={i} className={styles.match}>
-              {part.text}
-            </mark>
-          ) : (
-            <React.Fragment key={i}>{part.text}</React.Fragment>
-          )
-        )}
-      </>
-    );
+  const changeMode = (nextMode: ItemsMode) => {
+    setMode(nextMode);
+    setFilter(resolveItemsFilter(nextMode));
+    setTradeFilter(resolveItemsTradeFilter(nextMode));
   };
 
   return (
-    <div className={styles.container}>
-      {/* Hero */}
-      <section className={styles.hero}>
-        <p className={styles.eyebrow}>{copy.eyebrow}</p>
-        <h1 className={styles.title}>{copy.title}</h1>
-      </section>
+    <div className={`info-ui ${styles.container}`}>
+      <h1 className="sr-only">{copy.title}</h1>
 
-      {/* Main Table Panel */}
+      <CatalogControls className={styles.controls} ariaLabel={copy.rowFilterAria} textSelectable>
+        <CatalogSearch
+          value={search} onChange={setSearch} debounceMs={0}
+          placeholder={copy.searchPlaceholder} clearAriaLabel={copy.clearSearch}
+          serverModeSlot={
+            <ModeSwitcher<ItemsMode>
+              value={mode} onChange={changeMode} ariaLabel={copy.itemSourceAria}
+              className={styles.modeSwitcher} dataAttribute="data-server-filter"
+              options={[
+                {value: 'gacha', label: copy.gacha, tone: 'orange'},
+                {value: 'mmo', label: copy.mmo, tone: 'rose'},
+              ]}
+            />
+          }
+        />
+        <CatalogControls.Middle>
+          <CatalogControls.Left className={styles.controlFilters}>
+            <FilterGroup label={translateUiText('Items', currentLocale)} ariaLabel={copy.rowFilterAria} layout="flow">
+              <FilterChip value="all" active={filter === 'all'} onClick={() => setFilter('all')}>{copy.all}</FilterChip>
+              <FilterChip value="renamed" active={filter === 'renamed'} onClick={() => setFilter('renamed')}>{copy.renamed}</FilterChip>
+            </FilterGroup>
+            {mode === 'mmo' ? (
+              <FilterGroup label={tradeLabel} ariaLabel={tradeLabel} layout="flow" className="filter-hover-preview">
+                <FilterChip value="tradeable" variant="yellow" className={styles.tradeFilter} active={filter === 'tradeable'} onClick={() => setFilter('tradeable')}>
+                  {translateUiText('Can be listed', currentLocale)}
+                </FilterChip>
+                <FilterChip value="unlistable" variant="flame" className={styles.tradeFilter} active={filter === 'unlistable'} onClick={() => setFilter('unlistable')}>
+                  {translateUiText('Cannot be listed', currentLocale)}
+                </FilterChip>
+                {tradeRules?.en && tradeRules.observedAt && tradeRules.serverTimeZone
+                  ? <ItemsTradeRules rules={{en: tradeRules.en, observedAt: tradeRules.observedAt, serverTimeZone: tradeRules.serverTimeZone}} locale={currentLocale} />
+                  : null}
+              </FilterGroup>
+            ) : null}
+            {mode === 'mmo' && categories.length > 0 ? (
+              <div className={styles.tradeCategories}>
+                <SortListbox presentation="field" label={null} viewportTopInset={headerInset} ariaLabel={translateUiText('Category', currentLocale)}
+                  value={selectedCategory?.id ?? ''} onChange={section => setTradeFilter({section, type: null})}
+                  options={[{value: '', label: translateUiText('All categories', currentLocale)},
+                    ...categories.map(category => ({value: category.id, label: category.name}))]}
+                />
+                <SortListbox presentation="field" label={null} viewportTopInset={headerInset} ariaLabel={translateUiText('Type', currentLocale)}
+                  value={selectedCategory && selectedType ? `${selectedCategory.id}:${selectedType.index}` : ''}
+                  onChange={value => {
+                    const option = typeOptions.find(type => type.value === value);
+                    setTradeFilter({section: option?.section ?? selectedCategory?.id ?? '', type: option?.type ?? null});
+                  }}
+                  options={[{value: '', label: translateUiText('All types', currentLocale)}, ...typeOptions]}
+                  renderOption={option => {
+                    if (selectedCategory || !option.value) return option.label;
+                    const type = typeOptions.find(entry => entry.value === option.value);
+                    return type ? <span className={styles.tradeTypeOption}>
+                      {type.name}<span className={styles.tradeTypeCategory}>{type.categoryName}</span>
+                    </span> : option.label;
+                  }}
+                />
+              </div>
+            ) : null}
+          </CatalogControls.Left>
+          <div className={styles.controlsActions}>
+            <CatalogCounter count={filteredRows.length} total={currentRows.length} entityLabel={copy.rows}
+              formatString={(count, total, label) => <><strong>{numberFormat.format(count)}</strong> / {numberFormat.format(total)} {label}</>}
+            />
+            <Button size="sm" variant="outline" onClick={() => exportItemsJson(filteredRows, mode)} title={copy.exportJsonAria}>
+              {copy.exportJson}
+            </Button>
+          </div>
+        </CatalogControls.Middle>
+      </CatalogControls>
+
       <section className={styles.panel}>
-        {/* Toolbar */}
-        <div className={styles.toolbar}>
-          <div className={styles.toolbarMain}>
-            <span
-              className={`${styles.status} ${
-                filteredRows.length > 0 ? styles.statusSuccess : ''
-              }`}
-            >
-              {statusText}
-            </span>
-          </div>
-
-          <div className={styles.toolbarControls}>
-            {/* Mode: Gacha / MMO */}
-            <div className={styles.modeGroup} role="group" aria-label={copy.itemSourceAria}>
-              <button
-                type="button"
-                className={`${styles.modeButton} ${mode === 'gacha' ? styles.modeButtonActive : ''}`}
-                onClick={() => setMode('gacha')}
-              >
-                {copy.gacha}
-              </button>
-              <button
-                type="button"
-                className={`${styles.modeButton} ${mode === 'mmo' ? styles.modeButtonActive : ''}`}
-                onClick={() => setMode('mmo')}
-              >
-                {copy.mmo}
-              </button>
-            </div>
-
-            {/* Filter: All / Renamed */}
-            <div className={styles.filterGroup} role="group" aria-label={copy.rowFilterAria}>
-              <button
-                type="button"
-                className={`${styles.filterButton} ${filter === 'all' ? styles.filterButtonActive : ''}`}
-                onClick={() => setFilter('all')}
-              >
-                {copy.all}
-              </button>
-              <button
-                type="button"
-                className={`${styles.filterButton} ${filter === 'renamed' ? styles.filterButtonActive : ''}`}
-                onClick={() => setFilter('renamed')}
-              >
-                {copy.renamed}
-              </button>
-            </div>
-
-            {/* Search Input */}
-            <label className={styles.searchLabel}>
-              <input
-                type="search"
-                className={styles.searchInput}
-                placeholder={copy.searchPlaceholder}
-                value={search}
-                onChange={(e) => setSearch(e.target.value)}
-              />
-            </label>
-
-            {/* Export JSON Button */}
-            <button
-              type="button"
-              className={styles.exportBtn}
-              onClick={() => exportItemsJson(filteredRows, mode)}
-              title={copy.exportJsonAria}
-            >
-              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
-                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" />
-              </svg>
-              <span>{copy.exportJson}</span>
-            </button>
-          </div>
-        </div>
-
         {/* Scrollable Table View */}
         <div ref={tableWrapRef} className={styles.tableWrap} onScroll={handleTableScroll}>
-          {filteredRows.length === 0 ? (
+          {mode === 'mmo' && !mmoRows ? <LoadingState message={copy.loading} /> : filteredRows.length === 0 ? (
             <div className={styles.emptyState}>{copy.noRows}</div>
           ) : (
-            <table className={styles.table}>
-              <colgroup><col/><col/><col/><col/><col/><col/><col/></colgroup>
+            <table className={`${styles.table} ${mode === 'mmo' ? styles.tradeTable : ''}`}>
+              <colgroup><col/><col/><col/><col/><col/><col/><col/>{mode === 'mmo' ? <><col/><col/></> : null}</colgroup>
               <thead>
                 <tr>
                   {([
@@ -438,6 +536,7 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
                     ['description', copy.description, styles.cellDesc],
                     ['original', copy.original, styles.cellOriginal],
                     ['rename', copy.rename, styles.cellRename],
+                    ...(mode === 'mmo' ? [['trade', translateUiText('Reference price', currentLocale), styles.tradeReference] as const] : []),
                   ] as const).map(([column, label, className]) => {
                     const active = sortState.column === column;
                     const direction = active ? sortState.direction : undefined;
@@ -457,6 +556,7 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
                       </th>
                     );
                   })}
+                  {mode === 'mmo' ? <th scope="col" className={styles.tradeRange}>{translateUiText('Listing band', currentLocale)}</th> : null}
                 </tr>
               </thead>
               <tbody>
@@ -464,6 +564,7 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
                   const desc = isRu ? row.description_ru || row.description_en : row.description_en;
                   const iconUrl = resolveMediaUrl(row.icon);
                   const borderColor = getRarityBorderColor(row.rarity);
+                  const shardLabel = row.trade?.shard ? copy.shard : '';
 
                   return (
                     <tr
@@ -472,39 +573,12 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
                     >
                       <td className={styles.cellNum}>{row.num}</td>
                       <td className={styles.cellIcon}>
-                        {iconUrl ? (
-                          <button
-                            type="button"
-                            className={styles.iconFrame}
-                            style={{ borderColor }}
-                            aria-label={`${copy.viewImage}: ${row.name}`}
-                            title={copy.viewImage}
-                            onClick={() => setLightboxTarget({ png: gameAssetPng(row.icon), webp: iconUrl, name: row.name })}
-                            onPointerEnter={(e) => {
-                              const rect = e.currentTarget.getBoundingClientRect();
-                              setZoomTarget({
-                                visible: true,
-                                x: rect.right + 12,
-                                y: rect.top,
-                                name: row.name,
-                                icon: iconUrl,
-                              });
-                            }}
-                            onPointerLeave={() => setZoomTarget(null)}
-                          >
-                            <img
-                              src={iconUrl}
-                              alt={row.name}
-                              className={styles.iconImg}
-                              loading="lazy"
-                              onError={(e) => {
-                                (e.currentTarget as HTMLElement).style.display = 'none';
-                              }}
-                            />
-                          </button>
-                        ) : (
-                          <div className={styles.iconFrame} style={{ borderColor }} />
-                        )}
+                        <ItemIconFrame key={iconUrl} iconUrl={iconUrl} name={row.name} borderColor={borderColor}
+                          shardLabel={shardLabel} viewImage={copy.viewImage}
+                          onOpen={() => setLightboxTarget({png: gameAssetPng(row.icon), webp: iconUrl, name: row.name})}
+                          onPreview={rect => setZoomTarget({visible: true, x: rect.right + 12, y: rect.top, name: row.name, icon: iconUrl})}
+                          onLeave={() => setZoomTarget(null)}
+                        />
                       </td>
                       <td className={styles.cellId}>
                         <button
@@ -514,7 +588,7 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
                           title={copy.copyIdTitle}
                         >
                           <code className={styles.idCode}>
-                            <HighlightedText text={row.id} />
+                            <HighlightedText text={row.id} search={search} />
                             <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                               <rect x="9" y="9" width="13" height="13" rx="2" ry="2" />
                               <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
@@ -523,17 +597,18 @@ export function ItemsView({ initialData, initialLocale, initialMode, initialFilt
                         </button>
                       </td>
                       <td className={styles.cellName}>
-                        <HighlightedText text={row.name} />
+                        <ItemTextDisclosure text={row.name} search={search} />
                       </td>
                       <td className={styles.cellDesc}>
-                        <HighlightedText text={desc} />
+                        <ItemTextDisclosure text={desc} search={search} />
                       </td>
                       <td className={styles.cellOriginal}>
-                        <HighlightedText text={row.original} />
+                        <HighlightedText text={row.original} search={search} />
                       </td>
                       <td className={styles.cellRename}>
-                        <HighlightedText text={row.rename} />
+                        <HighlightedText text={row.rename} search={search} />
                       </td>
+                      {mode === 'mmo' ? <ItemsTradeCells trade={row.trade} locale={currentLocale} format={numberFormat} percentFormat={percentFormat} /> : null}
                     </tr>
                   );
                 })}

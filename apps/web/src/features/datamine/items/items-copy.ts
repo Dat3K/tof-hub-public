@@ -36,6 +36,7 @@ export interface ItemsCopy {
   sortAscending: string;
   sortDescending: string;
   viewImage: string;
+  shard: string;
 }
 
 export const ITEMS_COPY: Record<Locale, (Record<'en' | 'ru', ItemsCopy>)['en']> = createLocaleCopies(({
@@ -76,6 +77,7 @@ export const ITEMS_COPY: Record<Locale, (Record<'en' | 'ru', ItemsCopy>)['en']> 
     sortAscending: 'ascending',
     sortDescending: 'descending',
     viewImage: 'View full-size image',
+    shard: 'Shard Item',
   },
   ru: {
     pageTitle: 'TOF — база идентификаторов предметов',
@@ -114,5 +116,6 @@ export const ITEMS_COPY: Record<Locale, (Record<'en' | 'ru', ItemsCopy>)['en']> 
     sortAscending: 'по возрастанию',
     sortDescending: 'по убыванию',
     viewImage: 'Открыть изображение полностью',
+    shard: 'Осколок',
   },
 }) satisfies Pick<Record<'en' | 'ru', ItemsCopy>, 'en' | 'ru'>);

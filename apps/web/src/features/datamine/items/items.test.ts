@@ -8,14 +8,59 @@ import {
   cleanItemName,
   resolveMediaUrl,
   getRarityBorderColor,
+  getItemsTradeCategories,
   filterItemRows,
   buildHighlightedParts,
   normalizeItemRows,
   sortItemRows,
 } from './items-domain';
 import { ITEMS_COPY } from './items-copy';
+import { mergeTradeStationItems } from '../../../../../../scripts/normalize-game-data/adapters/items';
+import { buildRow } from '../../../../../../scripts/game-processors/processors/build-trade-station';
 
 describe('Items Datamine Feature', () => {
+  it('joins by item ID and keeps unlistable and unknown MMO items distinct', () => {
+    const item = {name: 'Trade name', icon: '', quality: ''};
+    const fixture = (id: string, canList: boolean) => buildRow(id, {
+      TradeBasePrice: {Amount: 10}, PutAwardRange: {X: 0.5, Y: 2}, bCanList: canList,
+    }, item);
+    const joined = mergeTradeStationItems({
+      '1': {id: 'exact', name: 'Localized item'},
+      '10': {id: 'EXACT', name: 'Other item'},
+    }, {
+      currency: {code: 'fixture', name: 'Fixture currency'},
+      sections: [],
+      rows: [fixture('exact', true), fixture('trade-only', false)],
+    });
+    const rows = normalizeItemRows(joined);
+    expect(rows.find(row => row.id === 'exact')).toMatchObject({
+      name: 'Localized item', trade: {basePrice: 10, minPrice: 5, maxPrice: 20, canList: true},
+    });
+    expect(rows.find(row => row.id === 'EXACT')?.trade).toBeUndefined();
+    expect(filterItemRows(rows, 'tradeable', '').map(row => row.id)).toEqual(['exact']);
+    expect(filterItemRows(rows, 'unlistable', '').map(row => row.id)).toEqual(['trade-only']);
+    expect(rows.find(row => row.id === 'trade-only')?.num).toBe('11');
+    expect(sortItemRows(rows, 'num', 'descending', 'en').map(row => row.num)).toEqual(['11', '10', '1']);
+    expect(sortItemRows(rows, 'trade', 'descending', 'en').at(-1)?.id).toBe('EXACT');
+  });
+
+  it('filters by section and type without adding unused indices to a category', () => {
+    const item = {name: 'Trade name', icon: '', quality: ''};
+    const row = (id: string, TradeQuality: string, Typeindex: number) =>
+      buildRow(id, {TradeQuality, Typeindex, bCanList: true}, item);
+    const rows = normalizeItemRows(mergeTradeStationItems({}, {
+      currency: {code: 'fixture', name: 'Currency'}, sections: [],
+      rows: [row('a', 'supply', 0), row('b', 'rare', 0), row('c', 'supply', 3), row('d', 'rare', 2)],
+    }));
+    expect(getItemsTradeCategories(rows, [{id: 'supply', name: 'Supply', types: [
+      {index: 0, name: 'Materials'}, {index: 2, name: 'Unused type'},
+    ]}])).toEqual([
+      {id: 'supply', name: 'Supply', types: [{index: 0, name: 'Materials'}, {index: 3, name: '#3'}]},
+      {id: 'rare', name: 'rare', types: [{index: 0, name: '#0'}, {index: 2, name: '#2'}]},
+    ]);
+    expect(filterItemRows(rows, 'tradeable', '', undefined, {section: 'supply', type: 0}).map(item => item.id)).toEqual(['a']);
+  });
+
   describe('Baseline Items Integrity', () => {
     it('contains baseline items for both Gacha and MMO modes', () => {
       expect(Object.keys(BASELINE_GACHA_ITEMS).length).toBeGreaterThan(50);

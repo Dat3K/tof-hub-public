@@ -48,6 +48,9 @@ jobs:
       - name: Unit tests that need no game data
         run: pnpm exec vitest run packages/contracts packages/ui tests/setup/ui-translations.test.ts
 
+      - name: Game-data processor tests
+        run: pnpm test:processors
+
       - name: Import examples
         run: pnpm validate:import-examples
 

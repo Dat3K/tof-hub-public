@@ -14,6 +14,7 @@
     "datamine/team-raids/data",
     "datamine/mmo-team-raids/data",
     "datamine/mmo-build/data",
+    "datamine/trade-station/data",
     "shared-data",
     "shared/tof-formulas.js",
     "shared/media",
@@ -304,6 +305,11 @@
     {
       "path": "datamine/mmo-build/data/mmo-build.json",
       "producer": "build-mmo-build.js",
+      "required": true
+    },
+    {
+      "path": "datamine/trade-station/data/trade-station.json",
+      "producer": "build-trade-station.js",
       "required": true
     },
     {

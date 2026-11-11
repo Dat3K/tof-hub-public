@@ -29,6 +29,7 @@
     "typecheck": "turbo run typecheck --filter=!@tof-hub/tof-exporter",
     "test": "turbo run test",
     "test:unit": "vitest run",
+    "test:processors": "node --test \"scripts/game-processors/processors/*.test.ts\"",
     "feedback:export": "node --import tsx scripts/feedback/export.ts",
     "test:e2e": "playwright test",
     "postinstall": "node -e \"if (require('fs').existsSync('apps/api/prisma/schema.prisma')) require('child_process').execSync('pnpm --filter api prisma:generate', {stdio: 'inherit'})\"",

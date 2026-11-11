@@ -1,4 +1,4 @@
-import type { ReleaseManifest } from '@tof-hub/contracts';
+import type { ReleaseManifest } from '../../packages/contracts/src/schemas/release-manifest';
 
 export type SupportedLocale = 'en' | 'ru';
 

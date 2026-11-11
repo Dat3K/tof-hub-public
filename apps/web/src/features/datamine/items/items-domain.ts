@@ -1,7 +1,8 @@
 import { type Locale } from '@tof-hub/i18n';
 import { itemQualityToRarity, type Rarity } from '@tof-hub/game-domain';
 import { gameAsset } from '@tof-hub/game-assets';
-import type { ItemRow, ItemsFilter, ItemsSortColumn, ItemsSortDirection } from './items-types';
+import type { TradeSection } from '@tof-hub/contracts';
+import type { ItemRow, ItemsFilter, ItemsSortColumn, ItemsSortDirection, ItemsTradeFilter } from './items-types';
 
 /**
  * Strips outer quotes, musical notes, hashtags, hyphens, and decorative symbols.
@@ -100,34 +101,60 @@ export function normalizeItemRows(payload: Record<string, any>): ItemRow[] {
         description_ru: descRu,
         rarity,
         searchText: searchStrings.join('\n').toLocaleLowerCase(),
+        ...(item?.trade ? {trade: item.trade} : {}),
       };
     })
-    .sort((left, right) => {
-      const leftNumber = Number(left.num);
-      const rightNumber = Number(right.num);
-      const leftIsFinite = Number.isFinite(leftNumber);
-      const rightIsFinite = Number.isFinite(rightNumber);
-
-      if (leftIsFinite && rightIsFinite) {
-        return leftNumber - rightNumber;
-      }
-
-      return String(left.num).localeCompare(String(right.num), 'en');
-    });
+    .sort((left, right) => compareItemNumbers(left, right, 1));
 }
 
-/**
- * Filters items by rename status, text query, and quality.
- */
+function compareItemNumbers(left: ItemRow, right: ItemRow, multiplier: number): number {
+  const leftNumber = Number(left.num);
+  const rightNumber = Number(right.num);
+  const comparison = Number.isFinite(leftNumber) && Number.isFinite(rightNumber)
+    ? leftNumber - rightNumber
+    : String(left.num).localeCompare(String(right.num), 'en', {numeric: true, sensitivity: 'base'});
+  return comparison * multiplier;
+}
+
+export function getItemsTradeCategories(rows: ItemRow[], categories: TradeSection[] = []): TradeSection[] {
+  const sections = new Map<string, Set<number>>();
+  for (const {trade} of rows) {
+    if (!trade?.section) continue;
+    const types = sections.get(trade.section) ?? new Set<number>();
+    types.add(trade.type);
+    sections.set(trade.section, types);
+  }
+  const order = new Set([...categories.map(category => category.id), ...[...sections.keys()].sort()]);
+  return [...order].flatMap(id => {
+    const indexes = sections.get(id);
+    if (!indexes) return [];
+    const category = categories.find(candidate => candidate.id === id);
+    return [{
+      id,
+      name: category?.name || id,
+      types: [...indexes].sort((a, b) => a - b).map(index => ({
+        index,
+        name: category?.types.find(type => type.index === index)?.name || `#${index}`,
+      })),
+    }];
+  });
+}
+
+/** Filters items by status, search text, quality and the selected Trade Station category. */
 export function filterItemRows(
   rows: ItemRow[],
   filter: ItemsFilter,
   search: string,
-  qualityFilter?: string
+  qualityFilter?: string,
+  tradeFilter?: ItemsTradeFilter,
 ): ItemRow[] {
   const searchNeedle = search.trim().toLocaleLowerCase();
 
   return rows.filter((row) => {
+    if (filter === 'tradeable' && row.trade?.canList !== true) return false;
+    if (filter === 'unlistable' && row.trade?.canList !== false) return false;
+    if (tradeFilter?.section && row.trade?.section !== tradeFilter.section) return false;
+    if (tradeFilter?.type != null && row.trade?.type !== tradeFilter.type) return false;
     if (filter === 'renamed' && !row.rename.trim()) {
       return false;
     }
@@ -156,12 +183,11 @@ export function sortItemRows(
 
   return [...rows].sort((left, right) => {
     let comparison: number;
-    if (column === 'num') {
-      const leftNum = Number(left.num);
-      const rightNum = Number(right.num);
-      comparison = Number.isFinite(leftNum) && Number.isFinite(rightNum)
-        ? leftNum - rightNum
-        : collator.compare(String(left.num), String(right.num));
+    if (column === 'trade') {
+      if (Boolean(left.trade) !== Boolean(right.trade)) return left.trade ? -1 : 1;
+      comparison = (left.trade?.basePrice ?? 0) - (right.trade?.basePrice ?? 0);
+    } else if (column === 'num') {
+      return compareItemNumbers(left, right, multiplier);
     } else {
       const valueFor = (row: ItemRow) => {
         switch (column) {
@@ -176,14 +202,7 @@ export function sortItemRows(
       comparison = collator.compare(valueFor(left), valueFor(right));
     }
 
-    if (comparison === 0) {
-      const leftNum = Number(left.num);
-      const rightNum = Number(right.num);
-      comparison = Number.isFinite(leftNum) && Number.isFinite(rightNum)
-        ? leftNum - rightNum
-        : collator.compare(String(left.num), String(right.num));
-    }
-    return comparison * multiplier;
+    return comparison * multiplier || compareItemNumbers(left, right, multiplier);
   });
 }
 
