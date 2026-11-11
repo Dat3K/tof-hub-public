@@ -1,7 +1,8 @@
 import {createHash} from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
-import {Prisma,type PrismaClient} from '@prisma/client';
+import type {PrismaClient} from '@prisma/client';
+import type {Pool} from 'pg';
 import {PlayerStoreService} from './player-store.service';
 import {PrismaPlayerStoreRepository} from './prisma-player-store.repository';
 import type {ScoringCatalog} from './scoring-catalog';
@@ -41,24 +42,47 @@ export function scoringFingerprint(catalog:ScoringCatalog,sources:readonly Sourc
   return hash.digest('hex');
 }
 
-/** API startup waits for this. Scores and their revision commit together, or all changes roll back. */
-export async function ensureCurrentPlayerScores(prisma:PrismaClient,catalog:ScoringCatalog,fingerprint=scoringFingerprint(catalog)) {
-  return prisma.$transaction(async tx=>{
-    // Startup maintenance is not reachable from an HTTP request; allow its documented 30-minute rescore.
-    await tx.$executeRaw`SET LOCAL statement_timeout = '30min'`;
-    // Serializes simultaneous worker starts, including the first deployment without a revision row.
-    await tx.$executeRaw(Prisma.sql`SELECT pg_advisory_xact_lock(724019032)`);
-    const id='live-players',previous=await tx.scoringRevision.findUnique({where:{id}});
+/** Read-only check for API startup. A stale revision never blocks readiness; stored scores stay as they are. */
+export async function isScoringRevisionCurrent(prisma:Pick<PrismaClient,'scoringRevision'>,catalog:ScoringCatalog,fingerprint=scoringFingerprint(catalog)) {
+  const revision=await prisma.scoringRevision.findUnique({where:{id:'live-players'}});
+  return revision?.fingerprint===fingerprint;
+}
+
+/**
+ * Manual maintenance (rescore-players.ts), never API startup. There is no overall transaction or time limit: each player
+ * commits alone, so the run can take hours on a slow server, and a rerun continues from the saved checkpoint.
+ * The revision is recorded only after the last player. Until then rankings mix old and new scores.
+ */
+export async function ensureCurrentPlayerScores(prisma:PrismaClient,pool:Pick<Pool,'connect'>,catalog:ScoringCatalog,fingerprint=scoringFingerprint(catalog),{pauseMs=50,log=()=>{}}:{pauseMs?:number;log?:(message:string)=>void}={}) {
+  // A session lock needs one held connection; the player transactions use other pool connections.
+  const lock=await pool.connect();
+  let locked=false;
+  try {
+    locked=(await lock.query('SELECT pg_try_advisory_lock(724019032) AS locked')).rows[0].locked;
+    if(!locked)throw new Error('Another ranking rescore is already running.');
+    const id='live-players',checkpointId='live-players:rescore';
+    const previous=await prisma.scoringRevision.findUnique({where:{id}});
     if(previous?.fingerprint===fingerprint)return {rescored:false,players:0,gear:0};
-    const service=new PlayerStoreService(new PrismaPlayerStoreRepository(tx),catalog);
-    const result=await service.rescoreAll();
-    await tx.scoringRevision.upsert({where:{id},create:{id,fingerprint},update:{fingerprint}});
-    await tx.$executeRaw(
-      Prisma.sql`INSERT INTO scoring_revisions (id, fingerprint, updated_at)
-        VALUES ('ranking:players', '1', NOW())
-        ON CONFLICT (id) DO UPDATE
-        SET fingerprint = (scoring_revisions.fingerprint::bigint + 1)::text, updated_at = NOW()`
-    ).catch(()=>{});
+    const checkpoint=(await prisma.scoringRevision.findUnique({where:{id:checkpointId}}))?.fingerprint.split('|');
+    const afterId=checkpoint?.[0]===fingerprint?checkpoint[1]:undefined;
+    if(afterId)log(`Continuing after player ${afterId}.`);
+    // Player transactions skip per-piece revision writes; each saved batch publishes one for the ranking caches.
+    const publish=new PrismaPlayerStoreRepository(prisma);
+    const service=new PlayerStoreService(new PrismaPlayerStoreRepository(prisma,true),catalog);
+    const result=await service.rescoreAll({afterId,pauseMs,onProgress:async({lastPlayerId,done,total})=>{
+      const value=`${fingerprint}|${lastPlayerId}`;
+      await prisma.scoringRevision.upsert({where:{id:checkpointId},create:{id:checkpointId,fingerprint:value},update:{fingerprint:value}});
+      await publish.bumpRankingRevision();
+      log(`${done}/${total} players rescored.`);
+    }});
+    await prisma.$transaction([
+      prisma.scoringRevision.upsert({where:{id},create:{id,fingerprint},update:{fingerprint}}),
+      prisma.scoringRevision.deleteMany({where:{id:checkpointId}}),
+    ]);
+    await publish.bumpRankingRevision();
     return {rescored:true,...result};
-  },{timeout:30*60_000,maxWait:30*60_000});
+  } finally {
+    if(locked)await lock.query('SELECT pg_advisory_unlock(724019032)').catch(()=>{});
+    lock.release();
+  }
 }

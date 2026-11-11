@@ -18,6 +18,7 @@ docker compose --profile tools run --rm setup
 | `SITE_URL` | `http://localhost:8080` | Public origin used by the server |
 | `NEXT_PUBLIC_SITE_URL` | `http://localhost:8080` | Public origin baked into the web build. Rebuild `web` after changing it. |
 | `WEB_PORT` | `8080` | Host port Nginx listens on (loopback only) |
+| `API_HOST` | Unset | Bind address when running the API directly. Use `127.0.0.1` to listen only on the host. |
 
 Interface languages are defined in code (`packages/i18n/src/constants.ts`), not in `.env`.
 

@@ -329,15 +329,30 @@ export class PlayerStoreService {
     return {players:players.length,merged,deleted};
   }
 
-  /** Recomputes every stored gear and player score with the current rules (after a scoring change). */
-  async rescoreAll():Promise<{players:number;gear:number}> {
+  /**
+   * Recomputes every stored gear and player score with the current rules (after a scoring change).
+   * Each player commits alone; `onProgress` runs after every `batchSize` players with the last finished ID, so a run can resume after it.
+   */
+  async rescoreAll({afterId,batchSize=100,pauseMs=0,onProgress}:{afterId?:string;batchSize?:number;pauseMs?:number;onProgress?:(progress:{lastPlayerId:string;done:number;total:number})=>Promise<void>}={}):Promise<{players:number;gear:number}> {
     if(!this.catalog)return {players:0,gear:0};
-    let gearCount=0;
-    const players=await this.repository.listPlayers();
-    for(const player of players)await this.repository.transaction(async repository=>{
-      for(const gear of await repository.listGear(player.id)){await repository.saveGearScores(gear,player.region,trackScores(gear,this.catalog!));gearCount++;}
-      await this.savePlayerScores(repository,player,null);
-    });
+    let gearCount=0,done=0;
+    const all=(await this.repository.listPlayers()).sort((a,b)=>a.id<b.id?-1:a.id>b.id?1:0);
+    const players=afterId===undefined?all:all.filter(player=>player.id>afterId);
+    for(const player of players){
+      await this.repository.transaction(async repository=>{
+        const gear=await repository.listGear(player.id);
+        for(let offset=0;offset<gear.length;offset+=32) {
+          const pieces=gear.slice(offset,offset+32).map(gear=>({gear,scores:trackScores(gear,this.catalog!)}));
+          if(repository.saveGearScoresBatch)await repository.saveGearScoresBatch(pieces,player.region);
+          else for(const {gear,scores} of pieces)await repository.saveGearScores(gear,player.region,scores);
+          gearCount+=pieces.length;
+        }
+        await this.savePlayerScores(repository,player,null);
+      });
+      done++;
+      if(onProgress&&(done%batchSize===0||done===players.length))await onProgress({lastPlayerId:player.id,done,total:players.length});
+      if(pauseMs>0)await new Promise(resolve=>setTimeout(resolve,pauseMs));
+    }
     return {players:players.length,gear:gearCount};
   }
 

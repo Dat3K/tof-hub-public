@@ -20,12 +20,12 @@ function playerData<T extends PlayerFields>(fields:T) {
 }
 
 export class PrismaPlayerStoreRepository implements PlayerStoreRepository {
-  constructor(private readonly client:Client) {}
+  constructor(private readonly client:Client,private readonly deferRankingRevision=false) {}
 
   transaction<T>(work:(repository:PlayerStoreRepository)=>Promise<T>):Promise<T> {
     if(!('$transaction' in this.client))return work(this);
     // Scoring a player (every role, track and known piece) can outlast the 5 s default on a cold ceiling cache.
-    return (this.client as PrismaClient).$transaction(tx=>work(new PrismaPlayerStoreRepository(tx)),{timeout:60_000,maxWait:60_000});
+    return (this.client as PrismaClient).$transaction(tx=>work(new PrismaPlayerStoreRepository(tx,this.deferRankingRevision)),{timeout:60_000,maxWait:60_000});
   }
   async findPlayer({uid,roleId}:{uid?:string;roleId?:string}):Promise<StoredPlayer|null> {
     const or=[...(uid?[{uid}]:[]),...(roleId?[{roleId}]:[])];
@@ -33,6 +33,8 @@ export class PrismaPlayerStoreRepository implements PlayerStoreRepository {
     return row?playerRow(row):null;
   }
   async bumpRankingRevision() {
+    // A full rescore publishes one revision per saved batch instead of one per gear piece.
+    if(this.deferRankingRevision)return;
     if ('$executeRaw' in this.client) {
       await (this.client as PrismaClient).$executeRaw(
         Prisma.sql`INSERT INTO scoring_revisions (id, fingerprint, updated_at)
@@ -81,20 +83,44 @@ export class PrismaPlayerStoreRepository implements PlayerStoreRepository {
   async listEquipped(playerId:string) {return (await this.client.gearItem.findMany({where:{playerId,equipped:true}})).map(gearRow);}
   async listPlayers():Promise<StoredPlayer[]> {return (await this.client.player.findMany({orderBy:{createdAt:'asc'}})).map(playerRow);}
   async listGear(playerId:string) {return (await this.client.gearItem.findMany({where:{playerId}})).map(gearRow);}
-  // Scores are replaced as a whole (two statements instead of one upsert per track): a track that no longer applies
-  // after a rescore disappears, and the best rows for `all` / pairs are written with them.
+  // Merge base/best-track rows in bounded groups, leaving unchanged indexed scores untouched.
+  // Updating one track no longer rebuilds the piece's complete set of ranking indexes;
+  // removed tracks are still deleted before the active ranking revision is published.
   async saveGearScores(gear:StoredGear,region:string|null,scores:TrackScore[]) {
-    const rows=withBestTracks(scores);
-    const previous=await this.client.gearScore.findMany({where:{gearItemId:gear.id},select:{track:true,slot:true,region:true,score:true,maxScore:true,sourceTrack:true}});
-    const byTrack=new Map(previous.map(row=>[row.track,row]));
-    if(previous.length===rows.length&&rows.every(row=>{
-      const old=byTrack.get(row.track);
-      return old&&old.slot===gear.slot&&old.region===region&&old.score===row.score&&old.maxScore===row.maxScore&&old.sourceTrack===(row.sourceTrack??null);
-    }))return;
-    await this.client.gearScore.deleteMany({where:{gearItemId:gear.id}});
-    if(rows.length)await this.client.gearScore.createMany({data:rows.map(score=>({gearItemId:gear.id,track:score.track,slot:gear.slot,region,
-      score:score.score,maxScore:score.maxScore,sourceTrack:score.sourceTrack??null}))});
-    await this.bumpRankingRevision();
+    await this.saveGearScoresBatch([{gear,scores}],region);
+  }
+  async saveGearScoresBatch(pieces:{gear:StoredGear;scores:TrackScore[]}[],region:string|null) {
+    for(let offset=0;offset<pieces.length;offset+=32) {
+      const batch=pieces.slice(offset,offset+32).map(({gear,scores})=>({gear,rows:withBestTracks(scores)}));
+      const previous=await this.client.gearScore.findMany({where:{gearItemId:{in:batch.map(item=>item.gear.id)}},
+        select:{gearItemId:true,track:true,slot:true,region:true,score:true,maxScore:true,sourceTrack:true}});
+      const previousByGear=new Map<string,typeof previous>();
+      for(const row of previous){const rows=previousByGear.get(row.gearItemId)??[];rows.push(row);previousByGear.set(row.gearItemId,rows);}
+      type ScoreRow={gearItemId:string;track:string;slot:string;region:string|null;score:number;maxScore:number;sourceTrack:string|null};
+      const inserts:ScoreRow[]=[],updates:ScoreRow[]=[],obsolete:{gearItemId:string;track:string}[]=[];
+      for(const {gear,rows} of batch) {
+        const oldRows=previousByGear.get(gear.id)??[],byTrack=new Map(oldRows.map(row=>[row.track,row]));
+        const tracks=new Set(rows.map(row=>row.track));
+        for(const old of oldRows)if(!tracks.has(old.track))obsolete.push({gearItemId:gear.id,track:old.track});
+        for(const row of rows) {
+          const old=byTrack.get(row.track);
+          const next={gearItemId:gear.id,track:row.track,slot:gear.slot,region,score:row.score,maxScore:row.maxScore,sourceTrack:row.sourceTrack??null};
+          if(!old)inserts.push(next);
+          else if(old.slot!==next.slot||old.region!==next.region||old.score!==next.score||old.maxScore!==next.maxScore||old.sourceTrack!==next.sourceTrack)updates.push(next);
+        }
+      }
+      if(!inserts.length&&!updates.length&&!obsolete.length)continue;
+      for(let index=0;index<obsolete.length;index+=1000)await this.client.gearScore.deleteMany({where:{OR:obsolete.slice(index,index+1000)}});
+      for(let index=0;index<inserts.length;index+=1000)await this.client.gearScore.createMany({data:inserts.slice(index,index+1000)});
+      for(let index=0;index<updates.length;index+=1000) {
+        const values=updates.slice(index,index+1000).map(row=>Prisma.sql`(${row.gearItemId}::text,${row.track}::text,${row.slot}::text,${row.region}::text,${row.score}::double precision,${row.maxScore}::double precision,${row.sourceTrack}::text)`);
+        await this.client.$executeRaw(Prisma.sql`UPDATE gear_scores AS target
+          SET slot=source.slot,region=source.region,score=source.score,max_score=source.max_score,source_track=source.source_track,updated_at=NOW()
+          FROM (VALUES ${Prisma.join(values)}) AS source(gear_item_id,track,slot,region,score,max_score,source_track)
+          WHERE target.gear_item_id=source.gear_item_id AND target.track=source.track`);
+      }
+      await this.bumpRankingRevision();
+    }
   }
   async updateGear(id:string,fields:Partial<Omit<StoredGear,'id'|'playerId'>>) {
     const {stats,statsBeforeTitan,augments,...rest}=fields;

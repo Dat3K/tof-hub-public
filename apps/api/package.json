@@ -12,7 +12,7 @@
     "pretypecheck": "prisma generate",
     "typecheck": "tsc --noEmit",
     "test": "vitest run src",
-    "rescore:players": "tsx scripts/rescore-players.ts",
+    "rescore:players": "tsx src/players/rescore-players.ts",
     "compact:gear": "tsx scripts/compact-gear.ts",
     "backfill:search-names": "tsx scripts/backfill-search-names.ts",
     "prisma:generate": "prisma generate",

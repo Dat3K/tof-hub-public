@@ -1,11 +1,10 @@
-// Recomputes every stored gear and player score with the current tops rules.
-// Run after a scoring change: DATABASE_URL=postgresql://… pnpm --filter api rescore:players
+// Run after a scoring change with DATABASE_URL set: pnpm --filter api rescore:players
+// The current revision is skipped. An interrupted run resumes from its last checkpoint.
 import {Pool} from 'pg';
 import {PrismaPg} from '@prisma/adapter-pg';
 import {PrismaClient} from '@prisma/client';
-import {PlayerStoreService} from '../src/players/player-store.service';
-import {PrismaPlayerStoreRepository} from '../src/players/prisma-player-store.repository';
-import {loadScoringCatalog} from '../src/players/scoring-catalog';
+import {loadScoringCatalog} from './scoring-catalog';
+import {ensureCurrentPlayerScores} from './scoring-revision';
 
 async function main() {
   if(!process.env.DATABASE_URL)throw new Error('Set DATABASE_URL to the Postgres database');
@@ -13,7 +12,7 @@ async function main() {
   if(!catalog)throw new Error('Generated build catalog not found (apps/web/public/game-data)');
   const pool=new Pool({connectionString:process.env.DATABASE_URL});
   const prisma=new PrismaClient({adapter:new PrismaPg(pool)});
-  try {console.log(await new PlayerStoreService(new PrismaPlayerStoreRepository(prisma),catalog).rescoreAll());}
+  try {console.log(await ensureCurrentPlayerScores(prisma,pool,catalog,undefined,{log:console.log}));}
   finally {await prisma.$disconnect();await pool.end();}
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

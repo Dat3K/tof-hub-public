@@ -16,7 +16,7 @@ export const PlayerDirectoryQuerySchema=z.object({
   sort:z.enum(PLAYER_DIRECTORY_SORTS).default('recharge'),
   direction:z.enum(['asc','desc']).default('desc'),
   known:z.enum(['0','1']).default('0'),
-  /** Own account capture counters identify a verified, self-submitted player profile. */
+  /** A verified player has imported a capture of their own profile. */
   verified:z.enum(['0','1']).default('1'),
   offset:z.coerce.number().int().min(0).max(100_000).default(0),
   limit:z.coerce.number().int().min(1).max(100).default(100),

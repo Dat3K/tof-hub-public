@@ -9,7 +9,7 @@ import {NegativeCombatScoreService} from './negative-combat-score.service';
 import {PwgIdentityService} from './pwg-identity.service';
 import {PlayerDirectoryService} from './player-directory.service';
 import {PlayersController} from './players.controller';
-import {ensureCurrentPlayerScores} from './scoring-revision';
+import {isScoringRevisionCurrent} from './scoring-revision';
 
 export const PLAYER_STORE='PLAYER_STORE';
 
@@ -18,10 +18,8 @@ async function playerStore(prisma:PrismaClient|null):Promise<PlayerStoreService|
   if(!prisma)return null;
   const catalog=loadScoringCatalog();
   if(!catalog)throw new Error('Generated build catalog not found: current ranking scores cannot be verified.');
-  const logger=new Logger('PlayerStore');
-  logger.log('Checking persisted ranking revision; a changed scoring model requires an atomic rescore before API readiness.');
-  const result=await ensureCurrentPlayerScores(prisma,catalog);
-  if(result.rescored)new Logger('PlayerStore').log(`Scoring revision updated: ${result.players} players, ${result.gear} gear rescored before startup.`);
+  // Stored scores are served as they are; only a manual rescore changes them (docs/architecture/server-release.md).
+  if(!await isScoringRevisionCurrent(prisma,catalog))new Logger('PlayerStore').warn('Stored ranking scores were computed with a different scoring model or catalog. Run a manual rescore if rankings should change: server-rescore-rankings.bat.');
   return new PlayerStoreService(new PrismaPlayerStoreRepository(prisma),catalog);
 }
 

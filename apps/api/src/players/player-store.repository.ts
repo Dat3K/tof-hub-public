@@ -43,6 +43,8 @@ export interface PlayerStoreRepository {
   listPlayers():Promise<StoredPlayer[]>;
   listGear(playerId:string):Promise<StoredGear[]>;
   saveGearScores(gear:StoredGear,region:string|null,scores:TrackScore[]):Promise<void>;
+  /** Bounded bulk replacement used by full rescoring; repositories without it retain the single-piece API. */
+  saveGearScoresBatch?(pieces:{gear:StoredGear;scores:TrackScore[]}[],region:string|null):Promise<void>;
   /** Overwrites a stored piece's fields (a later observation of the same piece). */
   updateGear(id:string,fields:Partial<Omit<StoredGear,'id'|'playerId'>>):Promise<StoredGear>;
   /** `absorbed` were the same piece as `survivorId`: build links point at the survivor, the rows are deleted. */

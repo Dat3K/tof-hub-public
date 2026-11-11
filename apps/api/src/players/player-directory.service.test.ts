@@ -55,5 +55,8 @@ describe('player directory',()=>{
     expect(await new PlayerDirectoryService().list(query)).toMatchObject({available:false,total:0,filtered:0,entries:[]});
     const prisma={$queryRaw:vi.fn().mockResolvedValueOnce([]).mockResolvedValueOnce([{count:0n}]),player:{count:vi.fn().mockResolvedValue(0)}};
     expect(await new PlayerDirectoryService(prisma as unknown as PrismaClient).list(query)).toMatchObject({available:true,total:0,filtered:0,entries:[]});
+    const sql=prisma.$queryRaw.mock.calls.at(0)?.[0] as Prisma.Sql;
+    expect(sql.sql).toContain('p.self_capture_at IS NOT NULL');
+    expect(sql.sql).not.toContain('p.account_stats_at IS NOT NULL');
   });
 });

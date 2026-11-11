@@ -381,7 +381,7 @@ export class PostgresWishRepository implements IWishRepository {
       isGuaranteedPity: row.isGuaranteedPity,
       isFeatured: row.isFeatured,
       streakOutcome: row.streakOutcome as WishRecordEntity['streakOutcome'],
-      slot: row.slot as WishRecordEntity['slot'],
+      slot: (row.slot ?? undefined) as WishRecordEntity['slot'],
       pullTimestamp: row.pullTimestamp.toISOString(),
       groupTicks: row.groupTicks ?? undefined,
       rawBannerCode: row.rawBannerCode ?? undefined,

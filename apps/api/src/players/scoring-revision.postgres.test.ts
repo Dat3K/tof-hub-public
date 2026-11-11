@@ -26,14 +26,14 @@ describe.skipIf(!url)('scoring startup gate on isolated Postgres schema',()=>{
   it('serializes simultaneous starts, skips restarts, and retains the old revision on a failed update',async()=>{
     const rescore=vi.spyOn(PlayerStoreService.prototype,'rescoreAll').mockResolvedValue({players:2,gear:24});
     try {
-      const starts=await Promise.all([ensureCurrentPlayerScores(prisma,catalog,'first'),ensureCurrentPlayerScores(prisma,catalog,'first')]);
-      expect(starts.filter(result=>result.rescored)).toHaveLength(1);
+      const starts=await Promise.allSettled([ensureCurrentPlayerScores(prisma,pool,catalog,'first'),ensureCurrentPlayerScores(prisma,pool,catalog,'first')]);
+      expect(starts.filter(result=>result.status==='fulfilled'&&result.value.rescored)).toHaveLength(1);
       expect(rescore).toHaveBeenCalledOnce();
-      expect((await ensureCurrentPlayerScores(prisma,catalog,'first')).rescored).toBe(false);
+      expect((await ensureCurrentPlayerScores(prisma,pool,catalog,'first')).rescored).toBe(false);
       rescore.mockRejectedValueOnce(new Error('failed score write'));
-      await expect(ensureCurrentPlayerScores(prisma,catalog,'next')).rejects.toThrow('failed score write');
+      await expect(ensureCurrentPlayerScores(prisma,pool,catalog,'next')).rejects.toThrow('failed score write');
       expect(await prisma.scoringRevision.findUnique({where:{id:'live-players'}})).toMatchObject({fingerprint:'first'});
-      expect((await ensureCurrentPlayerScores(prisma,catalog,'next')).rescored).toBe(true);
+      expect((await ensureCurrentPlayerScores(prisma,pool,catalog,'next')).rescored).toBe(true);
       expect(await prisma.scoringRevision.findUnique({where:{id:'live-players'}})).toMatchObject({fingerprint:'next'});
     } finally {rescore.mockRestore();}
   });

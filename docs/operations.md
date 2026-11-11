@@ -66,6 +66,20 @@ Afterwards, open a known profile, run a test import and check the queue page.
 
 5. Check that `migrate` and `provision` exited with code 0 and that all services are healthy.
 
+### Recompute gear and player scores
+
+After changing the scoring rules, run the rescore from a source checkout with the
+newly generated Build catalog and the target installation's `DATABASE_URL` set.
+
+```bash
+pnpm --filter api rescore:players
+```
+
+API startup leaves existing scores available while the scoring revision is pending.
+The command updates each player in a transaction, checkpoints progress and resumes
+from the last checkpoint if interrupted. It skips work when the current revision is
+already complete. Run it during a quiet period to limit database load.
+
 ## Updating game data
 
 Generate and validate the new content separately (see the [pipeline guide](pipeline.md)), then install it with the exporter's update command, which also removes deleted files:

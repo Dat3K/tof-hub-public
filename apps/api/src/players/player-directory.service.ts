@@ -70,7 +70,7 @@ export class PlayerDirectoryService {
     if(query.region)conditions.push(Prisma.sql`p.region=${query.region}`);
     if(query.server)conditions.push(Prisma.sql`p.server_id=${query.server}`);
     if(query.q)conditions.push(playerSearchSql(query.q));
-    if(query.verified==='1')conditions.push(Prisma.sql`p.account_stats_at IS NOT NULL AND p.account_stats IS NOT NULL AND p.account_stats <> '{}'::jsonb`);
+    if(query.verified==='1')conditions.push(Prisma.sql`p.self_capture_at IS NOT NULL`);
     if(query.known==='1')conditions.push(Prisma.sql`(${packs} IS NOT NULL OR ${recharge} IS NOT NULL OR ${rechargeValue} IS NOT NULL OR
       (p.account_stats IS NOT NULL AND p.account_stats <> '{}'::jsonb))`);
     const where=Prisma.join(conditions,' AND ');

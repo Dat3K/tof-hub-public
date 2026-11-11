@@ -112,4 +112,15 @@ describe('PostgresWishRepository', () => {
       })
     );
   });
+
+  it('maps an absent pull slot like the import payload does', async () => {
+    const pullTimestamp = new Date('2026-09-29T00:00:00Z');
+    mockPrisma.wishRecord.findMany.mockResolvedValueOnce([
+      { id: 'weapon-pull', slot: null, pullTimestamp },
+      { id: 'matrix-pull', slot: 'mind', pullTimestamp },
+    ]);
+
+    const records = await repo.getAllWishRecords('prof_test');
+    expect(records.map(record => record.slot)).toEqual([undefined, 'mind']);
+  });
 });

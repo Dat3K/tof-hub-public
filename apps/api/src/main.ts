@@ -44,7 +44,9 @@ async function bootstrap() {
   }
   app.setGlobalPrefix(process.env.API_PREFIX ?? "api/v1");
   const port = Number(process.env.API_PORT ?? 3001);
-  await app.listen(port);
+  const host=process.env.API_HOST;
+  if(host)await app.listen(port,host);
+  else await app.listen(port);
   const server=app.getHttpServer() as Server;
   server.requestTimeout=30_000;server.headersTimeout=10_000;server.keepAliveTimeout=5_000;server.maxRequestsPerSocket=100;
 }

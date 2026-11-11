@@ -1,13 +1,17 @@
 import fs from 'node:fs';
 import path from 'node:path';
+import {randomUUID} from 'node:crypto';
 import {Pool} from 'pg';
 import {PrismaPg} from '@prisma/adapter-pg';
 import {PrismaClient} from '@prisma/client';
+import {PlayerDirectoryQuerySchema} from '@tof-hub/contracts';
 import {afterAll,describe,expect,it} from 'vitest';
 import {PlayerStoreService} from './player-store.service';
+import {PlayerDirectoryService} from './player-directory.service';
 import {PrismaPlayerStoreRepository} from './prisma-player-store.repository';
 import {buildScoringCatalog} from './scoring-catalog';
 import {RankingService,parseRankingQuery} from '../ranking/ranking.service';
+import {ensureCurrentPlayerScores} from './scoring-revision';
 
 // Runs only against a disposable database: TOF_HUB_TEST_DATABASE_URL (migrated with `prisma migrate deploy`).
 const url=process.env.TOF_HUB_TEST_DATABASE_URL;
@@ -54,9 +58,26 @@ describe.skipIf(!url)('player store on Postgres',()=>{
     expect(inspected).toHaveLength(1);
     expect(inspected[0]!.maxScore).toBe(inspected[0]!.score);
     for(let i=1;i<gearTop.entries.length;i++)expect(gearTop.entries[i-1]!.score).toBeGreaterThanOrEqual(gearTop.entries[i]!.score);
-    const players=await ranking.players(parseRankingQuery({track:'Frost'}));
+    const players=await ranking.players(parseRankingQuery({track:'Frost',verified:'1'}));
     expect(players.entries).toHaveLength(1);
     expect(players.entries[0]!.gear).toHaveLength(12);
     expect(players.entries[0]!.buildId).toBe(first.buildId);
-  });
+    const directory=new PlayerDirectoryService(prisma);
+    const verifiedPlayers=await directory.list(PlayerDirectoryQuerySchema.parse({}));
+    expect(verifiedPlayers.entries).toMatchObject([{id:player.id,accountStatsAt:null}]);
+    expect(verifiedPlayers.filtered).toBe(1);
+    expect((await directory.list(PlayerDirectoryQuerySchema.parse({known:'1'}))).entries).toEqual([]);
+
+    const select={gearItemId:true,track:true,slot:true,region:true,score:true,maxScore:true,sourceTrack:true} as const;
+    const orderBy=[{gearItemId:'asc' as const},{track:'asc' as const}];
+    const before=await prisma.gearScore.findMany({select,orderBy});
+    await prisma.gearScore.updateMany({where:{gearItemId:before[0].gearItemId},data:{score:1,maxScore:2,region:null}});
+    await prisma.gearScore.create({data:{gearItemId:before[0].gearItemId,track:'obsolete-test-track',slot:'helmet',region:'EU',score:1,maxScore:1}});
+    await prisma.scoringRevision.upsert({where:{id:'ranking:players'},create:{id:'ranking:players',fingerprint:'1000'},update:{fingerprint:'1000'}});
+    const fingerprint=randomUUID();
+    expect(await ensureCurrentPlayerScores(prisma,pool,catalog,fingerprint,{pauseMs:0})).toEqual({rescored:true,players:1,gear:13});
+    expect(await prisma.gearScore.findMany({select,orderBy})).toEqual(before);
+    expect(await prisma.scoringRevision.findUnique({where:{id:'ranking:players'}})).toMatchObject({fingerprint:'1002'});
+    expect((await ensureCurrentPlayerScores(prisma,pool,catalog,fingerprint)).rescored).toBe(false);
+  },30_000);
 });
